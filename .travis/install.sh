@@ -23,3 +23,4 @@ pip install conan --upgrade
 pip install conan_package_tools
 
 conan user
+conan add remote add aquaveo $AQUAVEO_CONAN
