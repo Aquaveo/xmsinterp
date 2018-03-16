@@ -12,7 +12,7 @@ class XmsinterpConan(ConanFile):
     # options = {"shared": [True, False]}
     # default_options = "shared=False"
     generators = "cmake"
-    requires = "boost/1.66.0@conan/stable", "xmscore/[>1.0.0,<1.1.0]@conan/stable"
+    requires = "boost/1.66.0@conan/stable", "xmscore/[>1.0.0,<1.1.0]@aquaveo/stable"
     exports = "CMakeLists.txt", "LICENSE"
     exports_sources = "xmsinterp/*"
 
