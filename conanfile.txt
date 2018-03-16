@@ -1,0 +1,6 @@
+[requires]
+boost/1.66.0@conan/stable
+xmscore/1.0.0@aquaveo/stable
+
+[generators]
+cmake
