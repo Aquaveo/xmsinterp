@@ -7,6 +7,7 @@ env:
      - CONAN_CHANNEL: "stable"
      - CONAN_LOGIN_USERNAME: $CONAN_USER_SECRET
      - CONAN_PASSWORD: $CONAN_PASSWORD_SECRET
+     - CONAN_REMOTES: $AQUAVEO_CONAN
      
 linux: &linux
    os: linux
@@ -31,7 +32,6 @@ stages:
 install:
   - chmod +x .travis/install.sh
   - ./.travis/install.sh
-  - conan remote add aquaveo $AQUAVEO_CONAN
 
 # Build Step
 script:
