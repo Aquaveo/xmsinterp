@@ -21,9 +21,10 @@ osx: &osx
    language: generic
 
 stages:
-    - test
+    - name: test
+      if: NOT tag IS present
     - name: deploy
-      if: tag =~ ^\d+\.\d+\.\d+$
+      if: tag =~ ^\d+\.\d+\.\d+$ AND branch = master
 
 # Global Lifecycle Steps
 # See: https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
