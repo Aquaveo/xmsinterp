@@ -10,7 +10,7 @@ env:
      - CONAN_REMOTES: $AQUAVEO_CONAN
      - GH_REPO_NAME: xmsinterp
      - DOXYFILE: $TRAVIS_BUILD_DIR/Doxygen/Doxyfile
-     - GH_REPO_REF: github.com/Aquaveo/xmscore.git
+     - GH_REPO_REF: github.com/Aquaveo/xmsinterp.git
 
 linux: &linux
    os: linux
