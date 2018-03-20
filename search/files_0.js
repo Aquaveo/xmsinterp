@@ -1,29 +1,5 @@
 var searchData=
 [
-  ['geoms_2ecpp',['geoms.cpp',['../geoms_8cpp.html',1,'']]],
-  ['geoms_2eh',['geoms.h',['../geoms_8h.html',1,'']]],
-  ['geoms_2et_2eh',['geoms.t.h',['../geoms_8t_8h.html',1,'']]],
-  ['gmboosttypes_2eh',['GmBoostTypes.h',['../_gm_boost_types_8h.html',1,'']]],
-  ['gmextents_2ecpp',['GmExtents.cpp',['../_gm_extents_8cpp.html',1,'']]],
-  ['gmextents_2eh',['GmExtents.h',['../_gm_extents_8h.html',1,'']]],
-  ['gmextents_2et_2eh',['GmExtents.t.h',['../_gm_extents_8t_8h.html',1,'']]],
-  ['gmmultipolyintersectionsorter_2eh',['GmMultiPolyIntersectionSorter.h',['../_gm_multi_poly_intersection_sorter_8h.html',1,'']]],
-  ['gmmultipolyintersectionsorterterse_2ecpp',['GmMultiPolyIntersectionSorterTerse.cpp',['../_gm_multi_poly_intersection_sorter_terse_8cpp.html',1,'']]],
-  ['gmmultipolyintersectionsorterterse_2eh',['GmMultiPolyIntersectionSorterTerse.h',['../_gm_multi_poly_intersection_sorter_terse_8h.html',1,'']]],
-  ['gmmultipolyintersector_2ecpp',['GmMultiPolyIntersector.cpp',['../_gm_multi_poly_intersector_8cpp.html',1,'']]],
-  ['gmmultipolyintersector_2eh',['GmMultiPolyIntersector.h',['../_gm_multi_poly_intersector_8h.html',1,'']]],
-  ['gmmultipolyintersector_2et_2eh',['GmMultiPolyIntersector.t.h',['../_gm_multi_poly_intersector_8t_8h.html',1,'']]],
-  ['gmmultipolyintersectordata_2eh',['GmMultiPolyIntersectorData.h',['../_gm_multi_poly_intersector_data_8h.html',1,'']]],
-  ['gmpolygon_2ecpp',['GmPolygon.cpp',['../_gm_polygon_8cpp.html',1,'']]],
-  ['gmpolygon_2eh',['GmPolygon.h',['../_gm_polygon_8h.html',1,'']]],
-  ['gmpolygon_2et_2eh',['GmPolygon.t.h',['../_gm_polygon_8t_8h.html',1,'']]],
-  ['gmpolylineptredistributer_2ecpp',['GmPolyLinePtRedistributer.cpp',['../_gm_poly_line_pt_redistributer_8cpp.html',1,'']]],
-  ['gmpolylineptredistributer_2eh',['GmPolyLinePtRedistributer.h',['../_gm_poly_line_pt_redistributer_8h.html',1,'']]],
-  ['gmpolylineptredistributer_2et_2eh',['GmPolyLinePtRedistributer.t.h',['../_gm_poly_line_pt_redistributer_8t_8h.html',1,'']]],
-  ['gmptsearch_2ecpp',['GmPtSearch.cpp',['../_gm_pt_search_8cpp.html',1,'']]],
-  ['gmptsearch_2eh',['GmPtSearch.h',['../_gm_pt_search_8h.html',1,'']]],
-  ['gmptsearch_2et_2eh',['GmPtSearch.t.h',['../_gm_pt_search_8t_8h.html',1,'']]],
-  ['gmtrisearch_2ecpp',['GmTriSearch.cpp',['../_gm_tri_search_8cpp.html',1,'']]],
-  ['gmtrisearch_2eh',['GmTriSearch.h',['../_gm_tri_search_8h.html',1,'']]],
-  ['gmtrisearch_2et_2eh',['GmTriSearch.t.h',['../_gm_tri_search_8t_8h.html',1,'']]]
+  ['base_5fmacros_2eh',['base_macros.h',['https://aquaveo.github.io/xmscore/base__macros_8h.html',1,'']]],
+  ['boost_5fdefines_2eh',['boost_defines.h',['https://aquaveo.github.io/xmscore/boost__defines_8h.html',1,'']]]
 ];

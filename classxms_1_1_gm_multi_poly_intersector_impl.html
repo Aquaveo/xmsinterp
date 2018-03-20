@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('classxms_1_1_gm_multi_poly_intersector
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -128,7 +128,7 @@ Inheritance diagram for xms::GmMultiPolyIntersectorImpl:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac5a0b775408588b9d96a228d7185f5cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_gm_multi_poly_intersector_impl.html#ac5a0b775408588b9d96a228d7185f5cd">GmMultiPolyIntersectorImpl</a> (const VecPt3d &amp;a_points, const VecInt2d &amp;a_polys, BSHP&lt; <a class="el" href="classxms_1_1_gm_multi_poly_intersection_sorter.html">GmMultiPolyIntersectionSorter</a> &gt; a_sorter, int a_startingId=1)</td></tr>
+<tr class="memitem:ac5a0b775408588b9d96a228d7185f5cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_gm_multi_poly_intersector_impl.html#ac5a0b775408588b9d96a228d7185f5cd">GmMultiPolyIntersectorImpl</a> (const VecPt3d &amp;a_points, const VecInt2d &amp;a_polys, <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/boost__defines_8h.html#a37efc6913312f9271e2ea37f1acbc2dc">BSHP</a>&lt; <a class="el" href="classxms_1_1_gm_multi_poly_intersection_sorter.html">GmMultiPolyIntersectionSorter</a> &gt; a_sorter, int a_startingId=1)</td></tr>
 <tr class="memdesc:ac5a0b775408588b9d96a228d7185f5cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <a href="#ac5a0b775408588b9d96a228d7185f5cd">More...</a><br/></td></tr>
 <tr class="separator:ac5a0b775408588b9d96a228d7185f5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad44f26ecf4069c3406c27806dabf13f8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_gm_multi_poly_intersector_impl.html#ad44f26ecf4069c3406c27806dabf13f8">SetQuery</a> (GmMultiPolyIntersectorQueryEnum a_query) override</td></tr>
@@ -233,7 +233,7 @@ std::vector&lt; GmBstPoly3d &gt;&#160;</td><td class="memItemRight" valign="bott
 <tr class="memdesc:a0bf794580c7158c6295b62dc6d359308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polygons as boost geom polygons. <br/></td></tr>
 <tr class="separator:a0bf794580c7158c6295b62dc6d359308"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee888465df13dc924b99fc607071223e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee888465df13dc924b99fc607071223e"></a>
-BSHP<br class="typebreak"/>
+<a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/boost__defines_8h.html#a37efc6913312f9271e2ea37f1acbc2dc">BSHP</a><br class="typebreak"/>
 &lt; <a class="el" href="classxms_1_1_gm_multi_poly_intersection_sorter.html">GmMultiPolyIntersectionSorter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_gm_multi_poly_intersector_impl.html#aee888465df13dc924b99fc607071223e">m_sorter</a></td></tr>
 <tr class="memdesc:aee888465df13dc924b99fc607071223e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorter used to process results. <br/></td></tr>
 <tr class="separator:aee888465df13dc924b99fc607071223e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -274,7 +274,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BSHP&lt; <a class="el" href="classxms_1_1_gm_multi_poly_intersection_sorter.html">GmMultiPolyIntersectionSorter</a> &gt;&#160;</td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/boost__defines_8h.html#a37efc6913312f9271e2ea37f1acbc2dc">BSHP</a>&lt; <a class="el" href="classxms_1_1_gm_multi_poly_intersection_sorter.html">GmMultiPolyIntersectionSorter</a> &gt;&#160;</td>
           <td class="paramname"><em>a_sorter</em>, </td>
         </tr>
         <tr>
@@ -422,7 +422,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00437">437</a> of file <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html">GmMultiPolyIntersector.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00112">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00113">m_pt1</a>, and <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00114">m_pt2</a>.</p>
+<p>References <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00112">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00113">m_pt1</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00114">m_pt2</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a47f9911b113582ff3a0ed42e083de7b6">XM_NODATA</a>.</p>
 
 <p>Referenced by <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00609">TraverseLineSegmentAll()</a>.</p>
 
@@ -510,7 +510,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00346">346</a> of file <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html">GmMultiPolyIntersector.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00267">GetBoostPoly()</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00121">m_query</a>, and <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00115">m_rtree</a>.</p>
+<p>References <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00267">GetBoostPoly()</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00121">m_query</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00115">m_rtree</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a5c82c2e747cf320d95402dfdf2fdba85">XM_ASSERT</a>.</p>
 
 <p>Referenced by <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00580">PolygonFromPoint()</a>, and <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00609">TraverseLineSegmentAll()</a>.</p>
 
@@ -548,7 +548,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00497">497</a> of file <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html">GmMultiPolyIntersector.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00118">m_startingId</a>.</p>
+<p>References <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00118">m_startingId</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
 <p>Referenced by <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00609">TraverseLineSegmentAll()</a>.</p>
 
@@ -643,7 +643,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00580">580</a> of file <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html">GmMultiPolyIntersector.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00346">GetPolysForPoint()</a>.</p>
+<p>References <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00346">GetPolysForPoint()</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
 </div>
 </div>
@@ -979,7 +979,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00609">609</a> of file <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html">GmMultiPolyIntersector.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00437">ComputeTValues()</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00328">CreateLine()</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00464">EnsureEndPointsRepresented()</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00346">GetPolysForPoint()</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00379">IntersectEachPolyWithLine()</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00112">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00116">m_line</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00053">xms::GmMultiPolyIntersectorData::m_polys1</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00054">xms::GmMultiPolyIntersectorData::m_polys2</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00113">m_pt1</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00114">m_pt2</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00120">m_sorter</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00497">OffsetPolyIds()</a>, and <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00451">SortIntersections()</a>.</p>
+<p>References <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00437">ComputeTValues()</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00328">CreateLine()</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00464">EnsureEndPointsRepresented()</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00346">GetPolysForPoint()</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00379">IntersectEachPolyWithLine()</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00112">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00116">m_line</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00053">xms::GmMultiPolyIntersectorData::m_polys1</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00054">xms::GmMultiPolyIntersectorData::m_polys2</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00113">m_pt1</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00114">m_pt2</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00120">m_sorter</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00497">OffsetPolyIds()</a>, <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00451">SortIntersections()</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a5c82c2e747cf320d95402dfdf2fdba85">XM_ASSERT</a>.</p>
 
 <p>Referenced by <a class="el" href="_gm_multi_poly_intersector_8cpp_source.html#l00527">TraverseLineSegment()</a>.</p>
 
@@ -994,7 +994,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>xms</b></li><li class="navelem"><a class="el" href="classxms_1_1_gm_multi_poly_intersector_impl.html">GmMultiPolyIntersectorImpl</a></li>
-    <li class="footer">Generated on Tue Mar 20 2018 21:05:17 for xmsinterp by
+    <li class="footer">Generated on Tue Mar 20 2018 22:01:44 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

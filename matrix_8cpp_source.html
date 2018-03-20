@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -121,11 +121,11 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// 4. External library headers</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;xmscore/points/pt.h&gt;</span> <span class="comment">// Pt3d</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/pt_8h.html">xmscore/points/pt.h</a>&gt;</span> <span class="comment">// Pt3d</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// 5. Shared code headers</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;xmscore/misc/XmLog.h&gt;</span>   <span class="comment">// XM_LOG</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;xmscore/misc/xmstype.h&gt;</span> <span class="comment">// XM_PI, XM_SUCCESS, XM_FAILURE</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;<a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_log_8h.html">xmscore/misc/XmLog.h</a>&gt;</span>   <span class="comment">// XM_LOG</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;<a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html">xmscore/misc/xmstype.h</a>&gt;</span> <span class="comment">// XM_PI, XM_SUCCESS, XM_FAILURE</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// 6. Non-shared code headers</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
@@ -199,7 +199,7 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        mat[i][j] *= tmp;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  } <span class="comment">// go back for next column</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">return</span> XM_SUCCESS;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">return</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a7f96d1229a7678847a8bb97c0d51af50">XM_SUCCESS</a>;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;} <span class="comment">// mxLUDecomp</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">//-------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment"></span><span class="comment">//-------------------------------------------------------------------------------</span></div>
@@ -229,7 +229,7 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      sum -= mat[i][j] * b[j];</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    b[i] = sum / mat[i][i]; <span class="comment">// store a component of solution</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  }</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordflow">return</span> XM_SUCCESS;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordflow">return</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a7f96d1229a7678847a8bb97c0d51af50">XM_SUCCESS</a>;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;} <span class="comment">// mxLUBcksub</span></div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">//-------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment"></span><span class="comment">//-------------------------------------------------------------------------------</span></div>
@@ -250,7 +250,7 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        big = tmp;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">if</span> (big == 0.0)</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    {</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      XM_LOG(xmlog::debug, <span class="stringliteral">&quot;Singular Matrix&quot;</span>);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a>(<a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a42797ff955c778a8a9e21bdd5580a92e">xmlog::debug</a>, <span class="stringliteral">&quot;Singular Matrix&quot;</span>);</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    }</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    vv[i] = 1.0 / big;</div>
@@ -362,7 +362,7 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  <span class="keywordflow">default</span>:</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    indx = (<span class="keywordtype">int</span>*)malloc(n * <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">if</span> (mxLUDecomp(A, n, indx, &amp;d) == XM_FAILURE)</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">if</span> (mxLUDecomp(A, n, indx, &amp;d) == <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#afceadf3e492e85d81a4f2f28b3d45785">XM_FAILURE</a>)</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    {</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      free(indx);</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -476,8 +476,8 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        biggest = dummy;</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <span class="keywordflow">if</span> (biggest == 0.0)</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    {</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      XM_LOG(xmlog::error, <span class="stringliteral">&quot;(mxInvert4x4) Singular Matrix&quot;</span>);</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;      <span class="keywordflow">return</span> XM_FAILURE;</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a>(<a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a6c90100ca9f6986351a3a437374735c1">xmlog::error</a>, <span class="stringliteral">&quot;(mxInvert4x4) Singular Matrix&quot;</span>);</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;      <span class="keywordflow">return</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#afceadf3e492e85d81a4f2f28b3d45785">XM_FAILURE</a>;</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    }</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    scale[i] = 1.0 / biggest;</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  }</div>
@@ -508,8 +508,8 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;          }</div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;          <span class="keywordflow">else</span> <span class="keywordflow">if</span> (index_pivot[k] &gt; 1)</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;          {</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;            XM_LOG(xmlog::error, <span class="stringliteral">&quot;(mxInvert4x4) Singular Matrix&quot;</span>);</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;            <span class="keywordflow">return</span> XM_FAILURE;</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;            <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a>(<a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a6c90100ca9f6986351a3a437374735c1">xmlog::error</a>, <span class="stringliteral">&quot;(mxInvert4x4) Singular Matrix&quot;</span>);</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;            <span class="keywordflow">return</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#afceadf3e492e85d81a4f2f28b3d45785">XM_FAILURE</a>;</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;          }</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        }</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    ++(index_pivot[icol]);</div>
@@ -536,8 +536,8 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    index_col[i] = icol;</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <span class="keywordflow">if</span> (tmp[icol][icol] == 0.0)</div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    {</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;      XM_LOG(xmlog::error, <span class="stringliteral">&quot;(mxInvert4x4) Singular Matrix&quot;</span>);</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;      <span class="keywordflow">return</span> XM_FAILURE;</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;      <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a>(<a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a6c90100ca9f6986351a3a437374735c1">xmlog::error</a>, <span class="stringliteral">&quot;(mxInvert4x4) Singular Matrix&quot;</span>);</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;      <span class="keywordflow">return</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#afceadf3e492e85d81a4f2f28b3d45785">XM_FAILURE</a>;</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    }</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <span class="comment">// divide pivot row by pivot</span></div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <span class="keywordtype">double</span> pivot_inverse = 1.0 / tmp[icol][icol];</div>
@@ -580,7 +580,7 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;  }</div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;  <span class="comment">// copy solution to output</span></div>
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;  mxCopy4x4(inv, tmp);</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;  <span class="keywordflow">return</span> XM_SUCCESS;</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;  <span class="keywordflow">return</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a7f96d1229a7678847a8bb97c0d51af50">XM_SUCCESS</a>;</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;} <span class="comment">// mxInvert4x4</span></div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="comment">//-------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="comment"></span><span class="comment">//-------------------------------------------------------------------------------</span></div>
@@ -663,14 +663,22 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;  a_mx[2][3] = a_translation.z;</div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;} <span class="comment">// mxTranslate4x4</span></div>
 <div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;} <span class="comment">// namespace xms</span></div>
+<div class="ttc" id="xmstype_8h_html_afceadf3e492e85d81a4f2f28b3d45785"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/xmstype_8h.html#afceadf3e492e85d81a4f2f28b3d45785">XM_FAILURE</a></div><div class="ttdeci">#define XM_FAILURE</div></div>
+<div class="ttc" id="_xm_log_8h_html_a2aa4d2a0a80e464d6acba7f32b13f978"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a></div><div class="ttdeci">#define XM_LOG(A, B)</div></div>
+<div class="ttc" id="pt_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/pt_8h.html">pt.h</a></div></div>
+<div class="ttc" id="namespacexmlog_html_a7f66c92bb821241cbb29fb07d7bce588a42797ff955c778a8a9e21bdd5580a92e"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a42797ff955c778a8a9e21bdd5580a92e">xmlog::debug</a></div></div>
 <div class="ttc" id="matrix_8h_html"><div class="ttname"><a href="matrix_8h.html">matrix.h</a></div><div class="ttdoc">routines for manipulating matrices </div></div>
+<div class="ttc" id="xmstype_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/xmstype_8h.html">xmstype.h</a></div></div>
+<div class="ttc" id="xmstype_8h_html_a7f96d1229a7678847a8bb97c0d51af50"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a7f96d1229a7678847a8bb97c0d51af50">XM_SUCCESS</a></div><div class="ttdeci">#define XM_SUCCESS</div></div>
+<div class="ttc" id="_xm_log_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/_xm_log_8h.html">XmLog.h</a></div></div>
+<div class="ttc" id="namespacexmlog_html_a7f66c92bb821241cbb29fb07d7bce588a6c90100ca9f6986351a3a437374735c1"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a6c90100ca9f6986351a3a437374735c1">xmlog::error</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_8b8bc0146c835c938db011b4ee736969.html">matrices</a></li><li class="navelem"><a class="el" href="matrix_8cpp.html">matrix.cpp</a></li>
-    <li class="footer">Generated on Tue Mar 20 2018 21:05:17 for xmsinterp by
+    <li class="footer">Generated on Tue Mar 20 2018 22:01:44 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

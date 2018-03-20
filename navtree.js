@@ -2,16 +2,17 @@ var NAVTREE =
 [
   [ "xmsinterp", "index.html", [
     [ "xmsinterp ", "index.html#xmsinterp", [
-      [ "Introduction", "index.html#Intro_Interpolation", null ],
-      [ "License ", "index.html#License", null ],
-      [ "Features ", "index.html#Features", null ],
-      [ "Testing ", "index.html#Testing", null ],
-      [ "The Code ", "index.html#TheCode", [
-        [ "Namespaces", "index.html#Namespaces", null ],
-        [ "Interface pattern", "index.html#InterfacePattern", null ]
+      [ "Introduction ", "index.html#XmsinterpIntroduction", null ],
+      [ "License ", "index.html#XmsinterpLicense", null ],
+      [ "Features ", "index.html#XmsinterpFeatures", null ],
+      [ "Testing ", "index.html#XmsinterpTesting", null ],
+      [ "The Code ", "index.html#XmsinterpTheCode", [
+        [ "Namespaces", "index.html#XmsinterpNamespaces", null ],
+        [ "Interface pattern", "index.html#XmsinterpInterfacePattern", null ]
       ] ],
       [ "\"xmsinterp\" Name ", "index.html#xmsinterpName", null ]
     ] ],
+    [ "index", "https://aquaveo.github.io/xmscore/index.html", null ],
     [ "Interpolation_Tutorial", "md__interpolation__tutorial.html", [
       [ "Interpolation Tutorial", "md__interpolation__tutorial.html#Interpolation_Tutorial", [
         [ "Introduction", "md__interpolation__tutorial.html#Intro_Interpolation", null ],
@@ -49,7 +50,7 @@ var NAVTREEINDEX =
 "classxms_1_1_gm_pt_search_impl.html#a501ca6b9d117c035425e3ad64de30edf",
 "classxms_1_1_nodal_func_impl_1_1_nf_thread.html#a6a1e51f110d431e9eaac23e356bbfc9f",
 "functions_func.html",
-"md__interpolation__tutorial.html#Interpolation_Tutorial"
+"md__interpolation__tutorial.html#Example_NatNeigh"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

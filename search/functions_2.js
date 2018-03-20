@@ -6,6 +6,7 @@ var searchData=
   ['checkpoints',['CheckPoints',['../class_gm_point_in_poly_unit_tests.html#a9fbcdd807e9e110065b9b44fe07755c0',1,'GmPointInPolyUnitTests']]],
   ['clear',['Clear',['../classxms_1_1_gm_extents2d.html#a60780f3b3471ce34744412fed1938f47',1,'xms::GmExtents2d::Clear()'],['../classxms_1_1_gm_extents3d.html#af7b8f4955c9068c0853354ab1f34f297',1,'xms::GmExtents3d::Clear()'],['../classxms_1_1_tr_tin_impl.html#ac56cedd2e8a867bb3122716f8d30e1b8',1,'xms::TrTinImpl::Clear()']]],
   ['clearadjtrisifcreated',['ClearAdjTrisIfCreated',['../classxms_1_1_tr_auto_fix_four_triangle_pts_impl.html#a359ac2134d3f2bc3b4c0c551f1cd27d7',1,'xms::TrAutoFixFourTrianglePtsImpl']]],
+  ['cleardefault',['ClearDefault',['https://aquaveo.github.io/xmscore/classxms_1_1_e_test_messaging_state.html#aade9d4c6d37ea3d95c689ae38a757ed8',1,'xms::ETestMessagingState']]],
   ['cloughtocherinterp',['CloughTocherInterp',['../classxms_1_1_interp_linear_impl.html#aa64567760169c6f7b7fbec3a764aceef',1,'xms::InterpLinearImpl']]],
   ['commonedgeindex',['CommonEdgeIndex',['../classxms_1_1_tr_tin_impl.html#afffd7788db43b8ef041f2719fb8d8431',1,'xms::TrTinImpl']]],
   ['computectcoeff',['ComputeCtCoeff',['../classxms_1_1_interp_ct.html#a13ff777750202447aba55dc6d99e00b0',1,'xms::InterpCt']]],
@@ -21,5 +22,6 @@ var searchData=
   ['createptsearch',['CreatePtSearch',['../classxms_1_1_gm_tri_search_impl.html#a61ab221cb9ff1755cf300597fbc10600',1,'xms::GmTriSearchImpl::CreatePtSearch()'],['../classxms_1_1_interp_linear_impl.html#ae8bd94a12f04721c20c08baff8bd2539',1,'xms::InterpLinearImpl::CreatePtSearch()']]],
   ['creatertree',['CreateRTree',['../classxms_1_1_gm_tri_search_impl.html#ae9759f6aa25a8897ecc21e3f7edb80d7',1,'xms::GmTriSearchImpl']]],
   ['crossesboundary',['CrossesBoundary',['../classxms_1_1_tr_breakline_adder_impl.html#a239990bf3ccb0b3039d1e02ce7fb10f6',1,'xms::TrBreaklineAdderImpl']]],
+  ['currentitem',['CurrentItem',['https://aquaveo.github.io/xmscore/classxms_1_1_progress.html#adec755bc0bd7e4d86a9b4ce62f520241',1,'xms::Progress']]],
   ['curridx',['CurrIdx',['../classxms_1_1_thread_loop.html#afebcb169439af245b14329587e6768f1',1,'xms::ThreadLoop']]]
 ];

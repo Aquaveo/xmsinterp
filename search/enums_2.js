@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['regionenum',['RegionEnum',['../classxms_1_1_interp_ct.html#adc36a58e814df9d4398adbb2fd30864b',1,'xms::InterpCt']]]
+  ['nodalfuncenum',['NodalFuncEnum',['../classxms_1_1_interp_idw.html#a9f0d45e41829c4a94b53dd336d086f4a',1,'xms::InterpIdw']]]
 ];

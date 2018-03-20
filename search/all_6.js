@@ -15,5 +15,9 @@ var searchData=
   ['flagtrianglesalongpolygon',['FlagTrianglesAlongPolygon',['../classxms_1_1_tr_outer_triangle_deleter_impl.html#af243755c164dc8b6af8504aa6a037b8d',1,'xms::TrOuterTriangleDeleterImpl']]],
   ['fromstring',['FromString',['../classxms_1_1_tr_tin_impl.html#a1b7c1dacb8e701e5f5229f8a9624c47f',1,'xms::TrTinImpl']]],
   ['fsatisfies',['fSatisfies',['../classxms_1_1f_satisfies.html#ab363650297804f81ac7f6fa1179b6bc0',1,'xms::fSatisfies']]],
-  ['fsatisfies',['fSatisfies',['../classxms_1_1f_satisfies.html',1,'xms']]]
+  ['fsatisfies',['fSatisfies',['../classxms_1_1f_satisfies.html',1,'xms']]],
+  ['functors_2ecpp',['functors.cpp',['https://aquaveo.github.io/xmscore/functors_8cpp.html',1,'']]],
+  ['functors_2eh',['functors.h',['https://aquaveo.github.io/xmscore/functors_8h.html',1,'']]],
+  ['functors_2et_2eh',['functors.t.h',['https://aquaveo.github.io/xmscore/functors_8t_8h.html',1,'']]],
+  ['functorsunittests',['FunctorsUnitTests',['https://aquaveo.github.io/xmscore/class_functors_unit_tests.html',1,'']]]
 ];

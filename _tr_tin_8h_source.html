@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('_tr_tin_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -120,11 +120,11 @@ $(document).ready(function(){initNavTree('_tr_tin_8h_source.html','');});
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;boost/serialization/assume_abstract.hpp&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// 5. Shared code headers</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;xmscore/points/ptsfwd.h&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;xmscore/misc/base_macros.h&gt;</span>   <span class="comment">// for XM_DISALLOW_COPY_AND_ASSIGN</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;xmscore/misc/boost_defines.h&gt;</span> <span class="comment">// for BSHP</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;xmscore/stl/vector.h&gt;</span>         <span class="comment">// for VecPt3d</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;xmscore/stl/set.h&gt;</span>            <span class="comment">// for SetInt</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/ptsfwd_8h.html">xmscore/points/ptsfwd.h</a>&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/base__macros_8h.html">xmscore/misc/base_macros.h</a>&gt;</span>   <span class="comment">// for XM_DISALLOW_COPY_AND_ASSIGN</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;<a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/boost__defines_8h.html">xmscore/misc/boost_defines.h</a>&gt;</span> <span class="comment">// for BSHP</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;<a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/vector_8h.html">xmscore/stl/vector.h</a>&gt;</span>         <span class="comment">// for VecPt3d</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/set_8h.html">xmscore/stl/set.h</a>&gt;</span>            <span class="comment">// for SetInt</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>boost</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
@@ -206,7 +206,7 @@ $(document).ready(function(){initNavTree('_tr_tin_8h_source.html','');});
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <a class="code" href="classxms_1_1_tr_tin.html#a13e29683d761b3f8e663c2a69098bfd3">TrTin</a>();</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  XM_DISALLOW_COPY_AND_ASSIGN(<a class="code" href="classxms_1_1_tr_tin.html">TrTin</a>)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/base__macros_8h.html#a5580a05bffe13e3b72158e01e41c3945">XM_DISALLOW_COPY_AND_ASSIGN</a>(<a class="code" href="classxms_1_1_tr_tin.html">TrTin</a>)</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}; <span class="comment">// class TrTin</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
@@ -217,17 +217,23 @@ $(document).ready(function(){initNavTree('_tr_tin_8h_source.html','');});
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;} <span class="comment">// namespace xms</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;BOOST_SERIALIZATION_ASSUME_ABSTRACT(<a class="code" href="classxms_1_1_tr_tin.html">xms::TrTin</a>)</div>
+<div class="ttc" id="ptsfwd_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/ptsfwd_8h.html">ptsfwd.h</a></div></div>
 <div class="ttc" id="classxms_1_1_tr_tin_html_acbac3ff7b8a488bec68feace756d1234"><div class="ttname"><a href="classxms_1_1_tr_tin.html#acbac3ff7b8a488bec68feace756d1234">xms::TrTin::~TrTin</a></div><div class="ttdeci">virtual ~TrTin()</div><div class="ttdoc">destructor </div><div class="ttdef"><b>Definition:</b> <a href="_tr_tin_8cpp_source.html#l01235">TrTin.cpp:1235</a></div></div>
+<div class="ttc" id="set_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/set_8h.html">set.h</a></div></div>
+<div class="ttc" id="boost__defines_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/boost__defines_8h.html">boost_defines.h</a></div></div>
 <div class="ttc" id="classxms_1_1_tr_tin_html_ab1227a106b70c3061bd03cb3fb9833a7"><div class="ttname"><a href="classxms_1_1_tr_tin.html#ab1227a106b70c3061bd03cb3fb9833a7">xms::TrTin::New</a></div><div class="ttdeci">static BSHP&lt; TrTin &gt; New()</div><div class="ttdoc">Create a TrTinImpl object. </div><div class="ttdef"><b>Definition:</b> <a href="_tr_tin_8cpp_source.html#l01242">TrTin.cpp:1242</a></div></div>
 <div class="ttc" id="classxms_1_1_tr_tin_html"><div class="ttname"><a href="classxms_1_1_tr_tin.html">xms::TrTin</a></div><div class="ttdef"><b>Definition:</b> <a href="_tr_tin_8h_source.html#l00035">TrTin.h:35</a></div></div>
+<div class="ttc" id="base__macros_8h_html_a5580a05bffe13e3b72158e01e41c3945"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/base__macros_8h.html#a5580a05bffe13e3b72158e01e41c3945">XM_DISALLOW_COPY_AND_ASSIGN</a></div><div class="ttdeci">#define XM_DISALLOW_COPY_AND_ASSIGN(TypeName)</div></div>
+<div class="ttc" id="vector_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/vector_8h.html">vector.h</a></div></div>
 <div class="ttc" id="classxms_1_1_tr_tin_html_a13e29683d761b3f8e663c2a69098bfd3"><div class="ttname"><a href="classxms_1_1_tr_tin.html#a13e29683d761b3f8e663c2a69098bfd3">xms::TrTin::TrTin</a></div><div class="ttdeci">TrTin()</div><div class="ttdoc">constructor </div><div class="ttdef"><b>Definition:</b> <a href="_tr_tin_8cpp_source.html#l01229">TrTin.cpp:1229</a></div></div>
+<div class="ttc" id="base__macros_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/base__macros_8h.html">base_macros.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_5570b84191e767f5120164647d3cb3e2.html">triangulate</a></li><li class="navelem"><a class="el" href="_tr_tin_8h.html">TrTin.h</a></li>
-    <li class="footer">Generated on Tue Mar 20 2018 21:05:17 for xmsinterp by
+    <li class="footer">Generated on Tue Mar 20 2018 22:01:44 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

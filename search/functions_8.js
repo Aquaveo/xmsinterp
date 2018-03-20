@@ -7,6 +7,7 @@ var searchData=
   ['igetpoints2',['iGetPoints2',['../_gm_pt_search_8cpp.html#a63c7b825306d0e4094c4f4a7cfca60da',1,'GmPtSearch.cpp']]],
   ['incrementpoint',['IncrementPoint',['../classxms_1_1_tr_triangulator_points.html#ab1dcfd044e79eadc9c91a6feebbb5726',1,'xms::TrTriangulatorPoints']]],
   ['insertadjacenttriangle',['InsertAdjacentTriangle',['../classxms_1_1_tr_tin_impl.html#a0d1478852f239878bae47c9e685e2453',1,'xms::TrTinImpl']]],
+  ['instance',['Instance',['https://aquaveo.github.io/xmscore/classxms_1_1_singleton.html#a9a8a1b054d5e8cea413f16a93afd480e',1,'xms::Singleton::Instance()'],['https://aquaveo.github.io/xmscore/classxms_1_1_shared_singleton.html#a1276acc05cbe856a51c4b640ffdd7445',1,'xms::SharedSingleton::Instance()'],['https://aquaveo.github.io/xmscore/classxms_1_1_singleton.html#a9a8a1b054d5e8cea413f16a93afd480e',1,'xms::XmLog::Instance()']]],
   ['interpct',['InterpCt',['../classxms_1_1_interp_ct.html#a4a7e480d5f0c0a7edc21ff4e4bb22e6a',1,'xms::InterpCt']]],
   ['interpidwimpl',['InterpIdwImpl',['../classxms_1_1_interp_idw_impl.html#abe90be24339d7ffd104efc2b29bdcc63',1,'xms::InterpIdwImpl']]],
   ['interpnatneigh',['InterpNatNeigh',['../classxms_1_1_interp_nat_neigh.html#a72b529ca7b1f5d75181607ba062f4fba',1,'xms::InterpNatNeigh']]],

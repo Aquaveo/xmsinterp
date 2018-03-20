@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('index.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -102,12 +102,12 @@ $(document).ready(function(){initNavTree('index.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#xmsinterp">xmsinterp </a><ul><li class="level2"><a href="#Intro_Interpolation">Introduction</a></li>
-<li class="level2"><a href="#License">License </a></li>
-<li class="level2"><a href="#Features">Features </a></li>
-<li class="level2"><a href="#Testing">Testing </a></li>
-<li class="level2"><a href="#TheCode">The Code </a><ul><li class="level3"><a href="#Namespaces">Namespaces</a></li>
-<li class="level3"><a href="#InterfacePattern">Interface pattern</a></li>
+<ul><li class="level1"><a href="#xmsinterp">xmsinterp </a><ul><li class="level2"><a href="#XmsinterpIntroduction">Introduction </a></li>
+<li class="level2"><a href="#XmsinterpLicense">License </a></li>
+<li class="level2"><a href="#XmsinterpFeatures">Features </a></li>
+<li class="level2"><a href="#XmsinterpTesting">Testing </a></li>
+<li class="level2"><a href="#XmsinterpTheCode">The Code </a><ul><li class="level3"><a href="#XmsinterpNamespaces">Namespaces</a></li>
+<li class="level3"><a href="#XmsinterpInterfacePattern">Interface pattern</a></li>
 </ul>
 </li>
 <li class="level2"><a href="#xmsinterpName">"xmsinterp" Name </a></li>
@@ -117,8 +117,8 @@ $(document).ready(function(){initNavTree('index.html','');});
 </div>
 <div class="textblock"><h1><a class="anchor" id="xmsinterp"></a>
 xmsinterp </h1>
-<h2><a class="anchor" id="Intro_Interpolation"></a>
-Introduction</h2>
+<h2><a class="anchor" id="XmsinterpIntroduction"></a>
+Introduction </h2>
 <p>xmsinterp is a spatial interpolation library used in xms libraries and products.</p>
 <table  align="center" border="0">
 <tr>
@@ -127,29 +127,29 @@ Introduction</h2>
 </div>
   </td></tr>
 </table>
-<h2><a class="anchor" id="License"></a>
+<h2><a class="anchor" id="XmsinterpLicense"></a>
 License </h2>
 <p>The code is distributed under the xmsng Software License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at <a href="http://www.aquaveo.com/xmsng/LICENSE_1_0.txt">http://www.aquaveo.com/xmsng/LICENSE_1_0.txt</a>).</p>
-<h2><a class="anchor" id="Features"></a>
+<h2><a class="anchor" id="XmsinterpFeatures"></a>
 Features </h2>
 <p>The library supports both 2D (x,y) and 3D (x,y,z) interpolation. Supported 2d interpolation methods include: linear, natural neighbor, clough tocher, and inverse distance weighted (IDW). IDW also supports 3D interpolation. IDW and natural neighbor support modeling data trends using gradient plane and quadratic nodal functions. See the following tutorial for example code.</p>
 <ul>
 <li><a class="el" href="md__interpolation__tutorial.html">Interpolation tutorial</a></li>
 </ul>
-<h2><a class="anchor" id="Testing"></a>
+<h2><a class="anchor" id="XmsinterpTesting"></a>
 Testing </h2>
 <p>The code has numerous unit tests which use the <a href="http://cxxtest.com/">CxxTest</a> framework. A good way to see how to use the code is to look at the unit tests. Unit tests are located at the bottom of .cpp files within a "#if CXX_TEST" code block. Header files that are named with ".t.h" contain the test suite class definitions.</p>
-<h2><a class="anchor" id="TheCode"></a>
+<h2><a class="anchor" id="XmsinterpTheCode"></a>
 The Code </h2>
-<h3><a class="anchor" id="Namespaces"></a>
+<h3><a class="anchor" id="XmsinterpNamespaces"></a>
 Namespaces</h3>
 <ul>
 <li>"xms" - Most code is in this namespace. The use of other namespaces is kept to a minimum. Two-letter prefixes are used as "pseudo-namespaces" in code modules. Preprocessor macros typically start with "XM_" to prevent name collisions.</li>
 <li>"xmt" - Testing code will be put into this namespace once CXX_TEST is upgraded such that it will find the testing code in this namespace.</li>
 </ul>
-<h3><a class="anchor" id="InterfacePattern"></a>
+<h3><a class="anchor" id="XmsinterpInterfacePattern"></a>
 Interface pattern</h3>
-<p>Many classes follow the interface pattern. An abstract base class is used to define the interface and a concrete implementation class is used to implement the functionality. The implementation class will be named the same as the interface class but will end in "Impl" and will only be found in the .cpp file. For example: xms::MePolyMesher and xms::MePolyMesherImpl. The Doxygen documentation will be for the Impl class.</p>
+<p>Many classes follow the interface pattern. An abstract base class is used to define the interface and a concrete implementation class is used to implement the functionality. The implementation class will be named the same as the interface class but will end in "Impl" and will only be found in the .cpp file. For example: <a class="el" href="classxms_1_1_interp_idw.html" title="Class that performs inverse distance weighted interpolation. ">xms::InterpIdw</a> and <a class="el" href="classxms_1_1_interp_idw_impl.html" title="Implementation of InterpIdw class. ">xms::InterpIdwImpl</a>. The Doxygen documentation will be for the Impl class.</p>
 <p>More about the interface pattern can be found at the following resources:</p>
 <ul>
 <li>The C++ Programming Language, Stroustroup, p 318 - 322</li>
@@ -165,7 +165,7 @@ Interface pattern</h3>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Mar 20 2018 21:05:18 for xmsinterp by
+    <li class="footer">Generated on Tue Mar 20 2018 22:01:45 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
