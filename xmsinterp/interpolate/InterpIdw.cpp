@@ -250,7 +250,7 @@ InterpIdw::~InterpIdw()
 ////////////////////////////////////////////////////////////////////////////////
 /// \class InterpIdwImpl
 /// \brief Inverse distance weighted interpolation class.
-/// \image html Doxygen/images/idw_const.png
+/// \image html Doxygen/html/images/idw_const.png
 ////////////////////////////////////////////////////////////////////////////////
 //------------------------------------------------------------------------------
 /// \brief Creates an InterpIdw class
