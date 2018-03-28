@@ -98,6 +98,19 @@ if (BUILD_TESTING)
     xmsinterp/triangulate/detail/TrOuterTriangleDeleter.t.h
     xmsinterp/tutorial/TutInterpolation.t.h
   )
+
+  find_package(CxxTest)
+  if(CXXTEST_FOUND)
+    include_directories(${CXXTEST_INCLUDE_DIR})
+    enable_testing()
+
+    set(CXXTEST_TESTGEN_ARGS --xunit-printer)
+    file(GLOB_RECURSE test_headers ${CMAKE_CURRENT_LIST_DIR}/xmsinterp/*.t.h)
+    CXXTEST_ADD_TEST(
+      runner runner.cpp ${test_headers}
+    )
+    target_link_libraries(runner ${PROJECT_NAME})
+  endif()
 endif ()
 
 add_library(${PROJECT_NAME} STATIC

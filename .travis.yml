@@ -1,8 +1,8 @@
 env:
    global:
      # TRAVIS_BRANCH is tag name if tag provided else branch name
-     - XMSINTERP_VERSION: $TRAVIS_BRANCH
-     - CONAN_REFERENCE: "xmsinterp/${XMSINTERP_VERSION}"
+     - XMS_VERSION: $TRAVIS_BRANCH
+     - CONAN_REFERENCE: "xmsinterp/${XMS_VERSION}"
      - CONAN_USERNAME: "aquaveo"
      - CONAN_CHANNEL: "stable"
      - CONAN_LOGIN_USERNAME: $CONAN_USER_SECRET
@@ -69,19 +69,15 @@ jobs:
 
       - stage: test
         <<: *linux
-        env: CONAN_GCC_VERSIONS=4.9 CONAN_DOCKER_IMAGE=lasote/conangcc49
+        env: CONAN_GCC_VERSIONS=5 CONAN_DOCKER_IMAGE=lasote/conangcc5 XMS_RUN_TESTS=1
 
       - stage: test
         <<: *linux
-        env: CONAN_GCC_VERSIONS=5 CONAN_DOCKER_IMAGE=lasote/conangcc5
+        env: CONAN_GCC_VERSIONS=6 CONAN_DOCKER_IMAGE=lasote/conangcc6 XMS_RUN_TESTS=1
 
       - stage: test
         <<: *linux
-        env: CONAN_GCC_VERSIONS=6 CONAN_DOCKER_IMAGE=lasote/conangcc6
-
-      - stage: test
-        <<: *linux
-        env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=lasote/conangcc7
+        env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=lasote/conangcc7 XMS_RUN_TESTS=1
 
       - stage: test
         <<: *osx

@@ -9,8 +9,8 @@ environment:
 
     # Assume we are only building on tagged commits.
     # Will not work on untagged commits.
-    XMSINTERP_VERSION: ${APPVEYOR_REPO_TAG_NAME}
-    CONAN_REFERENCE: "xmsinterp/${XMSINTERP_VERSION}"
+    XMS_VERSION: ${APPVEYOR_REPO_TAG_NAME}
+    CONAN_REFERENCE: "xmsinterp/${XMS_VERSION}"
     CONAN_USERNAME: "aquaveo"
     CONAN_CHANNEL: "stable"
     CONAN_LOGIN_USERNAME: ${CONAN_USER_SECRET}

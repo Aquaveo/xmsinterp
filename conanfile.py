@@ -1,3 +1,4 @@
+import os
 from conans import ConanFile, CMake
 from conans.errors import ConanException
 
@@ -9,16 +10,14 @@ class XmsinterpConan(ConanFile):
     url = "https://github.com/Aquaveo/xmsinterp"
     description = "Interpolation library for XMS products"
     settings = "os", "compiler", "build_type", "arch"
-    # options = {"shared": [True, False]}
-    # default_options = "shared=False"
     generators = "cmake"
-    requires = "boost/1.66.0@conan/stable", "xmscore/[>1.0.1,<1.1.0]@aquaveo/stable"
+    requires = "boost/1.66.0@conan/stable", "xmscore/[>=1.0.7,<1.1.0]@aquaveo/stable"
     exports = "CMakeLists.txt", "LICENSE"
     exports_sources = "xmsinterp/*"
 
     def configure(self):
-        # Set verion dynamically using XMSINTERP_VERSION env variable.
-        self.version = self.env.get('XMSINTERP_VERSION', 'master')
+        # Set verion dynamically using XMS_VERSION env variable.
+        self.version = self.env.get('XMS_VERSION', 'master')
 
         # Raise ConanExceptions for Unsupported Versions
         s_os = self.settings.os
@@ -35,6 +34,21 @@ class XmsinterpConan(ConanFile):
         cmake = CMake(self)
         cmake.configure(source_folder=".")
         cmake.build()
+
+        run_tests = self.env.get('XMS_RUN_TESTS', None)
+        if run_tests is not None:
+            print("***********(0.0)*************")
+            try:
+                cmake.test()
+            except ConanException:
+                raise
+            finally:
+                if os.path.isfile("TEST-cxxtest.xml"):
+                    with open("TEST-cxxtest.xml", "r") as f:
+                        for line in f.readlines():
+                            no_newline = line.strip('\n')
+                            print(no_newline)
+                print("***********(0.0)*************")
 
     def package(self):
         self.copy("*.h", dst="include/xmsinterp", src="xmsinterp")
