@@ -87,11 +87,6 @@ jobs:
       # --- DEPLOY STAGE ----------------------------------------------------------------------------------------------
       - stage: deploy
         <<: *linux
-        env: CONAN_GCC_VERSIONS=4.9 CONAN_DOCKER_IMAGE=lasote/conangcc49 CONAN_UPLOAD=$AQUAVEO_CONAN
-        after_success: true
-
-      - stage: deploy
-        <<: *linux
         env: CONAN_GCC_VERSIONS=5 CONAN_DOCKER_IMAGE=lasote/conangcc5 CONAN_UPLOAD=$AQUAVEO_CONAN
         after_success: true
 
