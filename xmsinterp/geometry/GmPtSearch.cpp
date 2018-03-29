@@ -1020,7 +1020,7 @@ void PtSearchUnitTests::testActivity3d()
   iPts->NearestPtsToPt(aPt, 4, true, foundPts);
   requiredPts = {0,  1,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 20, 21, 22,
                  23, 24, 28, 29, 30, 31, 32, 36, 37, 38, 39, 41, 42, 43};
-  optionalPts = {13, 25, 33, 34};
+  optionalPts = {13, 14, 25, 33, 34};
   std::sort(foundPts.begin(), foundPts.end());
   TS_ASSERT_EQUALS(31, foundPts.size());
   TS_ASSERT_POINTS_FOUND(requiredPts, optionalPts, foundPts);
