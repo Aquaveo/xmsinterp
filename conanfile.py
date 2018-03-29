@@ -12,7 +12,7 @@ class XmsinterpConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
     build_requires = "cxxtest/4.4@aquaveo/stable"
-    requires = "boost/1.66.0@conan/stable", "xmscore/[>=1.0.7,<1.1.0]@aquaveo/stable"
+    requires = "boost/1.66.0@conan/stable", "xmscore/[>=1.0.8,<1.1.0]@aquaveo/stable"
     exports = "CMakeLists.txt", "LICENSE"
     exports_sources = "xmsinterp/*"
 
