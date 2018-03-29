@@ -11,6 +11,7 @@ class XmsinterpConan(ConanFile):
     description = "Interpolation library for XMS products"
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
+    build_requires = "cxxtest/4.4@aquaveo/stable"
     requires = "boost/1.66.0@conan/stable", "xmscore/[>=1.0.7,<1.1.0]@aquaveo/stable"
     exports = "CMakeLists.txt", "LICENSE"
     exports_sources = "xmsinterp/*"
@@ -32,6 +33,7 @@ class XmsinterpConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
+        cmake.definitions["BUILD_TESTING"] = 1
         cmake.configure(source_folder=".")
         cmake.build()
 
