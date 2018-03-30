@@ -1,4 +1,4 @@
-
+@echo on
 mkdir x86\release
 cd x86\release
 conan install ..\..\.. -s compiler="Visual Studio" -s arch="x86" -s arch_build="x86" -s compiler.version="12" -s build_type="Release"
