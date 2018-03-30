@@ -31,3 +31,8 @@ noted.
 ```
     make
 ```
+
+Documentation
+-------------
+
+See: [xmsinterp documentation](https://aquaveo.github.io/xmsinterp/)
