@@ -10,9 +10,10 @@ class XmsinterpConan(ConanFile):
     url = "https://github.com/Aquaveo/xmsinterp"
     description = "Interpolation library for XMS products"
     settings = "os", "compiler", "build_type", "arch"
+    options = {"xms": [True, False]}
+    default_options = "xms=False"
     generators = "cmake"
     build_requires = "cxxtest/4.4@aquaveo/stable"
-    requires = "boost/1.66.0@conan/stable", "xmscore/[>=1.0.8,<1.1.0]@aquaveo/stable"
     exports = "CMakeLists.txt", "LICENSE"
     exports_sources = "xmsinterp/*"
 
@@ -25,14 +26,28 @@ class XmsinterpConan(ConanFile):
         s_compiler = self.settings.compiler
         s_compiler_version = self.settings.compiler.version
 
+        self.options['xmscore'].xms = self.options.xms
+
         if s_compiler == "clang" and s_os == 'Linux':
             raise ConanException("Clang on Linux is not supported.")
 
         if s_compiler == "clang" and s_os == 'Darwin' and s_compiler_version < "9.0":
             raise ConanException("Clang > 9.0 is required for Mac.")
 
+    def requirements(self):
+
+        requires = "boost/1.66.0@conan/stable", "xmscore/[>=1.0.13,<1.1.0]@aquaveo/stable"
+        if self.options.xms:
+            self.requires("boost/1.60.0@aquaveo/testing")
+            self.requires("xmscore/[>=1.0.13,<1.1.0]@aquaveo/stable")
+        else:
+            self.requires("boost/1.66.0@conan/stable")
+            self.requires("xmscore/[>=1.0.13,<1.1.0]@aquaveo/stable")
+
     def build(self):
         cmake = CMake(self)
+        if self.settings.compiler == 'Visual Studio':
+            cmake.definitions["XMS_BUILD"] = self.options.xms
         cmake.definitions["BUILD_TESTING"] = 1
         cmake.configure(source_folder=".")
         cmake.build()
