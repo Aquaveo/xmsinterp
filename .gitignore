@@ -1,10 +1,14 @@
 # Misc
-.*.swp
 *.DS_STORE
 *~
 *.pyc
 build/
 test_package/build/
+
+# IDE Files
+.*.swp
+*.swo
+.lvimrc
 .idea
 
 # Prerequisites
