@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"class_gm_multi_poly_intersector_unit_tests.html#af54ca54fb1ec6a2495e9fb0fb127aaa3":[3,0,5,32],
+"class_gm_multi_poly_intersector_unit_tests.html#af82efa33125fcbf89662cf346daa4bcf":[3,0,5,4],
 "class_gm_point_in_poly_tester___gm_polygon.html":[3,0,7],
 "class_gm_point_in_poly_tester___gm_polygon.html#a55c128adfb44a4c87abd9f00a9ebd806":[3,0,7,4],
 "class_gm_point_in_poly_tester___gm_polygon.html#a6266bdf8e4c1276bda6063a2c419576c":[3,0,7,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "classxms_1_1_gm_pt_search_impl.html#a025de6d0fd6c227670e92acef587bfb1":[3,0,0,14,15],
 "classxms_1_1_gm_pt_search_impl.html#a106b0a5f562d15608e27969a8fed1f5b":[3,0,0,14,6],
 "classxms_1_1_gm_pt_search_impl.html#a2d87fb7faa5dc23ad3cb7a2a5fd3c451":[3,0,0,14,21],
-"classxms_1_1_gm_pt_search_impl.html#a412dbf1256bcb8d0666aa1a493737350":[3,0,0,14,22],
-"classxms_1_1_gm_pt_search_impl.html#a4b7acbdee40b84ef7d8f4b695a04ce4f":[3,0,0,14,14],
-"classxms_1_1_gm_pt_search_impl.html#a4d1a3ea0ffb1a2ca48d8d5e00146e750":[3,0,0,14,19]
+"classxms_1_1_gm_pt_search_impl.html#a412dbf1256bcb8d0666aa1a493737350":[3,0,0,14,22]
 };

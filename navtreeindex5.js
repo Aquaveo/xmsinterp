@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"md__interpolation__tutorial.html#Example_IDW":[2,0,1],
+"md__interpolation__tutorial.html#Example_Linear":[2,0,2],
 "md__interpolation__tutorial.html#Example_NatNeigh":[2,0,3],
 "md__interpolation__tutorial.html#Interpolation_Tutorial":[2,0],
 "md__interpolation__tutorial.html#Intro_Interpolation":[2,0,0],

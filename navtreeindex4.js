@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"functions_enum.html":[3,2,4],
+"functions_f.html":[3,2,0,5],
 "functions_func.html":[3,2,1,0],
 "functions_func.html":[3,2,1],
 "functions_func_b.html":[3,2,1,1],
@@ -204,8 +206,8 @@ var NAVTREEINDEX4 =
 "globals_defs.html":[4,1,2],
 "globals_func.html":[4,1,1],
 "hierarchy.html":[3,1],
-"index.html":[1],
 "index.html":[],
+"index.html":[1],
 "index.html#XmsinterpFeatures":[0,2],
 "index.html#XmsinterpInterfacePattern":[0,4,1],
 "index.html#XmsinterpIntroduction":[0,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "matrix_8h.html#aeed277bbc30a62f34e143baf5e6b04d4":[4,0,0,2,1,10],
 "matrix_8h.html#af4f904018cc928a778a7167b13fee704":[4,0,0,2,1,5],
 "matrix_8h_source.html":[4,0,0,2,1],
-"md__interpolation__tutorial.html":[2],
-"md__interpolation__tutorial.html#Example_IDW":[2,0,1],
-"md__interpolation__tutorial.html#Example_Linear":[2,0,2]
+"md__interpolation__tutorial.html":[2]
 };

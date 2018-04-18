@@ -14,9 +14,7 @@ var dir_078a237877d04a472ae71a8c0b6a128b =
     [ "InterpLinear.cpp", "_interp_linear_8cpp.html", [
       [ "InterpLinearImpl", "classxms_1_1_interp_linear_impl.html", "classxms_1_1_interp_linear_impl" ]
     ] ],
-    [ "InterpLinear.h", "_interp_linear_8h.html", [
-      [ "InterpLinear", "classxms_1_1_interp_linear.html", "classxms_1_1_interp_linear" ]
-    ] ],
+    [ "InterpLinear.h", "_interp_linear_8h.html", "_interp_linear_8h" ],
     [ "InterpLinear.t.h", "_interp_linear_8t_8h.html", [
       [ "InterpLinearUnitTests", "class_interp_linear_unit_tests.html", "class_interp_linear_unit_tests" ]
     ] ],
