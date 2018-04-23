@@ -130,8 +130,10 @@ public:
   virtual void TrisToSearch(BSHP<std::vector<Pt3d>> a_pts, BSHP<std::vector<int>> a_tris) override;
   virtual void SetPtActivity(DynBitset& a_activity) override;
   virtual void SetTriActivity(DynBitset& a_activity) override;
+  //------------------------------------------------------------------------------
   /// \brief Activity of the points based on the triangle activity
   /// \return boost::dynamic_bitset of size_t
+  //------------------------------------------------------------------------------
   virtual DynBitset GetPtActivity() override { return PointActivityFromTriActivity(); }
   bool ActiveTri(int a_idx);
   virtual int TriContainingPt(const Pt3d& a_pt) override;
@@ -412,7 +414,7 @@ void GmTriSearchImpl::TriEnvelopesOverlap(const Pt3d& a_pMin, const Pt3d& a_pMax
 } // GmTriSearchImpl::TriContainingPt
 //------------------------------------------------------------------------------
 /// \brief Use the stored triangles to get interpolation weights for a point.
-/// Returns false if the point is outside the triangles.
+/// \return  false if the point is outside the triangles.
 /// \param a_pt Location that is interpolated to.
 /// \param a_idxs Vector of triangle point indices filled in by this method.
 /// \param a_wts Vector of triangle point weights filled in by this method.

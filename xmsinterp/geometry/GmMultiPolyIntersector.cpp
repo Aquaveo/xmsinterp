@@ -1801,6 +1801,9 @@ void GmMultiPolyIntersectorUnitTests::testSmsCase1()
 /// \return CxxTest::TestGroup reference.
 //------------------------------------------------------------------------------
 #ifndef CXXTEST4
+//------------------------------------------------------------------------------
+/// \brief
+//------------------------------------------------------------------------------
 const CxxTest::TestGroup& GmMultiPolyIntersector2IntermediateTests::group()
 {
   return *CxxTest::TestGroup::GetGroup(CxxTest::TG_INTERMEDIATE);

@@ -786,15 +786,15 @@ void GmPolygonUnitTests::testUnion()
   base = out2;
   TS_ASSERT_DELTA_VECPT3D(base, outputPts, tol);
 } // GmPolygonUnitTests::testUnion
-////////////////////////////////////////////////////////////////////////////////
-/// \brief
-////////////////////////////////////////////////////////////////////////////////
 //------------------------------------------------------------------------------
 /// \brief Returns the test group.
 /// \return CxxTest::TestGroup reference.
 //------------------------------------------------------------------------------
 // virtual
 #ifndef CXXTEST4
+//------------------------------------------------------------------------------
+/// \brief
+//------------------------------------------------------------------------------
 const CxxTest::TestGroup& GmPolygonIntermediateTests::group()
 {
   return *CxxTest::TestGroup::GetGroup(CxxTest::TG_INTERMEDIATE);

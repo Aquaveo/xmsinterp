@@ -663,7 +663,6 @@ double gmAngleBetweenEdges(const Pt2d& p1, const Pt2d& p2, const Pt2d& p3)
 /// \param[in] a_p1: 2nd point on 1st segment and 1st point on second segment.
 /// \param[in] a_p2: 2nd point on 2nd segment.
 /// \return  Returns value between 0 and PI.
-///          note: magnitude zero would cause problem - return PI in this case
 ///             returning PI would indicate that there could be discontinuity
 ///                 this is a streamlined version of gmAngleBetweenEdges that function
 ///             - computes a directed internal difference
@@ -699,7 +698,6 @@ double gmComputeDeviationInDirection(const Pt3d& a_p0, const Pt3d& a_p1, const P
 /// \param tol: tolerance for geometric comparison
 /// \return  Returns true if the Point is on the line passing through p1 and p2
 ///          within the tolerance passed.
-///          note: you should always be careful to consider the case when p1 and
 ///          p2 are very close to each other but not to x,y.  in that case this
 ///          test will almost always fail because it will be more susceptible to
 ///          roundoff error.  if you need to know if three points are colinear
@@ -2398,6 +2396,9 @@ void GeomsXmsngUnitTests::test_gmPointInPolygon2D_Speed()
 /// \return CxxTest::TestGroup reference.
 //------------------------------------------------------------------------------
 #ifndef CXXTEST4
+//------------------------------------------------------------------------------
+/// \brief
+//------------------------------------------------------------------------------
 const CxxTest::TestGroup& GeomsXmsngIntermediateTests::group()
 {
   return *CxxTest::TestGroup::GetGroup(CxxTest::TG_INTERMEDIATE);

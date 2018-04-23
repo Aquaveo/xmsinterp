@@ -58,8 +58,10 @@ public:
 
 public:
   virtual void Delete(const VecInt2d& a_polys, BSHP<TrTin> a_tin) override;
+  //------------------------------------------------------------------------------
   /// \brief Set the observer to use for feedback while processing.
   /// \param a_: The obserer.
+  //------------------------------------------------------------------------------
   virtual void SetObserver(BSHP<Observer> a_) override { m_observer = a_; }
 
 private:

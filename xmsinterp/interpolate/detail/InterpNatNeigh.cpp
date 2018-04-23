@@ -661,6 +661,9 @@ double InterpNatNeighImpl::ScalarFromWeights(std::map<int, double>& a_weights,
 
 namespace
 {
+//------------------------------------------------------------------------------
+/// \brief
+//------------------------------------------------------------------------------
 static void iGetPtsTris(std::vector<xms::Pt3d>& a_pts,
                         std::vector<int>& a_tris,
                         std::vector<float>& a_scalar)

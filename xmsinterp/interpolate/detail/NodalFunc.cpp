@@ -83,6 +83,9 @@ public:
     VecDbl m_w;    ///< weight for each point
   private:
     /// \brief Calculates the nodal function in this thread
+    //------------------------------------------------------------------------------
+    /// \brief
+    //------------------------------------------------------------------------------
     void Worker() override
     {
       if (m_nf->m_errorReport)

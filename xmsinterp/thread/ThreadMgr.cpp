@@ -61,12 +61,20 @@ public:
   {
   }
 
-  /// \param a_: ThreadLoop.
+  //------------------------------------------------------------------------------
+  /// \brief
+  //------------------------------------------------------------------------------
   void SetThreadLoopClass(BSHP<ThreadLoop> a_) override { m_threader = a_; }
+  //------------------------------------------------------------------------------
   /// \param a_nThreads: number of threads.
+  /// \brief
+  //------------------------------------------------------------------------------
   void ExplicitlySetNumThreads(int a_nThreads) override { m_nThread = a_nThreads; }
   void RunThreads(int a_nIter) override;
+  //------------------------------------------------------------------------------
   /// \param a_prog: An observer
+  /// \brief
+  //------------------------------------------------------------------------------
   void SetObserver(BSHP<Observer> a_prog) override { m_prog = a_prog; }
   std::vector<BSHP<ThreadLoop>> Threads();
 

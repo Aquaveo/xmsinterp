@@ -58,6 +58,9 @@ namespace xms
 /// \return CxxTest::TestGroup reference.
 //------------------------------------------------------------------------------
 #ifndef CXXTEST4
+//------------------------------------------------------------------------------
+/// \brief
+//------------------------------------------------------------------------------
 const CxxTest::TestGroup& TutInterpolationIntermediateTests::group()
 {
   // return CxxTest::TestSuite::group();

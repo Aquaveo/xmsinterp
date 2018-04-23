@@ -77,7 +77,9 @@ public:
     }
 
   private:
+    //------------------------------------------------------------------------------
     /// \brief Actually does the interpolation in a thread
+    //------------------------------------------------------------------------------
     void Worker() override
     {
       int i = (int)CurrIdx();
@@ -95,21 +97,26 @@ public:
   virtual void InterpToPts(const std::vector<Pt3d>& a_pts, std::vector<float>& a_scalars);
   virtual void SetPtActivity(DynBitset& a_activity);
   /// \brief Sets triangle activity. Ignored by IDW.
+  //------------------------------------------------------------------------------
+  /// \brief
+  //------------------------------------------------------------------------------
   virtual void SetTriActivity(DynBitset&) {}
   virtual BSHP<std::vector<Pt3d>> GetPts();
   virtual BSHP<std::vector<int>> GetTris();
   virtual void SetTrunc(double a_sMax, double a_sMin) override;
-
+  //------------------------------------------------------------------------------
   /// \brief sets a flag to save the weights computed by the interpolation
   /// \param[in] a_ flag: true will save weights and false will no
+  //------------------------------------------------------------------------------
   virtual void SetSaveWeights(bool a_) override { m_saveWeights = a_; }
   virtual void InterpWeights(const Pt3d& a_pt,
                              std::vector<int>& a_idx,
                              std::vector<double>& a_wt) const;
-
+  //------------------------------------------------------------------------------
   /// \brief sets a flag to use (or not) multi-threading when interpolating
   /// \param[in] a_ flag: true will use multi-threading and false will not.
   /// The default setting for the class is to use multi-threading.
+  //------------------------------------------------------------------------------
   virtual void SetMultiThreading(bool a_) override { m_multiThread = a_; }
 
   virtual std::string ToString() const override;
@@ -122,9 +129,11 @@ public:
   void RecalcNodalFunc();
   void SetSearchOpts(int a_nNearestPoints, bool a_quad_oct_Search) override;
   float InterpToPt(const Pt3d& a_pt, int a_idx) const;
+  //------------------------------------------------------------------------------
   /// \brief Set the observer class so that feedback on the interpolation
   /// process can be received.
   /// \param a_prog: The observer.
+  //------------------------------------------------------------------------------
   void SetObserver(BSHP<Observer> a_prog) override { m_prog = a_prog; }
 
   void ValFromWeights(std::vector<double>& a_w,

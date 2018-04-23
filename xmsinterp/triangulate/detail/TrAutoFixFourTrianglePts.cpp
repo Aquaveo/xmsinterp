@@ -47,11 +47,15 @@ public:
 
 public:
   virtual void Fix(BSHP<TrTin> a_tin) override;
+  //------------------------------------------------------------------------------
   /// \brief Set the observer to use for feedback while processing.
   /// \param a_: The observer.
+  //------------------------------------------------------------------------------
   virtual void SetObserver(BSHP<Observer> a_) override { m_observer = a_; }
+  //------------------------------------------------------------------------------
   /// \brief Set the indexes of points that can not be deleted
   /// \param[in] a_ptIdx : The indexes of points that can't be deleted
+  //------------------------------------------------------------------------------
   virtual void SetUndeleteablePtIdxs(VecInt& a_ptIdx) override
   {
     m_noDelete.clear();

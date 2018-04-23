@@ -62,9 +62,10 @@ class TrBreaklineAdderImpl : public TrBreaklineAdder
 public:
   TrBreaklineAdderImpl();
   virtual ~TrBreaklineAdderImpl();
-
+  //------------------------------------------------------------------------------
   /// \brief Set the observer to use for feedback while processing.
   /// \param a_: The observer.
+  //------------------------------------------------------------------------------
   virtual void SetObserver(BSHP<Observer> a_) override { m_observer = a_; }
   virtual void SetTin(BSHP<TrTin> a_tin, double a_tol = -1) override;
   virtual void AddBreakline(const VecInt& a_breakline) override;

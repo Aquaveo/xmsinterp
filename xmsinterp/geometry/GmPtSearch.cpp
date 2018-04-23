@@ -61,6 +61,9 @@ public:
   , z(a_.z)
   {
   }
+  //------------------------------------------------------------------------------
+  /// \brief
+  //------------------------------------------------------------------------------
   bPt& operator=(const xms::Pt3d a_)
   {
     x = a_.x;
@@ -203,7 +206,6 @@ public:
 
   virtual void SetActivity(DynBitset& a_activity);
   virtual DynBitset GetActivity() override;
-
   /// \brief Returns shared point to the point locations in the RTree
   /// \return VecPt3d.
   virtual const BSHP<VecPt3d> GetPointsPtr() const override { return m_bshpPt3d; }
