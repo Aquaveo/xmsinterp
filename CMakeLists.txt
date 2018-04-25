@@ -19,12 +19,13 @@ endif()
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup(TARGETS)
 
+include_directories(/home/nswain/miniconda3/envs/pybind11/include/python3.6m) # TODO: GENERALIZE THIS
+include_directories(/home/nswain/.local/include/python3.6m) # TODO: GENERALIZE THIS
 include_directories(${CMAKE_CURRENT_LIST_DIR})
 include_directories(${CONAN_INCLUDE_DIRS})
 link_directories(${CONAN_LIB_DIRS})
 
-
-
+# Static library sources
 set(xmsinterp_sources
   xmsinterp/geometry/geoms.cpp
   xmsinterp/geometry/GmExtents.cpp
@@ -88,56 +89,96 @@ set(xmsinterp_headers
   xmsinterp/triangulate/detail/TrOuterTriangleDeleter.h
 )
 
+# Pybind11 sources
+set(xmsinterp_py
+  xmsinterp/python/xmsinterp_py.cpp
+  xmsinterp/python/interpolate/interpolate_py.h
+  xmsinterp/python/interpolate/InterpLinear_py.cpp
+)
+
+# Tests
 if (BUILD_TESTING)
-  add_definitions(-DCXX_TEST -DCXXTEST4)
+ add_definitions(-DCXX_TEST -DCXXTEST4)
 
-  list(APPEND xmsinterp_sources
-    xmsinterp/geometry/geoms.t.h
-    xmsinterp/geometry/GmExtents.t.h
-    xmsinterp/geometry/GmMultiPolyIntersector.t.h
-    xmsinterp/geometry/GmPolygon.t.h
-    xmsinterp/geometry/GmPolyLinePtRedistributer.t.h
-    xmsinterp/geometry/GmPtSearch.t.h
-    xmsinterp/geometry/GmTriSearch.t.h
-    xmsinterp/interpolate/InterpIdw.t.h
-    xmsinterp/interpolate/InterpLinear.t.h
-    xmsinterp/interpolate/detail/InterpNatNeigh.t.h
-    xmsinterp/interpolate/detail/NodalFunc.t.h
-    xmsinterp/triangulate/TrBreaklineAdder.t.h
-    xmsinterp/triangulate/TrTin.t.h
-    xmsinterp/triangulate/TrTriangulatorPoints.t.h
-    xmsinterp/triangulate/detail/TrAutoFixFourTrianglePts.t.h
-    xmsinterp/triangulate/detail/TrOuterTriangleDeleter.t.h
-    xmsinterp/tutorial/TutInterpolation.t.h
-  )
+ list(APPEND xmsinterp_sources
+   xmsinterp/geometry/geoms.t.h
+   xmsinterp/geometry/GmExtents.t.h
+   xmsinterp/geometry/GmMultiPolyIntersector.t.h
+   xmsinterp/geometry/GmPolygon.t.h
+   xmsinterp/geometry/GmPolyLinePtRedistributer.t.h
+   xmsinterp/geometry/GmPtSearch.t.h
+   xmsinterp/geometry/GmTriSearch.t.h
+   xmsinterp/interpolate/InterpIdw.t.h
+   xmsinterp/interpolate/InterpLinear.t.h
+   xmsinterp/interpolate/detail/InterpNatNeigh.t.h
+   xmsinterp/interpolate/detail/NodalFunc.t.h
+   xmsinterp/triangulate/TrBreaklineAdder.t.h
+   xmsinterp/triangulate/TrTin.t.h
+   xmsinterp/triangulate/TrTriangulatorPoints.t.h
+   xmsinterp/triangulate/detail/TrAutoFixFourTrianglePts.t.h
+   xmsinterp/triangulate/detail/TrOuterTriangleDeleter.t.h
+   xmsinterp/tutorial/TutInterpolation.t.h
+ )
 
-  find_package(CxxTest)
-  if(CXXTEST_FOUND)
-    include_directories(${CXXTEST_INCLUDE_DIR})
-    enable_testing()
+ find_package(CxxTest)
+ if(CXXTEST_FOUND)
+   include_directories(${CXXTEST_INCLUDE_DIR})
+   enable_testing()
 
-    set(CXXTEST_TESTGEN_ARGS --xunit-printer --have-eh)
-    file(GLOB_RECURSE test_headers ${CMAKE_CURRENT_LIST_DIR}/xmsinterp/*.t.h)
-    CXXTEST_ADD_TEST(
-      runner runner.cpp ${test_headers}
-    )
-    target_link_libraries(runner ${PROJECT_NAME})
-  endif()
+   set(CXXTEST_TESTGEN_ARGS --xunit-printer --have-eh)
+   file(GLOB_RECURSE test_headers ${CMAKE_CURRENT_LIST_DIR}/xmsinterp/*.t.h)
+   CXXTEST_ADD_TEST(
+     runner runner.cpp ${test_headers}
+   )
+   target_link_libraries(runner ${PROJECT_NAME})
+ endif()
 endif ()
 
+# Static library
 add_library(${PROJECT_NAME} STATIC
-  ${xmsinterp_sources} ${xmsinterp_headers})
+  ${xmsinterp_sources} ${xmsinterp_headers}
+)
 target_include_directories(${PROJECT_NAME}
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}>
     $<INSTALL_INTERFACE:include/>
-    ${Boost_INCLUDE_DIR})
+    ${Boost_INCLUDE_DIR}
+ )
 find_package(Threads REQUIRED)
-target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS})
+target_link_libraries(${PROJECT_NAME}
+  ${CONAN_LIBS}
+)
 target_link_libraries(${PROJECT_NAME}
   ${CMAKE_THREAD_LIBS_INIT}
 )
+set_target_properties(${PROJECT_NAME} PROPERTIES
+  CXX_STANDARD 11
+)
+if(NOT WIN32)
+  set_target_properties(${PROJECT_NAME} PROPERTIES
+    COMPILE_FLAGS "-fPIC"
+  )
+endif()
 
+# Pybind11 module
+add_subdirectory(${CONAN_BUILD_DIRS_PYBIND11}/src
+  ${CMAKE_CURRENT_BINARY_DIR}/build/pybind11
+)
+pybind11_add_module(xmsinterp_py
+  ${xmsinterp_py}
+)
+target_link_libraries(xmsinterp_py
+  PRIVATE
+    ${CONAN_LIBS}
+    ${PROJECT_NAME}
+)
+set_target_properties(xmsinterp_py PROPERTIES
+  LINKER_LANGUAGE CXX
+  CXX_STANDARD 11
+)
+
+
+# Install recipe
 install(
   TARGETS ${PROJECT_NAME}
   ARCHIVE DESTINATION lib
@@ -151,3 +192,5 @@ foreach (header IN LISTS xmsinterp_headers)
     DESTINATION "include/xmsinterp/${subdir}"
   )
 endforeach ()
+
+

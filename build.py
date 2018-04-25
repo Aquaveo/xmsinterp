@@ -16,6 +16,7 @@ if __name__ == "__main__":
         env_vars.update({
             'XMS_VERSION': xms_version,
             'XMS_RUN_TESTS': xms_run_tests,
+            'VERBOSE': 1
         })
 
         # Require c++11 compatibility

@@ -19,14 +19,11 @@
 #include <xmsinterp/interpolate/InterpBase.h>
 #include <xmscore/misc/base_macros.h>
 #include <xmscore/misc/boost_defines.h>
-#include <pybind11/pybind11.h>
-namespace py = pybind11;
+
+
 //----- Forward declarations ---------------------------------------------------
 
 //----- Namespace declaration --------------------------------------------------
-
-PYBIND11_DECLARE_HOLDER_TYPE(T, BSHP<T>);
-
 namespace xms
 {
 class Observer;
@@ -42,6 +39,7 @@ class InterpLinear : public InterpBase
 {
 public:
   static BSHP<InterpLinear> New();
+  virtual ~InterpLinear();
 
   /// \cond
   virtual void SetPtsTris(BSHP<std::vector<Pt3d>> a_, BSHP<std::vector<int>> a_tris) override = 0;
@@ -84,18 +82,7 @@ private:
 
 protected:
   InterpLinear();
-  virtual ~InterpLinear();
 }; // class InterpLinear
-
-
-PYBIND11_MODULE(example, m) {
-    m.doc() = "InterpLinear"; // optional module docstring
-    py::class_<InterpLinear, std::unique_ptr<InterpLinear, py::nodelete>>(m, "InterpLinear")
-        .def(py::init(&InterpLinear::New))
-        .def("to_string", &InterpLinear::ToString);
-
-}
-
 
 //----- Function prototypes ----------------------------------------------------
 }
