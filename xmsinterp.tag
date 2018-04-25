@@ -430,6 +430,24 @@
     <filename>matrix_8h</filename>
   </compound>
   <compound kind="file">
+    <name>InterpLinear_py.cpp</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
+    <filename>_interp_linear__py_8cpp</filename>
+    <includes id="_interp_linear_8h" name="InterpLinear.h" local="no" imported="no">xmsinterp/interpolate/InterpLinear.h</includes>
+    <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>interpolate_py.h</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
+    <filename>interpolate__py_8h</filename>
+  </compound>
+  <compound kind="file">
+    <name>xmsinterp_py.cpp</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/</path>
+    <filename>xmsinterp__py_8cpp</filename>
+    <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
+  </compound>
+  <compound kind="file">
     <name>ThreadLoop.cpp</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/thread/</path>
     <filename>_thread_loop_8cpp</filename>
@@ -5957,6 +5975,13 @@
     <file>GmTriSearch.t.h</file>
   </compound>
   <compound kind="dir">
+    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
+    <filename>dir_891e27cd1483828d783aecbc58ac2c70.html</filename>
+    <file>InterpLinear_py.cpp</file>
+    <file>interpolate_py.h</file>
+  </compound>
+  <compound kind="dir">
     <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/</path>
     <filename>dir_078a237877d04a472ae71a8c0b6a128b.html</filename>
@@ -5979,6 +6004,13 @@
     <filename>dir_8b8bc0146c835c938db011b4ee736969.html</filename>
     <file>matrix.cpp</file>
     <file>matrix.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/</path>
+    <filename>dir_53cfb6cd0b472f339d101e3e1947d282.html</filename>
+    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate</dir>
+    <file>xmsinterp_py.cpp</file>
   </compound>
   <compound kind="dir">
     <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/thread</name>
@@ -6022,6 +6054,7 @@
     <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry</dir>
     <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate</dir>
     <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/matrices</dir>
+    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python</dir>
     <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/thread</dir>
     <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate</dir>
     <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/tutorial</dir>
