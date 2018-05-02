@@ -1,11 +1,12 @@
-set (CMAKE_CXX_STANDARD 11)
 cmake_minimum_required(VERSION 3.1.2)
 cmake_policy(SET CMP0015 NEW) # Link Directory Pathing
 set(CMAKE_DEBUG_POSTFIX _d)
 
 set(BUILD_TESTING NO CACHE BOOL "Enable/Disable testing")
+set(IS_CONDA_BUILD NO CACHE BOOL "Set this if you want to make a conda package.")
+set(IS_PYTHON_BUILD NO CACHE BOOL "Set this if you want to build the python bindings.")
 
-project(xmsinterp)
+project(xmsinterp C CXX)
 
 if(WIN32)
     if(XMS_BUILD)
@@ -16,14 +17,30 @@ if(WIN32)
     endif()
 endif()
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup(TARGETS)
+if(IS_CONDA_BUILD)
+  include(${CMAKE_CURRENT_LIST_DIR}/condabuildinfo.cmake)
+  if(CMAKE_COMPILER_IS_GNUCXX)
+    add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
+  endif()
+else() # If we are not using conda, we are using conan
+  # C++11 Support
+  set (CMAKE_CXX_STANDARD 11)
 
-include_directories(/home/nswain/miniconda3/envs/pybind11/include/python3.6m) # TODO: GENERALIZE THIS
-include_directories(/home/nswain/.local/include/python3.6m) # TODO: GENERALIZE THIS
+  # Conan setup
+  include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+  conan_basic_setup(TARGETS)
+  set(EXT_INCLUDE_DIRS ${CONAN_INCLUDE_DIRS})
+  set(EXT_LIB_DIRS ${CONAN_LIB_DIRS})
+  set(EXT_LIBS ${CONAN_LIBS})
+endif(IS_CONDA_BUILD)
+
+message("External Include Dirs: ${EXT_INCLUDE_DIRS}")
+message("External Lib Dirs: ${EXT_LIB_DIRS}")
+message("Extneral Libs: ${EXT_LIBS}")
+
 include_directories(${CMAKE_CURRENT_LIST_DIR})
-include_directories(${CONAN_INCLUDE_DIRS})
-link_directories(${CONAN_LIB_DIRS})
+include_directories(${EXT_INCLUDE_DIRS})
+link_directories(${EXT_LIB_DIRS})
 
 # Static library sources
 set(xmsinterp_sources
@@ -131,6 +148,13 @@ if (BUILD_TESTING)
      runner runner.cpp ${test_headers}
    )
    target_link_libraries(runner ${PROJECT_NAME})
+   install(
+    FILES "${CMAKE_BINARY_DIR}/runner"
+    DESTINATION "bin"
+    PERMISSIONS OWNER_EXECUTE GROUP_EXECUTE
+        OWNER_READ GROUP_READ
+        OWNER_WRITE GROUP_WRITE
+   )
  endif()
 endif ()
 
@@ -146,13 +170,10 @@ target_include_directories(${PROJECT_NAME}
  )
 find_package(Threads REQUIRED)
 target_link_libraries(${PROJECT_NAME}
-  ${CONAN_LIBS}
+  ${EXT_LIBS}
 )
 target_link_libraries(${PROJECT_NAME}
   ${CMAKE_THREAD_LIBS_INIT}
-)
-set_target_properties(${PROJECT_NAME} PROPERTIES
-  CXX_STANDARD 11
 )
 if(NOT WIN32)
   set_target_properties(${PROJECT_NAME} PROPERTIES
@@ -160,22 +181,23 @@ if(NOT WIN32)
   )
 endif()
 
-# Pybind11 module
-add_subdirectory(${CONAN_BUILD_DIRS_PYBIND11}/src
-  ${CMAKE_CURRENT_BINARY_DIR}/build/pybind11
-)
-pybind11_add_module(xmsinterp_py
-  ${xmsinterp_py}
-)
-target_link_libraries(xmsinterp_py
-  PRIVATE
-    ${CONAN_LIBS}
-    ${PROJECT_NAME}
-)
-set_target_properties(xmsinterp_py PROPERTIES
-  LINKER_LANGUAGE CXX
-  CXX_STANDARD 11
-)
+if(IS_PYTHON_BUILD)
+    #include_directories(/home/nswain/miniconda3/envs/pybind11/include/python3.6m) # TODO: GENERALIZE THIS
+    #include_directories(/home/nswain/.local/include/python3.6m) # TODO: GENERALIZE THIS
+
+    # Pybind11 module
+    pybind11_add_module(xmsinterp_py
+      ${xmsinterp_py}
+    )
+    target_link_libraries(xmsinterp_py
+      PRIVATE
+        ${EXT_LIBS}
+        ${PROJECT_NAME}
+    )
+    set_target_properties(xmsinterp_py PROPERTIES
+      LINKER_LANGUAGE CXX
+    )
+endif()
 
 
 # Install recipe
