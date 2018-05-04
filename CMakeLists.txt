@@ -1,3 +1,5 @@
+set(CMAKE_CXX_STANDARD 11)
+set(POSITION_INDEPENDENT_CODE True)
 cmake_minimum_required(VERSION 3.1.2)
 cmake_policy(SET CMP0015 NEW) # Link Directory Pathing
 set(CMAKE_DEBUG_POSTFIX _d)
@@ -20,13 +22,7 @@ endif()
 
 if(IS_CONDA_BUILD)
   include(${CMAKE_CURRENT_LIST_DIR}/condabuildinfo.cmake)
-  if(CMAKE_COMPILER_IS_GNUCXX)
-    add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
-  endif()
 else() # If we are not using conda, we are using conan
-  # C++11 Support
-  set (CMAKE_CXX_STANDARD 11)
-
   # Conan setup
   include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
   conan_basic_setup(TARGETS)
@@ -149,13 +145,6 @@ if (BUILD_TESTING)
      runner runner.cpp ${test_headers}
    )
    target_link_libraries(runner ${PROJECT_NAME})
-#    install(
-#     FILES "${CMAKE_BINARY_DIR}/runner"
-#     DESTINATION "bin"
-#     PERMISSIONS OWNER_EXECUTE GROUP_EXECUTE
-#         OWNER_READ GROUP_READ
-#         OWNER_WRITE GROUP_WRITE
-#    )
  endif()
 endif ()
 
@@ -176,10 +165,8 @@ target_link_libraries(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
   ${CMAKE_THREAD_LIBS_INIT}
 )
-if(NOT WIN32)
-  set_target_properties(${PROJECT_NAME} PROPERTIES
-    COMPILE_FLAGS "-fPIC"
-  )
+if(UNIX AND NOT APPLE)
+    target_link_libraries(${PROJECT_NAME} rt)
 endif()
 
 if(IS_PYTHON_BUILD)
