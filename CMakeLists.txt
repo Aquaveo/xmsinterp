@@ -4,6 +4,7 @@ set(CMAKE_DEBUG_POSTFIX _d)
 
 set(BUILD_TESTING NO CACHE BOOL "Enable/Disable testing")
 set(IS_CONDA_BUILD NO CACHE BOOL "Set this if you want to make a conda package.")
+set(CONDA_PREFIX "" CACHE PATH "Path to the conda environment used to build.")
 set(IS_PYTHON_BUILD NO CACHE BOOL "Set this if you want to build the python bindings.")
 
 project(xmsinterp C CXX)
@@ -148,13 +149,13 @@ if (BUILD_TESTING)
      runner runner.cpp ${test_headers}
    )
    target_link_libraries(runner ${PROJECT_NAME})
-   install(
-    FILES "${CMAKE_BINARY_DIR}/runner"
-    DESTINATION "bin"
-    PERMISSIONS OWNER_EXECUTE GROUP_EXECUTE
-        OWNER_READ GROUP_READ
-        OWNER_WRITE GROUP_WRITE
-   )
+#    install(
+#     FILES "${CMAKE_BINARY_DIR}/runner"
+#     DESTINATION "bin"
+#     PERMISSIONS OWNER_EXECUTE GROUP_EXECUTE
+#         OWNER_READ GROUP_READ
+#         OWNER_WRITE GROUP_WRITE
+#    )
  endif()
 endif ()
 
@@ -182,12 +183,27 @@ if(NOT WIN32)
 endif()
 
 if(IS_PYTHON_BUILD)
-    #include_directories(/home/nswain/miniconda3/envs/pybind11/include/python3.6m) # TODO: GENERALIZE THIS
-    #include_directories(/home/nswain/.local/include/python3.6m) # TODO: GENERALIZE THIS
+    find_package(PythonLibs REQUIRED)
+    message("PYTHON_INCLUDE: ${PYTHON_INCLUDE_DIRS}")
+    message("PYTHON_LIBS: ${PYTHON_LIBRARIES}")
 
     # Pybind11 module
+    if(IS_CONDA_BUILD)
+        include("${CONDA_PREFIX}/share/cmake/pybind11/pybind11Targets.cmake")
+        include("${CONDA_PREFIX}/share/cmake/pybind11/FindPythonLibsNew.cmake")
+        include("${CONDA_PREFIX}/share/cmake/pybind11/pybind11Config.cmake")
+        include("${CONDA_PREFIX}/share/cmake/pybind11/pybind11ConfigVersion.cmake")
+        include("${CONDA_PREFIX}/share/cmake/pybind11/pybind11Tools.cmake")
+
+    else()
+        include("pybind11Tools.cmake") # TODO: Set this using conan variables...
+    endif()
     pybind11_add_module(xmsinterp_py
       ${xmsinterp_py}
+    )
+    target_include_directories(xmsinterp_py
+        PRIVATE
+          PYTHON_INCLUDE_DIRS
     )
     target_link_libraries(xmsinterp_py
       PRIVATE
@@ -205,13 +221,12 @@ install(
   TARGETS ${PROJECT_NAME}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
-  RUNTIME DESTINATION bin
 )
 foreach (header IN LISTS xmsinterp_headers)
   get_filename_component(subdir "${header}" DIRECTORY)
   install(
     FILES "${header}"
-    DESTINATION "include/xmsinterp/${subdir}"
+    DESTINATION "include/${subdir}"
   )
 endforeach ()
 
