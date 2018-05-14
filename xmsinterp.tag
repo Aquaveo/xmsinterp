@@ -437,6 +437,12 @@
     <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
   </compound>
   <compound kind="file">
+    <name>interpolate_py.cpp</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
+    <filename>interpolate__py_8cpp</filename>
+    <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
+  </compound>
+  <compound kind="file">
     <name>interpolate_py.h</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
     <filename>interpolate__py_8h</filename>
@@ -5979,6 +5985,7 @@
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
     <filename>dir_891e27cd1483828d783aecbc58ac2c70.html</filename>
     <file>InterpLinear_py.cpp</file>
+    <file>interpolate_py.cpp</file>
     <file>interpolate_py.h</file>
   </compound>
   <compound kind="dir">
@@ -6010,6 +6017,7 @@
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/</path>
     <filename>dir_53cfb6cd0b472f339d101e3e1947d282.html</filename>
     <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate</dir>
+    <file>cxxtest.cpp</file>
     <file>xmsinterp_py.cpp</file>
   </compound>
   <compound kind="dir">
