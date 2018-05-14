@@ -31,5 +31,5 @@ PYBIND11_MODULE(xmsinterp_py, m) {
 
     // Interpolate module
     py::module modInterpolate = m.def_submodule("interpolate");
-    initInterpLinear(modInterpolate);
+    initInterpolate(modInterpolate);
 }

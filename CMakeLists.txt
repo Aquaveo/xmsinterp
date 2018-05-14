@@ -106,7 +106,9 @@ set(xmsinterp_headers
 # Pybind11 sources
 set(xmsinterp_py
   xmsinterp/python/xmsinterp_py.cpp
+  xmsinterp/python/cxxtest.cpp
   xmsinterp/python/interpolate/interpolate_py.h
+  xmsinterp/python/interpolate/interpolate_py.cpp
   xmsinterp/python/interpolate/InterpLinear_py.cpp
 )
 
@@ -185,8 +187,9 @@ if(IS_PYTHON_BUILD)
     else()
         include("pybind11Tools.cmake") # TODO: Set this using conan variables...
     endif()
+
     pybind11_add_module(xmsinterp_py
-      ${xmsinterp_py}
+      ${xmsinterp_py} 
     )
     target_include_directories(xmsinterp_py
         PRIVATE
@@ -216,5 +219,7 @@ foreach (header IN LISTS xmsinterp_headers)
     DESTINATION "include/${subdir}"
   )
 endforeach ()
+
+
 
 
