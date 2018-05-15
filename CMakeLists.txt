@@ -204,11 +204,13 @@ if(IS_PYTHON_BUILD)
       LINKER_LANGUAGE CXX
     )
 
+    execute_process(COMMAND python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(True))" OUTPUT_VARIABLE PYTHON_SITE_PACKAGES OUTPUT_STRIP_TRAILING_WHITESPACE)
+
     # Install recipe
     install(
       TARGETS xmsinterp_py
-      ARCHIVE DESTINATION lib
-      LIBRARY DESTINATION lib
+      ARCHIVE DESTINATION ${PYTHON_SITE_PACKAGES}
+      LIBRARY DESTINATION ${PYTHON_SITE_PACKAGES}
     )
 
 endif()
