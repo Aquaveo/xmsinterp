@@ -43,7 +43,7 @@ class XmsinterpConan(ConanFile):
         else:
             self.requires("boost/1.66.0@conan/stable")
             self.requires("xmscore/1.0.14@aquaveo/stable")
-            self.requires("pybind11/2.2.2@aquaveo/stable")
+            # self.requires("pybind11/2.2.2@aquaveo/stable")
 
     def build(self):
         xms_run_tests = self.env.get('XMS_RUN_TESTS', None)
