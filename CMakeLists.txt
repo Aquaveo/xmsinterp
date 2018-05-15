@@ -203,6 +203,14 @@ if(IS_PYTHON_BUILD)
     set_target_properties(xmsinterp_py PROPERTIES
       LINKER_LANGUAGE CXX
     )
+
+    # Install recipe
+    install(
+      TARGETS xmsinterp_py
+      ARCHIVE DESTINATION lib
+      LIBRARY DESTINATION lib
+    )
+
 endif()
 
 
