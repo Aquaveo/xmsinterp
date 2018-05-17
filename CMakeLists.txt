@@ -109,6 +109,7 @@ set(xmsinterp_py
   xmsinterp/python/cxxtest.cpp
   xmsinterp/python/interpolate/interpolate_py.h
   xmsinterp/python/interpolate/interpolate_py.cpp
+  xmsinterp/python/interpolate/InterpIdw_py.cpp
   xmsinterp/python/interpolate/InterpLinear_py.cpp
 )
 
