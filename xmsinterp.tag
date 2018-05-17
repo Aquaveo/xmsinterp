@@ -430,6 +430,13 @@
     <filename>matrix_8h</filename>
   </compound>
   <compound kind="file">
+    <name>InterpIdw_py.cpp</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
+    <filename>_interp_idw__py_8cpp</filename>
+    <includes id="_interp_idw_8h" name="InterpIdw.h" local="no" imported="no">xmsinterp/interpolate/InterpIdw.h</includes>
+    <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
+  </compound>
+  <compound kind="file">
     <name>InterpLinear_py.cpp</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
     <filename>_interp_linear__py_8cpp</filename>
@@ -1833,6 +1840,57 @@
       <anchorfile>class_tut_interpolation_intermediate_tests.html</anchorfile>
       <anchor>a4016c266625b88129df8654a1d84df5d</anchor>
       <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>python::interpolate::InterpIdw_pyt</name>
+    <filename>namespacepython_1_1interpolate_1_1_interp_idw__pyt.html</filename>
+    <class kind="class">python::interpolate::InterpIdw_pyt::TestInterpIdw</class>
+  </compound>
+  <compound kind="class">
+    <name>python::interpolate::InterpIdw_pyt::TestInterpIdw</name>
+    <filename>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>setUp</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>ae537f6cae557c5c4afc2c544276284d4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_id_string_prop</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a4cccf1ef7754e8699efc07de3e963d01</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_to_string</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a1c635d29372f31da82c28cae7c88c695</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_pts_tris</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>aba1092c01905431e9cdcdf9ceee4c4db</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_interp_to_pt</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a75f26f4905e23e0f8815044e2a401079</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_tutorial</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a201ee30bd9d4398112270413b1afa8e9</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -6040,6 +6098,8 @@
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
     <filename>dir_891e27cd1483828d783aecbc58ac2c70.html</filename>
     <file>__init__.py</file>
+    <file>InterpIdw_py.cpp</file>
+    <file>InterpIdw_pyt.py</file>
     <file>InterpLinear_py.cpp</file>
     <file>InterpLinear_pyt.py</file>
     <file>interpolate_py.cpp</file>

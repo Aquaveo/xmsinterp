@@ -10,6 +10,5 @@ var classxms_1_1_interp_idw =
       [ "MODIFIED", "classxms_1_1_interp_idw.html#a75db3e802021d0171f8a8e0077d9d0fca329384ace01e6534cf594a210b743735", null ]
     ] ],
     [ "InterpIdw", "classxms_1_1_interp_idw.html#a4a3e66a3a072673a38ab47fd74618899", null ],
-    [ "~InterpIdw", "classxms_1_1_interp_idw.html#ac4decabe930f9ef4075e54e3f9e07e48", null ],
     [ "New", "classxms_1_1_interp_idw.html#ada220d36126708676e57d6b9eac2f3d7", null ]
 ];
