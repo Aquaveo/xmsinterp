@@ -177,13 +177,19 @@ $(document).ready(function(){initNavTree('_interp_idw__pyt_8py_source.html','');
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html#abb28b4469d6e7d8dc42859fd62dd7b56">interp_idw_obj</a></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        tris = ()</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        interp.set_pts_tris(pts, tris)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        val = interp.interp_to_pt((5, 5, 0))</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        self.assertEqual(1.5, val)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    unittest.main()</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        tris2 = (0, 1, 3, 1, 2, 3)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        interp.set_pts_tris(pts, tris)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        val = interp.interp_to_pt((5, 5, 0))</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        self.assertEqual(1.5, val)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        interp.set_pts_tris(pts, tris2)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        val2 = interp.interp_to_pt((5, 5, 0))</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        self.assertEqual(1.5, val2)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    unittest.main()</div>
 <div class="ttc" id="classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw_html_a201ee30bd9d4398112270413b1afa8e9"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html#a201ee30bd9d4398112270413b1afa8e9">python.interpolate.InterpIdw_pyt.TestInterpIdw.test_tutorial</a></div><div class="ttdeci">def test_tutorial</div><div class="ttdef"><b>Definition:</b> <a href="_interp_idw__pyt_8py_source.html#l00065">InterpIdw_pyt.py:65</a></div></div>
 <div class="ttc" id="classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw_html_abb28b4469d6e7d8dc42859fd62dd7b56"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html#abb28b4469d6e7d8dc42859fd62dd7b56">python.interpolate.InterpIdw_pyt.TestInterpIdw.interp_idw_obj</a></div><div class="ttdeci">interp_idw_obj</div><div class="ttdef"><b>Definition:</b> <a href="_interp_idw__pyt_8py_source.html#l00011">InterpIdw_pyt.py:11</a></div></div>
 <div class="ttc" id="classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw_html"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html">python.interpolate.InterpIdw_pyt.TestInterpIdw</a></div><div class="ttdef"><b>Definition:</b> <a href="_interp_idw__pyt_8py_source.html#l00006">InterpIdw_pyt.py:6</a></div></div>
@@ -198,7 +204,7 @@ $(document).ready(function(){initNavTree('_interp_idw__pyt_8py_source.html','');
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_53cfb6cd0b472f339d101e3e1947d282.html">python</a></li><li class="navelem"><a class="el" href="dir_891e27cd1483828d783aecbc58ac2c70.html">interpolate</a></li><li class="navelem"><b>InterpIdw_pyt.py</b></li>
-    <li class="footer">Generated on Thu May 17 2018 19:50:34 for xmsinterp by
+    <li class="footer">Generated on Thu May 17 2018 20:11:07 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
