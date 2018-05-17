@@ -67,9 +67,15 @@ class TestInterpIdw(unittest.TestCase):
         interp = self.interp_idw_obj
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = ()
+        tris2 = (0, 1, 3, 1, 2, 3)
+
         interp.set_pts_tris(pts, tris)
         val = interp.interp_to_pt((5, 5, 0))
         self.assertEqual(1.5, val)
+
+        interp.set_pts_tris(pts, tris2)
+        val2 = interp.interp_to_pt((5, 5, 0))
+        self.assertEqual(1.5, val2)
 
 
 if __name__ == '__main__':
