@@ -17,3 +17,4 @@ namespace py = pybind11;
 void initInterpolate(py::module &);
 
 void initInterpLinear(py::module &);
+void initInterpIdw(py::module &);

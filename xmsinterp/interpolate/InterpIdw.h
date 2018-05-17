@@ -11,6 +11,7 @@
 #include <xmscore/misc/base_macros.h>
 #include <xmsinterp/interpolate/InterpBase.h>
 #include <xmscore/points/ptsfwd.h>
+#include <xmscore/stl/vector.h>
 #include <xmscore/misc/boost_defines.h>
 
 //----- Forward declarations ---------------------------------------------------
@@ -73,13 +74,14 @@ public:
   virtual void SetIdString(const std::string& a_id) override = 0;
   virtual std::string GetIdString() const override = 0;
 
+  virtual ~InterpIdw();
+
 private:
   XM_DISALLOW_COPY_AND_ASSIGN(InterpIdw);
   /// \endcond
 
 protected:
   InterpIdw();
-  virtual ~InterpIdw();
 };
 //----- Function prototypes ----------------------------------------------------
 }
