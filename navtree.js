@@ -21,6 +21,9 @@ var NAVTREE =
         [ "Example - Natural Neighbor Interpolation", "md__interpolation__tutorial.html#Example_NatNeigh", null ]
       ] ]
     ] ],
+    [ "Namespaces", null, [
+      [ "Namespace List", "namespaces.html", "namespaces" ]
+    ] ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
@@ -46,11 +49,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"class_gm_multi_poly_intersector_unit_tests.html#ae3cc91a790599b69ab905e1a24936abf",
-"classxms_1_1_gm_pt_search_impl.html#a2d87fb7faa5dc23ad3cb7a2a5fd3c451",
-"classxms_1_1_nodal_func_impl_1_1_nf_thread.html",
-"functions.html",
-"matrix_8h.html#a6db76770e358ca141899b2a7c49d0a4d"
+"class_gm_multi_poly_intersector_unit_tests.html#ac3df56c4be517755e6e1a5080a4a35e8",
+"classxms_1_1_gm_polygon.html#ad8093f52a1162981b9385f02ab74f020",
+"classxms_1_1_nodal_func_impl.html#a821df3becc5f9fabdfa42e84edf9bea9",
+"classxms_1_1ix.html#a4185fe410fd0c5b45dc440483e745b15",
+"matrix_8cpp.html#a1417150425cc14d57c2749d4f55a2945"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

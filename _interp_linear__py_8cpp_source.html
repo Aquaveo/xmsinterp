@@ -47,6 +47,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -125,10 +126,42 @@ $(document).ready(function(){initNavTree('_interp_linear__py_8cpp_source.html','
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> initInterpLinear(py::module &amp;m) {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    py::class_&lt;xms::InterpLinear, boost::shared_ptr&lt;xms::InterpLinear&gt;&gt;(m, <span class="stringliteral">&quot;InterpLinear&quot;</span>)</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        .def(py::init(&amp;<a class="code" href="classxms_1_1_interp_linear.html#a8e04b96fee6e50961ba278d892373911">xms::InterpLinear::New</a>))</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        .def(<span class="stringliteral">&quot;to_string&quot;</span>, &amp;xms::InterpLinear::ToString);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        .def(<span class="stringliteral">&quot;__str__&quot;</span>, &amp;xms::InterpLinear::ToString)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        .def(<span class="stringliteral">&quot;to_string&quot;</span>, &amp;xms::InterpLinear::ToString)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        .def(<span class="stringliteral">&quot;set_pts_tris&quot;</span>, [](<a class="code" href="classxms_1_1_interp_linear.html">xms::InterpLinear</a> &amp;<span class="keyword">self</span>, py::tuple pts, py::tuple tris) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            BSHP&lt;xms::VecPt3d&gt; vec_pts(<span class="keyword">new</span> xms::VecPt3d());</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            BSHP&lt;xms::VecInt&gt; vec_tris(<span class="keyword">new</span> xms::VecInt());</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> item : pts) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;              <span class="keywordflow">if</span>(!py::isinstance&lt;py::tuple&gt;(item)) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <span class="keywordflow">throw</span> py::type_error(<span class="stringliteral">&quot;First arg must be a n-tuple of 3-tuples&quot;</span>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;              }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;              py::tuple tuple = item.cast&lt;py::tuple&gt;();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;              <span class="keywordflow">if</span> (py::len(tuple) != 3) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordflow">throw</span> py::type_error(<span class="stringliteral">&quot;Input points must be 3-tuples&quot;</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;              } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                xms::Pt3d point(tuple[0].cast&lt;double&gt;(), tuple[1].cast&lt;double&gt;(), tuple[2].cast&lt;double&gt;());</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                vec_pts-&gt;push_back(point);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;              }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> item : tris) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;              vec_tris-&gt;push_back(item.cast&lt;<span class="keywordtype">int</span>&gt;());</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keyword">self</span>.SetPtsTris(vec_pts, vec_tris);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        })</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        .def(<span class="stringliteral">&quot;interp_to_pt&quot;</span>,[](<a class="code" href="classxms_1_1_interp_linear.html">xms::InterpLinear</a> &amp;<span class="keyword">self</span>, py::tuple pt) -&gt; <span class="keywordtype">float</span> {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">if</span>(py::len(pt) != 3) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;              <span class="keywordflow">throw</span> py::type_error(<span class="stringliteral">&quot;Input point should be a 3-tuple&quot;</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;              xms::Pt3d point(pt[0].cast&lt;double&gt;(), pt[1].cast&lt;double&gt;(), pt[2].cast&lt;double&gt;()); </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;              <span class="keywordflow">return</span> <span class="keyword">self</span>.InterpToPt(point);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        })</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        .def_property(<span class="stringliteral">&quot;id_string&quot;</span>, &amp;xms::InterpLinear::GetIdString, &amp;xms::InterpLinear::SetIdString);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
 <div class="ttc" id="_interp_linear_8h_html"><div class="ttname"><a href="_interp_linear_8h.html">InterpLinear.h</a></div></div>
 <div class="ttc" id="interpolate__py_8h_html"><div class="ttname"><a href="interpolate__py_8h.html">interpolate_py.h</a></div><div class="ttdoc">initializer functions for members of interpolate python module. </div></div>
+<div class="ttc" id="classxms_1_1_interp_linear_html"><div class="ttname"><a href="classxms_1_1_interp_linear.html">xms::InterpLinear</a></div><div class="ttdoc">Class that performs linear interpolation. </div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear_8h_source.html#l00038">InterpLinear.h:38</a></div></div>
 <div class="ttc" id="classxms_1_1_interp_linear_html_a8e04b96fee6e50961ba278d892373911"><div class="ttname"><a href="classxms_1_1_interp_linear.html#a8e04b96fee6e50961ba278d892373911">xms::InterpLinear::New</a></div><div class="ttdeci">static BSHP&lt; InterpLinear &gt; New()</div><div class="ttdoc">Creates an TriSearch class. </div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear_8cpp_source.html#l00119">InterpLinear.cpp:119</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -136,7 +169,7 @@ $(document).ready(function(){initNavTree('_interp_linear__py_8cpp_source.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_53cfb6cd0b472f339d101e3e1947d282.html">python</a></li><li class="navelem"><a class="el" href="dir_891e27cd1483828d783aecbc58ac2c70.html">interpolate</a></li><li class="navelem"><a class="el" href="_interp_linear__py_8cpp.html">InterpLinear_py.cpp</a></li>
-    <li class="footer">Generated on Thu May 17 2018 17:53:46 for xmsinterp by
+    <li class="footer">Generated on Thu May 17 2018 17:54:15 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

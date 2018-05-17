@@ -50,6 +50,10 @@ var hierarchy =
     [ "xms::NodalFunc", "classxms_1_1_nodal_func.html", [
       [ "xms::NodalFuncImpl", "classxms_1_1_nodal_func_impl.html", null ]
     ] ],
+    [ "TestCase", null, [
+      [ "python.interpolate.InterpLinear_pyt.TestInterpLinear", "classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html", null ],
+      [ "python.interpolate.test.TestStringMethods", "classpython_1_1interpolate_1_1test_1_1_test_string_methods.html", null ]
+    ] ],
     [ "TestSuite", null, [
       [ "GeomsXmsngIntermediateTests", "class_geoms_xmsng_intermediate_tests.html", null ],
       [ "GeomsXmsngUnitTests", "class_geoms_xmsng_unit_tests.html", null ],
