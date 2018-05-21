@@ -1475,6 +1475,9 @@ double gmPolygonArea(const Pt3d* pts, size_t npoints)
   size_t id;
   double area = 0.0;
 
+  if (npoints < 3)
+    return area;
+
   /* original method with precision errors
   for (id = 0; id < npoints; id++)
   {
