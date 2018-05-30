@@ -105,12 +105,17 @@ set(xmsinterp_headers
 
 # Pybind11 sources
 set(xmsinterp_py
-  xmsinterp/python/xmsinterp_py.cpp
   xmsinterp/python/cxxtest.cpp
+  xmsinterp/python/xmsinterp_py.cpp
+  # Interpolate
   xmsinterp/python/interpolate/interpolate_py.h
   xmsinterp/python/interpolate/interpolate_py.cpp
   xmsinterp/python/interpolate/InterpIdw_py.cpp
   xmsinterp/python/interpolate/InterpLinear_py.cpp
+  # Misc
+  xmsinterp/python/misc/misc_py.h
+  xmsinterp/python/misc/misc_py.cpp
+  xmsinterp/python/misc/observer_py.cpp
 )
 
 # Tests
