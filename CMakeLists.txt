@@ -116,6 +116,8 @@ set(xmsinterp_py
   xmsinterp/python/misc/misc_py.h
   xmsinterp/python/misc/misc_py.cpp
   xmsinterp/python/misc/observer_py.cpp
+  xmsinterp/python/misc/PublicObserver.h
+  xmsinterp/python/misc/PyObserver.h
 )
 
 # Tests

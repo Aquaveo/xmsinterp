@@ -15,6 +15,6 @@ namespace py = pybind11;
 
 //----- Python Interface -------------------------------------------------------
 
-void initInterpolate(py::module &m) {
+void initMisc(py::module &m) {
     initObserver(m);
 }

@@ -10,6 +10,8 @@
 #include <pybind11/pybind11.h>
 #include <boost/shared_ptr.hpp>
 #include <xmsinterp/python/misc/misc_py.h>
+#include <xmsinterp/python/misc/PublicObserver.h>
+#include <xmsinterp/python/misc/PyObserver.h>
 
 //----- Namespace declaration --------------------------------------------------
 namespace py = pybind11;
@@ -18,6 +20,17 @@ namespace py = pybind11;
 PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 
 void initObserver(py::module &m) {
-    py::class_<xms::Observer, PyObserver>(m, "Observer")
-        .def(py::init());
+    py::class_<xms::PublicObserver, PyObserver>(m, "Observer")
+        .def(py::init())
+        .def("progress_status", &xms::PublicObserver::ProgressStatus)
+        .def("begin_operation_string", &xms::PublicObserver::BeginOperationString)
+        .def("end_operation", &xms::PublicObserver::EndOperation)
+        .def("update_message", &xms::PublicObserver::UpdateMessage)
+        .def("on_progress_status", &xms::PublicObserver::on_progress_status)
+        .def("on_begin_operation_string", &xms::PublicObserver::on_begin_operation_string)
+        .def("on_end_operation", &xms::PublicObserver::on_end_operation)
+        .def("on_update_message", &xms::PublicObserver::on_update_message)
+        .def("time_remaining_in_seconds", &xms::PublicObserver::time_remaining_in_seconds)
+        .def("time_elapsed_in_seconds", &xms::PublicObserver::time_elapsed_in_seconds)
+        ;
 }
