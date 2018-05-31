@@ -6,5 +6,7 @@ var searchData=
   ['pt_2ecpp',['pt.cpp',['https://aquaveo.github.io/xmscore/pt_8cpp.html',1,'']]],
   ['pt_2eh',['pt.h',['https://aquaveo.github.io/xmscore/pt_8h.html',1,'']]],
   ['pt_2et_2eh',['pt.t.h',['https://aquaveo.github.io/xmscore/pt_8t_8h.html',1,'']]],
-  ['ptsfwd_2eh',['ptsfwd.h',['https://aquaveo.github.io/xmscore/ptsfwd_8h.html',1,'']]]
+  ['ptsfwd_2eh',['ptsfwd.h',['https://aquaveo.github.io/xmscore/ptsfwd_8h.html',1,'']]],
+  ['publicobserver_2eh',['PublicObserver.h',['../_public_observer_8h.html',1,'']]],
+  ['pyobserver_2eh',['PyObserver.h',['../_py_observer_8h.html',1,'']]]
 ];

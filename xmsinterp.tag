@@ -455,10 +455,43 @@
     <filename>interpolate__py_8h</filename>
   </compound>
   <compound kind="file">
+    <name>misc_py.cpp</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/misc/</path>
+    <filename>misc__py_8cpp</filename>
+    <includes id="misc__py_8h" name="misc_py.h" local="no" imported="no">xmsinterp/python/misc/misc_py.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>misc_py.h</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/misc/</path>
+    <filename>misc__py_8h</filename>
+  </compound>
+  <compound kind="file">
+    <name>observer_py.cpp</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/misc/</path>
+    <filename>observer__py_8cpp</filename>
+    <includes id="misc__py_8h" name="misc_py.h" local="no" imported="no">xmsinterp/python/misc/misc_py.h</includes>
+    <includes id="_public_observer_8h" name="PublicObserver.h" local="no" imported="no">xmsinterp/python/misc/PublicObserver.h</includes>
+    <includes id="_py_observer_8h" name="PyObserver.h" local="no" imported="no">xmsinterp/python/misc/PyObserver.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>PublicObserver.h</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/misc/</path>
+    <filename>_public_observer_8h</filename>
+    <class kind="class">xms::PublicObserver</class>
+  </compound>
+  <compound kind="file">
+    <name>PyObserver.h</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/misc/</path>
+    <filename>_py_observer_8h</filename>
+    <includes id="_public_observer_8h" name="PublicObserver.h" local="no" imported="no">xmsinterp/python/misc/PublicObserver.h</includes>
+    <class kind="class">PyObserver</class>
+  </compound>
+  <compound kind="file">
     <name>xmsinterp_py.cpp</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/</path>
     <filename>xmsinterp__py_8cpp</filename>
     <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
+    <includes id="misc__py_8h" name="misc_py.h" local="no" imported="no">xmsinterp/python/misc/misc_py.h</includes>
   </compound>
   <compound kind="file">
     <name>ThreadLoop.cpp</name>
@@ -1654,6 +1687,11 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>PyObserver</name>
+    <filename>class_py_observer.html</filename>
+    <base>xms::PublicObserver</base>
+  </compound>
+  <compound kind="class">
     <name>TrAutoFixFourTrianglePtsUnitTests</name>
     <filename>class_tr_auto_fix_four_triangle_pts_unit_tests.html</filename>
     <member kind="function">
@@ -1947,6 +1985,27 @@
   <compound kind="class">
     <name>python::interpolate::test::TestStringMethods</name>
     <filename>classpython_1_1interpolate_1_1test_1_1_test_string_methods.html</filename>
+  </compound>
+  <compound kind="namespace">
+    <name>python::misc::observer_pyt</name>
+    <filename>namespacepython_1_1misc_1_1observer__pyt.html</filename>
+    <class kind="class">python::misc::observer_pyt::MockObserver</class>
+    <class kind="class">python::misc::observer_pyt::TestObserver</class>
+  </compound>
+  <compound kind="class">
+    <name>python::misc::observer_pyt::MockObserver</name>
+    <filename>classpython_1_1misc_1_1observer__pyt_1_1_mock_observer.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>python::misc::observer_pyt::TestObserver</name>
+    <filename>classpython_1_1misc_1_1observer__pyt_1_1_test_observer.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>setUp</name>
+      <anchorfile>classpython_1_1misc_1_1observer__pyt_1_1_test_observer.html</anchorfile>
+      <anchor>a6dba6d1735b30b7609e49c411da5eb6e</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>xms::GmExtents2d</name>
@@ -4775,6 +4834,11 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>xms::PublicObserver</name>
+    <filename>classxms_1_1_public_observer.html</filename>
+    <base>xms::Observer</base>
+  </compound>
+  <compound kind="class">
     <name>xms::ThreadLoop</name>
     <filename>classxms_1_1_thread_loop.html</filename>
     <class kind="class">xms::ThreadLoop::impl</class>
@@ -6131,10 +6195,23 @@
     <file>matrix.h</file>
   </compound>
   <compound kind="dir">
+    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/misc</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/misc/</path>
+    <filename>dir_3f4d67dd64b001839bcabb6bd8deb83e.html</filename>
+    <file>__init__.py</file>
+    <file>misc_py.cpp</file>
+    <file>misc_py.h</file>
+    <file>observer_py.cpp</file>
+    <file>observer_pyt.py</file>
+    <file>PublicObserver.h</file>
+    <file>PyObserver.h</file>
+  </compound>
+  <compound kind="dir">
     <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/</path>
     <filename>dir_53cfb6cd0b472f339d101e3e1947d282.html</filename>
     <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate</dir>
+    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/misc</dir>
     <file>__init__.py</file>
     <file>cxxtest.cpp</file>
     <file>xmsinterp_py.cpp</file>

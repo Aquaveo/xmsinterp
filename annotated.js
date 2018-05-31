@@ -7,6 +7,9 @@ var annotated =
         [ "test", null, [
           [ "TestStringMethods", "classpython_1_1interpolate_1_1test_1_1_test_string_methods.html", "classpython_1_1interpolate_1_1test_1_1_test_string_methods" ]
         ] ]
+      ] ],
+      [ "misc", null, [
+        [ "observer_pyt", "namespacepython_1_1misc_1_1observer__pyt.html", "namespacepython_1_1misc_1_1observer__pyt" ]
       ] ]
     ] ],
     [ "xms", null, [
@@ -42,6 +45,7 @@ var annotated =
       [ "InterpLinearImpl", "classxms_1_1_interp_linear_impl.html", "classxms_1_1_interp_linear_impl" ],
       [ "InterpLinear", "classxms_1_1_interp_linear.html", "classxms_1_1_interp_linear" ],
       [ "InterpPtInfo", "structxms_1_1_interp_pt_info.html", "structxms_1_1_interp_pt_info" ],
+      [ "PublicObserver", "classxms_1_1_public_observer.html", "classxms_1_1_public_observer" ],
       [ "ThreadLoop", "classxms_1_1_thread_loop.html", "classxms_1_1_thread_loop" ],
       [ "ThreadMgrImpl", "classxms_1_1_thread_mgr_impl.html", "classxms_1_1_thread_mgr_impl" ],
       [ "ThreadMgr", "classxms_1_1_thread_mgr.html", "classxms_1_1_thread_mgr" ],
@@ -73,6 +77,7 @@ var annotated =
     [ "InterpNatNeighUnitTests", "class_interp_nat_neigh_unit_tests.html", "class_interp_nat_neigh_unit_tests" ],
     [ "NodalFuncUnitTests", "class_nodal_func_unit_tests.html", "class_nodal_func_unit_tests" ],
     [ "PtSearchUnitTests", "class_pt_search_unit_tests.html", "class_pt_search_unit_tests" ],
+    [ "PyObserver", "class_py_observer.html", "class_py_observer" ],
     [ "TrAutoFixFourTrianglePtsUnitTests", "class_tr_auto_fix_four_triangle_pts_unit_tests.html", "class_tr_auto_fix_four_triangle_pts_unit_tests" ],
     [ "TrBreaklineAdderUnitTests", "class_tr_breakline_adder_unit_tests.html", "class_tr_breakline_adder_unit_tests" ],
     [ "TriSearchUnitTests", "class_tri_search_unit_tests.html", "class_tri_search_unit_tests" ],
