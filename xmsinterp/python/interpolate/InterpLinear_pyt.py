@@ -49,6 +49,31 @@ class TestInterpLinear(unittest.TestCase):
         interp.set_pts_tris(((1, 2, 3), (1, 2, 3)), (1, 2))
         # TODO: Find some way to verify the internal state
 
+    def test_set_pts_tris_numpy(self):
+        """Set base points."""
+        import numpy as np
+
+        interp = self.interp_linear_obj
+        # Test rejection of ints as args
+        with self.assertRaises(TypeError):
+            interp.set_pts_tris(np.array([1]), np.array([1]))
+
+        # Test rejections of 2-tuples as args
+        with self.assertRaises(TypeError) as context:
+            interp.set_pts_tris(np.array([1, 2]), np.array([1, 2]))
+        err = context.exception
+        self.assertEqual("First arg must be a n-tuple of 3-tuples", str(err))
+
+        # Test rejection of 2-tuples as sub-tuples of arg1
+        with self.assertRaises(TypeError) as context:
+            interp.set_pts_tris(np.array([(1, 2), (1, 2)]), np.array([1, 2]))
+        err = context.exception
+        self.assertEqual("Input points must be 3-tuples", str(err))
+
+        # Test that the a proper call does not throw
+        interp.set_pts_tris(np.array([(1, 2, 3), (1, 2, 3)]), np.array([1, 2]))
+        # TODO: Find some way to verify the internal state
+
     def test_interp_to_pt(self):
         """Interpolate to a specific point."""
         interp = self.interp_linear_obj
@@ -64,7 +89,46 @@ class TestInterpLinear(unittest.TestCase):
         val = interp.interp_to_pt((1, 2, 3))
         self.assertEqual(-9999999.0, val)
 
+    def test_intperp_to_pts(self):
+        """Interpolate to multiple points"""
+        interp = self.interp_linear_obj
 
+        with self.assertRaises(TypeError):
+            interp.interp_to_pts()
+
+        with self.assertRaises(TypeError) as context:
+            interp.interp_to_pts((1,2))
+        err = context.exception
+
+        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
+        tris = (0, 1, 3, 1, 2, 3)
+        interp.set_pts_tris(pts, tris)
+
+        self.assertEqual("First arg must be a n-tuple of 3-tuples", str(err))
+        ret = interp.interp_to_pts(((2, 1, 0), (5, 10, 2.5)))
+        self.assertIsInstance(ret, tuple)
+        self.assertEqual((0.5, 2.5), ret)
+
+    def test_intperp_to_pts_numpy(self):
+        """Interpolate to multiple points"""
+        import numpy as np
+        interp = self.interp_linear_obj
+
+        with self.assertRaises(TypeError):
+            interp.interp_to_pts()
+
+        with self.assertRaises(TypeError) as context:
+            interp.interp_to_pts(np.array([1,2]))
+        err = context.exception
+
+        pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
+        tris = np.array([0, 1, 3, 1, 2, 3])
+        interp.set_pts_tris(pts, tris)
+
+        self.assertEqual("First arg must be a n-tuple of 3-tuples", str(err))
+        ret = interp.interp_to_pts(np.array([(2, 1, 0), (5, 10, 2.5)]))
+        self.assertIsInstance(ret, np.ndarray)
+        np.testing.assert_array_equal(np.array([0.5, 2.5]), ret)
 
     def test_tutorial(self):
         """Ensure the tutorial will work."""

@@ -18,4 +18,6 @@ namespace py = pybind11;
 void initInterpolate(py::module &m) {
     initInterpLinear(m);
     initInterpIdw(m);
+    initInterpNatNeigh(m);
+    //initNodalFunc(m);
 }
