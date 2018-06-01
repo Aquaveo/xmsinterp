@@ -130,6 +130,77 @@ class TestInterpLinear(unittest.TestCase):
         self.assertIsInstance(ret, np.ndarray)
         np.testing.assert_array_equal(np.array([0.5, 2.5]), ret)
 
+    def test_set_pt_activity(self):
+        """Setting point activity"""
+        interp = self.interp_linear_obj
+
+        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
+        tris = (0, 1, 3, 1, 2, 3)
+        interp.set_pts_tris(pts, tris)
+        act1 = (True, False, False, True)
+        interp.set_pt_activity(act1)
+
+        act2 = (0, 1, 0, 1)
+        interp.set_pt_activity(act2)
+
+    def test_set_tri_activity(self):
+        """Setting tri activity"""
+        interp = self.interp_linear_obj
+
+        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
+        tris = (0, 1, 3, 1, 2, 3)
+        interp.set_pts_tris(pts, tris)
+        act1 = (True, False)
+        interp.set_tri_activity(act1)
+
+        act2 = (1, 1)
+        interp.set_tri_activity(act2)
+
+    def test_tri_containing_pt(self):
+        """Getting tri containing point"""
+        interp = self.interp_linear_obj
+
+        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
+        tris = (0, 1, 3, 1, 2, 3)
+        interp.set_pts_tris(pts, tris)
+        ret = interp.tri_containing_pt((5, 5, 2))
+        self.assertEqual(0, ret)
+
+    def test_tri_envelops_containing_pt(self):
+        """Getting tri containing point"""
+        import numpy as np
+        interp = self.interp_linear_obj
+
+        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
+        tris = (0, 1, 3, 1, 2, 3)
+        interp.set_pts_tris(pts, tris)
+        ret = interp.tri_envelops_containing_pt((5, 5, 2))
+        np.testing.assert_array_equal(np.array([0, 3], np.int32), ret)
+
+    # def test_get_pts(self):
+    #     """Getting interp object points"""
+    #     import numpy as np
+    #     interp = self.interp_linear_obj
+    #
+    #     pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
+    #     tris = np.array([0, 1, 3, 1, 2, 3])
+    #     interp.set_pts_tris(pts, tris)
+    #
+    #     ret = interp.pts
+    #     np.testing.assert_array_equal(pts, ret)
+
+    def test_get_tris(self):
+        """Getting interp object points"""
+        import numpy as np
+        interp = self.interp_linear_obj
+
+        pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
+        tris = np.array([0, 1, 3, 1, 2, 3])
+        interp.set_pts_tris(pts, tris)
+
+        ret = interp.tris
+        np.testing.assert_array_equal(tris, ret)
+
     def test_tutorial(self):
         """Ensure the tutorial will work."""
         interp = self.interp_linear_obj

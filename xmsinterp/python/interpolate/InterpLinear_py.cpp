@@ -10,6 +10,7 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/numpy.h>
 #include <boost/shared_ptr.hpp>
+#include <xmscore/misc/DynBitset.h>
 #include <xmsinterp/interpolate/InterpLinear.h>
 #include <xmsinterp/python/interpolate/interpolate_py.h>
 
@@ -92,6 +93,60 @@ void initInterpLinear(py::module &m) {
               return tuple_ret;
             }
         })
+        .def("set_pt_activity", [](xms::InterpLinear &self, py::iterable activity) {
+          xms::DynBitset bitset;
+          std::vector<unsigned char> bitvals;
+          for (auto item : activity) {
+            py::bool_ flag = item.cast<py::bool_>();
+            if (flag) {
+              bitvals.push_back(1);
+            } else {
+              bitvals.push_back(0);
+            }
+          }
+          xms::VecBooleanToDynBitset(bitvals, bitset);
+          self.SetPtActivity(bitset);
+        })
+        .def("set_tri_activity", [](xms::InterpLinear &self, py::iterable activity) {
+          xms::DynBitset bitset;
+          std::vector<unsigned char> bitvals;
+          for (auto item : activity) {
+            py::bool_ flag = item.cast<py::bool_>();
+            if (flag) {
+              bitvals.push_back(1);
+            } else {
+              bitvals.push_back(0);
+            }
+          }
+          xms::VecBooleanToDynBitset(bitvals, bitset);
+          self.SetTriActivity(bitset);
+        })
+        .def("tri_containing_pt", [](xms::InterpLinear &self, py::tuple pt) -> int {
+           if (py::len(pt) != 3) {
+             throw py::type_error("Input points must be 3-tuples");
+           } else {
+             xms::Pt3d point(pt[0].cast<double>(), pt[1].cast<double>(), pt[2].cast<double>());
+             return self.TriContainingPt(point);
+           }
+        })
+        .def("tri_envelops_containing_pt", [](xms::InterpLinear &self, py::tuple pt) -> py::array {
+           std::vector<int> tris;
+           if (py::len(pt) != 3) {
+             throw py::type_error("Input points must be 3-tuples");
+           } else {
+             xms::Pt3d point(pt[0].cast<double>(), pt[1].cast<double>(), pt[2].cast<double>());
+             self.TriEnvelopsContainingPt(point, tris);
+             return py::array(tris.size(), tris.data());
+           }
+        })
         .def_property("id_string", &xms::InterpLinear::GetIdString, &xms::InterpLinear::SetIdString)
+//        .def_property_readonly("pts", [](xms::InterpLinear &self) -> py::iterable {
+//            BSHP<std::vector<xms::Pt3d>> pts = self.GetPts();  // TODO: Convert Pt3d to tuples OR wrap Pt3d
+//            return py::array(pts->size(), pts->data());
+//        })
+        .def_property_readonly("tris", [](xms::InterpLinear &self) -> py::iterable {
+            BSHP<std::vector<int>> tris = self.GetTris();
+            return py::array(tris->size(), tris->data());
+        })
         ;
 }
