@@ -444,6 +444,14 @@
     <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
   </compound>
   <compound kind="file">
+    <name>InterpNatNeigh_py.cpp</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
+    <filename>_interp_nat_neigh__py_8cpp</filename>
+    <includes id="_interp_nat_neigh_8h" name="InterpNatNeigh.h" local="no" imported="no">xmsinterp/interpolate/detail/InterpNatNeigh.h</includes>
+    <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
+    <includes id="_gm_tri_search_8h" name="GmTriSearch.h" local="no" imported="no">xmsinterp/geometry/GmTriSearch.h</includes>
+  </compound>
+  <compound kind="file">
     <name>interpolate_py.cpp</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
     <filename>interpolate__py_8cpp</filename>
@@ -453,6 +461,14 @@
     <name>interpolate_py.h</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
     <filename>interpolate__py_8h</filename>
+  </compound>
+  <compound kind="file">
+    <name>NodalFunc_py.cpp</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
+    <filename>_nodal_func__py_8cpp</filename>
+    <includes id="_nodal_func_8h" name="NodalFunc.h" local="no" imported="no">xmsinterp/interpolate/detail/NodalFunc.h</includes>
+    <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
+    <includes id="_gm_tri_search_8h" name="GmTriSearch.h" local="no" imported="no">xmsinterp/geometry/GmTriSearch.h</includes>
   </compound>
   <compound kind="file">
     <name>misc_py.cpp</name>
@@ -1969,9 +1985,30 @@
     </member>
     <member kind="function">
       <type>def</type>
+      <name>test_set_pts_tris_numpy</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a5d57e5432e630f0f58ec0d2ad42ad487</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
       <name>test_interp_to_pt</name>
       <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
       <anchor>af1d56a9051461c4b689d89d6cface06b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_intperp_to_pts</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a33658fba5d2c83631448c60e5a1e39f7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_intperp_to_pts_numpy</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a8f69fce8d2a00a0821360524b2fd9115</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -3715,6 +3752,13 @@
       <anchor>a91d250cdc4296e924f6b80f84d4e2068</anchor>
       <arglist>(std::map&lt; int, double &gt; &amp;a_weights, const xms::Pt3d &amp;a_pt)</arglist>
     </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~InterpNatNeigh</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh.html</anchorfile>
+      <anchor>a0008ef8bc9164fc76d47172a925a3032</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="typedef" protection="private">
       <type>boost::unordered_map&lt; std::pair&lt; int, int &gt;, std::pair&lt; int, int &gt; &gt;</type>
       <name>MapEdges</name>
@@ -3797,13 +3841,6 @@
       <name>InterpNatNeigh</name>
       <anchorfile>classxms_1_1_interp_nat_neigh.html</anchorfile>
       <anchor>a72b529ca7b1f5d75181607ba062f4fba</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="protected" virtualness="virtual">
-      <type>virtual</type>
-      <name>~InterpNatNeigh</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh.html</anchorfile>
-      <anchor>a0008ef8bc9164fc76d47172a925a3032</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -6166,8 +6203,12 @@
     <file>InterpIdw_pyt.py</file>
     <file>InterpLinear_py.cpp</file>
     <file>InterpLinear_pyt.py</file>
+    <file>InterpNatNeigh_py.cpp</file>
+    <file>InterpNatNeigh_pyt.py</file>
     <file>interpolate_py.cpp</file>
     <file>interpolate_py.h</file>
+    <file>NodalFunc_py.cpp</file>
+    <file>NodalFunc_pyt.py</file>
     <file>test.t.py</file>
   </compound>
   <compound kind="dir">
