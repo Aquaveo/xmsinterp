@@ -2013,6 +2013,41 @@
     </member>
     <member kind="function">
       <type>def</type>
+      <name>test_set_pt_activity</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>aeaa7b4621fa3c757a436f0f5ab45a219</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_tri_activity</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>ad7113d9a3460b34e6633122d9b80da92</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_tri_containing_pt</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a1c98e61cc989d2a530b1fe897cd6e5f3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_tri_envelops_containing_pt</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>abf2ce3a78008e9936bccaf7da98a99eb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_get_tris</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>ace63e277cbd7b3f572a0e8bd3b7c7f83</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
       <name>test_tutorial</name>
       <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
       <anchor>aed348cec6d4df11c1eeddb27fc712962</anchor>

@@ -50,10 +50,10 @@ var NAVTREEINDEX =
 [
 ".html",
 "class_gm_multi_poly_intersector_unit_tests.html#a6d4b387f9a12ed3a3e4992b4f11d6ef6",
-"classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#a0ea1f8edb3c145e97e91f102ca763d7f",
-"classxms_1_1_interp_linear_impl.html#ae33a253fc4514d80918726b397bcb12f",
-"classxms_1_1_tr_tin_impl.html#a48c546057a0e95fd7ebe06f7a6aca7de",
-"geoms_8h.html#a72205354f6d55c7907f6badfbc2e08b0"
+"classxms_1_1_gm_extents3d.html#af7b8f4955c9068c0853354ab1f34f297",
+"classxms_1_1_interp_linear_impl.html#ac8107c6869e504f2e0add2769898953c",
+"classxms_1_1_tr_tin_impl.html#a3ece59ead0d9335a0039c1d0cec4f5f7",
+"geoms_8h.html#a5b2cb41a4510b0ba885d4a4691781506"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
