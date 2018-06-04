@@ -440,6 +440,7 @@
     <name>InterpLinear_py.cpp</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
     <filename>_interp_linear__py_8cpp</filename>
+    <includes id="_public_observer_8h" name="PublicObserver.h" local="no" imported="no">xmsinterp/python/misc/PublicObserver.h</includes>
     <includes id="_interp_linear_8h" name="InterpLinear.h" local="no" imported="no">xmsinterp/interpolate/InterpLinear.h</includes>
     <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
   </compound>
@@ -1950,7 +1951,12 @@
   <compound kind="namespace">
     <name>python::interpolate::InterpLinear_pyt</name>
     <filename>namespacepython_1_1interpolate_1_1_interp_linear__pyt.html</filename>
+    <class kind="class">python::interpolate::InterpLinear_pyt::MockObserver</class>
     <class kind="class">python::interpolate::InterpLinear_pyt::TestInterpLinear</class>
+  </compound>
+  <compound kind="class">
+    <name>python::interpolate::InterpLinear_pyt::MockObserver</name>
+    <filename>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html</filename>
   </compound>
   <compound kind="class">
     <name>python::interpolate::InterpLinear_pyt::TestInterpLinear</name>
@@ -1960,13 +1966,6 @@
       <name>setUp</name>
       <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
       <anchor>a1e88a75dfb37a8dcd643831ee8317fed</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_id_string_prop</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>a3248c369c94a055cb2c5d9d8376e48db</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -2027,6 +2026,20 @@
     </member>
     <member kind="function">
       <type>def</type>
+      <name>test_get_pts</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a94938066988ae3725f392cf81b807c88</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_get_tris</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>ace63e277cbd7b3f572a0e8bd3b7c7f83</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
       <name>test_tri_containing_pt</name>
       <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
       <anchor>a1c98e61cc989d2a530b1fe897cd6e5f3</anchor>
@@ -2041,9 +2054,37 @@
     </member>
     <member kind="function">
       <type>def</type>
-      <name>test_get_tris</name>
+      <name>test_interp_weights</name>
       <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>ace63e277cbd7b3f572a0e8bd3b7c7f83</anchor>
+      <anchor>acbcd4c3f8bb4d15f2c55e3343bd79596</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_extrap_val</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a35c4725c6ec2ea36d340f48e255dd03c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_trunc</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a4059e053450bd58bd7e1fe776abb23ff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_use_clough_tocher</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>af872de591e1026a71ae8b944855bf966</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_use_nat_neigh</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a94f1ce449bc6f25b7b31392df6cb9672</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">

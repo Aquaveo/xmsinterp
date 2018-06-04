@@ -50,6 +50,9 @@ var hierarchy =
     [ "xms::NodalFunc", "classxms_1_1_nodal_func.html", [
       [ "xms::NodalFuncImpl", "classxms_1_1_nodal_func_impl.html", null ]
     ] ],
+    [ "Observer", null, [
+      [ "python.interpolate.InterpLinear_pyt.MockObserver", "classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html", null ]
+    ] ],
     [ "xms::Observer", "https://aquaveo.github.io/xmscore/classxms_1_1_observer.html", [
       [ "xms::PublicObserver", "classxms_1_1_public_observer.html", [
         [ "PyObserver", "class_py_observer.html", null ]
