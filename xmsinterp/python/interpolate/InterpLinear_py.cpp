@@ -11,6 +11,7 @@
 #include <pybind11/numpy.h>
 #include <boost/shared_ptr.hpp>
 #include <xmscore/misc/DynBitset.h>
+#include <xmsinterp/python/misc/PublicObserver.h>
 #include <xmsinterp/interpolate/InterpLinear.h>
 #include <xmsinterp/python/interpolate/interpolate_py.h>
 
@@ -139,14 +140,44 @@ void initInterpLinear(py::module &m) {
              return py::array(tris.size(), tris.data());
            }
         })
-        .def_property("id_string", &xms::InterpLinear::GetIdString, &xms::InterpLinear::SetIdString)
-//        .def_property_readonly("pts", [](xms::InterpLinear &self) -> py::iterable {
-//            BSHP<std::vector<xms::Pt3d>> pts = self.GetPts();  // TODO: Convert Pt3d to tuples OR wrap Pt3d
-//            return py::array(pts->size(), pts->data());
-//        })
-        .def_property_readonly("tris", [](xms::InterpLinear &self) -> py::iterable {
-            BSHP<std::vector<int>> tris = self.GetTris();
-            return py::array(tris->size(), tris->data());
+        .def_property_readonly("pts", [](xms::InterpLinear &self) -> py::iterable {
+          BSHP<std::vector<xms::Pt3d>> pts = self.GetPts();
+          py::array_t<double, py::array::c_style> a({(int)(*pts).size(), 3});
+          auto r = a.mutable_unchecked<2>();
+          int i = 0;
+          for (ssize_t i = 0; i < r.shape(0); i++) {
+           r(i, 0) = (*pts)[i].x;
+           r(i, 1) = (*pts)[i].y;
+           r(i, 2) = (*pts)[i].z;
+          }
+          return a;
         })
-        ;
+        .def("interp_weights", [](xms::InterpLinear &self, py::tuple pt) -> py::iterable {
+          xms::VecInt idxs;
+          xms::VecDbl wts;
+          if (py::len(pt) != 3) {
+            throw py::type_error("Input points must be 3-tuples");
+          } else {
+            xms::Pt3d point(pt[0].cast<double>(), pt[1].cast<double>(), pt[2].cast<double>());
+            bool pt_inside = self.InterpWeights(point, idxs, wts);
+            py::array ret_idxs(idxs.size(), idxs.data());
+            py::array ret_wts(wts.size(), wts.data());
+            return py::make_tuple(pt_inside, ret_idxs, ret_wts);
+          }
+        })
+        .def("set_extrap_val", &xms::InterpLinear::SetExtrapVal)
+        .def("set_trunc", &xms::InterpLinear::SetTrunc)
+        .def_property_readonly("tris", [](xms::InterpLinear &self) -> py::iterable {
+          BSHP<std::vector<int>> tris = self.GetTris();
+          return py::array(tris->size(), tris->data());
+        })
+        .def("set_use_clough_tocher", [](xms::InterpLinear &self, bool on,
+                                         boost::shared_ptr<xms::PublicObserver> observer) {
+          self.SetUseCloughTocher(on, observer);
+        })
+        .def("set_use_nat_neigh", [](xms::InterpLinear &self, bool on, int nodal_func, int nd_func_opt,
+                                     int nd_func_num_nearest_pts, bool blend_weights,
+                                     boost::shared_ptr<xms::PublicObserver> observer) {
+          self.SetUseNatNeigh(on, nodal_func, nd_func_opt, nd_func_num_nearest_pts, blend_weights, observer);
+        });
 }

@@ -20,7 +20,7 @@ namespace py = pybind11;
 PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 
 void initObserver(py::module &m) {
-    py::class_<xms::PublicObserver, PyObserver>(m, "Observer")
+    py::class_<xms::PublicObserver, PyObserver, boost::shared_ptr<xms::PublicObserver>>(m, "Observer")
         .def(py::init())
         .def("progress_status", &xms::PublicObserver::ProgressStatus)
         .def("begin_operation_string", &xms::PublicObserver::BeginOperationString)
