@@ -5,7 +5,6 @@ import xmsinterp_py
 
 class MockObserver(xmsinterp_py.misc.Observer):
     """Mock Observer class for testing."""
-
     def __init__(self):
         self.status = {
             'operation': None,
@@ -17,26 +16,19 @@ class MockObserver(xmsinterp_py.misc.Observer):
             'elapsed_seconds': None
         }
         super().__init__()
-
     def __str__(self):
         return str(self.status)
-
     def on_progress_status(self, percent_complete):
         self.status['percent_complete'] = percent_complete
-
     def on_begin_operation_string(self, operation):
         self.status['operation_begin'] = True
         self.status['operation'] = operation
-
     def on_end_operation(self):
         self.status['operation_end'] = True
-
     def on_update_message(self, message):
         self.status['message'] = message
-
     def time_remaining_in_seconds(self, remaining_seconds):
         self.status['remaining_seconds'] = remaining_seconds
-
     def time_elapsed_in_seconds(self, elapsed_seconds):
         self.status['elapsed_seconds'] = elapsed_seconds
 
@@ -280,18 +272,266 @@ class TestInterpIdw(unittest.TestCase):
 
     def test_set_trunc(self):
         """Test set_trunc"""
+        import numpy as np
         interp = self.interp_idw_obj
         t_min = 7.11
         t_max = 11.7
+
+        pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
+        tris = np.array([0, 1, 3, 1, 2, 3])
+        interp.set_pts_tris(pts, tris)
+
         interp.set_trunc(t_max, t_min)
-        # TODO: Check state somehow...
+
+        base = "1=2d 0=quadOctSearch 1=modifiedShepardWeights 16=nNearestPts " \
+                "2=power 0=saveWeights \n1=2dSearch -1,-1,-1=min 11,11,4=max \n" \
+                "=activity \n0,0,0 10,0,1 10,10,2 0,10,3=bshpPt3d \n=ptSearch \n" \
+                "0,0,0 10,0,1 10,10,2 0,10,3=pts \n0 1 3 1 2 3=tris \n" \
+                "0 1 2 3=scalarFrom \n=ptIdx \n=weights \n"
+        self.assertEqual(base, str(interp))
 
     def test_set_observer(self):
         """Test set_observer"""
         interp = self.interp_idw_obj
         observer = MockObserver()
+
+        # Non-number Type
+        with self.assertRaises(TypeError) as context:
+            interp.set_observer()
+        err = context.exception
+        self.assertIn("set_observer(): incompatible function arguments.", str(err))
+
+        # None Type
+        interp.set_observer(None)
+        # TODO: Should this raise an error?
+
+        # Non-number Type
+        with self.assertRaises(TypeError) as context:
+            interp.set_observer("xyz")
+        err = context.exception
+        self.assertIn("set_observer(): incompatible function arguments.", str(err))
+
         interp.set_observer(observer)
         # TODO: Check state somehow...
+
+    def test_set_power(self):
+        """Set power on InterpIdw objects"""
+        interp = self.interp_idw_obj
+
+        # No Arguments
+        with self.assertRaises(TypeError) as context:
+            interp.set_power()
+        err = context.exception
+        self.assertIn("set_power(): incompatible function arguments.", str(err))
+
+        # None Type
+        with self.assertRaises(TypeError) as context:
+            interp.set_power(None)
+        err = context.exception
+        self.assertIn("set_power(): incompatible function arguments.", str(err))
+
+        # Non-number Type
+        with self.assertRaises(TypeError) as context:
+            interp.set_power("xyz")
+        err = context.exception
+        self.assertIn("set_power(): incompatible function arguments.", str(err))
+
+        # Good arguments
+        power = 10
+        interp.set_power(power)
+        base = " 10=power "
+        self.assertIn(base, str(interp))
+
+    def test_set_search_opts(self):
+        """Ensure the tutorial will work."""
+        interp = self.interp_idw_obj
+        typeerror = "set_search_opts(): incompatible function arguments."
+
+        # No Arguments
+        with self.assertRaises(TypeError) as context:
+            interp.set_search_opts()
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+
+        # One Arguments
+        with self.assertRaises(TypeError) as context:
+            interp.set_search_opts(123)
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+
+        # None Arguments
+        with self.assertRaises(TypeError) as context:
+            interp.set_search_opts(None, None)
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+
+        # Bad Argument
+        with self.assertRaises(TypeError) as context:
+            interp.set_search_opts("123", False)
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+
+        # Good Arguments
+        interp.set_search_opts(10, True)
+        self.assertIn(" 1=quadOctSearch ", str(interp))
+        self.assertIn(" 10=nNearestPts ", str(interp))
+
+        interp.set_search_opts(15, False)
+        self.assertIn(" 0=quadOctSearch ", str(interp))
+        self.assertIn(" 15=nNearestPts ", str(interp))
+
+    def test_set_weight_calc_method(self):
+        """Setting weight calc method with enum"""
+        interp = self.interp_idw_obj
+        typeerror = "set_weight_calc_method(): incompatible function arguments."
+
+        # No Argument
+        with self.assertRaises(TypeError) as context:
+            interp.set_weight_calc_method()
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+
+        # None Argument
+        with self.assertRaises(TypeError) as context:
+            interp.set_weight_calc_method(None)
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+
+        # Bad Arguments
+        with self.assertRaises(TypeError) as context:
+            interp.set_weight_calc_method("not_an_enum")
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+
+        with self.assertRaises(TypeError) as context:
+            interp.set_weight_calc_method(123)
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+
+        # Valid Arguments
+        weight_enum = xmsinterp_py.interpolate.InterpIdw.weight_enum
+
+        interp.set_weight_calc_method(weight_enum.MODIFIED)
+        self.assertIn(" 1=modifiedShepardWeights ", str(interp))
+
+        interp.set_weight_calc_method(weight_enum.CLASSIC)
+        self.assertIn(" 0=modifiedShepardWeights ", str(interp))
+
+    def test_set_nodal_function(self):
+        """Setting nodal function"""
+        import numpy as np
+        interp = self.interp_idw_obj
+        observer = MockObserver()
+        nodal_func_enum = xmsinterp_py.interpolate.InterpIdw.nodal_func_enum
+        typeerror = "set_nodal_function(): incompatible function arguments."
+
+        pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
+        tris = np.array([0, 1, 3, 1, 2, 3])
+        interp.set_pts_tris(pts, tris)
+
+        # No Argument
+        with self.assertRaises(TypeError) as context:
+            interp.set_nodal_function()
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+
+        # None Args
+        with self.assertRaises(TypeError) as context:
+            interp.set_nodal_function(None, 1, True, observer)
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+        with self.assertRaises(TypeError) as context:
+            interp.set_nodal_function(nodal_func_enum.CONSTANT, None, True, observer)
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+
+        # Bad Args
+        with self.assertRaises(TypeError) as context:
+            interp.set_nodal_function(1, 1, True, observer)
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+        with self.assertRaises(TypeError) as context:
+            interp.set_nodal_function("abc", 1, True, observer)
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+        with self.assertRaises(TypeError) as context:
+            interp.set_nodal_function(nodal_func_enum.CONSTANT, "1234", True, observer)
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+        with self.assertRaises(TypeError) as context:
+            interp.set_nodal_function(nodal_func_enum.CONSTANT, 1.4, True, observer)
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+        with self.assertRaises(TypeError) as context:
+            interp.set_nodal_function(nodal_func_enum.CONSTANT, 1, True, 1)
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+        with self.assertRaises(TypeError) as context:
+            interp.set_nodal_function(nodal_func_enum.CONSTANT, 1, True, "abcd")
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+
+        # Good Args
+        base = str(interp)
+        interp.set_nodal_function(nodal_func_enum.CONSTANT, 7, True, observer)
+        self.assertEqual(base, str(interp))
+
+        interp.set_nodal_function(nodal_func_enum.GRAD_PLANE, 9, True, observer)
+        # self.assertIn('0,0,0,0,0,0,0,0,0,0,0,0=gradient', str(interp))
+
+        interp.set_nodal_function(nodal_func_enum.QUADRATIC, 11, True, observer)
+        # self.assertIn('\n0 0 0 0 0 0 0 0=quadratic'*4, str(interp))
+        # TODO: Inline comments to document cases
+        # TODO: assert in function is not working here... switch to assertEqual?
+
+    def test_set_save_weights(self):
+        """Setting save weights"""
+        interp = self.interp_idw_obj
+        typeerror = "set_save_weights(): incompatible function arguments."
+
+        # No Argument
+        with self.assertRaises(TypeError) as context:
+            interp.set_save_weights()
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+
+        interp.set_save_weights(True)
+        self.assertIn(" 1=saveWeights ", str(interp))
+        interp.set_save_weights(False)
+        self.assertIn(" 0=saveWeights ", str(interp))
+
+    def test_interp_weights(self):
+        """Test interp_weights"""
+        import numpy as np
+        interp = self.interp_idw_obj
+
+        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
+        tris = (0, 1, 3, 1, 2, 3)
+        interp.set_pts_tris(pts, tris)
+
+        idxs, wts = interp.interp_weights((5, 5, 2))
+        np.testing.assert_array_equal(np.array([0, 1, 2, 3], np.int32), idxs)
+        np.testing.assert_array_equal(np.array([0.25, 0.25, 0.25, 0.25]), wts)
+
+        idxs, wts = interp.interp_weights((-10, -10, -10))
+        np.testing.assert_array_equal(np.array([0,1,2,3], np.int32), idxs)
+        np.testing.assert_array_almost_equal(np.array([0.876919, 0.06154, 0.0, 0.06154]), wts, decimal=5)
+        # TODO: This isn't working yet
+
+    def test_set_multi_threading(self):
+        """Setting multi threading"""
+        interp = self.interp_idw_obj
+        typeerror = "set_multi_threading(): incompatible function arguments."
+
+        # No Argument
+        with self.assertRaises(TypeError) as context:
+            interp.set_multi_threading()
+        err = context.exception
+        self.assertIn(typeerror, str(err))
+
+        interp.set_multi_threading(True)
+        interp.set_multi_threading(False)
+        # TODO: How do we check this
 
     def test_tutorial(self):
         """Ensure the tutorial will work."""
