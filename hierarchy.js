@@ -58,14 +58,10 @@ var hierarchy =
     [ "Observer", null, [
       [ "python.misc.observer_pyt.MockObserver", "classpython_1_1misc_1_1observer__pyt_1_1_mock_observer.html", null ]
     ] ],
-    [ "Observer", null, [
-      [ "python.interpolate.InterpIdw_pyt.MockObserver", "classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_mock_observer.html", null ],
-      [ "python.interpolate.InterpLinear_pyt.MockObserver", "classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html", null ]
-    ] ],
     [ "TestCase", null, [
-      [ "python.interpolate.InterpIdw_pyt.TestIdwEnums", "classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html", null ],
       [ "python.interpolate.InterpIdw_pyt.TestInterpIdw", "classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html", null ],
       [ "python.interpolate.InterpLinear_pyt.TestInterpLinear", "classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html", null ],
+      [ "python.interpolate.test.TestStringMethods", "classpython_1_1interpolate_1_1test_1_1_test_string_methods.html", null ],
       [ "python.misc.observer_pyt.TestObserver", "classpython_1_1misc_1_1observer__pyt_1_1_test_observer.html", null ]
     ] ],
     [ "TestSuite", null, [

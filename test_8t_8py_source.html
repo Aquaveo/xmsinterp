@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>xmsinterp: Member List</title>
+<title>xmsinterp: /home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/test.t.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -48,8 +48,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,9 +70,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -87,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html','');});
+$(document).ready(function(){initNavTree('test_8t_8py_source.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -106,20 +105,37 @@ $(document).ready(function(){initNavTree('classpython_1_1interpolate_1_1_interp_
 
 <div class="header">
   <div class="headertitle">
-<div class="title">python.interpolate.InterpIdw_pyt.TestIdwEnums Member List</div>  </div>
+<div class="title">test.t.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>This is the complete list of members for <a class="el" href="classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html">python.interpolate.InterpIdw_pyt.TestIdwEnums</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html#a57a69015a3c22be5f0e796fc8beef1cc">test_idw_nodal_func_enum</a></td><td class="entry"><a class="el" href="classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html">python.interpolate.InterpIdw_pyt.TestIdwEnums</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html#ab5ced31c3d6d810d9ffcb58f48c895b9">test_idw_weight_enum</a></td><td class="entry"><a class="el" href="classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html">python.interpolate.InterpIdw_pyt.TestIdwEnums</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">import</span> unittest</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1test_1_1_test_string_methods.html">    3</a></span>&#160;<span class="keyword">class </span><a class="code" href="classpython_1_1interpolate_1_1test_1_1_test_string_methods.html">TestStringMethods</a>(unittest.TestCase):</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="keyword">def </span>test_upper(self):</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        self.assertEqual(<span class="stringliteral">&#39;foo&#39;</span>.upper(), <span class="stringliteral">&#39;FOO&#39;</span>)</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">def </span>test_isupper(self):</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        self.assertTrue(<span class="stringliteral">&#39;FOO&#39;</span>.isupper())</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        self.assertFalse(<span class="stringliteral">&#39;Foo&#39;</span>.isupper())</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">def </span>test_split(self):</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        s = <span class="stringliteral">&#39;hello world&#39;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        self.assertEqual(s.split(), [<span class="stringliteral">&#39;hello&#39;</span>, <span class="stringliteral">&#39;world&#39;</span>])</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="comment"># check that s.split fails when the separator is not a string</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        with self.assertRaises(TypeError):</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            s.split(2)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    unittest.main()</div>
+<div class="ttc" id="classpython_1_1interpolate_1_1test_1_1_test_string_methods_html"><div class="ttname"><a href="classpython_1_1interpolate_1_1test_1_1_test_string_methods.html">python.interpolate.test.TestStringMethods</a></div><div class="ttdef"><b>Definition:</b> <a href="test_8t_8py_source.html#l00003">test.t.py:3</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Jun 6 2018 20:36:56 for xmsinterp by
+    <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_53cfb6cd0b472f339d101e3e1947d282.html">python</a></li><li class="navelem"><a class="el" href="dir_891e27cd1483828d783aecbc58ac2c70.html">interpolate</a></li><li class="navelem"><b>test.t.py</b></li>
+    <li class="footer">Generated on Wed Jun 6 2018 20:46:51 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

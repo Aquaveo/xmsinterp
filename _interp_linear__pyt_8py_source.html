@@ -113,353 +113,96 @@ $(document).ready(function(){initNavTree('_interp_linear__pyt_8py_source.html','
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> xmsinterp_py</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html">MockObserver</a>(xmsinterp_py.misc.Observer):</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;Mock Observer class for testing.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html">TestInterpLinear</a>(unittest.TestCase):</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;Test Linear Interpolation Class.&quot;&quot;&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html#afd081d95c13a7b580c031712078f0aa0">status</a> = {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            <span class="stringliteral">&#39;operation&#39;</span>: <span class="keywordtype">None</span>,</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;            <span class="stringliteral">&#39;operation_end&#39;</span>: <span class="keyword">False</span>,</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            <span class="stringliteral">&#39;operation_begin&#39;</span>: <span class="keyword">False</span>,</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            <span class="stringliteral">&#39;percent_complete&#39;</span>: <span class="keywordtype">None</span>,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <span class="stringliteral">&#39;message&#39;</span>: <span class="stringliteral">&#39;&#39;</span>,</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="stringliteral">&#39;remaining_seconds&#39;</span>: <span class="keywordtype">None</span>,</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="stringliteral">&#39;elapsed_seconds&#39;</span>: <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        super().__init__()</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">def </span>__str__(self):</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">return</span> str(self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html#afd081d95c13a7b580c031712078f0aa0">status</a>)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">def </span>on_progress_status(self, percent_complete):</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html#afd081d95c13a7b580c031712078f0aa0">status</a>[<span class="stringliteral">&#39;percent_complete&#39;</span>] = percent_complete</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">def </span>on_begin_operation_string(self, operation):</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html#afd081d95c13a7b580c031712078f0aa0">status</a>[<span class="stringliteral">&#39;operation_begin&#39;</span>] = <span class="keyword">True</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html#afd081d95c13a7b580c031712078f0aa0">status</a>[<span class="stringliteral">&#39;operation&#39;</span>] = operation</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">def </span>on_end_operation(self):</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html#afd081d95c13a7b580c031712078f0aa0">status</a>[<span class="stringliteral">&#39;operation_end&#39;</span>] = <span class="keyword">True</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">def </span>on_update_message(self, message):</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html#afd081d95c13a7b580c031712078f0aa0">status</a>[<span class="stringliteral">&#39;message&#39;</span>] = message</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">def </span>time_remaining_in_seconds(self, remaining_seconds):</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html#afd081d95c13a7b580c031712078f0aa0">status</a>[<span class="stringliteral">&#39;remaining_seconds&#39;</span>] = remaining_seconds</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">def </span>time_elapsed_in_seconds(self, elapsed_seconds):</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html#afd081d95c13a7b580c031712078f0aa0">status</a>[<span class="stringliteral">&#39;elapsed_seconds&#39;</span>] = elapsed_seconds</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html">   44</a></span>&#160;<span class="keyword">class </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html">TestInterpLinear</a>(unittest.TestCase):</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;Test Linear Interpolation Class.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a1e88a75dfb37a8dcd643831ee8317fed">   47</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a1e88a75dfb37a8dcd643831ee8317fed">setUp</a>(self):</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Set up for each test case.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a> = xmsinterp_py.interpolate.InterpLinear()</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a79fdce5b5e566dc5fc5cfa4b961a237e">   51</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a79fdce5b5e566dc5fc5cfa4b961a237e">test_to_string</a>(self):</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Ensure class can be printed as a string.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        base_string = <span class="stringliteral">&#39;0=cloughTocher 0=natNeigh 0=trunc 0=truncMax &#39;</span> \</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                      <span class="stringliteral">&#39;0=truncMin -1e+07=extrap \n&#39;</span> \</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                      <span class="stringliteral">&#39;3.40282e+38,3.40282e+38,3.40282e+38=min-3.40282e+38,&#39;</span> \</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                      <span class="stringliteral">&#39;-3.40282e+38,-3.40282e+38=max\n=pts \n=tris \n&#39;</span> \</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                      <span class="stringliteral">&#39;=triActivity \n=triSearch \n=pts \n=tris \n=scalar \n\n&#39;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        self.assertEqual(base_string, self.interp_linear_obj.to_string())</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aea95c582f2add4da747370cf6e8551b4">   60</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aea95c582f2add4da747370cf6e8551b4">test_set_pts_tris</a>(self):</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Set base points.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment"># Test rejection of ints as args</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        with self.assertRaises(TypeError):</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            interp.set_pts_tris((1), (1))</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a1e88a75dfb37a8dcd643831ee8317fed">    9</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a1e88a75dfb37a8dcd643831ee8317fed">setUp</a>(self):</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Set up for each test case.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a> = xmsinterp_py.interpolate.InterpLinear()</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a3248c369c94a055cb2c5d9d8376e48db">   13</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a3248c369c94a055cb2c5d9d8376e48db">test_id_string_prop</a>(self):</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Ensure id_string is editable.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        self.assertEqual(<span class="stringliteral">&#39;&#39;</span>, self.interp_linear_obj.id_string)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        test_name = <span class="stringliteral">&#39;test_name&#39;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        self.interp_linear_obj.id_string = test_name</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        self.assertEqual(test_name, self.interp_linear_obj.id_string)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a79fdce5b5e566dc5fc5cfa4b961a237e">   20</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a79fdce5b5e566dc5fc5cfa4b961a237e">test_to_string</a>(self):</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Ensure class can be printed as a string.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        base_string = <span class="stringliteral">&#39;0=cloughTocher 0=natNeigh 0=trunc 0=truncMax &#39;</span> \</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                      <span class="stringliteral">&#39;0=truncMin -1e+07=extrap \n&#39;</span> \</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                      <span class="stringliteral">&#39;3.40282e+38,3.40282e+38,3.40282e+38=min-3.40282e+38,&#39;</span> \</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                      <span class="stringliteral">&#39;-3.40282e+38,-3.40282e+38=max\n=pts \n=tris \n&#39;</span> \</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                      <span class="stringliteral">&#39;=triActivity \n=triSearch \n=pts \n=tris \n=scalar \n\n&#39;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        self.assertEqual(base_string, self.interp_linear_obj.to_string())</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aea95c582f2add4da747370cf6e8551b4">   29</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aea95c582f2add4da747370cf6e8551b4">test_set_pts_tris</a>(self):</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Set base points.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="comment"># Test rejection of ints as args</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        with self.assertRaises(TypeError):</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            interp.set_pts_tris((1), (1))</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment"># Test rejections of 2-tuples as args</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        with self.assertRaises(TypeError) <span class="keyword">as</span> context:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            interp.set_pts_tris((1, 2), (1, 2))</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        err = context.exception</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;First arg must be a n-tuple of 3-tuples&quot;</span>, str(err))</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment"># Test rejection of 2-tuples as sub-tuples of arg1</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        with self.assertRaises(TypeError) <span class="keyword">as</span> context:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            interp.set_pts_tris(((1, 2), (1, 2)), (1, 2))</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        err = context.exception</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;Input points must be 3-tuples&quot;</span>, str(err))</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment"># Test that the a proper call does not throw</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        interp.set_pts_tris(((1, 2, 3), (1, 2, 3)), (1, 2))</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment"># TODO: Find some way to verify the internal state</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#af1d56a9051461c4b689d89d6cface06b">   52</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#af1d56a9051461c4b689d89d6cface06b">test_interp_to_pt</a>(self):</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Interpolate to a specific point.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        with self.assertRaises(TypeError):</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            interp.interp_to_pt()</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        with self.assertRaises(TypeError) <span class="keyword">as</span> context:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            interp.interp_to_pt((1, 2))</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        err = context.exception</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;Input point should be a 3-tuple&quot;</span>, str(err))</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        val = interp.interp_to_pt((1, 2, 3))</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        self.assertEqual(-9999999.0, val)</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment"># Test rejections of 2-tuples as args</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        with self.assertRaises(TypeError) <span class="keyword">as</span> context:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            interp.set_pts_tris((1, 2), (1, 2))</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        err = context.exception</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;First arg must be a n-tuple of 3-tuples&quot;</span>, str(err))</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment"># Test rejection of 2-tuples as sub-tuples of arg1</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        with self.assertRaises(TypeError) <span class="keyword">as</span> context:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            interp.set_pts_tris(((1, 2), (1, 2)), (1, 2))</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        err = context.exception</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;Input points must be 3-tuples&quot;</span>, str(err))</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aed348cec6d4df11c1eeddb27fc712962">   69</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aed348cec6d4df11c1eeddb27fc712962">test_tutorial</a>(self):</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Ensure the tutorial will work.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        tris = (0, 1, 3, 1, 2, 3)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        interp.set_pts_tris(pts, tris)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        val = interp.interp_to_pt((2, 1, 0))</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        self.assertEqual(0.5, val)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment"># Test that the a proper call does not throw</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        interp.set_pts_tris(((1, 2, 3), (1, 2, 3)), (1, 2))</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment"># TODO: Find some way to verify the internal state</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a5d57e5432e630f0f58ec0d2ad42ad487">   83</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a5d57e5432e630f0f58ec0d2ad42ad487">test_set_pts_tris_numpy</a>(self):</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Set base points.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="comment"># Test rejection of ints as args</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        with self.assertRaises(TypeError):</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            interp.set_pts_tris(np.array([1]), np.array([1]))</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="comment"># Test rejections of 2-tuples as args</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        with self.assertRaises(TypeError) <span class="keyword">as</span> context:</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            interp.set_pts_tris(np.array([1, 2]), np.array([1, 2]))</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        err = context.exception</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;First arg must be a n-tuple of 3-tuples&quot;</span>, str(err))</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment"># Test rejection of 2-tuples as sub-tuples of arg1</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        with self.assertRaises(TypeError) <span class="keyword">as</span> context:</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            interp.set_pts_tris(np.array([(1, 2), (1, 2)]), np.array([1, 2]))</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        err = context.exception</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;Input points must be 3-tuples&quot;</span>, str(err))</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="comment"># Test that the a proper call does not throw</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        interp.set_pts_tris(np.array([(1, 2, 3), (1, 2, 3)]), np.array([1, 2]))</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="comment"># TODO: Find some way to verify the internal state</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#af1d56a9051461c4b689d89d6cface06b">  108</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#af1d56a9051461c4b689d89d6cface06b">test_interp_to_pt</a>(self):</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Interpolate to a specific point.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        with self.assertRaises(TypeError):</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            interp.interp_to_pt()</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        with self.assertRaises(TypeError) <span class="keyword">as</span> context:</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            interp.interp_to_pt((1, 2))</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        err = context.exception</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;Input point should be a 3-tuple&quot;</span>, str(err))</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        val = interp.interp_to_pt((1, 2, 3))</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        self.assertEqual(-9999999.0, val)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a33658fba5d2c83631448c60e5a1e39f7">  123</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a33658fba5d2c83631448c60e5a1e39f7">test_intperp_to_pts</a>(self):</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Interpolate to multiple points&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        with self.assertRaises(TypeError):</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            interp.interp_to_pts()</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        with self.assertRaises(TypeError) <span class="keyword">as</span> context:</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            interp.interp_to_pts((1,2))</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        err = context.exception</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        tris = (0, 1, 3, 1, 2, 3)</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        interp.set_pts_tris(pts, tris)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;First arg must be a n-tuple of 3-tuples&quot;</span>, str(err))</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        ret = interp.interp_to_pts(((2, 1, 0), (5, 10, 2.5)))</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        self.assertIsInstance(ret, tuple)</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        self.assertEqual((0.5, 2.5), ret)</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a8f69fce8d2a00a0821360524b2fd9115">  143</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a8f69fce8d2a00a0821360524b2fd9115">test_intperp_to_pts_numpy</a>(self):</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Interpolate to multiple points&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        with self.assertRaises(TypeError):</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            interp.interp_to_pts()</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        with self.assertRaises(TypeError) <span class="keyword">as</span> context:</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            interp.interp_to_pts(np.array([1,2]))</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        err = context.exception</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        tris = np.array([0, 1, 3, 1, 2, 3])</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        interp.set_pts_tris(pts, tris)</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;First arg must be a n-tuple of 3-tuples&quot;</span>, str(err))</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        ret = interp.interp_to_pts(np.array([(2, 1, 0), (5, 10, 2.5)]))</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        self.assertIsInstance(ret, np.ndarray)</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        np.testing.assert_array_equal(np.array([0.5, 2.5]), ret)</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aeaa7b4621fa3c757a436f0f5ab45a219">  164</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aeaa7b4621fa3c757a436f0f5ab45a219">test_set_pt_activity</a>(self):</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Setting point activity&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        tris = (0, 1, 3, 1, 2, 3)</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        interp.set_pts_tris(pts, tris)</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        act1 = (<span class="keyword">True</span>, <span class="keyword">False</span>, <span class="keyword">False</span>, <span class="keyword">True</span>)</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        interp.set_pt_activity(act1)</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        act2 = (0, 1, 0, 1)</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        interp.set_pt_activity(act2)</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ad7113d9a3460b34e6633122d9b80da92">  177</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ad7113d9a3460b34e6633122d9b80da92">test_set_tri_activity</a>(self):</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Setting tri activity&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        tris = (0, 1, 3, 1, 2, 3)</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        interp.set_pts_tris(pts, tris)</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        act1 = (<span class="keyword">True</span>, <span class="keyword">False</span>)</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        interp.set_tri_activity(act1)</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        act2 = (1, 1)</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        interp.set_tri_activity(act2)</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
-<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a94938066988ae3725f392cf81b807c88">  190</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a94938066988ae3725f392cf81b807c88">test_get_pts</a>(self):</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Getting interp object points&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        tris = np.array([0, 1, 3, 1, 2, 3])</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        interp.set_pts_tris(pts, tris)</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        ret = interp.pts</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        np.testing.assert_array_equal(pts, ret)</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
-<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ace63e277cbd7b3f572a0e8bd3b7c7f83">  202</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ace63e277cbd7b3f572a0e8bd3b7c7f83">test_get_tris</a>(self):</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Getting interp object points&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        tris = np.array([0, 1, 3, 1, 2, 3])</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        interp.set_pts_tris(pts, tris)</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        ret = interp.tris</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        np.testing.assert_array_equal(tris, ret)</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
-<div class="line"><a name="l00214"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a1c98e61cc989d2a530b1fe897cd6e5f3">  214</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a1c98e61cc989d2a530b1fe897cd6e5f3">test_tri_containing_pt</a>(self):</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Getting tri containing point&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        tris = (0, 1, 3, 1, 2, 3)</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        interp.set_pts_tris(pts, tris)</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        ret = interp.tri_containing_pt((5, 5, 2))</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        self.assertEqual(0, ret)</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
-<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#abf2ce3a78008e9936bccaf7da98a99eb">  224</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#abf2ce3a78008e9936bccaf7da98a99eb">test_tri_envelops_containing_pt</a>(self):</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Getting tri containing point&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        tris = (0, 1, 3, 1, 2, 3)</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        interp.set_pts_tris(pts, tris)</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        ret = interp.tri_envelops_containing_pt((5, 5, 2))</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        np.testing.assert_array_equal(np.array([0, 3], np.int32), ret)</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
-<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#acbcd4c3f8bb4d15f2c55e3343bd79596">  235</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#acbcd4c3f8bb4d15f2c55e3343bd79596">test_interp_weights</a>(self):</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Test interp_weights&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        tris = (0, 1, 3, 1, 2, 3)</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        interp.set_pts_tris(pts, tris)</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        pt_inside, idxs, wts = interp.interp_weights((5, 5, 2))</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        self.assertTrue(pt_inside)</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        np.testing.assert_array_equal(np.array([0, 1, 3], np.int32), idxs)</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        np.testing.assert_array_equal(np.array([0, 0.5, 0.5]), wts)</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        pt_inside, idxs, wts = interp.interp_weights((-10, -10, -10))</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        self.assertFalse(pt_inside)</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        np.testing.assert_array_equal(np.array([], np.int32), idxs)</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        np.testing.assert_array_equal(np.array([]), wts)</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
-<div class="line"><a name="l00254"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a35c4725c6ec2ea36d340f48e255dd03c">  254</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a35c4725c6ec2ea36d340f48e255dd03c">test_set_extrap_val</a>(self):</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Test set_extrap_val&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        extrap_val = 7.11</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        interp.set_extrap_val(extrap_val)</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        base_string = <span class="stringliteral">&#39;0=cloughTocher 0=natNeigh 0=trunc 0=truncMax &#39;</span> \</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                      <span class="stringliteral">&#39;0=truncMin {}=extrap \n&#39;</span> \</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                      <span class="stringliteral">&#39;3.40282e+38,3.40282e+38,3.40282e+38=min-3.40282e+38,&#39;</span> \</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                      <span class="stringliteral">&#39;-3.40282e+38,-3.40282e+38=max\n=pts \n=tris \n&#39;</span> \</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                      <span class="stringliteral">&#39;=triActivity \n=triSearch \n=pts \n=tris \n=scalar \n\n&#39;</span> \</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                      .format(extrap_val)</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        self.assertEqual(base_string, self.interp_linear_obj.to_string())</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
-<div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a4059e053450bd58bd7e1fe776abb23ff">  267</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a4059e053450bd58bd7e1fe776abb23ff">test_set_trunc</a>(self):</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Test set_trunc&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        t_min = 7.11</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        t_max = 11.7</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        interp.set_trunc(t_max, t_min)</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        base_string = <span class="stringliteral">&#39;0=cloughTocher 0=natNeigh 1=trunc {}=truncMax &#39;</span> \</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                      <span class="stringliteral">&#39;{}=truncMin -1e+07=extrap \n&#39;</span> \</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                      <span class="stringliteral">&#39;3.40282e+38,3.40282e+38,3.40282e+38=min-3.40282e+38,&#39;</span> \</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                      <span class="stringliteral">&#39;-3.40282e+38,-3.40282e+38=max\n=pts \n=tris \n&#39;</span> \</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                      <span class="stringliteral">&#39;=triActivity \n=triSearch \n=pts \n=tris \n=scalar \n\n&#39;</span> \</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                      .format(t_max, t_min)</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        self.assertEqual(base_string, self.interp_linear_obj.to_string())</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
-<div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#af872de591e1026a71ae8b944855bf966">  281</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#af872de591e1026a71ae8b944855bf966">test_set_use_clough_tocher</a>(self):</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Test set_use_clough_tocher&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        observer = <a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html">MockObserver</a>()</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        tris = (0, 1, 3, 1, 2, 3)</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        interp.set_pts_tris(pts, tris)</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        interp.set_use_clough_tocher(<span class="keyword">True</span>, observer)</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        val = interp.interp_to_pt((2, 1, 0))</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        self.assertIn(<span class="stringliteral">&#39;1=cloughTocher&#39;</span>, self.interp_linear_obj.to_string())</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        self.assertAlmostEqual(0.2574999928474426, val, places=9)</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
-<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a94f1ce449bc6f25b7b31392df6cb9672">  293</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a94f1ce449bc6f25b7b31392df6cb9672">test_set_use_nat_neigh</a>(self):</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Test set_use_nat_neigh&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        observer = <a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html">MockObserver</a>()</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        tris = (0, 1, 3, 1, 2, 3)</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        interp.set_pts_tris(pts, tris)</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        nodal_func = 0</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        nodal_func_opts = 1</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        n_nearest = 12</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        blend_weights = <span class="keyword">False</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        interp.set_use_nat_neigh(<span class="keyword">True</span>, nodal_func, nodal_func_opts, n_nearest, blend_weights, observer)</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        val = interp.interp_to_pt((2, 1, 0))</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        self.assertIn(<span class="stringliteral">&#39;1=natNeigh&#39;</span>, self.interp_linear_obj.to_string())</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        self.assertAlmostEqual(0.4600000, val, places=7)</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
-<div class="line"><a name="l00311"></a><span class="lineno"><a class="line" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aed348cec6d4df11c1eeddb27fc712962">  311</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aed348cec6d4df11c1eeddb27fc712962">test_tutorial</a>(self):</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Ensure the tutorial will work.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        interp = self.<a class="code" href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">interp_linear_obj</a></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        tris = (0, 1, 3, 1, 2, 3)</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        interp.set_pts_tris(pts, tris)</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        val = interp.interp_to_pt((2, 1, 0))</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        self.assertEqual(0.5, val)</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    unittest.main()</div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_a94938066988ae3725f392cf81b807c88"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a94938066988ae3725f392cf81b807c88">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_get_pts</a></div><div class="ttdeci">def test_get_pts</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00190">InterpLinear_pyt.py:190</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_a79fdce5b5e566dc5fc5cfa4b961a237e"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a79fdce5b5e566dc5fc5cfa4b961a237e">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_to_string</a></div><div class="ttdeci">def test_to_string</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00051">InterpLinear_pyt.py:51</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_af1d56a9051461c4b689d89d6cface06b"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#af1d56a9051461c4b689d89d6cface06b">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_interp_to_pt</a></div><div class="ttdeci">def test_interp_to_pt</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00108">InterpLinear_pyt.py:108</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_aeaa7b4621fa3c757a436f0f5ab45a219"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aeaa7b4621fa3c757a436f0f5ab45a219">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_set_pt_activity</a></div><div class="ttdeci">def test_set_pt_activity</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00164">InterpLinear_pyt.py:164</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer_html"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html">python.interpolate.InterpLinear_pyt.MockObserver</a></div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00006">InterpLinear_pyt.py:6</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_acbcd4c3f8bb4d15f2c55e3343bd79596"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#acbcd4c3f8bb4d15f2c55e3343bd79596">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_interp_weights</a></div><div class="ttdeci">def test_interp_weights</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00235">InterpLinear_pyt.py:235</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_aed348cec6d4df11c1eeddb27fc712962"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aed348cec6d4df11c1eeddb27fc712962">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_tutorial</a></div><div class="ttdeci">def test_tutorial</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00311">InterpLinear_pyt.py:311</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_a1e88a75dfb37a8dcd643831ee8317fed"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a1e88a75dfb37a8dcd643831ee8317fed">python.interpolate.InterpLinear_pyt.TestInterpLinear.setUp</a></div><div class="ttdeci">def setUp</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00047">InterpLinear_pyt.py:47</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_a4059e053450bd58bd7e1fe776abb23ff"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a4059e053450bd58bd7e1fe776abb23ff">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_set_trunc</a></div><div class="ttdeci">def test_set_trunc</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00267">InterpLinear_pyt.py:267</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_abf2ce3a78008e9936bccaf7da98a99eb"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#abf2ce3a78008e9936bccaf7da98a99eb">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_tri_envelops_containing_pt</a></div><div class="ttdeci">def test_tri_envelops_containing_pt</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00224">InterpLinear_pyt.py:224</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_a33658fba5d2c83631448c60e5a1e39f7"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a33658fba5d2c83631448c60e5a1e39f7">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_intperp_to_pts</a></div><div class="ttdeci">def test_intperp_to_pts</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00123">InterpLinear_pyt.py:123</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html">python.interpolate.InterpLinear_pyt.TestInterpLinear</a></div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00044">InterpLinear_pyt.py:44</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_ad7113d9a3460b34e6633122d9b80da92"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ad7113d9a3460b34e6633122d9b80da92">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_set_tri_activity</a></div><div class="ttdeci">def test_set_tri_activity</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00177">InterpLinear_pyt.py:177</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_a94f1ce449bc6f25b7b31392df6cb9672"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a94f1ce449bc6f25b7b31392df6cb9672">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_set_use_nat_neigh</a></div><div class="ttdeci">def test_set_use_nat_neigh</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00293">InterpLinear_pyt.py:293</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_aea95c582f2add4da747370cf6e8551b4"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aea95c582f2add4da747370cf6e8551b4">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_set_pts_tris</a></div><div class="ttdeci">def test_set_pts_tris</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00060">InterpLinear_pyt.py:60</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_a1c98e61cc989d2a530b1fe897cd6e5f3"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a1c98e61cc989d2a530b1fe897cd6e5f3">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_tri_containing_pt</a></div><div class="ttdeci">def test_tri_containing_pt</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00214">InterpLinear_pyt.py:214</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_a8f69fce8d2a00a0821360524b2fd9115"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a8f69fce8d2a00a0821360524b2fd9115">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_intperp_to_pts_numpy</a></div><div class="ttdeci">def test_intperp_to_pts_numpy</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00143">InterpLinear_pyt.py:143</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_ace63e277cbd7b3f572a0e8bd3b7c7f83"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ace63e277cbd7b3f572a0e8bd3b7c7f83">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_get_tris</a></div><div class="ttdeci">def test_get_tris</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00202">InterpLinear_pyt.py:202</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_af872de591e1026a71ae8b944855bf966"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#af872de591e1026a71ae8b944855bf966">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_set_use_clough_tocher</a></div><div class="ttdeci">def test_set_use_clough_tocher</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00281">InterpLinear_pyt.py:281</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_a35c4725c6ec2ea36d340f48e255dd03c"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a35c4725c6ec2ea36d340f48e255dd03c">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_set_extrap_val</a></div><div class="ttdeci">def test_set_extrap_val</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00254">InterpLinear_pyt.py:254</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_a5d57e5432e630f0f58ec0d2ad42ad487"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a5d57e5432e630f0f58ec0d2ad42ad487">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_set_pts_tris_numpy</a></div><div class="ttdeci">def test_set_pts_tris_numpy</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00083">InterpLinear_pyt.py:83</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer_html_afd081d95c13a7b580c031712078f0aa0"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html#afd081d95c13a7b580c031712078f0aa0">python.interpolate.InterpLinear_pyt.MockObserver.status</a></div><div class="ttdeci">status</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00010">InterpLinear_pyt.py:10</a></div></div>
-<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_ac57c76d2221e0aebd6f36b5dde1ac94c"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">python.interpolate.InterpLinear_pyt.TestInterpLinear.interp_linear_obj</a></div><div class="ttdeci">interp_linear_obj</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00049">InterpLinear_pyt.py:49</a></div></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    unittest.main()</div>
+<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_a79fdce5b5e566dc5fc5cfa4b961a237e"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a79fdce5b5e566dc5fc5cfa4b961a237e">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_to_string</a></div><div class="ttdeci">def test_to_string</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00020">InterpLinear_pyt.py:20</a></div></div>
+<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_af1d56a9051461c4b689d89d6cface06b"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#af1d56a9051461c4b689d89d6cface06b">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_interp_to_pt</a></div><div class="ttdeci">def test_interp_to_pt</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00052">InterpLinear_pyt.py:52</a></div></div>
+<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_aed348cec6d4df11c1eeddb27fc712962"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aed348cec6d4df11c1eeddb27fc712962">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_tutorial</a></div><div class="ttdeci">def test_tutorial</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00069">InterpLinear_pyt.py:69</a></div></div>
+<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_a1e88a75dfb37a8dcd643831ee8317fed"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a1e88a75dfb37a8dcd643831ee8317fed">python.interpolate.InterpLinear_pyt.TestInterpLinear.setUp</a></div><div class="ttdeci">def setUp</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00009">InterpLinear_pyt.py:9</a></div></div>
+<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html">python.interpolate.InterpLinear_pyt.TestInterpLinear</a></div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00006">InterpLinear_pyt.py:6</a></div></div>
+<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_a3248c369c94a055cb2c5d9d8376e48db"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#a3248c369c94a055cb2c5d9d8376e48db">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_id_string_prop</a></div><div class="ttdeci">def test_id_string_prop</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00013">InterpLinear_pyt.py:13</a></div></div>
+<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_aea95c582f2add4da747370cf6e8551b4"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#aea95c582f2add4da747370cf6e8551b4">python.interpolate.InterpLinear_pyt.TestInterpLinear.test_set_pts_tris</a></div><div class="ttdeci">def test_set_pts_tris</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00029">InterpLinear_pyt.py:29</a></div></div>
+<div class="ttc" id="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear_html_ac57c76d2221e0aebd6f36b5dde1ac94c"><div class="ttname"><a href="classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html#ac57c76d2221e0aebd6f36b5dde1ac94c">python.interpolate.InterpLinear_pyt.TestInterpLinear.interp_linear_obj</a></div><div class="ttdeci">interp_linear_obj</div><div class="ttdef"><b>Definition:</b> <a href="_interp_linear__pyt_8py_source.html#l00011">InterpLinear_pyt.py:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_53cfb6cd0b472f339d101e3e1947d282.html">python</a></li><li class="navelem"><a class="el" href="dir_891e27cd1483828d783aecbc58ac2c70.html">interpolate</a></li><li class="navelem"><b>InterpLinear_pyt.py</b></li>
-    <li class="footer">Generated on Wed Jun 6 2018 20:36:55 for xmsinterp by
+    <li class="footer">Generated on Wed Jun 6 2018 20:46:51 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
