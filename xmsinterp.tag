@@ -2014,6 +2014,55 @@
     </member>
     <member kind="function">
       <type>def</type>
+      <name>test_set_power</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a5565e5db7dee38e93892e004a704c087</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_search_opts</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>ac074586e4d33e11afa3c114a2a2c41ab</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_weight_calc_method</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>ac69ada0356739d8823d52dbcaa58a84e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_nodal_function</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a03937ce19625a0ceb6afbbd3b99ea9e5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_save_weights</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>ab60b3b49c5f9d407ba22058d498e91e4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_interp_weights</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>ad1cc2b69466cf26374efa56f73bb8640</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_multi_threading</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>af4af819a66cee88e90141ce2342d465d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
       <name>test_tutorial</name>
       <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
       <anchor>a201ee30bd9d4398112270413b1afa8e9</anchor>
