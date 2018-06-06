@@ -112,8 +112,6 @@ set(xmsinterp_py
   xmsinterp/python/interpolate/interpolate_py.cpp
   xmsinterp/python/interpolate/InterpIdw_py.cpp
   xmsinterp/python/interpolate/InterpLinear_py.cpp
-  xmsinterp/python/interpolate/InterpNatNeigh_py.cpp
-  # xmsinterp/python/interpolate/NodalFunc_py.cpp
   # Misc
   xmsinterp/python/misc/misc_py.h
   xmsinterp/python/misc/misc_py.cpp

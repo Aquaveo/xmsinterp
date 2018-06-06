@@ -140,18 +140,6 @@ void initInterpLinear(py::module &m) {
              return py::array(tris.size(), tris.data());
            }
         })
-        .def_property_readonly("pts", [](xms::InterpLinear &self) -> py::iterable {
-          BSHP<std::vector<xms::Pt3d>> pts = self.GetPts();
-          py::array_t<double, py::array::c_style> a({(int)(*pts).size(), 3});
-          auto r = a.mutable_unchecked<2>();
-          int i = 0;
-          for (ssize_t i = 0; i < r.shape(0); i++) {
-           r(i, 0) = (*pts)[i].x;
-           r(i, 1) = (*pts)[i].y;
-           r(i, 2) = (*pts)[i].z;
-          }
-          return a;
-        })
         .def("interp_weights", [](xms::InterpLinear &self, py::tuple pt) -> py::iterable {
           xms::VecInt idxs;
           xms::VecDbl wts;
@@ -167,6 +155,18 @@ void initInterpLinear(py::module &m) {
         })
         .def("set_extrap_val", &xms::InterpLinear::SetExtrapVal)
         .def("set_trunc", &xms::InterpLinear::SetTrunc)
+        .def_property_readonly("pts", [](xms::InterpLinear &self) -> py::iterable {
+          BSHP<std::vector<xms::Pt3d>> pts = self.GetPts();
+          py::array_t<double, py::array::c_style> a({(int)(*pts).size(), 3});
+          auto r = a.mutable_unchecked<2>();
+          int i = 0;
+          for (ssize_t i = 0; i < r.shape(0); i++) {
+           r(i, 0) = (*pts)[i].x;
+           r(i, 1) = (*pts)[i].y;
+           r(i, 2) = (*pts)[i].z;
+          }
+          return a;
+        })
         .def_property_readonly("tris", [](xms::InterpLinear &self) -> py::iterable {
           BSHP<std::vector<int>> tris = self.GetTris();
           return py::array(tris->size(), tris->data());
