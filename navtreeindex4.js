@@ -1,5 +1,12 @@
 var NAVTREEINDEX4 =
 {
+"classxms_1_1_tr_outer_triangle_deleter_impl.html#af205fc1490d38fbd9faa87d8feb4cf4d":[4,0,1,38,2],
+"classxms_1_1_tr_outer_triangle_deleter_impl.html#af243755c164dc8b6af8504aa6a037b8d":[4,0,1,38,4],
+"classxms_1_1_tr_tin.html":[4,0,1,44],
+"classxms_1_1_tr_tin.html#a13e29683d761b3f8e663c2a69098bfd3":[4,0,1,44,1],
+"classxms_1_1_tr_tin.html#ab1227a106b70c3061bd03cb3fb9833a7":[4,0,1,44,2],
+"classxms_1_1_tr_tin.html#acbac3ff7b8a488bec68feace756d1234":[4,0,1,44,0],
+"classxms_1_1_tr_tin_impl.html":[4,0,1,43],
 "classxms_1_1_tr_tin_impl.html#a03191327872b758392b0dd2c4fa1f60c":[4,0,1,43,14],
 "classxms_1_1_tr_tin_impl.html#a0a160157240d033a400f55c730bb18f6":[4,0,1,43,11],
 "classxms_1_1_tr_tin_impl.html#a0c46d52ba123ea89d983831713de21de":[4,0,1,43,32],
@@ -121,8 +128,8 @@ var NAVTREEINDEX4 =
 "functions_e.html":[4,2,0,4],
 "functions_enum.html":[4,2,4],
 "functions_f.html":[4,2,0,5],
-"functions_func.html":[4,2,1,0],
 "functions_func.html":[4,2,1],
+"functions_func.html":[4,2,1,0],
 "functions_func_b.html":[4,2,1,1],
 "functions_func_c.html":[4,2,1,2],
 "functions_func_d.html":[4,2,1,3],
@@ -242,12 +249,5 @@ var NAVTREEINDEX4 =
 "geoms_8h.html#a03126d64edc4ecb587a357fbfa5fb08c":[5,0,0,0,1,23],
 "geoms_8h.html#a065cd6d71205487312c1e03496f5ca08":[5,0,0,0,1,11],
 "geoms_8h.html#a0682e25caba7c1d65216a5680cc0217b":[5,0,0,0,1,1],
-"geoms_8h.html#a0682e25caba7c1d65216a5680cc0217ba06d649a650f4acb061afb7acd5a2dbd7":[5,0,0,0,1,1,3],
-"geoms_8h.html#a0682e25caba7c1d65216a5680cc0217ba4a1de04425d6c2953fbf40f2b29c15c7":[5,0,0,0,1,1,1],
-"geoms_8h.html#a0682e25caba7c1d65216a5680cc0217babc1acb082c93789cb378bf87597f42dd":[5,0,0,0,1,1,0],
-"geoms_8h.html#a0682e25caba7c1d65216a5680cc0217badbc22a212895c3de629b927b410a7065":[5,0,0,0,1,1,2],
-"geoms_8h.html#a06f4c8c6bc396759e5d8953d85530b46":[5,0,0,0,1,27],
-"geoms_8h.html#a098ef608f7092e087f9a456709714fea":[5,0,0,0,1,25],
-"geoms_8h.html#a0a8640978d427b51b4ba6c217bb47b12":[5,0,0,0,1,13],
-"geoms_8h.html#a1460ad596726029e888ef3a0c67cb3ec":[5,0,0,0,1,54]
+"geoms_8h.html#a0682e25caba7c1d65216a5680cc0217ba06d649a650f4acb061afb7acd5a2dbd7":[5,0,0,0,1,1,3]
 };

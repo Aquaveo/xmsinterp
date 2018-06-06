@@ -3,10 +3,7 @@ var annotated =
     [ "python", null, [
       [ "interpolate", null, [
         [ "InterpIdw_pyt", "namespacepython_1_1interpolate_1_1_interp_idw__pyt.html", "namespacepython_1_1interpolate_1_1_interp_idw__pyt" ],
-        [ "InterpLinear_pyt", "namespacepython_1_1interpolate_1_1_interp_linear__pyt.html", "namespacepython_1_1interpolate_1_1_interp_linear__pyt" ],
-        [ "test", null, [
-          [ "TestStringMethods", "classpython_1_1interpolate_1_1test_1_1_test_string_methods.html", "classpython_1_1interpolate_1_1test_1_1_test_string_methods" ]
-        ] ]
+        [ "InterpLinear_pyt", "namespacepython_1_1interpolate_1_1_interp_linear__pyt.html", "namespacepython_1_1interpolate_1_1_interp_linear__pyt" ]
       ] ],
       [ "misc", null, [
         [ "observer_pyt", "namespacepython_1_1misc_1_1observer__pyt.html", "namespacepython_1_1misc_1_1observer__pyt" ]
