@@ -190,7 +190,7 @@ $(document).ready(function(){initNavTree('observer__pyt_8py_source.html','');});
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        self.observer.progress_status(0.2)</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        base_time_elapsed = (self.observer.status[<span class="stringliteral">&#39;remaining_seconds&#39;</span>] * 0.2) / 0.8</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        time_elapsed = self.observer.status[<span class="stringliteral">&#39;elapsed_seconds&#39;</span>]</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        self.assertEqual(base_time_elapsed, time_elapsed)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        self.assertAlmostEqual(base_time_elapsed, time_elapsed, places=9)</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">def </span>test_progress_status_update(self):</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        percent_complete = 12</div>
@@ -242,7 +242,7 @@ $(document).ready(function(){initNavTree('observer__pyt_8py_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_53cfb6cd0b472f339d101e3e1947d282.html">python</a></li><li class="navelem"><a class="el" href="dir_3f4d67dd64b001839bcabb6bd8deb83e.html">misc</a></li><li class="navelem"><b>observer_pyt.py</b></li>
-    <li class="footer">Generated on Wed Jun 6 2018 20:46:51 for xmsinterp by
+    <li class="footer">Generated on Wed Jun 6 2018 20:49:30 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

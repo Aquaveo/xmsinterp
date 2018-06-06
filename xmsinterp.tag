@@ -433,6 +433,7 @@
     <name>InterpIdw_py.cpp</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
     <filename>_interp_idw__py_8cpp</filename>
+    <includes id="_public_observer_8h" name="PublicObserver.h" local="no" imported="no">xmsinterp/python/misc/PublicObserver.h</includes>
     <includes id="_interp_idw_8h" name="InterpIdw.h" local="no" imported="no">xmsinterp/interpolate/InterpIdw.h</includes>
     <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
   </compound>
@@ -440,6 +441,7 @@
     <name>InterpLinear_py.cpp</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
     <filename>_interp_linear__py_8cpp</filename>
+    <includes id="_public_observer_8h" name="PublicObserver.h" local="no" imported="no">xmsinterp/python/misc/PublicObserver.h</includes>
     <includes id="_interp_linear_8h" name="InterpLinear.h" local="no" imported="no">xmsinterp/interpolate/InterpLinear.h</includes>
     <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
   </compound>
@@ -1883,7 +1885,31 @@
   <compound kind="namespace">
     <name>python::interpolate::InterpIdw_pyt</name>
     <filename>namespacepython_1_1interpolate_1_1_interp_idw__pyt.html</filename>
+    <class kind="class">python::interpolate::InterpIdw_pyt::MockObserver</class>
+    <class kind="class">python::interpolate::InterpIdw_pyt::TestIdwEnums</class>
     <class kind="class">python::interpolate::InterpIdw_pyt::TestInterpIdw</class>
+  </compound>
+  <compound kind="class">
+    <name>python::interpolate::InterpIdw_pyt::MockObserver</name>
+    <filename>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_mock_observer.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>python::interpolate::InterpIdw_pyt::TestIdwEnums</name>
+    <filename>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html</filename>
+    <member kind="function">
+      <type>def</type>
+      <name>test_idw_weight_enum</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html</anchorfile>
+      <anchor>ab5ced31c3d6d810d9ffcb58f48c895b9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_idw_nodal_func_enum</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html</anchorfile>
+      <anchor>a57a69015a3c22be5f0e796fc8beef1cc</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>python::interpolate::InterpIdw_pyt::TestInterpIdw</name>
@@ -1893,13 +1919,6 @@
       <name>setUp</name>
       <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
       <anchor>ae537f6cae557c5c4afc2c544276284d4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_id_string_prop</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>a4cccf1ef7754e8699efc07de3e963d01</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -1918,9 +1937,128 @@
     </member>
     <member kind="function">
       <type>def</type>
+      <name>test_set_pts</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a650dd3b942b228e51e621e76607d70bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_pts_2d</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a1d99fac0c1a30cf6db2a3945b97e4d01</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
       <name>test_interp_to_pt</name>
       <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
       <anchor>a75f26f4905e23e0f8815044e2a401079</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_intperp_to_pts</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a0169db232428a6fba4bb50a5724b7d82</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_intperp_to_pts_numpy</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>acbc35830d3fa12ba47dec260aee8425d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_pt_activity</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>af2cf6b0de55a9104e0b43a20643d6226</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_tri_activity</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a9b197df7cf5ceb1ea0b115d82f216738</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_get_pts</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a964172d88cb8a5ae7e198cc6d6a5f44d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_get_tris</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a6479639d101690eec28b029034173e42</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_trunc</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>ad5661f267cb8e4c0ef4850f1ada92f3b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_observer</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a9231491cdd55575a2c44fd579630ffd0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_power</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a5565e5db7dee38e93892e004a704c087</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_search_opts</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>ac074586e4d33e11afa3c114a2a2c41ab</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_weight_calc_method</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>ac69ada0356739d8823d52dbcaa58a84e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_nodal_function</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>a03937ce19625a0ceb6afbbd3b99ea9e5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_save_weights</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>ab60b3b49c5f9d407ba22058d498e91e4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_interp_weights</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>ad1cc2b69466cf26374efa56f73bb8640</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_multi_threading</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
+      <anchor>af4af819a66cee88e90141ce2342d465d</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -1934,7 +2072,12 @@
   <compound kind="namespace">
     <name>python::interpolate::InterpLinear_pyt</name>
     <filename>namespacepython_1_1interpolate_1_1_interp_linear__pyt.html</filename>
+    <class kind="class">python::interpolate::InterpLinear_pyt::MockObserver</class>
     <class kind="class">python::interpolate::InterpLinear_pyt::TestInterpLinear</class>
+  </compound>
+  <compound kind="class">
+    <name>python::interpolate::InterpLinear_pyt::MockObserver</name>
+    <filename>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html</filename>
   </compound>
   <compound kind="class">
     <name>python::interpolate::InterpLinear_pyt::TestInterpLinear</name>
@@ -1944,13 +2087,6 @@
       <name>setUp</name>
       <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
       <anchor>a1e88a75dfb37a8dcd643831ee8317fed</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_id_string_prop</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>a3248c369c94a055cb2c5d9d8376e48db</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -1969,9 +2105,107 @@
     </member>
     <member kind="function">
       <type>def</type>
+      <name>test_set_pts_tris_numpy</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a5d57e5432e630f0f58ec0d2ad42ad487</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
       <name>test_interp_to_pt</name>
       <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
       <anchor>af1d56a9051461c4b689d89d6cface06b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_intperp_to_pts</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a33658fba5d2c83631448c60e5a1e39f7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_intperp_to_pts_numpy</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a8f69fce8d2a00a0821360524b2fd9115</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_pt_activity</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>aeaa7b4621fa3c757a436f0f5ab45a219</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_tri_activity</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>ad7113d9a3460b34e6633122d9b80da92</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_get_pts</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a94938066988ae3725f392cf81b807c88</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_get_tris</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>ace63e277cbd7b3f572a0e8bd3b7c7f83</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_tri_containing_pt</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a1c98e61cc989d2a530b1fe897cd6e5f3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_tri_envelops_containing_pt</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>abf2ce3a78008e9936bccaf7da98a99eb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_interp_weights</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>acbcd4c3f8bb4d15f2c55e3343bd79596</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_extrap_val</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a35c4725c6ec2ea36d340f48e255dd03c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_trunc</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a4059e053450bd58bd7e1fe776abb23ff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_use_clough_tocher</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>af872de591e1026a71ae8b944855bf966</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>test_set_use_nat_neigh</name>
+      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
+      <anchor>a94f1ce449bc6f25b7b31392df6cb9672</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -1981,10 +2215,6 @@
       <anchor>aed348cec6d4df11c1eeddb27fc712962</anchor>
       <arglist></arglist>
     </member>
-  </compound>
-  <compound kind="class">
-    <name>python::interpolate::test::TestStringMethods</name>
-    <filename>classpython_1_1interpolate_1_1test_1_1_test_string_methods.html</filename>
   </compound>
   <compound kind="namespace">
     <name>python::misc::observer_pyt</name>
@@ -3715,6 +3945,13 @@
       <anchor>a91d250cdc4296e924f6b80f84d4e2068</anchor>
       <arglist>(std::map&lt; int, double &gt; &amp;a_weights, const xms::Pt3d &amp;a_pt)</arglist>
     </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~InterpNatNeigh</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh.html</anchorfile>
+      <anchor>a0008ef8bc9164fc76d47172a925a3032</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="typedef" protection="private">
       <type>boost::unordered_map&lt; std::pair&lt; int, int &gt;, std::pair&lt; int, int &gt; &gt;</type>
       <name>MapEdges</name>
@@ -3797,13 +4034,6 @@
       <name>InterpNatNeigh</name>
       <anchorfile>classxms_1_1_interp_nat_neigh.html</anchorfile>
       <anchor>a72b529ca7b1f5d75181607ba062f4fba</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="protected" virtualness="virtual">
-      <type>virtual</type>
-      <name>~InterpNatNeigh</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh.html</anchorfile>
-      <anchor>a0008ef8bc9164fc76d47172a925a3032</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -6168,7 +6398,6 @@
     <file>InterpLinear_pyt.py</file>
     <file>interpolate_py.cpp</file>
     <file>interpolate_py.h</file>
-    <file>test.t.py</file>
   </compound>
   <compound kind="dir">
     <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate</name>
