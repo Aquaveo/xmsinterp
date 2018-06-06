@@ -12,6 +12,7 @@
 #include <xmscore/misc/base_macros.h>
 #include <xmscore/misc/boost_defines.h>
 #include <xmscore/points/ptsfwd.h>
+#include <xmscore/stl/vector.h>
 
 //----- Forward declarations ---------------------------------------------------
 
@@ -32,6 +33,7 @@ public:
                                                const std::vector<int>& a_tris,
                                                const std::vector<float>& a_scalar,
                                                GmTriSearch* a_triSearch);
+  virtual ~InterpNatNeigh();
 
   /// \cond
   virtual float InterpToPt(const Pt3d& a_pt) = 0;
@@ -47,7 +49,6 @@ private:
 
 protected:
   InterpNatNeigh();
-  virtual ~InterpNatNeigh();
 };
 //----- Function prototypes ----------------------------------------------------
 }

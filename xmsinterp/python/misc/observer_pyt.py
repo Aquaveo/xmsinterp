@@ -80,7 +80,7 @@ class TestObserver(unittest.TestCase):
         self.observer.progress_status(0.2)
         base_time_elapsed = (self.observer.status['remaining_seconds'] * 0.2) / 0.8
         time_elapsed = self.observer.status['elapsed_seconds']
-        self.assertEqual(base_time_elapsed, time_elapsed)
+        self.assertAlmostEqual(base_time_elapsed, time_elapsed, places=9)
 
     def test_progress_status_update(self):
         percent_complete = 12

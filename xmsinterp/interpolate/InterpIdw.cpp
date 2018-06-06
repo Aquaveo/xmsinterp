@@ -529,7 +529,7 @@ std::string InterpIdwImpl::ToString() const
   std::stringstream ss;
   ss << m_2d << "=2d " << m_quadOctSearch << "=quadOctSearch " << m_modifiedShepardWeights
      << "=modifiedShepardWeights " << m_nNearestPts << "=nNearestPts " << m_power << "=power "
-     << m_saveWeights << "=saveWeights "
+     << m_saveWeights << "=saveWeights " << m_multiThread << "=multiThread "
      << "\n";
 
   if (m_ptSearch)
@@ -636,10 +636,9 @@ void InterpIdwImpl::SetNodalFunction(NodalFuncEnum a_,
                                      bool a_quad_oct,
                                      BSHP<Observer> a_p)
 {
-  if (a_ == CONSTANT)
-    return;
-  if (inAllScalarsEqual(*m_scalarFrom, m_ptSearch->GetActivity()))
-    return;
+  XM_ENSURE_TRUE_VOID_NO_ASSERT(a_ != CONSTANT);
+  XM_ENSURE_TRUE_VOID_NO_ASSERT(!inAllScalarsEqual(*m_scalarFrom, m_ptSearch->GetActivity()));
+  XM_ENSURE_TRUE(!m_pts->empty());
 
   CreateNodalFunctionPtr(a_, a_nNearest, a_quad_oct, a_p);
 } // InterpIdwImpl::SetNodalFunction
