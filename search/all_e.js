@@ -2,7 +2,7 @@ var searchData=
 [
   ['interpidw_5fpyt',['InterpIdw_pyt',['../namespacepython_1_1interpolate_1_1_interp_idw__pyt.html',1,'python::interpolate']]],
   ['interplinear_5fpyt',['InterpLinear_pyt',['../namespacepython_1_1interpolate_1_1_interp_linear__pyt.html',1,'python::interpolate']]],
-  ['observer_5fpyt',['observer_pyt',['../namespacepython_1_1misc_1_1observer__pyt.html',1,'python::misc']]],
+  ['observer_5fpyt',['observer_pyt',['https://aquaveo.github.io/xmscore/namespacepython_1_1misc_1_1observer__pyt.html',1,'python::misc']]],
   ['pointactivityfromtriactivity',['PointActivityFromTriActivity',['../classxms_1_1_gm_tri_search_impl.html#a5b26bb57b6a3dc0373188675dbf09c11',1,'xms::GmTriSearchImpl']]],
   ['pointidxesfromtriidx',['PointIdxesFromTriIdx',['../classxms_1_1_gm_tri_search_impl.html#ab3a89a592db07b714e4a5eb8d12037c6',1,'xms::GmTriSearchImpl']]],
   ['pointindexfound',['PointIndexFound',['../classxms_1_1_tr_tin_impl.html#aaaf57e6166538ec0f6576f12b4515a7f',1,'xms::TrTinImpl']]],
@@ -42,8 +42,8 @@ var searchData=
   ['ptstosearch',['PtsToSearch',['../classxms_1_1_gm_pt_search_impl.html#aa1392683701227465eb55bda1a899865',1,'xms::GmPtSearchImpl']]],
   ['ptswithindistancetoptinrtree',['PtsWithinDistanceToPtInRtree',['../classxms_1_1_gm_pt_search_impl.html#a965dd3692fa215d527027e19544bdfe9',1,'xms::GmPtSearchImpl']]],
   ['ptunittests',['PtUnitTests',['https://aquaveo.github.io/xmscore/class_pt_unit_tests.html',1,'']]],
-  ['publicobserver',['PublicObserver',['../classxms_1_1_public_observer.html',1,'xms']]],
-  ['publicobserver_2eh',['PublicObserver.h',['../_public_observer_8h.html',1,'']]],
-  ['pyobserver',['PyObserver',['../class_py_observer.html',1,'']]],
-  ['pyobserver_2eh',['PyObserver.h',['../_py_observer_8h.html',1,'']]]
+  ['publicobserver',['PublicObserver',['https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html',1,'xms']]],
+  ['publicobserver_2eh',['PublicObserver.h',['../_public_observer_8h.html',1,'(Global Namespace)'],['https://aquaveo.github.io/xmscore/_public_observer_8h.html',1,'(Global Namespace)']]],
+  ['pyobserver',['PyObserver',['https://aquaveo.github.io/xmscore/class_py_observer.html',1,'']]],
+  ['pyobserver_2eh',['PyObserver.h',['../_py_observer_8h.html',1,'(Global Namespace)'],['https://aquaveo.github.io/xmscore/_py_observer_8h.html',1,'(Global Namespace)']]]
 ];

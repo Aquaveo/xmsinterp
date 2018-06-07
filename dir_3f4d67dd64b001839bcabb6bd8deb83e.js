@@ -6,9 +6,9 @@ var dir_3f4d67dd64b001839bcabb6bd8deb83e =
     [ "observer_py.cpp", "observer__py_8cpp.html", "observer__py_8cpp" ],
     [ "observer_pyt.py", "observer__pyt_8py_source.html", null ],
     [ "PublicObserver.h", "_public_observer_8h.html", [
-      [ "PublicObserver", "classxms_1_1_public_observer.html", "classxms_1_1_public_observer" ]
+      [ "PublicObserver", "https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html", "classxms_1_1_public_observer" ]
     ] ],
     [ "PyObserver.h", "_py_observer_8h.html", [
-      [ "PyObserver", "class_py_observer.html", "class_py_observer" ]
+      [ "PyObserver", "https://aquaveo.github.io/xmscore/class_py_observer.html", "class_py_observer" ]
     ] ]
 ];

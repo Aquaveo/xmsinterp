@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('_public_observer_8h_source.html','');}
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>xms</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classxms_1_1_public_observer.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="classxms_1_1_public_observer.html">PublicObserver</a> : <span class="keyword">public</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_observer.html">xms::Observer</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span>PublicObserver : <span class="keyword">public</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_observer.html">xms::Observer</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">/* Inherit the constructors */</span></div>
@@ -140,29 +140,34 @@ $(document).ready(function(){initNavTree('_public_observer_8h_source.html','');}
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> time_elapsed_in_seconds(<span class="keywordtype">double</span> a_elapsedSeconds) {}</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">void</span> OnProgressStatus(<span class="keywordtype">double</span> a_percentComplete)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">void</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html#a59f5291eaa7a6710f0cddbb95208d18e">OnProgressStatus</a>(<span class="keywordtype">double</span> a_percentComplete)<span class="keyword"> override </span>{</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    on_progress_status(a_percentComplete);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">void</span> OnBeginOperationString(<span class="keyword">const</span> std::string&amp; a_operation)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">void</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html#a3eb61c2632b4a8d026d3fb72bf3ad756">OnBeginOperationString</a>(<span class="keyword">const</span> std::string&amp; a_operation)<span class="keyword"> override </span>{</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    on_begin_operation_string(a_operation);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">void</span> OnEndOperation()<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">void</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html#a8da922214a2449d4fabbb339b160ec2f">OnEndOperation</a>()<span class="keyword"> override </span>{</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    on_end_operation();</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">void</span> OnUpdateMessage(<span class="keyword">const</span> std::string&amp; a_message)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">void</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html#ac640bbab949fc3325b75fd56df6ef67e">OnUpdateMessage</a>(<span class="keyword">const</span> std::string&amp; a_message)<span class="keyword"> override </span>{</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    on_update_message(a_message);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">void</span> TimeRemainingInSeconds(<span class="keywordtype">double</span> a_remainingSeconds)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">void</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html#a272bd0d80acc3fc269528ff88ca8bfb4">TimeRemainingInSeconds</a>(<span class="keywordtype">double</span> a_remainingSeconds)<span class="keyword"> override </span>{</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    time_remaining_in_seconds(a_remainingSeconds);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordtype">void</span> TimeElapsedInSeconds(<span class="keywordtype">double</span> a_elapsedSeconds)<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordtype">void</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html#aefde702d3859c6e6ff376122528dc4aa">TimeElapsedInSeconds</a>(<span class="keywordtype">double</span> a_elapsedSeconds)<span class="keyword"> override </span>{</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    time_elapsed_in_seconds(a_elapsedSeconds);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;} <span class="comment">// namespace xms</span></div>
-<div class="ttc" id="classxms_1_1_public_observer_html"><div class="ttname"><a href="classxms_1_1_public_observer.html">xms::PublicObserver</a></div><div class="ttdef"><b>Definition:</b> <a href="_public_observer_8h_source.html#l00027">PublicObserver.h:27</a></div></div>
+<div class="ttc" id="classxms_1_1_public_observer_html_a8da922214a2449d4fabbb339b160ec2f"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html#a8da922214a2449d4fabbb339b160ec2f">xms::PublicObserver::OnEndOperation</a></div><div class="ttdeci">void OnEndOperation() override</div></div>
+<div class="ttc" id="classxms_1_1_public_observer_html_ac640bbab949fc3325b75fd56df6ef67e"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html#ac640bbab949fc3325b75fd56df6ef67e">xms::PublicObserver::OnUpdateMessage</a></div><div class="ttdeci">void OnUpdateMessage(const std::string &amp;a_message) override</div></div>
 <div class="ttc" id="_observer_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/_observer_8h.html">Observer.h</a></div></div>
+<div class="ttc" id="classxms_1_1_public_observer_html_a59f5291eaa7a6710f0cddbb95208d18e"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html#a59f5291eaa7a6710f0cddbb95208d18e">xms::PublicObserver::OnProgressStatus</a></div><div class="ttdeci">void OnProgressStatus(double a_percentComplete) override</div></div>
+<div class="ttc" id="classxms_1_1_public_observer_html_a272bd0d80acc3fc269528ff88ca8bfb4"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html#a272bd0d80acc3fc269528ff88ca8bfb4">xms::PublicObserver::TimeRemainingInSeconds</a></div><div class="ttdeci">void TimeRemainingInSeconds(double a_remainingSeconds) override</div></div>
+<div class="ttc" id="classxms_1_1_public_observer_html_aefde702d3859c6e6ff376122528dc4aa"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html#aefde702d3859c6e6ff376122528dc4aa">xms::PublicObserver::TimeElapsedInSeconds</a></div><div class="ttdeci">void TimeElapsedInSeconds(double a_elapsedSeconds) override</div></div>
+<div class="ttc" id="classxms_1_1_public_observer_html_a3eb61c2632b4a8d026d3fb72bf3ad756"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html#a3eb61c2632b4a8d026d3fb72bf3ad756">xms::PublicObserver::OnBeginOperationString</a></div><div class="ttdeci">void OnBeginOperationString(const std::string &amp;a_operation) override</div></div>
 <div class="ttc" id="classxms_1_1_observer_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/classxms_1_1_observer.html">xms::Observer</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -170,7 +175,7 @@ $(document).ready(function(){initNavTree('_public_observer_8h_source.html','');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_53cfb6cd0b472f339d101e3e1947d282.html">python</a></li><li class="navelem"><a class="el" href="dir_3f4d67dd64b001839bcabb6bd8deb83e.html">misc</a></li><li class="navelem"><a class="el" href="_public_observer_8h.html">PublicObserver.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 20:49:30 for xmsinterp by
+    <li class="footer">Generated on Thu Jun 7 2018 15:18:50 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

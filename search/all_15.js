@@ -14,6 +14,7 @@ var searchData=
   ['xmlog_2eh',['XmLog.h',['https://aquaveo.github.io/xmscore/_xm_log_8h.html',1,'']]],
   ['xmlog_2et_2eh',['XmLog.t.h',['https://aquaveo.github.io/xmscore/_xm_log_8t_8h.html',1,'']]],
   ['xmlogunittests',['XmLogUnitTests',['https://aquaveo.github.io/xmscore/class_xm_log_unit_tests.html',1,'']]],
+  ['xmscore_5fpy_2ecpp',['xmscore_py.cpp',['https://aquaveo.github.io/xmscore/xmscore__py_8cpp.html',1,'']]],
   ['xmsinterp_5fpy_2ecpp',['xmsinterp_py.cpp',['../xmsinterp__py_8cpp.html',1,'']]],
   ['xmstype_2eh',['xmstype.h',['https://aquaveo.github.io/xmscore/xmstype_8h.html',1,'']]]
 ];

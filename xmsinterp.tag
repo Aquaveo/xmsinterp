@@ -479,14 +479,12 @@
     <name>PublicObserver.h</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/misc/</path>
     <filename>_public_observer_8h</filename>
-    <class kind="class">xms::PublicObserver</class>
   </compound>
   <compound kind="file">
     <name>PyObserver.h</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/misc/</path>
     <filename>_py_observer_8h</filename>
     <includes id="_public_observer_8h" name="PublicObserver.h" local="no" imported="no">xmsinterp/python/misc/PublicObserver.h</includes>
-    <class kind="class">PyObserver</class>
   </compound>
   <compound kind="file">
     <name>xmsinterp_py.cpp</name>
@@ -1689,11 +1687,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>PyObserver</name>
-    <filename>class_py_observer.html</filename>
-    <base>xms::PublicObserver</base>
-  </compound>
-  <compound kind="class">
     <name>TrAutoFixFourTrianglePtsUnitTests</name>
     <filename>class_tr_auto_fix_four_triangle_pts_unit_tests.html</filename>
     <member kind="function">
@@ -2213,27 +2206,6 @@
       <name>test_tutorial</name>
       <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
       <anchor>aed348cec6d4df11c1eeddb27fc712962</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="namespace">
-    <name>python::misc::observer_pyt</name>
-    <filename>namespacepython_1_1misc_1_1observer__pyt.html</filename>
-    <class kind="class">python::misc::observer_pyt::MockObserver</class>
-    <class kind="class">python::misc::observer_pyt::TestObserver</class>
-  </compound>
-  <compound kind="class">
-    <name>python::misc::observer_pyt::MockObserver</name>
-    <filename>classpython_1_1misc_1_1observer__pyt_1_1_mock_observer.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>python::misc::observer_pyt::TestObserver</name>
-    <filename>classpython_1_1misc_1_1observer__pyt_1_1_test_observer.html</filename>
-    <member kind="function">
-      <type>def</type>
-      <name>setUp</name>
-      <anchorfile>classpython_1_1misc_1_1observer__pyt_1_1_test_observer.html</anchorfile>
-      <anchor>a6dba6d1735b30b7609e49c411da5eb6e</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -5062,11 +5034,6 @@
       <anchor>a98786093d872060474647f82be4d90eb</anchor>
       <arglist></arglist>
     </member>
-  </compound>
-  <compound kind="class">
-    <name>xms::PublicObserver</name>
-    <filename>classxms_1_1_public_observer.html</filename>
-    <base>xms::Observer</base>
   </compound>
   <compound kind="class">
     <name>xms::ThreadLoop</name>
