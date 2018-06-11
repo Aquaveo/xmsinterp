@@ -8,13 +8,13 @@
 
 //----- Included files ---------------------------------------------------------
 #include <pybind11/pybind11.h>
-#include <xmsinterp/python/misc/misc_py.h>
+#include <xmsinterp/python/triangulate/triangulate_py.h>
 
 //----- Namespace declaration --------------------------------------------------
 namespace py = pybind11;
 
 //----- Python Interface -------------------------------------------------------
 
-void initMisc(py::module &m) {
-    initObserver(m);
+void initTriangulate(py::module &m) {
+    initTrTin(m);
 }

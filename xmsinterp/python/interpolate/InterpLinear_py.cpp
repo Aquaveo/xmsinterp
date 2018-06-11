@@ -11,7 +11,7 @@
 #include <pybind11/numpy.h>
 #include <boost/shared_ptr.hpp>
 #include <xmscore/misc/DynBitset.h>
-#include <xmsinterp/python/misc/PublicObserver.h>
+#include <xmscore/python/misc/PublicObserver.h>
 #include <xmsinterp/interpolate/InterpLinear.h>
 #include <xmsinterp/python/interpolate/interpolate_py.h>
 

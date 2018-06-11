@@ -1,9 +1,10 @@
 """Test InterpLinear_py.cpp."""
 import unittest
 import xmsinterp_py
+import xmscore_py
 
 
-class MockObserver(xmsinterp_py.misc.Observer):
+class MockObserver(xmscore_py.misc.Observer):
     """Mock Observer class for testing."""
 
     def __init__(self):

@@ -112,12 +112,10 @@ set(xmsinterp_py
   xmsinterp/python/interpolate/interpolate_py.cpp
   xmsinterp/python/interpolate/InterpIdw_py.cpp
   xmsinterp/python/interpolate/InterpLinear_py.cpp
-  # Misc
-  xmsinterp/python/misc/misc_py.h
-  xmsinterp/python/misc/misc_py.cpp
-  xmsinterp/python/misc/observer_py.cpp
-  xmsinterp/python/misc/PublicObserver.h
-  xmsinterp/python/misc/PyObserver.h
+  # Triangulate
+  xmsinterp/python/triangulate/triangulate_py.h
+  xmsinterp/python/triangulate/triangulate_py.cpp
+  xmsinterp/python/triangulate/TrTin_py.cpp
 )
 
 # Tests
@@ -212,13 +210,14 @@ if(IS_PYTHON_BUILD)
       LINKER_LANGUAGE CXX
     )
 
-    execute_process(COMMAND python -c "import os; from distutils.sysconfig import get_python_lib, os; print(str(get_python_lib(True)).split('_build_env{}'.format(os.sep))[1])" OUTPUT_VARIABLE PYTHON_SITE_PACKAGES OUTPUT_STRIP_TRAILING_WHITESPACE)
+    execute_process(COMMAND python -c "import os; print('${PYTHON_SITE_PACKAGES}'.replace('${CONDA_PREFIX}' + os.sep, ''))" OUTPUT_VARIABLE PYTHON_SITE_PACKAGES_TRIMMED OUTPUT_STRIP_TRAILING_WHITESPACE)
+    message("Site Packages: ${PYTHON_SITE_PACKAGES_TRIMMED}")
 
     # Install recipe
     install(
       TARGETS xmsinterp_py
-      ARCHIVE DESTINATION ${PYTHON_SITE_PACKAGES}
-      LIBRARY DESTINATION ${PYTHON_SITE_PACKAGES}
+      ARCHIVE DESTINATION ${PYTHON_SITE_PACKAGES_TRIMMED}
+      LIBRARY DESTINATION ${PYTHON_SITE_PACKAGES_TRIMMED}
     )
 
 endif()

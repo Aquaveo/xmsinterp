@@ -10,8 +10,9 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/numpy.h>
 #include <boost/shared_ptr.hpp>
+#include <xmscore/misc/boost_defines.h>
 #include <xmscore/misc/DynBitset.h>
-#include <xmsinterp/python/misc/PublicObserver.h>
+#include <xmscore/python/misc/PublicObserver.h>
 #include <xmsinterp/interpolate/InterpIdw.h>
 #include <xmsinterp/python/interpolate/interpolate_py.h>
 
@@ -47,10 +48,10 @@ void initInterpIdw(py::module &m) {
               }
               self.SetPtsTris(vec_pts, vec_tris);
           })
-          .def("set_pts", [](xms::InterpIdw &self, py::tuple pts, bool a2d) {
+          .def("set_pts", [](xms::InterpIdw &self, py::iterable pts, bool a2d) {
               BSHP<xms::VecPt3d> vec_pts(new xms::VecPt3d());
               for (auto item : pts) {
-                if(!py::isinstance<py::tuple>(item)) {
+                if(!py::isinstance<py::iterable>(item)) {
                   throw py::type_error("First arg must be a n-tuple of 3-tuples");
                 }
 
