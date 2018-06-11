@@ -4,7 +4,7 @@ var searchData=
   ['observer_2ecpp',['Observer.cpp',['https://aquaveo.github.io/xmscore/_observer_8cpp.html',1,'']]],
   ['observer_2eh',['Observer.h',['https://aquaveo.github.io/xmscore/_observer_8h.html',1,'']]],
   ['observer_2et_2eh',['Observer.t.h',['https://aquaveo.github.io/xmscore/_observer_8t_8h.html',1,'']]],
-  ['observer_5fpy_2ecpp',['observer_py.cpp',['../observer__py_8cpp.html',1,'(Global Namespace)'],['https://aquaveo.github.io/xmscore/observer__py_8cpp.html',1,'(Global Namespace)']]],
+  ['observer_5fpy_2ecpp',['observer_py.cpp',['https://aquaveo.github.io/xmscore/observer__py_8cpp.html',1,'']]],
   ['observerintermediatetests',['ObserverIntermediateTests',['https://aquaveo.github.io/xmscore/class_observer_intermediate_tests.html',1,'']]],
   ['observert',['ObserverT',['https://aquaveo.github.io/xmscore/classxms_1_1_observer.html#a9014ba5c372ca8fd9b02170ce3636408',1,'xms::Observer']]],
   ['offsetpolyids',['OffsetPolyIds',['../classxms_1_1_gm_multi_poly_intersector_impl.html#a1ea92917c83c697fb8111e683cb79aa3',1,'xms::GmMultiPolyIntersectorImpl']]],

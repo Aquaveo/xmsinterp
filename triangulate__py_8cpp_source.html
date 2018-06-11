@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>xmsinterp: /home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/misc/observer_py.cpp Source File</title>
+<title>xmsinterp: /home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/triangulate/triangulate_py.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('observer__py_8cpp_source.html','');});
+$(document).ready(function(){initNavTree('triangulate__py_8cpp_source.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -105,50 +105,32 @@ $(document).ready(function(){initNavTree('observer__py_8cpp_source.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">observer_py.cpp</div>  </div>
+<div class="title">triangulate_py.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="observer__py_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
+<a href="triangulate__py_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//----- Included files ---------------------------------------------------------</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;pybind11/pybind11.h&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;boost/shared_ptr.hpp&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="misc__py_8h.html">xmsinterp/python/misc/misc_py.h</a>&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_public_observer_8h.html">xmsinterp/python/misc/PublicObserver.h</a>&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_py_observer_8h.html">xmsinterp/python/misc/PyObserver.h</a>&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="triangulate__py_8h.html">xmsinterp/python/triangulate/triangulate_py.h</a>&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//----- Namespace declaration --------------------------------------------------</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>py = pybind11;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//----- Namespace declaration --------------------------------------------------</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>py = pybind11;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//----- Python Interface -------------------------------------------------------</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr&lt;T&gt;);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> initObserver(py::module &amp;m) {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    py::class_&lt;xms::PublicObserver, PyObserver, boost::shared_ptr&lt;xms::PublicObserver&gt;&gt;(m, <span class="stringliteral">&quot;Observer&quot;</span>)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        .def(py::init())</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        .def(<span class="stringliteral">&quot;progress_status&quot;</span>, &amp;xms::PublicObserver::ProgressStatus)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        .def(<span class="stringliteral">&quot;begin_operation_string&quot;</span>, &amp;xms::PublicObserver::BeginOperationString)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        .def(<span class="stringliteral">&quot;end_operation&quot;</span>, &amp;xms::PublicObserver::EndOperation)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        .def(<span class="stringliteral">&quot;update_message&quot;</span>, &amp;xms::PublicObserver::UpdateMessage)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        .def(<span class="stringliteral">&quot;on_progress_status&quot;</span>, &amp;xms::PublicObserver::on_progress_status)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        .def(<span class="stringliteral">&quot;on_begin_operation_string&quot;</span>, &amp;xms::PublicObserver::on_begin_operation_string)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        .def(<span class="stringliteral">&quot;on_end_operation&quot;</span>, &amp;xms::PublicObserver::on_end_operation)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        .def(<span class="stringliteral">&quot;on_update_message&quot;</span>, &amp;xms::PublicObserver::on_update_message)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        .def(<span class="stringliteral">&quot;time_remaining_in_seconds&quot;</span>, &amp;xms::PublicObserver::time_remaining_in_seconds)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        .def(<span class="stringliteral">&quot;time_elapsed_in_seconds&quot;</span>, &amp;xms::PublicObserver::time_elapsed_in_seconds)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        ;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
-<div class="ttc" id="misc__py_8h_html"><div class="ttname"><a href="misc__py_8h.html">misc_py.h</a></div><div class="ttdoc">initializer functions for members of interpolate python module. </div></div>
-<div class="ttc" id="_public_observer_8h_html"><div class="ttname"><a href="_public_observer_8h.html">PublicObserver.h</a></div><div class="ttdoc">an Observer class with public virtual methods. </div></div>
-<div class="ttc" id="_py_observer_8h_html"><div class="ttname"><a href="_py_observer_8h.html">PyObserver.h</a></div><div class="ttdoc">&quot;trampoline&quot; class for inheritance in Python bindings. </div></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//----- Python Interface -------------------------------------------------------</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> initTriangulate(py::module &amp;m) {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    initTrTin(m);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="ttc" id="triangulate__py_8h_html"><div class="ttname"><a href="triangulate__py_8h.html">triangulate_py.h</a></div><div class="ttdoc">initializer functions for members of triangulate python module. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_53cfb6cd0b472f339d101e3e1947d282.html">python</a></li><li class="navelem"><a class="el" href="dir_3f4d67dd64b001839bcabb6bd8deb83e.html">misc</a></li><li class="navelem"><a class="el" href="observer__py_8cpp.html">observer_py.cpp</a></li>
-    <li class="footer">Generated on Thu Jun 7 2018 19:54:12 for xmsinterp by
+    <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_53cfb6cd0b472f339d101e3e1947d282.html">python</a></li><li class="navelem"><a class="el" href="dir_3fe4380a13b4832ac3f091a4cdba98af.html">triangulate</a></li><li class="navelem"><a class="el" href="triangulate__py_8cpp.html">triangulate_py.cpp</a></li>
+    <li class="footer">Generated on Mon Jun 11 2018 21:40:11 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

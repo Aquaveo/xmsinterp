@@ -43,7 +43,7 @@ var searchData=
   ['ptswithindistancetoptinrtree',['PtsWithinDistanceToPtInRtree',['../classxms_1_1_gm_pt_search_impl.html#a965dd3692fa215d527027e19544bdfe9',1,'xms::GmPtSearchImpl']]],
   ['ptunittests',['PtUnitTests',['https://aquaveo.github.io/xmscore/class_pt_unit_tests.html',1,'']]],
   ['publicobserver',['PublicObserver',['https://aquaveo.github.io/xmscore/classxms_1_1_public_observer.html',1,'xms']]],
-  ['publicobserver_2eh',['PublicObserver.h',['../_public_observer_8h.html',1,'(Global Namespace)'],['https://aquaveo.github.io/xmscore/_public_observer_8h.html',1,'(Global Namespace)']]],
+  ['publicobserver_2eh',['PublicObserver.h',['https://aquaveo.github.io/xmscore/_public_observer_8h.html',1,'']]],
   ['pyobserver',['PyObserver',['https://aquaveo.github.io/xmscore/class_py_observer.html',1,'']]],
-  ['pyobserver_2eh',['PyObserver.h',['../_py_observer_8h.html',1,'(Global Namespace)'],['https://aquaveo.github.io/xmscore/_py_observer_8h.html',1,'(Global Namespace)']]]
+  ['pyobserver_2eh',['PyObserver.h',['https://aquaveo.github.io/xmscore/_py_observer_8h.html',1,'']]]
 ];

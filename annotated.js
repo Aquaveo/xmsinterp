@@ -5,7 +5,12 @@ var annotated =
         [ "InterpIdw_pyt", "namespacepython_1_1interpolate_1_1_interp_idw__pyt.html", "namespacepython_1_1interpolate_1_1_interp_idw__pyt" ],
         [ "InterpLinear_pyt", "namespacepython_1_1interpolate_1_1_interp_linear__pyt.html", "namespacepython_1_1interpolate_1_1_interp_linear__pyt" ]
       ] ],
-      [ "misc", null, null ]
+      [ "misc", null, null ],
+      [ "triangulate", null, [
+        [ "TrTin_pyt", null, [
+          [ "TestTrTin", "classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html", "classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin" ]
+        ] ]
+      ] ]
     ] ],
     [ "xms", null, [
       [ "GmExtents2d", "classxms_1_1_gm_extents2d.html", "classxms_1_1_gm_extents2d" ],

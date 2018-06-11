@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('xmsinterp__py_8cpp_source.html','');})
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//----- Included files ---------------------------------------------------------</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;pybind11/pybind11.h&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="interpolate__py_8h.html">xmsinterp/python/interpolate/interpolate_py.h</a>&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="misc__py_8h.html">xmsinterp/python/misc/misc_py.h</a>&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="triangulate__py_8h.html">xmsinterp/python/triangulate/triangulate_py.h</a>&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//----- Namespace declaration --------------------------------------------------</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>py = pybind11;</div>
@@ -137,18 +137,18 @@ $(document).ready(function(){initNavTree('xmsinterp__py_8cpp_source.html','');})
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    py::module modInterpolate = m.def_submodule(<span class="stringliteral">&quot;interpolate&quot;</span>);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    initInterpolate(modInterpolate);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    py::module modMisc = m.def_submodule(<span class="stringliteral">&quot;misc&quot;</span>);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    initMisc(modMisc);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    py::module modTriangulate = m.def_submodule(<span class="stringliteral">&quot;triangulate&quot;</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    initTriangulate(modTriangulate);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="ttc" id="misc__py_8h_html"><div class="ttname"><a href="misc__py_8h.html">misc_py.h</a></div><div class="ttdoc">initializer functions for members of interpolate python module. </div></div>
 <div class="ttc" id="interpolate__py_8h_html"><div class="ttname"><a href="interpolate__py_8h.html">interpolate_py.h</a></div><div class="ttdoc">initializer functions for members of interpolate python module. </div></div>
+<div class="ttc" id="triangulate__py_8h_html"><div class="ttname"><a href="triangulate__py_8h.html">triangulate_py.h</a></div><div class="ttdoc">initializer functions for members of triangulate python module. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_53cfb6cd0b472f339d101e3e1947d282.html">python</a></li><li class="navelem"><a class="el" href="xmsinterp__py_8cpp.html">xmsinterp_py.cpp</a></li>
-    <li class="footer">Generated on Thu Jun 7 2018 19:54:12 for xmsinterp by
+    <li class="footer">Generated on Mon Jun 11 2018 21:40:11 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

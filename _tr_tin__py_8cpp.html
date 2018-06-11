@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>xmsinterp: /home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/misc/misc_py.h File Reference</title>
+<title>xmsinterp: /home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/triangulate/TrTin_py.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('misc__py_8h.html','');});
+$(document).ready(function(){initNavTree('_tr_tin__py_8cpp.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,37 +107,38 @@ $(document).ready(function(){initNavTree('misc__py_8h.html','');});
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">misc_py.h File Reference</div>  </div>
+<div class="title">TrTin_py.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>initializer functions for members of interpolate python module.  
-<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;pybind11/pybind11.h&gt;</code><br/>
+<code>#include &lt;pybind11/numpy.h&gt;</code><br/>
+<code>#include &lt;boost/shared_ptr.hpp&gt;</code><br/>
+<code>#include &lt;<a class="el" href="_tr_tin_8h_source.html">xmsinterp/triangulate/TrTin.h</a>&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;fstream&gt;</code><br/>
 </div>
-<p><a href="misc__py_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="_tr_tin__py_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab6e350ca3eb0fe827eb6affc4e32bc67"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6e350ca3eb0fe827eb6affc4e32bc67"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initMisc</b> (py::module &amp;)</td></tr>
-<tr class="separator:ab6e350ca3eb0fe827eb6affc4e32bc67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14e4dbb7c0310bc249824451fe7717a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14e4dbb7c0310bc249824451fe7717a2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initObserver</b> (py::module &amp;)</td></tr>
-<tr class="separator:a14e4dbb7c0310bc249824451fe7717a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfb353cf30718fe414849af327ec8d41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfb353cf30718fe414849af327ec8d41"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PYBIND11_DECLARE_HOLDER_TYPE</b> (T, boost::shared_ptr&lt; T &gt;)</td></tr>
+<tr class="separator:adfb353cf30718fe414849af327ec8d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a695eff96ff95745dc9a41c6a3ac5cf6d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a695eff96ff95745dc9a41c6a3ac5cf6d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initTrTin</b> (py::module &amp;m)</td></tr>
+<tr class="separator:a695eff96ff95745dc9a41c6a3ac5cf6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>initializer functions for members of interpolate python module. </p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(C) Copyright Aquaveo 2018. Distributed under the xmsng Software License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at <a href="http://www.aquaveo.com/xmsng/LICENSE_1_0.txt">http://www.aquaveo.com/xmsng/LICENSE_1_0.txt</a>) </dd></dl>
+<div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>(C) Copyright Aquaveo 2018. Distributed under the xmsng Software License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at <a href="http://www.aquaveo.com/xmsng/LICENSE_1_0.txt">http://www.aquaveo.com/xmsng/LICENSE_1_0.txt</a>) </dd></dl>
 
-<p>Definition in file <a class="el" href="misc__py_8h_source.html">misc_py.h</a>.</p>
+<p>Definition in file <a class="el" href="_tr_tin__py_8cpp_source.html">TrTin_py.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_53cfb6cd0b472f339d101e3e1947d282.html">python</a></li><li class="navelem"><a class="el" href="dir_3f4d67dd64b001839bcabb6bd8deb83e.html">misc</a></li><li class="navelem"><a class="el" href="misc__py_8h.html">misc_py.h</a></li>
-    <li class="footer">Generated on Thu Jun 7 2018 19:54:13 for xmsinterp by
+    <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_53cfb6cd0b472f339d101e3e1947d282.html">python</a></li><li class="navelem"><a class="el" href="dir_3fe4380a13b4832ac3f091a4cdba98af.html">triangulate</a></li><li class="navelem"><a class="el" href="_tr_tin__py_8cpp.html">TrTin_py.cpp</a></li>
+    <li class="footer">Generated on Mon Jun 11 2018 21:40:11 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

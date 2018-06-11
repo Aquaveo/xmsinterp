@@ -57,7 +57,8 @@ var hierarchy =
     [ "TestCase", null, [
       [ "python.interpolate.InterpIdw_pyt.TestIdwEnums", "classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html", null ],
       [ "python.interpolate.InterpIdw_pyt.TestInterpIdw", "classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html", null ],
-      [ "python.interpolate.InterpLinear_pyt.TestInterpLinear", "classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html", null ]
+      [ "python.interpolate.InterpLinear_pyt.TestInterpLinear", "classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html", null ],
+      [ "python.triangulate.TrTin_pyt.TestTrTin", "classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html", null ]
     ] ],
     [ "TestSuite", null, [
       [ "GeomsXmsngIntermediateTests", "class_geoms_xmsng_intermediate_tests.html", null ],
