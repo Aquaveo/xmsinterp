@@ -472,6 +472,12 @@
     <includes id="_tr_tin_8h" name="TrTin.h" local="no" imported="no">xmsinterp/triangulate/TrTin.h</includes>
   </compound>
   <compound kind="file">
+    <name>TrTriangulatorPoints_py.cpp</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/triangulate/</path>
+    <filename>_tr_triangulator_points__py_8cpp</filename>
+    <includes id="_tr_triangulator_points_8h" name="TrTriangulatorPoints.h" local="no" imported="no">xmsinterp/triangulate/TrTriangulatorPoints.h</includes>
+  </compound>
+  <compound kind="file">
     <name>xmsinterp_py.cpp</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/</path>
     <filename>xmsinterp__py_8cpp</filename>
@@ -6433,6 +6439,7 @@
     <file>triangulate_py.h</file>
     <file>TrTin_py.cpp</file>
     <file>TrTin_pyt.py</file>
+    <file>TrTriangulatorPoints_py.cpp</file>
   </compound>
   <compound kind="dir">
     <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/tutorial</name>
