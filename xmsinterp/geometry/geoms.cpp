@@ -1501,7 +1501,7 @@ double gmPolygonArea(const Pt3d* pts, size_t npoints)
   // Reduces round off error due to large coordinates
   // Reduces the number of computations because the first and last
   //   computations in the loop would be 0.0
-  VEC_DBL x, y;
+  VecDbl x, y;
   double x0 = pts[0].x;
   double y0 = pts[0].y;
   for (id = 1; id < npoints; id++)
@@ -1629,8 +1629,8 @@ void gmOrderPointsCounterclockwise(VecPt3d& a_pts)
   if (a_pts.empty())
     return;
 
-  VEC_INT ccwOrder;
-  VEC_MP3 pts(a_pts);
+  VecInt ccwOrder;
+  VecPt3d pts(a_pts);
   gmOrderPointsCounterclockwise(pts, ccwOrder);
   for (size_t i = 0; i < ccwOrder.size(); ++i)
   {
