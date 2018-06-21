@@ -608,8 +608,6 @@ BSHP<TrBreaklineAdder> TrBreaklineAdder::New()
 
 #include <xmsinterp/triangulate/TrBreaklineAdder.t.h>
 
-#include <boost/assign.hpp>
-
 #include <xmscore/testing/TestTools.h>
 #include <xmscore/misc/carray.h>
 #include <xmsinterp/triangulate/TrTriangulatorPoints.h>

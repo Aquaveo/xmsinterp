@@ -645,7 +645,6 @@ void GmPtSearchImpl::CreateOctants(const Pt3d& a_pt, std::vector<box>& a_boxes) 
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <xmsinterp/geometry/GmPtSearch.t.h>
-#include <boost/assign.hpp>
 #include <xmscore/testing/TestTools.h>
 
 // namespace xms {

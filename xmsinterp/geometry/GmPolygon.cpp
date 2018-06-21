@@ -302,7 +302,6 @@ BSHP<GmPolygon> GmPolygon::New()
 
 #include <xmsinterp/geometry/GmPolygon.t.h>
 
-#include <boost/assign.hpp>
 #include <boost/timer/timer.hpp>
 
 #include <xmscore/testing/TestTools.h>
