@@ -1,9 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"geoms_8cpp.html#adc56691197d92d60abcb0e77e48df4ea":[5,0,0,0,0,46],
-"geoms_8cpp.html#ade7879f66ffa765c6ee005573218a4cd":[5,0,0,0,0,67],
-"geoms_8cpp.html#ae15d7a7439937df12789f169f594c3df":[5,0,0,0,0,25],
-"geoms_8cpp.html#ae9ee7df906ccbedcb3b364d1a5571f60":[5,0,0,0,0,6],
 "geoms_8cpp.html#aeb0fecb3c9d9aa77f4ff42ec6a608f26":[5,0,0,0,0,29],
 "geoms_8cpp.html#aed9ee1170ee7004d626347f8886e4943":[5,0,0,0,0,51],
 "geoms_8cpp.html#af0e7dba5dafe577d6345afe25580777a":[5,0,0,0,0,73],
@@ -158,8 +154,8 @@ var NAVTREEINDEX5 =
 "md__interpolation__tutorial.html#Intro_Interpolation":[2,0,0],
 "namespacepython_1_1interpolate_1_1_interp_idw__pyt.html":[3,0,0,0,0],
 "namespacepython_1_1interpolate_1_1_interp_idw__pyt.html":[4,0,0,0,0],
-"namespacepython_1_1interpolate_1_1_interp_linear__pyt.html":[3,0,0,0,1],
 "namespacepython_1_1interpolate_1_1_interp_linear__pyt.html":[4,0,0,0,1],
+"namespacepython_1_1interpolate_1_1_interp_linear__pyt.html":[3,0,0,0,1],
 "namespaces.html":[3,0],
 "pages.html":[],
 "structxms_1_1_barycentric_vals.html":[4,0,1,17],
@@ -213,7 +209,6 @@ var NAVTREEINDEX5 =
 "triangulate__py_8cpp_source.html":[5,0,0,3,1,1],
 "triangulate__py_8h.html":[5,0,0,3,1,2],
 "triangulate__py_8h.html#a30fb053fa8c876a636287700ab42c6fa":[5,0,0,3,1,2,0],
-"triangulate__py_8h.html#a5956dbbcc2fe999a07a553d98311a53d":[5,0,0,3,1,2,2],
 "triangulate__py_8h.html#adfe5b9bfb68e4b3d7cb8c54390fc0ae6":[5,0,0,3,1,2,1],
 "triangulate__py_8h_source.html":[5,0,0,3,1,2],
 "xmsinterp__py_8cpp.html":[5,0,0,3,4],

@@ -30,7 +30,6 @@ var searchData=
   ['trtriangulatorpoints_2ecpp',['TrTriangulatorPoints.cpp',['../_tr_triangulator_points_8cpp.html',1,'']]],
   ['trtriangulatorpoints_2eh',['TrTriangulatorPoints.h',['../_tr_triangulator_points_8h.html',1,'']]],
   ['trtriangulatorpoints_2et_2eh',['TrTriangulatorPoints.t.h',['../_tr_triangulator_points_8t_8h.html',1,'']]],
-  ['trtriangulatorpoints_5fpy_2ecpp',['TrTriangulatorPoints_py.cpp',['../_tr_triangulator_points__py_8cpp.html',1,'']]],
   ['tutinterpolation_2ecpp',['TutInterpolation.cpp',['../_tut_interpolation_8cpp.html',1,'']]],
   ['tutinterpolation_2et_2eh',['TutInterpolation.t.h',['../_tut_interpolation_8t_8h.html',1,'']]]
 ];

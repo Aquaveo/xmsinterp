@@ -413,67 +413,68 @@ $(document).ready(function(){initNavTree('_tr_tin__pyt_8py_source.html','');});
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        self.assertEqual((1, 2, 0), tris_adj[4])</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keyword">def </span>test_delete_triangles(self):</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        trtin = xt.TrTin()</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        trtin.set_geometry(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#ab300fe49c32d9d5f390762c79ad33b82">pts</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a034c3580dfbdb1c02ba76361db311380">tris</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a95a2cdb55a76fd1ef7d45b1fb2826326">tris_adj</a>)</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        to_delete = (1, 0)</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        trtin.delete_triangles(to_delete)</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        self.assertEqual(5, trtin.num_points)</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        self.assertEqual(1, trtin.num_triangles)</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keyword">def </span>test_delete_points(self):</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        trtin = xt.TrTin()</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        trtin.set_geometry(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#ab300fe49c32d9d5f390762c79ad33b82">pts</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a034c3580dfbdb1c02ba76361db311380">tris</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a95a2cdb55a76fd1ef7d45b1fb2826326">tris_adj</a>)</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        to_delete = (2, 4)</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        trtin.delete_points(to_delete)</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        self.assertEqual(3, trtin.num_points)</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        self.assertEqual(1, trtin.num_triangles)</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="keyword">def </span>test_optimize_triangulation(self):</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        trtin = xt.TrTin()</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        pts = ((0, 0, 0), (10, 0, 0), (20, 0, 0), (0, 10, 0), (10, 10, 0),</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;               (20, 10, 0), (0, 20, 0), (10, 20, 0), (20, 20, 0),)</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        tris = (0, 1, 3, 1, 6, 3, 1, 4, 6, 4, 7, 6,</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                1, 2, 4, 2, 7, 4, 2, 5, 7, 5, 8, 7)</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        tris_adj = ((0,), (0, 1, 2, 4), (4, 5, 6), (0, 1), (2, 4, 5, 3),</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                    (6, 7), (1, 2, 3), (3, 5, 6, 7), (7,))</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        trtin.set_geometry(pts, tris, tris_adj)</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        trtin.optimize_triangulation()</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        np.testing.assert_array_equal(np.array(tris), trtin.tris)</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keyword">def </span>test_build_tris_adj_to_pts(self):</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        trtin = xt.TrTin()</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        trtin.set_geometry(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#ab300fe49c32d9d5f390762c79ad33b82">pts</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a034c3580dfbdb1c02ba76361db311380">tris</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a95a2cdb55a76fd1ef7d45b1fb2826326">tris_adj</a>)</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        trtin.build_tris_adj_to_pts()</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        self.assertEqual(((0,), (0, 1, 2), (1,), (0, 2), (1, 2)), trtin.tris_adj)</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keyword">def </span>test_clear(self):</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        trtin = xt.TrTin()</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        trtin.set_geometry(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#ab300fe49c32d9d5f390762c79ad33b82">pts</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a034c3580dfbdb1c02ba76361db311380">tris</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a95a2cdb55a76fd1ef7d45b1fb2826326">tris_adj</a>)</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        np.testing.assert_array_equal(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a98dc65f0820eba4f0a588f0d48292e15">pts_np</a>, trtin.pts)</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        np.testing.assert_array_equal(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#abf93a261a170dbeed92020622930fa7f">tris_np</a>, trtin.tris)</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        self.assertEqual(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a95a2cdb55a76fd1ef7d45b1fb2826326">tris_adj</a>, trtin.tris_adj)</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        trtin.clear()</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        self.assertEqual(0, len(trtin.pts))</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        self.assertEqual(0, len(trtin.tris))</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        self.assertEqual((), trtin.tris_adj)</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keyword">def </span>test_from_string(self):</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        trtin = xt.TrTin()</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        inpt = <span class="stringliteral">&quot;22 serialization::archive 15 1 0\n0 0 0 0 0 5 0 0 0 0.00000000000000000e+00 &quot;</span> \</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;               <span class="stringliteral">&quot;0.00000000000000000e+00 0.00000000000000000e+00 1.00000000000000000e+01 &quot;</span> \</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;               <span class="stringliteral">&quot;0.00000000000000000e+00 0.00000000000000000e+00 2.00000000000000000e+01 &quot;</span> \</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;               <span class="stringliteral">&quot;0.00000000000000000e+00 0.00000000000000000e+00 5.00000000000000000e+00 &quot;</span> \</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;               <span class="stringliteral">&quot;1.00000000000000000e+01 0.00000000000000000e+00 1.50000000000000000e+01 &quot;</span> \</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;               <span class="stringliteral">&quot;1.00000000000000000e+01 0.00000000000000000e+00 9 0 3 0 1 1 2 4 1 4 3 0 0 &quot;</span> \</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;               <span class="stringliteral">&quot;5 0 1 0 0 3 0 0 1 2 1 0 1 2 0 0 2 2 0 1 2\n&quot;</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        trtin.from_string(inpt)</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        np.testing.assert_array_equal(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a98dc65f0820eba4f0a588f0d48292e15">pts_np</a>, trtin.pts)</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        np.testing.assert_array_equal(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#abf93a261a170dbeed92020622930fa7f">tris_np</a>, trtin.tris)</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        self.assertEqual(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a95a2cdb55a76fd1ef7d45b1fb2826326">tris_adj</a>, trtin.tris_adj)</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        self.assertEqual(inpt, str(trtin))</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="comment"># TODO: I don&#39;t think this is right.</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        trtin = xt.TrTin()</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        trtin.set_geometry(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#ab300fe49c32d9d5f390762c79ad33b82">pts</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a034c3580dfbdb1c02ba76361db311380">tris</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a95a2cdb55a76fd1ef7d45b1fb2826326">tris_adj</a>)</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        to_delete = (1, 0)</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        trtin.delete_triangles(to_delete)</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        self.assertEqual(5, trtin.num_points)</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        self.assertEqual(1, trtin.num_triangles)</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keyword">def </span>test_delete_points(self):</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        trtin = xt.TrTin()</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        trtin.set_geometry(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#ab300fe49c32d9d5f390762c79ad33b82">pts</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a034c3580dfbdb1c02ba76361db311380">tris</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a95a2cdb55a76fd1ef7d45b1fb2826326">tris_adj</a>)</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        to_delete = (2, 4)</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        trtin.delete_points(to_delete)</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        self.assertEqual(3, trtin.num_points)</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        self.assertEqual(1, trtin.num_triangles)</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keyword">def </span>test_optimize_triangulation(self):</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        trtin = xt.TrTin()</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        pts = ((0, 0, 0), (10, 0, 0), (20, 0, 0), (0, 10, 0), (10, 10, 0),</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;               (20, 10, 0), (0, 20, 0), (10, 20, 0), (20, 20, 0),)</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        tris = (0, 1, 3, 1, 6, 3, 1, 4, 6, 4, 7, 6,</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                1, 2, 4, 2, 7, 4, 2, 5, 7, 5, 8, 7)</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        tris_adj = ((0,), (0, 1, 2, 4), (4, 5, 6), (0, 1), (2, 4, 5, 3),</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                    (6, 7), (1, 2, 3), (3, 5, 6, 7), (7,))</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        trtin.set_geometry(pts, tris, tris_adj)</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        trtin.optimize_triangulation()</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        np.testing.assert_array_equal(np.array(tris), trtin.tris)</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keyword">def </span>test_build_tris_adj_to_pts(self):</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        trtin = xt.TrTin()</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        trtin.set_geometry(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#ab300fe49c32d9d5f390762c79ad33b82">pts</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a034c3580dfbdb1c02ba76361db311380">tris</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a95a2cdb55a76fd1ef7d45b1fb2826326">tris_adj</a>)</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        trtin.build_tris_adj_to_pts()</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        self.assertEqual(((0,), (0, 1, 2), (1,), (0, 2), (1, 2)), trtin.tris_adj)</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keyword">def </span>test_clear(self):</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        trtin = xt.TrTin()</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        trtin.set_geometry(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#ab300fe49c32d9d5f390762c79ad33b82">pts</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a034c3580dfbdb1c02ba76361db311380">tris</a>, self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a95a2cdb55a76fd1ef7d45b1fb2826326">tris_adj</a>)</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        np.testing.assert_array_equal(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a98dc65f0820eba4f0a588f0d48292e15">pts_np</a>, trtin.pts)</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        np.testing.assert_array_equal(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#abf93a261a170dbeed92020622930fa7f">tris_np</a>, trtin.tris)</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        self.assertEqual(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a95a2cdb55a76fd1ef7d45b1fb2826326">tris_adj</a>, trtin.tris_adj)</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        trtin.clear()</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        self.assertEqual(0, len(trtin.pts))</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        self.assertEqual(0, len(trtin.tris))</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        self.assertEqual((), trtin.tris_adj)</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="keyword">def </span>test_from_string(self):</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        trtin = xt.TrTin()</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        inpt = <span class="stringliteral">&quot;22 serialization::archive 15 1 0\n0 0 0 0 0 5 0 0 0 0.00000000000000000e+00 &quot;</span> \</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;               <span class="stringliteral">&quot;0.00000000000000000e+00 0.00000000000000000e+00 1.00000000000000000e+01 &quot;</span> \</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;               <span class="stringliteral">&quot;0.00000000000000000e+00 0.00000000000000000e+00 2.00000000000000000e+01 &quot;</span> \</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;               <span class="stringliteral">&quot;0.00000000000000000e+00 0.00000000000000000e+00 5.00000000000000000e+00 &quot;</span> \</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;               <span class="stringliteral">&quot;1.00000000000000000e+01 0.00000000000000000e+00 1.50000000000000000e+01 &quot;</span> \</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;               <span class="stringliteral">&quot;1.00000000000000000e+01 0.00000000000000000e+00 9 0 3 0 1 1 2 4 1 4 3 0 0 &quot;</span> \</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;               <span class="stringliteral">&quot;5 0 1 0 0 3 0 0 1 2 1 0 1 2 0 0 2 2 0 1 2\n&quot;</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        trtin.from_string(inpt)</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        np.testing.assert_array_equal(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a98dc65f0820eba4f0a588f0d48292e15">pts_np</a>, trtin.pts)</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        np.testing.assert_array_equal(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#abf93a261a170dbeed92020622930fa7f">tris_np</a>, trtin.tris)</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        self.assertEqual(self.<a class="code" href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a95a2cdb55a76fd1ef7d45b1fb2826326">tris_adj</a>, trtin.tris_adj)</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        self.assertEqual(inpt, str(trtin))</div>
 <div class="ttc" id="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin_html_abf93a261a170dbeed92020622930fa7f"><div class="ttname"><a href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#abf93a261a170dbeed92020622930fa7f">python.triangulate.TrTin_pyt.TestTrTin.tris_np</a></div><div class="ttdeci">tris_np</div><div class="ttdef"><b>Definition:</b> <a href="_tr_tin__pyt_8py_source.html#l00016">TrTin_pyt.py:16</a></div></div>
 <div class="ttc" id="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin_html_ab300fe49c32d9d5f390762c79ad33b82"><div class="ttname"><a href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#ab300fe49c32d9d5f390762c79ad33b82">python.triangulate.TrTin_pyt.TestTrTin.pts</a></div><div class="ttdeci">pts</div><div class="ttdef"><b>Definition:</b> <a href="_tr_tin__pyt_8py_source.html#l00013">TrTin_pyt.py:13</a></div></div>
 <div class="ttc" id="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin_html_a95a2cdb55a76fd1ef7d45b1fb2826326"><div class="ttname"><a href="classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html#a95a2cdb55a76fd1ef7d45b1fb2826326">python.triangulate.TrTin_pyt.TestTrTin.tris_adj</a></div><div class="ttdeci">tris_adj</div><div class="ttdef"><b>Definition:</b> <a href="_tr_tin__pyt_8py_source.html#l00017">TrTin_pyt.py:17</a></div></div>
@@ -489,7 +490,7 @@ $(document).ready(function(){initNavTree('_tr_tin__pyt_8py_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_53cfb6cd0b472f339d101e3e1947d282.html">python</a></li><li class="navelem"><a class="el" href="dir_3fe4380a13b4832ac3f091a4cdba98af.html">triangulate</a></li><li class="navelem"><b>TrTin_pyt.py</b></li>
-    <li class="footer">Generated on Sat Jun 16 2018 23:48:38 for xmsinterp by
+    <li class="footer">Generated on Fri Jun 22 2018 15:45:12 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
