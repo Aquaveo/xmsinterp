@@ -11,7 +11,7 @@ class XmsinterpConan(ConanFile):
     description = "Interpolation library for XMS products"
     settings = "os", "compiler", "build_type", "arch"
     options = {"xms": [True, False]}
-    default_options = "xms=False", "boost:fPIC=True"
+    default_options = "xms=False"
     generators = "cmake"
     build_requires = "cxxtest/4.4@aquaveo/stable"
     exports = "CMakeLists.txt", "LICENSE"
@@ -28,6 +28,9 @@ class XmsinterpConan(ConanFile):
 
         self.options['xmscore'].xms = self.options.xms
 
+        if s_compiler != "Visual Studio":
+            self.options['boost'].fPIC = True
+
         if s_compiler == "clang" and s_os == 'Linux':
             raise ConanException("Clang on Linux is not supported.")
 
@@ -39,10 +42,10 @@ class XmsinterpConan(ConanFile):
     def requirements(self):
         if self.options.xms:
             self.requires("boost/1.60.0@aquaveo/testing")
-            self.requires("xmscore/1.0.13@aquaveo/stable")
+            self.requires("xmscore/1.0.25@aquaveo/stable")
         else:
             self.requires("boost/1.66.0@conan/stable")
-            self.requires("xmscore/1.0.14@aquaveo/stable")
+            self.requires("xmscore/1.0.25@aquaveo/stable")
             # self.requires("pybind11/2.2.2@aquaveo/stable")
 
     def build(self):

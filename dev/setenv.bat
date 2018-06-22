@@ -1,5 +1,5 @@
 @echo off
-set XMS_VERSION=0.0.6
+set XMS_VERSION=99.99.99
 set XMS_RUN_TESTS=1
 set CONAN_REFERENCE=xmsinterp/%XMS_VERSION%
 set CONAN_USERNAME=aquaveo
