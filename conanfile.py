@@ -40,7 +40,7 @@ class XmsinterpConan(ConanFile):
             raise ConanException("Clang > 9.0 is required for Mac.")
 
     def requirements(self):
-        if self.options.xms:
+        if self.options.xms and self.settings.compiler.version < 14:
             self.requires("boost/1.60.0@aquaveo/testing")
             self.requires("xmscore/1.0.25@aquaveo/stable")
         else:
