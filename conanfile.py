@@ -40,14 +40,15 @@ class XmsinterpConan(ConanFile):
             raise ConanException("Clang > 9.0 is required for Mac.")
 
     def requirements(self):
-        if self.options.xms and self.settings.compiler.version < 14:
+        if self.options.xms and self.settings.compiler.version == "12":
             self.requires("boost/1.60.0@aquaveo/testing")
             self.requires("xmscore/1.0.25@aquaveo/stable")
         else:
             self.requires("boost/1.66.0@conan/stable")
             self.requires("xmscore/1.0.25@aquaveo/stable")
         # Pybind if not Visual studio 2013
-        if not (self.settings.compiler == 'Visual Studio' and self.settings.compiler.version < 14) \
+        if not (self.settings.compiler == 'Visual Studio' \
+                and self.settings.compiler.version == "12") \
                 and self.options.pybind:
             self.requires("pybind11/2.2.2@aquaveo/stable")
 
@@ -59,7 +60,8 @@ class XmsinterpConan(ConanFile):
 
         cmake.definitions["IS_PYTHON_BUILD"] = self.options.pybind
 
-        if self.settings.compiler == 'Visual Studio':
+        if self.settings.compiler == 'Visual Studio' \
+           and self.settings.compiler.version == "12":
             cmake.definitions["XMS_BUILD"] = self.options.xms
 
         cmake.definitions["BUILD_TESTING"] = run_tests
