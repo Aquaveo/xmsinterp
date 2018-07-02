@@ -64,11 +64,16 @@ class XmsinterpConan(ConanFile):
            and self.settings.compiler.version == "12":
             cmake.definitions["XMS_BUILD"] = self.options.xms
 
-        cmake.definitions["BUILD_TESTING"] = run_tests
-        cmake.configure(source_folder=".")
-        cmake.build()
-
+        # CXXTest doesn't play nice with PyBind. Also, it would be nice to not
+        # have tests in release code. Thus, if we want to run tests, we will
+        # build a test version (without python), run the tests, and then (on
+        # sucess) rebuild the library without tests.
         if run_tests:
+            cmake.definitions["IS_PYTHON_BUILD"] = False
+            cmake.definitions["BUILD_TESTING"] = run_tests
+            cmake.configure(source_folder=".")
+            cmake.build()
+
             print("***********(0.0)*************")
             try:
                 cmake.test()
@@ -81,6 +86,13 @@ class XmsinterpConan(ConanFile):
                             no_newline = line.strip('\n')
                             print(no_newline)
                 print("***********(0.0)*************")
+
+        # Make sure we build without tests
+        cmake.definitions["IS_PYTHON_BUILD"] = self.options.pybind
+        cmake.definitions["BUILD_TESTING"] = False
+        cmake.configure(source_folder=".")
+        cmake.build()
+
 
     def package(self):
         self.copy("*.h", dst="include/xmsinterp", src="xmsinterp")

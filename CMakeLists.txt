@@ -9,6 +9,10 @@ set(IS_CONDA_BUILD NO CACHE BOOL "Set this if you want to make a conda package."
 set(CONDA_PREFIX "" CACHE PATH "Path to the conda environment used to build.")
 set(IS_PYTHON_BUILD NO CACHE BOOL "Set this if you want to build the python bindings.")
 
+if(IS_PYTHON_BUILD AND BUILD_TESTING)
+  message(FATAL_ERROR "Cannot build python module when testing is enabled")
+endif()
+
 project(xmsinterp C CXX)
 
 if(WIN32)
@@ -105,7 +109,6 @@ set(xmsinterp_headers
 
 # Pybind11 sources
 set(xmsinterp_py
-  xmsinterp/python/cxxtest.cpp
   xmsinterp/python/xmsinterp_py.cpp
   # Interpolate
   xmsinterp/python/interpolate/interpolate_py.h
