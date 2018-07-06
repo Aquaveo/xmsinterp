@@ -29,7 +29,7 @@ class XmsinterpConan(ConanFile):
         self.options['xmscore'].xms = self.options.xms
         self.options['xmscore'].pybind = self.options.pybind
 
-        if s_compiler != "Visual Studio":
+        if s_compiler != "Visual Studio" and s_compiler != "apple-clang":
             self.options['boost'].fPIC = True
 
         if s_compiler == "apple-clang" and s_os == 'Linux':

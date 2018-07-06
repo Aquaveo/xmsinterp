@@ -31,7 +31,8 @@ if __name__ == "__main__":
     for settings, options, env_vars, build_requires, reference in builder.items:
         # pybind option
         if not settings['compiler'] == "apple-clang" \
-                and ((not settings['compiler'] == "Visual Studio" or int(settings['compiler.version']) > 12) \
+                and ((not settings['compiler'] == "Visual Studio" \
+                or int(settings['compiler.version']) > 12) \
                 and settings['arch'] == "x86_64"):
             pybind_options = dict(options)
             pybind_options.update({'xmsinterp:pybind': True})
