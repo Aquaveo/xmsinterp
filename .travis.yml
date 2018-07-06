@@ -1,4 +1,4 @@
-env:
+  env:
    global:
      # TRAVIS_BRANCH is tag name if tag provided else branch name
      - XMS_VERSION: $TRAVIS_BRANCH
@@ -198,4 +198,3 @@ jobs:
         osx_image: xcode9.2
         env: CONAN_APPLE_CLANG_VERSIONS=9.0 CONAN_UPLOAD=$AQUAVEO_CONAN CONAN_BUILD_TYPES=Release CONAN_ARCHS=x86_64
         after_success: true
-
