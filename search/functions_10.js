@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['temp2digitexponents',['Temp2DigitExponents',['https://aquaveo.github.io/xmscore/classxms_1_1_temp2_digit_exponents.html#ad65d270621b8737b6f56ecfc8525f4fc',1,'xms::Temp2DigitExponents']]],
   ['test1',['test1',['https://aquaveo.github.io/xmscore/class_xm_error_unit_tests.html#a0b80b63b95b00204de6892c6cb3017e6',1,'XmErrorUnitTests::test1()'],['../class_tr_auto_fix_four_triangle_pts_unit_tests.html#ab21bd9cb12084ff3dc1eb734f2626081',1,'TrAutoFixFourTrianglePtsUnitTests::test1()'],['../class_tr_outer_triangle_deleter_unit_tests.html#a294ae02e69ef1ba5ee88016a54af2882',1,'TrOuterTriangleDeleterUnitTests::test1()'],['../class_tr_breakline_adder_unit_tests.html#aed5fc7ad1065440d05eb8e4387a19d6a',1,'TrBreaklineAdderUnitTests::test1()'],['../class_tr_tin_unit_tests.html#a198e55ca6fc0831488240809cffddea2',1,'TrTinUnitTests::test1()'],['../class_tr_triangulator_points_unit_tests.html#a33422cef521b757882239d403bc6569d',1,'TrTriangulatorPointsUnitTests::test1()']]],
   ['test1allout',['test1AllOut',['../class_gm_multi_poly_intersector_unit_tests.html#a25a7d6c55a01f1877e31fed5f09cebe5',1,'GmMultiPolyIntersectorUnitTests']]],
   ['test1edgeinin',['test1EdgeInIn',['../class_gm_multi_poly_intersector_unit_tests.html#a846dba3e81acd4b114248e867c5fbf17',1,'GmMultiPolyIntersectorUnitTests']]],

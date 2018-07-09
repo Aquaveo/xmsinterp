@@ -6,8 +6,8 @@ var searchData=
   ['deletepoints',['DeletePoints',['../classxms_1_1_tr_tin_impl.html#af26463b8da49e0aa9bf2577468c28182',1,'xms::TrTinImpl']]],
   ['deletetriangles',['DeleteTriangles',['../classxms_1_1_tr_tin_impl.html#a0a160157240d033a400f55c730bb18f6',1,'xms::TrTinImpl']]],
   ['determineregion',['DetermineRegion',['../classxms_1_1_interp_ct.html#aa13b461213f3eefd295cb3fcd9d7bc86',1,'xms::InterpCt']]],
-  ['do_5fgrouping',['do_grouping',['https://aquaveo.github.io/xmscore/classxms_1_1_xm_comma_numpunct.html#a62a7e8f7a171a092a84a9b44d9a586d0',1,'xms::XmCommaNumpunct']]],
-  ['do_5fthousands_5fsep',['do_thousands_sep',['https://aquaveo.github.io/xmscore/classxms_1_1_xm_comma_numpunct.html#a2e9b9ae6529f274a1cacbd30cc9214eb',1,'xms::XmCommaNumpunct']]],
+  ['do_5fgrouping',['do_grouping',['https://aquaveo.github.io/xmscore/classxms_1_1_st_comma_numpunct.html#aa2069686f9a15d91b346c3988be3a954',1,'xms::StCommaNumpunct']]],
+  ['do_5fthousands_5fsep',['do_thousands_sep',['https://aquaveo.github.io/xmscore/classxms_1_1_st_comma_numpunct.html#a94e9b55f55470d2bb10f1451bff1d172',1,'xms::StCommaNumpunct']]],
   ['dotest',['DoTest',['../class_gm_point_in_poly_unit_tests.html#aad892797953c9679e60aacab95c59a27',1,'GmPointInPolyUnitTests']]],
   ['dowork',['DoWork',['../classxms_1_1_thread_loop.html#a85da861fe57a764ce110a1f5abf395ce',1,'xms::ThreadLoop']]]
 ];

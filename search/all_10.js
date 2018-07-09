@@ -53,10 +53,13 @@ var searchData=
   ['sortintersections',['SortIntersections',['../classxms_1_1_gm_multi_poly_intersector_impl.html#ad8a8d896823f5f70b3ffc250b453434c',1,'xms::GmMultiPolyIntersectorImpl']]],
   ['sqrt3',['SQRT3',['../_interp_ct_8cpp.html#ae42978afd835c3a1f70d409a1b5f5a39',1,'InterpCt.cpp']]],
   ['stackederrtostream',['StackedErrToStream',['https://aquaveo.github.io/xmscore/structxms_1_1_xm_log_1_1_impl.html#aa02f112955c88daaff87726286897b9d',1,'xms::XmLog::Impl']]],
+  ['stcommanumpunct',['StCommaNumpunct',['https://aquaveo.github.io/xmscore/classxms_1_1_st_comma_numpunct.html',1,'xms']]],
   ['stringutil_2ecpp',['StringUtil.cpp',['https://aquaveo.github.io/xmscore/_string_util_8cpp.html',1,'']]],
   ['stringutil_2eh',['StringUtil.h',['https://aquaveo.github.io/xmscore/_string_util_8h.html',1,'']]],
   ['stringutil_2et_2eh',['StringUtil.t.h',['https://aquaveo.github.io/xmscore/_string_util_8t_8h.html',1,'']]],
   ['stringutilunittests',['StringUtilUnitTests',['https://aquaveo.github.io/xmscore/class_string_util_unit_tests.html',1,'']]],
+  ['sttemp2digitexponents',['StTemp2DigitExponents',['https://aquaveo.github.io/xmscore/classxms_1_1_st_temp2_digit_exponents.html#a02180bdc964b3c70e05b723f1cb75894',1,'xms::StTemp2DigitExponents']]],
+  ['sttemp2digitexponents',['StTemp2DigitExponents',['https://aquaveo.github.io/xmscore/classxms_1_1_st_temp2_digit_exponents.html',1,'xms']]],
   ['swap',['Swap',['../classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#a484addfe624bb88f1980496ccb922692',1,'xms::GmMultiPolyIntersectionSorterTerse']]],
   ['swapadjacents',['SwapAdjacents',['../classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#a230088635ebb08581d8701911068be0a',1,'xms::GmMultiPolyIntersectionSorterTerse']]],
   ['swapedge',['SwapEdge',['../classxms_1_1_tr_tin_impl.html#a1466863471faaca3ac55bf4101fa972f',1,'xms::TrTinImpl']]]

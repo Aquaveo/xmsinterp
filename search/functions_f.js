@@ -46,6 +46,7 @@ var searchData=
   ['sort',['Sort',['../classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#aab32ba927a9062f1c95c5a2e1bedb62d',1,'xms::GmMultiPolyIntersectionSorterTerse']]],
   ['sortintersections',['SortIntersections',['../classxms_1_1_gm_multi_poly_intersector_impl.html#ad8a8d896823f5f70b3ffc250b453434c',1,'xms::GmMultiPolyIntersectorImpl']]],
   ['stackederrtostream',['StackedErrToStream',['https://aquaveo.github.io/xmscore/structxms_1_1_xm_log_1_1_impl.html#aa02f112955c88daaff87726286897b9d',1,'xms::XmLog::Impl']]],
+  ['sttemp2digitexponents',['StTemp2DigitExponents',['https://aquaveo.github.io/xmscore/classxms_1_1_st_temp2_digit_exponents.html#a02180bdc964b3c70e05b723f1cb75894',1,'xms::StTemp2DigitExponents']]],
   ['swap',['Swap',['../classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#a484addfe624bb88f1980496ccb922692',1,'xms::GmMultiPolyIntersectionSorterTerse']]],
   ['swapadjacents',['SwapAdjacents',['../classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#a230088635ebb08581d8701911068be0a',1,'xms::GmMultiPolyIntersectionSorterTerse']]],
   ['swapedge',['SwapEdge',['../classxms_1_1_tr_tin_impl.html#a1466863471faaca3ac55bf4101fa972f',1,'xms::TrTinImpl']]]
