@@ -1,16 +1,16 @@
-  env:
-   global:
-     # TRAVIS_BRANCH is tag name if tag provided else branch name
-     - XMS_VERSION: $TRAVIS_BRANCH
-     - CONAN_REFERENCE: "xmsinterp/${XMS_VERSION}"
-     - CONAN_USERNAME: "aquaveo"
-     - CONAN_CHANNEL: "stable"
-     - CONAN_LOGIN_USERNAME: $CONAN_USER_SECRET
-     - CONAN_PASSWORD: $CONAN_PASSWORD_SECRET
-     - CONAN_REMOTES: $AQUAVEO_CONAN
-     - GH_REPO_NAME: xmsinterp
-     - DOXYFILE: $TRAVIS_BUILD_DIR/Doxygen/Doxyfile
-     - GH_REPO_REF: github.com/Aquaveo/xmsinterp.git
+env:
+ global:
+   # TRAVIS_BRANCH is tag name if tag provided else branch name
+   - XMS_VERSION: $TRAVIS_BRANCH
+   - CONAN_REFERENCE: "xmsinterp/${XMS_VERSION}"
+   - CONAN_USERNAME: "aquaveo"
+   - CONAN_CHANNEL: "stable"
+   - CONAN_LOGIN_USERNAME: $CONAN_USER_SECRET
+   - CONAN_PASSWORD: $CONAN_PASSWORD_SECRET
+   - CONAN_REMOTES: $AQUAVEO_CONAN
+   - GH_REPO_NAME: xmsinterp
+   - DOXYFILE: $TRAVIS_BUILD_DIR/Doxygen/Doxyfile
+   - GH_REPO_REF: github.com/Aquaveo/xmsinterp.git
 
 linux: &linux
    os: linux
