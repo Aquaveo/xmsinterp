@@ -10,8 +10,12 @@ class XmsinterpConan(ConanFile):
     url = "https://github.com/Aquaveo/xmsinterp"
     description = "Interpolation library for XMS products"
     settings = "os", "compiler", "build_type", "arch"
-    options = {"xms": [True, False], "pybind": [True, False]}
-    default_options = "xms=False", "pybind=False"
+    options = {
+        "xms": [True, False],
+        "pybind": [True, False],
+        "testing": [True, False],
+    }
+    default_options = "xms=False", "pybind=False", "testing=False"
     generators = "cmake"
     build_requires = "cxxtest/4.4@aquaveo/stable"
     exports = "CMakeLists.txt", "LICENSE"
@@ -28,6 +32,7 @@ class XmsinterpConan(ConanFile):
 
         self.options['xmscore'].xms = self.options.xms
         self.options['xmscore'].pybind = self.options.pybind
+        self.options['xmscore'].testing = self.options.testing
 
         if s_compiler != "Visual Studio" and s_compiler != "apple-clang":
             self.options['boost'].fPIC = True
@@ -46,7 +51,7 @@ class XmsinterpConan(ConanFile):
             self.requires("xmscore/1.0.26@aquaveo/stable")
         else:
             self.requires("boost/1.66.0@conan/stable")
-            self.requires("xmscore/1.0.26@aquaveo/stable")
+            self.requires("xmscore/1.0.27@aquaveo/stable")
         # Pybind if not Visual studio 2013
         if not (self.settings.compiler == 'Visual Studio' \
                 and self.settings.compiler.version == "12") \
