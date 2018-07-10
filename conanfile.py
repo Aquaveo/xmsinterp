@@ -42,13 +42,14 @@ class XmsinterpConan(ConanFile):
 
         if s_compiler == "apple-clang" \
                 and s_os == 'Macos' \
-                and s_compiler_version < "9.0":
+                and float(s_compiler_version.value) < 9.0:
             raise ConanException("Clang > 9.0 is required for Mac.")
 
     def requirements(self):
+        # If building for XMS, use the older, custom boost
         if self.options.xms and self.settings.compiler.version == "12":
             self.requires("boost/1.60.0@aquaveo/testing")
-            self.requires("xmscore/1.0.26@aquaveo/stable")
+            self.requires("xmscore/1.0.27@aquaveo/stable")
         else:
             self.requires("boost/1.66.0@conan/stable")
             self.requires("xmscore/1.0.27@aquaveo/stable")
@@ -57,6 +58,9 @@ class XmsinterpConan(ConanFile):
                 and self.settings.compiler.version == "12") \
                 and self.options.pybind:
             self.requires("pybind11/2.2.2@aquaveo/stable")
+
+        # Use the dev version of XMSCore
+        self.requires("xmscore/[>1.0.25]@aquaveo/stable")
 
     def build(self):
         xms_run_tests = self.env.get('XMS_RUN_TESTS', None)
