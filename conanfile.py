@@ -36,6 +36,8 @@ class XmsinterpConan(ConanFile):
 
         if s_compiler != "Visual Studio" and s_compiler != "apple-clang":
             self.options['boost'].fPIC = True
+        elif s_compiler == "apple-clang":
+            self.options['boost'].fPIC = False
 
         if s_compiler == "apple-clang" and s_os == 'Linux':
             raise ConanException("Clang on Linux is not supported.")
@@ -49,10 +51,8 @@ class XmsinterpConan(ConanFile):
         # If building for XMS, use the older, custom boost
         if self.options.xms and self.settings.compiler.version == "12":
             self.requires("boost/1.60.0@aquaveo/testing")
-            self.requires("xmscore/1.0.27@aquaveo/stable")
         else:
             self.requires("boost/1.66.0@conan/stable")
-            self.requires("xmscore/1.0.27@aquaveo/stable")
         # Pybind if not Visual studio 2013
         if not (self.settings.compiler == 'Visual Studio' \
                 and self.settings.compiler.version == "12") \
@@ -63,12 +63,7 @@ class XmsinterpConan(ConanFile):
         self.requires("xmscore/[>1.0.25]@aquaveo/stable")
 
     def build(self):
-        xms_run_tests = self.env.get('XMS_RUN_TESTS', None)
-        run_tests = xms_run_tests != 'None' and xms_run_tests is not None
-
         cmake = CMake(self)
-
-        cmake.definitions["IS_PYTHON_BUILD"] = self.options.pybind
 
         if self.settings.compiler == 'Visual Studio' \
            and self.settings.compiler.version == "12":
@@ -78,12 +73,12 @@ class XmsinterpConan(ConanFile):
         # have tests in release code. Thus, if we want to run tests, we will
         # build a test version (without python), run the tests, and then (on
         # sucess) rebuild the library without tests.
-        if run_tests:
-            cmake.definitions["IS_PYTHON_BUILD"] = False
-            cmake.definitions["BUILD_TESTING"] = run_tests
-            cmake.configure(source_folder=".")
-            cmake.build()
+        cmake.definitions["IS_PYTHON_BUILD"] = self.options.pybind
+        cmake.definitions["BUILD_TESTING"] = self.options.testing
+        cmake.configure(source_folder=".")
+        cmake.build()
 
+        if self.options.testing:
             print("***********(0.0)*************")
             try:
                 cmake.test()
@@ -96,12 +91,6 @@ class XmsinterpConan(ConanFile):
                             no_newline = line.strip('\n')
                             print(no_newline)
                 print("***********(0.0)*************")
-
-        # Make sure we build without tests
-        cmake.definitions["IS_PYTHON_BUILD"] = self.options.pybind
-        cmake.definitions["BUILD_TESTING"] = False
-        cmake.configure(source_folder=".")
-        cmake.build()
 
 
     def package(self):
