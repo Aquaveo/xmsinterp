@@ -13,6 +13,7 @@
 #include <xmscore/misc/boost_defines.h>
 #include <xmscore/misc/DynBitset.h>
 #include <xmscore/python/misc/PublicObserver.h>
+#include <xmscore/python/misc/PyUtils.h>
 #include <xmsinterp/interpolate/InterpIdw.h>
 #include <xmsinterp/python/interpolate/interpolate_py.h>
 
@@ -28,126 +29,39 @@ void initInterpIdw(py::module &m) {
       py::class_<xms::InterpIdw, boost::shared_ptr<xms::InterpIdw>> iIdw(m, "InterpIdw");
       iIdw.def(py::init(&xms::InterpIdw::New))
           .def("set_pts_tris", [](xms::InterpIdw &self, py::iterable pts, py::iterable tris) {
-              BSHP<xms::VecPt3d> vec_pts(new xms::VecPt3d());
-              BSHP<xms::VecInt> vec_tris(new xms::VecInt());
-              for (auto item : pts) {
-                if(!py::isinstance<py::iterable>(item)) {
-                  throw py::type_error("First arg must be a n-tuple of 3-tuples");
-                }
-
-                py::tuple tuple = item.cast<py::iterable>();
-                if (py::len(tuple) != 3) {
-                  throw py::type_error("Input points must be 3-tuples");
-                } else {
-                  xms::Pt3d point(tuple[0].cast<double>(), tuple[1].cast<double>(), tuple[2].cast<double>());
-                  vec_pts->push_back(point);
-                }
-              }
-              for (auto item : tris) {
-                vec_tris->push_back(item.cast<int>());
-              }
+              BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
+              BSHP<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
               self.SetPtsTris(vec_pts, vec_tris);
           })
           .def("set_pts", [](xms::InterpIdw &self, py::iterable pts, bool a2d) {
-              BSHP<xms::VecPt3d> vec_pts(new xms::VecPt3d());
-              for (auto item : pts) {
-                if(!py::isinstance<py::iterable>(item)) {
-                  throw py::type_error("First arg must be a n-tuple of 3-tuples");
-                }
-
-                py::tuple tuple = item.cast<py::tuple>();
-                if (py::len(tuple) != 3) {
-                  throw py::type_error("Input points must be 3-tuples");
-                } else {
-                  xms::Pt3d point(tuple[0].cast<double>(), tuple[1].cast<double>(), tuple[2].cast<double>());
-                  vec_pts->push_back(point);
-                }
-              }
+              BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
               self.SetPts(vec_pts, a2d);
           })
           .def("interp_to_pt",[](xms::InterpIdw &self, py::tuple pt) -> float {
-              if(py::len(pt) != 3) {
-                throw py::type_error("Input point should be a 3-tuple");
-              } else {
-                xms::Pt3d point(pt[0].cast<double>(), pt[1].cast<double>(), pt[2].cast<double>());
-                return self.InterpToPt(point);
-              }
+              xms::Pt3d point = xms::Pt3dFromPyIter(pt);
+              return self.InterpToPt(point);
           })
           .def("interp_to_pts", [](xms::InterpIdw &self, py::iterable pts) -> py::iterable {
-              xms::VecPt3d vec_pts;
-              xms::VecFlt vec_scalars;
-
-              for (auto item : pts) {
-                if(!py::isinstance<py::iterable>(item)) {
-                  throw py::type_error("First arg must be a n-tuple of 3-tuples");
-                }
-
-                py::tuple tuple = item.cast<py::tuple>();
-
-                if (py::len(tuple) != 3) {
-                  throw py::type_error("Input points must be 3-tuples");
-                } else {
-                  xms::Pt3d point(tuple[0].cast<double>(), tuple[1].cast<double>(), tuple[2].cast<double>());
-                  vec_pts.push_back(point);
-                }
-              }
-
-              self.InterpToPts(vec_pts, vec_scalars);
-              if (py::isinstance<py::array>(pts)) {
-                // NOTE: This is a copy operation
-                return py::array(vec_scalars.size(), vec_scalars.data());
-              } else {
-                // NOTE: This is a copy operation
-                auto tuple_ret = py::tuple(vec_scalars.size());
-                for (size_t i = 0; i < tuple_ret.size(); ++i) {
-                  tuple_ret[i] = vec_scalars.at(i);
-                }
-                return tuple_ret;
-              }
+              boost::shared_ptr<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
+              boost::shared_ptr<xms::VecFlt> vec_scalars(new xms::VecFlt());
+              self.InterpToPts(*vec_pts, *vec_scalars);
+              return xms::PyIterFromVecFlt(*vec_scalars, py::isinstance<py::array>(pts));
           })
           .def("set_pt_activity", [](xms::InterpIdw &self, py::iterable activity) {
-              xms::DynBitset bitset;
-              std::vector<unsigned char> bitvals;
-              for (auto item : activity) {
-                py::bool_ flag = item.cast<py::bool_>();
-                if (flag) {
-                  bitvals.push_back(1);
-                } else {
-                  bitvals.push_back(0);
-                }
-              }
-              xms::VecBooleanToDynBitset(bitvals, bitset);
+              xms::DynBitset bitset = xms::DynamicBitsetFromPyIter(activity);
               self.SetPtActivity(bitset);
           })
           .def("set_tri_activity", [](xms::InterpIdw &self, py::iterable activity) {
-              xms::DynBitset bitset;
-              std::vector<unsigned char> bitvals;
-              for (auto item : activity) {
-                py::bool_ flag = item.cast<py::bool_>();
-                if (flag) {
-                  bitvals.push_back(1);
-                } else {
-                  bitvals.push_back(0);
-                }
-              }
-              xms::VecBooleanToDynBitset(bitvals, bitset);
+              xms::DynBitset bitset = xms::DynamicBitsetFromPyIter(activity);
               self.SetTriActivity(bitset);
           })
           .def_property_readonly("pts", [](xms::InterpIdw &self) -> py::iterable {
-              BSHP<std::vector<xms::Pt3d>> pts = self.GetPts();
-              py::array_t<double, py::array::c_style> a({(int)(*pts).size(), 3});
-              auto r = a.mutable_unchecked<2>();
-              int i = 0;
-              for (ssize_t i = 0; i < r.shape(0); i++) {
-               r(i, 0) = (*pts)[i].x;
-               r(i, 1) = (*pts)[i].y;
-               r(i, 2) = (*pts)[i].z;
-              }
-              return a;
+              BSHP<xms::VecPt3d> pts = self.GetPts();
+              return xms::PyIterFromVecPt3d(*pts)
           })
           .def_property_readonly("tris", [](xms::InterpIdw &self) -> py::iterable {
-              BSHP<std::vector<int>> tris = self.GetTris();
-              return py::array(tris->size(), tris->data());
+              BSHP<xms::VecInt> tris = self.GetTris();
+              return xms::PyIterFromVecInt(*tris);
           })
           .def("set_trunc", &xms::InterpIdw::SetTrunc)
           .def("set_observer", [](xms::InterpIdw &self,
@@ -169,10 +83,10 @@ void initInterpIdw(py::module &m) {
               if (py::len(pt) != 3) {
                 throw py::type_error("Input points must be 3-tuples");
               } else {
-                xms::Pt3d point(pt[0].cast<double>(), pt[1].cast<double>(), pt[2].cast<double>());
+                xms::Pt3d point = xms::Pt3dFromPyIter(pt);
                 self.InterpWeights(point, idxs, wts);
-                py::array ret_idxs(idxs.size(), idxs.data());
-                py::array ret_wts(wts.size(), wts.data());
+                py::array ret_idxs = PyIterFromVecInt(idxs, true);
+                py::array ret_wts = PyIterFromVecDbl(wts, true);
                 return py::make_tuple(ret_idxs, ret_wts);
               }
           })
