@@ -161,7 +161,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memdesc:a884a53233410d94455ac562ae22d783f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find all triangle whose envelop contains the point.  <a href="#a884a53233410d94455ac562ae22d783f">More...</a><br/></td></tr>
 <tr class="separator:a884a53233410d94455ac562ae22d783f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89161f03d360c52d22a4d0995e1a5869"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_gm_tri_search_impl.html#a89161f03d360c52d22a4d0995e1a5869">InterpWeights</a> (const Pt3d &amp;a_pt, std::vector&lt; int &gt; &amp;a_idxs, std::vector&lt; double &gt; &amp;a_wts) override</td></tr>
-<tr class="memdesc:a89161f03d360c52d22a4d0995e1a5869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the stored triangles to get interpolation weights for a point.  <a href="#a89161f03d360c52d22a4d0995e1a5869">More...</a><br/></td></tr>
+<tr class="memdesc:a89161f03d360c52d22a4d0995e1a5869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the stored triangles to get interpolation weights for a point. Returns false if the point is outside the triangles.  <a href="#a89161f03d360c52d22a4d0995e1a5869">More...</a><br/></td></tr>
 <tr class="separator:a89161f03d360c52d22a4d0995e1a5869"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab61cf81f803d0d87fcbf6e2410ae2d25"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_gm_tri_search_impl.html#ab61cf81f803d0d87fcbf6e2410ae2d25">ToString</a> () const override</td></tr>
 <tr class="memdesc:ab61cf81f803d0d87fcbf6e2410ae2d25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the internals to a string.  <a href="#ab61cf81f803d0d87fcbf6e2410ae2d25">More...</a><br/></td></tr>
@@ -263,11 +263,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the triangle a_idx is active. </dd></dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00353">353</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00351">351</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00165">m_triActivity</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00163">m_triActivity</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00483">FindTriangle()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00566">PointActivityFromTriActivity()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00481">FindTriangle()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00564">PointActivityFromTriActivity()</a>.</p>
 
 </div>
 </div>
@@ -287,9 +287,9 @@ Additional Inherited Members</h2></td></tr>
 <p>creates the rtree of the points </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classxms_1_1_gm_pt_search.html" title="Spatial index for searching points. ">GmPtSearch</a>. </dd></dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00590">590</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00588">588</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00163">m_pts</a>, <a class="el" href="_gm_pt_search_8cpp_source.html#l00238">xms::GmPtSearch::New()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00566">PointActivityFromTriActivity()</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00161">m_pts</a>, <a class="el" href="_gm_pt_search_8cpp_source.html#l00236">xms::GmPtSearch::New()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00564">PointActivityFromTriActivity()</a>.</p>
 
 </div>
 </div>
@@ -334,11 +334,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>index to the triangle containg a_pt. </dd></dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00483">483</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00481">481</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00353">ActiveTri()</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00061">BARYTOL</a>, <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a6c90100ca9f6986351a3a437374735c1">xmlog::error</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00550">GetTriBarycentricVals()</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00163">m_pts</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00171">m_rTree</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00164">m_tris</a>, <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00351">ActiveTri()</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00061">BARYTOL</a>, <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a6c90100ca9f6986351a3a437374735c1">xmlog::error</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00548">GetTriBarycentricVals()</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00161">m_pts</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00169">m_rTree</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00162">m_tris</a>, <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00423">InterpWeights()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00367">TriContainingPt()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00421">InterpWeights()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00365">TriContainingPt()</a>.</p>
 
 </div>
 </div>
@@ -366,9 +366,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Activity of the points based on the triangle activity. </p>
 <dl class="section return"><dt>Returns</dt><dd>boost::dynamic_bitset of size_t </dd></dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00137">137</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00135">135</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00566">PointActivityFromTriActivity()</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00564">PointActivityFromTriActivity()</a>.</p>
 
 </div>
 </div>
@@ -412,11 +412,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00550">550</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00548">548</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00169">m_cache</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00163">m_pts</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00167">m_cache</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00161">m_pts</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00483">FindTriangle()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00481">FindTriangle()</a>.</p>
 
 </div>
 </div>
@@ -458,8 +458,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Use the stored triangles to get interpolation weights for a point. </p>
-<dl class="section return"><dt>Returns</dt><dd>false if the point is outside the triangles. </dd></dl>
+<p>Use the stored triangles to get interpolation weights for a point. Returns false if the point is outside the triangles. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a_pt</td><td>Location that is interpolated to. </td></tr>
@@ -470,9 +469,9 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>false if a_pt is not inside of any triangle </dd></dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00423">423</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00421">421</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00483">FindTriangle()</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00481">FindTriangle()</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
 </div>
 </div>
@@ -492,11 +491,11 @@ Additional Inherited Members</h2></td></tr>
 <p>Gets the activity of the points from the triangles. </p>
 <dl class="section return"><dt>Returns</dt><dd>bitset of the activity of the points. </dd></dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00566">566</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00564">564</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00353">ActiveTri()</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00163">m_pts</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00165">m_triActivity</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00164">m_tris</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00351">ActiveTri()</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00161">m_pts</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00163">m_triActivity</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00162">m_tris</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00590">CreatePtSearch()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00137">GetPtActivity()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00588">CreatePtSearch()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00135">GetPtActivity()</a>.</p>
 
 </div>
 </div>
@@ -533,9 +532,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00462">462</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00460">460</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a42797ff955c778a8a9e21bdd5580a92e">xmlog::debug</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00164">m_tris</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a>.</p>
+<p>References <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a42797ff955c778a8a9e21bdd5580a92e">xmlog::debug</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00162">m_tris</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a>.</p>
 
 </div>
 </div>
@@ -569,9 +568,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00312">312</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00310">310</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00163">m_pts</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00165">m_triActivity</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00164">m_tris</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00161">m_pts</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00163">m_triActivity</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00162">m_tris</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>.</p>
 
 </div>
 </div>
@@ -605,9 +604,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00332">332</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00330">330</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00165">m_triActivity</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00164">m_tris</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00163">m_triActivity</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00162">m_tris</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>.</p>
 
 </div>
 </div>
@@ -635,9 +634,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Write the internals to a string. </p>
 <dl class="section return"><dt>Returns</dt><dd>The string. </dd></dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00443">443</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00441">441</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00161">m_max</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00160">m_min</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00163">m_pts</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00165">m_triActivity</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00164">m_tris</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00159">m_max</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00158">m_min</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00161">m_pts</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00163">m_triActivity</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00162">m_tris</a>.</p>
 
 </div>
 </div>
@@ -672,11 +671,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Index of triangle containing a_pt. If XM_NONE is returned then no triangle contained the point. </dd></dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00367">367</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00365">365</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00483">FindTriangle()</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00481">FindTriangle()</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00704">TriSearchUnitTests::testSmsCase1()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00720">TriSearchUnitTests::testTouch()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00702">TriSearchUnitTests::testSmsCase1()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00718">TriSearchUnitTests::testTouch()</a>.</p>
 
 </div>
 </div>
@@ -728,11 +727,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00397">397</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00395">395</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00171">m_rTree</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00169">m_rTree</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00734">TriSearchUnitTests::testTriEnvelopesOverlap()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00732">TriSearchUnitTests::testTriEnvelopesOverlap()</a>.</p>
 
 </div>
 </div>
@@ -777,9 +776,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00378">378</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00376">376</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00171">m_rTree</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00169">m_rTree</a>.</p>
 
 </div>
 </div>
@@ -824,11 +823,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00262">262</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00260">260</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00276">CreateRTree()</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00169">m_cache</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00163">m_pts</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00171">m_rTree</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00164">m_tris</a>.</p>
+<p>References <a class="el" href="_gm_tri_search_8cpp_source.html#l00274">CreateRTree()</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00167">m_cache</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00161">m_pts</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00169">m_rTree</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00162">m_tris</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00704">TriSearchUnitTests::testSmsCase1()</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00720">TriSearchUnitTests::testTouch()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00734">TriSearchUnitTests::testTriEnvelopesOverlap()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00702">TriSearchUnitTests::testSmsCase1()</a>, <a class="el" href="_gm_tri_search_8cpp_source.html#l00718">TriSearchUnitTests::testTouch()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00732">TriSearchUnitTests::testTriEnvelopesOverlap()</a>.</p>
 
 </div>
 </div>
@@ -844,9 +843,9 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>we create a cache of these for faster interp the second time we hit the triangle </p>
 
-<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00169">169</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_tri_search_8cpp_source.html#l00167">167</a> of file <a class="el" href="_gm_tri_search_8cpp_source.html">GmTriSearch.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00550">GetTriBarycentricVals()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00262">TrisToSearch()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_tri_search_8cpp_source.html#l00548">GetTriBarycentricVals()</a>, and <a class="el" href="_gm_tri_search_8cpp_source.html#l00260">TrisToSearch()</a>.</p>
 
 </div>
 </div>
@@ -859,7 +858,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>xms</b></li><li class="navelem"><a class="el" href="classxms_1_1_gm_tri_search_impl.html">GmTriSearchImpl</a></li>
-    <li class="footer">Generated on Mon Jul 9 2018 19:50:54 for xmsinterp by
+    <li class="footer">Generated on Tue Jul 17 2018 21:56:01 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

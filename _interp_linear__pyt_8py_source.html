@@ -185,7 +185,7 @@ $(document).ready(function(){initNavTree('_interp_linear__pyt_8py_source.html','
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        with self.assertRaises(TypeError) <span class="keyword">as</span> context:</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            interp.set_pts_tris(((1, 2), (1, 2)), (1, 2))</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        err = context.exception</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;Input points must be 3-tuples&quot;</span>, str(err))</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;Input point should be a 3-tuple&quot;</span>, str(err))</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment"># Test that the a proper call does not throw</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        interp.set_pts_tris(((1, 2, 3), (1, 2, 3)), (1, 2))</div>
@@ -210,7 +210,7 @@ $(document).ready(function(){initNavTree('_interp_linear__pyt_8py_source.html','
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        with self.assertRaises(TypeError) <span class="keyword">as</span> context:</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            interp.set_pts_tris(np.array([(1, 2), (1, 2)]), np.array([1, 2]))</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        err = context.exception</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;Input points must be 3-tuples&quot;</span>, str(err))</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        self.assertEqual(<span class="stringliteral">&quot;Input point should be a 3-tuple&quot;</span>, str(err))</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment"># Test that the a proper call does not throw</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        interp.set_pts_tris(np.array([(1, 2, 3), (1, 2, 3)]), np.array([1, 2]))</div>
@@ -460,7 +460,7 @@ $(document).ready(function(){initNavTree('_interp_linear__pyt_8py_source.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_53cfb6cd0b472f339d101e3e1947d282.html">python</a></li><li class="navelem"><a class="el" href="dir_891e27cd1483828d783aecbc58ac2c70.html">interpolate</a></li><li class="navelem"><b>InterpLinear_pyt.py</b></li>
-    <li class="footer">Generated on Mon Jul 9 2018 19:50:53 for xmsinterp by
+    <li class="footer">Generated on Tue Jul 17 2018 21:56:00 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
