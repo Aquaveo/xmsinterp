@@ -57,7 +57,7 @@ void initInterpIdw(py::module &m) {
           })
           .def_property_readonly("pts", [](xms::InterpIdw &self) -> py::iterable {
               BSHP<xms::VecPt3d> pts = self.GetPts();
-              return xms::PyIterFromVecPt3d(*pts)
+              return xms::PyIterFromVecPt3d(*pts);
           })
           .def_property_readonly("tris", [](xms::InterpIdw &self) -> py::iterable {
               BSHP<xms::VecInt> tris = self.GetTris();
@@ -85,8 +85,8 @@ void initInterpIdw(py::module &m) {
               } else {
                 xms::Pt3d point = xms::Pt3dFromPyIter(pt);
                 self.InterpWeights(point, idxs, wts);
-                py::array ret_idxs = PyIterFromVecInt(idxs, true);
-                py::array ret_wts = PyIterFromVecDbl(wts, true);
+                py::array ret_idxs = xms::PyIterFromVecInt(idxs, true);
+                py::array ret_wts = xms::PyIterFromVecDbl(wts, true);
                 return py::make_tuple(ret_idxs, ret_wts);
               }
           })
