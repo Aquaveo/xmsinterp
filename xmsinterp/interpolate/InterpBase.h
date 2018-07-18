@@ -45,10 +45,10 @@ public:
   virtual std::string ToString() const = 0;
   virtual void SetIdString(const std::string& a_id) = 0;
   virtual std::string GetIdString() const = 0;
+  virtual ~InterpBase() {}
 
 protected:
   InterpBase() {}
-  virtual ~InterpBase() {}
 
 private:
   XM_DISALLOW_COPY_AND_ASSIGN(InterpBase);
