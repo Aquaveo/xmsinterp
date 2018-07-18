@@ -18,4 +18,5 @@ void initInterpolate(py::module &);
 
 void initInterpLinear(py::module &);
 void initInterpIdw(py::module &);
+void initInterpBase(py::module &)
 //void initNodalFunc(py::module &);
