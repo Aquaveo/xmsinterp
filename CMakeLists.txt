@@ -117,12 +117,14 @@ set(xmsinterp_py
   # Interpolate
   xmsinterp/python/interpolate/interpolate_py.h
   xmsinterp/python/interpolate/interpolate_py.cpp
+  xmsinterp/python/interpolate/InterpBase_py.cpp
   xmsinterp/python/interpolate/InterpIdw_py.cpp
   xmsinterp/python/interpolate/InterpLinear_py.cpp
   # Triangulate
   xmsinterp/python/triangulate/triangulate_py.h
   xmsinterp/python/triangulate/triangulate_py.cpp
   xmsinterp/python/triangulate/TrTin_py.cpp
+  xmsinterp/python/triangulate/TrTriangulatorPoints_py.cpp
 )
 
 # Tests

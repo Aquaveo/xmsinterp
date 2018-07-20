@@ -10,6 +10,7 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/numpy.h>
 #include <boost/shared_ptr.hpp>
+#include <xmscore/python/misc/PyUtils.h>
 #include <xmsinterp/triangulate/TrTin.h>
 #include <iostream>
 #include <fstream>
@@ -27,123 +28,34 @@ void initTrTin(py::module &m) {
       py::class_<xms::TrTin, boost::shared_ptr<xms::TrTin>> iTrTin(m, "TrTin");
       iTrTin.def(py::init(&xms::TrTin::New))
       .def("set_points", [](xms::TrTin &self, py::iterable pts) {
-          BSHP<xms::VecPt3d> vec_pts(new xms::VecPt3d());
-          for (auto item : pts) {
-            if(!py::isinstance<py::iterable>(item)) {
-              throw py::type_error("First arg must be a n-tuple of 3-tuples");
-            }
-
-            py::tuple tuple = item.cast<py::tuple>();
-            if (py::len(tuple) != 3) {
-              throw py::type_error("Input points must be 3-tuples");
-            } else {
-              xms::Pt3d point(tuple[0].cast<double>(), tuple[1].cast<double>(), tuple[2].cast<double>());
-              vec_pts->push_back(point);
-            }
-          }
+          BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
           self.SetPoints(vec_pts);
       })
       .def("set_triangles", [](xms::TrTin &self, py::iterable tris) {
-          BSHP<xms::VecInt> vec_tris(new xms::VecInt());
-          for (auto item : tris) {
-            vec_tris->push_back(item.cast<int>());
-          }
+          BSHP<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
           self.SetTriangles(vec_tris);
       })
       .def("set_triangles_adjacent_to_points", [](xms::TrTin &self, py::iterable tris_adj) {
-          BSHP<xms::VecInt2d> vec_tris_adj(new xms::VecInt2d(py::len(tris_adj)));
-          auto sizes = py::tuple(py::len(tris_adj));
-          int j = 0;
-          for (auto item : tris_adj) {
-            if(!py::isinstance<py::iterable>(item)) {
-              throw py::type_error("First arg must be a n-tuple of n-tuples");
-            }
-
-            py::tuple tuple = item.cast<py::iterable>();
-            xms::VecInt inner_vec(py::len(tuple));
-            for (int i = 0; i < py::len(tuple); i++) {
-              double point(tuple[i].cast<double>());
-              inner_vec[i] = point;
-            }
-            sizes[j] = inner_vec.size();
-            vec_tris_adj->at(j) = inner_vec;
-            j++;
-          }
+          BSHP<xms::VecInt2d> vec_tris_adj = xms::VecInt2dFromPyIter(tris_adj);
           self.SetTrianglesAdjacentToPoints(vec_tris_adj);
       })
       .def("set_geometry", [](xms::TrTin &self, py::iterable pts, py::iterable tris, py::iterable tris_adj) {
-          BSHP<xms::VecPt3d> vec_pts(new xms::VecPt3d());
-          for (auto item : pts) {
-            if(!py::isinstance<py::iterable>(item)) {
-              throw py::type_error("First arg must be a n-tuple of 3-tuples");
-            }
-
-            py::tuple tuple = item.cast<py::iterable>();
-            if (py::len(tuple) != 3) {
-              throw py::type_error("Input points must be 3-tuples");
-            } else {
-              xms::Pt3d point(tuple[0].cast<double>(), tuple[1].cast<double>(), tuple[2].cast<double>());
-              vec_pts->push_back(point);
-            }
-          }
-          BSHP<xms::VecInt> vec_tris(new xms::VecInt());
-          for (auto item : tris) {
-            vec_tris->push_back(item.cast<int>());
-          }
-          BSHP<xms::VecInt2d> vec_tris_adj(new xms::VecInt2d(py::len(tris_adj)));
-          auto sizes = py::tuple(py::len(tris_adj));
-          int j = 0;
-          for (auto item : tris_adj) {
-            if(!py::isinstance<py::iterable>(item)) {
-              throw py::type_error("First arg must be a n-tuple of n-tuples");
-            }
-
-            py::tuple tuple = item.cast<py::iterable>();
-            xms::VecInt inner_vec(py::len(tuple));
-            for (int i = 0; i < py::len(tuple); i++) {
-              double point(tuple[i].cast<double>());
-              inner_vec[i] = point;
-            }
-            sizes[j] = inner_vec.size();
-            vec_tris_adj->at(j) = inner_vec;
-            j++;
-          }
+          boost::shared_ptr<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
+          boost::shared_ptr<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
+          boost::shared_ptr<xms::VecInt2d> vec_tris_adj = xms::VecInt2dFromPyIter(tris_adj);
           self.SetGeometry(vec_pts, vec_tris, vec_tris_adj);
       })
       .def_property_readonly("pts", [](xms::TrTin &self) -> py::iterable {
           xms::VecPt3d pts = self.Points();
-          py::array_t<double, py::array::c_style> a({(int)pts.size(), 3});
-          auto r = a.mutable_unchecked<2>();
-          int i = 0;
-          for (ssize_t i = 0; i < r.shape(0); i++) {
-           r(i, 0) = pts[i].x;
-           r(i, 1) = pts[i].y;
-           r(i, 2) = pts[i].z;
-          }
-          return a;
+          return xms::PyIterFromVecPt3d(pts);
       })
       .def_property_readonly("tris", [](xms::TrTin &self) -> py::iterable {
           xms::VecInt tris = self.Triangles();
-          return py::array(tris.size(), tris.data());
+          return xms::PyIterFromVecInt(tris);
       })
       .def_property_readonly("tris_adj", [](xms::TrTin &self) -> py::iterable {
           xms::VecInt2d tris_adj = self.TrisAdjToPts();
-          std::vector<py::iterable> inners(tris_adj.size());
-
-          for (int i = 0; i < tris_adj.size(); i++) {
-              auto inner = py::tuple(tris_adj.at(i).size());
-              for (int j = 0; j < tris_adj.at(i).size(); j++) {
-                inner[j] = tris_adj.at(i).at(j);
-              }
-              inners.at(i) = inner;
-          }
-
-          auto tuple = py::tuple(inners.size());
-          for (int i = 0; i < inners.size(); i++) {
-              tuple[i] = inners.at(i);
-          }
-          return tuple;
-
+          return xms::PyIterFromVecInt2d(tris_adj);
       })
       .def_property_readonly("num_points", &xms::TrTin::NumPoints)
       .def_property_readonly("num_triangles", &xms::TrTin::NumTriangles)
@@ -162,7 +74,7 @@ void initTrTin(py::module &m) {
       .def("adjacent_triangle", &xms::TrTin::AdjacentTriangle)
       .def("triangle_centroid", [](xms::TrTin &self, int tri) -> py::tuple {
           xms::Pt3d pt = self.TriangleCentroid(tri);
-          return py::make_tuple(pt.x, pt.y, pt.z);
+          return xms::PyIterFromPt3d(pt);
       })
       .def("triangle_area", &xms::TrTin::TriangleArea)
       .def("next_boundary_point", &xms::TrTin::NextBoundaryPoint)
@@ -170,32 +82,18 @@ void initTrTin(py::module &m) {
       .def("get_boundary_points", [](xms::TrTin &self) -> py::iterable {
           xms::VecInt bp;
           self.GetBoundaryPoints(bp);
-          return py::array(bp.size(), bp.data());
+          return xms::PyIterFromVecInt(bp);
       })
       .def("get_boundary_polys", [](xms::TrTin &self) -> py::tuple {
           xms::VecInt2d bp;
           self.GetBoundaryPolys(bp);
-          std::vector<py::iterable> inners(bp.size());
-
-          for (int i = 0; i < bp.size(); i++) {
-              auto inner = py::tuple(bp.at(i).size());
-              for (int j = 0; j < bp.at(i).size(); j++) {
-                inner[j] = bp.at(i).at(j);
-              }
-              inners.at(i) = inner;
-          }
-
-          auto tuple = py::tuple(inners.size());
-          for (int i = 0; i < inners.size(); i++) {
-              tuple[i] = inners.at(i);
-          }
-          return tuple;
+          return xms::PyIterFromVecInt2d(bp);
       })
       .def("get_extents", [](xms::TrTin &self) -> py::tuple {
           xms::Pt3d pt_min, pt_max;
           self.GetExtents(pt_min, pt_max);
-          auto min_pt = py::make_tuple(pt_min.x, pt_min.y, pt_min.z);
-          auto max_pt = py::make_tuple(pt_max.x, pt_max.y, pt_max.z);
+          auto min_pt = xms::PyIterFromPt3d(pt_min);
+          auto max_pt = xms::PyIterFromPt3d(pt_max);
           return py::make_tuple(min_pt, max_pt);
       })
       .def("export_tin_file", [](xms::TrTin &self, std::string fname) {

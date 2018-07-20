@@ -75,7 +75,7 @@ class TestInterpLinear(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             interp.set_pts_tris(((1, 2), (1, 2)), (1, 2))
         err = context.exception
-        self.assertEqual("Input points must be 3-tuples", str(err))
+        self.assertEqual("Input point should be a 3-tuple", str(err))
 
         # Test that the a proper call does not throw
         interp.set_pts_tris(((1, 2, 3), (1, 2, 3)), (1, 2))
@@ -100,7 +100,7 @@ class TestInterpLinear(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             interp.set_pts_tris(np.array([(1, 2), (1, 2)]), np.array([1, 2]))
         err = context.exception
-        self.assertEqual("Input points must be 3-tuples", str(err))
+        self.assertEqual("Input point should be a 3-tuple", str(err))
 
         # Test that the a proper call does not throw
         interp.set_pts_tris(np.array([(1, 2, 3), (1, 2, 3)]), np.array([1, 2]))

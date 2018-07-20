@@ -107,7 +107,7 @@ class TestInterpIdw(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             interp.set_pts_tris(((1, 2), (1, 2)), (1, 2))
         err = context.exception
-        self.assertEqual("Input points must be 3-tuples", str(err))
+        self.assertEqual("Input point should be a 3-tuple", str(err))
 
         # Test that the a proper call does not throw
         base_before = "1=2d 0=quadOctSearch 1=modifiedShepardWeights 16=nNearestPts 2=power " \
@@ -138,7 +138,7 @@ class TestInterpIdw(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             interp.set_pts(((1, 2), (1, 2)), False)
         err = context.exception
-        self.assertEqual("Input points must be 3-tuples", str(err))
+        self.assertEqual("Input point should be a 3-tuple", str(err))
 
         # Test that the a proper call does not throw
         interp.set_pts(((1, 2, 3), (1, 2, 3)), False)
@@ -168,7 +168,7 @@ class TestInterpIdw(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             interp.set_pts(((1, 2), (1, 2)), True)
         err = context.exception
-        self.assertEqual("Input points must be 3-tuples", str(err))
+        self.assertEqual("Input point should be a 3-tuple", str(err))
 
         # Test that the a proper call does not throw
         interp.set_pts(((1, 2, 3), (1, 2, 3)), True)
