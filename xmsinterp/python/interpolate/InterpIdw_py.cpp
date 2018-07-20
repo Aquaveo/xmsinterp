@@ -26,7 +26,7 @@ PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 void initInterpIdw(py::module &m) {
 
       // Class
-      py::class_<xms::InterpIdw, boost::shared_ptr<xms::InterpIdw>> iIdw(m, "InterpIdw");
+      py::class_<xms::InterpIdw, xms::InterpBase, boost::shared_ptr<xms::InterpIdw>> iIdw(m, "InterpIdw");
       iIdw.def(py::init(&xms::InterpIdw::New))
           .def("set_pts_tris", [](xms::InterpIdw &self, py::iterable pts, py::iterable tris) {
               BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);

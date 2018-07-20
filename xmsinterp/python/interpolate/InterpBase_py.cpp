@@ -69,7 +69,7 @@ public:
 };
 
 void initInterpBase(py::module &m) {
-    py::class_<xms::InterpBase, PyInterpBase<>, std::shared_ptr<xms::InterpBase>>
+    py::class_<xms::InterpBase, PyInterpBase<>, boost::shared_ptr<xms::InterpBase>>
       interpBase(m, "InterpBase");
       interpBase
         .def("__str__", &xms::InterpBase::ToString)

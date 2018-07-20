@@ -23,7 +23,7 @@ namespace py = pybind11;
 PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 
 void initInterpLinear(py::module &m) {
-    py::class_<xms::InterpLinear, boost::shared_ptr<xms::InterpLinear>>(m, "InterpLinear")
+    py::class_<xms::InterpLinear, xms::InterpBase, boost::shared_ptr<xms::InterpLinear>>(m, "InterpLinear")
         .def(py::init(&xms::InterpLinear::New))
         .def("__str__", &xms::InterpLinear::ToString)
         .def("to_string", &xms::InterpLinear::ToString)
