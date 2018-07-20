@@ -39,6 +39,10 @@ var hierarchy =
         [ "xms::InterpLinearImpl", "classxms_1_1_interp_linear_impl.html", null ]
       ] ]
     ] ],
+    [ "InterpBase", "class_interp_base.html", null ],
+    [ "InterpBase_", null, [
+      [ "PyInterpBase< InterpBase_ >", "class_py_interp_base.html", null ]
+    ] ],
     [ "xms::InterpCt", "classxms_1_1_interp_ct.html", null ],
     [ "xms::InterpNatNeigh", "classxms_1_1_interp_nat_neigh.html", [
       [ "xms::InterpNatNeighImpl", "classxms_1_1_interp_nat_neigh_impl.html", null ]

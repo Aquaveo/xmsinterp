@@ -6,6 +6,7 @@ var searchData=
   ['impl',['Impl',['https://aquaveo.github.io/xmscore/structxms_1_1_xm_log_1_1_impl.html',1,'xms::XmLog']]],
   ['impl',['impl',['https://aquaveo.github.io/xmscore/classxms_1_1_observer_1_1impl.html',1,'xms::Observer']]],
   ['interpbase',['InterpBase',['../classxms_1_1_interp_base.html',1,'xms']]],
+  ['interpbase',['InterpBase',['../class_interp_base.html',1,'']]],
   ['interpct',['InterpCt',['../classxms_1_1_interp_ct.html',1,'xms']]],
   ['interpidw',['InterpIdw',['../classxms_1_1_interp_idw.html',1,'xms']]],
   ['interpidwimpl',['InterpIdwImpl',['../classxms_1_1_interp_idw_impl.html',1,'xms']]],

@@ -430,6 +430,14 @@
     <filename>matrix_8h</filename>
   </compound>
   <compound kind="file">
+    <name>InterpBase_py.cpp</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
+    <filename>_interp_base__py_8cpp</filename>
+    <includes id="_interp_base_8h" name="InterpBase.h" local="no" imported="no">xmsinterp/interpolate/InterpBase.h</includes>
+    <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
+    <class kind="class">PyInterpBase</class>
+  </compound>
+  <compound kind="file">
     <name>InterpIdw_py.cpp</name>
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
     <filename>_interp_idw__py_8cpp</filename>
@@ -470,6 +478,12 @@
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/triangulate/</path>
     <filename>_tr_tin__py_8cpp</filename>
     <includes id="_tr_tin_8h" name="TrTin.h" local="no" imported="no">xmsinterp/triangulate/TrTin.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>TrTriangulatorPoints_py.cpp</name>
+    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/triangulate/</path>
+    <filename>_tr_triangulator_points__py_8cpp</filename>
+    <includes id="_tr_triangulator_points_8h" name="TrTriangulatorPoints.h" local="no" imported="no">xmsinterp/triangulate/TrTriangulatorPoints.h</includes>
   </compound>
   <compound kind="file">
     <name>xmsinterp_py.cpp</name>
@@ -1435,6 +1449,10 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>InterpBase</name>
+    <filename>class_interp_base.html</filename>
+  </compound>
+  <compound kind="class">
     <name>InterpIdwUnitTests</name>
     <filename>class_interp_idw_unit_tests.html</filename>
     <member kind="function">
@@ -1670,6 +1688,11 @@
       <anchor>ac74456c2b966531869f579c2a7875740</anchor>
       <arglist>()</arglist>
     </member>
+  </compound>
+  <compound kind="class">
+    <name>PyInterpBase</name>
+    <filename>class_py_interp_base.html</filename>
+    <templarg></templarg>
   </compound>
   <compound kind="class">
     <name>TrAutoFixFourTrianglePtsUnitTests</name>
@@ -6355,6 +6378,7 @@
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
     <filename>dir_891e27cd1483828d783aecbc58ac2c70.html</filename>
     <file>__init__.py</file>
+    <file>InterpBase_py.cpp</file>
     <file>InterpIdw_py.cpp</file>
     <file>InterpIdw_pyt.py</file>
     <file>InterpLinear_py.cpp</file>
@@ -6433,6 +6457,7 @@
     <file>triangulate_py.h</file>
     <file>TrTin_py.cpp</file>
     <file>TrTin_pyt.py</file>
+    <file>TrTriangulatorPoints_py.cpp</file>
   </compound>
   <compound kind="dir">
     <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/tutorial</name>
