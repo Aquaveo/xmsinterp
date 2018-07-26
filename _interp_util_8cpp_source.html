@@ -340,7 +340,7 @@ $(document).ready(function(){initNavTree('_interp_util_8cpp_source.html','');});
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;} <span class="comment">// inNodalFuncSetUpMatrixAndVector3d</span></div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keywordtype">void</span> inDistanceSquared(<span class="keyword">const</span> Pt3d&amp; a_pt,</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keywordtype">void</span> inDistanceSquared(<span class="keyword">const</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a>&amp; a_pt,</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                       <span class="keyword">const</span> std::vector&lt;int&gt;&amp; a_ptIdxs,</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                       <span class="keyword">const</span> std::vector&lt;Pt3d&gt;&amp; a_ptLoc,</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                       <span class="keywordtype">bool</span> a_2d,</div>
@@ -355,9 +355,9 @@ $(document).ready(function(){initNavTree('_interp_util_8cpp_source.html','');});
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nPtIdxs; ++i)</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  {</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    j = useAll ? i : a_ptIdxs[i];</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    d2 = xms::sqr(a_pt.x - a_ptLoc[j].x) + xms::sqr(a_pt.y - a_ptLoc[j].y);</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    d2 = <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#aa101a2a7d9f16080d4ff39ef821e36cf">xms::sqr</a>(a_pt.x - a_ptLoc[j].x) + <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#aa101a2a7d9f16080d4ff39ef821e36cf">xms::sqr</a>(a_pt.y - a_ptLoc[j].y);</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">if</span> (!a_2d)</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      d2 += xms::sqr(a_pt.z - a_ptLoc[j].z);</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      d2 += <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#aa101a2a7d9f16080d4ff39ef821e36cf">xms::sqr</a>(a_pt.z - a_ptLoc[j].z);</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    a_d2.push_back(d2);</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  }</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;} <span class="comment">// inDistanceSquared</span></div>
@@ -388,7 +388,7 @@ $(document).ready(function(){initNavTree('_interp_util_8cpp_source.html','');});
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      <span class="comment">// r is the distance to the furthest point, d is the distance to the</span></div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      <span class="comment">// current point</span></div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      d = sqrt(d2[i]);</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      d2[i] = xms::sqr((r - d) / (r * d));</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      d2[i] = <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#aa101a2a7d9f16080d4ff39ef821e36cf">xms::sqr</a>((r - d) / (r * d));</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    }</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    { <span class="comment">// classic weighting function</span></div>
@@ -416,7 +416,7 @@ $(document).ready(function(){initNavTree('_interp_util_8cpp_source.html','');});
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;} <span class="comment">// inIdwWeights</span></div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="comment"></span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="keywordtype">bool</span> inAllScalarsEqual(<span class="keyword">const</span> std::vector&lt;float&gt;&amp; a_scalars, <span class="keyword">const</span> DynBitset&amp; a_act)</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="keywordtype">bool</span> inAllScalarsEqual(<span class="keyword">const</span> std::vector&lt;float&gt;&amp; a_scalars, <span class="keyword">const</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#aba8c1eacfbbd2d1f45cef2fd55a35d93">DynBitset</a>&amp; a_act)</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;{</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;  <span class="keywordtype">bool</span> allScalarsSame(<span class="keyword">true</span>);</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;  <span class="keywordflow">if</span> (a_scalars.empty())</div>
@@ -455,6 +455,9 @@ $(document).ready(function(){initNavTree('_interp_util_8cpp_source.html','');});
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;</div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;} <span class="comment">// namespace xms</span></div>
 <div class="ttc" id="math_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/math_8h.html">math.h</a></div></div>
+<div class="ttc" id="namespacexms_html_a33ae0c78e599c46ba59bce7f2b32d7ab"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/namespacexms.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a></div><div class="ttdeci">Pt3&lt; double &gt; Pt3d</div></div>
+<div class="ttc" id="namespacexms_html_aba8c1eacfbbd2d1f45cef2fd55a35d93"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/namespacexms.html#aba8c1eacfbbd2d1f45cef2fd55a35d93">DynBitset</a></div><div class="ttdeci">boost::dynamic_bitset&lt; size_t &gt; DynBitset</div></div>
+<div class="ttc" id="namespacexms_html_aa101a2a7d9f16080d4ff39ef821e36cf"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/namespacexms.html#aa101a2a7d9f16080d4ff39ef821e36cf">xms::sqr</a></div><div class="ttdeci">_T sqr(const _T x)</div></div>
 <div class="ttc" id="_interp_util_8h_html"><div class="ttname"><a href="_interp_util_8h.html">InterpUtil.h</a></div><div class="ttdoc">Utility functions called by interpolation code. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -462,7 +465,7 @@ $(document).ready(function(){initNavTree('_interp_util_8cpp_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_078a237877d04a472ae71a8c0b6a128b.html">interpolate</a></li><li class="navelem"><a class="el" href="_interp_util_8cpp.html">InterpUtil.cpp</a></li>
-    <li class="footer">Generated on Fri Jul 20 2018 16:22:39 for xmsinterp by
+    <li class="footer">Generated on Thu Jul 26 2018 17:52:05 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

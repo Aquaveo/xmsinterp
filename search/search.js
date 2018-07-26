@@ -12,10 +12,10 @@ var indexSectionsWithContent =
   2: "px",
   3: "bcdefghilmnopstuvx",
   4: "abcdefghilmnoprstuvwx~",
-  5: "cdimopswxyz",
-  6: "mprv",
-  7: "bmnrw",
-  8: "deiw",
+  5: "cdfimopswxyz",
+  6: "dhlmprsvx",
+  7: "bmnprwx",
+  8: "deisw",
   9: "_bst",
   10: "i"
 };

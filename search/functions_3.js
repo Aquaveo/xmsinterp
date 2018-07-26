@@ -9,5 +9,7 @@ var searchData=
   ['do_5fgrouping',['do_grouping',['https://aquaveo.github.io/xmscore/classxms_1_1_st_comma_numpunct.html#aa2069686f9a15d91b346c3988be3a954',1,'xms::StCommaNumpunct']]],
   ['do_5fthousands_5fsep',['do_thousands_sep',['https://aquaveo.github.io/xmscore/classxms_1_1_st_comma_numpunct.html#a94e9b55f55470d2bb10f1451bff1d172',1,'xms::StCommaNumpunct']]],
   ['dotest',['DoTest',['../class_gm_point_in_poly_unit_tests.html#aad892797953c9679e60aacab95c59a27',1,'GmPointInPolyUnitTests']]],
-  ['dowork',['DoWork',['../classxms_1_1_thread_loop.html#a85da861fe57a764ce110a1f5abf395ce',1,'xms::ThreadLoop']]]
+  ['dowork',['DoWork',['../classxms_1_1_thread_loop.html#a85da861fe57a764ce110a1f5abf395ce',1,'xms::ThreadLoop']]],
+  ['dynamicbitsetfrompyiter',['DynamicBitsetFromPyIter',['https://aquaveo.github.io/xmscore/namespacexms.html#a49bb2e3cc528e336292b521275482042',1,'xms']]],
+  ['dynbitsettovecboolean',['DynBitsetToVecBoolean',['https://aquaveo.github.io/xmscore/namespacexms.html#afde2102c1e6c433c09ef13194a92feeb',1,'xms']]]
 ];

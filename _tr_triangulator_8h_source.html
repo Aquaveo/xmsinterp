@@ -142,12 +142,12 @@ $(document).ready(function(){initNavTree('_tr_triangulator_8h_source.html','');}
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classxms_1_1_tr_triangulator.html#a76a62ce7b12c2cc317d8725dba3cef16">Triangulate</a>();</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetPointLocations(<span class="keyword">const</span> VecPt3d&amp; <span class="comment">/*a_locs*/</span>){};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetPointLocations(<span class="keyword">const</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a0dc29604ee813731d584232b63f54922">VecPt3d</a>&amp; <span class="comment">/*a_locs*/</span>){};</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="comment">// These functions are used to iterate through the point locations</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="comment">// and provide connectivity</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">int</span> GetID() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">virtual</span> Pt3d GetLocation() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">virtual</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_pt3.html">Pt3d</a> GetLocation() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">int</span> GetNPoints() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> IncrementPoint() = 0;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
@@ -167,6 +167,8 @@ $(document).ready(function(){initNavTree('_tr_triangulator_8h_source.html','');}
 <div class="ttc" id="classxms_1_1_tr_triangulator_html_abfb9ab61fc0a609f964751b493275366"><div class="ttname"><a href="classxms_1_1_tr_triangulator.html#abfb9ab61fc0a609f964751b493275366">xms::TrTriangulator::~TrTriangulator</a></div><div class="ttdeci">virtual ~TrTriangulator()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="_tr_triangulator_8cpp_source.html#l00048">TrTriangulator.cpp:48</a></div></div>
 <div class="ttc" id="classxms_1_1_tr_triangulator_html"><div class="ttname"><a href="classxms_1_1_tr_triangulator.html">xms::TrTriangulator</a></div><div class="ttdoc">Base class used to derive a class to triangulate points. </div><div class="ttdef"><b>Definition:</b> <a href="_tr_triangulator_8h_source.html#l00033">TrTriangulator.h:33</a></div></div>
 <div class="ttc" id="classxms_1_1_tr_triangulator_html_a76a62ce7b12c2cc317d8725dba3cef16"><div class="ttname"><a href="classxms_1_1_tr_triangulator.html#a76a62ce7b12c2cc317d8725dba3cef16">xms::TrTriangulator::Triangulate</a></div><div class="ttdeci">bool Triangulate()</div><div class="ttdoc">Triangulate the points into a tin. </div><div class="ttdef"><b>Definition:</b> <a href="_tr_triangulator_8cpp_source.html#l00055">TrTriangulator.cpp:55</a></div></div>
+<div class="ttc" id="namespacexms_html_a0dc29604ee813731d584232b63f54922"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/namespacexms.html#a0dc29604ee813731d584232b63f54922">xms::VecPt3d</a></div><div class="ttdeci">std::vector&lt; Pt3d &gt; VecPt3d</div></div>
+<div class="ttc" id="classxms_1_1_pt3_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/classxms_1_1_pt3.html">xms::Pt3&lt; double &gt;</a></div></div>
 <div class="ttc" id="vector_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/vector_8h.html">vector.h</a></div></div>
 <div class="ttc" id="classxms_1_1_tr_triangulator_html_ac54bc210a1de778f7b6350170e31da26"><div class="ttname"><a href="classxms_1_1_tr_triangulator.html#ac54bc210a1de778f7b6350170e31da26">xms::TrTriangulator::TrTriangulator</a></div><div class="ttdeci">TrTriangulator()</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="_tr_triangulator_8cpp_source.html#l00042">TrTriangulator.cpp:42</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -175,7 +177,7 @@ $(document).ready(function(){initNavTree('_tr_triangulator_8h_source.html','');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_5570b84191e767f5120164647d3cb3e2.html">triangulate</a></li><li class="navelem"><a class="el" href="_tr_triangulator_8h.html">TrTriangulator.h</a></li>
-    <li class="footer">Generated on Fri Jul 20 2018 16:22:39 for xmsinterp by
+    <li class="footer">Generated on Thu Jul 26 2018 17:52:05 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

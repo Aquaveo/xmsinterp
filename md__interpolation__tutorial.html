@@ -123,10 +123,10 @@ Example - Inverse Distance Weighted (IDW) Interpolation</h2>
 <p>The following example shows how to use the IDW interpolator. The testing code for this example is TutInterpolationTests::test_Example_IDW.</p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="class_tut_interpolation_intermediate_tests.html#a07da59ac97a03923d1894fc0db7ebd46">TutInterpolationIntermediateTests::test_Example_IDW</a>()</div>
 <div class="line">{</div>
-<div class="line">  BSHP&lt;xms::VecInt&gt; tris(<span class="keyword">new</span> xms::VecInt()); <span class="comment">// not used by idw</span></div>
+<div class="line">  BSHP&lt;xms::VecInt&gt; tris(<span class="keyword">new</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#ad81e1ef6499bc0e65df973717a1e2fbb">xms::VecInt</a>()); <span class="comment">// not used by idw</span></div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Create the points used to interpolate</span></div>
-<div class="line">  BSHP&lt;xms::VecPt3d&gt; pts(<span class="keyword">new</span> xms::VecPt3d());</div>
+<div class="line">  BSHP&lt;xms::VecPt3d&gt; pts(<span class="keyword">new</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a0dc29604ee813731d584232b63f54922">xms::VecPt3d</a>());</div>
 <div class="line">  *pts = {{0, 0, 0}, {10, 0, 1}, {10, 10, 2}, {0, 10, 3}};</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// create the interpolator class</span></div>
@@ -136,7 +136,7 @@ Example - Inverse Distance Weighted (IDW) Interpolation</h2>
 <div class="line">  interp-&gt;SetPtsTris(pts, tris);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// interpolate to a location</span></div>
-<div class="line">  xms::Pt3d loc(5, 5, 0);</div>
+<div class="line">  <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_pt3.html">xms::Pt3d</a> loc(5, 5, 0);</div>
 <div class="line">  <span class="keywordtype">float</span> val = interp-&gt;InterpToPt(loc);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// verify the value</span></div>
@@ -150,13 +150,13 @@ Example - Linear Interpolation</h2>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="class_tut_interpolation_intermediate_tests.html#a8a81dfb33fad9290a29c89a73febadfa">TutInterpolationIntermediateTests::test_Example_Linear</a>()</div>
 <div class="line">{</div>
 <div class="line">  <span class="comment">// Create the points used to interpolate</span></div>
-<div class="line">  BSHP&lt;xms::VecPt3d&gt; pts(<span class="keyword">new</span> xms::VecPt3d());</div>
+<div class="line">  BSHP&lt;xms::VecPt3d&gt; pts(<span class="keyword">new</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a0dc29604ee813731d584232b63f54922">xms::VecPt3d</a>());</div>
 <div class="line">  *pts = {{0, 0, 0}, {10, 0, 1}, {10, 10, 2}, {0, 10, 3}};</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Create the triangles used to interpolate. The triangles are specified as</span></div>
 <div class="line">  <span class="comment">// 3 indexes that refer to the points vector. The indexes should be ordered</span></div>
 <div class="line">  <span class="comment">// counter clockwise.</span></div>
-<div class="line">  BSHP&lt;xms::VecInt&gt; tris(<span class="keyword">new</span> xms::VecInt());</div>
+<div class="line">  BSHP&lt;xms::VecInt&gt; tris(<span class="keyword">new</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#ad81e1ef6499bc0e65df973717a1e2fbb">xms::VecInt</a>());</div>
 <div class="line">  *tris = {0, 1, 3, 1, 2, 3};</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// create the interpolator class</span></div>
@@ -165,7 +165,7 @@ Example - Linear Interpolation</h2>
 <div class="line">  interp-&gt;SetPtsTris(pts, tris);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// interpolate to a location</span></div>
-<div class="line">  xms::Pt3d loc(2, 1, 0);</div>
+<div class="line">  <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_pt3.html">xms::Pt3d</a> loc(2, 1, 0);</div>
 <div class="line">  <span class="keywordtype">float</span> val = interp-&gt;InterpToPt(loc);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// verify the value</span></div>
@@ -178,13 +178,13 @@ Example - Natural Neighbor Interpolation</h2>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="class_tut_interpolation_intermediate_tests.html#a4016c266625b88129df8654a1d84df5d">TutInterpolationIntermediateTests::test_Example_NaturalNeighbor</a>()</div>
 <div class="line">{</div>
 <div class="line">  <span class="comment">// Create the points used to interpolate</span></div>
-<div class="line">  BSHP&lt;xms::VecPt3d&gt; pts(<span class="keyword">new</span> xms::VecPt3d());</div>
+<div class="line">  BSHP&lt;xms::VecPt3d&gt; pts(<span class="keyword">new</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a0dc29604ee813731d584232b63f54922">xms::VecPt3d</a>());</div>
 <div class="line">  *pts = {{0, 0, 0}, {10, 0, 1}, {10, 10, 2}, {0, 10, 3}};</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Create the triangles used to interpolate. The triangles are specified as</span></div>
 <div class="line">  <span class="comment">// 3 indexes that refer to the points vector. The indexes should be ordered</span></div>
 <div class="line">  <span class="comment">// counter clockwise.</span></div>
-<div class="line">  BSHP&lt;xms::VecInt&gt; tris(<span class="keyword">new</span> xms::VecInt());</div>
+<div class="line">  BSHP&lt;xms::VecInt&gt; tris(<span class="keyword">new</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#ad81e1ef6499bc0e65df973717a1e2fbb">xms::VecInt</a>());</div>
 <div class="line">  *tris = {0, 1, 3, 1, 2, 3};</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// create the interpolator class</span></div>
@@ -201,7 +201,7 @@ Example - Natural Neighbor Interpolation</h2>
 <div class="line">  interp-&gt;SetUseNatNeigh(<span class="keyword">true</span>, nodalFunc, nodalFuncOpt, nNearest, blendWeights, progress);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// interpolate to a location</span></div>
-<div class="line">  xms::Pt3d loc(2, 1, 0);</div>
+<div class="line">  <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_pt3.html">xms::Pt3d</a> loc(2, 1, 0);</div>
 <div class="line">  <span class="keywordtype">float</span> val = interp-&gt;InterpToPt(loc);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// verify the value</span></div>
@@ -213,7 +213,7 @@ Example - Natural Neighbor Interpolation</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jul 20 2018 16:22:39 for xmsinterp by
+    <li class="footer">Generated on Thu Jul 26 2018 17:52:05 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

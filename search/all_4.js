@@ -6,6 +6,8 @@ var searchData=
   ['deleteadjacenttriangle',['DeleteAdjacentTriangle',['../classxms_1_1_tr_tin_impl.html#a472a843922d633fdf17061006fce3868',1,'xms::TrTinImpl']]],
   ['deletepoints',['DeletePoints',['../classxms_1_1_tr_tin_impl.html#af26463b8da49e0aa9bf2577468c28182',1,'xms::TrTinImpl']]],
   ['deletetriangles',['DeleteTriangles',['../classxms_1_1_tr_tin_impl.html#a0a160157240d033a400f55c730bb18f6',1,'xms::TrTinImpl']]],
+  ['deq_5fpt2d',['DEQ_PT2D',['https://aquaveo.github.io/xmscore/namespacexms.html#ad17ebff442a5af50e93b027dc76fac07',1,'xms']]],
+  ['deqpt2d',['DeqPt2d',['https://aquaveo.github.io/xmscore/namespacexms.html#ab075c6283191e8574d5b982e7a059e03',1,'xms']]],
   ['deque_2eh',['deque.h',['https://aquaveo.github.io/xmscore/deque_8h.html',1,'']]],
   ['determineregion',['DetermineRegion',['../classxms_1_1_interp_ct.html#aa13b461213f3eefd295cb3fcd9d7bc86',1,'xms::InterpCt']]],
   ['dir',['dir',['../structxms_1_1_barycentric_vals.html#acb8bf1c437d7b0141c565730738b297a',1,'xms::BarycentricVals']]],
@@ -13,6 +15,9 @@ var searchData=
   ['do_5fthousands_5fsep',['do_thousands_sep',['https://aquaveo.github.io/xmscore/classxms_1_1_st_comma_numpunct.html#a94e9b55f55470d2bb10f1451bff1d172',1,'xms::StCommaNumpunct']]],
   ['dotest',['DoTest',['../class_gm_point_in_poly_unit_tests.html#aad892797953c9679e60aacab95c59a27',1,'GmPointInPolyUnitTests']]],
   ['dowork',['DoWork',['../classxms_1_1_thread_loop.html#a85da861fe57a764ce110a1f5abf395ce',1,'xms::ThreadLoop']]],
+  ['dynamicbitsetfrompyiter',['DynamicBitsetFromPyIter',['https://aquaveo.github.io/xmscore/namespacexms.html#a49bb2e3cc528e336292b521275482042',1,'xms']]],
+  ['dynbitset',['DynBitset',['https://aquaveo.github.io/xmscore/namespacexms.html#aba8c1eacfbbd2d1f45cef2fd55a35d93',1,'xms']]],
   ['dynbitset_2ecpp',['DynBitset.cpp',['https://aquaveo.github.io/xmscore/_dyn_bitset_8cpp.html',1,'']]],
-  ['dynbitset_2eh',['DynBitset.h',['https://aquaveo.github.io/xmscore/_dyn_bitset_8h.html',1,'']]]
+  ['dynbitset_2eh',['DynBitset.h',['https://aquaveo.github.io/xmscore/_dyn_bitset_8h.html',1,'']]],
+  ['dynbitsettovecboolean',['DynBitsetToVecBoolean',['https://aquaveo.github.io/xmscore/namespacexms.html#afde2102c1e6c433c09ef13194a92feeb',1,'xms']]]
 ];

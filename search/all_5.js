@@ -7,6 +7,8 @@ var searchData=
   ['endoperation',['EndOperation',['https://aquaveo.github.io/xmscore/classxms_1_1_observer.html#a6ab39e266617c93fb0720f23efa723e0',1,'MockObserver::EndOperation()'],['https://aquaveo.github.io/xmscore/classxms_1_1_observer_1_1impl.html#a149ecbc4f1ee7fbd718da8f9b88c5fd2',1,'xms::Observer::impl::EndOperation()']]],
   ['ensureendpointsrepresented',['EnsureEndPointsRepresented',['../classxms_1_1_gm_multi_poly_intersector_impl.html#a0d3c6c5b4daa721d5fb2edec53d28dbb',1,'xms::GmMultiPolyIntersectorImpl']]],
   ['environment_2eh',['environment.h',['https://aquaveo.github.io/xmscore/environment_8h.html',1,'']]],
+  ['eq_5feps',['EQ_EPS',['https://aquaveo.github.io/xmscore/namespacexms.html#aae3e3dee54b4e049573f92c74a38f79f',1,'xms']]],
+  ['eq_5ftol',['EQ_TOL',['https://aquaveo.github.io/xmscore/namespacexms.html#ad2b764be90f289082998491db1b52711',1,'xms']]],
   ['errcount',['ErrCount',['https://aquaveo.github.io/xmscore/classxms_1_1_xm_log.html#a20ed692af6d8c0100c02f314c6395379',1,'xms::XmLog']]],
   ['error',['error',['https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a6c90100ca9f6986351a3a437374735c1',1,'xmlog']]],
   ['errormessage',['ErrorMessage',['../classxms_1_1_tr_breakline_adder_impl.html#aa4036d3ba5e6ab3e3b9eba71cae6dbc3',1,'xms::TrBreaklineAdderImpl']]],

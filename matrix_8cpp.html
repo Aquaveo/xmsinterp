@@ -105,6 +105,7 @@ $(document).ready(function(){initNavTree('matrix_8cpp.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">matrix.cpp File Reference</div>  </div>
@@ -121,6 +122,11 @@ $(document).ready(function(){initNavTree('matrix_8cpp.html','');});
 </div>
 <p><a href="matrix_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacexms"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html">xms</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:abafef2cc31ff622207da56d429af5a54"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><b>xms::mxLUDecomp</b> (double **mat, int n, int *indx, double *d)</td></tr>
@@ -147,7 +153,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ac76184db2a6a79c7a900ccf094f2bc5d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><b>xms::mxInvert4x4</b> (const double matrix[4][4], double inv[4][4])</td></tr>
 <tr class="memdesc:ac76184db2a6a79c7a900ccf094f2bc5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the inverse of a transformation matrix. Checks for special case of Orthogonal 4x4 and does easy inverse otherwise uses Gauss-Jordan Elimination with full pivoting and scaling with partial unraveling of loops for speed. See Numerical Recipes in C pages 36-37.  <a href="#ac76184db2a6a79c7a900ccf094f2bc5d">More...</a><br/></td></tr>
 <tr class="separator:ac76184db2a6a79c7a900ccf094f2bc5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e1a072632bb9cbda8df1442f70aa79a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>xms::mxPointMult</b> (Pt3d *pt, const double ctm[4][4])</td></tr>
+<tr class="memitem:a5e1a072632bb9cbda8df1442f70aa79a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>xms::mxPointMult</b> (<a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a> *pt, const double ctm[4][4])</td></tr>
 <tr class="memdesc:a5e1a072632bb9cbda8df1442f70aa79a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies a point by a transformation matrix.  <a href="#a5e1a072632bb9cbda8df1442f70aa79a">More...</a><br/></td></tr>
 <tr class="separator:a5e1a072632bb9cbda8df1442f70aa79a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad30f45f6b87cb251f568c5afd565ac0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>xms::mxCopy4x4</b> (double copy[4][4], const double matrix[4][4])</td></tr>
@@ -162,7 +168,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ab8a23ab457d1a300fee82511b9dcccad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>xms::mxRotate4x4</b> (double xrot, double yrot, double zrot, double rMatt[4][4])</td></tr>
 <tr class="memdesc:ab8a23ab457d1a300fee82511b9dcccad"><td class="mdescLeft">&#160;</td><td class="mdescRight">return a rotation matrix with specified x, y, z rotations z - y - x order  <a href="#ab8a23ab457d1a300fee82511b9dcccad">More...</a><br/></td></tr>
 <tr class="separator:ab8a23ab457d1a300fee82511b9dcccad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8e2621b9cbd6773239bd1c9ad604e0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>xms::mxTranslate4x4</b> (const Pt3d &amp;a_translation, double a_mx[4][4])</td></tr>
+<tr class="memitem:ad8e2621b9cbd6773239bd1c9ad604e0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>xms::mxTranslate4x4</b> (const <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a> &amp;a_translation, double a_mx[4][4])</td></tr>
 <tr class="memdesc:ad8e2621b9cbd6773239bd1c9ad604e0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">return a translation matrix with specified translation z - y - x order  <a href="#ad8e2621b9cbd6773239bd1c9ad604e0a">More...</a><br/></td></tr>
 <tr class="separator:ad8e2621b9cbd6773239bd1c9ad604e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -178,7 +184,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_8b8bc0146c835c938db011b4ee736969.html">matrices</a></li><li class="navelem"><a class="el" href="matrix_8cpp.html">matrix.cpp</a></li>
-    <li class="footer">Generated on Fri Jul 20 2018 16:22:39 for xmsinterp by
+    <li class="footer">Generated on Thu Jul 26 2018 17:52:05 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

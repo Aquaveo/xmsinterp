@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['singleton_3c_20xmlog_20_3e',['Singleton&lt; XmLog &gt;',['https://aquaveo.github.io/xmscore/classxms_1_1_xm_log.html#a7fb5edb11e589948eb870d1b327fa401',1,'xms::XmLog']]]
+  ['pt1',['pt1',['../structxms_1_1edgerecord.html#a628ba61db2c8c725a8b5a603620f35cb',1,'xms::edgerecord']]],
+  ['pt2',['pt2',['../structxms_1_1edgerecord.html#a37a472bed46ccd144b62eb755ad8770e',1,'xms::edgerecord']]]
 ];

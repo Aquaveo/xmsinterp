@@ -106,6 +106,7 @@ $(document).ready(function(){initNavTree('_interp_util_8h.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">InterpUtil.h File Reference</div>  </div>
@@ -126,6 +127,11 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience struct used in interpolation utility functions.  <a href="structxms_1_1_interp_pt_info.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacexms"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html">xms</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a596dc1ea330f8f25b64d8b50ba61498f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>xms::inNodalFuncSetUpMatrixAndVector</b> (double xk, double yk, double fk, const std::vector&lt; InterpPtInfo &gt; &amp;closest, double **M, double *VV)</td></tr>
@@ -134,13 +140,13 @@ Functions</h2></td></tr>
 <tr class="memitem:aaa75bc946f62af5bc6cb7faaf0d9cbdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>xms::inNodalFuncSetUpMatrixAndVector3d</b> (double xk, double yk, double zk, double fk, const std::vector&lt; InterpPtInfo &gt; &amp;closest, double **M, double *vv)</td></tr>
 <tr class="memdesc:aaa75bc946f62af5bc6cb7faaf0d9cbdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up matrices for nodal function calculations. Refactored out of GMS.  <a href="#aaa75bc946f62af5bc6cb7faaf0d9cbdc">More...</a><br/></td></tr>
 <tr class="separator:aaa75bc946f62af5bc6cb7faaf0d9cbdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45a66123476449da3230fca568f2efbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>xms::inDistanceSquared</b> (const Pt3d &amp;a_pt, const std::vector&lt; int &gt; &amp;a_ptIdxs, const std::vector&lt; Pt3d &gt; &amp;a_ptLoc, bool a_2d, std::vector&lt; double &gt; &amp;a_d2)</td></tr>
+<tr class="memitem:a45a66123476449da3230fca568f2efbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>xms::inDistanceSquared</b> (const <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a> &amp;a_pt, const std::vector&lt; int &gt; &amp;a_ptIdxs, const std::vector&lt; <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a> &gt; &amp;a_ptLoc, bool a_2d, std::vector&lt; double &gt; &amp;a_d2)</td></tr>
 <tr class="memdesc:a45a66123476449da3230fca568f2efbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the distance squared between the point "a_pt" and the other points. The other points are defined by looking up the location in "a_ptLoc" using the index stored in "a_ptIdxs". The "a_d2" vector is then filled with the distance squared. If "a_2d" is true then we only do the x,y distance.  <a href="#a45a66123476449da3230fca568f2efbb">More...</a><br/></td></tr>
 <tr class="separator:a45a66123476449da3230fca568f2efbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51eb9958e3615ed089902e284df1b839"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>xms::inIdwWeights</b> (const std::vector&lt; double &gt; &amp;a_distSquare, double a_power, bool a_modifiedShepardWeights, std::vector&lt; double &gt; &amp;a_w)</td></tr>
 <tr class="memdesc:a51eb9958e3615ed089902e284df1b839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the idw weights that would be assigned to points associated with the distance squared that is passed in: "a_d2". The function can handle any power ("a_power") associated with the idw calculation and there is an option for the Modified Shepard Weights as well (see the reference in the code).  <a href="#a51eb9958e3615ed089902e284df1b839">More...</a><br/></td></tr>
 <tr class="separator:a51eb9958e3615ed089902e284df1b839"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0067a46b6f467053aeede80a6701afa0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><b>xms::inAllScalarsEqual</b> (const std::vector&lt; float &gt; &amp;a_scalars, const DynBitset &amp;a_act)</td></tr>
+<tr class="memitem:a0067a46b6f467053aeede80a6701afa0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><b>xms::inAllScalarsEqual</b> (const std::vector&lt; float &gt; &amp;a_scalars, const <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#aba8c1eacfbbd2d1f45cef2fd55a35d93">DynBitset</a> &amp;a_act)</td></tr>
 <tr class="memdesc:a0067a46b6f467053aeede80a6701afa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if the all of the values in the scalars array are the same. It will also take into account the activity that is passed in.  <a href="#a0067a46b6f467053aeede80a6701afa0">More...</a><br/></td></tr>
 <tr class="separator:a0067a46b6f467053aeede80a6701afa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -155,7 +161,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_078a237877d04a472ae71a8c0b6a128b.html">interpolate</a></li><li class="navelem"><a class="el" href="_interp_util_8h.html">InterpUtil.h</a></li>
-    <li class="footer">Generated on Fri Jul 20 2018 16:22:39 for xmsinterp by
+    <li class="footer">Generated on Thu Jul 26 2018 17:52:05 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

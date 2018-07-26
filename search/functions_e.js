@@ -11,5 +11,6 @@ var searchData=
   ['renumberpts',['RenumberPts',['../classxms_1_1_tr_auto_fix_four_triangle_pts_impl.html#aae03f8c6f46aea41f01595b0e83d565a',1,'xms::TrAutoFixFourTrianglePtsImpl']]],
   ['renumbertris',['RenumberTris',['../classxms_1_1_tr_auto_fix_four_triangle_pts_impl.html#a1c685b02542d9985b962f6dfc04be6c5',1,'xms::TrAutoFixFourTrianglePtsImpl']]],
   ['replacetriangle',['ReplaceTriangle',['../classxms_1_1_tr_auto_fix_four_triangle_pts_impl.html#a4ddad45d4285e669efb1e7b5881ad957',1,'xms::TrAutoFixFourTrianglePtsImpl']]],
+  ['round',['Round',['https://aquaveo.github.io/xmscore/namespacexms.html#adfc1700dbd9064558f9fc863ebf041eb',1,'xms']]],
   ['runthreads',['RunThreads',['../classxms_1_1_thread_mgr_impl.html#a2ce51491b83dc2225dd205cff2e7cdbe',1,'xms::ThreadMgrImpl::RunThreads()'],['../classxms_1_1_thread_mgr.html#a6ce6f8ca944cc8ed7944b276e1ccd34d',1,'xms::ThreadMgr::RunThreads()']]]
 ];

@@ -138,7 +138,7 @@ $(document).ready(function(){initNavTree('_interp_util_8h_source.html','');});
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structxms_1_1_interp_pt_info.html">   35</a></span>&#160;<span class="comment"></span><span class="keyword">struct </span><a class="code" href="structxms_1_1_interp_pt_info.html">InterpPtInfo</a></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structxms_1_1_interp_pt_info.html#a975cbe4662b02d73509546283b7f06f6">   38</a></span>&#160;  Pt3d <a class="code" href="structxms_1_1_interp_pt_info.html#a975cbe4662b02d73509546283b7f06f6">m_loc</a>;      </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structxms_1_1_interp_pt_info.html#a975cbe4662b02d73509546283b7f06f6">   38</a></span>&#160;  <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_pt3.html">Pt3d</a> <a class="code" href="structxms_1_1_interp_pt_info.html#a975cbe4662b02d73509546283b7f06f6">m_loc</a>;      </div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structxms_1_1_interp_pt_info.html#a4d2d67d8785d196c6444261c965e83de">   39</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structxms_1_1_interp_pt_info.html#a4d2d67d8785d196c6444261c965e83de">m_scalar</a>; </div>
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structxms_1_1_interp_pt_info.html#a98786093d872060474647f82be4d90eb">   40</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="structxms_1_1_interp_pt_info.html#a98786093d872060474647f82be4d90eb">m_weight</a>; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
@@ -157,7 +157,7 @@ $(document).ready(function(){initNavTree('_interp_util_8h_source.html','');});
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                                       <span class="keyword">const</span> std::vector&lt;InterpPtInfo&gt;&amp; closest,</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                       <span class="keywordtype">double</span>** M,</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                       <span class="keywordtype">double</span>* VV);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span> inDistanceSquared(<span class="keyword">const</span> Pt3d&amp; a_pt,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span> inDistanceSquared(<span class="keyword">const</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_pt3.html">Pt3d</a>&amp; a_pt,</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                       <span class="keyword">const</span> std::vector&lt;int&gt;&amp; a_ptIdxs,</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                       <span class="keyword">const</span> std::vector&lt;Pt3d&gt;&amp; a_ptLoc,</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                       <span class="keywordtype">bool</span> a_2d,</div>
@@ -166,14 +166,16 @@ $(document).ready(function(){initNavTree('_interp_util_8h_source.html','');});
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                  <span class="keywordtype">double</span> a_power,</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                  <span class="keywordtype">bool</span> a_modifiedShepardWeights,</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                  std::vector&lt;double&gt;&amp; a_w);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">bool</span> inAllScalarsEqual(<span class="keyword">const</span> std::vector&lt;float&gt;&amp; a_scalar, <span class="keyword">const</span> DynBitset&amp; a_act);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">bool</span> inAllScalarsEqual(<span class="keyword">const</span> std::vector&lt;float&gt;&amp; a_scalar, <span class="keyword">const</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#aba8c1eacfbbd2d1f45cef2fd55a35d93">DynBitset</a>&amp; a_act);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;} <span class="comment">// namespace xms</span></div>
 <div class="ttc" id="ptsfwd_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/ptsfwd_8h.html">ptsfwd.h</a></div></div>
 <div class="ttc" id="pt_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/pt_8h.html">pt.h</a></div></div>
 <div class="ttc" id="structxms_1_1_interp_pt_info_html"><div class="ttname"><a href="structxms_1_1_interp_pt_info.html">xms::InterpPtInfo</a></div><div class="ttdoc">Convenience struct used in interpolation utility functions. </div><div class="ttdef"><b>Definition:</b> <a href="_interp_util_8h_source.html#l00035">InterpUtil.h:35</a></div></div>
 <div class="ttc" id="_dyn_bitset_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/_dyn_bitset_8h.html">DynBitset.h</a></div></div>
+<div class="ttc" id="namespacexms_html_aba8c1eacfbbd2d1f45cef2fd55a35d93"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/namespacexms.html#aba8c1eacfbbd2d1f45cef2fd55a35d93">xms::DynBitset</a></div><div class="ttdeci">boost::dynamic_bitset&lt; size_t &gt; DynBitset</div></div>
 <div class="ttc" id="structxms_1_1_interp_pt_info_html_a975cbe4662b02d73509546283b7f06f6"><div class="ttname"><a href="structxms_1_1_interp_pt_info.html#a975cbe4662b02d73509546283b7f06f6">xms::InterpPtInfo::m_loc</a></div><div class="ttdeci">Pt3d m_loc</div><div class="ttdoc">location of interest </div><div class="ttdef"><b>Definition:</b> <a href="_interp_util_8h_source.html#l00038">InterpUtil.h:38</a></div></div>
+<div class="ttc" id="classxms_1_1_pt3_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/classxms_1_1_pt3.html">xms::Pt3&lt; double &gt;</a></div></div>
 <div class="ttc" id="structxms_1_1_interp_pt_info_html_a4d2d67d8785d196c6444261c965e83de"><div class="ttname"><a href="structxms_1_1_interp_pt_info.html#a4d2d67d8785d196c6444261c965e83de">xms::InterpPtInfo::m_scalar</a></div><div class="ttdeci">double m_scalar</div><div class="ttdoc">scalar at location </div><div class="ttdef"><b>Definition:</b> <a href="_interp_util_8h_source.html#l00039">InterpUtil.h:39</a></div></div>
 <div class="ttc" id="structxms_1_1_interp_pt_info_html_a98786093d872060474647f82be4d90eb"><div class="ttname"><a href="structxms_1_1_interp_pt_info.html#a98786093d872060474647f82be4d90eb">xms::InterpPtInfo::m_weight</a></div><div class="ttdeci">double m_weight</div><div class="ttdoc">weight at location </div><div class="ttdef"><b>Definition:</b> <a href="_interp_util_8h_source.html#l00040">InterpUtil.h:40</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -182,7 +184,7 @@ $(document).ready(function(){initNavTree('_interp_util_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_078a237877d04a472ae71a8c0b6a128b.html">interpolate</a></li><li class="navelem"><a class="el" href="_interp_util_8h.html">InterpUtil.h</a></li>
-    <li class="footer">Generated on Fri Jul 20 2018 16:22:39 for xmsinterp by
+    <li class="footer">Generated on Thu Jul 26 2018 17:52:05 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

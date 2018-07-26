@@ -585,7 +585,7 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;} <span class="comment">// mxInvert4x4</span></div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="comment">//-------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="comment"></span><span class="comment">//-------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;<span class="keywordtype">void</span> mxPointMult(Pt3d* pt, <span class="keyword">const</span> <span class="keywordtype">double</span> ctm[4][4])</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;<span class="keywordtype">void</span> mxPointMult(<a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a>* pt, <span class="keyword">const</span> <span class="keywordtype">double</span> ctm[4][4])</div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;{</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;  <span class="keywordtype">double</span> tx = pt-&gt;x;</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;  <span class="keywordtype">double</span> ty = pt-&gt;y;</div>
@@ -655,7 +655,7 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;} <span class="comment">// mxRotate4x4</span></div>
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;<span class="comment">//-------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment"></span><span class="comment">//-------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="keywordtype">void</span> mxTranslate4x4(<span class="keyword">const</span> Pt3d&amp; a_translation, <span class="keywordtype">double</span> a_mx[4][4])</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="keywordtype">void</span> mxTranslate4x4(<span class="keyword">const</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a>&amp; a_translation, <span class="keywordtype">double</span> a_mx[4][4])</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;{</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  mxIdent4x4(a_mx);</div>
 <div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;  <span class="comment">// build scale matrix</span></div>
@@ -667,6 +667,7 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div class="ttc" id="xmstype_8h_html_afceadf3e492e85d81a4f2f28b3d45785"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/xmstype_8h.html#afceadf3e492e85d81a4f2f28b3d45785">XM_FAILURE</a></div><div class="ttdeci">#define XM_FAILURE</div></div>
 <div class="ttc" id="_xm_log_8h_html_a2aa4d2a0a80e464d6acba7f32b13f978"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a></div><div class="ttdeci">#define XM_LOG(A, B)</div></div>
 <div class="ttc" id="pt_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/pt_8h.html">pt.h</a></div></div>
+<div class="ttc" id="namespacexms_html_a33ae0c78e599c46ba59bce7f2b32d7ab"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/namespacexms.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a></div><div class="ttdeci">Pt3&lt; double &gt; Pt3d</div></div>
 <div class="ttc" id="namespacexmlog_html_a7f66c92bb821241cbb29fb07d7bce588a42797ff955c778a8a9e21bdd5580a92e"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a42797ff955c778a8a9e21bdd5580a92e">xmlog::debug</a></div></div>
 <div class="ttc" id="matrix_8h_html"><div class="ttname"><a href="matrix_8h.html">matrix.h</a></div><div class="ttdoc">routines for manipulating matrices </div></div>
 <div class="ttc" id="xmstype_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/xmstype_8h.html">xmstype.h</a></div></div>
@@ -679,7 +680,7 @@ $(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_8b8bc0146c835c938db011b4ee736969.html">matrices</a></li><li class="navelem"><a class="el" href="matrix_8cpp.html">matrix.cpp</a></li>
-    <li class="footer">Generated on Fri Jul 20 2018 16:22:39 for xmsinterp by
+    <li class="footer">Generated on Thu Jul 26 2018 17:52:05 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

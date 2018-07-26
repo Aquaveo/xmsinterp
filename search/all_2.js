@@ -9,6 +9,7 @@ var searchData=
   ['boost_5fclass_5fexport',['BOOST_CLASS_EXPORT',['../_tr_tin_8cpp.html#a7244a742c140134d2c13f8714f1af76c',1,'TrTin.cpp']]],
   ['boost_5fdefines_2eh',['boost_defines.h',['https://aquaveo.github.io/xmscore/boost__defines_8h.html',1,'']]],
   ['boost_5fgeometry_5fregister_5fpoint_5f3d',['BOOST_GEOMETRY_REGISTER_POINT_3D',['../_gm_pt_search_8cpp.html#a1c1e59c4b2db3b2f5756f01c668924bb',1,'GmPtSearch.cpp']]],
+  ['boost_5flog_5finline_5fglobal_5flogger_5finit',['BOOST_LOG_INLINE_GLOBAL_LOGGER_INIT',['https://aquaveo.github.io/xmscore/namespacexms.html#ab86edb3135a35aac19595535d700947d',1,'xms']]],
   ['boundaryenum',['BoundaryEnum',['../classxms_1_1_tr_outer_triangle_deleter_impl.html#af029069b0274826a71ae5677357d8041',1,'xms::TrOuterTriangleDeleterImpl']]],
   ['bufferthebox',['BufferTheBox',['../classxms_1_1_gm_multi_poly_intersector_impl.html#affd39eba42547d5e6e8322604033cda1',1,'xms::GmMultiPolyIntersectorImpl']]],
   ['buildboostpoly',['BuildBoostPoly',['../classxms_1_1_gm_multi_poly_intersector_impl.html#ab1eed366d123e3ab19e0548926059e5b',1,'xms::GmMultiPolyIntersectorImpl']]],
