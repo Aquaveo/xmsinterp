@@ -35,6 +35,7 @@ void initTrTriangulatorPoints(py::module &m) {
           // Return pts, tris, and tris_adj
           return py::make_tuple(xms::PyIterFromVecPt3d(*vec_pts),
                                 xms::PyIterFromVecInt(*vec_tris), xms::PyIterFromVecInt2d(*vec_tris_adj));
-      })
+      },"Triangulate the points into a tin.", py::arg("pts"),py::arg("tris"),py::arg("tris_adj")
+	  )
       ;
 }

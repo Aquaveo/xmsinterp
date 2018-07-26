@@ -9,6 +9,7 @@
 //----- Included files ---------------------------------------------------------
 #include <pybind11/pybind11.h>
 #include <boost/shared_ptr.hpp>
+#include <xmscore/stl/vector.h>
 #include <xmsinterp/interpolate/InterpBase.h>
 #include <xmsinterp/python/interpolate/interpolate_py.h>
 
