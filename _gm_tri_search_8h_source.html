@@ -152,19 +152,23 @@ $(document).ready(function(){initNavTree('_gm_tri_search_8h_source.html','');});
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> InterpWeights(<span class="keyword">const</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_pt3.html">Pt3d</a>&amp; a_pt,</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                             std::vector&lt;int&gt;&amp; a_idxs,</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                             std::vector&lt;double&gt;&amp; a_wts) = 0;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">virtual</span> std::string ToString() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/base__macros_8h.html#a5580a05bffe13e3b72158e01e41c3945">XM_DISALLOW_COPY_AND_ASSIGN</a>(<a class="code" href="classxms_1_1_gm_tri_search.html">GmTriSearch</a>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> InterpWeightsTriangleIdx(<span class="keyword">const</span> <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/classxms_1_1_pt3.html">Pt3d</a>&amp; a_pt,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                                        <span class="keywordtype">int</span>&amp; a_triangleIdx,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                        std::vector&lt;int&gt;&amp; a_idxs,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                        std::vector&lt;double&gt;&amp; a_wts) = 0;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">virtual</span> std::string ToString() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="classxms_1_1_gm_tri_search.html#ae944fa5ccf34141894a79b803b78fadc">GmTriSearch</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">//----- Function prototypes ----------------------------------------------------</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="codeRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/base__macros_8h.html#a5580a05bffe13e3b72158e01e41c3945">XM_DISALLOW_COPY_AND_ASSIGN</a>(<a class="code" href="classxms_1_1_gm_tri_search.html">GmTriSearch</a>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="classxms_1_1_gm_tri_search.html#ae944fa5ccf34141894a79b803b78fadc">GmTriSearch</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">//----- Function prototypes ----------------------------------------------------</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
 <div class="ttc" id="ptsfwd_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/ptsfwd_8h.html">ptsfwd.h</a></div></div>
-<div class="ttc" id="classxms_1_1_gm_tri_search_html_a2df03859534cd0296e57bb87b7d418a2"><div class="ttname"><a href="classxms_1_1_gm_tri_search.html#a2df03859534cd0296e57bb87b7d418a2">xms::GmTriSearch::New</a></div><div class="ttdeci">static BSHP&lt; GmTriSearch &gt; New()</div><div class="ttdoc">Creates an TriSearch class. </div><div class="ttdef"><b>Definition:</b> <a href="_gm_tri_search_8cpp_source.html#l00209">GmTriSearch.cpp:209</a></div></div>
+<div class="ttc" id="classxms_1_1_gm_tri_search_html_a2df03859534cd0296e57bb87b7d418a2"><div class="ttname"><a href="classxms_1_1_gm_tri_search.html#a2df03859534cd0296e57bb87b7d418a2">xms::GmTriSearch::New</a></div><div class="ttdeci">static BSHP&lt; GmTriSearch &gt; New()</div><div class="ttdoc">Creates an TriSearch class. </div><div class="ttdef"><b>Definition:</b> <a href="_gm_tri_search_8cpp_source.html#l00213">GmTriSearch.cpp:213</a></div></div>
 <div class="ttc" id="classxms_1_1_gm_tri_search_html"><div class="ttname"><a href="classxms_1_1_gm_tri_search.html">xms::GmTriSearch</a></div><div class="ttdoc">Spatial index for searching triangles. </div><div class="ttdef"><b>Definition:</b> <a href="_gm_tri_search_8h_source.html#l00030">GmTriSearch.h:30</a></div></div>
 <div class="ttc" id="_dyn_bitset_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/_dyn_bitset_8h.html">DynBitset.h</a></div></div>
 <div class="ttc" id="boost__defines_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/boost__defines_8h.html">boost_defines.h</a></div></div>
@@ -173,8 +177,8 @@ $(document).ready(function(){initNavTree('_gm_tri_search_8h_source.html','');});
 <div class="ttc" id="classxms_1_1_pt3_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/classxms_1_1_pt3.html">xms::Pt3&lt; double &gt;</a></div></div>
 <div class="ttc" id="boost__defines_8h_html_a37efc6913312f9271e2ea37f1acbc2dc"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/boost__defines_8h.html#a37efc6913312f9271e2ea37f1acbc2dc">BSHP</a></div><div class="ttdeci">#define BSHP</div></div>
 <div class="ttc" id="vector_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/vector_8h.html">vector.h</a></div></div>
-<div class="ttc" id="classxms_1_1_gm_tri_search_html_ae944fa5ccf34141894a79b803b78fadc"><div class="ttname"><a href="classxms_1_1_gm_tri_search.html#ae944fa5ccf34141894a79b803b78fadc">xms::GmTriSearch::GmTriSearch</a></div><div class="ttdeci">GmTriSearch()</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="_gm_tri_search_8cpp_source.html#l00217">GmTriSearch.cpp:217</a></div></div>
-<div class="ttc" id="classxms_1_1_gm_tri_search_html_ac56072f01e9da1702618ee7255bb91c0"><div class="ttname"><a href="classxms_1_1_gm_tri_search.html#ac56072f01e9da1702618ee7255bb91c0">xms::GmTriSearch::~GmTriSearch</a></div><div class="ttdeci">virtual ~GmTriSearch()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="_gm_tri_search_8cpp_source.html#l00223">GmTriSearch.cpp:223</a></div></div>
+<div class="ttc" id="classxms_1_1_gm_tri_search_html_ae944fa5ccf34141894a79b803b78fadc"><div class="ttname"><a href="classxms_1_1_gm_tri_search.html#ae944fa5ccf34141894a79b803b78fadc">xms::GmTriSearch::GmTriSearch</a></div><div class="ttdeci">GmTriSearch()</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="_gm_tri_search_8cpp_source.html#l00221">GmTriSearch.cpp:221</a></div></div>
+<div class="ttc" id="classxms_1_1_gm_tri_search_html_ac56072f01e9da1702618ee7255bb91c0"><div class="ttname"><a href="classxms_1_1_gm_tri_search.html#ac56072f01e9da1702618ee7255bb91c0">xms::GmTriSearch::~GmTriSearch</a></div><div class="ttdeci">virtual ~GmTriSearch()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="_gm_tri_search_8cpp_source.html#l00227">GmTriSearch.cpp:227</a></div></div>
 <div class="ttc" id="base__macros_8h_html"><div class="ttname"><a href="https://aquaveo.github.io/xmscore/base__macros_8h.html">base_macros.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -182,7 +186,7 @@ $(document).ready(function(){initNavTree('_gm_tri_search_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d5bd44cca6d9b750fd281691fd2973a5.html">xmsinterp</a></li><li class="navelem"><a class="el" href="dir_11d77a5cb34d2dcd924ab16385f16337.html">geometry</a></li><li class="navelem"><a class="el" href="_gm_tri_search_8h.html">GmTriSearch.h</a></li>
-    <li class="footer">Generated on Thu Jul 26 2018 19:05:29 for xmsinterp by
+    <li class="footer">Generated on Tue Jul 31 2018 23:35:51 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

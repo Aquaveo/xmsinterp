@@ -3549,6 +3549,13 @@
       <arglist>(const Pt3d &amp;a_pt, std::vector&lt; int &gt; &amp;a_idxs, std::vector&lt; double &gt; &amp;a_wts) override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>InterpWeightsTriangleIdx</name>
+      <anchorfile>classxms_1_1_gm_tri_search_impl.html</anchorfile>
+      <anchor>a6f831e143724ccc2a55c0daa7995e449</anchor>
+      <arglist>(const Pt3d &amp;a_pt, int &amp;a_triangleIdx, std::vector&lt; int &gt; &amp;a_idxs, std::vector&lt; double &gt; &amp;a_wts) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
       <type>virtual std::string</type>
       <name>ToString</name>
       <anchorfile>classxms_1_1_gm_tri_search_impl.html</anchorfile>

@@ -58,6 +58,7 @@ var searchData=
   ['interputil_2ecpp',['InterpUtil.cpp',['../_interp_util_8cpp.html',1,'']]],
   ['interputil_2eh',['InterpUtil.h',['../_interp_util_8h.html',1,'']]],
   ['interpweights',['InterpWeights',['../classxms_1_1_gm_tri_search_impl.html#a89161f03d360c52d22a4d0995e1a5869',1,'xms::GmTriSearchImpl::InterpWeights()'],['../classxms_1_1_interp_idw_impl.html#a475b892911b0603b88c01efef172ecd9',1,'xms::InterpIdwImpl::InterpWeights()'],['../classxms_1_1_interp_linear_impl.html#aea728571e8f169e0491abcbe8219272c',1,'xms::InterpLinearImpl::InterpWeights()']]],
+  ['interpweightstriangleidx',['InterpWeightsTriangleIdx',['../classxms_1_1_gm_tri_search_impl.html#a6f831e143724ccc2a55c0daa7995e449',1,'xms::GmTriSearchImpl']]],
   ['intersecteachpolywithline',['IntersectEachPolyWithLine',['../classxms_1_1_gm_multi_poly_intersector_impl.html#ae78756aa2652d524131bb6259534df04',1,'xms::GmMultiPolyIntersectorImpl']]],
   ['intersection',['intersection',['../structxms_1_1edgerecord.html#a34b4f43309c69d116fad70ebe6cf0dfb',1,'xms::edgerecord::intersection()'],['../classxms_1_1_gm_polygon_impl.html#a3dbbbff726ffd85dfeca5b5bd0a1e81e',1,'xms::GmPolygonImpl::Intersection()']]],
   ['intersectionstopolyidsandtvalues',['IntersectionsToPolyIdsAndTValues',['../classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#a904706c1ee869b84f2a68e80e8a393d2',1,'xms::GmMultiPolyIntersectionSorterTerse']]],
@@ -72,7 +73,7 @@ var searchData=
   ['itest_5fxm_5flog_5fdebug',['iTest_XM_LOG_debug',['https://aquaveo.github.io/xmscore/namespacexms.html#a0acbea17ab71fd0680dd8c0bbfa0de80',1,'xms']]],
   ['itest_5fxm_5flog_5fgui',['iTest_XM_LOG_gui',['https://aquaveo.github.io/xmscore/namespacexms.html#a196857566df5570c425f3982f09a0ce0',1,'xms']]],
   ['itest_5fxm_5flog_5fstackable',['iTest_XM_LOG_stackable',['https://aquaveo.github.io/xmscore/namespacexms.html#a561ace2fc12a6562ca762ea42fb500f9',1,'xms']]],
-  ['ix',['ix',['../classxms_1_1ix.html#ab86596c140cee4b9ad0bc1e0865c3c2a',1,'xms::ix']]],
   ['ix',['ix',['../classxms_1_1ix.html',1,'xms']]],
+  ['ix',['ix',['../classxms_1_1ix.html#ab86596c140cee4b9ad0bc1e0865c3c2a',1,'xms::ix']]],
   ['interpolation_5ftutorial',['Interpolation_Tutorial',['../md__interpolation__tutorial.html',1,'']]]
 ];

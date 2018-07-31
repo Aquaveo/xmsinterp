@@ -9,6 +9,7 @@ var classxms_1_1_gm_tri_search_impl =
     [ "GetPtActivity", "classxms_1_1_gm_tri_search_impl.html#a88b9fbb5c768f1a76a0c69dc7be10935", null ],
     [ "GetTriBarycentricVals", "classxms_1_1_gm_tri_search_impl.html#a21de9e3170fcd10467c14aeea25d74be", null ],
     [ "InterpWeights", "classxms_1_1_gm_tri_search_impl.html#a89161f03d360c52d22a4d0995e1a5869", null ],
+    [ "InterpWeightsTriangleIdx", "classxms_1_1_gm_tri_search_impl.html#a6f831e143724ccc2a55c0daa7995e449", null ],
     [ "PointActivityFromTriActivity", "classxms_1_1_gm_tri_search_impl.html#a5b26bb57b6a3dc0373188675dbf09c11", null ],
     [ "PointIdxesFromTriIdx", "classxms_1_1_gm_tri_search_impl.html#ab3a89a592db07b714e4a5eb8d12037c6", null ],
     [ "SetPtActivity", "classxms_1_1_gm_tri_search_impl.html#a8f22b0237cb737b390ba5c4fc1512d64", null ],
