@@ -143,6 +143,10 @@ public:
   virtual bool InterpWeights(const Pt3d& a_pt,
                              std::vector<int>& a_idxs,
                              std::vector<double>& a_wts) override;
+  virtual bool InterpWeightsTriangleIdx(const Pt3d& a_pt,
+                                        int& a_triangleIdx,
+                                        std::vector<int>& a_idxs,
+                                        std::vector<double>& a_wts) override;
 
   virtual std::string ToString() const override;
 
@@ -420,10 +424,27 @@ void GmTriSearchImpl::TriEnvelopesOverlap(const Pt3d& a_pMin, const Pt3d& a_pMax
 //------------------------------------------------------------------------------
 bool GmTriSearchImpl::InterpWeights(const Pt3d& a_pt, VecInt& a_idxs, VecDbl& a_wts)
 {
+  int triangleIdx;
+  bool result = InterpWeightsTriangleIdx(a_pt, triangleIdx, a_idxs, a_wts);
+  return result;
+} // GmTriSearchImpl::InterpWeights
+//------------------------------------------------------------------------------
+/// \brief Use the stored triangles to get interpolation weights for a point.
+/// Returns false if the point is outside the triangles.
+/// \param a_pt Location that is interpolated to.
+/// \param a_triangleIdx Found triangles index in triangle array
+///                      (zero based count*3).
+/// \param a_idxs Vector of triangle point indices filled in by this method.
+/// \param a_wts Vector of triangle point weights filled in by this method.
+/// \return false if a_pt is not inside of any triangle
+//------------------------------------------------------------------------------
+bool GmTriSearchImpl::InterpWeightsTriangleIdx(const Pt3d& a_pt, int& a_triangleIdx,
+                                               VecInt& a_idxs, VecDbl& a_wts)
+{
   int ix[3];
   Pt3d weights;
-  int idx = FindTriangle(a_pt, ix, weights);
-  if (idx != XM_NONE)
+  a_triangleIdx = FindTriangle(a_pt, ix, weights);
+  if (a_triangleIdx != XM_NONE)
   {
     a_wts.resize(0);
     a_wts.push_back(weights.x);
@@ -432,8 +453,13 @@ bool GmTriSearchImpl::InterpWeights(const Pt3d& a_pt, VecInt& a_idxs, VecDbl& a_
     a_idxs.assign(ix, ix + 3);
     return true;
   }
+  else
+  {
+    a_idxs.clear();
+    a_wts.clear();
+  }
   return false;
-} // GmTriSearchImpl::InterpWeights
+} // GmTriSearchImpl::InterpWeightsTriangleIdx
 //------------------------------------------------------------------------------
 /// \brief Write the internals to a string.
 /// \return The string.
@@ -635,11 +661,24 @@ void TriSearchUnitTests::testInterpWeights()
   std::vector<int> idxs, baseIdx;
   std::vector<double> wt, baseWt;
   Pt3d pt(.5, .2, 0);
-  tris->InterpWeights(pt, idxs, wt);
+  TS_ASSERT(tris->InterpWeights(pt, idxs, wt));
   baseIdx = {0, 2, 1};
   baseWt = {.5, .3, .2};
   TS_ASSERT_EQUALS_VEC(baseIdx, idxs);
   TS_ASSERT_DELTA_VEC(baseWt, wt, 1e-7);
+
+  int triangleIdx;
+  TS_ASSERT(tris->InterpWeightsTriangleIdx({.25, .75, 0}, triangleIdx, idxs, wt));
+  TS_ASSERT_EQUALS(3, triangleIdx);
+  baseIdx = {0, 1, 3};
+  TS_ASSERT_EQUALS_VEC(baseIdx, idxs);
+  baseWt = {.25, .25, .5};
+  TS_ASSERT_DELTA_VEC(baseWt, wt, 1e-7);
+
+  TS_ASSERT(!tris->InterpWeightsTriangleIdx({0, 1.25, 0}, triangleIdx, idxs, wt));
+  TS_ASSERT_EQUALS(XM_NONE, triangleIdx);
+  TS_ASSERT_EQUALS_VEC(VecInt(), idxs);
+  TS_ASSERT_DELTA_VEC(VecDbl(), wt, 1e-7);
 } // TriSearchUnitTests::testInterpWeights
 //------------------------------------------------------------------------------
 /// \brief tests setting the point activity

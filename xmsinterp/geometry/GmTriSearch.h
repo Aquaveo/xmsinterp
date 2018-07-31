@@ -50,6 +50,10 @@ public:
   virtual bool InterpWeights(const Pt3d& a_pt,
                              std::vector<int>& a_idxs,
                              std::vector<double>& a_wts) = 0;
+  virtual bool InterpWeightsTriangleIdx(const Pt3d& a_pt,
+                                        int& a_triangleIdx,
+                                        std::vector<int>& a_idxs,
+                                        std::vector<double>& a_wts) = 0;
 
   virtual std::string ToString() const = 0;
 
