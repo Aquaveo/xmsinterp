@@ -333,6 +333,12 @@ void GmTriSearchImpl::SetPtActivity(DynBitset& a_activity)
 //------------------------------------------------------------------------------
 void GmTriSearchImpl::SetTriActivity(DynBitset& a_activity)
 {
+  if (a_activity.empty())
+  {
+    m_triActivity = a_activity;
+    return;
+  }
+
   XM_ENSURE_TRUE_NO_ASSERT(a_activity.size() == m_tris->size() / 3);
 
   m_triActivity.reset();
@@ -734,6 +740,12 @@ void TriSearchUnitTests::testTriActivity()
 
   TS_ASSERT_EQUALS(XM_NONE, tris->TriContainingPt(pt));
   TS_ASSERT_EQUALS(3, tris->TriContainingPt(pt2));
+
+  // setting to empty activity turns on everything
+  act.clear();
+  tris->SetTriActivity(act);
+  TS_ASSERT_EQUALS(0, tris->TriContainingPt(pt));
+  TS_ASSERT_EQUALS(0, tris->TriContainingPt(pt2));
 } // TriSearchUnitTests::testPtActivity
 //------------------------------------------------------------------------------
 /// \brief A particular test case from SMS that was included
