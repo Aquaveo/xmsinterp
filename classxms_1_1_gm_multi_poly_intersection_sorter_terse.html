@@ -155,9 +155,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a904706c1ee869b84f2a68e80e8a393d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#a904706c1ee869b84f2a68e80e8a393d2">IntersectionsToPolyIdsAndTValues</a> (std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a> &gt; &amp;a_pts) const </td></tr>
 <tr class="memdesc:a904706c1ee869b84f2a68e80e8a393d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy intersections to polyids and tvalues, removing duplicates.  <a href="#a904706c1ee869b84f2a68e80e8a393d2">More...</a><br/></td></tr>
 <tr class="separator:a904706c1ee869b84f2a68e80e8a393d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12dfd441ead2ddde6ae199053a89d329"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#a12dfd441ead2ddde6ae199053a89d329">FixArrays</a> (std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues) const </td></tr>
-<tr class="memdesc:a12dfd441ead2ddde6ae199053a89d329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure we always have at least two tvalues, an entrance and an exit, and that the last polyid = -1.  <a href="#a12dfd441ead2ddde6ae199053a89d329">More...</a><br/></td></tr>
-<tr class="separator:a12dfd441ead2ddde6ae199053a89d329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe81ef41d2c6d38ff813ef58d5b02ec1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#abe81ef41d2c6d38ff813ef58d5b02ec1">FixArrays</a> (std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a> &gt; &amp;a_pts) const </td></tr>
+<tr class="memdesc:abe81ef41d2c6d38ff813ef58d5b02ec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure we always have at least two tvalues, an entrance and an exit, and that the last polyid = -1.  <a href="#abe81ef41d2c6d38ff813ef58d5b02ec1">More...</a><br/></td></tr>
+<tr class="separator:abe81ef41d2c6d38ff813ef58d5b02ec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa687905a1cc7a450ffca5733b2c5567"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#aaa687905a1cc7a450ffca5733b2c5567">AddToPolyIdsAndTValues</a> (const <a class="el" href="classxms_1_1ix.html">ix</a> &amp;a_ix, std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a> &gt; &amp;a_pts) const </td></tr>
 <tr class="memdesc:aaa687905a1cc7a450ffca5733b2c5567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the intersection info to the arrays.  <a href="#aaa687905a1cc7a450ffca5733b2c5567">More...</a><br/></td></tr>
 <tr class="separator:aaa687905a1cc7a450ffca5733b2c5567"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,7 +186,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <div class="textblock"><p>Class for sorting intersections from <a class="el" href="classxms_1_1_gm_multi_poly_intersector.html" title="See GmMultiPolyIntersectorImpl comments. ">GmMultiPolyIntersector</a> in a terse way (with no duplicate info). </p>
 <p>This class removes corner touches, duplicate edges (by keeping the one on the right), and, ... well it's hard to define what it does here but suffice it to say that it causes all the unit tests in <a class="el" href="_gm_multi_poly_intersector_8cpp.html">GmMultiPolyIntersector.cpp</a> to pass. </p>
 
-<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00033">33</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html">GmMultiPolyIntersectionSorterTerse.h</a>.</p>
+<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00032">32</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html">GmMultiPolyIntersectionSorterTerse.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="aaa687905a1cc7a450ffca5733b2c5567"></a>
 <div class="memitem">
@@ -243,11 +243,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00458">458</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00405">405</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
 
 <p>References <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00043">xms::ix::m_i</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00042">xms::ix::m_pt</a>, and <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00044">xms::ix::m_t</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00241">IntersectionsToPolyIdsAndTValuesFor2()</a>, and <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00283">IntersectionsToPolyIdsAndTValuesFor3OrMore()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00218">IntersectionsToPolyIdsAndTValuesFor2()</a>, and <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00249">IntersectionsToPolyIdsAndTValuesFor3OrMore()</a>.</p>
 
 </div>
 </div>
@@ -313,11 +313,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00479">479</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00425">425</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00069">m_d</a>, and <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>.</p>
+<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00067">m_d</a>, and <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00283">IntersectionsToPolyIdsAndTValuesFor3OrMore()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00088">RemoveCornerTouches()</a>, and <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00123">RemoveDuplicateEdges()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00249">IntersectionsToPolyIdsAndTValuesFor3OrMore()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00083">RemoveCornerTouches()</a>, and <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00113">RemoveDuplicateEdges()</a>.</p>
 
 </div>
 </div>
@@ -351,15 +351,15 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00555">555</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00486">486</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
 
-<p>References <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#ad2b764be90f289082998491db1b52711">xms::EQ_TOL()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00069">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, and <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00070">m_tol</a>.</p>
+<p>References <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#ad2b764be90f289082998491db1b52711">xms::EQ_TOL()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00067">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, and <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00068">m_tol</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00283">IntersectionsToPolyIdsAndTValuesFor3OrMore()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00088">RemoveCornerTouches()</a>, and <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00123">RemoveDuplicateEdges()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00249">IntersectionsToPolyIdsAndTValuesFor3OrMore()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00083">RemoveCornerTouches()</a>, and <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00113">RemoveDuplicateEdges()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a12dfd441ead2ddde6ae199053a89d329"></a>
+<a class="anchor" id="abe81ef41d2c6d38ff813ef58d5b02ec1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -376,7 +376,13 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>tvalues</em>&#160;</td>
+          <td class="paramname"><em>tvalues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a_pts</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -396,15 +402,16 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   <table class="params">
     <tr><td class="paramname">polyids</td><td>Poly IDs. </td></tr>
     <tr><td class="paramname">tvalues</td><td>tvalues. </td></tr>
+    <tr><td class="paramname">a_pts</td><td>Point list. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00415">415</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00364">364</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00069">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00054">xms::GmMultiPolyIntersectorData::m_polys2</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a23da302a5e3a5ad9f79b60045c2fd24e">XM_ENSURE_TRUE_VOID_NO_ASSERT</a>.</p>
+<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00067">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00054">xms::GmMultiPolyIntersectorData::m_polys2</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a23da302a5e3a5ad9f79b60045c2fd24e">XM_ENSURE_TRUE_VOID_NO_ASSERT</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00067">Sort()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00065">Sort()</a>.</p>
 
 </div>
 </div>
@@ -456,11 +463,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00378">378</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00331">331</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00241">IntersectionsToPolyIdsAndTValuesFor2()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00283">IntersectionsToPolyIdsAndTValuesFor3OrMore()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00069">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a23da302a5e3a5ad9f79b60045c2fd24e">XM_ENSURE_TRUE_VOID_NO_ASSERT</a>.</p>
+<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00218">IntersectionsToPolyIdsAndTValuesFor2()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00249">IntersectionsToPolyIdsAndTValuesFor3OrMore()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00067">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a23da302a5e3a5ad9f79b60045c2fd24e">XM_ENSURE_TRUE_VOID_NO_ASSERT</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00067">Sort()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00065">Sort()</a>.</p>
 
 </div>
 </div>
@@ -512,11 +519,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00241">241</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00218">218</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00458">AddToPolyIdsAndTValues()</a>, <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#aae3e3dee54b4e049573f92c74a38f79f">xms::EQ_EPS()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00069">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00053">xms::GmMultiPolyIntersectorData::m_polys1</a>, and <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00054">xms::GmMultiPolyIntersectorData::m_polys2</a>.</p>
+<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00405">AddToPolyIdsAndTValues()</a>, <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/namespacexms.html#aae3e3dee54b4e049573f92c74a38f79f">xms::EQ_EPS()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00067">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00053">xms::GmMultiPolyIntersectorData::m_polys1</a>, and <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00054">xms::GmMultiPolyIntersectorData::m_polys2</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00378">IntersectionsToPolyIdsAndTValues()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00331">IntersectionsToPolyIdsAndTValues()</a>.</p>
 
 </div>
 </div>
@@ -568,11 +575,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00283">283</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00249">249</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00458">AddToPolyIdsAndTValues()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00479">FindPreviousNextNeither()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00555">FindWhereTValuesChange()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00069">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a23da302a5e3a5ad9f79b60045c2fd24e">XM_ENSURE_TRUE_VOID_NO_ASSERT</a>.</p>
+<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00405">AddToPolyIdsAndTValues()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00425">FindPreviousNextNeither()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00486">FindWhereTValuesChange()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00067">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a23da302a5e3a5ad9f79b60045c2fd24e">XM_ENSURE_TRUE_VOID_NO_ASSERT</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00378">IntersectionsToPolyIdsAndTValues()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00331">IntersectionsToPolyIdsAndTValues()</a>.</p>
 
 </div>
 </div>
@@ -603,11 +610,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <li>The corner poly doesn't appear in the previous or next group of intersections that have the same t values. </li>
 </ol>
 
-<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00088">88</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00083">83</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00479">FindPreviousNextNeither()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00555">FindWhereTValuesChange()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00069">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a23da302a5e3a5ad9f79b60045c2fd24e">XM_ENSURE_TRUE_VOID_NO_ASSERT</a>.</p>
+<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00425">FindPreviousNextNeither()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00486">FindWhereTValuesChange()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00067">m_d</a>, <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>, and <a class="elRef" doxygen="/home/travis/build/Aquaveo/xmsinterp/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore//" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a23da302a5e3a5ad9f79b60045c2fd24e">XM_ENSURE_TRUE_VOID_NO_ASSERT</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00067">Sort()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00065">Sort()</a>.</p>
 
 </div>
 </div>
@@ -673,9 +680,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00067">67</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00065">65</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00415">FixArrays()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00378">IntersectionsToPolyIdsAndTValues()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00069">m_d</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00070">m_tol</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00088">RemoveCornerTouches()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00123">RemoveDuplicateEdges()</a>, and <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00196">SwapAdjacents()</a>.</p>
+<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00364">FixArrays()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00331">IntersectionsToPolyIdsAndTValues()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00067">m_d</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00068">m_tol</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00083">RemoveCornerTouches()</a>, <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00113">RemoveDuplicateEdges()</a>, and <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00178">SwapAdjacents()</a>.</p>
 
 </div>
 </div>
@@ -720,11 +727,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00545">545</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00477">477</a> of file <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html">GmMultiPolyIntersectionSorterTerse.cpp</a>.</p>
 
-<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00069">m_d</a>, and <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>.</p>
+<p>References <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8h_source.html#l00067">m_d</a>, and <a class="el" href="_gm_multi_poly_intersector_data_8h_source.html#l00055">xms::GmMultiPolyIntersectorData::m_ixs</a>.</p>
 
-<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00196">SwapAdjacents()</a>.</p>
+<p>Referenced by <a class="el" href="_gm_multi_poly_intersection_sorter_terse_8cpp_source.html#l00178">SwapAdjacents()</a>.</p>
 
 </div>
 </div>
@@ -738,7 +745,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacexms.html">xms</a></li><li class="navelem"><a class="el" href="classxms_1_1_gm_multi_poly_intersection_sorter_terse.html">GmMultiPolyIntersectionSorterTerse</a></li>
-    <li class="footer">Generated on Tue Aug 7 2018 15:12:02 for xmsinterp by
+    <li class="footer">Generated on Thu Aug 9 2018 16:32:13 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

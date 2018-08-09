@@ -60,8 +60,8 @@
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
     <filename>_gm_multi_poly_intersection_sorter_terse_8cpp</filename>
     <includes id="_gm_multi_poly_intersection_sorter_terse_8h" name="GmMultiPolyIntersectionSorterTerse.h" local="no" imported="no">xmsinterp/geometry/GmMultiPolyIntersectionSorterTerse.h</includes>
-    <includes id="geoms_8h" name="geoms.h" local="no" imported="no">xmsinterp/geometry/geoms.h</includes>
     <includes id="_gm_multi_poly_intersector_data_8h" name="GmMultiPolyIntersectorData.h" local="no" imported="no">xmsinterp/geometry/GmMultiPolyIntersectorData.h</includes>
+    <includes id="geoms_8h" name="geoms.h" local="no" imported="no">xmsinterp/geometry/geoms.h</includes>
   </compound>
   <compound kind="file">
     <name>GmMultiPolyIntersectionSorterTerse.h</name>
@@ -75,10 +75,10 @@
     <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
     <filename>_gm_multi_poly_intersector_8cpp</filename>
     <includes id="_gm_multi_poly_intersector_8h" name="GmMultiPolyIntersector.h" local="no" imported="no">xmsinterp/geometry/GmMultiPolyIntersector.h</includes>
-    <includes id="geoms_8h" name="geoms.h" local="no" imported="no">xmsinterp/geometry/geoms.h</includes>
     <includes id="_gm_boost_types_8h" name="GmBoostTypes.h" local="no" imported="no">xmsinterp/geometry/GmBoostTypes.h</includes>
-    <includes id="_gm_multi_poly_intersector_data_8h" name="GmMultiPolyIntersectorData.h" local="no" imported="no">xmsinterp/geometry/GmMultiPolyIntersectorData.h</includes>
     <includes id="_gm_multi_poly_intersection_sorter_8h" name="GmMultiPolyIntersectionSorter.h" local="no" imported="no">xmsinterp/geometry/GmMultiPolyIntersectionSorter.h</includes>
+    <includes id="_gm_multi_poly_intersector_data_8h" name="GmMultiPolyIntersectorData.h" local="no" imported="no">xmsinterp/geometry/GmMultiPolyIntersectorData.h</includes>
+    <includes id="geoms_8h" name="geoms.h" local="no" imported="no">xmsinterp/geometry/geoms.h</includes>
     <includes id="_gm_multi_poly_intersector_8t_8h" name="GmMultiPolyIntersector.t.h" local="no" imported="no">xmsinterp/geometry/GmMultiPolyIntersector.t.h</includes>
     <includes id="_gm_multi_poly_intersection_sorter_terse_8h" name="GmMultiPolyIntersectionSorterTerse.h" local="no" imported="no">xmsinterp/geometry/GmMultiPolyIntersectionSorterTerse.h</includes>
     <includes id="triangles_8h" name="triangles.h" local="no" imported="no">xmsinterp/triangulate/triangles.h</includes>
@@ -2668,8 +2668,8 @@
       <type>void</type>
       <name>FixArrays</name>
       <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>a12dfd441ead2ddde6ae199053a89d329</anchor>
-      <arglist>(std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues) const </arglist>
+      <anchor>abe81ef41d2c6d38ff813ef58d5b02ec1</anchor>
+      <arglist>(std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts) const </arglist>
     </member>
     <member kind="function" protection="private">
       <type>void</type>
