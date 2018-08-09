@@ -20,8 +20,7 @@
 
 //----- Namespace --------------------------------------------------------------
 
-namespace xms
-{
+namespace xms {
 //----- Forward declarations ---------------------------------------------------
 
 struct GmMultiPolyIntersectorData;
@@ -30,44 +29,43 @@ class ix;
 //----- Classes ----------------------------------------------------------------
 
 ////////////////////////////////////////////////////////////////////////////////
-class GmMultiPolyIntersectionSorterTerse : public GmMultiPolyIntersectionSorter
-{
+class GmMultiPolyIntersectionSorterTerse
+    : public GmMultiPolyIntersectionSorter {
 public:
-  virtual void Sort(GmMultiPolyIntersectorData& a_data,
-                    std::vector<int>& polyids,
-                    std::vector<double>& tvalues,
-                    std::vector<Pt3d>& a_pts,
-                    double a_tol) override;
+  virtual void Sort(GmMultiPolyIntersectorData &a_data,
+                    std::vector<int> &polyids, std::vector<double> &tvalues,
+                    std::vector<Pt3d> &a_pts, double a_tol) override;
 
 private:
   void RemoveCornerTouches();
   void RemoveDuplicateEdges();
   void SwapAdjacents();
-  void IntersectionsToPolyIdsAndTValuesFor2(std::vector<int>& polyids,
-                                            std::vector<double>& tvalues,
-                                            std::vector<Pt3d>& a_pts) const;
-  void IntersectionsToPolyIdsAndTValuesFor3OrMore(std::vector<int>& polyids,
-                                                  std::vector<double>& tvalues,
-                                                  std::vector<Pt3d>& a_pts) const;
-  void IntersectionsToPolyIdsAndTValues(std::vector<int>& polyids,
-                                        std::vector<double>& tvalues,
-                                        std::vector<Pt3d>& a_pts) const;
-  void FixArrays(std::vector<int>& polyids, std::vector<double>& tvalues) const;
-  void AddToPolyIdsAndTValues(const ix& a_ix,
-                              std::vector<int>& polyids,
-                              std::vector<double>& tvalues,
-                              std::vector<Pt3d>& a_pts) const;
-  void FindPreviousNextNeither(const std::vector<int>& tChange,
-                               const int idx,
-                               std::vector<int>* inPrev,
-                               std::vector<int>* inNext,
-                               std::vector<int>* inNeither) const;
+  void IntersectionsToPolyIdsAndTValuesFor2(std::vector<int> &polyids,
+                                            std::vector<double> &tvalues,
+                                            std::vector<Pt3d> &a_pts) const;
+  void
+  IntersectionsToPolyIdsAndTValuesFor3OrMore(std::vector<int> &polyids,
+                                             std::vector<double> &tvalues,
+                                             std::vector<Pt3d> &a_pts) const;
+  void IntersectionsToPolyIdsAndTValues(std::vector<int> &polyids,
+                                        std::vector<double> &tvalues,
+                                        std::vector<Pt3d> &a_pts) const;
+  void FixArrays(std::vector<int> &polyids, std::vector<double> &tvalues,
+                 std::vector<Pt3d> &a_pts) const;
+  void AddToPolyIdsAndTValues(const ix &a_ix, std::vector<int> &polyids,
+                              std::vector<double> &tvalues,
+                              std::vector<Pt3d> &a_pts) const;
+  void FindPreviousNextNeither(const std::vector<int> &tChange, const int idx,
+                               std::vector<int> *inPrev,
+                               std::vector<int> *inNext,
+                               std::vector<int> *inNeither) const;
   void Swap(int a, int b);
-  void FindWhereTValuesChange(std::vector<int>& tChange) const;
+  void FindWhereTValuesChange(std::vector<int> &tChange) const;
 
 private:
-  GmMultiPolyIntersectorData* m_d; ///< Intersection data from GmMultiPolyIntersector
-  double m_tol;                    ///< Tolerance used when comparing t values.
+  GmMultiPolyIntersectorData
+      *m_d;     ///< Intersection data from GmMultiPolyIntersector
+  double m_tol; ///< Tolerance used when comparing t values.
 
 }; // class GmMultiPolyIntersectionSorterTerse
 
