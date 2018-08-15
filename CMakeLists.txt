@@ -187,7 +187,11 @@ if(UNIX AND NOT APPLE)
 endif()
 
 if(IS_PYTHON_BUILD)
-    find_package(PythonLibs REQUIRED)
+    if(WIN32)
+      find_package(PythonLibs 3.5 EXACT REQUIRED)
+    else()
+      find_package(PythonLibs REQUIRED)
+    endif()
     message("PYTHON_INCLUDE: ${PYTHON_INCLUDE_DIRS}")
     message("PYTHON_LIBS: ${PYTHON_LIBRARIES}")
 
