@@ -10,6 +10,7 @@ endif()
 
 set(BUILD_TESTING NO CACHE BOOL "Enable/Disable testing")
 set(IS_CONDA_BUILD NO CACHE BOOL "Set this if you want to make a conda package.")
+set(PYTHON_TARGET_VERSION 3.6 CACHE STRING "Version of python to link to for python wrapping.")
 set(CONDA_PREFIX "" CACHE PATH "Path to the conda environment used to build.")
 set(IS_PYTHON_BUILD NO CACHE BOOL "Set this if you want to build the python bindings.")
 
@@ -186,12 +187,14 @@ if(UNIX AND NOT APPLE)
     target_link_libraries(${PROJECT_NAME} rt)
 endif()
 
-if(IS_PYTHON_BUILD)
-    if(WIN32)
-      find_package(PythonLibs 3.5 EXACT REQUIRED)
-    else()
-      find_package(PythonLibs REQUIRED)
-    endif()
+if(IS_PYTHON_BUILD) 
+    # linux and mac builds for conan (on TRAVISCI) use a docker that has python
+    # 2.7 as system python. We do not have control over that docker image so we
+    # can't change this and it is fine for building conan packages and checking
+    # that we don't have errors in the python wrapping. We have conda recipes
+    # for building python packages that target other versions of python.
+    find_package(PythonLibs ${PYTHON_TARGET_VERSION} EXACT REQUIRED)
+
     message("PYTHON_INCLUDE: ${PYTHON_INCLUDE_DIRS}")
     message("PYTHON_LIBS: ${PYTHON_LIBRARIES}")
 
