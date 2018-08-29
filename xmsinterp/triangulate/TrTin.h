@@ -90,7 +90,7 @@ public:
   virtual bool SwapEdge(int a_triA, int a_triB, bool a_checkAngle = true) = 0;
   virtual void DeleteTriangles(const SetInt& a_triangles) = 0;
   virtual void DeletePoints(const SetInt& a_points) = 0;
-  virtual void OptimizeTriangulation() = 0;
+  virtual bool OptimizeTriangulation() = 0;
   virtual void BuildTrisAdjToPts() = 0; // Triangles adjacent to points
   virtual void Clear() = 0;
 

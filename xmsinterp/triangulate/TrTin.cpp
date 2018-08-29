@@ -113,7 +113,7 @@ public:
   virtual bool SwapEdge(int a_triA, int a_triB, bool a_checkAngle = true) override;
   virtual void DeleteTriangles(const SetInt& a_trisToDelete) override;
   virtual void DeletePoints(const SetInt& a_points) override;
-  virtual void OptimizeTriangulation() override;
+  virtual bool OptimizeTriangulation() override;
   virtual void Clear() override;
   virtual void BuildTrisAdjToPts() override;
 
@@ -1098,9 +1098,11 @@ void TrTinImpl::DeletePoints(const SetInt& a_points)
 } // TrTinImpl::DeletePoints
 //------------------------------------------------------------------------------
 /// \brief Swaps triangle edges until they are a Delauney triangulation.
+/// \return True if modified.
 //------------------------------------------------------------------------------
-void TrTinImpl::OptimizeTriangulation()
+bool TrTinImpl::OptimizeTriangulation()
 {
+  bool modified = false;
   int nTri = NumTriangles();
   VecInt flags(nTri, false);
 
@@ -1132,8 +1134,11 @@ void TrTinImpl::OptimizeTriangulation()
         }
       }
     }
+    if (meshaltered)
+      modified = true;
   } while (meshaltered);
 
+  return true;
 } // TrTinImpl::OptimizeTriangulation
 //------------------------------------------------------------------------------
 /// \brief Delete the memory.
@@ -1767,7 +1772,7 @@ void TrTinUnitTests::testOptimizeTriangulation()
   TS_ASSERT_EQUALS((VecInt{0, 1, 2, 3, 5, 6, 7, 8}), boundaryPoints);
 
   // Optimize
-  tin->OptimizeTriangulation();
+  TS_ASSERT(tin->OptimizeTriangulation());
   VecInt trisAfter = {0, 1, 3, 1, 6, 3, 1, 4, 6, 4, 7, 6, 1, 2, 4, 2, 7, 4, 2, 5, 7, 5, 8, 7};
   TS_ASSERT_EQUALS_VEC(trisAfter, tin->Triangles());
 
