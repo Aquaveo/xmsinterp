@@ -23,7 +23,7 @@ var classxms_1_1_tr_tin_impl =
     [ "NextBoundaryPoint", "classxms_1_1_tr_tin_impl.html#ac145283448f45f0b1ac4e5435421a8a2", null ],
     [ "NumPoints", "classxms_1_1_tr_tin_impl.html#a376cc601aa1f16cffd49c459fc9c9f7f", null ],
     [ "NumTriangles", "classxms_1_1_tr_tin_impl.html#a5195a84d6cea132e8066316fbd5ba320", null ],
-    [ "OptimizeTriangulation", "classxms_1_1_tr_tin_impl.html#a48857cfe7c822e29245e97c18c513ae7", null ],
+    [ "OptimizeTriangulation", "classxms_1_1_tr_tin_impl.html#a3edf221597262055cb3847430bd36ab8", null ],
     [ "PointIndexFound", "classxms_1_1_tr_tin_impl.html#aaaf57e6166538ec0f6576f12b4515a7f", null ],
     [ "PointIsInCircumcircle", "classxms_1_1_tr_tin_impl.html#a208635ddaf084e5baae40c2538ff1dd1", null ],
     [ "Points", "classxms_1_1_tr_tin_impl.html#a4722de3f7981842b5fbfc5f48dc72c95", null ],
