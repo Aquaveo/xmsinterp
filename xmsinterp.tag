@@ -6030,10 +6030,10 @@
       <arglist>(const SetInt &amp;a_points) override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual bool</type>
+      <type>virtual void</type>
       <name>OptimizeTriangulation</name>
       <anchorfile>classxms_1_1_tr_tin_impl.html</anchorfile>
-      <anchor>a3edf221597262055cb3847430bd36ab8</anchor>
+      <anchor>a48857cfe7c822e29245e97c18c513ae7</anchor>
       <arglist>() override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
