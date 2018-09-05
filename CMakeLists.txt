@@ -58,10 +58,12 @@ set(xmsinterp_sources
   xmsinterp/geometry/GmPolyLinePtRedistributer.cpp
   xmsinterp/geometry/GmPtSearch.cpp
   xmsinterp/geometry/GmTriSearch.cpp
+  xmsinterp/interpolate/InterpAnisotropic.cpp
   xmsinterp/interpolate/InterpIdw.cpp
   xmsinterp/interpolate/InterpLinear.cpp
   xmsinterp/interpolate/InterpSignals.cpp
   xmsinterp/interpolate/InterpUtil.cpp
+  xmsinterp/interpolate/detail/AnisotropicInterpolator.cpp
   xmsinterp/interpolate/detail/InterpCt.cpp
   xmsinterp/interpolate/detail/InterpNatNeigh.cpp
   xmsinterp/interpolate/detail/NodalFunc.cpp
@@ -91,11 +93,13 @@ set(xmsinterp_headers
   xmsinterp/geometry/GmPolyLinePtRedistributer.h
   xmsinterp/geometry/GmPtSearch.h
   xmsinterp/geometry/GmTriSearch.h
+  xmsinterp/interpolate/InterpAnisotropic.h
   xmsinterp/interpolate/InterpBase.h
   xmsinterp/interpolate/InterpIdw.h
   xmsinterp/interpolate/InterpLinear.h
   xmsinterp/interpolate/InterpSignals.h
   xmsinterp/interpolate/InterpUtil.h
+  xmsinterp/interpolate/detail/AnisotropicInterpolator.h
   xmsinterp/interpolate/detail/InterpCt.h
   xmsinterp/interpolate/detail/InterpNatNeigh.h
   xmsinterp/interpolate/detail/NodalFunc.h
@@ -140,8 +144,10 @@ if (BUILD_TESTING)
    xmsinterp/geometry/GmPolyLinePtRedistributer.t.h
    xmsinterp/geometry/GmPtSearch.t.h
    xmsinterp/geometry/GmTriSearch.t.h
+   xmsinterp/interpolate/InterpAnisotropic.t.h
    xmsinterp/interpolate/InterpIdw.t.h
    xmsinterp/interpolate/InterpLinear.t.h
+   xmsinterp/interpolate/detail/AnisotropicInterpolator.t.h
    xmsinterp/interpolate/detail/InterpNatNeigh.t.h
    xmsinterp/interpolate/detail/NodalFunc.t.h
    xmsinterp/triangulate/TrBreaklineAdder.t.h
