@@ -22,6 +22,7 @@
 
 // 5. Shared Headers
 #include <xmscore/misc/XmError.h>
+#include <xmscore/misc/xmstype.h>
 #include <xmscore/stl/vector.h>
 #include <xmsinterp/geometry/geoms.h>
 
@@ -190,8 +191,13 @@ double AnisotropicInterpolator::InterpolatePoint(const Pt3d& a_target,
                                                  double a_IDWPower,
                                                  double a_tol)
 {
-  VecPt3d snvs = TransformPoint(a_target, true);
-  return CalculateIDW(a_xScale, a_interpolationPoints, snvs[0], a_IDWPower, a_tol);
+  double result = XM_NODATA;
+   VecPt3d snvs = TransformPoint(a_target, true);
+  if (!snvs.empty())
+  {
+    result = CalculateIDW(a_xScale, a_interpolationPoints, snvs[0], a_IDWPower, a_tol);
+  }
+  return result;
 } // AnisotropicInterpolator::InterpolatePoint
 //------------------------------------------------------------------------------
 /// \brief Compute the distance between two points.

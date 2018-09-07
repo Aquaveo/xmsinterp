@@ -22,3 +22,12 @@ The following example shows how to use the Linear interpolator. The testing code
 The following example shows how to use the Natural Neighbor interpolator. This is an option that can be set on the xms::InterpLinear class. The testing code for this example is TutInterpolationTests::test_Example_NaturalNeighbor.
 
 \snippet xmsinterp/tutorial/TutInterpolation.cpp snip_test_Example_NatNeigh
+
+## Example - Anisotropic Interpolation {#Example_Anisotropic}
+The following example shows how to use the Anisotropic Interpolator. The testing code for this example is TutInterpolationIntermediateTests::test_Example_Anisotropic.
+
+\snippet xmsinterp/tutorial/TutInterpolation.cpp snip_test_Example_Anisotropic
+
+The data for this example is shown in the plot below.  The upper figure shows the original centerline, the interpolation points, and the points to be interpolated to (with the interpolation values that would result from a normal Inverse Distance Weighted interpolation).  The lower figure shows the same points transformed into the space where all points are relative to their distance along and from the centerline and with the interpolation values that result from the additional scaling in the x direction.
+
+![Anisotropic (scale = 0.5) vs IDW interpolation (power = 3 on both](anisotropic_interp.png)
