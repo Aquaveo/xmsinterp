@@ -28,6 +28,7 @@ public:
   void test_Example_IDW();
   void test_Example_Linear();
   void test_Example_NaturalNeighbor();
+  void test_Example_Anisotropic();
 };
 
 #endif

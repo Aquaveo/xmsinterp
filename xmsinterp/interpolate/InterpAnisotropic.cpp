@@ -24,7 +24,7 @@
 #include <xmsinterp/geometry/geoms.h>
 #include <xmsinterp/interpolate/detail/AnisotropicInterpolator.h>
 #include <xmscore/misc/XmError.h>
-//#include <xmscore/misc/xmstype.h>
+#include <xmscore/misc/xmstype.h>
 
 // 6. Non-shared Headers
 
