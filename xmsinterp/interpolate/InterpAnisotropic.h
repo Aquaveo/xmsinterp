@@ -37,7 +37,9 @@ public:
 
   /// \cond
 
-  virtual void SetPoints(const VecPt3d& a_centerlinePts, const VecPt3d& a_interpolationPts, bool a_pickClosest = false) = 0;
+  virtual void SetPoints(const VecPt3d& a_centerlinePts,
+                         const VecPt3d& a_interpolationPts,
+                         bool a_pickClosest = false) = 0;
   virtual float InterpToPt(const Pt3d& a_pt) = 0;
   virtual void InterpToPts(const VecPt3d& a_pts, VecFlt& a_result) = 0;
   virtual const VecPt3d& GetInterpolationPts() = 0;
@@ -45,7 +47,6 @@ public:
   // various IDW options
   virtual void SetPower(double a_power) = 0;
   virtual void SetXScale(double a_xScale) = 0;
-
 
 private:
   XM_DISALLOW_COPY_AND_ASSIGN(InterpAnisotropic);
@@ -56,4 +57,4 @@ protected:
 };
 
 //----- Function prototypes ----------------------------------------------------
-}
+} // namespace xms

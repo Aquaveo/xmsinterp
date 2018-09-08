@@ -48,7 +48,7 @@ struct SNResult
   double m_param;  ///< parameter in the range [0..1] within the segment
   double m_cross;  ///< cross product (>0 if on left of segment; <0 on right)
   size_t m_index;  ///< index of the segment within the centerline polyline
-}; // struct SNResult
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 /// \brief 2D Line definition. If vertical m_slope is Nan.
@@ -68,9 +68,9 @@ struct LineParameters
   /// \return false if the lines are parallel so there is no intersection.
   bool Intersection(const LineParameters& a_other, Pt3d& a_p) const;
 
-  double m_slope; ///< Slope of the line. 0 is horizontal. Nan is vertical.
+  double m_slope;     ///< Slope of the line. 0 is horizontal. Nan is vertical.
   double m_intercept; ///< x intercept if vertical; else, the y intercept.
-}; // struct LineParameters
+};
 
 /// \brief A Vector of station normal results (for a given point).
 typedef std::vector<SNResult> VecSNResult;
@@ -94,7 +94,9 @@ class AnisotropicInterpolator
 public:
   AnisotropicInterpolator();
 
-  void SetPoints(const VecPt3d& a_centerlinePts, const VecPt3d& a_interpolationPts, bool a_pickClosest = false);
+  void SetPoints(const VecPt3d& a_centerlinePts,
+                 const VecPt3d& a_interpolationPts,
+                 bool a_pickClosest = false);
   const VecPt3d& GetInterpolationPoints() const;
 
   double InterpolatePoint(const Pt3d& a_target,
@@ -102,9 +104,9 @@ public:
                           double a_xScale,
                           double a_IDWPower = 2,
                           double a_tol = 1.0e-5);
-  
+
   // Implementation details - for testing only
-  
+
   VecPt3d ComputeInterpolationPoints(const VecPt3d& a_interpolationPts, bool a_pickClosest);
 
   double Distance(const Pt3d& a_p0, const Pt3d& a_p1) const;
@@ -144,10 +146,11 @@ private:
 
   // data members:
   VecPt3d m_centerLinePts; ///< The polyline representing the centerline.
-  VecDbl m_accLengths; ///< The accumulated distance along the centerline of each point.
-  std::vector<LineParameters> m_lineParams; ///< LineParameters for each centerline segment.
-  VecPt3d m_SNPoints; ///< The interpolation points.
-}; // class AnisotropicInterpolator
+  VecDbl m_accLengths;     ///< The accumulated distance along the centerline of each point.
+  std::vector<LineParameters> m_lineParams; ///< LineParameters for each
+                                            ///< centerline segment.
+  VecPt3d m_SNPoints;                       ///< The interpolation points.
+};
 
 //----- Function prototypes ----------------------------------------------------
 
