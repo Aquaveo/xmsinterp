@@ -87,7 +87,7 @@ typedef std::vector<SNResult> VecSNResult;
 /// only the transformation of each point with the smallest n. Points to
 /// interpolate "to" will be transformed the same way.  Then an
 /// inverse distance wighting (raised to a power) from
-/// the interpolation points will used to compute the interpolated z value.
+/// the interpolation points will be used to compute the interpolated z value.
 /// This is an internal implementation class used by InterpAnisotropic.
 class AnisotropicInterpolator
 {

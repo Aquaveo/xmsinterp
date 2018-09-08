@@ -214,9 +214,9 @@ void TutInterpolationIntermediateTests::test_Example_Anisotropic()
   interpolator->SetPoints(centerline, interpolationPoints, pickClosest);
 
   // After the points are transformed, an inverse distance weighted
-  // interpolation is done (using all fo the interpolation points) after scaling
-  // the points in the x direction.  The default x scale factor is 1.  Set is to
-  // a value less than 1 to compress the x values (thus giving them more weight
+  // interpolation is done (using all of the interpolation points) after scaling
+  // the points in the x direction.  The default x scale factor is 1.  Set to a
+  // value less than 1 to compress the x values (thus giving them more weight
   // than y) or to a value greater than 1 (to have the opposite effect).
   interpolator->SetXScale(0.5);
 
@@ -255,16 +255,16 @@ void TutInterpolationIntermediateTests::test_Example_Anisotropic()
   TS_ASSERT_EQUALS(base, val);
 
   // interpolate to several locations and verify the values.  Note that the
-  // last two point are beyond the range of the centerline; hence, they
-  // generate no interpolation values.
+  // last two points are beyond the range of the centerline; hence, they
+  // generate no data (XM_NODATA) interpolation values.
   xms::VecPt3d interpToPoints = {{5, 5, 0},   {5, 0, 0},   {5, -5, 0},  {20, 5, 0},  {20, 0, 0},
                                  {20, -5, 0}, {10, 20, 0}, {30, -5, 0}, {30, 30, 0}, {35, 20, 0},
                                  {45, 25, 0}, {45, 15, 0}, {65, 20, 0}, {-5, 0, 0}};
   xms::VecFlt interpValues;
   interpolator->InterpToPts(interpToPoints, interpValues);
-  xms::VecFlt expectedInterpVaues = {64.6262054, 54.3874435, 71.9839401, 59.6748428, 58.5074615,
-                                     68.1821671, 82.0689926, 76.1728363, 68.2609558, 34.5210495,
-                                     38.0537987, 50.8108978, XM_NODATA,  XM_NODATA};
+  xms::VecFlt expectedInterpVaues = {64.6262054f, 54.3874435f, 71.9839401f, 59.6748428f, 58.5074615f,
+                                     68.1821671f, 82.0689926f, 76.1728363f, 68.2609558f, 34.5210495f,
+                                     38.0537987f, 50.8108978f, (float)XM_NODATA,  (float)XM_NODATA};
   TS_ASSERT_DELTA_VEC(expectedInterpVaues, interpValues, 1.0e-4);
 
 } // TutInterpolationIntermediateTests::test_Example_Anisotropic

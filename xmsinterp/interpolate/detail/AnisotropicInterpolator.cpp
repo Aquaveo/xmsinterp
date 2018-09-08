@@ -111,9 +111,9 @@ AnisotropicInterpolator::AnisotropicInterpolator()
 /// \param[in] a_interpolationPts The points to be interpolated from (typically
 /// cross sections).
 /// \param[in] a_pickClosest True to only transform interpolation points to the
-/// closest x station on the centerline.  If false, interpolation points will
-/// transform to every segment of the centerline where a normal to the segment
-/// through the point is between the points defining the segment.
+/// closest x station (or segment) on the centerline.  If false, interpolation
+/// points will transform to every segment of the centerline where a normal to
+/// the segment through the point is between the points defining the segment.
 //------------------------------------------------------------------------------
 void AnisotropicInterpolator::SetPoints(const VecPt3d& a_centerLinePts,
                                         const VecPt3d& a_interpolationPts,
