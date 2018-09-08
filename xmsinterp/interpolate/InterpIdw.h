@@ -30,6 +30,7 @@ class InterpIdw : public InterpBase
 {
 public:
   static BSHP<InterpIdw> New();
+  virtual ~InterpIdw();
 
   /// Weight calculation method enumeration
   enum WeightEnum { CLASSIC, MODIFIED };
@@ -73,8 +74,6 @@ public:
   virtual std::string ToString() const override = 0;
   virtual void SetIdString(const std::string& a_id) override = 0;
   virtual std::string GetIdString() const override = 0;
-
-  virtual ~InterpIdw();
 
 private:
   XM_DISALLOW_COPY_AND_ASSIGN(InterpIdw);
