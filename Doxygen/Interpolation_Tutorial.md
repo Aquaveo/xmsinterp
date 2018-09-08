@@ -30,4 +30,4 @@ The following example shows how to use the Anisotropic Interpolator. The testing
 
 The data for this example is shown in the plot below.  The upper figure shows the original centerline, the interpolation points, and the points to be interpolated to (with the interpolation values that would result from a normal Inverse Distance Weighted interpolation).  The lower figure shows the same points transformed into the space where all points are relative to their distance along and from the centerline and with the interpolation values that result from the additional scaling in the x direction.
 
-![Anisotropic (scale = 0.5) vs IDW interpolation (power = 3 on both](anisotropic_interp.png)
+![Anisotropic (scale = 0.5) vs IDW interpolation (power = 3 on both)](anisotropic_interp.png)
