@@ -227,45 +227,76 @@ void TutInterpolationIntermediateTests::test_Example_Anisotropic()
   // You can access the actual transformed interpolation points as shown below.
   // This isn't necessary for the interpolation, but is useful if you want
   // plot and visualize the transformation.
-  xms::VecPt3d snPoints = interpolator->GetInterpolationPts();
-  xms::VecPt3d expectedSnPoints = {{0, 10, 100},
-                                   {0, -10, 100},
-                                   {10, 10, 90},
-                                   {20, 14.142135623730951, 90},
-                                   {10, 5, 60},
-                                   {10, 0, 50},
-                                   {10, -5, 70},
-                                   {10, -10, 90},
-                                   {20, 20, 80},
-                                   {34.142135623730951, 14.142135623730951, 80},
-                                   {34.142135623730951, 0, 40},
-                                   {34.142135623730951, -14.142135623730951, 80},
-                                   {48.284271247461902, -20, 80},
-                                   {48.284271247461902, 0, 30},
-                                   {48.284271247461902, 0, 30},
-                                   {44.748737341529164, -10.606601717798213, 70},
-                                   {53.284271247461902, -10, 70},
-                                   {68.284271247461902, 10, 50},
-                                   {68.284271247461902, -10, 50}};
-  TS_ASSERT_DELTA_VECPT3D(expectedSnPoints, snPoints, 1.0e-5);
+  xms::VecPt3d snPoints;
+  interpolator->GetInterpolationPts(snPoints);
+  // clang-format off
+  xms::VecPt3d expectedSnPoints = {
+    // cross-section 1
+    {0, 10, 100}, // 0
+    {0, -10, 100}, // 1
+    // cross-section 2
+    {5, 10, 90}, // 2
+    {10, 14.142, 90}, // 2
+    {5, 5, 60}, // 3
+    {5, 0, 50}, // 4
+    {5, -5, 70}, // 5
+    {5, -10, 90}, // 6
+    // cross-section 3
+    {10, 20, 80}, // 7
+    {17.071, 14.142, 80}, // 7
+    {17.071, 0, 40}, // 8
+    {17.071, -14.142, 80}, // 9
+    {24.142, -20, 80}, // 9
+    // cross-section 4
+    {24.142, 22.361, 70}, // 10
+    {24.142, 11.180, 50}, // 11
+    {24.142, 0, 30}, // 12
+    {24.142, 0, 30}, // 12
+    {22.374, -10.607, 70}, // 13
+    {26.642, -10, 70}, // 13
+    // cross-section 5
+    {34.142, 10, 50}, // 14
+    {34.142, -10, 50} // 15
+  };
+  TS_ASSERT_DELTA_VECPT3D(expectedSnPoints, snPoints, 0.01);
   // interpolate to a location and verify the value.
   xms::Pt3d loc(20, 5, 0);
   float val = interpolator->InterpToPt(loc);
-  float base(59.6748428f);
-  TS_ASSERT_EQUALS(base, val);
+  float base(59.5313f);
+  TS_ASSERT_DELTA(base, val, 0.001);
 
   // interpolate to several locations and verify the values.  Note that the
   // last two points are beyond the range of the centerline; hence, they
   // generate no data (XM_NODATA) interpolation values.
-  xms::VecPt3d interpToPoints = {{5, 5, 0},   {5, 0, 0},   {5, -5, 0},  {20, 5, 0},  {20, 0, 0},
-                                 {20, -5, 0}, {10, 20, 0}, {30, -5, 0}, {30, 30, 0}, {35, 20, 0},
-                                 {45, 25, 0}, {45, 15, 0}, {65, 20, 0}, {-5, 0, 0}};
+  xms::VecPt3d interpToPoints = {
+    {5, 5, 0},   {5, 0, 0},   {5, -5, 0},
+    {20, 5, 0},
+    {20, 0, 0},
+    {20, -5, 0}, {10, 20, 0}, {30, -5, 0}, {30, 30, 0},
+    {35, 20, 0}, {45, 25, 0}, {45, 15, 0},
+    {65, 20, 0}, {-5, 0, 0}};
+
+  // The transformed values of interpolated to points can be retrieved by
+  // using GetTransformedPts. The transformed points could be used for
+  // plotting or using another interpolation method.
+  xms::VecPt3d snInterpToPoints;
+  interpolator->GetTransformedPts(interpToPoints, false, snInterpToPoints);
+  xms::VecPt3d expectedSnInterpToPoints = {
+    {2.5, 5, 0}, {2.5, 0, 0},  {2.5, -5, 0}, // points 0, 1, 2
+    {10, 5, 0},  {11.768, 3.536, 0},  // point 3 is transformed to 2 stations
+    {10, 0, 0},  {10, 0, 0}, // point 4 is transformed to segment 0 { param 1 } and segment 1 { param 0 }
+    {10, -5, 0}, {5, 20, 0}, {13.536, 21.213, 0}, {11.768, -10.607, 0}, // points 5, 6, 7
+    {24.142, 14.142, 0}, {22.374, 3.536, 0}, {26.642, 5, 0}, // points 8, 9, 10
+    {24.142, -7.071, 0},  {26.642, -5, 0}}; // point 11 is transformed to 2 stations
+  // clang-format on
+  TS_ASSERT_DELTA_VECPT3D(expectedSnInterpToPoints, snInterpToPoints, 0.001);
+
   xms::VecFlt interpValues;
   interpolator->InterpToPts(interpToPoints, interpValues);
-  xms::VecFlt expectedInterpVaues = {64.6262054f, 54.3874435f, 71.9839401f, 59.6748428f, 58.5074615f,
-                                     68.1821671f, 82.0689926f, 76.1728363f, 68.2609558f, 34.5210495f,
-                                     38.0537987f, 50.8108978f, (float)XM_NODATA,  (float)XM_NODATA};
-  TS_ASSERT_DELTA_VEC(expectedInterpVaues, interpValues, 1.0e-4);
+  xms::VecFlt expectedInterpVaues = {64.614f,  54.390f, 71.970f,          59.531f,         58.468f,
+                                     68.0917f, 81.688f, 76.032f,          53.130f,         35.413f,
+                                     40.457f,  50.839f, (float)XM_NODATA, (float)XM_NODATA};
+  TS_ASSERT_DELTA_VEC(expectedInterpVaues, interpValues, 0.01);
 
 } // TutInterpolationIntermediateTests::test_Example_Anisotropic
 //! [snip_test_Example_Anisotropic]

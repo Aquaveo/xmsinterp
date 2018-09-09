@@ -69,9 +69,15 @@ public:
   /// \param[out] a_result The interpolated values (one for each of a_pts).
   virtual void InterpToPts(const VecPt3d& a_pts, VecFlt& a_result) override;
 
-  /// \brief Get the interpolation points transformed into (s,n,z) space.
-  /// \return The transformed interpolation points (passed to SetPoints)..
-  virtual const VecPt3d& GetInterpolationPts() override;
+  /// \brief Get the interpolation points transformed into (s,n,z) space and scaled.
+  /// \param[out] a_interpPoints The transformed and scaled interpolation points (passed to SetPoints).
+  virtual void GetInterpolationPts(VecPt3d& a_interpPoints) override;
+  
+  /// \brief Transform points into (s,n,z) space and then scale.
+  /// \param[in] a_points The points to transform into (s,n,z) space.
+  /// \param[in] a_pickClosest Pick only the transform point closest to the centerline.
+  /// \param[out] a_transformed The points transformed into (s,n,z) space.
+  virtual void GetTransformedPts(const VecPt3d& a_points, bool a_pickClosest, VecPt3d& a_transformed) override;
 
   // various IDW options
   /// \brief Set the exponent to use on the inverse distance weighting (defaults to 2).
@@ -180,13 +186,39 @@ void InterpAnisotropicImpl::InterpToPts(const VecPt3d& a_pts, VecFlt& a_result)
   }
 } // InterpAnisotropicImpl::InterpToPts
 //------------------------------------------------------------------------------
-/// \brief Get the transformed version of the points to interpolate from.
-/// \return The transformed points.
+/// \brief Get the interpolation points transformed into (s,n,z) space and scaled.
+/// \param[out] a_interpPoints The transformed and scaled interpolation points (passed to SetPoints).
 //------------------------------------------------------------------------------
-const VecPt3d& InterpAnisotropicImpl::GetInterpolationPts()
+void InterpAnisotropicImpl::GetInterpolationPts(VecPt3d& a_interpPoints)
 {
-  return m_anisoInterp.GetInterpolationPoints();
+  a_interpPoints = m_anisoInterp.GetInterpolationPoints();
+  if (m_xScale != 1.0)
+  {
+    for (auto & pt : a_interpPoints)
+    {
+      pt.x *= m_xScale;
+    }
+  }
 } // InterpAnisotropicImpl::GetInterpolationPts
+//------------------------------------------------------------------------------
+/// \brief Transform points into (s,n,z) space and then scale.
+/// \param[in] a_points The points to transform into (s,n,z) space.
+/// \param[in] a_pickClosest True to pick only the closest transformed point.
+/// \param[out] a_transformed The points transformed into (s,n,z) space.
+//------------------------------------------------------------------------------
+void InterpAnisotropicImpl::GetTransformedPts(const VecPt3d& a_points, bool a_pickClosest, VecPt3d& a_transformed)
+{
+  a_transformed.clear();
+  a_transformed.reserve(a_points.size());
+  for (auto & pt : a_points)
+  {
+    VecPt3d transformed = m_anisoInterp.TransformPoint(pt, a_pickClosest);
+    for (auto & xfmd : transformed) {
+      xfmd.x *= m_xScale;
+      a_transformed.push_back(xfmd);
+    }
+  }
+} // InterpAnisotropicImpl::GetTransformedPts
 //------------------------------------------------------------------------------
 /// \brief Sets the exponent for the interpolation. By default the class does
 /// inverse distance squared weighting but the exponent can be changed to any
@@ -531,7 +563,8 @@ void InterpAnisotropicUnitTests::testComplex()
   BSHP<InterpAnisotropic> interpolator = InterpAnisotropic::New();
   bool pickClosest = true;
   interpolator->SetPoints(centerline, crossSections, pickClosest);
-  VecPt3d snPoints = interpolator->GetInterpolationPts();
+  VecPt3d snPoints;
+  interpolator->GetInterpolationPts(snPoints);
   VecPt3d expectedSnPoints = {{7.861695483191204, -0.9931736833190422, 1.0},
                               {7.8602657756205705, -0.9431941281363231, 1.0},
                               {7.858836068049938, -0.8932145729536034, 1.0},
