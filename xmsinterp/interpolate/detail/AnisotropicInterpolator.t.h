@@ -31,7 +31,7 @@ class AnisotropicInterpolatorUnitTests : public CxxTest::TestSuite
 public:
   void testSimple();
   void testCrossSectionThroughPoint();
-  void testComplex();
+  void testAmbiguity();
 };
 //----- Function prototypes ----------------------------------------------------
 

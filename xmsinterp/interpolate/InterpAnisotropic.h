@@ -42,7 +42,8 @@ public:
                          bool a_pickClosest = false) = 0;
   virtual float InterpToPt(const Pt3d& a_pt) = 0;
   virtual void InterpToPts(const VecPt3d& a_pts, VecFlt& a_result) = 0;
-  virtual const VecPt3d& GetInterpolationPts() = 0;
+  virtual void GetInterpolationPts(VecPt3d& a_interpPoints) = 0;
+  virtual void GetTransformedPts(const VecPt3d& a_points, bool a_pickClosest, VecPt3d& a_transformed) = 0;
 
   // various IDW options
   virtual void SetPower(double a_power) = 0;

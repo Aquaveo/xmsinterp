@@ -85,10 +85,10 @@ typedef std::vector<SNResult> VecSNResult;
 /// that intersection. The z value remains unchanged. Note that a point can
 /// project onto multiple centerline segments. An option allows from using
 /// only the transformation of each point with the smallest n. Points to
-/// interpolate "to" will be transformed the same way.  Then an
-/// inverse distance wighting (raised to a power) from
-/// the interpolation points will be used to compute the interpolated z value.
-/// This is an internal implementation class used by InterpAnisotropic.
+/// interpolate "to" will be transformed the same way.  Then an inverse distance
+/// weighting (raised to a power) from the interpolation points will be used to
+/// compute the interpolated z value. This is an internal implementation class
+/// used by InterpAnisotropic.
 class AnisotropicInterpolator
 {
 public:
@@ -132,7 +132,7 @@ public:
 
   void GetNormalPointParameter(size_t a_segmentIndex,
                                const Pt3d& a_p,
-                               double a_lastParam,
+                               double& a_lastParam,
                                VecSNResult& a_results) const;
 
   void GetAllNormalPointParameters(const Pt3d& a_p, VecSNResult& a_results);
