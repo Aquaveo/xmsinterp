@@ -16,6 +16,7 @@ namespace py = pybind11;
 //----- Function declarations --------------------------------------------------
 void initInterpolate(py::module &);
 
+void initInterpAnisotropic(py::module &);
 void initInterpLinear(py::module &);
 void initInterpIdw(py::module &);
 void initInterpBase(py::module &);

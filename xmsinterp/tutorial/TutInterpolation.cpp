@@ -293,10 +293,10 @@ void TutInterpolationIntermediateTests::test_Example_Anisotropic()
 
   xms::VecFlt interpValues;
   interpolator->InterpToPts(interpToPoints, interpValues);
-  xms::VecFlt expectedInterpVaues = {64.614f,  54.390f, 71.970f,          59.531f,         58.468f,
-                                     68.0917f, 81.688f, 76.032f,          53.130f,         35.413f,
-                                     40.457f,  50.839f, (float)XM_NODATA, (float)XM_NODATA};
-  TS_ASSERT_DELTA_VEC(expectedInterpVaues, interpValues, 0.01);
+  xms::VecFlt expectedInterpValues = {64.614f,  54.390f, 71.970f,          59.531f,         58.468f,
+                                      68.0917f, 81.688f, 76.032f,          53.130f,         35.413f,
+                                      40.457f,  50.839f, (float)XM_NODATA, (float)XM_NODATA};
+  TS_ASSERT_DELTA_VEC(expectedInterpValues, interpValues, 0.01);
 
 } // TutInterpolationIntermediateTests::test_Example_Anisotropic
 //! [snip_test_Example_Anisotropic]
