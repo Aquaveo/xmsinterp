@@ -83,7 +83,7 @@ public:
   /// \brief Set the exponent to use on the inverse distance weighting (defaults to 2).
   /// \param[in] a_power The exponent to use.
   virtual void SetPower(double a_power) override;
-  /// \brief Set the scale factor to apply to transformed x (s) coordinates
+  /// \brief Set the scale factor to apply to transformed x (s) coordinates.
   ///        before computing the inverse distance weighting.
   /// \param[in] a_xScale The x scale factor to use.
   virtual void SetXScale(double a_xScale) override;

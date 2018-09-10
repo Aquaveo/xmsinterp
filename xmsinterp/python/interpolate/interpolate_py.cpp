@@ -16,6 +16,7 @@ namespace py = pybind11;
 //----- Python Interface -------------------------------------------------------
 
 void initInterpolate(py::module &m) {
+    initInterpAnisotropic(m);
     initInterpBase(m);
     initInterpLinear(m);
     initInterpIdw(m);
