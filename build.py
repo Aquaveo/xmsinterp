@@ -10,13 +10,14 @@ if __name__ == "__main__":
     builder.add_common_builds()
 
     # Add environment variables to build definitions
-    xms_version = os.environ.get('XMS_VERSION', None)
+    XMS_VERSION = os.environ.get('XMS_VERSION', None)
     python_target_version = os.environ.get('PYTHON_TARGET_VERSION', "3.6")
 
     for settings, options, env_vars, build_requires, reference in builder.items:
         # General Options
         env_vars.update({
-            'XMS_VERSION': xms_version,
+            'XMS_VERSION': XMS_VERSION,
+            'VERBOSE': 1,
             'PYTHON_TARGET_VERSION': python_target_version
         })
 
