@@ -120,17 +120,19 @@ set(xmsinterp_headers
 set(xmsinterp_py
   xmsinterp/python/xmsinterp_py.cpp
   # Interpolate
-  xmsinterp/python/interpolate/interpolate_py.h
   xmsinterp/python/interpolate/interpolate_py.cpp
   xmsinterp/python/interpolate/InterpAnisotropic_py.cpp
   xmsinterp/python/interpolate/InterpBase_py.cpp
   xmsinterp/python/interpolate/InterpIdw_py.cpp
   xmsinterp/python/interpolate/InterpLinear_py.cpp
   # Triangulate
-  xmsinterp/python/triangulate/triangulate_py.h
   xmsinterp/python/triangulate/triangulate_py.cpp
   xmsinterp/python/triangulate/TrTin_py.cpp
   xmsinterp/python/triangulate/TrTriangulatorPoints_py.cpp
+)
+set(xmsinterp_py_headers
+  xmsinterp/python/triangulate/triangulate_py.h
+  xmsinterp/python/interpolate/interpolate_py.h
 )
 
 # Tests
@@ -221,12 +223,12 @@ if(IS_PYTHON_BUILD)
     endif()
 
     pybind11_add_module(xmsinterp_py
-      ${xmsinterp_py} 
+      ${xmsinterp_py} ${xmsinterp_py_headers}
     )
     target_include_directories(xmsinterp_py
         PRIVATE
 	  ${EXT_LIBS}
-          ${PYTHON_INCLUDE_DIRS}
+          PYTHON_INCLUDE_DIRS
     )
     target_link_libraries(xmsinterp_py
       PRIVATE
@@ -256,7 +258,7 @@ install(
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
 )
-foreach (header IN LISTS xmsinterp_headers)
+foreach (header IN LISTS xmsinterp_headers xmsinterp_py_headers)
   get_filename_component(subdir "${header}" DIRECTORY)
   install(
     FILES "${header}"
