@@ -26,13 +26,11 @@ var searchData=
   ['ptswithindistancetoptinrtree',['PtsWithinDistanceToPtInRtree',['../classxms_1_1_gm_pt_search_impl.html#a965dd3692fa215d527027e19544bdfe9',1,'xms::GmPtSearchImpl']]],
   ['pttruncate',['ptTruncate',['https://aquaveo.github.io/xmscore/namespacexms.html#afda18734bb330566478b7c50e405e597',1,'xms::ptTruncate(Pt2&lt; _T &gt; const &amp;a_in)'],['https://aquaveo.github.io/xmscore/namespacexms.html#a15e2575a62d327a99473f9365ebeadf7',1,'xms::ptTruncate(Pt3&lt; _T &gt; const &amp;a_in)'],['https://aquaveo.github.io/xmscore/namespacexms.html#ab0369aa2588f1c303b03b0319190562c',1,'xms::ptTruncate(Pt4&lt; _T &gt; const &amp;a_in)']]],
   ['pyiterfromdynamicbitset',['PyIterFromDynamicBitset',['https://aquaveo.github.io/xmscore/namespacexms.html#a598b964e4faeea76790729781310ef21',1,'xms']]],
-  ['pyiterfromintpair',['PyIterFromIntPair',['https://aquaveo.github.io/xmscore/namespacexms.html#abb18038767a6eef784fe157b79ab5bd3',1,'xms']]],
   ['pyiterfrompt3d',['PyIterFromPt3d',['https://aquaveo.github.io/xmscore/namespacexms.html#a8d24b1f36c9883e275f3d151f757bcf8',1,'xms']]],
   ['pyiterfromvecdbl',['PyIterFromVecDbl',['https://aquaveo.github.io/xmscore/namespacexms.html#a4f49d28bec256c7554c7546ff58df20a',1,'xms']]],
   ['pyiterfromvecflt',['PyIterFromVecFlt',['https://aquaveo.github.io/xmscore/namespacexms.html#a7b285c38273bed1a3d6f3af5d3cbf357',1,'xms']]],
   ['pyiterfromvecint',['PyIterFromVecInt',['https://aquaveo.github.io/xmscore/namespacexms.html#a916a7b311cc18c5c1c9720be157b3d0b',1,'xms']]],
   ['pyiterfromvecint2d',['PyIterFromVecInt2d',['https://aquaveo.github.io/xmscore/namespacexms.html#a0a1a01df38749fc3086ebfc93d8598da',1,'xms']]],
-  ['pyiterfromvecintpair',['PyIterFromVecIntPair',['https://aquaveo.github.io/xmscore/namespacexms.html#a90078769bd51c076d22a3911983acaf6',1,'xms']]],
   ['pyiterfromvecpt3d',['PyIterFromVecPt3d',['https://aquaveo.github.io/xmscore/namespacexms.html#a8e892242a41a91506ce59befc5ca2f84',1,'xms']]],
   ['pyiterfromvecpt3d2d',['PyIterFromVecPt3d2d',['https://aquaveo.github.io/xmscore/namespacexms.html#a3e5f96042bb96b842510d6199ce14b25',1,'xms']]]
 ];

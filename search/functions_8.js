@@ -23,7 +23,6 @@ var searchData=
   ['intersectionstopolyidsandtvalues',['IntersectionsToPolyIdsAndTValues',['../classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#a904706c1ee869b84f2a68e80e8a393d2',1,'xms::GmMultiPolyIntersectionSorterTerse']]],
   ['intersectionstopolyidsandtvaluesfor2',['IntersectionsToPolyIdsAndTValuesFor2',['../classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#ae7220e80be3c9bc2a559a118eb582274',1,'xms::GmMultiPolyIntersectionSorterTerse']]],
   ['intersectionstopolyidsandtvaluesfor3ormore',['IntersectionsToPolyIdsAndTValuesFor3OrMore',['../classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#a0ea1f8edb3c145e97e91f102ca763d7f',1,'xms::GmMultiPolyIntersectionSorterTerse']]],
-  ['intpairfrompyiter',['IntPairFromPyIter',['https://aquaveo.github.io/xmscore/namespacexms.html#ad1c4eab1d9f098f293e8205a2c372788',1,'xms']]],
   ['is2d',['Is2D',['../classxms_1_1_gm_pt_search_impl.html#a106b0a5f562d15608e27969a8fed1f5b',1,'xms::GmPtSearchImpl']]],
   ['isetuppts',['iSetupPts',['../_gm_pt_search_8cpp.html#a5a1426a86969ec4ea6e1ebb3bddf6809',1,'GmPtSearch.cpp']]],
   ['isetupptsoctant',['iSetupPtsOctant',['../_gm_pt_search_8cpp.html#a5a5d4b2dca9706e51c1c427ce4f8d058',1,'GmPtSearch.cpp']]],
