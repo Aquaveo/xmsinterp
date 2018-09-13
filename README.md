@@ -13,24 +13,7 @@ In order to build this library, you must first have a few things installed.
 
 Building
 --------
-Once you have cloned the repository, navigate to the `build` directory. All
-of the following commands will be run from that directory unless otherwise 
-noted.
-
-1. Get External Libraries
-```
-    conan install .. 
-``` 
-
-2. Configure CMake
-```
-    cmake ..
-```
-
-3. Build 
-```
-    make
-```
+See xmscore build [instructions](https://github.com/Aquaveo/xmscore/wiki/Building-Libraries).
 
 Documentation
 -------------
