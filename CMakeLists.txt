@@ -251,6 +251,14 @@ if(IS_PYTHON_BUILD)
 
 endif()
 
+# Disable Optimization for GCC6 for now... Report issue to gcc and pybind
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" AND IS_PYTHON_BUILD)
+  if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL 6 AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 7)
+    Message("Disabling Optimization for GCC 6...")
+    STRING(REPLACE "-O3" "" CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE})
+    STRING(REPLACE "-O3" "" CMAKE_C_FLAGS_RELEASE ${CMAKE_C_FLAGS_RELEASE})
+  endif()
+endif()
 
 # Install recipe
 install(
