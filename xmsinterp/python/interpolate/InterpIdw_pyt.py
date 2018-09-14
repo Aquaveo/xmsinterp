@@ -93,25 +93,10 @@ class TestInterpIdw(unittest.TestCase):
     def test_set_pts_tris(self):
         """Set base points and tris"""
         interp = self.interp_idw_obj
-        # Test rejection of ints as args
-        with self.assertRaises(TypeError):
-            interp.set_pts_tris((1,), (1,))
-
-        # Test rejections of 2-tuples as args
-        with self.assertRaises(TypeError) as context:
-            interp.set_pts_tris((1, 2), (1, 2))
-        err = context.exception
-        self.assertEqual("First arg must be a n-tuple of 3-tuples", str(err))
-
-        # Test rejection of 2-tuples as sub-tuples of arg1
-        with self.assertRaises(TypeError) as context:
-            interp.set_pts_tris(((1, 2), (1, 2)), (1, 2))
-        err = context.exception
-        self.assertEqual("Input point should be a 3-tuple", str(err))
-
         # Test that the a proper call does not throw
         base_before = "1=2d 0=quadOctSearch 1=modifiedShepardWeights 16=nNearestPts 2=power " \
-                      "0=saveWeights 1=multiThread \n=pts \n=tris \n=scalarFrom \n=ptIdx \n=weights \n"
+                      "0=saveWeights 1=multiThread \n=pts \n=tris \n=scalarFrom \n=ptIdx "\
+                      "\n=weights \n"
         self.assertEqual(base_before, str(interp))
 
         interp.set_pts_tris(((1, 2, 3), (1, 2, 3)), (1, 2))
@@ -124,22 +109,6 @@ class TestInterpIdw(unittest.TestCase):
     def test_set_pts(self):
         """Set base points"""
         interp = self.interp_idw_obj
-        # Test rejection of ints as args
-        with self.assertRaises(TypeError):
-            interp.set_pts((1,), False)
-
-        # Test rejections of 2-tuples as args
-        with self.assertRaises(TypeError) as context:
-            interp.set_pts((1, 2), False)
-        err = context.exception
-        self.assertEqual("First arg must be a n-tuple of 3-tuples", str(err))
-
-        # Test rejection of 2-tuples as sub-tuples of arg1
-        with self.assertRaises(TypeError) as context:
-            interp.set_pts(((1, 2), (1, 2)), False)
-        err = context.exception
-        self.assertEqual("Input point should be a 3-tuple", str(err))
-
         # Test that the a proper call does not throw
         interp.set_pts(((1, 2, 3), (1, 2, 3)), False)
 
@@ -154,22 +123,6 @@ class TestInterpIdw(unittest.TestCase):
     def test_set_pts_2d(self):
         """Set base points"""
         interp = self.interp_idw_obj
-        # Test rejection of ints as args
-        with self.assertRaises(TypeError):
-            interp.set_pts((1,), True)
-
-        # Test rejections of 2-tuples as args
-        with self.assertRaises(TypeError) as context:
-            interp.set_pts((1, 2), True)
-        err = context.exception
-        self.assertEqual("First arg must be a n-tuple of 3-tuples", str(err))
-
-        # Test rejection of 2-tuples as sub-tuples of arg1
-        with self.assertRaises(TypeError) as context:
-            interp.set_pts(((1, 2), (1, 2)), True)
-        err = context.exception
-        self.assertEqual("Input point should be a 3-tuple", str(err))
-
         # Test that the a proper call does not throw
         interp.set_pts(((1, 2, 3), (1, 2, 3)), True)
 
@@ -184,55 +137,26 @@ class TestInterpIdw(unittest.TestCase):
     def test_interp_to_pt(self):
         """Interpolate to a specific point."""
         interp = self.interp_idw_obj
-
-        with self.assertRaises(TypeError):
-            interp.interp_to_pt()
-
-        with self.assertRaises(TypeError) as context:
-            interp.interp_to_pt((1, 2))
-        err = context.exception
-
-        self.assertEqual("Input point should be a 3-tuple", str(err))
         val = interp.interp_to_pt((1, 2, 3))
         self.assertEqual(0.0, val)
 
-    def test_intperp_to_pts(self):
+    def test_interp_to_pts(self):
         """Interpolate to multiple points"""
         interp = self.interp_idw_obj
-
-        with self.assertRaises(TypeError):
-            interp.interp_to_pts()
-
-        with self.assertRaises(TypeError) as context:
-            interp.interp_to_pts((1, 2))
-        err = context.exception
-
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
         interp.set_pts_tris(pts, tris)
-
-        self.assertEqual("First arg must be a n-tuple of 3-tuples", str(err))
         ret = interp.interp_to_pts(((2, 1, 0), (5, 10, 2.5)))
         self.assertIsInstance(ret, tuple)
         self.assertEqual((0.02681550197303295, 2.5), ret)
 
-    def test_intperp_to_pts_numpy(self):
+    def test_interp_to_pts_numpy(self):
         """Interpolate to multiple points"""
         import numpy as np
         interp = self.interp_idw_obj
-
-        with self.assertRaises(TypeError):
-            interp.interp_to_pts()
-
-        with self.assertRaises(TypeError) as context:
-            interp.interp_to_pts(np.array([1, 2]))
-        err = context.exception
-
         pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
         tris = np.array([0, 1, 3, 1, 2, 3])
         interp.set_pts_tris(pts, tris)
-
-        self.assertEqual("First arg must be a n-tuple of 3-tuples", str(err))
         ret = interp.interp_to_pts(np.array([(2, 1, 0), (5, 10, 2.5)]))
         self.assertIsInstance(ret, np.ndarray)
         np.testing.assert_array_equal(np.array([0.02681550197303295, 2.5]), ret)
@@ -514,7 +438,8 @@ class TestInterpIdw(unittest.TestCase):
         self.assertEqual(base_grad_plane, str(interp))
 
         interp.set_nodal_function(nodal_func_enum.QUADRATIC, 11, True, observer)
-        base_q = "1=2d 0=quadOctSearch 1=modifiedShepardWeights 16=nNearestPts 2=power 0=saveWeights 1=multiThread \n" \
+        base_q = "1=2d 0=quadOctSearch 1=modifiedShepardWeights " \
+                 "16=nNearestPts 2=power 0=saveWeights 1=multiThread \n" \
                  "1=2dSearch -1,-1,-1=min 11,11,4=max \n" \
                  "=activity \n" \
                  "0,0,0 10,0,1 10,10,2 0,10,3=bshpPt3d \n" \
@@ -522,7 +447,8 @@ class TestInterpIdw(unittest.TestCase):
                  "0,0,0 10,0,1 10,10,2 0,10,3=pts \n" \
                  "0 1 3 1 2 3=tris \n" \
                  "0 1 2 3=scalarFrom \n" \
-                 "1=2d 2=type 11=nNearest 1=quadOct 2=power 1=modifiedShepardWeights 1=errorReport 0=debugTest \n" \
+                 "1=2d 2=type 11=nNearest 1=quadOct 2=power " \
+                 "1=modifiedShepardWeights 1=errorReport 0=debugTest \n" \
                  "0,0,0 10,0,1 10,10,2 0,10,3=pts \n" \
                  "0 1 2 3=scalar \n" \
                  "=gradient \n" \
@@ -573,7 +499,8 @@ class TestInterpIdw(unittest.TestCase):
 
         idxs, wts = interp.interp_weights((-10, -10, -10))
         np.testing.assert_array_equal(np.array([0, 1, 2, 3], np.int32), idxs)
-        np.testing.assert_array_almost_equal(np.array([0.876919, 0.06154, 0.0, 0.06154]), wts, decimal=5)
+        np.testing.assert_array_almost_equal(np.array([0.876919, 0.06154, 
+                                             0.0, 0.06154]), wts, decimal=5)
 
     def test_set_multi_threading(self):
         """Setting multi threading"""

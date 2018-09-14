@@ -18,7 +18,7 @@ class TestTrTin(unittest.TestCase):
         self.tris_adj_np = np.array([[0], [0, 1, 2], [1], [0, 2], [1, 2]])
 
     def test_to_string(self):
-        base = "22 serialization::archive 15 1 0\n0 0 0 0 0 0 0 0 0 0 0 0 0\n"
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 0 0 0 0 0 0 0 0\n"
         self.assertEqual(base, str(self.trTin))
 
     def test_set_pts(self):
@@ -26,7 +26,7 @@ class TestTrTin(unittest.TestCase):
         pts = self.pts
         trtin.set_points(pts)
 
-        base = "22 serialization::archive 15 1 0\n0 0 0 0 0 5 0 0 0 0.00000000000000000e+00 " \
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 5 0 0 0 0.00000000000000000e+00 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 1.00000000000000000e+01 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 2.00000000000000000e+01 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 5.00000000000000000e+00 " \
@@ -39,7 +39,7 @@ class TestTrTin(unittest.TestCase):
         pts = self.pts_np
         trtin.set_points(pts)
 
-        base = "22 serialization::archive 15 1 0\n0 0 0 0 0 5 0 0 0 0.00000000000000000e+00 " \
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 5 0 0 0 0.00000000000000000e+00 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 1.00000000000000000e+01 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 2.00000000000000000e+01 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 5.00000000000000000e+00 " \
@@ -52,7 +52,7 @@ class TestTrTin(unittest.TestCase):
         tris = self.tris
         trtin.set_triangles(tris)
 
-        base = "22 serialization::archive 15 1 0\n0 0 0 0 0 0 0 9 0 3 0 1 1 2 4 1 4 3 0 0 0 0\n"
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 0 0 9 0 3 0 1 1 2 4 1 4 3 0 0 0 0\n"
         self.assertEqual(base, str(trtin))
 
     def test_set_tris_numpy(self):
@@ -60,7 +60,7 @@ class TestTrTin(unittest.TestCase):
         tris = self.tris_np
         trtin.set_triangles(tris)
 
-        base = "22 serialization::archive 15 1 0\n0 0 0 0 0 0 0 9 0 3 0 1 1 2 4 1 4 3 0 0 0 0\n"
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 0 0 9 0 3 0 1 1 2 4 1 4 3 0 0 0 0\n"
         self.assertEqual(base, str(trtin))
 
     def test_set_tris_adj(self):
@@ -68,7 +68,7 @@ class TestTrTin(unittest.TestCase):
         tris_adj = self.tris_adj
         trtin.set_triangles_adjacent_to_points(tris_adj)
 
-        base = "22 serialization::archive 15 1 0\n0 0 0 0 0 0 0 0 0 0 0 5 0 1 0 0 3 0 0 1 " \
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 0 0 0 0 0 0 5 0 1 0 0 3 0 0 1 " \
                "2 1 0 1 2 0 0 2 2 0 1 2\n"
         self.assertEqual(base, str(trtin))
 
@@ -77,7 +77,7 @@ class TestTrTin(unittest.TestCase):
         tris_adj = self.tris_adj_np
         trtin.set_triangles_adjacent_to_points(tris_adj)
 
-        base = "22 serialization::archive 15 1 0\n0 0 0 0 0 0 0 0 0 0 0 5 0 1 0 0 3 0 0 1 " \
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 0 0 0 0 0 0 5 0 1 0 0 3 0 0 1 " \
                "2 1 0 1 2 0 0 2 2 0 1 2\n"
         self.assertEqual(base, str(trtin))
 
@@ -88,7 +88,7 @@ class TestTrTin(unittest.TestCase):
         tris_adj = self.tris_adj
         trtin.set_geometry(pts, tris, tris_adj)
 
-        base = "22 serialization::archive 15 1 0\n0 0 0 0 0 5 0 0 0 0.00000000000000000e+00 " \
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 5 0 0 0 0.00000000000000000e+00 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 1.00000000000000000e+01 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 2.00000000000000000e+01 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 5.00000000000000000e+00 " \
@@ -104,7 +104,7 @@ class TestTrTin(unittest.TestCase):
         tris_adj = self.tris_adj_np
         trtin.set_geometry(pts, tris, tris_adj)
 
-        base = "22 serialization::archive 15 1 0\n0 0 0 0 0 5 0 0 0 0.00000000000000000e+00 " \
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 5 0 0 0 0.00000000000000000e+00 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 1.00000000000000000e+01 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 2.00000000000000000e+01 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 5.00000000000000000e+00 " \
@@ -351,7 +351,7 @@ class TestTrTin(unittest.TestCase):
     def test_from_string(self):
         trtin = xt.TrTin()
 
-        inpt = "22 serialization::archive 15 1 0\n0 0 0 0 0 5 0 0 0 0.00000000000000000e+00 " \
+        inpt = "22 serialization::archive 16 1 0\n0 0 0 0 0 5 0 0 0 0.00000000000000000e+00 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 1.00000000000000000e+01 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 2.00000000000000000e+01 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 5.00000000000000000e+00 " \
