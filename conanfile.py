@@ -89,7 +89,7 @@ class XmsinterpConan(ConanFile):
                 print("***********(0.0)*************")
         elif self.options.pybind:
             with tools.pythonpath(self):
-                self.run('pip install numpy')
+                self.run('pip install --user numpy')
                 self.run('python -m unittest discover -v -p *_pyt.py -s ../xmsinterp/python', cwd="./lib")
 
 
