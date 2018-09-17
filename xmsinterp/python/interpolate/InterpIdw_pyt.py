@@ -17,7 +17,7 @@ class MockObserver(xmscore_py.misc.Observer):
             'elapsed_seconds': None,
             'obs_id': obs_id
         }
-        super().__init__()
+        super(MockObserver, self).__init__()
 
     def __str__(self):
         return str(self.status)
