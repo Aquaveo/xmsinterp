@@ -227,8 +227,8 @@ if(IS_PYTHON_BUILD)
     )
     target_include_directories(xmsinterp_py
         PRIVATE
-	  ${EXT_LIBS}
-          PYTHON_INCLUDE_DIRS
+	        ${EXT_LIBS}
+          ${PYTHON_INCLUDE_DIRS}
     )
     target_link_libraries(xmsinterp_py
       PRIVATE
