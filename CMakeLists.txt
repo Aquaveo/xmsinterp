@@ -119,6 +119,9 @@ set(xmsinterp_headers
 # Pybind11 sources
 set(xmsinterp_py
   xmsinterp/python/xmsinterp_py.cpp
+  # Geometry
+  xmsinterp/python/geometry/geometry_py.cpp
+  xmsinterp/python/geometry/GmTriSearch_py.cpp
   # Interpolate
   xmsinterp/python/interpolate/interpolate_py.cpp
   xmsinterp/python/interpolate/InterpAnisotropic_py.cpp
@@ -131,6 +134,7 @@ set(xmsinterp_py
   xmsinterp/python/triangulate/TrTriangulatorPoints_py.cpp
 )
 set(xmsinterp_py_headers
+  xmsinterp/python/geometry/geometry_py.h
   xmsinterp/python/triangulate/triangulate_py.h
   xmsinterp/python/interpolate/interpolate_py.h
 )
