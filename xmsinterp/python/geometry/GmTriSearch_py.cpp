@@ -63,6 +63,23 @@ void initGmTriSearch(py::module &m) {
   //},
   //  pt_activity_doc);
   // ---------------------------------------------------------------------------
+  // function: set_pt_activity
+  // ---------------------------------------------------------------------------
+  const char* set_pt_activity_doc = R"pydoc(
+        Modifies the activity bitset of the points
+
+        Args:
+            activity (iterable):  bitset of the activity of the points
+    )pydoc";
+
+  iGmTriSearch.def("set_pt_activity",
+    [](xms::GmTriSearch &self, py::iterable activity)
+  {
+    xms::DynBitset bs = xms::DynamicBitsetFromPyIter(activity);
+    self.SetPtActivity(bs);
+  },
+    set_pt_activity_doc, py::arg("activity"));
+  // ---------------------------------------------------------------------------
   // function: set_tri_activity
   // ---------------------------------------------------------------------------
   const char* set_tri_activity_doc = R"pydoc(
@@ -198,7 +215,7 @@ void initGmTriSearch(py::module &m) {
 
     )pydoc";
 
-  iGmTriSearch.def("interp_weights",
+  iGmTriSearch.def("interp_weights_triangle_idx",
     [](xms::GmTriSearch &self, py::iterable pt) -> py::iterable
   {
     xms::Pt3d p = xms::Pt3dFromPyIter(pt);
