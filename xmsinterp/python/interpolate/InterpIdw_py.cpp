@@ -36,8 +36,8 @@ void initInterpIdw(py::module &m) {
         Sets the points that will be used to do the interpolation.
 
         Args:
-            vec_pts (iterable):  array of the point locations
-            vec_tris (iterable): triangles
+            pts (iterable):  array of the point locations
+            tris (iterable): triangles
     )pydoc";
 
     iIdw.def("set_pts_tris", [](xms::InterpIdw &self, py::iterable pts, 
@@ -45,7 +45,7 @@ void initInterpIdw(py::module &m) {
               BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
               BSHP<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
               self.SetPtsTris(vec_pts, vec_tris);
-          },set_pts_tris_doc,py::arg("vec_pts"),py::arg("vec_tris"));
+          },set_pts_tris_doc,py::arg("pts"),py::arg("tris"));
   // ---------------------------------------------------------------------------
   // function: set_pts
   // ---------------------------------------------------------------------------
