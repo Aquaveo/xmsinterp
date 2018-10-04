@@ -8,6 +8,7 @@
 
 //----- Included files ---------------------------------------------------------
 #include <pybind11/pybind11.h>
+#include <xmsinterp/python/geometry/geometry_py.h>
 #include <xmsinterp/python/interpolate/interpolate_py.h>
 #include <xmsinterp/python/triangulate/triangulate_py.h>
 
@@ -34,4 +35,7 @@ PYBIND11_MODULE(xmsinterp_py, m) {
 
     py::module modTriangulate = m.def_submodule("triangulate");
     initTriangulate(modTriangulate);
+
+    py::module modGeometry = m.def_submodule("geometry");
+    initGeometry(modGeometry);
 }

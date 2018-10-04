@@ -51,3 +51,7 @@ Doxygen/html/*.html
 Doxygen/html/*.js
 Doxygen/html/*.png
 Doxygen/html/search
+
+# Build Folders
+build
+pybuild
