@@ -308,7 +308,7 @@ void GmTriSearchImpl::CreateRTree()
     boost::counting_iterator<size_t>(0), boost::counting_iterator<size_t>(nTri), rtree, getter);
 } // GmTriSearchImpl::CreateRTree
 //------------------------------------------------------------------------------
-/// \brief Modifies the activity bitset of the class.
+/// \brief Modifies the activity bitset of the points.
 /// \param a_activity bitset of the activity of the points
 //------------------------------------------------------------------------------
 void GmTriSearchImpl::SetPtActivity(DynBitset& a_activity)
@@ -328,7 +328,7 @@ void GmTriSearchImpl::SetPtActivity(DynBitset& a_activity)
   }
 } // GmTriSearchImpl::SetPtActivity
 //------------------------------------------------------------------------------
-/// \brief Modifies the activity bitset of the class.
+/// \brief Modifies the activity bitset of the triangles.
 /// \param a_activity bitset of the activity of the points
 //------------------------------------------------------------------------------
 void GmTriSearchImpl::SetTriActivity(DynBitset& a_activity)
@@ -379,7 +379,7 @@ int GmTriSearchImpl::TriContainingPt(const Pt3d& a_pt)
   return FindTriangle(a_pt, ix, weights);
 } // GmTriSearchImpl::TriContainingPt
 //------------------------------------------------------------------------------
-/// \brief Find all triangle whose envelop contains the point.
+/// \brief Find all triangles whose envelope contains the point.
 /// \param a_pt Location used to find a triangle.
 /// \param a_tris The indices to triangles whose envelop contains the point
 //------------------------------------------------------------------------------
@@ -397,10 +397,12 @@ void GmTriSearchImpl::TriEnvelopsContainingPt(const Pt3d& a_pt, VecInt& a_tris)
   }
 } // GmTriSearchImpl::TriEnvelopsContainingPt
 //------------------------------------------------------------------------------
-/// \brief Find all triangle whose envelop contains the point.
+/// \brief Find all triangles whose envelope overlaps the envelope defined by
+/// a_pMin and a_pMax.
 /// \param a_pMin min x,y location of the box
 /// \param a_pMax max x,y location of the box
-/// \param a_tris The indices to triangles whose envelop contains the point
+/// \param a_tris The indices to triangles whose envelope intersects with the
+/// input envelope.
 //------------------------------------------------------------------------------
 void GmTriSearchImpl::TriEnvelopesOverlap(const Pt3d& a_pMin, const Pt3d& a_pMax, VecInt& a_tris)
 {
