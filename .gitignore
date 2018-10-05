@@ -28,6 +28,7 @@ test_package/build/
 *.so
 *.dylib
 *.dll
+*.pyd
 
 # Fortran module files
 *.mod
@@ -52,6 +53,9 @@ Doxygen/html/*.js
 Doxygen/html/*.png
 Doxygen/html/search
 
+# Sphinx
+pydocs/build
+
 # Build Folders
-build
-pybuild
+build/*
+pybuild/*
