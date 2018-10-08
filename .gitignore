@@ -10,6 +10,7 @@ test_package/build/
 *.swo
 .lvimrc
 .idea
+.vscode
 
 # Prerequisites
 *.d
