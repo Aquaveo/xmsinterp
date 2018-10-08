@@ -23,7 +23,7 @@ class XmsinterpConan(ConanFile):
 
     def configure(self):
         # Set verion dynamically using XMS_VERSION env variable.
-        self.version = self.env.get('XMS_VERSION', 'master')
+        self.version = self.env.get('XMS_VERSION', '99.99.99')
 
         # Raise ConanExceptions for Unsupported Versions
         s_os = self.settings.os
