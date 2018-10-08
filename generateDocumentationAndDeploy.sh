@@ -107,7 +107,7 @@ mkdir ./conan
 # get the conan package
 conan install -o xmsinterp:pybind=True -s compiler.version=6 -s compiler.libcxx=libstdc++11 -if ./conan -g txt xmsinterp/${TRAVIS_TAG}@aquaveo/stable 
 # get the path to the conan package
-export PATH_TO_PYTHON_PACKAGE=$(cat ./conan/conanbuildinfo.txt | grep PYTHONPATH.*xmsinterpmscore | sed -r 's/^PYTHONPATH=\["(.*?)"\]$/\1/')
+export PATH_TO_PYTHON_PACKAGE=$(cat ./conan/conanbuildinfo.txt | grep PYTHONPATH.*xmsinterp | sed -r 's/^PYTHONPATH=\["(.*?)"\]$/\1/')
 # copy package into build directory
 cp ${PATH_TO_PYTHON_PACKAGE}/* $(dirname $SPHINX_CONF)/
 ls ${PATH_TO_PYTHON_PACKAGE}
