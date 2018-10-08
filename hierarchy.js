@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "xms::AnisotropicInterpolator", "classxms_1_1_anisotropic_interpolator.html", null ],
     [ "xms::BarycentricVals", "structxms_1_1_barycentric_vals.html", null ],
     [ "xms::edgerecord", "structxms_1_1edgerecord.html", null ],
     [ "xms::fSatisfies", "classxms_1_1f_satisfies.html", null ],
@@ -31,6 +32,9 @@ var hierarchy =
     [ "xms::idx_pt", "classxms_1_1idx__pt.html", null ],
     [ "xms::idx_tri", "classxms_1_1idx__tri.html", null ],
     [ "xms::ThreadLoop::impl", "classxms_1_1_thread_loop_1_1impl.html", null ],
+    [ "xms::InterpAnisotropic", "classxms_1_1_interp_anisotropic.html", [
+      [ "xms::InterpAnisotropicImpl", "classxms_1_1_interp_anisotropic_impl.html", null ]
+    ] ],
     [ "xms::InterpBase", "classxms_1_1_interp_base.html", [
       [ "xms::InterpIdw", "classxms_1_1_interp_idw.html", [
         [ "xms::InterpIdwImpl", "classxms_1_1_interp_idw_impl.html", null ]
@@ -39,32 +43,21 @@ var hierarchy =
         [ "xms::InterpLinearImpl", "classxms_1_1_interp_linear_impl.html", null ]
       ] ]
     ] ],
-    [ "InterpBase", "class_interp_base.html", null ],
-    [ "InterpBase_", null, [
-      [ "PyInterpBase< InterpBase_ >", "class_py_interp_base.html", null ]
-    ] ],
     [ "xms::InterpCt", "classxms_1_1_interp_ct.html", null ],
     [ "xms::InterpNatNeigh", "classxms_1_1_interp_nat_neigh.html", [
       [ "xms::InterpNatNeighImpl", "classxms_1_1_interp_nat_neigh_impl.html", null ]
     ] ],
     [ "xms::InterpPtInfo", "structxms_1_1_interp_pt_info.html", null ],
     [ "xms::ix", "classxms_1_1ix.html", null ],
+    [ "xms::LineParameters", "structxms_1_1_line_parameters.html", null ],
     [ "xms::ThreadMgrImpl::myThread", "structxms_1_1_thread_mgr_impl_1_1my_thread.html", null ],
     [ "xms::nnOuterEdgeStruct", "structxms_1_1nn_outer_edge_struct.html", null ],
     [ "xms::NodalFunc", "classxms_1_1_nodal_func.html", [
       [ "xms::NodalFuncImpl", "classxms_1_1_nodal_func_impl.html", null ]
     ] ],
-    [ "Observer", null, [
-      [ "python.interpolate.InterpIdw_pyt.MockObserver", "classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_mock_observer.html", null ],
-      [ "python.interpolate.InterpLinear_pyt.MockObserver", "classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html", null ]
-    ] ],
-    [ "TestCase", null, [
-      [ "python.interpolate.InterpIdw_pyt.TestIdwEnums", "classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html", null ],
-      [ "python.interpolate.InterpIdw_pyt.TestInterpIdw", "classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html", null ],
-      [ "python.interpolate.InterpLinear_pyt.TestInterpLinear", "classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html", null ],
-      [ "python.triangulate.TrTin_pyt.TestTrTin", "classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html", null ]
-    ] ],
+    [ "xms::SNResult", "structxms_1_1_s_n_result.html", null ],
     [ "TestSuite", null, [
+      [ "AnisotropicInterpolatorUnitTests", "class_anisotropic_interpolator_unit_tests.html", null ],
       [ "GeomsXmsngIntermediateTests", "class_geoms_xmsng_intermediate_tests.html", null ],
       [ "GeomsXmsngUnitTests", "class_geoms_xmsng_unit_tests.html", null ],
       [ "GmExtents3dUnitTests", "class_gm_extents3d_unit_tests.html", null ],
@@ -73,6 +66,7 @@ var hierarchy =
       [ "GmPolygonIntermediateTests", "class_gm_polygon_intermediate_tests.html", null ],
       [ "GmPolygonUnitTests", "class_gm_polygon_unit_tests.html", null ],
       [ "GmPolyLinePtRedistributerUnitTests", "class_gm_poly_line_pt_redistributer_unit_tests.html", null ],
+      [ "InterpAnisotropicUnitTests", "class_interp_anisotropic_unit_tests.html", null ],
       [ "InterpIdwUnitTests", "class_interp_idw_unit_tests.html", null ],
       [ "InterpLinearUnitTests", "class_interp_linear_unit_tests.html", null ],
       [ "InterpNatNeighUnitTests", "class_interp_nat_neigh_unit_tests.html", null ],

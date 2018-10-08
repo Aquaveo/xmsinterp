@@ -2,7 +2,7 @@
 <tagfile>
   <compound kind="file">
     <name>geoms.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>geoms_8cpp</filename>
     <includes id="geoms_8h" name="geoms.h" local="no" imported="no">xmsinterp/geometry/geoms.h</includes>
     <includes id="_gm_polygon_8h" name="GmPolygon.h" local="no" imported="no">xmsinterp/geometry/GmPolygon.h</includes>
@@ -10,15 +10,1078 @@
     <includes id="_gm_polygon_8t_8h" name="GmPolygon.t.h" local="no" imported="no">xmsinterp/geometry/GmPolygon.t.h</includes>
     <includes id="geoms_8t_8h" name="geoms.t.h" local="no" imported="no">xmsinterp/geometry/geoms.t.h</includes>
     <class kind="class">GmPointInPolyTester_gmPointInPolygon2D</class>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmPointInOrOnBox2d</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a1460ad596726029e888ef3a0c67cb3ec</anchor>
+      <arglist>(const Pt3d &amp;a_bMin, const Pt3d &amp;a_bMax, const Pt3d &amp;a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmBoxesOverlap2d</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a0a8640978d427b51b4ba6c217bb47b12</anchor>
+      <arglist>(const Pt3d &amp;a_b1Min, const Pt3d &amp;a_b1Max, const Pt3d &amp;a_b2Min, const Pt3d &amp;a_b2Max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmCalculateNormalizedPlaneCoefficients</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a815c09c53387db67255d3dce98695778</anchor>
+      <arglist>(const Pt3d &amp;p1, const Pt3d &amp;p2, const Pt3d &amp;p3, double *a, double *b, double *c, double *d)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmCalculateNormalizedPlaneCoefficients</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ad18b77815c5b85e99429ee9240768473</anchor>
+      <arglist>(const Pt3d *p1, const Pt3d *p2, const Pt3d *p3, double *a, double *b, double *c, double *d)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmMiddleZ</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aca28f3227dce2e445d25080fbecbc2c6</anchor>
+      <arglist>(const VecPt3d &amp;a_points)</arglist>
+    </member>
+    <member kind="function">
+      <type>PtInOutOrOn_enum</type>
+      <name>gmPtInCircumcircle</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ade7879f66ffa765c6ee005573218a4cd</anchor>
+      <arglist>(const Pt3d &amp;pt, Pt3d circumcirclePts[3])</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmXyDistanceSquared</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>abfc383f1bd2f48276705d624db7144c8</anchor>
+      <arglist>(const Pt3d &amp;pt1, const Pt3d &amp;pt2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmCircumcircleWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a72205354f6d55c7907f6badfbc2e08b0</anchor>
+      <arglist>(const Pt3d *pt1, const Pt3d *pt2, const Pt3d *pt3, double *xc, double *yc, double *r2, double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmCartToBary</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ad512367ef48bf109240552ff3c30cc7a</anchor>
+      <arglist>(const Pt3d *cart, const Pt3d *orig, double coef[6], int dir, Pt3d *bary)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmBaryPrepare</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a065cd6d71205487312c1e03496f5ca08</anchor>
+      <arglist>(const Pt3d *p1, const Pt3d *p2, const Pt3d *p3, const Pt3d *norm, Pt3d *orig, double coef[6], int *dir, bool flag)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmColinearWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a546070340fe9bdf56641efa002a27ac9</anchor>
+      <arglist>(const Pt3d &amp;p1, const Pt3d &amp;p2, const Pt3d &amp;p3, const double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmIntersectLineSegmentsWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ac96bb6c54af013c284ac2c3657626c67</anchor>
+      <arglist>(const Pt3d &amp;one1, const Pt3d &amp;one2, const Pt3d &amp;two1, const Pt3d &amp;two2, double *xi, double *yi, double *zi1, double *zi2, double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmCounterClockwiseTri</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a098ef608f7092e087f9a456709714fea</anchor>
+      <arglist>(const Pt3d &amp;vtx0, const Pt3d &amp;vtx1, const Pt3d &amp;vtx2)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmCross2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a06f4c8c6bc396759e5d8953d85530b46</anchor>
+      <arglist>(const double &amp;dx1, const double &amp;dy1, const double &amp;dx2, const double &amp;dy2)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmAngleBetween2DVectors</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aacf14a948fef6fc782b4e7210652ad35</anchor>
+      <arglist>(double dxp, double dyp, double dxn, double dyn)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmAngleBetween2DVectors</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ae9ee7df906ccbedcb3b364d1a5571f60</anchor>
+      <arglist>(double dxp, double dyp, double dxn, double dyn, double a_magn, double a_magp)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmAngleBetweenEdges</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ad5d19a71ee810d5a16ea601d9ca7dda8</anchor>
+      <arglist>(const Pt3d &amp;p1, const Pt3d &amp;p2, const Pt3d &amp;p3)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmAngleBetweenEdges</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a93b051e3a396a16ae9a9a24b4350164c</anchor>
+      <arglist>(const Pt2d &amp;p1, const Pt2d &amp;p2, const Pt2d &amp;p3)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmComputeDeviationInDirection</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a7d7bbeb7ef537825868d7e70021d918c</anchor>
+      <arglist>(const Pt3d &amp;a_p0, const Pt3d &amp;a_p1, const Pt3d &amp;a_p2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmOnLineWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a45139efe30e550bbc370542f8e69a76f</anchor>
+      <arglist>(const Pt3d &amp;p1, const Pt3d &amp;p2, const double x, const double y, const double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmOnLineAndBetweenEndpointsWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a169625a9f18e45ac2b67fac67c5db715</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2, const double a_x, const double a_y, double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmAddToExtents</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a7b4416101125e2de1d4301a09f34cc4a</anchor>
+      <arglist>(const Pt3d &amp;a_pt, Pt3d &amp;a_min, Pt3d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmAddToExtents</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a3d89b95b5652b82ece1415a73f6d102b</anchor>
+      <arglist>(const Pt3d &amp;a_pt, Pt2d &amp;a_min, Pt2d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmAddToExtents</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a6c3d405fd7c3488c385b0caa932f9cba</anchor>
+      <arglist>(const Pt2d &amp;a_pt, Pt3d &amp;a_min, Pt3d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmXyDistance</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a67d8975fe80c8ec9c9b424cf26e5e755</anchor>
+      <arglist>(double x1, double y1, double x2, double y2)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmXyDistance</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a9a89d9544f63308d7a3c31e99c8281a9</anchor>
+      <arglist>(const Pt3d &amp;pt1, const Pt3d &amp;pt2)</arglist>
+    </member>
+    <member kind="function">
+      <type>Turn_enum</type>
+      <name>gmTurn</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a4700adae0c06deec6e84e436c86f276b</anchor>
+      <arglist>(const Pt3d &amp;a_v1, const Pt3d &amp;a_v2, const Pt3d &amp;a_v3, double a_angtol)</arglist>
+    </member>
+    <member kind="function">
+      <type>Pt3d</type>
+      <name>gmComputeCentroid</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ac462cb8b1fc78478a3f6cad9073a37e9</anchor>
+      <arglist>(const VecPt3d &amp;a_points)</arglist>
+    </member>
+    <member kind="function">
+      <type>Pt3d</type>
+      <name>gmComputePolygonCentroid</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a728b2937701be72dc73f3f66ac2e7fbf</anchor>
+      <arglist>(const VecPt3d &amp;pts)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmLinesIntersect</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>adc56691197d92d60abcb0e77e48df4ea</anchor>
+      <arglist>(const Pt3d &amp;one1, const Pt3d &amp;one2, const Pt3d &amp;two1, const Pt3d &amp;two2)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a43bab17fe8d6f6b67de11a49e5127424</anchor>
+      <arglist>(const T *a_verts, const size_t a_num, const double a_x, const double a_y, const double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a457f87dda88f474bebe491ec094b693f</anchor>
+      <arglist>(const Pt3d *a_verts, size_t a_num, double a_x, double a_y)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aa32ddc6f5892464bfe6d596c1922f7f5</anchor>
+      <arglist>(const Pt3d *a_verts, size_t a_num, Pt3d a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a959d71253e45c5f67e1bf202a5a122fd</anchor>
+      <arglist>(const Pt2i *a_verts, size_t a_num, Pt2d a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aac4a8fdb18373864527f2fad0bb8c433</anchor>
+      <arglist>(const Pt2i *a_verts, size_t a_num, Pt3d a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a3b879e6c80208a8780496137ac51c3c9</anchor>
+      <arglist>(const Pt2i *a_verts, size_t a_num, Pt2i a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aad56bb08be2f1969cd7912f59d49d9e2</anchor>
+      <arglist>(const VecPt3d &amp;a_verts, const Pt3d &amp;a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>template int</type>
+      <name>gmPointInPolygon2D&lt; Pt3d &gt;</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a241b33f3ef73ed56ca73fdbb830e14a3</anchor>
+      <arglist>(const Pt3d *a_verts, const size_t a_num, const double a_x, const double a_y, const double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>template int</type>
+      <name>gmPointInPolygon2D&lt; Pt2d &gt;</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a84aea859e24101dbd69dc902d4f423f8</anchor>
+      <arglist>(const Pt2d *a_verts, const size_t a_num, const double a_x, const double a_y, const double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>template int</type>
+      <name>gmPointInPolygon2D&lt; Pt2i &gt;</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a296ceeadef9d9d4e4ba698f52c44c6c9</anchor>
+      <arglist>(const Pt2i *a_verts, const size_t a_num, const double a_x, const double a_y, const double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmComputeXyTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a03126d64edc4ecb587a357fbfa5fb08c</anchor>
+      <arglist>(const Pt3d &amp;a_mn, const Pt3d &amp;a_mx)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmXyTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a7a33258adddbd27ad36954f6ccdcdef7</anchor>
+      <arglist>(bool a_set, double a_value)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmZTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>af0e7dba5dafe577d6345afe25580777a</anchor>
+      <arglist>(bool a_set, double a_value)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXY</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a9a226e666728d9fde914f18db63a4714</anchor>
+      <arglist>(double x1, double y1, double x2, double y2, double tolerance)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXY</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ac504f8315cad401c34447f06c5b6b07d</anchor>
+      <arglist>(double x1, double y1, double x2, double y2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXY</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a427db5d209d5d8d22ec417417de4d702</anchor>
+      <arglist>(const Pt2d &amp;a_pt1, const Pt2d &amp;a_pt2, double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXY</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a6724be333a3994b7cb0bbe1ec832f244</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2, double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXY</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a878ec06b0e9bbd3afccd2bf70ec54621</anchor>
+      <arglist>(const Pt2i &amp;point1, const Pt2i &amp;point2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXYZ</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a8c3a08ccd01c4230e7498d793a9d90cd</anchor>
+      <arglist>(double x1, double y1, double z1, double x2, double y2, double z2, double tolerance)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXYZ</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a6e4ba75c670a283360048a5365558916</anchor>
+      <arglist>(double x1, double y1, double z1, double x2, double y2, double z2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXYZ</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a326b40120fd0517c654d9a94a963e83e</anchor>
+      <arglist>(const Pt3d &amp;pt1, const Pt3d &amp;pt2, double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmPointInTriangleWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a5b2cb41a4510b0ba885d4a4691781506</anchor>
+      <arglist>(const Pt3d *p1, const Pt3d *p2, const Pt3d *p3, double x, double y, double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmInsideOrOnLineWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a33f9850dc05d9598dcd1e4d06d7a64a2</anchor>
+      <arglist>(const Pt3d *p1, const Pt3d *p2, const Pt3d *inpoint, const double x, const double y, const double tol, double *dist)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmPolygonArea</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a299579fe39539f353e245d1c41c8eb0f</anchor>
+      <arglist>(const Pt3d *pts, size_t npoints)</arglist>
+    </member>
+    <member kind="function">
+      <type>VecPt3d</type>
+      <name>gmArrayToVecPt3d</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a7877ffa4620ae49b12d0b49de2289135</anchor>
+      <arglist>(double *a_array, int a_size)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmEnvelopeOfPts</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aeb0fecb3c9d9aa77f4ff42ec6a608f26</anchor>
+      <arglist>(const VecPt3d &amp;a_pts, Pt3d &amp;a_min, Pt3d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmOrderPointsCounterclockwise</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ac3222874630da8f1f8537f1a6135846f</anchor>
+      <arglist>(const VecPt3d &amp;a_pts, VecInt &amp;a_ccwOrder, int a_startindex)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmOrderPointsCounterclockwise</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aed9ee1170ee7004d626347f8886e4943</anchor>
+      <arglist>(VecPt3d &amp;a_pts)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmFindClosestPtOnSegment</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ad89c693cc48610a4a7dcf89f22d55118</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2, const Pt3d &amp;a_pt, Pt3d &amp;a_newpt, const double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmPtDistanceAlongSegment</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a9f9e75d979ef1bc5c0c217115eb34a04</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2, const Pt3d &amp;a_pt, const double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmInsideOfLineWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aa78a4612aa080741e2ce7aa301aab615</anchor>
+      <arglist>(const Pt3d &amp;a_vertex1, const Pt3d &amp;a_vertex2, const Pt3d &amp;a_oppositevertex, const double a_x, const double a_y, const double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmExtents2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a38a42e7eea0d9ce1dfebc230e50ad166</anchor>
+      <arglist>(const VecPt3d &amp;a_points, Pt2d &amp;a_min, Pt2d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmExtents2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ac21eba0393f3071a3af665e8cfedb7bd</anchor>
+      <arglist>(const VecPt3d &amp;a_points, Pt3d &amp;a_min, Pt3d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmExtents3D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ac4c2eb4bc4667e6479497b0b529562c8</anchor>
+      <arglist>(const VecPt3d &amp;a_points, Pt3d &amp;a_min, Pt3d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmPerpendicularAngle</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a8397c11d92c81098edabbc41ab06bffa</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmBisectingAngle</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>afbc887b28d4ef88ce8c14aab5482765a</anchor>
+      <arglist>(const Pt3d &amp;a_p1, const Pt3d &amp;a_p2, const Pt3d &amp;a_p3)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmComponentMagnitudes</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a214f89ef03c8dd4f0ca2e4418fc1757d</anchor>
+      <arglist>(double *a_x, double *a_y, double *a_mag, double *a_dir, bool a_tomagdir)</arglist>
+    </member>
+    <member kind="function">
+      <type>Pt3d</type>
+      <name>gmCreateVector</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ae15d7a7439937df12789f169f594c3df</anchor>
+      <arglist>(const Pt3d &amp;a_p1, const Pt3d &amp;a_p2)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmConvertAngleToBetween0And360</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a3de1bfdf51c7b4ee1b3c2a3f1ecb96ba</anchor>
+      <arglist>(double a_angle, bool a_InDegrees)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmCross3D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>afff1edecd418a115ea72edd1fffc115e</anchor>
+      <arglist>(const Pt3d &amp;a_vec1, const Pt3d &amp;a_vec2, Pt3d *a_vec3)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmDot3D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a02f5cd9ea7e783cdb00ba6ec4f88a357</anchor>
+      <arglist>(const Pt3d &amp;a_vec1, const Pt3d &amp;a_vec2)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmIntersectTriangleAndLineSegment</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ab82e28a71a8e0794c21d756c2308fd3b</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2, const Pt3d &amp;a_t0, const Pt3d &amp;a_t1, const Pt3d &amp;a_t2, Pt3d &amp;a_IntersectPt)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gm2DDistanceToLineWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a9684415f055c6e1f7b779d3a9e84f609</anchor>
+      <arglist>(const Pt3d *a_pt1, const Pt3d *a_pt2, double a_x, double a_y, double a_tol)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>geoms.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>geoms_8h</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>Turn_enum</name>
+      <anchorfile>geoms_8h.html</anchorfile>
+      <anchor>a0682e25caba7c1d65216a5680cc0217b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>TURN_LEFT</name>
+      <anchorfile>geoms_8h.html</anchorfile>
+      <anchor>a0682e25caba7c1d65216a5680cc0217babc1acb082c93789cb378bf87597f42dd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>TURN_RIGHT</name>
+      <anchorfile>geoms_8h.html</anchorfile>
+      <anchor>a0682e25caba7c1d65216a5680cc0217ba4a1de04425d6c2953fbf40f2b29c15c7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>TURN_COLINEAR_180</name>
+      <anchorfile>geoms_8h.html</anchorfile>
+      <anchor>a0682e25caba7c1d65216a5680cc0217badbc22a212895c3de629b927b410a7065</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>TURN_COLINEAR_0</name>
+      <anchorfile>geoms_8h.html</anchorfile>
+      <anchor>a0682e25caba7c1d65216a5680cc0217ba06d649a650f4acb061afb7acd5a2dbd7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>PtInOutOrOn_enum</name>
+      <anchorfile>geoms_8h.html</anchorfile>
+      <anchor>a89f7d814569daefeabe9f5e3b5fbd213</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>PT_ERROR</name>
+      <anchorfile>geoms_8h.html</anchorfile>
+      <anchor>a89f7d814569daefeabe9f5e3b5fbd213a75f63694d4c2fbd0065900d8a51dcf54</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>PT_IN</name>
+      <anchorfile>geoms_8h.html</anchorfile>
+      <anchor>a89f7d814569daefeabe9f5e3b5fbd213a5f2058ee26998db92e7beedea5fd7e1c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>PT_OUT</name>
+      <anchorfile>geoms_8h.html</anchorfile>
+      <anchor>a89f7d814569daefeabe9f5e3b5fbd213af6c0802668cf9ce14590690ec216dc6a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>PT_ON</name>
+      <anchorfile>geoms_8h.html</anchorfile>
+      <anchor>a89f7d814569daefeabe9f5e3b5fbd213afef40dd1d13df2164ce1a2ba841a3b6a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmPointInOrOnBox2d</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a1460ad596726029e888ef3a0c67cb3ec</anchor>
+      <arglist>(const Pt3d &amp;a_bMin, const Pt3d &amp;a_bMax, const Pt3d &amp;a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmBoxesOverlap2d</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a0a8640978d427b51b4ba6c217bb47b12</anchor>
+      <arglist>(const Pt3d &amp;a_b1Min, const Pt3d &amp;a_b1Max, const Pt3d &amp;a_b2Min, const Pt3d &amp;a_b2Max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmCalculateNormalizedPlaneCoefficients</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a815c09c53387db67255d3dce98695778</anchor>
+      <arglist>(const Pt3d &amp;p1, const Pt3d &amp;p2, const Pt3d &amp;p3, double *a, double *b, double *c, double *d)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmCalculateNormalizedPlaneCoefficients</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ad18b77815c5b85e99429ee9240768473</anchor>
+      <arglist>(const Pt3d *p1, const Pt3d *p2, const Pt3d *p3, double *a, double *b, double *c, double *d)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmMiddleZ</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aca28f3227dce2e445d25080fbecbc2c6</anchor>
+      <arglist>(const VecPt3d &amp;a_points)</arglist>
+    </member>
+    <member kind="function">
+      <type>PtInOutOrOn_enum</type>
+      <name>gmPtInCircumcircle</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ade7879f66ffa765c6ee005573218a4cd</anchor>
+      <arglist>(const Pt3d &amp;pt, Pt3d circumcirclePts[3])</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmXyDistanceSquared</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>abfc383f1bd2f48276705d624db7144c8</anchor>
+      <arglist>(const Pt3d &amp;pt1, const Pt3d &amp;pt2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmCircumcircleWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a72205354f6d55c7907f6badfbc2e08b0</anchor>
+      <arglist>(const Pt3d *pt1, const Pt3d *pt2, const Pt3d *pt3, double *xc, double *yc, double *r2, double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmCartToBary</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ad512367ef48bf109240552ff3c30cc7a</anchor>
+      <arglist>(const Pt3d *cart, const Pt3d *orig, double coef[6], int dir, Pt3d *bary)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmBaryPrepare</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a065cd6d71205487312c1e03496f5ca08</anchor>
+      <arglist>(const Pt3d *p1, const Pt3d *p2, const Pt3d *p3, const Pt3d *norm, Pt3d *orig, double coef[6], int *dir, bool flag)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmColinearWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a546070340fe9bdf56641efa002a27ac9</anchor>
+      <arglist>(const Pt3d &amp;p1, const Pt3d &amp;p2, const Pt3d &amp;p3, const double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmIntersectLineSegmentsWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ac96bb6c54af013c284ac2c3657626c67</anchor>
+      <arglist>(const Pt3d &amp;one1, const Pt3d &amp;one2, const Pt3d &amp;two1, const Pt3d &amp;two2, double *xi, double *yi, double *zi1, double *zi2, double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmCounterClockwiseTri</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a098ef608f7092e087f9a456709714fea</anchor>
+      <arglist>(const Pt3d &amp;vtx0, const Pt3d &amp;vtx1, const Pt3d &amp;vtx2)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmCross2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a06f4c8c6bc396759e5d8953d85530b46</anchor>
+      <arglist>(const double &amp;dx1, const double &amp;dy1, const double &amp;dx2, const double &amp;dy2)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmAngleBetween2DVectors</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aacf14a948fef6fc782b4e7210652ad35</anchor>
+      <arglist>(double dxp, double dyp, double dxn, double dyn)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmAngleBetween2DVectors</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ae9ee7df906ccbedcb3b364d1a5571f60</anchor>
+      <arglist>(double dxp, double dyp, double dxn, double dyn, double a_magn, double a_magp)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmAngleBetweenEdges</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ad5d19a71ee810d5a16ea601d9ca7dda8</anchor>
+      <arglist>(const Pt3d &amp;p1, const Pt3d &amp;p2, const Pt3d &amp;p3)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmAngleBetweenEdges</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a93b051e3a396a16ae9a9a24b4350164c</anchor>
+      <arglist>(const Pt2d &amp;p1, const Pt2d &amp;p2, const Pt2d &amp;p3)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmComputeDeviationInDirection</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a7d7bbeb7ef537825868d7e70021d918c</anchor>
+      <arglist>(const Pt3d &amp;a_p0, const Pt3d &amp;a_p1, const Pt3d &amp;a_p2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmOnLineAndBetweenEndpointsWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a169625a9f18e45ac2b67fac67c5db715</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2, const double a_x, const double a_y, double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmOnLineWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a45139efe30e550bbc370542f8e69a76f</anchor>
+      <arglist>(const Pt3d &amp;p1, const Pt3d &amp;p2, const double x, const double y, const double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmAddToExtents</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a7b4416101125e2de1d4301a09f34cc4a</anchor>
+      <arglist>(const Pt3d &amp;a_pt, Pt3d &amp;a_min, Pt3d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmAddToExtents</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a3d89b95b5652b82ece1415a73f6d102b</anchor>
+      <arglist>(const Pt3d &amp;a_pt, Pt2d &amp;a_min, Pt2d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmAddToExtents</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a6c3d405fd7c3488c385b0caa932f9cba</anchor>
+      <arglist>(const Pt2d &amp;a_pt, Pt3d &amp;a_min, Pt3d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmXyDistance</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a67d8975fe80c8ec9c9b424cf26e5e755</anchor>
+      <arglist>(double x1, double y1, double x2, double y2)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmXyDistance</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a9a89d9544f63308d7a3c31e99c8281a9</anchor>
+      <arglist>(const Pt3d &amp;pt1, const Pt3d &amp;pt2)</arglist>
+    </member>
+    <member kind="function">
+      <type>Turn_enum</type>
+      <name>gmTurn</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a4700adae0c06deec6e84e436c86f276b</anchor>
+      <arglist>(const Pt3d &amp;a_v1, const Pt3d &amp;a_v2, const Pt3d &amp;a_v3, double a_angtol)</arglist>
+    </member>
+    <member kind="function">
+      <type>Pt3d</type>
+      <name>gmComputeCentroid</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ac462cb8b1fc78478a3f6cad9073a37e9</anchor>
+      <arglist>(const VecPt3d &amp;a_points)</arglist>
+    </member>
+    <member kind="function">
+      <type>Pt3d</type>
+      <name>gmComputePolygonCentroid</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a728b2937701be72dc73f3f66ac2e7fbf</anchor>
+      <arglist>(const VecPt3d &amp;pts)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmLinesIntersect</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>adc56691197d92d60abcb0e77e48df4ea</anchor>
+      <arglist>(const Pt3d &amp;one1, const Pt3d &amp;one2, const Pt3d &amp;two1, const Pt3d &amp;two2)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a457f87dda88f474bebe491ec094b693f</anchor>
+      <arglist>(const Pt3d *a_verts, size_t a_num, double a_x, double a_y)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aa32ddc6f5892464bfe6d596c1922f7f5</anchor>
+      <arglist>(const Pt3d *a_verts, size_t a_num, Pt3d a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a959d71253e45c5f67e1bf202a5a122fd</anchor>
+      <arglist>(const Pt2i *a_verts, size_t a_num, Pt2d a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a3b879e6c80208a8780496137ac51c3c9</anchor>
+      <arglist>(const Pt2i *a_verts, size_t a_num, Pt2i a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aac4a8fdb18373864527f2fad0bb8c433</anchor>
+      <arglist>(const Pt2i *a_verts, size_t a_num, Pt3d a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aad56bb08be2f1969cd7912f59d49d9e2</anchor>
+      <arglist>(const VecPt3d &amp;a_verts, const Pt3d &amp;a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmPointInPolygon2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a43bab17fe8d6f6b67de11a49e5127424</anchor>
+      <arglist>(const T *a_verts, const size_t a_num, const double a_x, const double a_y, const double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmComputeXyTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a03126d64edc4ecb587a357fbfa5fb08c</anchor>
+      <arglist>(const Pt3d &amp;a_mn, const Pt3d &amp;a_mx)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmXyTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a7a33258adddbd27ad36954f6ccdcdef7</anchor>
+      <arglist>(bool a_set, double a_value)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmZTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>af0e7dba5dafe577d6345afe25580777a</anchor>
+      <arglist>(bool a_set, double a_value)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXY</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ac504f8315cad401c34447f06c5b6b07d</anchor>
+      <arglist>(double x1, double y1, double x2, double y2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXY</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a9a226e666728d9fde914f18db63a4714</anchor>
+      <arglist>(double x1, double y1, double x2, double y2, double tolerance)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXY</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a878ec06b0e9bbd3afccd2bf70ec54621</anchor>
+      <arglist>(const Pt2i &amp;point1, const Pt2i &amp;point2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXY</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a427db5d209d5d8d22ec417417de4d702</anchor>
+      <arglist>(const Pt2d &amp;a_pt1, const Pt2d &amp;a_pt2, double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXY</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a6724be333a3994b7cb0bbe1ec832f244</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2, double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXYZ</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a6e4ba75c670a283360048a5365558916</anchor>
+      <arglist>(double x1, double y1, double z1, double x2, double y2, double z2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXYZ</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a8c3a08ccd01c4230e7498d793a9d90cd</anchor>
+      <arglist>(double x1, double y1, double z1, double x2, double y2, double z2, double tolerance)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmEqualPointsXYZ</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a326b40120fd0517c654d9a94a963e83e</anchor>
+      <arglist>(const Pt3d &amp;pt1, const Pt3d &amp;pt2, double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmPointInTriangleWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a5b2cb41a4510b0ba885d4a4691781506</anchor>
+      <arglist>(const Pt3d *p1, const Pt3d *p2, const Pt3d *p3, double x, double y, double tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmInsideOrOnLineWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a33f9850dc05d9598dcd1e4d06d7a64a2</anchor>
+      <arglist>(const Pt3d *p1, const Pt3d *p2, const Pt3d *inpoint, const double x, const double y, const double tol, double *dist)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmPolygonArea</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a299579fe39539f353e245d1c41c8eb0f</anchor>
+      <arglist>(const Pt3d *pts, size_t npoints)</arglist>
+    </member>
+    <member kind="function">
+      <type>VecPt3d</type>
+      <name>gmArrayToVecPt3d</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a7877ffa4620ae49b12d0b49de2289135</anchor>
+      <arglist>(double *a_array, int a_size)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmEnvelopeOfPts</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aeb0fecb3c9d9aa77f4ff42ec6a608f26</anchor>
+      <arglist>(const VecPt3d &amp;a_pts, Pt3d &amp;a_min, Pt3d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmOrderPointsCounterclockwise</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ac3222874630da8f1f8537f1a6135846f</anchor>
+      <arglist>(const VecPt3d &amp;a_pts, VecInt &amp;a_ccwOrder, int a_startindex)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmOrderPointsCounterclockwise</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aed9ee1170ee7004d626347f8886e4943</anchor>
+      <arglist>(VecPt3d &amp;a_pts)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmFindClosestPtOnSegment</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ad89c693cc48610a4a7dcf89f22d55118</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2, const Pt3d &amp;a_pt, Pt3d &amp;a_newpt, const double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmPtDistanceAlongSegment</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a9f9e75d979ef1bc5c0c217115eb34a04</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2, const Pt3d &amp;a_pt, const double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>gmInsideOfLineWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>aa78a4612aa080741e2ce7aa301aab615</anchor>
+      <arglist>(const Pt3d &amp;a_vertex1, const Pt3d &amp;a_vertex2, const Pt3d &amp;a_oppositevertex, const double a_x, const double a_y, const double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmExtents2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a38a42e7eea0d9ce1dfebc230e50ad166</anchor>
+      <arglist>(const VecPt3d &amp;a_points, Pt2d &amp;a_min, Pt2d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmExtents2D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ac21eba0393f3071a3af665e8cfedb7bd</anchor>
+      <arglist>(const VecPt3d &amp;a_points, Pt3d &amp;a_min, Pt3d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmExtents3D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ac4c2eb4bc4667e6479497b0b529562c8</anchor>
+      <arglist>(const VecPt3d &amp;a_points, Pt3d &amp;a_min, Pt3d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmPerpendicularAngle</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a8397c11d92c81098edabbc41ab06bffa</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmBisectingAngle</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>afbc887b28d4ef88ce8c14aab5482765a</anchor>
+      <arglist>(const Pt3d &amp;a_p1, const Pt3d &amp;a_p2, const Pt3d &amp;a_p3)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmComponentMagnitudes</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a214f89ef03c8dd4f0ca2e4418fc1757d</anchor>
+      <arglist>(double *a_x, double *a_y, double *a_mag, double *a_dir, bool a_tomagdir)</arglist>
+    </member>
+    <member kind="function">
+      <type>Pt3d</type>
+      <name>gmCreateVector</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ae15d7a7439937df12789f169f594c3df</anchor>
+      <arglist>(const Pt3d &amp;a_p1, const Pt3d &amp;a_p2)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmConvertAngleToBetween0And360</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a3de1bfdf51c7b4ee1b3c2a3f1ecb96ba</anchor>
+      <arglist>(double a_angle, bool a_InDegrees)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>gmCross3D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>afff1edecd418a115ea72edd1fffc115e</anchor>
+      <arglist>(const Pt3d &amp;a_vec1, const Pt3d &amp;a_vec2, Pt3d *a_vec3)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gmDot3D</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a02f5cd9ea7e783cdb00ba6ec4f88a357</anchor>
+      <arglist>(const Pt3d &amp;a_vec1, const Pt3d &amp;a_vec2)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>gmIntersectTriangleAndLineSegment</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>ab82e28a71a8e0794c21d756c2308fd3b</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2, const Pt3d &amp;a_t0, const Pt3d &amp;a_t1, const Pt3d &amp;a_t2, Pt3d &amp;a_IntersectPt)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>gm2DDistanceToLineWithTol</name>
+      <anchorfile>geoms_8cpp.html</anchorfile>
+      <anchor>a9684415f055c6e1f7b779d3a9e84f609</anchor>
+      <arglist>(const Pt3d *a_pt1, const Pt3d *a_pt2, double a_x, double a_y, double a_tol)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>geoms.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>geoms_8t_8h</filename>
     <class kind="class">GeomsXmsngUnitTests</class>
     <class kind="class">GmPointInPolyUnitTests</class>
@@ -26,38 +1089,80 @@
   </compound>
   <compound kind="file">
     <name>GmBoostTypes.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_boost_types_8h</filename>
+    <member kind="typedef">
+      <type>boost::geometry::model::d2::point_xy&lt; double &gt;</type>
+      <name>GmBstPt2d</name>
+      <anchorfile>_gm_boost_types_8h.html</anchorfile>
+      <anchor>a5f1677620ca85b6bcc1065b757f3e337</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>boost::geometry::model::polygon&lt; GmBstPt2d &gt;</type>
+      <name>GmBstPoly2d</name>
+      <anchorfile>_gm_boost_types_8h.html</anchorfile>
+      <anchor>a93e3d438c33ced49f413cd84323982d5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>boost::geometry::model::polygon&lt; Pt3d &gt;</type>
+      <name>GmBstPoly3d</name>
+      <anchorfile>_gm_boost_types_8h.html</anchorfile>
+      <anchor>a05c9c43c740eaf5b56f436ec992dca5f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>boost::geometry::model::box&lt; Pt3d &gt;</type>
+      <name>GmBstBox3d</name>
+      <anchorfile>_gm_boost_types_8h.html</anchorfile>
+      <anchor>af7ac61e434c47abf90a1349336f7e8b7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>boost::geometry::model::linestring&lt; Pt3d &gt;</type>
+      <name>GmBstLine3d</name>
+      <anchorfile>_gm_boost_types_8h.html</anchorfile>
+      <anchor>a9bb6715848b64f01474619d28cd619d9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>boost::geometry::ring_type&lt; GmBstPoly3d &gt;::type</type>
+      <name>GmBstRing3d</name>
+      <anchorfile>_gm_boost_types_8h.html</anchorfile>
+      <anchor>a4d04b2e2f10cd613e47211b9ac69784e</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>GmExtents.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_extents_8cpp</filename>
     <includes id="_gm_extents_8h" name="GmExtents.h" local="no" imported="no">xmsinterp/geometry/GmExtents.h</includes>
     <includes id="_gm_extents_8t_8h" name="GmExtents.t.h" local="no" imported="no">xmsinterp/geometry/GmExtents.t.h</includes>
   </compound>
   <compound kind="file">
     <name>GmExtents.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_extents_8h</filename>
     <class kind="class">xms::GmExtents2d</class>
     <class kind="class">xms::GmExtents3d</class>
   </compound>
   <compound kind="file">
     <name>GmExtents.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_extents_8t_8h</filename>
     <class kind="class">GmExtents3dUnitTests</class>
   </compound>
   <compound kind="file">
     <name>GmMultiPolyIntersectionSorter.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_multi_poly_intersection_sorter_8h</filename>
     <class kind="class">xms::GmMultiPolyIntersectionSorter</class>
   </compound>
   <compound kind="file">
     <name>GmMultiPolyIntersectionSorterTerse.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_multi_poly_intersection_sorter_terse_8cpp</filename>
     <includes id="_gm_multi_poly_intersection_sorter_terse_8h" name="GmMultiPolyIntersectionSorterTerse.h" local="no" imported="no">xmsinterp/geometry/GmMultiPolyIntersectionSorterTerse.h</includes>
     <includes id="_gm_multi_poly_intersector_data_8h" name="GmMultiPolyIntersectorData.h" local="no" imported="no">xmsinterp/geometry/GmMultiPolyIntersectorData.h</includes>
@@ -65,14 +1170,14 @@
   </compound>
   <compound kind="file">
     <name>GmMultiPolyIntersectionSorterTerse.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_multi_poly_intersection_sorter_terse_8h</filename>
     <includes id="_gm_multi_poly_intersection_sorter_8h" name="GmMultiPolyIntersectionSorter.h" local="no" imported="no">xmsinterp/geometry/GmMultiPolyIntersectionSorter.h</includes>
     <class kind="class">xms::GmMultiPolyIntersectionSorterTerse</class>
   </compound>
   <compound kind="file">
     <name>GmMultiPolyIntersector.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_multi_poly_intersector_8cpp</filename>
     <includes id="_gm_multi_poly_intersector_8h" name="GmMultiPolyIntersector.h" local="no" imported="no">xmsinterp/geometry/GmMultiPolyIntersector.h</includes>
     <includes id="_gm_boost_types_8h" name="GmBoostTypes.h" local="no" imported="no">xmsinterp/geometry/GmBoostTypes.h</includes>
@@ -83,30 +1188,51 @@
     <includes id="_gm_multi_poly_intersection_sorter_terse_8h" name="GmMultiPolyIntersectionSorterTerse.h" local="no" imported="no">xmsinterp/geometry/GmMultiPolyIntersectionSorterTerse.h</includes>
     <includes id="triangles_8h" name="triangles.h" local="no" imported="no">xmsinterp/triangulate/triangles.h</includes>
     <class kind="class">xms::GmMultiPolyIntersectorImpl</class>
+    <member kind="typedef">
+      <type>std::pair&lt; GmBstBox3d, int &gt;</type>
+      <name>ValueBox</name>
+      <anchorfile>_gm_multi_poly_intersector_8cpp.html</anchorfile>
+      <anchor>ad371b9317cd9cab40e2625cb4e35df05</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>bgi::rtree&lt; ValueBox, bgi::quadratic&lt; 8 &gt; &gt;</type>
+      <name>RtreeBox</name>
+      <anchorfile>_gm_multi_poly_intersector_8cpp.html</anchorfile>
+      <anchor>aa547c53279be0830c2afc7536f557044</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>GmMultiPolyIntersector.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_multi_poly_intersector_8h</filename>
     <class kind="class">xms::GmMultiPolyIntersector</class>
+    <member kind="enumeration">
+      <type></type>
+      <name>GmMultiPolyIntersectorQueryEnum</name>
+      <anchorfile>_gm_multi_poly_intersector_8h.html</anchorfile>
+      <anchor>af3e9dae61009fe77b79327ee8ebe9b2e</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>GmMultiPolyIntersector.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_multi_poly_intersector_8t_8h</filename>
     <class kind="class">GmMultiPolyIntersectorUnitTests</class>
     <class kind="class">GmMultiPolyIntersector2IntermediateTests</class>
   </compound>
   <compound kind="file">
     <name>GmMultiPolyIntersectorData.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_multi_poly_intersector_data_8h</filename>
     <class kind="class">xms::ix</class>
     <class kind="struct">xms::GmMultiPolyIntersectorData</class>
   </compound>
   <compound kind="file">
     <name>GmPolygon.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_polygon_8cpp</filename>
     <includes id="_gm_polygon_8h" name="GmPolygon.h" local="no" imported="no">xmsinterp/geometry/GmPolygon.h</includes>
     <includes id="_gm_boost_types_8h" name="GmBoostTypes.h" local="no" imported="no">xmsinterp/geometry/GmBoostTypes.h</includes>
@@ -115,23 +1241,30 @@
     <includes id="geoms_8t_8h" name="geoms.t.h" local="no" imported="no">xmsinterp/geometry/geoms.t.h</includes>
     <class kind="class">xms::GmPolygonImpl</class>
     <class kind="class">GmPointInPolyTester_GmPolygon</class>
+    <member kind="function" static="yes">
+      <type>static double</type>
+      <name>iDistanceToRing</name>
+      <anchorfile>_gm_polygon_8cpp.html</anchorfile>
+      <anchor>a99db03c7ac0beff008fd1d9b5795f7cb</anchor>
+      <arglist>(const GmBstRing3d &amp;a_ring, const Pt3d &amp;a_pt)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>GmPolygon.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_polygon_8h</filename>
     <class kind="class">xms::GmPolygon</class>
   </compound>
   <compound kind="file">
     <name>GmPolygon.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_polygon_8t_8h</filename>
     <class kind="class">GmPolygonUnitTests</class>
     <class kind="class">GmPolygonIntermediateTests</class>
   </compound>
   <compound kind="file">
     <name>GmPolyLinePtRedistributer.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_poly_line_pt_redistributer_8cpp</filename>
     <includes id="_gm_poly_line_pt_redistributer_8h" name="GmPolyLinePtRedistributer.h" local="no" imported="no">xmsinterp/geometry/GmPolyLinePtRedistributer.h</includes>
     <includes id="_gm_poly_line_pt_redistributer_8t_8h" name="GmPolyLinePtRedistributer.t.h" local="no" imported="no">xmsinterp/geometry/GmPolyLinePtRedistributer.t.h</includes>
@@ -140,19 +1273,19 @@
   </compound>
   <compound kind="file">
     <name>GmPolyLinePtRedistributer.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_poly_line_pt_redistributer_8h</filename>
     <class kind="class">xms::GmPolyLinePtRedistributer</class>
   </compound>
   <compound kind="file">
     <name>GmPolyLinePtRedistributer.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_poly_line_pt_redistributer_8t_8h</filename>
     <class kind="class">GmPolyLinePtRedistributerUnitTests</class>
   </compound>
   <compound kind="file">
     <name>GmPtSearch.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_pt_search_8cpp</filename>
     <includes id="_gm_pt_search_8h" name="GmPtSearch.h" local="no" imported="no">xmsinterp/geometry/GmPtSearch.h</includes>
     <includes id="_gm_pt_search_8t_8h" name="GmPtSearch.t.h" local="no" imported="no">xmsinterp/geometry/GmPtSearch.t.h</includes>
@@ -172,6 +1305,27 @@
       <anchorfile>_gm_pt_search_8cpp.html</anchorfile>
       <anchor>ab1484d89355833010a52b160bb7f1e64</anchor>
       <arglist>(a_required, a_optional, a_found)</arglist>
+    </member>
+    <member kind="typedef">
+      <type>bg::model::box&lt; bPt &gt;</type>
+      <name>box</name>
+      <anchorfile>_gm_pt_search_8cpp.html</anchorfile>
+      <anchor>af3aa99ee2ee766e1f9c1480f8f4fa2f8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>size_t</type>
+      <name>value</name>
+      <anchorfile>_gm_pt_search_8cpp.html</anchorfile>
+      <anchor>ac246bb2df10f44751d78d40e43d88da2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>bgi::quadratic&lt; 8 &gt;</type>
+      <name>qRtree</name>
+      <anchorfile>_gm_pt_search_8cpp.html</anchorfile>
+      <anchor>a528acc66ce7a7889c76de85b6d5d5a23</anchor>
+      <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -211,19 +1365,19 @@
   </compound>
   <compound kind="file">
     <name>GmPtSearch.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_pt_search_8h</filename>
     <class kind="class">xms::GmPtSearch</class>
   </compound>
   <compound kind="file">
     <name>GmPtSearch.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_pt_search_8t_8h</filename>
     <class kind="class">PtSearchUnitTests</class>
   </compound>
   <compound kind="file">
     <name>GmTriSearch.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_tri_search_8cpp</filename>
     <includes id="_gm_tri_search_8h" name="GmTriSearch.h" local="no" imported="no">xmsinterp/geometry/GmTriSearch.h</includes>
     <includes id="_gm_boost_types_8h" name="GmBoostTypes.h" local="no" imported="no">xmsinterp/geometry/GmBoostTypes.h</includes>
@@ -242,22 +1396,72 @@
       <anchor>a3dc37a63219351ec125b2545bbdcdda3</anchor>
       <arglist></arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>iCartToBary</name>
+      <anchorfile>_gm_tri_search_8cpp.html</anchorfile>
+      <anchor>af5d39c8118d6484eca6f5dc22cfe082a</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2, const Pt3d &amp;a_pt3, BarycentricVals &amp;a_b)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>iGetBarycentricCoords</name>
+      <anchorfile>_gm_tri_search_8cpp.html</anchorfile>
+      <anchor>a4e909346571623b3e32310fd0877dea6</anchor>
+      <arglist>(const Pt3d &amp;a_p, BarycentricVals &amp;a_b, Pt3d &amp;weights)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>GmTriSearch.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_tri_search_8h</filename>
     <class kind="class">xms::GmTriSearch</class>
   </compound>
   <compound kind="file">
     <name>GmTriSearch.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
+    <path>/home/conan/xmsinterp/geometry/</path>
     <filename>_gm_tri_search_8t_8h</filename>
     <class kind="class">TriSearchUnitTests</class>
   </compound>
   <compound kind="file">
+    <name>AnisotropicInterpolator.cpp</name>
+    <path>/home/conan/xmsinterp/interpolate/detail/</path>
+    <filename>_anisotropic_interpolator_8cpp</filename>
+    <includes id="_anisotropic_interpolator_8h" name="AnisotropicInterpolator.h" local="no" imported="no">xmsinterp/interpolate/detail/AnisotropicInterpolator.h</includes>
+    <includes id="geoms_8h" name="geoms.h" local="no" imported="no">xmsinterp/geometry/geoms.h</includes>
+    <includes id="_anisotropic_interpolator_8t_8h" name="AnisotropicInterpolator.t.h" local="no" imported="no">xmsinterp/interpolate/detail/AnisotropicInterpolator.t.h</includes>
+    <member kind="variable">
+      <type>const double</type>
+      <name>kVERTICAL</name>
+      <anchorfile>_anisotropic_interpolator_8cpp.html</anchorfile>
+      <anchor>a98defd88c83c4631fe9ab59cf5ad208f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>AnisotropicInterpolator.h</name>
+    <path>/home/conan/xmsinterp/interpolate/detail/</path>
+    <filename>_anisotropic_interpolator_8h</filename>
+    <class kind="struct">xms::SNResult</class>
+    <class kind="struct">xms::LineParameters</class>
+    <class kind="class">xms::AnisotropicInterpolator</class>
+    <member kind="typedef">
+      <type>std::vector&lt; SNResult &gt;</type>
+      <name>VecSNResult</name>
+      <anchorfile>_anisotropic_interpolator_8h.html</anchorfile>
+      <anchor>a6cd6a805924ff382dbcbc74fc9e34b9c</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>AnisotropicInterpolator.t.h</name>
+    <path>/home/conan/xmsinterp/interpolate/detail/</path>
+    <filename>_anisotropic_interpolator_8t_8h</filename>
+    <class kind="class">AnisotropicInterpolatorUnitTests</class>
+  </compound>
+  <compound kind="file">
     <name>InterpCt.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/detail/</path>
+    <path>/home/conan/xmsinterp/interpolate/detail/</path>
     <filename>_interp_ct_8cpp</filename>
     <includes id="_interp_ct_8h" name="InterpCt.h" local="no" imported="no">xmsinterp/interpolate/detail/InterpCt.h</includes>
     <includes id="_nodal_func_8h" name="NodalFunc.h" local="no" imported="no">xmsinterp/interpolate/detail/NodalFunc.h</includes>
@@ -271,13 +1475,13 @@
   </compound>
   <compound kind="file">
     <name>InterpCt.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/detail/</path>
+    <path>/home/conan/xmsinterp/interpolate/detail/</path>
     <filename>_interp_ct_8h</filename>
     <class kind="class">xms::InterpCt</class>
   </compound>
   <compound kind="file">
     <name>InterpNatNeigh.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/detail/</path>
+    <path>/home/conan/xmsinterp/interpolate/detail/</path>
     <filename>_interp_nat_neigh_8cpp</filename>
     <includes id="_interp_nat_neigh_8h" name="InterpNatNeigh.h" local="no" imported="no">xmsinterp/interpolate/detail/InterpNatNeigh.h</includes>
     <includes id="geoms_8h" name="geoms.h" local="no" imported="no">xmsinterp/geometry/geoms.h</includes>
@@ -289,19 +1493,19 @@
   </compound>
   <compound kind="file">
     <name>InterpNatNeigh.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/detail/</path>
+    <path>/home/conan/xmsinterp/interpolate/detail/</path>
     <filename>_interp_nat_neigh_8h</filename>
     <class kind="class">xms::InterpNatNeigh</class>
   </compound>
   <compound kind="file">
     <name>InterpNatNeigh.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/detail/</path>
+    <path>/home/conan/xmsinterp/interpolate/detail/</path>
     <filename>_interp_nat_neigh_8t_8h</filename>
     <class kind="class">InterpNatNeighUnitTests</class>
   </compound>
   <compound kind="file">
     <name>NodalFunc.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/detail/</path>
+    <path>/home/conan/xmsinterp/interpolate/detail/</path>
     <filename>_nodal_func_8cpp</filename>
     <includes id="_nodal_func_8h" name="NodalFunc.h" local="no" imported="no">xmsinterp/interpolate/detail/NodalFunc.h</includes>
     <includes id="_gm_pt_search_8h" name="GmPtSearch.h" local="no" imported="no">xmsinterp/geometry/GmPtSearch.h</includes>
@@ -316,25 +1520,47 @@
   </compound>
   <compound kind="file">
     <name>NodalFunc.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/detail/</path>
+    <path>/home/conan/xmsinterp/interpolate/detail/</path>
     <filename>_nodal_func_8h</filename>
     <class kind="class">xms::NodalFunc</class>
   </compound>
   <compound kind="file">
     <name>NodalFunc.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/detail/</path>
+    <path>/home/conan/xmsinterp/interpolate/detail/</path>
     <filename>_nodal_func_8t_8h</filename>
     <class kind="class">NodalFuncUnitTests</class>
   </compound>
   <compound kind="file">
+    <name>InterpAnisotropic.cpp</name>
+    <path>/home/conan/xmsinterp/interpolate/</path>
+    <filename>_interp_anisotropic_8cpp</filename>
+    <includes id="_interp_anisotropic_8h" name="InterpAnisotropic.h" local="no" imported="no">xmsinterp/interpolate/InterpAnisotropic.h</includes>
+    <includes id="geoms_8h" name="geoms.h" local="no" imported="no">xmsinterp/geometry/geoms.h</includes>
+    <includes id="_anisotropic_interpolator_8h" name="AnisotropicInterpolator.h" local="no" imported="no">xmsinterp/interpolate/detail/AnisotropicInterpolator.h</includes>
+    <includes id="_interp_anisotropic_8t_8h" name="InterpAnisotropic.t.h" local="no" imported="no">xmsinterp/interpolate/InterpAnisotropic.t.h</includes>
+    <class kind="class">xms::InterpAnisotropicImpl</class>
+  </compound>
+  <compound kind="file">
+    <name>InterpAnisotropic.h</name>
+    <path>/home/conan/xmsinterp/interpolate/</path>
+    <filename>_interp_anisotropic_8h</filename>
+    <class kind="class">xms::InterpAnisotropic</class>
+  </compound>
+  <compound kind="file">
+    <name>InterpAnisotropic.t.h</name>
+    <path>/home/conan/xmsinterp/interpolate/</path>
+    <filename>_interp_anisotropic_8t_8h</filename>
+    <class kind="class">InterpAnisotropicUnitTests</class>
+  </compound>
+  <compound kind="file">
     <name>InterpBase.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/</path>
+    <path>/home/conan/xmsinterp/interpolate/</path>
     <filename>_interp_base_8h</filename>
     <class kind="class">xms::InterpBase</class>
   </compound>
   <compound kind="file">
     <name>InterpIdw.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/</path>
+    <path>/home/conan/xmsinterp/interpolate/</path>
     <filename>_interp_idw_8cpp</filename>
     <includes id="_interp_idw_8h" name="InterpIdw.h" local="no" imported="no">xmsinterp/interpolate/InterpIdw.h</includes>
     <includes id="_gm_pt_search_8h" name="GmPtSearch.h" local="no" imported="no">xmsinterp/geometry/GmPtSearch.h</includes>
@@ -357,20 +1583,20 @@
   </compound>
   <compound kind="file">
     <name>InterpIdw.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/</path>
+    <path>/home/conan/xmsinterp/interpolate/</path>
     <filename>_interp_idw_8h</filename>
     <includes id="_interp_base_8h" name="InterpBase.h" local="no" imported="no">xmsinterp/interpolate/InterpBase.h</includes>
     <class kind="class">xms::InterpIdw</class>
   </compound>
   <compound kind="file">
     <name>InterpIdw.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/</path>
+    <path>/home/conan/xmsinterp/interpolate/</path>
     <filename>_interp_idw_8t_8h</filename>
     <class kind="class">InterpIdwUnitTests</class>
   </compound>
   <compound kind="file">
     <name>InterpLinear.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/</path>
+    <path>/home/conan/xmsinterp/interpolate/</path>
     <filename>_interp_linear_8cpp</filename>
     <includes id="_interp_linear_8h" name="InterpLinear.h" local="no" imported="no">xmsinterp/interpolate/InterpLinear.h</includes>
     <includes id="_gm_pt_search_8h" name="GmPtSearch.h" local="no" imported="no">xmsinterp/geometry/GmPtSearch.h</includes>
@@ -384,130 +1610,389 @@
   </compound>
   <compound kind="file">
     <name>InterpLinear.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/</path>
+    <path>/home/conan/xmsinterp/interpolate/</path>
     <filename>_interp_linear_8h</filename>
     <includes id="_interp_base_8h" name="InterpBase.h" local="no" imported="no">xmsinterp/interpolate/InterpBase.h</includes>
     <class kind="class">xms::InterpLinear</class>
   </compound>
   <compound kind="file">
     <name>InterpLinear.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/</path>
+    <path>/home/conan/xmsinterp/interpolate/</path>
     <filename>_interp_linear_8t_8h</filename>
     <class kind="class">InterpLinearUnitTests</class>
   </compound>
   <compound kind="file">
     <name>InterpSignals.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/</path>
+    <path>/home/conan/xmsinterp/interpolate/</path>
     <filename>_interp_signals_8cpp</filename>
     <includes id="_interp_signals_8h" name="InterpSignals.h" local="no" imported="no">xmsinterp/interpolate/InterpSignals.h</includes>
+    <member kind="function">
+      <type>boost::signals2::signal&lt; void(int)&gt; &amp;</type>
+      <name>SetDataIndex</name>
+      <anchorfile>_interp_signals_8cpp.html</anchorfile>
+      <anchor>ab7b85b7e5ce60931d531baf5ca711659</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>boost::signals2::signal&lt; void(int, double)&gt; &amp;</type>
+      <name>FillWtArray</name>
+      <anchorfile>_interp_signals_8cpp.html</anchorfile>
+      <anchor>aa928e314d18dd5ff6f135327da040c0b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>inSetDataIndex</name>
+      <anchorfile>_interp_signals_8cpp.html</anchorfile>
+      <anchor>a505f1a8118b4e0725a0430e343c5065c</anchor>
+      <arglist>(int val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>inFillWtArray</name>
+      <anchorfile>_interp_signals_8cpp.html</anchorfile>
+      <anchor>ac15113d908c8bfab21332a25f76cd786</anchor>
+      <arglist>(int id, double wt)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>InterpSignals.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/</path>
+    <path>/home/conan/xmsinterp/interpolate/</path>
     <filename>_interp_signals_8h</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>inSetDataIndex</name>
+      <anchorfile>_interp_signals_8cpp.html</anchorfile>
+      <anchor>a505f1a8118b4e0725a0430e343c5065c</anchor>
+      <arglist>(int val)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>inFillWtArray</name>
+      <anchorfile>_interp_signals_8cpp.html</anchorfile>
+      <anchor>ac15113d908c8bfab21332a25f76cd786</anchor>
+      <arglist>(int id, double wt)</arglist>
+    </member>
+    <member kind="function">
+      <type>boost::signals2::connection</type>
+      <name>SetDataIndex</name>
+      <anchorfile>_interp_signals_8h.html</anchorfile>
+      <anchor>a4fbf2e18074156b7bd66a4f5cee78088</anchor>
+      <arglist>(const boost::signals2::signal&lt; void(int)&gt;::slot_type &amp;a_slot)</arglist>
+    </member>
+    <member kind="function">
+      <type>boost::signals2::connection</type>
+      <name>FillWtArray</name>
+      <anchorfile>_interp_signals_8h.html</anchorfile>
+      <anchor>ac93c018be7a62399d42b12a0ff565526</anchor>
+      <arglist>(const boost::signals2::signal&lt; void(int, double)&gt;::slot_type &amp;a_slot)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>InterpUtil.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/</path>
+    <path>/home/conan/xmsinterp/interpolate/</path>
     <filename>_interp_util_8cpp</filename>
     <includes id="_interp_util_8h" name="InterpUtil.h" local="no" imported="no">xmsinterp/interpolate/InterpUtil.h</includes>
+    <member kind="function">
+      <type>void</type>
+      <name>inNodalFuncSetUpMatrixAndVector</name>
+      <anchorfile>_interp_util_8cpp.html</anchorfile>
+      <anchor>a596dc1ea330f8f25b64d8b50ba61498f</anchor>
+      <arglist>(double xk, double yk, double fk, const std::vector&lt; InterpPtInfo &gt; &amp;closest, double **M, double *VV)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>inNodalFuncSetUpMatrixAndVector3d</name>
+      <anchorfile>_interp_util_8cpp.html</anchorfile>
+      <anchor>aaa75bc946f62af5bc6cb7faaf0d9cbdc</anchor>
+      <arglist>(double xk, double yk, double zk, double fk, const std::vector&lt; InterpPtInfo &gt; &amp;closest, double **M, double *vv)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>inDistanceSquared</name>
+      <anchorfile>_interp_util_8cpp.html</anchorfile>
+      <anchor>a45a66123476449da3230fca568f2efbb</anchor>
+      <arglist>(const Pt3d &amp;a_pt, const std::vector&lt; int &gt; &amp;a_ptIdxs, const std::vector&lt; Pt3d &gt; &amp;a_ptLoc, bool a_2d, std::vector&lt; double &gt; &amp;a_d2)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>inIdwWeights</name>
+      <anchorfile>_interp_util_8cpp.html</anchorfile>
+      <anchor>a51eb9958e3615ed089902e284df1b839</anchor>
+      <arglist>(const std::vector&lt; double &gt; &amp;a_distSquare, double a_power, bool a_modifiedShepardWeights, std::vector&lt; double &gt; &amp;a_w)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>inAllScalarsEqual</name>
+      <anchorfile>_interp_util_8cpp.html</anchorfile>
+      <anchor>a0067a46b6f467053aeede80a6701afa0</anchor>
+      <arglist>(const std::vector&lt; float &gt; &amp;a_scalars, const DynBitset &amp;a_act)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>InterpUtil.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/</path>
+    <path>/home/conan/xmsinterp/interpolate/</path>
     <filename>_interp_util_8h</filename>
     <class kind="struct">xms::InterpPtInfo</class>
+    <member kind="function">
+      <type>void</type>
+      <name>inNodalFuncSetUpMatrixAndVector</name>
+      <anchorfile>_interp_util_8cpp.html</anchorfile>
+      <anchor>a596dc1ea330f8f25b64d8b50ba61498f</anchor>
+      <arglist>(double xk, double yk, double fk, const std::vector&lt; InterpPtInfo &gt; &amp;closest, double **M, double *VV)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>inNodalFuncSetUpMatrixAndVector3d</name>
+      <anchorfile>_interp_util_8cpp.html</anchorfile>
+      <anchor>aaa75bc946f62af5bc6cb7faaf0d9cbdc</anchor>
+      <arglist>(double xk, double yk, double zk, double fk, const std::vector&lt; InterpPtInfo &gt; &amp;closest, double **M, double *vv)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>inDistanceSquared</name>
+      <anchorfile>_interp_util_8cpp.html</anchorfile>
+      <anchor>a45a66123476449da3230fca568f2efbb</anchor>
+      <arglist>(const Pt3d &amp;a_pt, const std::vector&lt; int &gt; &amp;a_ptIdxs, const std::vector&lt; Pt3d &gt; &amp;a_ptLoc, bool a_2d, std::vector&lt; double &gt; &amp;a_d2)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>inIdwWeights</name>
+      <anchorfile>_interp_util_8cpp.html</anchorfile>
+      <anchor>a51eb9958e3615ed089902e284df1b839</anchor>
+      <arglist>(const std::vector&lt; double &gt; &amp;a_distSquare, double a_power, bool a_modifiedShepardWeights, std::vector&lt; double &gt; &amp;a_w)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>inAllScalarsEqual</name>
+      <anchorfile>_interp_util_8cpp.html</anchorfile>
+      <anchor>a0067a46b6f467053aeede80a6701afa0</anchor>
+      <arglist>(const std::vector&lt; float &gt; &amp;a_scalars, const DynBitset &amp;a_act)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>matrix.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/matrices/</path>
+    <path>/home/conan/xmsinterp/matrices/</path>
     <filename>matrix_8cpp</filename>
     <includes id="matrix_8h" name="matrix.h" local="no" imported="no">xmsinterp/matrices/matrix.h</includes>
+    <member kind="function">
+      <type>int</type>
+      <name>mxLUDecomp</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>abafef2cc31ff622207da56d429af5a54</anchor>
+      <arglist>(double **mat, int n, int *indx, double *d)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>mxLUBcksub</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>af4f904018cc928a778a7167b13fee704</anchor>
+      <arglist>(double **mat, int n, const int *indx, double *b)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>mxiLudcmp3</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a83378019fa1d29c6f64e692118946a30</anchor>
+      <arglist>(double mat[3][3], int indx[3], double *d)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxiLubksb3</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a1417150425cc14d57c2749d4f55a2945</anchor>
+      <arglist>(const double mat[3][3], const int indx[3], double b[3])</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>mxSolveNxN</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a6b98843e685aab775941c3b89baa1d05</anchor>
+      <arglist>(double **A, double *x, double *b, int n)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>mxSolveBandedEquations</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a6db76770e358ca141899b2a7c49d0a4d</anchor>
+      <arglist>(double **a, double *x, double *b, int numeqs, int halfbandwidth)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>mxSolve3x3</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>aeed277bbc30a62f34e143baf5e6b04d4</anchor>
+      <arglist>(double A[3][3], double x[3], double b[3])</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>mxInvert4x4</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>ac76184db2a6a79c7a900ccf094f2bc5d</anchor>
+      <arglist>(const double matrix[4][4], double inv[4][4])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxPointMult</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a5e1a072632bb9cbda8df1442f70aa79a</anchor>
+      <arglist>(Pt3d *pt, const double ctm[4][4])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxCopy4x4</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>ad30f45f6b87cb251f568c5afd565ac0f</anchor>
+      <arglist>(double copy[4][4], const double matrix[4][4])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxIdent4x4</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a817c4c41acd08d13bfc16e7f2982b5c2</anchor>
+      <arglist>(double matrix[4][4])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxMult4x4</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a5af15ec8654dced904d8c0b5b1e0ec99</anchor>
+      <arglist>(double product[4][4], const double matrix1[4][4], const double matrix2[4][4])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxRotate4x4</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>ab8a23ab457d1a300fee82511b9dcccad</anchor>
+      <arglist>(double xrot, double yrot, double zrot, double rMatt[4][4])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxTranslate4x4</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>ad8e2621b9cbd6773239bd1c9ad604e0a</anchor>
+      <arglist>(const Pt3d &amp;a_translation, double a_mx[4][4])</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>matrix.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/matrices/</path>
+    <path>/home/conan/xmsinterp/matrices/</path>
     <filename>matrix_8h</filename>
-  </compound>
-  <compound kind="file">
-    <name>InterpBase_py.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
-    <filename>_interp_base__py_8cpp</filename>
-    <includes id="_interp_base_8h" name="InterpBase.h" local="no" imported="no">xmsinterp/interpolate/InterpBase.h</includes>
-    <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
-    <class kind="class">PyInterpBase</class>
-  </compound>
-  <compound kind="file">
-    <name>InterpIdw_py.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
-    <filename>_interp_idw__py_8cpp</filename>
-    <includes id="_interp_idw_8h" name="InterpIdw.h" local="no" imported="no">xmsinterp/interpolate/InterpIdw.h</includes>
-    <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>InterpLinear_py.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
-    <filename>_interp_linear__py_8cpp</filename>
-    <includes id="_interp_linear_8h" name="InterpLinear.h" local="no" imported="no">xmsinterp/interpolate/InterpLinear.h</includes>
-    <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>interpolate_py.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
-    <filename>interpolate__py_8cpp</filename>
-    <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>interpolate_py.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
-    <filename>interpolate__py_8h</filename>
-  </compound>
-  <compound kind="file">
-    <name>triangulate_py.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/triangulate/</path>
-    <filename>triangulate__py_8cpp</filename>
-    <includes id="triangulate__py_8h" name="triangulate_py.h" local="no" imported="no">xmsinterp/python/triangulate/triangulate_py.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>triangulate_py.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/triangulate/</path>
-    <filename>triangulate__py_8h</filename>
-  </compound>
-  <compound kind="file">
-    <name>TrTin_py.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/triangulate/</path>
-    <filename>_tr_tin__py_8cpp</filename>
-    <includes id="_tr_tin_8h" name="TrTin.h" local="no" imported="no">xmsinterp/triangulate/TrTin.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>TrTriangulatorPoints_py.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/triangulate/</path>
-    <filename>_tr_triangulator_points__py_8cpp</filename>
-    <includes id="_tr_triangulator_points_8h" name="TrTriangulatorPoints.h" local="no" imported="no">xmsinterp/triangulate/TrTriangulatorPoints.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>xmsinterp_py.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/</path>
-    <filename>xmsinterp__py_8cpp</filename>
-    <includes id="interpolate__py_8h" name="interpolate_py.h" local="no" imported="no">xmsinterp/python/interpolate/interpolate_py.h</includes>
-    <includes id="triangulate__py_8h" name="triangulate_py.h" local="no" imported="no">xmsinterp/python/triangulate/triangulate_py.h</includes>
+    <member kind="function">
+      <type>int</type>
+      <name>mxLUDecomp</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>abafef2cc31ff622207da56d429af5a54</anchor>
+      <arglist>(double **mat, int n, int *indx, double *d)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>mxLUBcksub</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>af4f904018cc928a778a7167b13fee704</anchor>
+      <arglist>(double **mat, int n, const int *indx, double *b)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>mxiLudcmp3</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a83378019fa1d29c6f64e692118946a30</anchor>
+      <arglist>(double mat[3][3], int indx[3], double *d)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxiLubksb3</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a1417150425cc14d57c2749d4f55a2945</anchor>
+      <arglist>(const double mat[3][3], const int indx[3], double b[3])</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>mxSolveNxN</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a6b98843e685aab775941c3b89baa1d05</anchor>
+      <arglist>(double **A, double *x, double *b, int n)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>mxSolveBandedEquations</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a6db76770e358ca141899b2a7c49d0a4d</anchor>
+      <arglist>(double **a, double *x, double *b, int numeqs, int halfbandwidth)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>mxSolve3x3</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>aeed277bbc30a62f34e143baf5e6b04d4</anchor>
+      <arglist>(double A[3][3], double x[3], double b[3])</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>mxInvert4x4</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>ac76184db2a6a79c7a900ccf094f2bc5d</anchor>
+      <arglist>(const double matrix[4][4], double inv[4][4])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxPointMult</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a5e1a072632bb9cbda8df1442f70aa79a</anchor>
+      <arglist>(Pt3d *pt, const double ctm[4][4])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxCopy4x4</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>ad30f45f6b87cb251f568c5afd565ac0f</anchor>
+      <arglist>(double copy[4][4], const double matrix[4][4])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxIdent4x4</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a817c4c41acd08d13bfc16e7f2982b5c2</anchor>
+      <arglist>(double matrix[4][4])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxMult4x4</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>a5af15ec8654dced904d8c0b5b1e0ec99</anchor>
+      <arglist>(double product[4][4], const double matrix1[4][4], const double matrix2[4][4])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxRotate4x4</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>ab8a23ab457d1a300fee82511b9dcccad</anchor>
+      <arglist>(double xrot, double yrot, double zrot, double rMatt[4][4])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>mxTranslate4x4</name>
+      <anchorfile>matrix_8cpp.html</anchorfile>
+      <anchor>ad8e2621b9cbd6773239bd1c9ad604e0a</anchor>
+      <arglist>(const Pt3d &amp;a_translation, double a_mx[4][4])</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>ThreadLoop.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/thread/</path>
+    <path>/home/conan/xmsinterp/thread/</path>
     <filename>_thread_loop_8cpp</filename>
     <includes id="_thread_loop_8h" name="ThreadLoop.h" local="no" imported="no">xmsinterp/thread/ThreadLoop.h</includes>
     <class kind="class">xms::ThreadLoop::impl</class>
   </compound>
   <compound kind="file">
     <name>ThreadLoop.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/thread/</path>
+    <path>/home/conan/xmsinterp/thread/</path>
     <filename>_thread_loop_8h</filename>
     <class kind="class">xms::ThreadLoop</class>
   </compound>
   <compound kind="file">
     <name>ThreadMgr.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/thread/</path>
+    <path>/home/conan/xmsinterp/thread/</path>
     <filename>_thread_mgr_8cpp</filename>
     <includes id="_thread_mgr_8h" name="ThreadMgr.h" local="no" imported="no">xmsinterp/thread/ThreadMgr.h</includes>
     <includes id="_thread_loop_8h" name="ThreadLoop.h" local="no" imported="no">xmsinterp/thread/ThreadLoop.h</includes>
@@ -516,13 +2001,13 @@
   </compound>
   <compound kind="file">
     <name>ThreadMgr.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/thread/</path>
+    <path>/home/conan/xmsinterp/thread/</path>
     <filename>_thread_mgr_8h</filename>
     <class kind="class">xms::ThreadMgr</class>
   </compound>
   <compound kind="file">
     <name>TrAutoFixFourTrianglePts.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/detail/</path>
+    <path>/home/conan/xmsinterp/triangulate/detail/</path>
     <filename>_tr_auto_fix_four_triangle_pts_8cpp</filename>
     <includes id="_tr_auto_fix_four_triangle_pts_8h" name="TrAutoFixFourTrianglePts.h" local="no" imported="no">xmsinterp/triangulate/detail/TrAutoFixFourTrianglePts.h</includes>
     <includes id="_tr_tin_8h" name="TrTin.h" local="no" imported="no">xmsinterp/triangulate/TrTin.h</includes>
@@ -532,31 +2017,45 @@
   </compound>
   <compound kind="file">
     <name>TrAutoFixFourTrianglePts.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/detail/</path>
+    <path>/home/conan/xmsinterp/triangulate/detail/</path>
     <filename>_tr_auto_fix_four_triangle_pts_8h</filename>
     <class kind="class">xms::TrAutoFixFourTrianglePts</class>
   </compound>
   <compound kind="file">
     <name>TrAutoFixFourTrianglePts.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/detail/</path>
+    <path>/home/conan/xmsinterp/triangulate/detail/</path>
     <filename>_tr_auto_fix_four_triangle_pts_8t_8h</filename>
     <class kind="class">TrAutoFixFourTrianglePtsUnitTests</class>
   </compound>
   <compound kind="file">
     <name>triangulate.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/detail/</path>
+    <path>/home/conan/xmsinterp/triangulate/detail/</path>
     <filename>triangulate_8cpp</filename>
     <includes id="triangulate_8h" name="triangulate.h" local="no" imported="no">xmsinterp/triangulate/detail/triangulate.h</includes>
     <includes id="_tr_triangulator_8h" name="TrTriangulator.h" local="no" imported="no">xmsinterp/triangulate/TrTriangulator.h</includes>
+    <member kind="function">
+      <type>bool</type>
+      <name>trTriangulateIt</name>
+      <anchorfile>triangulate_8cpp.html</anchorfile>
+      <anchor>ae7e3768a7e434634406ea7ee25bc0648</anchor>
+      <arglist>(TrTriangulator &amp;a_Client)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>triangulate.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/detail/</path>
+    <path>/home/conan/xmsinterp/triangulate/detail/</path>
     <filename>triangulate_8h</filename>
+    <member kind="function">
+      <type>bool</type>
+      <name>trTriangulateIt</name>
+      <anchorfile>triangulate_8cpp.html</anchorfile>
+      <anchor>ae7e3768a7e434634406ea7ee25bc0648</anchor>
+      <arglist>(TrTriangulator &amp;a_Client)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>TrOuterTriangleDeleter.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/detail/</path>
+    <path>/home/conan/xmsinterp/triangulate/detail/</path>
     <filename>_tr_outer_triangle_deleter_8cpp</filename>
     <includes id="_tr_outer_triangle_deleter_8h" name="TrOuterTriangleDeleter.h" local="no" imported="no">xmsinterp/triangulate/detail/TrOuterTriangleDeleter.h</includes>
     <includes id="_tr_tin_8h" name="TrTin.h" local="no" imported="no">xmsinterp/triangulate/TrTin.h</includes>
@@ -567,19 +2066,19 @@
   </compound>
   <compound kind="file">
     <name>TrOuterTriangleDeleter.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/detail/</path>
+    <path>/home/conan/xmsinterp/triangulate/detail/</path>
     <filename>_tr_outer_triangle_deleter_8h</filename>
     <class kind="class">xms::TrOuterTriangleDeleter</class>
   </compound>
   <compound kind="file">
     <name>TrOuterTriangleDeleter.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/detail/</path>
+    <path>/home/conan/xmsinterp/triangulate/detail/</path>
     <filename>_tr_outer_triangle_deleter_8t_8h</filename>
     <class kind="class">TrOuterTriangleDeleterUnitTests</class>
   </compound>
   <compound kind="file">
     <name>TrBreaklineAdder.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
+    <path>/home/conan/xmsinterp/triangulate/</path>
     <filename>_tr_breakline_adder_8cpp</filename>
     <includes id="_tr_breakline_adder_8h" name="TrBreaklineAdder.h" local="no" imported="no">xmsinterp/triangulate/TrBreaklineAdder.h</includes>
     <includes id="geoms_8h" name="geoms.h" local="no" imported="no">xmsinterp/geometry/geoms.h</includes>
@@ -594,34 +2093,97 @@
     <includes id="_tr_tin_8t_8h" name="TrTin.t.h" local="no" imported="no">xmsinterp/triangulate/TrTin.t.h</includes>
     <class kind="struct">xms::edgerecord</class>
     <class kind="class">xms::TrBreaklineAdderImpl</class>
+    <member kind="typedef">
+      <type>std::vector&lt; edgerecord &gt;</type>
+      <name>VecEdge</name>
+      <anchorfile>_tr_breakline_adder_8cpp.html</anchorfile>
+      <anchor>a7541b74c2b86c70e57e863b57304bdcc</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>TrBreaklineAdder.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
+    <path>/home/conan/xmsinterp/triangulate/</path>
     <filename>_tr_breakline_adder_8h</filename>
     <class kind="class">xms::TrBreaklineAdder</class>
   </compound>
   <compound kind="file">
     <name>TrBreaklineAdder.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
+    <path>/home/conan/xmsinterp/triangulate/</path>
     <filename>_tr_breakline_adder_8t_8h</filename>
     <class kind="class">TrBreaklineAdderUnitTests</class>
   </compound>
   <compound kind="file">
     <name>triangles.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
+    <path>/home/conan/xmsinterp/triangulate/</path>
     <filename>triangles_8cpp</filename>
     <includes id="geoms_8h" name="geoms.h" local="no" imported="no">xmsinterp/geometry/geoms.h</includes>
     <includes id="triangles_8h" name="triangles.h" local="no" imported="no">xmsinterp/triangulate/triangles.h</includes>
+    <member kind="function">
+      <type>double</type>
+      <name>trArea</name>
+      <anchorfile>triangles_8cpp.html</anchorfile>
+      <anchor>a3ab795fd4e5d3ebcedb00230e73392dc</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2, const Pt3d &amp;a_pt3)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>trBuildGridTrianglePolys</name>
+      <anchorfile>triangles_8cpp.html</anchorfile>
+      <anchor>a176da2f77435c7baf90a2507e5841362</anchor>
+      <arglist>(int rows, int cols, VecPt3d &amp;a_points, VecInt2d &amp;a_polys)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>trBuildGridPolys</name>
+      <anchorfile>triangles_8cpp.html</anchorfile>
+      <anchor>a5c5d655291110f3f2ff13fa3a733b689</anchor>
+      <arglist>(int rows, int cols, VecPt3d &amp;pts, VecInt2d &amp;polys)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>triangles.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
+    <path>/home/conan/xmsinterp/triangulate/</path>
     <filename>triangles_8h</filename>
+    <member kind="function">
+      <type>double</type>
+      <name>trArea</name>
+      <anchorfile>triangles_8cpp.html</anchorfile>
+      <anchor>a3ab795fd4e5d3ebcedb00230e73392dc</anchor>
+      <arglist>(const Pt3d &amp;a_pt1, const Pt3d &amp;a_pt2, const Pt3d &amp;a_pt3)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>trBuildGridPolys</name>
+      <anchorfile>triangles_8cpp.html</anchorfile>
+      <anchor>a5c5d655291110f3f2ff13fa3a733b689</anchor>
+      <arglist>(int rows, int cols, VecPt3d &amp;pts, VecInt2d &amp;polys)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>trBuildGridTrianglePolys</name>
+      <anchorfile>triangles_8cpp.html</anchorfile>
+      <anchor>a176da2f77435c7baf90a2507e5841362</anchor>
+      <arglist>(int rows, int cols, VecPt3d &amp;a_points, VecInt2d &amp;a_polys)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>trIncrementIndex</name>
+      <anchorfile>triangles_8h.html</anchorfile>
+      <anchor>a3522d0baa47f21d6355b87f5c7173260</anchor>
+      <arglist>(int i)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>trDecrementIndex</name>
+      <anchorfile>triangles_8h.html</anchorfile>
+      <anchor>a5b6d3f9afa689aac0cfcdf1097ae62cf</anchor>
+      <arglist>(int i)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>TrTin.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
+    <path>/home/conan/xmsinterp/triangulate/</path>
     <filename>_tr_tin_8cpp</filename>
     <includes id="_tr_tin_8h" name="TrTin.h" local="no" imported="no">xmsinterp/triangulate/TrTin.h</includes>
     <includes id="geoms_8h" name="geoms.h" local="no" imported="no">xmsinterp/geometry/geoms.h</includes>
@@ -635,6 +2197,13 @@
       <anchorfile>_tr_tin_8cpp.html</anchorfile>
       <anchor>a7244a742c140134d2c13f8714f1af76c</anchor>
       <arglist>(xms::TrTinImpl)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>trRenumberOnDelete</name>
+      <anchorfile>_tr_tin_8cpp.html</anchorfile>
+      <anchor>a66eebefbcd706efc80c4ca1cdceb05d3</anchor>
+      <arglist>(const SetInt &amp;a_deleting, VecInt &amp;a_vec)</arglist>
     </member>
     <member kind="function">
       <type>BSHP&lt; TrTin &gt;</type>
@@ -674,13 +2243,20 @@
   </compound>
   <compound kind="file">
     <name>TrTin.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
+    <path>/home/conan/xmsinterp/triangulate/</path>
     <filename>_tr_tin_8h</filename>
     <class kind="class">xms::TrTin</class>
+    <member kind="function">
+      <type>void</type>
+      <name>trRenumberOnDelete</name>
+      <anchorfile>_tr_tin_8cpp.html</anchorfile>
+      <anchor>a66eebefbcd706efc80c4ca1cdceb05d3</anchor>
+      <arglist>(const SetInt &amp;a_deleting, VecInt &amp;a_vec)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>TrTin.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
+    <path>/home/conan/xmsinterp/triangulate/</path>
     <filename>_tr_tin_8t_8h</filename>
     <class kind="class">TrTinUnitTests</class>
     <member kind="function">
@@ -721,20 +2297,20 @@
   </compound>
   <compound kind="file">
     <name>TrTriangulator.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
+    <path>/home/conan/xmsinterp/triangulate/</path>
     <filename>_tr_triangulator_8cpp</filename>
     <includes id="_tr_triangulator_8h" name="TrTriangulator.h" local="no" imported="no">xmsinterp/triangulate/TrTriangulator.h</includes>
     <includes id="triangulate_8h" name="triangulate.h" local="no" imported="no">xmsinterp/triangulate/detail/triangulate.h</includes>
   </compound>
   <compound kind="file">
     <name>TrTriangulator.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
+    <path>/home/conan/xmsinterp/triangulate/</path>
     <filename>_tr_triangulator_8h</filename>
     <class kind="class">xms::TrTriangulator</class>
   </compound>
   <compound kind="file">
     <name>TrTriangulatorPoints.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
+    <path>/home/conan/xmsinterp/triangulate/</path>
     <filename>_tr_triangulator_points_8cpp</filename>
     <includes id="_tr_triangulator_points_8h" name="TrTriangulatorPoints.h" local="no" imported="no">xmsinterp/triangulate/TrTriangulatorPoints.h</includes>
     <includes id="geoms_8h" name="geoms.h" local="no" imported="no">xmsinterp/geometry/geoms.h</includes>
@@ -744,40 +2320,269 @@
   </compound>
   <compound kind="file">
     <name>TrTriangulatorPoints.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
+    <path>/home/conan/xmsinterp/triangulate/</path>
     <filename>_tr_triangulator_points_8h</filename>
     <includes id="_tr_triangulator_8h" name="TrTriangulator.h" local="no" imported="no">xmsinterp/triangulate/TrTriangulator.h</includes>
     <class kind="class">xms::TrTriangulatorPoints</class>
   </compound>
   <compound kind="file">
     <name>TrTriangulatorPoints.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
+    <path>/home/conan/xmsinterp/triangulate/</path>
     <filename>_tr_triangulator_points_8t_8h</filename>
     <class kind="class">TrTriangulatorPointsUnitTests</class>
   </compound>
   <compound kind="file">
     <name>TutInterpolation.cpp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/tutorial/</path>
+    <path>/home/conan/xmsinterp/tutorial/</path>
     <filename>_tut_interpolation_8cpp</filename>
+    <includes id="geoms_8h" name="geoms.h" local="no" imported="no">xmsinterp/geometry/geoms.h</includes>
     <includes id="_tut_interpolation_8t_8h" name="TutInterpolation.t.h" local="no" imported="no">xmsinterp/tutorial/TutInterpolation.t.h</includes>
     <includes id="_interp_idw_8h" name="InterpIdw.h" local="no" imported="no">xmsinterp/interpolate/InterpIdw.h</includes>
     <includes id="_interp_linear_8h" name="InterpLinear.h" local="no" imported="no">xmsinterp/interpolate/InterpLinear.h</includes>
+    <includes id="_interp_anisotropic_8h" name="InterpAnisotropic.h" local="no" imported="no">xmsinterp/interpolate/InterpAnisotropic.h</includes>
   </compound>
   <compound kind="file">
     <name>TutInterpolation.t.h</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/tutorial/</path>
+    <path>/home/conan/xmsinterp/tutorial/</path>
     <filename>_tut_interpolation_8t_8h</filename>
     <class kind="class">TutInterpolationIntermediateTests</class>
   </compound>
-  <compound kind="page">
-    <name>md_Interpolation_Tutorial</name>
-    <title>Interpolation_Tutorial</title>
-    <filename>md__interpolation__tutorial</filename>
-    <docanchor file="md__interpolation__tutorial" title="Interpolation Tutorial">Interpolation_Tutorial</docanchor>
-    <docanchor file="md__interpolation__tutorial" title="Introduction">Intro_Interpolation</docanchor>
-    <docanchor file="md__interpolation__tutorial" title="Example - Inverse Distance Weighted (IDW) Interpolation">Example_IDW</docanchor>
-    <docanchor file="md__interpolation__tutorial" title="Example - Linear Interpolation">Example_Linear</docanchor>
-    <docanchor file="md__interpolation__tutorial" title="Example - Natural Neighbor Interpolation">Example_NatNeigh</docanchor>
+  <compound kind="class">
+    <name>xms::AnisotropicInterpolator</name>
+    <filename>classxms_1_1_anisotropic_interpolator.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>AnisotropicInterpolator</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>addce3b33f2e24362650ebeb3abbba4b6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>SetPoints</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>a5db002e619acbc0475829c4d3af005fa</anchor>
+      <arglist>(const VecPt3d &amp;a_centerlinePts, const VecPt3d &amp;a_interpolationPts, bool a_pickClosest=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>const VecPt3d &amp;</type>
+      <name>GetInterpolationPoints</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>a45947abe52e2dd7a419faec933f5b346</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>InterpolatePoint</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>a5f990a1912def1febbb07dcd95282424</anchor>
+      <arglist>(const Pt3d &amp;a_target, const VecPt3d &amp;a_interpolationPoints, double a_xScale, double a_IDWPower=2, double a_tol=1.0e-5)</arglist>
+    </member>
+    <member kind="function">
+      <type>VecPt3d</type>
+      <name>ComputeInterpolationPoints</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>aca09aeaceab3be5c1904066945bdbbe8</anchor>
+      <arglist>(const VecPt3d &amp;a_interpolationPts, bool a_pickClosest)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>Distance</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>a76b97e4fa7f0e2beb567a385e181e2a1</anchor>
+      <arglist>(const Pt3d &amp;a_p0, const Pt3d &amp;a_p1) const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>AnisotropicDistanceSquared</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>a208cd08d32b9c9f29ef3c1899bc4e0a4</anchor>
+      <arglist>(const Pt3d &amp;a_p0, const Pt3d &amp;a_p1, double a_xScale)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>CalculateIDW</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>a5ac4d79af84045b2c57c57ff9cb1a3f7</anchor>
+      <arglist>(double a_xScale, const VecPt3d &amp;a_points, const Pt3d &amp;a_target, double a_power, double a_tol=1.0e-5)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>CrossProduct</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>a6c93ec40dbd10628fc0044ade6a26b23</anchor>
+      <arglist>(size_t a_segmentIndex, const Pt3d &amp;a_p) const</arglist>
+    </member>
+    <member kind="function">
+      <type>LineParameters</type>
+      <name>GetLineParameters</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>a26ac5ed96dfab3ebfa0f3b51deda9768</anchor>
+      <arglist>(const Pt3d &amp;a_p0, const Pt3d &amp;a_p1) const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetParameterInSegment</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>a89d69f475b58b91c66af9da678986320</anchor>
+      <arglist>(size_t a_segmentIndex, const Pt3d &amp;a_p) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>GetIntersectionOfSegmentWithPoint</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>afbbf2018849b77d8257a8859a7e3f1bd</anchor>
+      <arglist>(size_t a_segmentIndex, const Pt3d &amp;a_p, Pt3d &amp;a_intersection, double &amp;a_param) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetNormalPointParameter</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>a2029e95c27c05e502ec0f4a084ff1585</anchor>
+      <arglist>(size_t a_segmentIndex, const Pt3d &amp;a_p, double &amp;a_lastParam, VecSNResult &amp;a_results) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetAllNormalPointParameters</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>a1a66b1b43199caf4469a9b6db2209c8b</anchor>
+      <arglist>(const Pt3d &amp;a_p, VecSNResult &amp;a_results)</arglist>
+    </member>
+    <member kind="function">
+      <type>VecPt3d</type>
+      <name>TransformPoint</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>a7c4fe1fdd8425e77f15f6a6f7c5471f4</anchor>
+      <arglist>(const Pt3d &amp;a_p, bool a_onlyClosest=false)</arglist>
+    </member>
+    <member kind="variable">
+      <type>VecPt3d</type>
+      <name>m_centerLinePts</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>ad2bc45326e615ab8a69514005d4d0704</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>VecDbl</type>
+      <name>m_accLengths</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>a40fd171a794add8ea68679c73b06abb4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::vector&lt; LineParameters &gt;</type>
+      <name>m_lineParams</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>af7b575de43d220d619683a832a0dfec1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>VecPt3d</type>
+      <name>m_SNPoints</name>
+      <anchorfile>classxms_1_1_anisotropic_interpolator.html</anchorfile>
+      <anchor>ae7be19a8211aa36923314f93831c6011</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>AnisotropicInterpolatorUnitTests</name>
+    <filename>class_anisotropic_interpolator_unit_tests.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>testSimple</name>
+      <anchorfile>class_anisotropic_interpolator_unit_tests.html</anchorfile>
+      <anchor>a21219da1c1b1790e5423cbc4c3d1638d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testCrossSectionThroughPoint</name>
+      <anchorfile>class_anisotropic_interpolator_unit_tests.html</anchorfile>
+      <anchor>a486e729faa316b029abb46d39b39ce8a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testAmbiguity</name>
+      <anchorfile>class_anisotropic_interpolator_unit_tests.html</anchorfile>
+      <anchor>af802cd8a7b64cacbf72c70fad9e4be7f</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>xms::BarycentricVals</name>
+    <filename>structxms_1_1_barycentric_vals.html</filename>
+    <member kind="variable">
+      <type>Pt3d</type>
+      <name>orig</name>
+      <anchorfile>structxms_1_1_barycentric_vals.html</anchorfile>
+      <anchor>ae88c2de12a80a534faf78addd416f38c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>coef</name>
+      <anchorfile>structxms_1_1_barycentric_vals.html</anchorfile>
+      <anchor>aebed3bc5a1c410ee503863972249b13b</anchor>
+      <arglist>[6]</arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>dir</name>
+      <anchorfile>structxms_1_1_barycentric_vals.html</anchorfile>
+      <anchor>acb8bf1c437d7b0141c565730738b297a</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>xms::edgerecord</name>
+    <filename>structxms_1_1edgerecord.html</filename>
+    <member kind="variable">
+      <type>int</type>
+      <name>pt1</name>
+      <anchorfile>structxms_1_1edgerecord.html</anchorfile>
+      <anchor>a628ba61db2c8c725a8b5a603620f35cb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>pt2</name>
+      <anchorfile>structxms_1_1edgerecord.html</anchorfile>
+      <anchor>a37a472bed46ccd144b62eb755ad8770e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Pt3d</type>
+      <name>intersection</name>
+      <anchorfile>structxms_1_1edgerecord.html</anchorfile>
+      <anchor>a34b4f43309c69d116fad70ebe6cf0dfb</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::fSatisfies</name>
+    <filename>classxms_1_1f_satisfies.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>fSatisfies</name>
+      <anchorfile>classxms_1_1f_satisfies.html</anchorfile>
+      <anchor>ab363650297804f81ac7f6fa1179b6bc0</anchor>
+      <arglist>(size_t a_nVals)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator()</name>
+      <anchorfile>classxms_1_1f_satisfies.html</anchorfile>
+      <anchor>aba3fb24836d4e09c49644fd394fe191e</anchor>
+      <arglist>(value const &amp;a_) const</arglist>
+    </member>
+    <member kind="variable">
+      <type>DynBitset</type>
+      <name>m_bits</name>
+      <anchorfile>classxms_1_1f_satisfies.html</anchorfile>
+      <anchor>abb625b439183cff97cde9dede033f7aa</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>GeomsXmsngIntermediateTests</name>
@@ -823,6 +2628,385 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>xms::GmExtents2d</name>
+    <filename>classxms_1_1_gm_extents2d.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>GmExtents2d</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a7713120ed10fdf972a7d9cd4727695e7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>GmExtents2d</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>ac6ca00863adaed8c44fdf229ba55cee2</anchor>
+      <arglist>(const GmExtents3d &amp;a_extents)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>GmExtents2d</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a41f7becb48eb6566a0d8446c0af744e8</anchor>
+      <arglist>(const Pt2d &amp;a_min, const Pt2d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>GmExtents2d</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a59954fe5dcff4393c789b9b5310d3b00</anchor>
+      <arglist>(const Pt3d &amp;a_min, const Pt3d &amp;a_max)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~GmExtents2d</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a199a9513a66ab4e8ca031c93a60502ce</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator+=</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>ae42c798434698c97fdd26298ac26f6e0</anchor>
+      <arglist>(const GmExtents2d &amp;a_rhs)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>AddToExtents</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a961a392986a503fd2a08b2dcd4c19644</anchor>
+      <arglist>(const Pt3d &amp;pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>Add</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>ae5cc44c6efd560195817f1d1d32cc17c</anchor>
+      <arglist>(ItrType a_begin, ItrType a_end)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>IsValid</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a8808cc09d89e82f4ab38c6fc649a026d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>Overlap</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a78e80fd3786ba85959a85df3896c5c13</anchor>
+      <arglist>(const GmExtents2d &amp;a_b) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>Clear</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a60780f3b3471ce34744412fed1938f47</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetExtents</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a12db96218f2b4f7c1ff5242ba8bab3d7</anchor>
+      <arglist>(double *a_MinX, double *a_MaxX, double *a_MinY, double *a_MaxY)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetExtents</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>abdadfa5471353d9186adf9118790a95a</anchor>
+      <arglist>(Pt3d &amp;a_dMin, Pt3d &amp;a_dMax)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetMinX</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a77bf9cf316f868751b5beb1266a2b75f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetMaxX</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>ab46d3290c8986ddaf08562d0fad62caf</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetMinY</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a2149daf43a184dd06ade5b9c78d4645b</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetMaxY</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>aa8f7bfbeaba83b82e321f72c562addca</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Pt2d</type>
+      <name>GetMin</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>af1491a3798bcb600e4cd47f1ef333d2f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Pt2d</type>
+      <name>GetMax</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>ada4543fe674250cab6f1e582c6f091af</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>Set</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a65c98975328fe846704c7fc91a006e1e</anchor>
+      <arglist>(const Pt2d &amp;a_min, const Pt2d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>serialize</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>aa7a591f9d935ef8aea0402d746c56fc9</anchor>
+      <arglist>(Archive &amp;archive, const unsigned int version)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>SetTolerance</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>af91bf63e31dc46c63a0165d267f7ad19</anchor>
+      <arglist>(double a_Tol)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static double</type>
+      <name>GetTolerance</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a7db9964a1b49f1bd8e3003a5c592dbc0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Pt2d</type>
+      <name>m_min</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>aff08e09f489359e779cc9a068fed293a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Pt2d</type>
+      <name>m_max</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>aee80084ccb1fc4d9aa069c232678ff0d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static double</type>
+      <name>m_tolerance</name>
+      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
+      <anchor>a96ea5046f0d2a697ab852e2e6e37b0de</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::GmExtents3d</name>
+    <filename>classxms_1_1_gm_extents3d.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>GmExtents3d</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>aee049dcde88efdf2266b9ddac3700626</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>GmExtents3d</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>aee5d872568e8585f8e24db8678c5a246</anchor>
+      <arglist>(const GmExtents2d &amp;a_extents)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>GmExtents3d</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a1954ff9b989d3e13f414e142dd5404d1</anchor>
+      <arglist>(const Pt3d &amp;a_min, const Pt3d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>GmExtents3d</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a11ec30b976bd5ddfde9a9ecdf3248702</anchor>
+      <arglist>(const Pt2d &amp;a_min, const Pt2d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator+=</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>ac0a55b7e31742d3dfff48cbc321ccca2</anchor>
+      <arglist>(const GmExtents3d &amp;a_rhs)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>AddToExtents</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a1f41c66ac6b67c60982044093ada302e</anchor>
+      <arglist>(const Pt3d &amp;pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>IsValid</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a078c56a4d36e3db9fd038082418964fc</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>Overlap</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a5eab9f9515caa8e15d344bca95d3a783</anchor>
+      <arglist>(GmExtents3d &amp;a_b) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>Clear</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>af7b8f4955c9068c0853354ab1f34f297</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>IsPointWithin</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a902eb81668d4f9cf77dd6ddc558b40a7</anchor>
+      <arglist>(const Pt3d &amp;pt) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetExtents</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a1afb775183a2020c66e937d9d8df5ede</anchor>
+      <arglist>(double *a_MinX, double *a_MaxX, double *a_MinY, double *a_MaxY, double *a_MinZ, double *a_MaxZ) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetExtents</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>ac77ae8b5172628c3266bc774951c29d6</anchor>
+      <arglist>(Pt3d &amp;a_dMin, Pt3d &amp;a_dMax) const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetMinX</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a9a3f36f9da0e09ba773590d6ff36da60</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetMaxX</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>ab5827886d151465fbb902eff452bb978</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetMinY</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>ac7a8ae51c57f09c4f8487d851fcf31a8</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetMaxY</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>ad932aba529c8cfb6bbe73e2f9eaa6f49</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetMinZ</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a4863256f0eed7d7b6b71b08e1178c8de</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>GetMaxZ</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a3ef27d65b4d3931937f647486059fc02</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Pt3d</type>
+      <name>GetMin</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a608b517961d6745d92f15d6278a8e5e4</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Pt3d</type>
+      <name>GetMax</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>ad9558c795fc8b7350567f178e27eca8a</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>Set</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a79314a735a92ef987b6412fcf404beea</anchor>
+      <arglist>(const Pt3d &amp;a_min, const Pt3d &amp;a_max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>serialize</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a0b0221f18c9e5c9262606c3ac89aff67</anchor>
+      <arglist>(Archive &amp;archive, const unsigned int version)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>SetTolerance</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a6b4934250f1e3b40181595cf45ec52cf</anchor>
+      <arglist>(double a_Tol)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static double</type>
+      <name>GetTolerance</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>accc7b2a33b04d17b07af0db56df8b328</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Pt3d</type>
+      <name>m_min</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>af9468191aa5196a5013db9c0e14b1d71</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Pt3d</type>
+      <name>m_max</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>ad4235d1ff4b577bcfad2dbfe0524afdd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static double</type>
+      <name>m_tolerance</name>
+      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
+      <anchor>a7a1ee26cd395da7b0d36e605571f8ea5</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>GmExtents3dUnitTests</name>
     <filename>class_gm_extents3d_unit_tests.html</filename>
     <member kind="function">
@@ -855,6 +3039,124 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>xms::GmMultiPolyIntersectionSorter</name>
+    <filename>classxms_1_1_gm_multi_poly_intersection_sorter.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>xms::GmMultiPolyIntersectionSorterTerse</name>
+    <filename>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</filename>
+    <base>xms::GmMultiPolyIntersectionSorter</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>Sort</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>aab32ba927a9062f1c95c5a2e1bedb62d</anchor>
+      <arglist>(GmMultiPolyIntersectorData &amp;a_data, std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts, double a_tol) override</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>RemoveCornerTouches</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>ac86036c81726449c8121c1a05fd73db3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>RemoveDuplicateEdges</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>a1ef5deaea8e21cd99a88376758bc6c64</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>SwapAdjacents</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>a230088635ebb08581d8701911068be0a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>IntersectionsToPolyIdsAndTValuesFor2</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>a6b310a7f9545a6629edbc8250eefcb24</anchor>
+      <arglist>(std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts) const</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>IntersectionsToPolyIdsAndTValuesFor3OrMore</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>ae3c73099c3b23d94416fc14601b91ee5</anchor>
+      <arglist>(std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts) const</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>IntersectionsToPolyIdsAndTValues</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>a9cd8f532b56f11e5600f2910051daaff</anchor>
+      <arglist>(std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts) const</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>FixArrays</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>af5a86f40ed9c1962c81950074ac9a598</anchor>
+      <arglist>(std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts) const</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>AddToPolyIdsAndTValues</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>a0cb9995b0273c1953428f420f12eaffb</anchor>
+      <arglist>(const ix &amp;a_ix, std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts) const</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>FindPreviousNextNeither</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>ab8b8a8153fae932c73a83a639f8ac7ad</anchor>
+      <arglist>(const std::vector&lt; int &gt; &amp;tChange, const int idx, std::vector&lt; int &gt; *inPrev, std::vector&lt; int &gt; *inNext, std::vector&lt; int &gt; *inNeither) const</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>Swap</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>a484addfe624bb88f1980496ccb922692</anchor>
+      <arglist>(int a, int b)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>FindWhereTValuesChange</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>ab19ab5f34e20a4cce4d5ef18e6e914f3</anchor>
+      <arglist>(std::vector&lt; int &gt; &amp;tChange) const</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>GmMultiPolyIntersectorData *</type>
+      <name>m_d</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>a7bacf816a4c3b4eae33cd5a36007655a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>m_tol</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
+      <anchor>afe1b7c2e44e9d9837c446666d4995d48</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::GmMultiPolyIntersector</name>
+    <filename>classxms_1_1_gm_multi_poly_intersector.html</filename>
+    <member kind="function" static="yes">
+      <type>static boost::shared_ptr&lt; GmMultiPolyIntersector &gt;</type>
+      <name>New</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector.html</anchorfile>
+      <anchor>a225f2e577e682f6fbd603fa56dce2253</anchor>
+      <arglist>(const std::vector&lt; Pt3d &gt; &amp;a_points, const std::vector&lt; std::vector&lt; int &gt; &gt; &amp;a_polys, boost::shared_ptr&lt; GmMultiPolyIntersectionSorter &gt; a_sorter, int a_startingId=1)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>GmMultiPolyIntersector2IntermediateTests</name>
     <filename>class_gm_multi_poly_intersector2_intermediate_tests.html</filename>
     <member kind="function" virtualness="virtual">
@@ -877,6 +3179,260 @@
       <anchorfile>class_gm_multi_poly_intersector2_intermediate_tests.html</anchorfile>
       <anchor>accf890a54adf98d863387d7d6c714109</anchor>
       <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>xms::GmMultiPolyIntersectorData</name>
+    <filename>structxms_1_1_gm_multi_poly_intersector_data.html</filename>
+    <member kind="variable">
+      <type>std::vector&lt; Pt3d &gt;</type>
+      <name>m_points</name>
+      <anchorfile>structxms_1_1_gm_multi_poly_intersector_data.html</anchorfile>
+      <anchor>aafe89c90dca39c321b5a71af95256c2c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+      <name>m_polys</name>
+      <anchorfile>structxms_1_1_gm_multi_poly_intersector_data.html</anchorfile>
+      <anchor>a4b6f906b82daa91ae96450abf8071509</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::set&lt; int &gt;</type>
+      <name>m_polys1</name>
+      <anchorfile>structxms_1_1_gm_multi_poly_intersector_data.html</anchorfile>
+      <anchor>a34a35f421f49e17ec2e1f3a2b4d678a8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::set&lt; int &gt;</type>
+      <name>m_polys2</name>
+      <anchorfile>structxms_1_1_gm_multi_poly_intersector_data.html</anchorfile>
+      <anchor>aca483d0445e27801f910b40c93d22c96</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::vector&lt; ix &gt;</type>
+      <name>m_ixs</name>
+      <anchorfile>structxms_1_1_gm_multi_poly_intersector_data.html</anchorfile>
+      <anchor>a3e30a6edc79fdb107f575508b14e5ea5</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::GmMultiPolyIntersectorImpl</name>
+    <filename>classxms_1_1_gm_multi_poly_intersector_impl.html</filename>
+    <base>xms::GmMultiPolyIntersector</base>
+    <member kind="function">
+      <type></type>
+      <name>GmMultiPolyIntersectorImpl</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>ac5a0b775408588b9d96a228d7185f5cd</anchor>
+      <arglist>(const VecPt3d &amp;a_points, const VecInt2d &amp;a_polys, BSHP&lt; GmMultiPolyIntersectionSorter &gt; a_sorter, int a_startingId=1)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>SetQuery</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>ad44f26ecf4069c3406c27806dabf13f8</anchor>
+      <arglist>(GmMultiPolyIntersectorQueryEnum a_query) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>TraverseLineSegment</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>aaf57048e471c717782ed2f8b8c70fbbd</anchor>
+      <arglist>(double x1, double y1, double x2, double y2, VecInt &amp;polyids, VecDbl &amp;tvalues)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>TraverseLineSegment</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>aaaa51443ccf79d0c7838af3f4928160c</anchor>
+      <arglist>(double x1, double y1, double x2, double y2, VecInt &amp;polyids)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>TraverseLineSegment</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>af208271ec2a8777c7649f9b1d9e96cf9</anchor>
+      <arglist>(double a_x1, double a_y1, double a_x2, double a_y2, VecInt &amp;a_polyids, std::vector&lt; Pt3d &gt; &amp;a_pts)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>PolygonFromPoint</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>ab6aa0c0a7b94a67516f74bb88550d1b6</anchor>
+      <arglist>(const Pt3d &amp;a_pt)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>CalculateBuffer</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>a535aad59183701eae8532bcb4c2ed2f0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>BufferTheBox</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>ae6d9d3489cc6f4ffad6bbdbaefadddf5</anchor>
+      <arglist>(GmBstBox3d &amp;box) const</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>GmBstPoly3d &amp;</type>
+      <name>GetBoostPoly</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>a9205979073697853ffdc62c0e5a87cac</anchor>
+      <arglist>(int a_polyIdx)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>BuildBoostPoly</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>a34751018aeada5236adb5c55eb2e7c07</anchor>
+      <arglist>(int a_polyIdx, GmBstPoly3d &amp;a_boostPoly) const</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>BuildRTree</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>af1174b0ddef285f93ba48e5aaadd6bbb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>CreateLine</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>a3c3d8a9dd135301536427efe7e08a21a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>GetPolysForPoint</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>aeeca34e061a08d03164142275666c15d</anchor>
+      <arglist>(Pt3d pt, SetInt &amp;poly)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>EnsureEndPointsRepresented</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>a0d3c6c5b4daa721d5fb2edec53d28dbb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>IntersectEachPolyWithLine</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>ae78756aa2652d524131bb6259534df04</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>ComputeTValues</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>ab1525012537a7fe8d974de6c1c7c1080</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>SortIntersections</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>ad8a8d896823f5f70b3ffc250b453434c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>OffsetPolyIds</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>ad7d468b9c1de82c05149fc6bf429dab1</anchor>
+      <arglist>(VecInt &amp;polyIds) const</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>PointsOnSegment</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>a425a8860d5df3720cee68cdd32f1bb9f</anchor>
+      <arglist>(const GmBstPoly3d &amp;a_poly, const GmBstLine3d &amp;a_line, std::deque&lt; Pt3d &gt; &amp;a_output)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>TraverseLineSegmentAll</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>aab2618742a6a374cde9c4d8ea2cd8e6a</anchor>
+      <arglist>(double a_x1, double a_y1, double a_x2, double a_y2, VecInt &amp;a_polyids, VecDbl &amp;a_tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts)</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>GmMultiPolyIntersectorData</type>
+      <name>m_d</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>a6deb7afa1a20058c93d83ef912ee890a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>Pt3d</type>
+      <name>m_pt1</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>aab0dadb74472f2aa11c1f2838c5b18b2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>Pt3d</type>
+      <name>m_pt2</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>a165515a3528656302865abe9b060d052</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>RtreeBox *</type>
+      <name>m_rtree</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>a79c692d08b0a79ba2823a92a98402d04</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>GmBstLine3d</type>
+      <name>m_line</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>ac8c9bc9edcf78e66b2b19b429fdd748b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>m_buffer</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>aece8a77964a59bb161d95a8d0f36e598</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int</type>
+      <name>m_startingId</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>af8d56b114f4feb8359cccfb904429dd8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; GmBstPoly3d &gt;</type>
+      <name>m_boostPolys</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>a0bf794580c7158c6295b62dc6d359308</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>BSHP&lt; GmMultiPolyIntersectionSorter &gt;</type>
+      <name>m_sorter</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>aee888465df13dc924b99fc607071223e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>GmMultiPolyIntersectorQueryEnum</type>
+      <name>m_query</name>
+      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
+      <anchor>ae25a886c347f59cc97cdd4d09d0f2ecf</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -1188,20 +3744,6 @@
       <anchor>a139a56adbb9597d361b30e0ceb65905d</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function">
-      <type></type>
-      <name>GmPointInPolyUnitTests</name>
-      <anchorfile>class_gm_point_in_poly_unit_tests.html</anchorfile>
-      <anchor>a242ee9e55d08b8eab4105d7592bf1dd1</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>DoTest</name>
-      <anchorfile>class_gm_point_in_poly_unit_tests.html</anchorfile>
-      <anchor>aad892797953c9679e60aacab95c59a27</anchor>
-      <arglist>()</arglist>
-    </member>
     <member kind="function" protection="private" virtualness="virtual">
       <type>virtual void</type>
       <name>CheckPoint</name>
@@ -1222,6 +3764,85 @@
       <anchorfile>class_gm_point_in_poly_tester__gm_point_in_polygon2_d.html</anchorfile>
       <anchor>a93106a8027d1f7a54029804e94a478c3</anchor>
       <arglist>(GmPointInPolyTester_gmPointInPolygon2D)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>GmPointInPolyTester_GmPolygon</name>
+    <filename>class_gm_point_in_poly_tester___gm_polygon.html</filename>
+    <base>GmPointInPolyUnitTests</base>
+    <member kind="function">
+      <type></type>
+      <name>GmPointInPolyTester_GmPolygon</name>
+      <anchorfile>class_gm_point_in_poly_tester___gm_polygon.html</anchorfile>
+      <anchor>af73511361067f8a19790783068097aa9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual void</type>
+      <name>Setup</name>
+      <anchorfile>class_gm_point_in_poly_tester___gm_polygon.html</anchorfile>
+      <anchor>ac0cf4568292ffeb7626320453460a1ae</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual void</type>
+      <name>CheckPoint</name>
+      <anchorfile>class_gm_point_in_poly_tester___gm_polygon.html</anchorfile>
+      <anchor>a6266bdf8e4c1276bda6063a2c419576c</anchor>
+      <arglist>(const xms::Pt3d &amp;a_pt) override</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual double</type>
+      <name>MaxTime</name>
+      <anchorfile>class_gm_point_in_poly_tester___gm_polygon.html</anchorfile>
+      <anchor>a7c2b20442710d8f70394600de6fd9342</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type></type>
+      <name>XM_DISALLOW_COPY_AND_ASSIGN</name>
+      <anchorfile>class_gm_point_in_poly_tester___gm_polygon.html</anchorfile>
+      <anchor>a55c128adfb44a4c87abd9f00a9ebd806</anchor>
+      <arglist>(GmPointInPolyTester_GmPolygon)</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>BSHP&lt; xms::GmPolygon &gt;</type>
+      <name>m_poly</name>
+      <anchorfile>class_gm_point_in_poly_tester___gm_polygon.html</anchorfile>
+      <anchor>ab36a65f45d348e61c2c54700187523c3</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>GmPointInPolyUnitTests</name>
+    <filename>class_gm_point_in_poly_unit_tests.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>GmPointInPolyUnitTests</name>
+      <anchorfile>class_gm_point_in_poly_unit_tests.html</anchorfile>
+      <anchor>a242ee9e55d08b8eab4105d7592bf1dd1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>DoTest</name>
+      <anchorfile>class_gm_point_in_poly_unit_tests.html</anchorfile>
+      <anchor>aad892797953c9679e60aacab95c59a27</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="pure">
+      <type>virtual void</type>
+      <name>CheckPoint</name>
+      <anchorfile>class_gm_point_in_poly_unit_tests.html</anchorfile>
+      <anchor>a6c8f3ccf1f1fc9b26f4354bea316c6a2</anchor>
+      <arglist>(const xms::Pt3d &amp;a_pt)=0</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="pure">
+      <type>virtual double</type>
+      <name>MaxTime</name>
+      <anchorfile>class_gm_point_in_poly_unit_tests.html</anchorfile>
+      <anchor>ab3908f443552a3365b065a8c9a8cf0c9</anchor>
+      <arglist>()=0</arglist>
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
       <type>virtual void</type>
@@ -1279,77 +3900,105 @@
       <anchor>a1ed8b155abbce252e8bacc00d91d0e36</anchor>
       <arglist></arglist>
     </member>
-  </compound>
-  <compound kind="class">
-    <name>GmPointInPolyTester_GmPolygon</name>
-    <filename>class_gm_point_in_poly_tester___gm_polygon.html</filename>
-    <base>GmPointInPolyUnitTests</base>
-    <member kind="function">
-      <type></type>
-      <name>GmPointInPolyTester_GmPolygon</name>
-      <anchorfile>class_gm_point_in_poly_tester___gm_polygon.html</anchorfile>
-      <anchor>af73511361067f8a19790783068097aa9</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>Setup</name>
-      <anchorfile>class_gm_point_in_poly_tester___gm_polygon.html</anchorfile>
-      <anchor>ac0cf4568292ffeb7626320453460a1ae</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>CheckPoint</name>
-      <anchorfile>class_gm_point_in_poly_tester___gm_polygon.html</anchorfile>
-      <anchor>a6266bdf8e4c1276bda6063a2c419576c</anchor>
-      <arglist>(const xms::Pt3d &amp;a_pt) override</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual double</type>
-      <name>MaxTime</name>
-      <anchorfile>class_gm_point_in_poly_tester___gm_polygon.html</anchorfile>
-      <anchor>a7c2b20442710d8f70394600de6fd9342</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type></type>
-      <name>XM_DISALLOW_COPY_AND_ASSIGN</name>
-      <anchorfile>class_gm_point_in_poly_tester___gm_polygon.html</anchorfile>
-      <anchor>a55c128adfb44a4c87abd9f00a9ebd806</anchor>
-      <arglist>(GmPointInPolyTester_GmPolygon)</arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>BSHP&lt; xms::GmPolygon &gt;</type>
-      <name>m_poly</name>
-      <anchorfile>class_gm_point_in_poly_tester___gm_polygon.html</anchorfile>
-      <anchor>ab36a65f45d348e61c2c54700187523c3</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>GmPointInPolyUnitTests</name>
-    <filename>class_gm_point_in_poly_unit_tests.html</filename>
-    <member kind="function" protection="protected" virtualness="pure">
-      <type>virtual void</type>
-      <name>CheckPoint</name>
-      <anchorfile>class_gm_point_in_poly_unit_tests.html</anchorfile>
-      <anchor>a6c8f3ccf1f1fc9b26f4354bea316c6a2</anchor>
-      <arglist>(const xms::Pt3d &amp;a_pt)=0</arglist>
-    </member>
-    <member kind="function" protection="protected" virtualness="pure">
-      <type>virtual double</type>
-      <name>MaxTime</name>
-      <anchorfile>class_gm_point_in_poly_unit_tests.html</anchorfile>
-      <anchor>ab3908f443552a3365b065a8c9a8cf0c9</anchor>
-      <arglist>()=0</arglist>
-    </member>
     <member kind="function" protection="private">
       <type></type>
       <name>XM_DISALLOW_COPY_AND_ASSIGN</name>
       <anchorfile>class_gm_point_in_poly_unit_tests.html</anchorfile>
       <anchor>ad7cbb8b88a9b3d04a585dac034e7d5e3</anchor>
       <arglist>(GmPointInPolyUnitTests)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::GmPolygon</name>
+    <filename>classxms_1_1_gm_polygon.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>GmPolygon</name>
+      <anchorfile>classxms_1_1_gm_polygon.html</anchorfile>
+      <anchor>a5c9b3f01094c446f998eb5d898ff5ff4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~GmPolygon</name>
+      <anchorfile>classxms_1_1_gm_polygon.html</anchorfile>
+      <anchor>a044fc1abedbc680be3610e0078383b9c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static BSHP&lt; GmPolygon &gt;</type>
+      <name>New</name>
+      <anchorfile>classxms_1_1_gm_polygon.html</anchorfile>
+      <anchor>ad8093f52a1162981b9385f02ab74f020</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::GmPolygonImpl</name>
+    <filename>classxms_1_1_gm_polygon_impl.html</filename>
+    <base>xms::GmPolygon</base>
+    <member kind="function">
+      <type></type>
+      <name>GmPolygonImpl</name>
+      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
+      <anchor>af30376ca5d7e9312c1ac5d9c7be5fb0d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>Setup</name>
+      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
+      <anchor>af66ebecefe6f91f7cb9d79a1937dfa34</anchor>
+      <arglist>(const VecPt3d &amp;a_poly, const VecPt3d2d &amp;a_inPolys) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>GetPoints</name>
+      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
+      <anchor>ad1a1750096fbfda938910e3ec19d573a</anchor>
+      <arglist>(VecPt3d &amp;a_poly, VecPt3d2d &amp;a_inPolys) const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>CoveredBy</name>
+      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
+      <anchor>ab532f128e5d4ac3c9d5084d639d0c3bf</anchor>
+      <arglist>(Pt3d a_point) const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>Within</name>
+      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
+      <anchor>ab4fb31f5ae09331f8abb148e9374a0fa</anchor>
+      <arglist>(Pt3d a_point) const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual double</type>
+      <name>MinDistanceToBoundary</name>
+      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
+      <anchor>a9fc163819fdbfc8e49b6a1ad1716661f</anchor>
+      <arglist>(Pt3d a_pt) const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>Intersection</name>
+      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
+      <anchor>a3dbbbff726ffd85dfeca5b5bd0a1e81e</anchor>
+      <arglist>(const GmPolygon &amp;a_, std::vector&lt; BSHP&lt; GmPolygon &gt;&gt; &amp;a_out) const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>Union</name>
+      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
+      <anchor>ae30032a3f50f76e8698cd3279c1441db</anchor>
+      <arglist>(const GmPolygon &amp;a_, std::vector&lt; BSHP&lt; GmPolygon &gt;&gt; &amp;a_out) const override</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>GmBstPoly3d</type>
+      <name>m_poly</name>
+      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
+      <anchor>a1b8f4cc90f8c30f3f2b8ede8b5403054</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -1424,1692 +4073,15 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>GmPolyLinePtRedistributerUnitTests</name>
-    <filename>class_gm_poly_line_pt_redistributer_unit_tests.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>testCreateClass</name>
-      <anchorfile>class_gm_poly_line_pt_redistributer_unit_tests.html</anchorfile>
-      <anchor>a408aa5befac9d84f88fe51828a343ddd</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testRedistribute</name>
-      <anchorfile>class_gm_poly_line_pt_redistributer_unit_tests.html</anchorfile>
-      <anchor>a35539a5b291d522f2e6cfc597c368028</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testRedistribute1</name>
-      <anchorfile>class_gm_poly_line_pt_redistributer_unit_tests.html</anchorfile>
-      <anchor>ae730c8c2625bc12b21001743446a9ce8</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>InterpBase</name>
-    <filename>class_interp_base.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>InterpIdwUnitTests</name>
-    <filename>class_interp_idw_unit_tests.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>testCreateClass</name>
-      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
-      <anchor>a8396f3f0730a12892a07e3349b41f01b</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testInterpToPts</name>
-      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
-      <anchor>a96249279e0569b4deaf1d68aa3a330cb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testInterp2d_a</name>
-      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
-      <anchor>a7f2d074fef918ec9a5c6308ea59f3960</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testInterp2d_b</name>
-      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
-      <anchor>a4fac354cd0c7e881cd236e88daa9831c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testInterp2d_c</name>
-      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
-      <anchor>a51c2aa14e0e672fb206bac8321be1072</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testInterp2d_d</name>
-      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
-      <anchor>a702b7e88f13f12a3bd67f63c72a0e36e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testInterp2d_e</name>
-      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
-      <anchor>ac84b4f83b6203959642968681bce102d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testInterp2d_f</name>
-      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
-      <anchor>afe6cf9c03c045a8b9082af6cea786b30</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testInterp3d</name>
-      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
-      <anchor>aa60647607d12677033b9a06101ca8626</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testErrors</name>
-      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
-      <anchor>a948550d5bea2c912f62ac7fb2ff2ec35</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testErrors2</name>
-      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
-      <anchor>aaa8031ea95bf6c80acf5c5cf0fa0c2cb</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>InterpLinearUnitTests</name>
-    <filename>class_interp_linear_unit_tests.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>testToString</name>
-      <anchorfile>class_interp_linear_unit_tests.html</anchorfile>
-      <anchor>a102ac6f3cccff6e6b84b07b04346f852</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testOneTriangle</name>
-      <anchorfile>class_interp_linear_unit_tests.html</anchorfile>
-      <anchor>af51ed7a3211df29fd89ef4db71e4638b</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testInterp</name>
-      <anchorfile>class_interp_linear_unit_tests.html</anchorfile>
-      <anchor>adeee0cb0d05b95d458a08bcea9cc6480</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testCt</name>
-      <anchorfile>class_interp_linear_unit_tests.html</anchorfile>
-      <anchor>a9794c0623d2513c0d7fec09330ba057b</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>InterpNatNeighUnitTests</name>
-    <filename>class_interp_nat_neigh_unit_tests.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>testCreateClass</name>
-      <anchorfile>class_interp_nat_neigh_unit_tests.html</anchorfile>
-      <anchor>a250cc7b0868d886bfe62a879f2751dc9</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testGetTris</name>
-      <anchorfile>class_interp_nat_neigh_unit_tests.html</anchorfile>
-      <anchor>a19ff24a728bfbe73adb5e3a41a6662cf</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testGetNeighbors</name>
-      <anchorfile>class_interp_nat_neigh_unit_tests.html</anchorfile>
-      <anchor>a891daf9245fc4102170df8230450f724</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testHaleNnSortOuterEdges</name>
-      <anchorfile>class_interp_nat_neigh_unit_tests.html</anchorfile>
-      <anchor>afe6136a18245213de34dc1e0a8667eda</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testHaleNnInterp</name>
-      <anchorfile>class_interp_nat_neigh_unit_tests.html</anchorfile>
-      <anchor>ad581e74eade4d9e7407824071228fb30</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>NodalFuncUnitTests</name>
-    <filename>class_nodal_func_unit_tests.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>testCreateClass</name>
-      <anchorfile>class_nodal_func_unit_tests.html</anchorfile>
-      <anchor>a986761f15bb7b983843743da333736eb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testComputeGradientForPoint</name>
-      <anchorfile>class_nodal_func_unit_tests.html</anchorfile>
-      <anchor>af68cd137ce30435b72961072fa464b6c</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>PtSearchUnitTests</name>
-    <filename>class_pt_search_unit_tests.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>testCreateClass</name>
-      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
-      <anchor>a8e322359ace1af03b7ed680f5295693b</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testTest2d</name>
-      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
-      <anchor>a73d2a85aa0fbc316a421dcf912981fa8</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testTest2dTutData</name>
-      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
-      <anchor>add78e0a8851b7ac7f7a2410a1b1fa5b1</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testTest3d</name>
-      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
-      <anchor>a7f493292989b1e6e6c5d01516d5b2d64</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testTest3dOct</name>
-      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
-      <anchor>a5d78214e1fef2096a0c61d36399c7584</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testActivity2d</name>
-      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
-      <anchor>a9c68362b8c6522297a6b4f987428fb74</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testActivity3d</name>
-      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
-      <anchor>a5070b8bb3b9419bbd813a56e42899455</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testPtsWithinDist</name>
-      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
-      <anchor>a24c64ac92355da4e5384c20b9279acc3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testVectorThatGrows</name>
-      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
-      <anchor>ac74456c2b966531869f579c2a7875740</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>PyInterpBase</name>
-    <filename>class_py_interp_base.html</filename>
-    <templarg></templarg>
-  </compound>
-  <compound kind="class">
-    <name>TrAutoFixFourTrianglePtsUnitTests</name>
-    <filename>class_tr_auto_fix_four_triangle_pts_unit_tests.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>test1</name>
-      <anchorfile>class_tr_auto_fix_four_triangle_pts_unit_tests.html</anchorfile>
-      <anchor>ab21bd9cb12084ff3dc1eb734f2626081</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>TrBreaklineAdderUnitTests</name>
-    <filename>class_tr_breakline_adder_unit_tests.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>test1</name>
-      <anchorfile>class_tr_breakline_adder_unit_tests.html</anchorfile>
-      <anchor>aed5fc7ad1065440d05eb8e4387a19d6a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>test2</name>
-      <anchorfile>class_tr_breakline_adder_unit_tests.html</anchorfile>
-      <anchor>a29102789708793c51d7204d464c31e34</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testCrossingBoundary</name>
-      <anchorfile>class_tr_breakline_adder_unit_tests.html</anchorfile>
-      <anchor>af46bc719d5a27acd4a02f4f6ba2ea27d</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>TriSearchUnitTests</name>
-    <filename>class_tri_search_unit_tests.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>testCreateClass</name>
-      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
-      <anchor>ab3d5e1da43f73a8071876dc0516fead6</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testInterpWeights</name>
-      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
-      <anchor>a1364caa71954c0da28fe0be43b104c02</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testPtActivity</name>
-      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
-      <anchor>ad3db5f8baf65200980ce9ce64cf4e076</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testTriActivity</name>
-      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
-      <anchor>aaafe145f2ebb470f3604248b2a26c3fd</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testSmsCase1</name>
-      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
-      <anchor>a5d1aa17f366ee0dddf326af59b775b8e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testTouch</name>
-      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
-      <anchor>af0c83cdfee2822cd88b5e784e5d646ea</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testTriEnvelopesOverlap</name>
-      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
-      <anchor>a9115acc6d9662f1d757bb082cb730450</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>TrOuterTriangleDeleterUnitTests</name>
-    <filename>class_tr_outer_triangle_deleter_unit_tests.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>test1</name>
-      <anchorfile>class_tr_outer_triangle_deleter_unit_tests.html</anchorfile>
-      <anchor>a294ae02e69ef1ba5ee88016a54af2882</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>TrTinUnitTests</name>
-    <filename>class_tr_tin_unit_tests.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>test1</name>
-      <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
-      <anchor>a198e55ca6fc0831488240809cffddea2</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testOptimizeTriangulation</name>
-      <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
-      <anchor>a29a07efdba13d58663f8a61fd5404d4f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testSwap</name>
-      <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
-      <anchor>ab978361fc941ce007bfa7d419a0bce92</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testBoundaries</name>
-      <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
-      <anchor>a9a7adf7f4b8ab36ef62d3d7e55bf5c92</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testDeleteTriangles</name>
-      <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
-      <anchor>a390a1322e40b297601fccea53fad2472</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testDeletePoints</name>
-      <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
-      <anchor>a609dc373196faee1173a89d9955d1559</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>TrTriangulatorPointsUnitTests</name>
-    <filename>class_tr_triangulator_points_unit_tests.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>test1</name>
-      <anchorfile>class_tr_triangulator_points_unit_tests.html</anchorfile>
-      <anchor>a33422cef521b757882239d403bc6569d</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>TutInterpolationIntermediateTests</name>
-    <filename>class_tut_interpolation_intermediate_tests.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual const CxxTest::TestGroup &amp;</type>
-      <name>group</name>
-      <anchorfile>class_tut_interpolation_intermediate_tests.html</anchorfile>
-      <anchor>a195ff67bdc3ae586cbf79b7665c3f66b</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>test_Example_IDW</name>
-      <anchorfile>class_tut_interpolation_intermediate_tests.html</anchorfile>
-      <anchor>a07da59ac97a03923d1894fc0db7ebd46</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>test_Example_Linear</name>
-      <anchorfile>class_tut_interpolation_intermediate_tests.html</anchorfile>
-      <anchor>a8a81dfb33fad9290a29c89a73febadfa</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>test_Example_NaturalNeighbor</name>
-      <anchorfile>class_tut_interpolation_intermediate_tests.html</anchorfile>
-      <anchor>a4016c266625b88129df8654a1d84df5d</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="namespace">
-    <name>python::interpolate::InterpIdw_pyt</name>
-    <filename>namespacepython_1_1interpolate_1_1_interp_idw__pyt.html</filename>
-    <class kind="class">python::interpolate::InterpIdw_pyt::MockObserver</class>
-    <class kind="class">python::interpolate::InterpIdw_pyt::TestIdwEnums</class>
-    <class kind="class">python::interpolate::InterpIdw_pyt::TestInterpIdw</class>
-  </compound>
-  <compound kind="class">
-    <name>python::interpolate::InterpIdw_pyt::MockObserver</name>
-    <filename>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_mock_observer.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>python::interpolate::InterpIdw_pyt::TestIdwEnums</name>
-    <filename>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html</filename>
-    <member kind="function">
-      <type>def</type>
-      <name>test_idw_weight_enum</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html</anchorfile>
-      <anchor>ab5ced31c3d6d810d9ffcb58f48c895b9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_idw_nodal_func_enum</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_idw_enums.html</anchorfile>
-      <anchor>a57a69015a3c22be5f0e796fc8beef1cc</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>python::interpolate::InterpIdw_pyt::TestInterpIdw</name>
-    <filename>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</filename>
-    <member kind="function">
-      <type>def</type>
-      <name>setUp</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>ae537f6cae557c5c4afc2c544276284d4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_to_string</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>a1c635d29372f31da82c28cae7c88c695</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_pts_tris</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>aba1092c01905431e9cdcdf9ceee4c4db</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_pts</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>a650dd3b942b228e51e621e76607d70bd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_pts_2d</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>a1d99fac0c1a30cf6db2a3945b97e4d01</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_interp_to_pt</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>a75f26f4905e23e0f8815044e2a401079</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_intperp_to_pts</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>a0169db232428a6fba4bb50a5724b7d82</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_intperp_to_pts_numpy</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>acbc35830d3fa12ba47dec260aee8425d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_pt_activity</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>af2cf6b0de55a9104e0b43a20643d6226</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_tri_activity</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>a9b197df7cf5ceb1ea0b115d82f216738</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_get_pts</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>a964172d88cb8a5ae7e198cc6d6a5f44d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_get_tris</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>a6479639d101690eec28b029034173e42</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_trunc</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>ad5661f267cb8e4c0ef4850f1ada92f3b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_observer</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>a9231491cdd55575a2c44fd579630ffd0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_power</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>a5565e5db7dee38e93892e004a704c087</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_search_opts</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>ac074586e4d33e11afa3c114a2a2c41ab</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_weight_calc_method</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>ac69ada0356739d8823d52dbcaa58a84e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_nodal_function</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>a03937ce19625a0ceb6afbbd3b99ea9e5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_save_weights</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>ab60b3b49c5f9d407ba22058d498e91e4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_interp_weights</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>ad1cc2b69466cf26374efa56f73bb8640</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_multi_threading</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>af4af819a66cee88e90141ce2342d465d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_tutorial</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_idw__pyt_1_1_test_interp_idw.html</anchorfile>
-      <anchor>a201ee30bd9d4398112270413b1afa8e9</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="namespace">
-    <name>python::interpolate::InterpLinear_pyt</name>
-    <filename>namespacepython_1_1interpolate_1_1_interp_linear__pyt.html</filename>
-    <class kind="class">python::interpolate::InterpLinear_pyt::MockObserver</class>
-    <class kind="class">python::interpolate::InterpLinear_pyt::TestInterpLinear</class>
-  </compound>
-  <compound kind="class">
-    <name>python::interpolate::InterpLinear_pyt::MockObserver</name>
-    <filename>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_mock_observer.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>python::interpolate::InterpLinear_pyt::TestInterpLinear</name>
-    <filename>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</filename>
-    <member kind="function">
-      <type>def</type>
-      <name>setUp</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>a1e88a75dfb37a8dcd643831ee8317fed</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_to_string</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>a79fdce5b5e566dc5fc5cfa4b961a237e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_pts_tris</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>aea95c582f2add4da747370cf6e8551b4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_pts_tris_numpy</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>a5d57e5432e630f0f58ec0d2ad42ad487</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_interp_to_pt</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>af1d56a9051461c4b689d89d6cface06b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_intperp_to_pts</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>a33658fba5d2c83631448c60e5a1e39f7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_intperp_to_pts_numpy</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>a8f69fce8d2a00a0821360524b2fd9115</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_pt_activity</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>aeaa7b4621fa3c757a436f0f5ab45a219</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_tri_activity</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>ad7113d9a3460b34e6633122d9b80da92</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_get_pts</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>a94938066988ae3725f392cf81b807c88</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_get_tris</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>ace63e277cbd7b3f572a0e8bd3b7c7f83</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_tri_containing_pt</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>a1c98e61cc989d2a530b1fe897cd6e5f3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_tri_envelops_containing_pt</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>abf2ce3a78008e9936bccaf7da98a99eb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_interp_weights</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>acbcd4c3f8bb4d15f2c55e3343bd79596</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_extrap_val</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>a35c4725c6ec2ea36d340f48e255dd03c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_trunc</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>a4059e053450bd58bd7e1fe776abb23ff</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_use_clough_tocher</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>af872de591e1026a71ae8b944855bf966</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_set_use_nat_neigh</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>a94f1ce449bc6f25b7b31392df6cb9672</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>def</type>
-      <name>test_tutorial</name>
-      <anchorfile>classpython_1_1interpolate_1_1_interp_linear__pyt_1_1_test_interp_linear.html</anchorfile>
-      <anchor>aed348cec6d4df11c1eeddb27fc712962</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>python::triangulate::TrTin_pyt::TestTrTin</name>
-    <filename>classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html</filename>
-    <member kind="function">
-      <type>def</type>
-      <name>setUp</name>
-      <anchorfile>classpython_1_1triangulate_1_1_tr_tin__pyt_1_1_test_tr_tin.html</anchorfile>
-      <anchor>adef3e051ae64a40bf940a5895769cc5f</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>xms::GmExtents2d</name>
-    <filename>classxms_1_1_gm_extents2d.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>GmExtents2d</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a7713120ed10fdf972a7d9cd4727695e7</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>GmExtents2d</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>ac6ca00863adaed8c44fdf229ba55cee2</anchor>
-      <arglist>(const GmExtents3d &amp;a_extents)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>GmExtents2d</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a41f7becb48eb6566a0d8446c0af744e8</anchor>
-      <arglist>(const Pt2d &amp;a_min, const Pt2d &amp;a_max)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>GmExtents2d</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a59954fe5dcff4393c789b9b5310d3b00</anchor>
-      <arglist>(const Pt3d &amp;a_min, const Pt3d &amp;a_max)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~GmExtents2d</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a199a9513a66ab4e8ca031c93a60502ce</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>operator+=</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>ae42c798434698c97fdd26298ac26f6e0</anchor>
-      <arglist>(const GmExtents2d &amp;a_rhs)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>AddToExtents</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a961a392986a503fd2a08b2dcd4c19644</anchor>
-      <arglist>(const Pt3d &amp;pt)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>Add</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>ae5cc44c6efd560195817f1d1d32cc17c</anchor>
-      <arglist>(ItrType a_begin, ItrType a_end)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>IsValid</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a8808cc09d89e82f4ab38c6fc649a026d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>Overlap</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>ad41ad4075e137ca25ef66aecede3ba9e</anchor>
-      <arglist>(const GmExtents2d &amp;a_b) const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>Clear</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a60780f3b3471ce34744412fed1938f47</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>GetExtents</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a12db96218f2b4f7c1ff5242ba8bab3d7</anchor>
-      <arglist>(double *a_MinX, double *a_MaxX, double *a_MinY, double *a_MaxY)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>GetExtents</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>abdadfa5471353d9186adf9118790a95a</anchor>
-      <arglist>(Pt3d &amp;a_dMin, Pt3d &amp;a_dMax)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMinX</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a3caf8e8a723c72321fd0adda86c021e8</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMaxX</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>aa57f052ef12bb6c78f2031c350642755</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMinY</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a50faa835ead902000fbbd1f084d80671</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMaxY</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>aea077de734c96d52aafd0ac0fedd9127</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>Pt2d</type>
-      <name>GetMin</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a9b5406c4fd7731d45ddbca0ccae0dffc</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>Pt2d</type>
-      <name>GetMax</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>aea8b9589dfc4cd2c580ae20b0101f55f</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>Set</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a65c98975328fe846704c7fc91a006e1e</anchor>
-      <arglist>(const Pt2d &amp;a_min, const Pt2d &amp;a_max)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>serialize</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>aa7a591f9d935ef8aea0402d746c56fc9</anchor>
-      <arglist>(Archive &amp;archive, const unsigned int version)</arglist>
-    </member>
+    <name>xms::GmPolyLinePtRedistributer</name>
+    <filename>classxms_1_1_gm_poly_line_pt_redistributer.html</filename>
     <member kind="function" static="yes">
-      <type>static void</type>
-      <name>SetTolerance</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>af91bf63e31dc46c63a0165d267f7ad19</anchor>
-      <arglist>(double a_Tol)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static double</type>
-      <name>GetTolerance</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a7db9964a1b49f1bd8e3003a5c592dbc0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>Pt2d</type>
-      <name>m_min</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>aff08e09f489359e779cc9a068fed293a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>Pt2d</type>
-      <name>m_max</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>aee80084ccb1fc4d9aa069c232678ff0d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static double</type>
-      <name>m_tolerance</name>
-      <anchorfile>classxms_1_1_gm_extents2d.html</anchorfile>
-      <anchor>a96ea5046f0d2a697ab852e2e6e37b0de</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>xms::GmExtents3d</name>
-    <filename>classxms_1_1_gm_extents3d.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>GmExtents3d</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>aee049dcde88efdf2266b9ddac3700626</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>GmExtents3d</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>aee5d872568e8585f8e24db8678c5a246</anchor>
-      <arglist>(const GmExtents2d &amp;a_extents)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>GmExtents3d</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a1954ff9b989d3e13f414e142dd5404d1</anchor>
-      <arglist>(const Pt3d &amp;a_min, const Pt3d &amp;a_max)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>GmExtents3d</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a11ec30b976bd5ddfde9a9ecdf3248702</anchor>
-      <arglist>(const Pt2d &amp;a_min, const Pt2d &amp;a_max)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>operator+=</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>ac0a55b7e31742d3dfff48cbc321ccca2</anchor>
-      <arglist>(const GmExtents3d &amp;a_rhs)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>AddToExtents</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a1f41c66ac6b67c60982044093ada302e</anchor>
-      <arglist>(const Pt3d &amp;pt)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>IsValid</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a4c2155a212a8fd128582e8f724df9997</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>Overlap</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>ac33f5d7a24913305511c83ac581228f1</anchor>
-      <arglist>(GmExtents3d &amp;a_b) const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>Clear</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>af7b8f4955c9068c0853354ab1f34f297</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>IsPointWithin</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>ada242ef52d53e3ebd8448d2df24d3442</anchor>
-      <arglist>(const Pt3d &amp;pt) const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>GetExtents</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a09f40fd9285ad63b3f85a5490406bbd6</anchor>
-      <arglist>(double *a_MinX, double *a_MaxX, double *a_MinY, double *a_MaxY, double *a_MinZ, double *a_MaxZ) const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>GetExtents</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>af209302d40f52780b6db1d8ca1e42343</anchor>
-      <arglist>(Pt3d &amp;a_dMin, Pt3d &amp;a_dMax) const </arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMinX</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a8aa6a08fe8b2e46461c83bcb4bececdd</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMaxX</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a0acb03a400331cce3c33444b857c52dc</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMinY</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a82a969003b6a9cc3fdc557eda54865e1</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMaxY</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>acc2e130d248faa42bc89e9efa293d87c</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMinZ</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>aa0f1420db82bdf709610b45cf84927e7</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>GetMaxZ</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a470f758a2382729bb831a6f0ec41d824</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>Pt3d</type>
-      <name>GetMin</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a593a21421ee64daf38d42278d963fa0e</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>Pt3d</type>
-      <name>GetMax</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>aa9a6219254b142e60275358ae2ce4c41</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>Set</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a79314a735a92ef987b6412fcf404beea</anchor>
-      <arglist>(const Pt3d &amp;a_min, const Pt3d &amp;a_max)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>serialize</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a0b0221f18c9e5c9262606c3ac89aff67</anchor>
-      <arglist>(Archive &amp;archive, const unsigned int version)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>SetTolerance</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a6b4934250f1e3b40181595cf45ec52cf</anchor>
-      <arglist>(double a_Tol)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static double</type>
-      <name>GetTolerance</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>accc7b2a33b04d17b07af0db56df8b328</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>Pt3d</type>
-      <name>m_min</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>af9468191aa5196a5013db9c0e14b1d71</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>Pt3d</type>
-      <name>m_max</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>ad4235d1ff4b577bcfad2dbfe0524afdd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static double</type>
-      <name>m_tolerance</name>
-      <anchorfile>classxms_1_1_gm_extents3d.html</anchorfile>
-      <anchor>a7a1ee26cd395da7b0d36e605571f8ea5</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>xms::GmMultiPolyIntersectionSorter</name>
-    <filename>classxms_1_1_gm_multi_poly_intersection_sorter.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>xms::GmMultiPolyIntersectionSorterTerse</name>
-    <filename>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</filename>
-    <base>xms::GmMultiPolyIntersectionSorter</base>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>Sort</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>aab32ba927a9062f1c95c5a2e1bedb62d</anchor>
-      <arglist>(GmMultiPolyIntersectorData &amp;a_data, std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts, double a_tol) override</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>RemoveCornerTouches</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>ac86036c81726449c8121c1a05fd73db3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>RemoveDuplicateEdges</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>a1ef5deaea8e21cd99a88376758bc6c64</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>SwapAdjacents</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>a230088635ebb08581d8701911068be0a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>IntersectionsToPolyIdsAndTValuesFor2</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>ae7220e80be3c9bc2a559a118eb582274</anchor>
-      <arglist>(std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts) const </arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>IntersectionsToPolyIdsAndTValuesFor3OrMore</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>a0ea1f8edb3c145e97e91f102ca763d7f</anchor>
-      <arglist>(std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts) const </arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>IntersectionsToPolyIdsAndTValues</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>a904706c1ee869b84f2a68e80e8a393d2</anchor>
-      <arglist>(std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts) const </arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>FixArrays</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>abe81ef41d2c6d38ff813ef58d5b02ec1</anchor>
-      <arglist>(std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts) const </arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>AddToPolyIdsAndTValues</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>aaa687905a1cc7a450ffca5733b2c5567</anchor>
-      <arglist>(const ix &amp;a_ix, std::vector&lt; int &gt; &amp;polyids, std::vector&lt; double &gt; &amp;tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts) const </arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>FindPreviousNextNeither</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>a6cec2e0beb665709d09c3d6bd8f3dd6c</anchor>
-      <arglist>(const std::vector&lt; int &gt; &amp;tChange, const int idx, std::vector&lt; int &gt; *inPrev, std::vector&lt; int &gt; *inNext, std::vector&lt; int &gt; *inNeither) const </arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>Swap</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>a484addfe624bb88f1980496ccb922692</anchor>
-      <arglist>(int a, int b)</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>FindWhereTValuesChange</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>ab90cdc54e0f0ce732124d9d6a8151678</anchor>
-      <arglist>(std::vector&lt; int &gt; &amp;tChange) const </arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>GmMultiPolyIntersectorData *</type>
-      <name>m_d</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>a7bacf816a4c3b4eae33cd5a36007655a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>double</type>
-      <name>m_tol</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersection_sorter_terse.html</anchorfile>
-      <anchor>afe1b7c2e44e9d9837c446666d4995d48</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>xms::GmMultiPolyIntersectorImpl</name>
-    <filename>classxms_1_1_gm_multi_poly_intersector_impl.html</filename>
-    <base>xms::GmMultiPolyIntersector</base>
-    <member kind="function">
-      <type></type>
-      <name>GmMultiPolyIntersectorImpl</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>ac5a0b775408588b9d96a228d7185f5cd</anchor>
-      <arglist>(const VecPt3d &amp;a_points, const VecInt2d &amp;a_polys, BSHP&lt; GmMultiPolyIntersectionSorter &gt; a_sorter, int a_startingId=1)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>SetQuery</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>ad44f26ecf4069c3406c27806dabf13f8</anchor>
-      <arglist>(GmMultiPolyIntersectorQueryEnum a_query) override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>TraverseLineSegment</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>aaf57048e471c717782ed2f8b8c70fbbd</anchor>
-      <arglist>(double x1, double y1, double x2, double y2, VecInt &amp;polyids, VecDbl &amp;tvalues)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>TraverseLineSegment</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>aaaa51443ccf79d0c7838af3f4928160c</anchor>
-      <arglist>(double x1, double y1, double x2, double y2, VecInt &amp;polyids)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>TraverseLineSegment</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>af208271ec2a8777c7649f9b1d9e96cf9</anchor>
-      <arglist>(double a_x1, double a_y1, double a_x2, double a_y2, VecInt &amp;a_polyids, std::vector&lt; Pt3d &gt; &amp;a_pts)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>PolygonFromPoint</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>ab6aa0c0a7b94a67516f74bb88550d1b6</anchor>
-      <arglist>(const Pt3d &amp;a_pt)</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>CalculateBuffer</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>a535aad59183701eae8532bcb4c2ed2f0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>BufferTheBox</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>affd39eba42547d5e6e8322604033cda1</anchor>
-      <arglist>(GmBstBox3d &amp;box) const </arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>GmBstPoly3d &amp;</type>
-      <name>GetBoostPoly</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>a9205979073697853ffdc62c0e5a87cac</anchor>
-      <arglist>(int a_polyIdx)</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>BuildBoostPoly</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>ab1eed366d123e3ab19e0548926059e5b</anchor>
-      <arglist>(int a_polyIdx, GmBstPoly3d &amp;a_boostPoly) const </arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>BuildRTree</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>af1174b0ddef285f93ba48e5aaadd6bbb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>CreateLine</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>a3c3d8a9dd135301536427efe7e08a21a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>GetPolysForPoint</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>aeeca34e061a08d03164142275666c15d</anchor>
-      <arglist>(Pt3d pt, SetInt &amp;poly)</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>EnsureEndPointsRepresented</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>a0d3c6c5b4daa721d5fb2edec53d28dbb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>IntersectEachPolyWithLine</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>ae78756aa2652d524131bb6259534df04</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>ComputeTValues</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>ab1525012537a7fe8d974de6c1c7c1080</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>SortIntersections</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>ad8a8d896823f5f70b3ffc250b453434c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>OffsetPolyIds</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>a1ea92917c83c697fb8111e683cb79aa3</anchor>
-      <arglist>(VecInt &amp;polyIds) const </arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>PointsOnSegment</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>a425a8860d5df3720cee68cdd32f1bb9f</anchor>
-      <arglist>(const GmBstPoly3d &amp;a_poly, const GmBstLine3d &amp;a_line, std::deque&lt; Pt3d &gt; &amp;a_output)</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>TraverseLineSegmentAll</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>aab2618742a6a374cde9c4d8ea2cd8e6a</anchor>
-      <arglist>(double a_x1, double a_y1, double a_x2, double a_y2, VecInt &amp;a_polyids, VecDbl &amp;a_tvalues, std::vector&lt; Pt3d &gt; &amp;a_pts)</arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>GmMultiPolyIntersectorData</type>
-      <name>m_d</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>a6deb7afa1a20058c93d83ef912ee890a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>Pt3d</type>
-      <name>m_pt1</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>aab0dadb74472f2aa11c1f2838c5b18b2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>Pt3d</type>
-      <name>m_pt2</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>a165515a3528656302865abe9b060d052</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>RtreeBox *</type>
-      <name>m_rtree</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>a79c692d08b0a79ba2823a92a98402d04</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>GmBstLine3d</type>
-      <name>m_line</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>ac8c9bc9edcf78e66b2b19b429fdd748b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>double</type>
-      <name>m_buffer</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>aece8a77964a59bb161d95a8d0f36e598</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>int</type>
-      <name>m_startingId</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>af8d56b114f4feb8359cccfb904429dd8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>std::vector&lt; GmBstPoly3d &gt;</type>
-      <name>m_boostPolys</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>a0bf794580c7158c6295b62dc6d359308</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>BSHP&lt; GmMultiPolyIntersectionSorter &gt;</type>
-      <name>m_sorter</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>aee888465df13dc924b99fc607071223e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>GmMultiPolyIntersectorQueryEnum</type>
-      <name>m_query</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector_impl.html</anchorfile>
-      <anchor>ae25a886c347f59cc97cdd4d09d0f2ecf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static boost::shared_ptr&lt; GmMultiPolyIntersector &gt;</type>
+      <type>static BSHP&lt; GmPolyLinePtRedistributer &gt;</type>
       <name>New</name>
-      <anchorfile>classxms_1_1_gm_multi_poly_intersector.html</anchorfile>
-      <anchor>a225f2e577e682f6fbd603fa56dce2253</anchor>
-      <arglist>(const std::vector&lt; Pt3d &gt; &amp;a_points, const std::vector&lt; std::vector&lt; int &gt; &gt; &amp;a_polys, boost::shared_ptr&lt; GmMultiPolyIntersectionSorter &gt; a_sorter, int a_startingId=1)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>xms::GmMultiPolyIntersector</name>
-    <filename>classxms_1_1_gm_multi_poly_intersector.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>xms::ix</name>
-    <filename>classxms_1_1ix.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>ix</name>
-      <anchorfile>classxms_1_1ix.html</anchorfile>
-      <anchor>ab86596c140cee4b9ad0bc1e0865c3c2a</anchor>
-      <arglist>(Pt3d a_pt, int a_i, double a_t)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator==</name>
-      <anchorfile>classxms_1_1ix.html</anchorfile>
-      <anchor>ad7ebc7d3dfc72319be03ff49294aae00</anchor>
-      <arglist>(const ix &amp;rhs)</arglist>
-    </member>
-    <member kind="variable">
-      <type>Pt3d</type>
-      <name>m_pt</name>
-      <anchorfile>classxms_1_1ix.html</anchorfile>
-      <anchor>a6a4aaf5674e38b0b1ff89f00afc9c32e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>int</type>
-      <name>m_i</name>
-      <anchorfile>classxms_1_1ix.html</anchorfile>
-      <anchor>a4185fe410fd0c5b45dc440483e745b15</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>double</type>
-      <name>m_t</name>
-      <anchorfile>classxms_1_1ix.html</anchorfile>
-      <anchor>ab40238d7edca655589518e4688d1aa49</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>xms::GmMultiPolyIntersectorData</name>
-    <filename>structxms_1_1_gm_multi_poly_intersector_data.html</filename>
-    <member kind="variable">
-      <type>std::vector&lt; Pt3d &gt;</type>
-      <name>m_points</name>
-      <anchorfile>structxms_1_1_gm_multi_poly_intersector_data.html</anchorfile>
-      <anchor>aafe89c90dca39c321b5a71af95256c2c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
-      <name>m_polys</name>
-      <anchorfile>structxms_1_1_gm_multi_poly_intersector_data.html</anchorfile>
-      <anchor>a4b6f906b82daa91ae96450abf8071509</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>std::set&lt; int &gt;</type>
-      <name>m_polys1</name>
-      <anchorfile>structxms_1_1_gm_multi_poly_intersector_data.html</anchorfile>
-      <anchor>a34a35f421f49e17ec2e1f3a2b4d678a8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>std::set&lt; int &gt;</type>
-      <name>m_polys2</name>
-      <anchorfile>structxms_1_1_gm_multi_poly_intersector_data.html</anchorfile>
-      <anchor>aca483d0445e27801f910b40c93d22c96</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>std::vector&lt; ix &gt;</type>
-      <name>m_ixs</name>
-      <anchorfile>structxms_1_1_gm_multi_poly_intersector_data.html</anchorfile>
-      <anchor>a3e30a6edc79fdb107f575508b14e5ea5</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>xms::GmPolygonImpl</name>
-    <filename>classxms_1_1_gm_polygon_impl.html</filename>
-    <base>xms::GmPolygon</base>
-    <member kind="function">
-      <type></type>
-      <name>GmPolygonImpl</name>
-      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
-      <anchor>af30376ca5d7e9312c1ac5d9c7be5fb0d</anchor>
+      <anchorfile>classxms_1_1_gm_poly_line_pt_redistributer.html</anchorfile>
+      <anchor>a058c1ce2832a7e0b76aaa6586199cc2d</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>Setup</name>
-      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
-      <anchor>af66ebecefe6f91f7cb9d79a1937dfa34</anchor>
-      <arglist>(const VecPt3d &amp;a_poly, const VecPt3d2d &amp;a_inPolys) override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>GetPoints</name>
-      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
-      <anchor>ad1a1750096fbfda938910e3ec19d573a</anchor>
-      <arglist>(VecPt3d &amp;a_poly, VecPt3d2d &amp;a_inPolys) const override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual bool</type>
-      <name>CoveredBy</name>
-      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
-      <anchor>ab532f128e5d4ac3c9d5084d639d0c3bf</anchor>
-      <arglist>(Pt3d a_point) const override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual bool</type>
-      <name>Within</name>
-      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
-      <anchor>ab4fb31f5ae09331f8abb148e9374a0fa</anchor>
-      <arglist>(Pt3d a_point) const override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual double</type>
-      <name>MinDistanceToBoundary</name>
-      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
-      <anchor>a9fc163819fdbfc8e49b6a1ad1716661f</anchor>
-      <arglist>(Pt3d a_pt) const override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>Intersection</name>
-      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
-      <anchor>a3dbbbff726ffd85dfeca5b5bd0a1e81e</anchor>
-      <arglist>(const GmPolygon &amp;a_, std::vector&lt; BSHP&lt; GmPolygon &gt;&gt; &amp;a_out) const override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>Union</name>
-      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
-      <anchor>ae30032a3f50f76e8698cd3279c1441db</anchor>
-      <arglist>(const GmPolygon &amp;a_, std::vector&lt; BSHP&lt; GmPolygon &gt;&gt; &amp;a_out) const override</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>GmPolygon</name>
-      <anchorfile>classxms_1_1_gm_polygon.html</anchorfile>
-      <anchor>a5c9b3f01094c446f998eb5d898ff5ff4</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~GmPolygon</name>
-      <anchorfile>classxms_1_1_gm_polygon.html</anchorfile>
-      <anchor>a044fc1abedbc680be3610e0078383b9c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>GmBstPoly3d</type>
-      <name>m_poly</name>
-      <anchorfile>classxms_1_1_gm_polygon_impl.html</anchorfile>
-      <anchor>a1b8f4cc90f8c30f3f2b8ede8b5403054</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static BSHP&lt; GmPolygon &gt;</type>
-      <name>New</name>
-      <anchorfile>classxms_1_1_gm_polygon.html</anchorfile>
-      <anchor>ad8093f52a1162981b9385f02ab74f020</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>xms::GmPolygon</name>
-    <filename>classxms_1_1_gm_polygon.html</filename>
   </compound>
   <compound kind="class">
     <name>xms::GmPolyLinePtRedistributerImpl</name>
@@ -3136,94 +4108,41 @@
       <anchor>a9d3e8de1f6238353c11aa3e72f136696</anchor>
       <arglist>(const VecPt3d &amp;a_pts, double a_totalLength, const VecDbl &amp;a_lengths, int a_nSeg)</arglist>
     </member>
-    <member kind="function" static="yes">
-      <type>static BSHP&lt; GmPolyLinePtRedistributer &gt;</type>
-      <name>New</name>
-      <anchorfile>classxms_1_1_gm_poly_line_pt_redistributer.html</anchorfile>
-      <anchor>a058c1ce2832a7e0b76aaa6586199cc2d</anchor>
+  </compound>
+  <compound kind="class">
+    <name>GmPolyLinePtRedistributerUnitTests</name>
+    <filename>class_gm_poly_line_pt_redistributer_unit_tests.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>testCreateClass</name>
+      <anchorfile>class_gm_poly_line_pt_redistributer_unit_tests.html</anchorfile>
+      <anchor>a408aa5befac9d84f88fe51828a343ddd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testRedistribute</name>
+      <anchorfile>class_gm_poly_line_pt_redistributer_unit_tests.html</anchorfile>
+      <anchor>a35539a5b291d522f2e6cfc597c368028</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testRedistribute1</name>
+      <anchorfile>class_gm_poly_line_pt_redistributer_unit_tests.html</anchorfile>
+      <anchor>ae730c8c2625bc12b21001743446a9ce8</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
-    <name>xms::GmPolyLinePtRedistributer</name>
-    <filename>classxms_1_1_gm_poly_line_pt_redistributer.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>xms::fSatisfies</name>
-    <filename>classxms_1_1f_satisfies.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>fSatisfies</name>
-      <anchorfile>classxms_1_1f_satisfies.html</anchorfile>
-      <anchor>ab363650297804f81ac7f6fa1179b6bc0</anchor>
-      <arglist>(size_t a_nVals)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator()</name>
-      <anchorfile>classxms_1_1f_satisfies.html</anchorfile>
-      <anchor>abb72c63056f416524c628d68d0cf9e04</anchor>
-      <arglist>(value const &amp;a_) const </arglist>
-    </member>
-    <member kind="variable">
-      <type>DynBitset</type>
-      <name>m_bits</name>
-      <anchorfile>classxms_1_1f_satisfies.html</anchorfile>
-      <anchor>abb625b439183cff97cde9dede033f7aa</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>xms::idx_pt</name>
-    <filename>classxms_1_1idx__pt.html</filename>
-    <member kind="typedef">
-      <type>const bPt</type>
-      <name>result_type</name>
-      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
-      <anchor>ad127b38c3e9fb6c1d652fa2b6f75880d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>idx_pt</name>
-      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
-      <anchor>a2b7929bfcd2024966dd873f3e952a345</anchor>
-      <arglist>(const Pt3d *a_, bool a_2d)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>idx_pt</name>
-      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
-      <anchor>a709964a4e328dd7f2e693eb9833031c1</anchor>
-      <arglist>(BSHP&lt; std::vector&lt; Pt3d &gt;&gt; a_, bool a_2d)</arglist>
-    </member>
-    <member kind="function">
-      <type>result_type</type>
-      <name>operator()</name>
-      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
-      <anchor>ac22a39ec06f6f8861be18c02bcca9d9d</anchor>
-      <arglist>(size_t i) const </arglist>
-    </member>
-    <member kind="variable">
-      <type>const Pt3d *</type>
-      <name>m_</name>
-      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
-      <anchor>a0187e9f5054b0c3388e299239311646b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>bool</type>
-      <name>m_2d</name>
-      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
-      <anchor>aec9584b8b51e6795e4e0106187b68a5f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>BSHP&lt; std::vector&lt; Pt3d &gt; &gt;</type>
-      <name>m_v</name>
-      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
-      <anchor>a90678c68a3faa676fb06b081a6e070c6</anchor>
-      <arglist></arglist>
+    <name>xms::GmPtSearch</name>
+    <filename>classxms_1_1_gm_pt_search.html</filename>
+    <member kind="function" static="yes">
+      <type>static BSHP&lt; GmPtSearch &gt;</type>
+      <name>New</name>
+      <anchorfile>classxms_1_1_gm_pt_search.html</anchorfile>
+      <anchor>a883ee1e554d92caaed23923ebb39f4f8</anchor>
+      <arglist>(bool a_2dSearch)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -3262,15 +4181,15 @@
       <type>virtual void</type>
       <name>NearestPtsToPt</name>
       <anchorfile>classxms_1_1_gm_pt_search_impl.html</anchorfile>
-      <anchor>ac65400a9777b70ece4228b289016cc09</anchor>
-      <arglist>(const Pt3d &amp;a_pt, int a_numPtsToFind, bool a_quad_oct_Search, std::vector&lt; int &gt; &amp;a_nearest) const </arglist>
+      <anchor>aded68d89f79dcf651e566ceae9ab641f</anchor>
+      <arglist>(const Pt3d &amp;a_pt, int a_numPtsToFind, bool a_quad_oct_Search, std::vector&lt; int &gt; &amp;a_nearest) const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>NearestPtsToPtInRtree</name>
       <anchorfile>classxms_1_1_gm_pt_search_impl.html</anchorfile>
-      <anchor>ada14f38d27adbf4fbfd718a6ac517cbd</anchor>
-      <arglist>(int a_ptIdx, const Pt3d &amp;a_pt, int a_numPtsToFind, bool a_quad_oct_Search, std::vector&lt; int &gt; &amp;a_nearest) const </arglist>
+      <anchor>a18b7032cf038664cfab848c9ac4665ae</anchor>
+      <arglist>(int a_ptIdx, const Pt3d &amp;a_pt, int a_numPtsToFind, bool a_quad_oct_Search, std::vector&lt; int &gt; &amp;a_nearest) const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual bool</type>
@@ -3283,15 +4202,15 @@
       <type>virtual void</type>
       <name>PtsWithinDistanceToPtInRtree</name>
       <anchorfile>classxms_1_1_gm_pt_search_impl.html</anchorfile>
-      <anchor>a965dd3692fa215d527027e19544bdfe9</anchor>
-      <arglist>(int a_ptIdx, const Pt3d &amp;a_pt, double a_dist, std::vector&lt; int &gt; &amp;a_nearest) const </arglist>
+      <anchor>ad4086c679fcc467109725b43b5862791</anchor>
+      <arglist>(int a_ptIdx, const Pt3d &amp;a_pt, double a_dist, std::vector&lt; int &gt; &amp;a_nearest) const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>NearestPtsToPt</name>
       <anchorfile>classxms_1_1_gm_pt_search_impl.html</anchorfile>
-      <anchor>aeac8b34abdb66fb23bab17899ef73a48</anchor>
-      <arglist>(const Pt3d &amp;a_pt, int a_numPtsToFind, bool a_quad_oct_Search, std::vector&lt; int &gt; &amp;a_nearest, fSatisfies *a_fsat) const </arglist>
+      <anchor>a798982ff06d8f2b9d702e8c524770448</anchor>
+      <arglist>(const Pt3d &amp;a_pt, int a_numPtsToFind, bool a_quad_oct_Search, std::vector&lt; int &gt; &amp;a_nearest, fSatisfies *a_fsat) const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -3339,8 +4258,8 @@
       <type>void</type>
       <name>CreateOctants</name>
       <anchorfile>classxms_1_1_gm_pt_search_impl.html</anchorfile>
-      <anchor>a6ed406d9bb6d4196661bebb966f1f171</anchor>
-      <arglist>(const Pt3d &amp;a_pt, std::vector&lt; box &gt; &amp;a_boxes) const </arglist>
+      <anchor>aae9c54c626d2860a7be4fc122fb917ae</anchor>
+      <arglist>(const Pt3d &amp;a_pt, std::vector&lt; box &gt; &amp;a_boxes) const</arglist>
     </member>
     <member kind="variable">
       <type>bool</type>
@@ -3384,87 +4303,30 @@
       <anchor>a4d1a3ea0ffb1a2ca48d8d5e00146e750</anchor>
       <arglist></arglist>
     </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::GmTriSearch</name>
+    <filename>classxms_1_1_gm_tri_search.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~GmTriSearch</name>
+      <anchorfile>classxms_1_1_gm_tri_search.html</anchorfile>
+      <anchor>ac56072f01e9da1702618ee7255bb91c0</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="function" static="yes">
-      <type>static BSHP&lt; GmPtSearch &gt;</type>
+      <type>static BSHP&lt; GmTriSearch &gt;</type>
       <name>New</name>
-      <anchorfile>classxms_1_1_gm_pt_search.html</anchorfile>
-      <anchor>a883ee1e554d92caaed23923ebb39f4f8</anchor>
-      <arglist>(bool a_2dSearch)</arglist>
+      <anchorfile>classxms_1_1_gm_tri_search.html</anchorfile>
+      <anchor>a2df03859534cd0296e57bb87b7d418a2</anchor>
+      <arglist>()</arglist>
     </member>
-  </compound>
-  <compound kind="class">
-    <name>xms::GmPtSearch</name>
-    <filename>classxms_1_1_gm_pt_search.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>xms::idx_tri</name>
-    <filename>classxms_1_1idx__tri.html</filename>
-    <member kind="typedef">
-      <type>const GmBstBox3d</type>
-      <name>result_type</name>
-      <anchorfile>classxms_1_1idx__tri.html</anchorfile>
-      <anchor>a88c4b0524e400a243b939e69b13fa9fa</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
+    <member kind="function" protection="protected">
       <type></type>
-      <name>idx_tri</name>
-      <anchorfile>classxms_1_1idx__tri.html</anchorfile>
-      <anchor>a18b7dba501483fa3ebb141f439497dfc</anchor>
-      <arglist>(const Pt3d *a_pts, const int *a_tris, double a_tol)</arglist>
-    </member>
-    <member kind="function">
-      <type>result_type</type>
-      <name>operator()</name>
-      <anchorfile>classxms_1_1idx__tri.html</anchorfile>
-      <anchor>a05e3ea7e98be2c3df3fb3977d30d83d6</anchor>
-      <arglist>(size_t i) const </arglist>
-    </member>
-    <member kind="variable">
-      <type>const Pt3d *</type>
-      <name>m_pts</name>
-      <anchorfile>classxms_1_1idx__tri.html</anchorfile>
-      <anchor>a13730645297b2eb5f6ef6e657d878dc4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const int *</type>
-      <name>m_tris</name>
-      <anchorfile>classxms_1_1idx__tri.html</anchorfile>
-      <anchor>a2f6cabf2a7d2ac6ae5fe7c349262fcf9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>double</type>
-      <name>m_tol</name>
-      <anchorfile>classxms_1_1idx__tri.html</anchorfile>
-      <anchor>ad89989a3a633daba4bcea58b7168ab79</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>xms::BarycentricVals</name>
-    <filename>structxms_1_1_barycentric_vals.html</filename>
-    <member kind="variable">
-      <type>Pt3d</type>
-      <name>orig</name>
-      <anchorfile>structxms_1_1_barycentric_vals.html</anchorfile>
-      <anchor>ae88c2de12a80a534faf78addd416f38c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>double</type>
-      <name>coef</name>
-      <anchorfile>structxms_1_1_barycentric_vals.html</anchorfile>
-      <anchor>aebed3bc5a1c410ee503863972249b13b</anchor>
-      <arglist>[6]</arglist>
-    </member>
-    <member kind="variable">
-      <type>int</type>
-      <name>dir</name>
-      <anchorfile>structxms_1_1_barycentric_vals.html</anchorfile>
-      <anchor>acb8bf1c437d7b0141c565730738b297a</anchor>
-      <arglist></arglist>
+      <name>GmTriSearch</name>
+      <anchorfile>classxms_1_1_gm_tri_search.html</anchorfile>
+      <anchor>ae944fa5ccf34141894a79b803b78fadc</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -3604,13 +4466,6 @@
       <anchor>a61ab221cb9ff1755cf300597fbc10600</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~GmTriSearch</name>
-      <anchorfile>classxms_1_1_gm_tri_search.html</anchorfile>
-      <anchor>ac56072f01e9da1702618ee7255bb91c0</anchor>
-      <arglist>()</arglist>
-    </member>
     <member kind="variable">
       <type>Pt3d</type>
       <name>m_min</name>
@@ -3660,24 +4515,266 @@
       <anchor>a91899c759fe0fd8b1e230c1efb650138</anchor>
       <arglist></arglist>
     </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::idx_pt</name>
+    <filename>classxms_1_1idx__pt.html</filename>
+    <member kind="typedef">
+      <type>const bPt</type>
+      <name>result_type</name>
+      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
+      <anchor>ad127b38c3e9fb6c1d652fa2b6f75880d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>idx_pt</name>
+      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
+      <anchor>a2b7929bfcd2024966dd873f3e952a345</anchor>
+      <arglist>(const Pt3d *a_, bool a_2d)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>idx_pt</name>
+      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
+      <anchor>a709964a4e328dd7f2e693eb9833031c1</anchor>
+      <arglist>(BSHP&lt; std::vector&lt; Pt3d &gt;&gt; a_, bool a_2d)</arglist>
+    </member>
+    <member kind="function">
+      <type>result_type</type>
+      <name>operator()</name>
+      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
+      <anchor>ab7d7c2492883daab3ed8211b1a4468c2</anchor>
+      <arglist>(size_t i) const</arglist>
+    </member>
+    <member kind="variable">
+      <type>const Pt3d *</type>
+      <name>m_</name>
+      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
+      <anchor>a0187e9f5054b0c3388e299239311646b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>m_2d</name>
+      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
+      <anchor>aec9584b8b51e6795e4e0106187b68a5f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>BSHP&lt; std::vector&lt; Pt3d &gt; &gt;</type>
+      <name>m_v</name>
+      <anchorfile>classxms_1_1idx__pt.html</anchorfile>
+      <anchor>a90678c68a3faa676fb06b081a6e070c6</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::idx_tri</name>
+    <filename>classxms_1_1idx__tri.html</filename>
+    <member kind="typedef">
+      <type>const GmBstBox3d</type>
+      <name>result_type</name>
+      <anchorfile>classxms_1_1idx__tri.html</anchorfile>
+      <anchor>a88c4b0524e400a243b939e69b13fa9fa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>idx_tri</name>
+      <anchorfile>classxms_1_1idx__tri.html</anchorfile>
+      <anchor>a18b7dba501483fa3ebb141f439497dfc</anchor>
+      <arglist>(const Pt3d *a_pts, const int *a_tris, double a_tol)</arglist>
+    </member>
+    <member kind="function">
+      <type>result_type</type>
+      <name>operator()</name>
+      <anchorfile>classxms_1_1idx__tri.html</anchorfile>
+      <anchor>acb9ee91c68bfa303474a193eb7769614</anchor>
+      <arglist>(size_t i) const</arglist>
+    </member>
+    <member kind="variable">
+      <type>const Pt3d *</type>
+      <name>m_pts</name>
+      <anchorfile>classxms_1_1idx__tri.html</anchorfile>
+      <anchor>a13730645297b2eb5f6ef6e657d878dc4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const int *</type>
+      <name>m_tris</name>
+      <anchorfile>classxms_1_1idx__tri.html</anchorfile>
+      <anchor>a2f6cabf2a7d2ac6ae5fe7c349262fcf9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>m_tol</name>
+      <anchorfile>classxms_1_1idx__tri.html</anchorfile>
+      <anchor>ad89989a3a633daba4bcea58b7168ab79</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::ThreadLoop::impl</name>
+    <filename>classxms_1_1_thread_loop_1_1impl.html</filename>
+    <member kind="variable">
+      <type>int</type>
+      <name>m_start</name>
+      <anchorfile>classxms_1_1_thread_loop_1_1impl.html</anchorfile>
+      <anchor>a886105abdaebf1d3eb819f1df3093074</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>m_nIter</name>
+      <anchorfile>classxms_1_1_thread_loop_1_1impl.html</anchorfile>
+      <anchor>ac209d4aea4fe92e75135fa17c89d1426</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>m_curIdx</name>
+      <anchorfile>classxms_1_1_thread_loop_1_1impl.html</anchorfile>
+      <anchor>aec808dae7359abc58fd3eac8e437aff7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int *</type>
+      <name>m_cntPtr</name>
+      <anchorfile>classxms_1_1_thread_loop_1_1impl.html</anchorfile>
+      <anchor>aa5e9e6aa7aa2b80772259d9a74d2cd2b</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::InterpAnisotropic</name>
+    <filename>classxms_1_1_interp_anisotropic.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~InterpAnisotropic</name>
+      <anchorfile>classxms_1_1_interp_anisotropic.html</anchorfile>
+      <anchor>af29171e702091bf6fe0cb2a4447066c9</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="function" static="yes">
-      <type>static BSHP&lt; GmTriSearch &gt;</type>
+      <type>static BSHP&lt; InterpAnisotropic &gt;</type>
       <name>New</name>
-      <anchorfile>classxms_1_1_gm_tri_search.html</anchorfile>
-      <anchor>a2df03859534cd0296e57bb87b7d418a2</anchor>
+      <anchorfile>classxms_1_1_interp_anisotropic.html</anchorfile>
+      <anchor>a06efc4ab20831217af942a2e5d3502a2</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
       <type></type>
-      <name>GmTriSearch</name>
-      <anchorfile>classxms_1_1_gm_tri_search.html</anchorfile>
-      <anchor>ae944fa5ccf34141894a79b803b78fadc</anchor>
+      <name>InterpAnisotropic</name>
+      <anchorfile>classxms_1_1_interp_anisotropic.html</anchorfile>
+      <anchor>a0432a313b7e41c6a519ab06b3dbb96a0</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
-    <name>xms::GmTriSearch</name>
-    <filename>classxms_1_1_gm_tri_search.html</filename>
+    <name>xms::InterpAnisotropicImpl</name>
+    <filename>classxms_1_1_interp_anisotropic_impl.html</filename>
+    <base>xms::InterpAnisotropic</base>
+    <member kind="function">
+      <type></type>
+      <name>InterpAnisotropicImpl</name>
+      <anchorfile>classxms_1_1_interp_anisotropic_impl.html</anchorfile>
+      <anchor>a73893769a24ae33fc3665b52b7024f15</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~InterpAnisotropicImpl</name>
+      <anchorfile>classxms_1_1_interp_anisotropic_impl.html</anchorfile>
+      <anchor>a0a131930bf485ac5fe2fc0c1370054b7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>SetPoints</name>
+      <anchorfile>classxms_1_1_interp_anisotropic_impl.html</anchorfile>
+      <anchor>a111eff2131d6245b30eeacf547510afe</anchor>
+      <arglist>(const VecPt3d &amp;a_centerlinePts, const VecPt3d &amp;a_interpolationPts, bool a_pickClosest=false) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual float</type>
+      <name>InterpToPt</name>
+      <anchorfile>classxms_1_1_interp_anisotropic_impl.html</anchorfile>
+      <anchor>a3f734cddb991436291d6280434b75b79</anchor>
+      <arglist>(const Pt3d &amp;a_pt) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>InterpToPts</name>
+      <anchorfile>classxms_1_1_interp_anisotropic_impl.html</anchorfile>
+      <anchor>a383209d6e6374ac6ee7d940ba2c2bb29</anchor>
+      <arglist>(const VecPt3d &amp;a_pts, VecFlt &amp;a_result) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>GetInterpolationPts</name>
+      <anchorfile>classxms_1_1_interp_anisotropic_impl.html</anchorfile>
+      <anchor>ab56e497decc246f046d546659879b038</anchor>
+      <arglist>(VecPt3d &amp;a_interpPoints) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>GetTransformedPts</name>
+      <anchorfile>classxms_1_1_interp_anisotropic_impl.html</anchorfile>
+      <anchor>a854d6ca9a691e4cdcd6f691f77a0a6d6</anchor>
+      <arglist>(const VecPt3d &amp;a_points, bool a_pickClosest, VecPt3d &amp;a_transformed) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>SetPower</name>
+      <anchorfile>classxms_1_1_interp_anisotropic_impl.html</anchorfile>
+      <anchor>ab5165013804292714faded5175c70c71</anchor>
+      <arglist>(double a_power) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>SetXScale</name>
+      <anchorfile>classxms_1_1_interp_anisotropic_impl.html</anchorfile>
+      <anchor>a092e613fb20cc880ff79c50a4af3dcd4</anchor>
+      <arglist>(double a_xScale) override</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>AnisotropicInterpolator</type>
+      <name>m_anisoInterp</name>
+      <anchorfile>classxms_1_1_interp_anisotropic_impl.html</anchorfile>
+      <anchor>a4bc52baf23405f3f287b500e76fe62eb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>m_xScale</name>
+      <anchorfile>classxms_1_1_interp_anisotropic_impl.html</anchorfile>
+      <anchor>ab162ebee3d218bf67cc5b75835ae49fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>m_power</name>
+      <anchorfile>classxms_1_1_interp_anisotropic_impl.html</anchorfile>
+      <anchor>a5d43d06b84d3c8238060addec5863712</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>InterpAnisotropicUnitTests</name>
+    <filename>class_interp_anisotropic_unit_tests.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>testComplex</name>
+      <anchorfile>class_interp_anisotropic_unit_tests.html</anchorfile>
+      <anchor>ab198746391825b86ccc5d90157ca72e9</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::InterpBase</name>
+    <filename>classxms_1_1_interp_base.html</filename>
   </compound>
   <compound kind="class">
     <name>xms::InterpCt</name>
@@ -3728,8 +4825,8 @@
       <type>std::string</type>
       <name>ToString</name>
       <anchorfile>classxms_1_1_interp_ct.html</anchorfile>
-      <anchor>af16df124b63bb5a4a15dcc66ffdf97e8</anchor>
-      <arglist>() const </arglist>
+      <anchor>a0600e22511fc11edd0f9aec4aa9e83cf</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="variable">
       <type>const std::vector&lt; Pt3d &gt; &amp;</type>
@@ -3746,611 +4843,45 @@
       <arglist></arglist>
     </member>
   </compound>
-  <compound kind="struct">
-    <name>xms::nnOuterEdgeStruct</name>
-    <filename>structxms_1_1nn_outer_edge_struct.html</filename>
-    <member kind="variable">
-      <type>int</type>
-      <name>m_triIdx</name>
-      <anchorfile>structxms_1_1nn_outer_edge_struct.html</anchorfile>
-      <anchor>a3d5179ff3a6017913fd62f8349bf9dae</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>int</type>
-      <name>m_edge</name>
-      <anchorfile>structxms_1_1nn_outer_edge_struct.html</anchorfile>
-      <anchor>a3442f650122e9cce8b564ac9ac890996</anchor>
-      <arglist>[2]</arglist>
-    </member>
-    <member kind="variable">
-      <type>xms::Pt3d</type>
-      <name>m_cc</name>
-      <anchorfile>structxms_1_1nn_outer_edge_struct.html</anchorfile>
-      <anchor>ae243edefe043641b6bbe7ec0ca8b56bc</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
   <compound kind="class">
-    <name>xms::InterpNatNeighImpl</name>
-    <filename>classxms_1_1_interp_nat_neigh_impl.html</filename>
-    <base>xms::InterpNatNeigh</base>
-    <member kind="function">
+    <name>xms::InterpIdw</name>
+    <filename>classxms_1_1_interp_idw.html</filename>
+    <base>xms::InterpBase</base>
+    <member kind="enumeration">
       <type></type>
-      <name>InterpNatNeighImpl</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a3d41e682d03b412b386dfa4ee73c1e39</anchor>
-      <arglist>(const std::vector&lt; xms::Pt3d &gt; &amp;a_pts, const std::vector&lt; int &gt; &amp;a_tris, const std::vector&lt; float &gt; &amp;a_scalar, GmTriSearch *a_triSearch)</arglist>
+      <name>WeightEnum</name>
+      <anchorfile>classxms_1_1_interp_idw.html</anchorfile>
+      <anchor>a75db3e802021d0171f8a8e0077d9d0fc</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual float</type>
-      <name>InterpToPt</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>abe776b9c426c2a81e149b77914b940c0</anchor>
-      <arglist>(const xms::Pt3d &amp;a_pt) override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>GetNeighbors</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a4a3119e9fba57aee3289facdbfc62f15</anchor>
-      <arglist>(int a_ptIdx, std::vector&lt; int &gt; &amp;a_neigh) override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>SetNodalFunc</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>ae5c52020e47377cd9e78878e92f1ee92</anchor>
-      <arglist>(BSHP&lt; NodalFunc &gt; a_) override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>RecalcNodalFunc</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a4a24e0c2e33a3e1049d7511c2bf8e974</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>SetBlendWeights</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a722cb830e57088a15fb8ff92c96d9c77</anchor>
-      <arglist>(bool a_) override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual std::string</type>
-      <name>ToString</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a7ae42c38794abd0c03558e865b54e6e5</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>FillEdgeMap</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>aa1db768aa56eec91c68568f94cc81be9</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>FillCenterVec</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a700fb9ea8c7fc39629974cc0d1821294</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>EdgesFromTri</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>aad6c40b2274ba9a16d9aeb78b3034eff</anchor>
-      <arglist>(int a_triIdx, std::pair&lt; int, int &gt; a_edges[3])</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>NeighTriFromTriIdx</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>ae66dd4911135580befe82729782efa69</anchor>
-      <arglist>(int a_triIdx, std::vector&lt; int &gt; &amp;a_tris)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>GetNatNeighTriangles</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>ac46f2c036f82ef26ddfd4c99ae2b8d9d</anchor>
-      <arglist>(const xms::Pt3d &amp;a_pt, std::vector&lt; int &gt; &amp;a_tris)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>BlendFunc</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>affbd9a0395c7a13efda1f5371cfd586e</anchor>
-      <arglist>(double a_x)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>ScalarFromNodalFunc</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>aebffde9d3540011eedde61cfbdb4ba5c</anchor>
-      <arglist>(int a_ptIdx, const xms::Pt3d &amp;a_loc)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>HaleNnInterp</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a3e849d6d8a92cbf2f072d36e30b81e19</anchor>
-      <arglist>(const xms::Pt3d &amp;a_pt)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>HaleNnVisitNeighbors</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>abb51645e8c36e354d63075aa87aba47d</anchor>
-      <arglist>(int a_tIdx, const xms::Pt3d &amp;a_pt, std::vector&lt; nnOuterEdgeStruct &gt; &amp;a_outerEdges, std::map&lt; int, double &gt; &amp;a_weights)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>AdjacentTriangle</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a13915edcf34f12baff5fbaa1b2f50a38</anchor>
-      <arglist>(std::pair&lt; int, int &gt; &amp;a_edge, int a_triIdx)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>PtInTriCircumCircle</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a72433c742e06d389c64f0f942927ec27</anchor>
-      <arglist>(const xms::Pt3d &amp;a_pt, int a_tri)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>HaleNnAddOuterEdge</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a6db34b8c69e7eb48db1a8f86a7c922d6</anchor>
-      <arglist>(std::vector&lt; nnOuterEdgeStruct &gt; &amp;a_, int a_tIdx, int a_ptIdx0, int a_ptIdx1, const xms::Pt3d &amp;a_pt)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>HaleNnSortOuterEdges</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>aa6d419c410a6f1528ff62fd00bb71709</anchor>
-      <arglist>(std::vector&lt; nnOuterEdgeStruct &gt; &amp;a_)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>HaleNnOuterEdgesToWeights</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>aecf1952fc3d6a365f1195da8850229b2</anchor>
-      <arglist>(std::vector&lt; nnOuterEdgeStruct &gt; &amp;a_outerEdges, std::map&lt; int, double &gt; &amp;a_weights)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>NormalizeWeights</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a0ed2f7b5f27004480482f5a3e249c4b9</anchor>
-      <arglist>(std::map&lt; int, double &gt; &amp;a_weights)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>BlendWeights</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>ab39f57fb320a9b51460a2b01a92dd912</anchor>
-      <arglist>(std::map&lt; int, double &gt; &amp;a_weights)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>ScalarFromWeights</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a91d250cdc4296e924f6b80f84d4e2068</anchor>
-      <arglist>(std::map&lt; int, double &gt; &amp;a_weights, const xms::Pt3d &amp;a_pt)</arglist>
+    <member kind="enumeration">
+      <type></type>
+      <name>NodalFuncEnum</name>
+      <anchorfile>classxms_1_1_interp_idw.html</anchorfile>
+      <anchor>a9f0d45e41829c4a94b53dd336d086f4a</anchor>
+      <arglist></arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
-      <name>~InterpNatNeigh</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh.html</anchorfile>
-      <anchor>a0008ef8bc9164fc76d47172a925a3032</anchor>
+      <name>~InterpIdw</name>
+      <anchorfile>classxms_1_1_interp_idw.html</anchorfile>
+      <anchor>ac4decabe930f9ef4075e54e3f9e07e48</anchor>
       <arglist>()</arglist>
-    </member>
-    <member kind="typedef" protection="private">
-      <type>boost::unordered_map&lt; std::pair&lt; int, int &gt;, std::pair&lt; int, int &gt; &gt;</type>
-      <name>MapEdges</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a1e9f040080051c5ff390579d0b127308</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>const std::vector&lt; xms::Pt3d &gt; &amp;</type>
-      <name>m_pts</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>add2e2d2dc003f234c0ef842bbb693480</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>const std::vector&lt; int &gt; &amp;</type>
-      <name>m_tris</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>ac30d548362e775112455e38aa6d66143</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>const std::vector&lt; float &gt; &amp;</type>
-      <name>m_scalar</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>adc81d178dab197a91fe89a6ebb67d953</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>double</type>
-      <name>m_tol</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a45862983f5e78e60a70b183e279c683e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>MapEdges</type>
-      <name>m_edges</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>ac038753bedc0f9b8e39476a6dbd53159</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>std::vector&lt; xms::Pt3d &gt;</type>
-      <name>m_centers</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>af5803c144d15b8a6cf552a20aee06125</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>BSHP&lt; NodalFunc &gt;</type>
-      <name>m_nf</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a61256a944d364b4896d35d5fceedfd2e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>GmTriSearch *</type>
-      <name>m_triSearch</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>a7f6e55c27170b28f2e927bbe95a71764</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>bool</type>
-      <name>m_blendWeights</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
-      <anchor>aafbfbfc22a279d45f09db4010c0aa13d</anchor>
-      <arglist></arglist>
     </member>
     <member kind="function" static="yes">
-      <type>static boost::shared_ptr&lt; InterpNatNeigh &gt;</type>
+      <type>static BSHP&lt; InterpIdw &gt;</type>
       <name>New</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh.html</anchorfile>
-      <anchor>af70e19215c8fa50f09d09e0c5a5b63fa</anchor>
-      <arglist>(const std::vector&lt; Pt3d &gt; &amp;a_pts, const std::vector&lt; int &gt; &amp;a_tris, const std::vector&lt; float &gt; &amp;a_scalar, GmTriSearch *a_triSearch)</arglist>
+      <anchorfile>classxms_1_1_interp_idw.html</anchorfile>
+      <anchor>ada220d36126708676e57d6b9eac2f3d7</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
       <type></type>
-      <name>InterpNatNeigh</name>
-      <anchorfile>classxms_1_1_interp_nat_neigh.html</anchorfile>
-      <anchor>a72b529ca7b1f5d75181607ba062f4fba</anchor>
+      <name>InterpIdw</name>
+      <anchorfile>classxms_1_1_interp_idw.html</anchorfile>
+      <anchor>a4a3e66a3a072673a38ab47fd74618899</anchor>
       <arglist>()</arglist>
     </member>
-  </compound>
-  <compound kind="class">
-    <name>xms::InterpNatNeigh</name>
-    <filename>classxms_1_1_interp_nat_neigh.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>xms::NodalFuncImpl</name>
-    <filename>classxms_1_1_nodal_func_impl.html</filename>
-    <base>xms::NodalFunc</base>
-    <class kind="class">xms::NodalFuncImpl::NfThread</class>
-    <member kind="function">
-      <type></type>
-      <name>NodalFuncImpl</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>ae2f80821ad38874764378301c647d133</anchor>
-      <arglist>(const std::vector&lt; Pt3d &gt; &amp;a_pts, const std::vector&lt; float &gt; &amp;a_scalar)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>NodalFuncImpl</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>af57d9fc660672342f749b619f35c1125</anchor>
-      <arglist>(int a_type, bool a_2d, BSHP&lt; GmPtSearch &gt; a_ptSearch, const std::vector&lt; Pt3d &gt; &amp;a_pts, const std::vector&lt; float &gt; &amp;a_scalar, int a_nNearest, bool a_quad_oct, double a_power, bool a_modifiedShepardWeights, BSHP&lt; Observer &gt; a_p, InterpNatNeigh *a_natNeigh)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual double</type>
-      <name>ScalarFromPtIdx</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a912b59daf958deda11c01087d266ba3c</anchor>
-      <arglist>(int a_ptIdx, const Pt3d &amp;a_loc) const override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>GradientFromPtIdx</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a9a544aa910ac1dd607f644452f88b340</anchor>
-      <arglist>(int a_ptIdx, Pt3d &amp;a_grad) const override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>ComputeNodalFuncs</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a895415072c66edf9e0c4dfa3073c2668</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual std::string</type>
-      <name>ToString</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a1855ac8e5977ff2558c3698c026bba76</anchor>
-      <arglist>() const override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>NfForPt</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a7874db0e02ba0a2047c8f98989953c53</anchor>
-      <arglist>(int a_ptIdx, BSHP&lt; GmPtSearch &gt; a_s, std::vector&lt; int &gt; &amp;nearestPts, std::vector&lt; InterpPtInfo &gt; &amp;matrixPts, std::vector&lt; double &gt; &amp;d2, std::vector&lt; double &gt; &amp;w)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>NodalFuncForPtFromMatrixPts</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a926e856467accafb0788e5832eab4ca3</anchor>
-      <arglist>(int a_ptIdx, const std::vector&lt; InterpPtInfo &gt; &amp;a_pts)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>NodalFunc2d</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a5bed8882884fcc613d1c7f8503641dbe</anchor>
-      <arglist>(int a_ptIdx, const std::vector&lt; InterpPtInfo &gt; &amp;a_pts, double *a_A)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>NodalFunc3d</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>ad5bca559accbb7fab5f9f35bd86e0d22</anchor>
-      <arglist>(int a_ptIdx, const std::vector&lt; InterpPtInfo &gt; &amp;a_pts, double *a_A)</arglist>
-    </member>
-    <member kind="function">
-      <type>Pt3d</type>
-      <name>ComputeGradientForPoint</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>ae7bfeeb352a366f5155fcd95cbd66fad</anchor>
-      <arglist>(int a_ptIdx, const std::vector&lt; InterpPtInfo &gt; &amp;a_pts)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~NodalFunc</name>
-      <anchorfile>classxms_1_1_nodal_func.html</anchorfile>
-      <anchor>a4ba5c3cfd1fca52345242fff0edca824</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable">
-      <type>bool</type>
-      <name>m_2d</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>adefb0dbcd8b07abb3203943ba969a771</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>int</type>
-      <name>m_type</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a821df3becc5f9fabdfa42e84edf9bea9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>int</type>
-      <name>m_nNearest</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a8383d483c888ff2cfe5b763e9e00c366</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>bool</type>
-      <name>m_quadOct</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>acf8b255a2dbf430d7017674024970155</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const std::vector&lt; Pt3d &gt; &amp;</type>
-      <name>m_pts</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>aedca4d19a36b52bd68d1f026fa5d0980</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const std::vector&lt; float &gt; &amp;</type>
-      <name>m_scalar</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a8c6a234116c62f8a5227199a7bff83d9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>BSHP&lt; GmPtSearch &gt;</type>
-      <name>m_ptSearch</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a80133a89c3f9375edfe3fcc058719d9d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>std::vector&lt; Pt3d &gt;</type>
-      <name>m_gradient</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>aa76232c34d0e9ebb9d16ee146f759a02</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>VecDbl2d</type>
-      <name>m_quadratic</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>ababfd07ebe7d4987e36fdeefd08c6145</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>double</type>
-      <name>m_power</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a60204ebaab033e0d89a1ce1e518bf08c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>bool</type>
-      <name>m_modifiedShepardWeights</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a480337950c43a1445630fc6cc7918506</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>std::vector&lt; int &gt;</type>
-      <name>m_nearestAll</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a9b048afa38d47724284946fc75362d34</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>BSHP&lt; Observer &gt;</type>
-      <name>m_prog</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a83f4f8791fcecae4e7b7fe7f724cdef6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>bool</type>
-      <name>m_errorReport</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a63cde125aef43a7f2f889d13b0504601</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>bool</type>
-      <name>m_debugTest</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>ae67f53de253c8e003e025da872249dca</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>InterpNatNeigh *</type>
-      <name>m_natNeigh</name>
-      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
-      <anchor>a0b2d06450b244c3c2368a62d015f8e5f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static BSHP&lt; NodalFunc &gt;</type>
-      <name>New</name>
-      <anchorfile>classxms_1_1_nodal_func.html</anchorfile>
-      <anchor>a5c1c96d0322f3905f7e65f9eb88483f1</anchor>
-      <arglist>(int a_type, bool a_2d, boost::shared_ptr&lt; GmPtSearch &gt; a_ptSearch, const std::vector&lt; Pt3d &gt; &amp;a_pts, const std::vector&lt; float &gt; &amp;a_scalar, int a_nNearest, bool a_quad_oct, double a_power, bool a_modifiedShepardWeights, boost::shared_ptr&lt; Observer &gt; a_p, InterpNatNeigh *a_natNeigh)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type></type>
-      <name>NodalFunc</name>
-      <anchorfile>classxms_1_1_nodal_func.html</anchorfile>
-      <anchor>aa406b56b931d0965e7f5062123e6f41b</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>xms::NodalFuncImpl::NfThread</name>
-    <filename>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</filename>
-    <base>xms::ThreadLoop</base>
-    <member kind="function">
-      <type></type>
-      <name>NfThread</name>
-      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
-      <anchor>a0ad689fa7a423908f8cc245674721e7e</anchor>
-      <arglist>(NodalFuncImpl *a_nf, BSHP&lt; GmPtSearch &gt; a_ptSearch)</arglist>
-    </member>
-    <member kind="function">
-      <type>BSHP&lt; ThreadLoop &gt;</type>
-      <name>CreateForNewThread</name>
-      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
-      <anchor>a503890ebdb21f22589565797700fb82e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>SetStartNumIterCnt</name>
-      <anchorfile>classxms_1_1_thread_loop.html</anchorfile>
-      <anchor>a2ce8e0b2789803849f6b93312aeb4eaf</anchor>
-      <arglist>(int a_startIdx, int a_numIter, int *a_cntPtr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>DoWork</name>
-      <anchorfile>classxms_1_1_thread_loop.html</anchorfile>
-      <anchor>a85da861fe57a764ce110a1f5abf395ce</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable">
-      <type>NodalFuncImpl *</type>
-      <name>m_nf</name>
-      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
-      <anchor>aaf4e4077095b15cc51f02f37e598c79b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>BSHP&lt; GmPtSearch &gt;</type>
-      <name>m_ptSearch</name>
-      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
-      <anchor>ac3828ba7770e0a562d8c5a94bbcb2d26</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>VecInt</type>
-      <name>m_nearestPts</name>
-      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
-      <anchor>a6a1e51f110d431e9eaac23e356bbfc9f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>std::vector&lt; InterpPtInfo &gt;</type>
-      <name>m_matrixPts</name>
-      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
-      <anchor>ad3dd39caa688417eeee54aadf9e1422b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>VecDbl</type>
-      <name>m_d2</name>
-      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
-      <anchor>a93e6f4289084da50c07004180daf8006</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>VecDbl</type>
-      <name>m_w</name>
-      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
-      <anchor>adbfce94f57bd501ef4332558777c1e4c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>Worker</name>
-      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
-      <anchor>a2135ef69d46980306ea28267f2bacdfa</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>int</type>
-      <name>CurrIdx</name>
-      <anchorfile>classxms_1_1_thread_loop.html</anchorfile>
-      <anchor>afebcb169439af245b14329587e6768f1</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>xms::NodalFunc</name>
-    <filename>classxms_1_1_nodal_func.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>xms::InterpBase</name>
-    <filename>classxms_1_1_interp_base.html</filename>
   </compound>
   <compound kind="class">
     <name>xms::InterpIdwImpl</name>
@@ -4438,8 +4969,8 @@
       <type>virtual void</type>
       <name>InterpWeights</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>a475b892911b0603b88c01efef172ecd9</anchor>
-      <arglist>(const Pt3d &amp;a_pt, std::vector&lt; int &gt; &amp;a_idx, std::vector&lt; double &gt; &amp;a_wt) const </arglist>
+      <anchor>aa1bbe8926db4bd13281fbb559758d19d</anchor>
+      <arglist>(const Pt3d &amp;a_pt, std::vector&lt; int &gt; &amp;a_idx, std::vector&lt; double &gt; &amp;a_wt) const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -4508,8 +5039,8 @@
       <type>float</type>
       <name>InterpToPt</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>a1ac513bcf9627f00929a739ed19b4cec</anchor>
-      <arglist>(const Pt3d &amp;a_pt, int a_idx) const </arglist>
+      <anchor>a08b2d3d1b3115930ab67a0d8aee0c1bf</anchor>
+      <arglist>(const Pt3d &amp;a_pt, int a_idx) const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -4522,8 +5053,8 @@
       <type>void</type>
       <name>ValFromWeights</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>a6146dab4afc15a9cae681bf1ca3f5c67</anchor>
-      <arglist>(std::vector&lt; double &gt; &amp;a_w, std::vector&lt; int &gt; &amp;a_nPts, float &amp;a_val, int a_ptIdx, const Pt3d &amp;a_pt) const </arglist>
+      <anchor>afc66127bd5ac9675e7ba3e008030c591</anchor>
+      <arglist>(std::vector&lt; double &gt; &amp;a_w, std::vector&lt; int &gt; &amp;a_nPts, float &amp;a_val, int a_ptIdx, const Pt3d &amp;a_pt) const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -4550,8 +5081,8 @@
       <type>double</type>
       <name>ScalarFromNodalFunc</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>a02463323c9c0bb85366a3a0c3a78af1e</anchor>
-      <arglist>(int a_ptIdx, const Pt3d &amp;a_loc) const </arglist>
+      <anchor>acd590521fc17684d7e24b29a3064808a</anchor>
+      <arglist>(int a_ptIdx, const Pt3d &amp;a_loc) const</arglist>
     </member>
     <member kind="variable">
       <type>bool</type>
@@ -4686,79 +5217,99 @@
       <anchor>a031fa6f2aeca5ae3e15cb01c42b8dae6</anchor>
       <arglist></arglist>
     </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>WeightEnum</name>
-      <anchorfile>classxms_1_1_interp_idw.html</anchorfile>
-      <anchor>a75db3e802021d0171f8a8e0077d9d0fc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>NodalFuncEnum</name>
-      <anchorfile>classxms_1_1_interp_idw.html</anchorfile>
-      <anchor>a9f0d45e41829c4a94b53dd336d086f4a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static BSHP&lt; InterpIdw &gt;</type>
-      <name>New</name>
-      <anchorfile>classxms_1_1_interp_idw.html</anchorfile>
-      <anchor>ada220d36126708676e57d6b9eac2f3d7</anchor>
-      <arglist>()</arglist>
-    </member>
   </compound>
   <compound kind="class">
-    <name>xms::InterpIdwImpl::InterpThread</name>
-    <filename>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</filename>
-    <base>xms::ThreadLoop</base>
+    <name>InterpIdwUnitTests</name>
+    <filename>class_interp_idw_unit_tests.html</filename>
     <member kind="function">
-      <type></type>
-      <name>InterpThread</name>
-      <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
-      <anchor>a50d03ded4102db31e8ed1854fb0c4db6</anchor>
-      <arglist>(InterpIdwImpl &amp;a_, std::vector&lt; float &gt; &amp;a_s, const std::vector&lt; Pt3d &gt; &amp;a_p)</arglist>
-    </member>
-    <member kind="function">
-      <type>BSHP&lt; ThreadLoop &gt;</type>
-      <name>CreateForNewThread</name>
-      <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
-      <anchor>a333ab454bb6ce70c0e28813ec62506bc</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable">
-      <type>InterpIdwImpl &amp;</type>
-      <name>m_interp</name>
-      <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
-      <anchor>a492a852f3c52ebaac0642a0bd77f8bc7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>std::vector&lt; float &gt; &amp;</type>
-      <name>m_scalarTo</name>
-      <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
-      <anchor>ad89ee8ab61bc305b07ed6d0d4c344ad2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>const std::vector&lt; Pt3d &gt; &amp;</type>
-      <name>m_pts</name>
-      <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
-      <anchor>a70d394f7096ca5f365335eb7af10b4c8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" protection="private">
       <type>void</type>
-      <name>Worker</name>
-      <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
-      <anchor>a7f58cfe04f020eac04cac0f9a684be89</anchor>
-      <arglist>() override</arglist>
+      <name>testCreateClass</name>
+      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
+      <anchor>a8396f3f0730a12892a07e3349b41f01b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testInterpToPts</name>
+      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
+      <anchor>a96249279e0569b4deaf1d68aa3a330cb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testInterp2d_a</name>
+      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
+      <anchor>a7f2d074fef918ec9a5c6308ea59f3960</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testInterp2d_b</name>
+      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
+      <anchor>a4fac354cd0c7e881cd236e88daa9831c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testInterp2d_c</name>
+      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
+      <anchor>a51c2aa14e0e672fb206bac8321be1072</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testInterp2d_d</name>
+      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
+      <anchor>a702b7e88f13f12a3bd67f63c72a0e36e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testInterp2d_e</name>
+      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
+      <anchor>ac84b4f83b6203959642968681bce102d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testInterp2d_f</name>
+      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
+      <anchor>afe6cf9c03c045a8b9082af6cea786b30</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testInterp3d</name>
+      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
+      <anchor>aa60647607d12677033b9a06101ca8626</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testErrors</name>
+      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
+      <anchor>a948550d5bea2c912f62ac7fb2ff2ec35</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testErrors2</name>
+      <anchorfile>class_interp_idw_unit_tests.html</anchorfile>
+      <anchor>aaa8031ea95bf6c80acf5c5cf0fa0c2cb</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
-    <name>xms::InterpIdw</name>
-    <filename>classxms_1_1_interp_idw.html</filename>
+    <name>xms::InterpLinear</name>
+    <filename>classxms_1_1_interp_linear.html</filename>
     <base>xms::InterpBase</base>
+    <member kind="function" static="yes">
+      <type>static BSHP&lt; InterpLinear &gt;</type>
+      <name>New</name>
+      <anchorfile>classxms_1_1_interp_linear.html</anchorfile>
+      <anchor>a8e04b96fee6e50961ba278d892373911</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>xms::InterpLinearImpl</name>
@@ -5023,18 +5574,345 @@
       <anchor>aff0667556500d4220f1943f2a0737703</anchor>
       <arglist></arglist>
     </member>
-    <member kind="function" static="yes">
-      <type>static BSHP&lt; InterpLinear &gt;</type>
-      <name>New</name>
-      <anchorfile>classxms_1_1_interp_linear.html</anchorfile>
-      <anchor>a8e04b96fee6e50961ba278d892373911</anchor>
+  </compound>
+  <compound kind="class">
+    <name>InterpLinearUnitTests</name>
+    <filename>class_interp_linear_unit_tests.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>testToString</name>
+      <anchorfile>class_interp_linear_unit_tests.html</anchorfile>
+      <anchor>a102ac6f3cccff6e6b84b07b04346f852</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testOneTriangle</name>
+      <anchorfile>class_interp_linear_unit_tests.html</anchorfile>
+      <anchor>af51ed7a3211df29fd89ef4db71e4638b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testInterp</name>
+      <anchorfile>class_interp_linear_unit_tests.html</anchorfile>
+      <anchor>adeee0cb0d05b95d458a08bcea9cc6480</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testCt</name>
+      <anchorfile>class_interp_linear_unit_tests.html</anchorfile>
+      <anchor>a9794c0623d2513c0d7fec09330ba057b</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
-    <name>xms::InterpLinear</name>
-    <filename>classxms_1_1_interp_linear.html</filename>
-    <base>xms::InterpBase</base>
+    <name>xms::InterpNatNeigh</name>
+    <filename>classxms_1_1_interp_nat_neigh.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~InterpNatNeigh</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh.html</anchorfile>
+      <anchor>a0008ef8bc9164fc76d47172a925a3032</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static boost::shared_ptr&lt; InterpNatNeigh &gt;</type>
+      <name>New</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh.html</anchorfile>
+      <anchor>af70e19215c8fa50f09d09e0c5a5b63fa</anchor>
+      <arglist>(const std::vector&lt; Pt3d &gt; &amp;a_pts, const std::vector&lt; int &gt; &amp;a_tris, const std::vector&lt; float &gt; &amp;a_scalar, GmTriSearch *a_triSearch)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>InterpNatNeigh</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh.html</anchorfile>
+      <anchor>a72b529ca7b1f5d75181607ba062f4fba</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::InterpNatNeighImpl</name>
+    <filename>classxms_1_1_interp_nat_neigh_impl.html</filename>
+    <base>xms::InterpNatNeigh</base>
+    <member kind="function">
+      <type></type>
+      <name>InterpNatNeighImpl</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a3d41e682d03b412b386dfa4ee73c1e39</anchor>
+      <arglist>(const std::vector&lt; xms::Pt3d &gt; &amp;a_pts, const std::vector&lt; int &gt; &amp;a_tris, const std::vector&lt; float &gt; &amp;a_scalar, GmTriSearch *a_triSearch)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual float</type>
+      <name>InterpToPt</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>abe776b9c426c2a81e149b77914b940c0</anchor>
+      <arglist>(const xms::Pt3d &amp;a_pt) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>GetNeighbors</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a4a3119e9fba57aee3289facdbfc62f15</anchor>
+      <arglist>(int a_ptIdx, std::vector&lt; int &gt; &amp;a_neigh) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>SetNodalFunc</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>ae5c52020e47377cd9e78878e92f1ee92</anchor>
+      <arglist>(BSHP&lt; NodalFunc &gt; a_) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>RecalcNodalFunc</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a4a24e0c2e33a3e1049d7511c2bf8e974</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>SetBlendWeights</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a722cb830e57088a15fb8ff92c96d9c77</anchor>
+      <arglist>(bool a_) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual std::string</type>
+      <name>ToString</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a7ae42c38794abd0c03558e865b54e6e5</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>FillEdgeMap</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>aa1db768aa56eec91c68568f94cc81be9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>FillCenterVec</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a700fb9ea8c7fc39629974cc0d1821294</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>EdgesFromTri</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>aad6c40b2274ba9a16d9aeb78b3034eff</anchor>
+      <arglist>(int a_triIdx, std::pair&lt; int, int &gt; a_edges[3])</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>NeighTriFromTriIdx</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>ae66dd4911135580befe82729782efa69</anchor>
+      <arglist>(int a_triIdx, std::vector&lt; int &gt; &amp;a_tris)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>GetNatNeighTriangles</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>ac46f2c036f82ef26ddfd4c99ae2b8d9d</anchor>
+      <arglist>(const xms::Pt3d &amp;a_pt, std::vector&lt; int &gt; &amp;a_tris)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>BlendFunc</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>affbd9a0395c7a13efda1f5371cfd586e</anchor>
+      <arglist>(double a_x)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>ScalarFromNodalFunc</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>aebffde9d3540011eedde61cfbdb4ba5c</anchor>
+      <arglist>(int a_ptIdx, const xms::Pt3d &amp;a_loc)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>HaleNnInterp</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a3e849d6d8a92cbf2f072d36e30b81e19</anchor>
+      <arglist>(const xms::Pt3d &amp;a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>HaleNnVisitNeighbors</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>abb51645e8c36e354d63075aa87aba47d</anchor>
+      <arglist>(int a_tIdx, const xms::Pt3d &amp;a_pt, std::vector&lt; nnOuterEdgeStruct &gt; &amp;a_outerEdges, std::map&lt; int, double &gt; &amp;a_weights)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>AdjacentTriangle</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a13915edcf34f12baff5fbaa1b2f50a38</anchor>
+      <arglist>(std::pair&lt; int, int &gt; &amp;a_edge, int a_triIdx)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>PtInTriCircumCircle</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a72433c742e06d389c64f0f942927ec27</anchor>
+      <arglist>(const xms::Pt3d &amp;a_pt, int a_tri)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>HaleNnAddOuterEdge</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a6db34b8c69e7eb48db1a8f86a7c922d6</anchor>
+      <arglist>(std::vector&lt; nnOuterEdgeStruct &gt; &amp;a_, int a_tIdx, int a_ptIdx0, int a_ptIdx1, const xms::Pt3d &amp;a_pt)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>HaleNnSortOuterEdges</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>aa6d419c410a6f1528ff62fd00bb71709</anchor>
+      <arglist>(std::vector&lt; nnOuterEdgeStruct &gt; &amp;a_)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>HaleNnOuterEdgesToWeights</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>aecf1952fc3d6a365f1195da8850229b2</anchor>
+      <arglist>(std::vector&lt; nnOuterEdgeStruct &gt; &amp;a_outerEdges, std::map&lt; int, double &gt; &amp;a_weights)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>NormalizeWeights</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a0ed2f7b5f27004480482f5a3e249c4b9</anchor>
+      <arglist>(std::map&lt; int, double &gt; &amp;a_weights)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>BlendWeights</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>ab39f57fb320a9b51460a2b01a92dd912</anchor>
+      <arglist>(std::map&lt; int, double &gt; &amp;a_weights)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>ScalarFromWeights</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a91d250cdc4296e924f6b80f84d4e2068</anchor>
+      <arglist>(std::map&lt; int, double &gt; &amp;a_weights, const xms::Pt3d &amp;a_pt)</arglist>
+    </member>
+    <member kind="typedef" protection="private">
+      <type>boost::unordered_map&lt; std::pair&lt; int, int &gt;, std::pair&lt; int, int &gt; &gt;</type>
+      <name>MapEdges</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a1e9f040080051c5ff390579d0b127308</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>const std::vector&lt; xms::Pt3d &gt; &amp;</type>
+      <name>m_pts</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>add2e2d2dc003f234c0ef842bbb693480</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>const std::vector&lt; int &gt; &amp;</type>
+      <name>m_tris</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>ac30d548362e775112455e38aa6d66143</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>const std::vector&lt; float &gt; &amp;</type>
+      <name>m_scalar</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>adc81d178dab197a91fe89a6ebb67d953</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>double</type>
+      <name>m_tol</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a45862983f5e78e60a70b183e279c683e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>MapEdges</type>
+      <name>m_edges</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>ac038753bedc0f9b8e39476a6dbd53159</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; xms::Pt3d &gt;</type>
+      <name>m_centers</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>af5803c144d15b8a6cf552a20aee06125</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>BSHP&lt; NodalFunc &gt;</type>
+      <name>m_nf</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a61256a944d364b4896d35d5fceedfd2e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>GmTriSearch *</type>
+      <name>m_triSearch</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>a7f6e55c27170b28f2e927bbe95a71764</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>m_blendWeights</name>
+      <anchorfile>classxms_1_1_interp_nat_neigh_impl.html</anchorfile>
+      <anchor>aafbfbfc22a279d45f09db4010c0aa13d</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>InterpNatNeighUnitTests</name>
+    <filename>class_interp_nat_neigh_unit_tests.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>testCreateClass</name>
+      <anchorfile>class_interp_nat_neigh_unit_tests.html</anchorfile>
+      <anchor>a250cc7b0868d886bfe62a879f2751dc9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testGetTris</name>
+      <anchorfile>class_interp_nat_neigh_unit_tests.html</anchorfile>
+      <anchor>a19ff24a728bfbe73adb5e3a41a6662cf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testGetNeighbors</name>
+      <anchorfile>class_interp_nat_neigh_unit_tests.html</anchorfile>
+      <anchor>a891daf9245fc4102170df8230450f724</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testHaleNnSortOuterEdges</name>
+      <anchorfile>class_interp_nat_neigh_unit_tests.html</anchorfile>
+      <anchor>afe6136a18245213de34dc1e0a8667eda</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testHaleNnInterp</name>
+      <anchorfile>class_interp_nat_neigh_unit_tests.html</anchorfile>
+      <anchor>ad581e74eade4d9e7407824071228fb30</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>xms::InterpPtInfo</name>
@@ -5062,15 +5940,623 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>xms::InterpIdwImpl::InterpThread</name>
+    <filename>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</filename>
+    <base>xms::ThreadLoop</base>
+    <member kind="function">
+      <type></type>
+      <name>InterpThread</name>
+      <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
+      <anchor>a50d03ded4102db31e8ed1854fb0c4db6</anchor>
+      <arglist>(InterpIdwImpl &amp;a_, std::vector&lt; float &gt; &amp;a_s, const std::vector&lt; Pt3d &gt; &amp;a_p)</arglist>
+    </member>
+    <member kind="function">
+      <type>BSHP&lt; ThreadLoop &gt;</type>
+      <name>CreateForNewThread</name>
+      <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
+      <anchor>a333ab454bb6ce70c0e28813ec62506bc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>InterpIdwImpl &amp;</type>
+      <name>m_interp</name>
+      <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
+      <anchor>a492a852f3c52ebaac0642a0bd77f8bc7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::vector&lt; float &gt; &amp;</type>
+      <name>m_scalarTo</name>
+      <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
+      <anchor>ad89ee8ab61bc305b07ed6d0d4c344ad2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const std::vector&lt; Pt3d &gt; &amp;</type>
+      <name>m_pts</name>
+      <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
+      <anchor>a70d394f7096ca5f365335eb7af10b4c8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>Worker</name>
+      <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
+      <anchor>a7f58cfe04f020eac04cac0f9a684be89</anchor>
+      <arglist>() override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::ix</name>
+    <filename>classxms_1_1ix.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ix</name>
+      <anchorfile>classxms_1_1ix.html</anchorfile>
+      <anchor>ab86596c140cee4b9ad0bc1e0865c3c2a</anchor>
+      <arglist>(Pt3d a_pt, int a_i, double a_t)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>classxms_1_1ix.html</anchorfile>
+      <anchor>ad7ebc7d3dfc72319be03ff49294aae00</anchor>
+      <arglist>(const ix &amp;rhs)</arglist>
+    </member>
+    <member kind="variable">
+      <type>Pt3d</type>
+      <name>m_pt</name>
+      <anchorfile>classxms_1_1ix.html</anchorfile>
+      <anchor>a6a4aaf5674e38b0b1ff89f00afc9c32e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>m_i</name>
+      <anchorfile>classxms_1_1ix.html</anchorfile>
+      <anchor>a4185fe410fd0c5b45dc440483e745b15</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>m_t</name>
+      <anchorfile>classxms_1_1ix.html</anchorfile>
+      <anchor>ab40238d7edca655589518e4688d1aa49</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>xms::LineParameters</name>
+    <filename>structxms_1_1_line_parameters.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>LineParameters</name>
+      <anchorfile>structxms_1_1_line_parameters.html</anchorfile>
+      <anchor>a7e915686586e522bed5f9f964e72a6cb</anchor>
+      <arglist>(double a_slope, double a_intercept)</arglist>
+    </member>
+    <member kind="function">
+      <type>LineParameters</type>
+      <name>NormalThrough</name>
+      <anchorfile>structxms_1_1_line_parameters.html</anchorfile>
+      <anchor>a45f24450c943080ec56602b443158d4e</anchor>
+      <arglist>(const Pt3d &amp;a_p) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>Intersection</name>
+      <anchorfile>structxms_1_1_line_parameters.html</anchorfile>
+      <anchor>ab25d0448ce5f80ef8bed1426f45ee8d6</anchor>
+      <arglist>(const LineParameters &amp;a_other, Pt3d &amp;a_p) const</arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>m_slope</name>
+      <anchorfile>structxms_1_1_line_parameters.html</anchorfile>
+      <anchor>a9864a83271e3d87978d9f09e8cd15d57</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>m_intercept</name>
+      <anchorfile>structxms_1_1_line_parameters.html</anchorfile>
+      <anchor>a5281ad9802bfec2292dcba95d1735167</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>xms::ThreadMgrImpl::myThread</name>
+    <filename>structxms_1_1_thread_mgr_impl_1_1my_thread.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>myThread</name>
+      <anchorfile>structxms_1_1_thread_mgr_impl_1_1my_thread.html</anchorfile>
+      <anchor>a2e0b89c1fae0e51dadceb45c3df8a6b9</anchor>
+      <arglist>(BSHP&lt; ThreadLoop &gt; a_)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>operator()</name>
+      <anchorfile>structxms_1_1_thread_mgr_impl_1_1my_thread.html</anchorfile>
+      <anchor>a3e1888f5f377a0724358131da243dcd4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>BSHP&lt; ThreadLoop &gt;</type>
+      <name>m_</name>
+      <anchorfile>structxms_1_1_thread_mgr_impl_1_1my_thread.html</anchorfile>
+      <anchor>a3059d4865c38dd28f5c4b858c0e09c9a</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::NodalFuncImpl::NfThread</name>
+    <filename>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</filename>
+    <base>xms::ThreadLoop</base>
+    <member kind="function">
+      <type></type>
+      <name>NfThread</name>
+      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
+      <anchor>a0ad689fa7a423908f8cc245674721e7e</anchor>
+      <arglist>(NodalFuncImpl *a_nf, BSHP&lt; GmPtSearch &gt; a_ptSearch)</arglist>
+    </member>
+    <member kind="function">
+      <type>BSHP&lt; ThreadLoop &gt;</type>
+      <name>CreateForNewThread</name>
+      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
+      <anchor>a503890ebdb21f22589565797700fb82e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>NodalFuncImpl *</type>
+      <name>m_nf</name>
+      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
+      <anchor>aaf4e4077095b15cc51f02f37e598c79b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>BSHP&lt; GmPtSearch &gt;</type>
+      <name>m_ptSearch</name>
+      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
+      <anchor>ac3828ba7770e0a562d8c5a94bbcb2d26</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>VecInt</type>
+      <name>m_nearestPts</name>
+      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
+      <anchor>a6a1e51f110d431e9eaac23e356bbfc9f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::vector&lt; InterpPtInfo &gt;</type>
+      <name>m_matrixPts</name>
+      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
+      <anchor>ad3dd39caa688417eeee54aadf9e1422b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>VecDbl</type>
+      <name>m_d2</name>
+      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
+      <anchor>a93e6f4289084da50c07004180daf8006</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>VecDbl</type>
+      <name>m_w</name>
+      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
+      <anchor>adbfce94f57bd501ef4332558777c1e4c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>Worker</name>
+      <anchorfile>classxms_1_1_nodal_func_impl_1_1_nf_thread.html</anchorfile>
+      <anchor>a2135ef69d46980306ea28267f2bacdfa</anchor>
+      <arglist>() override</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>xms::nnOuterEdgeStruct</name>
+    <filename>structxms_1_1nn_outer_edge_struct.html</filename>
+    <member kind="variable">
+      <type>int</type>
+      <name>m_triIdx</name>
+      <anchorfile>structxms_1_1nn_outer_edge_struct.html</anchorfile>
+      <anchor>a3d5179ff3a6017913fd62f8349bf9dae</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>m_edge</name>
+      <anchorfile>structxms_1_1nn_outer_edge_struct.html</anchorfile>
+      <anchor>a3442f650122e9cce8b564ac9ac890996</anchor>
+      <arglist>[2]</arglist>
+    </member>
+    <member kind="variable">
+      <type>xms::Pt3d</type>
+      <name>m_cc</name>
+      <anchorfile>structxms_1_1nn_outer_edge_struct.html</anchorfile>
+      <anchor>ae243edefe043641b6bbe7ec0ca8b56bc</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::NodalFunc</name>
+    <filename>classxms_1_1_nodal_func.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~NodalFunc</name>
+      <anchorfile>classxms_1_1_nodal_func.html</anchorfile>
+      <anchor>a4ba5c3cfd1fca52345242fff0edca824</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static BSHP&lt; NodalFunc &gt;</type>
+      <name>New</name>
+      <anchorfile>classxms_1_1_nodal_func.html</anchorfile>
+      <anchor>a5c1c96d0322f3905f7e65f9eb88483f1</anchor>
+      <arglist>(int a_type, bool a_2d, boost::shared_ptr&lt; GmPtSearch &gt; a_ptSearch, const std::vector&lt; Pt3d &gt; &amp;a_pts, const std::vector&lt; float &gt; &amp;a_scalar, int a_nNearest, bool a_quad_oct, double a_power, bool a_modifiedShepardWeights, boost::shared_ptr&lt; Observer &gt; a_p, InterpNatNeigh *a_natNeigh)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>NodalFunc</name>
+      <anchorfile>classxms_1_1_nodal_func.html</anchorfile>
+      <anchor>aa406b56b931d0965e7f5062123e6f41b</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::NodalFuncImpl</name>
+    <filename>classxms_1_1_nodal_func_impl.html</filename>
+    <base>xms::NodalFunc</base>
+    <class kind="class">xms::NodalFuncImpl::NfThread</class>
+    <member kind="function">
+      <type></type>
+      <name>NodalFuncImpl</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>ae2f80821ad38874764378301c647d133</anchor>
+      <arglist>(const std::vector&lt; Pt3d &gt; &amp;a_pts, const std::vector&lt; float &gt; &amp;a_scalar)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>NodalFuncImpl</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>af57d9fc660672342f749b619f35c1125</anchor>
+      <arglist>(int a_type, bool a_2d, BSHP&lt; GmPtSearch &gt; a_ptSearch, const std::vector&lt; Pt3d &gt; &amp;a_pts, const std::vector&lt; float &gt; &amp;a_scalar, int a_nNearest, bool a_quad_oct, double a_power, bool a_modifiedShepardWeights, BSHP&lt; Observer &gt; a_p, InterpNatNeigh *a_natNeigh)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual double</type>
+      <name>ScalarFromPtIdx</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a912b59daf958deda11c01087d266ba3c</anchor>
+      <arglist>(int a_ptIdx, const Pt3d &amp;a_loc) const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>GradientFromPtIdx</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a9a544aa910ac1dd607f644452f88b340</anchor>
+      <arglist>(int a_ptIdx, Pt3d &amp;a_grad) const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>ComputeNodalFuncs</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a895415072c66edf9e0c4dfa3073c2668</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual std::string</type>
+      <name>ToString</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a1855ac8e5977ff2558c3698c026bba76</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>NfForPt</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a7874db0e02ba0a2047c8f98989953c53</anchor>
+      <arglist>(int a_ptIdx, BSHP&lt; GmPtSearch &gt; a_s, std::vector&lt; int &gt; &amp;nearestPts, std::vector&lt; InterpPtInfo &gt; &amp;matrixPts, std::vector&lt; double &gt; &amp;d2, std::vector&lt; double &gt; &amp;w)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>NodalFuncForPtFromMatrixPts</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a926e856467accafb0788e5832eab4ca3</anchor>
+      <arglist>(int a_ptIdx, const std::vector&lt; InterpPtInfo &gt; &amp;a_pts)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>NodalFunc2d</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a5bed8882884fcc613d1c7f8503641dbe</anchor>
+      <arglist>(int a_ptIdx, const std::vector&lt; InterpPtInfo &gt; &amp;a_pts, double *a_A)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>NodalFunc3d</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>ad5bca559accbb7fab5f9f35bd86e0d22</anchor>
+      <arglist>(int a_ptIdx, const std::vector&lt; InterpPtInfo &gt; &amp;a_pts, double *a_A)</arglist>
+    </member>
+    <member kind="function">
+      <type>Pt3d</type>
+      <name>ComputeGradientForPoint</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>ae7bfeeb352a366f5155fcd95cbd66fad</anchor>
+      <arglist>(int a_ptIdx, const std::vector&lt; InterpPtInfo &gt; &amp;a_pts)</arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>m_2d</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>adefb0dbcd8b07abb3203943ba969a771</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>m_type</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a821df3becc5f9fabdfa42e84edf9bea9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>m_nNearest</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a8383d483c888ff2cfe5b763e9e00c366</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>m_quadOct</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>acf8b255a2dbf430d7017674024970155</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const std::vector&lt; Pt3d &gt; &amp;</type>
+      <name>m_pts</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>aedca4d19a36b52bd68d1f026fa5d0980</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const std::vector&lt; float &gt; &amp;</type>
+      <name>m_scalar</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a8c6a234116c62f8a5227199a7bff83d9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>BSHP&lt; GmPtSearch &gt;</type>
+      <name>m_ptSearch</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a80133a89c3f9375edfe3fcc058719d9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::vector&lt; Pt3d &gt;</type>
+      <name>m_gradient</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>aa76232c34d0e9ebb9d16ee146f759a02</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>VecDbl2d</type>
+      <name>m_quadratic</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>ababfd07ebe7d4987e36fdeefd08c6145</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>m_power</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a60204ebaab033e0d89a1ce1e518bf08c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>m_modifiedShepardWeights</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a480337950c43a1445630fc6cc7918506</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::vector&lt; int &gt;</type>
+      <name>m_nearestAll</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a9b048afa38d47724284946fc75362d34</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>BSHP&lt; Observer &gt;</type>
+      <name>m_prog</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a83f4f8791fcecae4e7b7fe7f724cdef6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>m_errorReport</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a63cde125aef43a7f2f889d13b0504601</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>m_debugTest</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>ae67f53de253c8e003e025da872249dca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>InterpNatNeigh *</type>
+      <name>m_natNeigh</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a0b2d06450b244c3c2368a62d015f8e5f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>NodalFuncUnitTests</name>
+    <filename>class_nodal_func_unit_tests.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>testCreateClass</name>
+      <anchorfile>class_nodal_func_unit_tests.html</anchorfile>
+      <anchor>a986761f15bb7b983843743da333736eb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testComputeGradientForPoint</name>
+      <anchorfile>class_nodal_func_unit_tests.html</anchorfile>
+      <anchor>af68cd137ce30435b72961072fa464b6c</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>PtSearchUnitTests</name>
+    <filename>class_pt_search_unit_tests.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>testCreateClass</name>
+      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
+      <anchor>a8e322359ace1af03b7ed680f5295693b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testTest2d</name>
+      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
+      <anchor>a73d2a85aa0fbc316a421dcf912981fa8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testTest2dTutData</name>
+      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
+      <anchor>add78e0a8851b7ac7f7a2410a1b1fa5b1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testTest3d</name>
+      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
+      <anchor>a7f493292989b1e6e6c5d01516d5b2d64</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testTest3dOct</name>
+      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
+      <anchor>a5d78214e1fef2096a0c61d36399c7584</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testActivity2d</name>
+      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
+      <anchor>a9c68362b8c6522297a6b4f987428fb74</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testActivity3d</name>
+      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
+      <anchor>a5070b8bb3b9419bbd813a56e42899455</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testPtsWithinDist</name>
+      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
+      <anchor>a24c64ac92355da4e5384c20b9279acc3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testVectorThatGrows</name>
+      <anchorfile>class_pt_search_unit_tests.html</anchorfile>
+      <anchor>ac74456c2b966531869f579c2a7875740</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>xms::SNResult</name>
+    <filename>structxms_1_1_s_n_result.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>SNResult</name>
+      <anchorfile>structxms_1_1_s_n_result.html</anchorfile>
+      <anchor>ac995b76bc0bed4171b89a2e158dc289e</anchor>
+      <arglist>(size_t a_index, double a_param, double a_cross, const Pt3d &amp;a_position)</arglist>
+    </member>
+    <member kind="variable">
+      <type>Pt3d</type>
+      <name>m_position</name>
+      <anchorfile>structxms_1_1_s_n_result.html</anchorfile>
+      <anchor>a5ad5bfedd78d0686db2718907d1568d2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>m_param</name>
+      <anchorfile>structxms_1_1_s_n_result.html</anchorfile>
+      <anchor>acf9f91cebed6f3f5f60ec8998688cedb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>m_cross</name>
+      <anchorfile>structxms_1_1_s_n_result.html</anchorfile>
+      <anchor>ad5af71be9de7cff2196047e0b566d7cb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>size_t</type>
+      <name>m_index</name>
+      <anchorfile>structxms_1_1_s_n_result.html</anchorfile>
+      <anchor>ad154a7139ad6738b9a2ec7a72a437eab</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>xms::ThreadLoop</name>
     <filename>classxms_1_1_thread_loop.html</filename>
     <class kind="class">xms::ThreadLoop::impl</class>
+    <member kind="function">
+      <type>void</type>
+      <name>SetStartNumIterCnt</name>
+      <anchorfile>classxms_1_1_thread_loop.html</anchorfile>
+      <anchor>a2ce8e0b2789803849f6b93312aeb4eaf</anchor>
+      <arglist>(int a_startIdx, int a_numIter, int *a_cntPtr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>DoWork</name>
+      <anchorfile>classxms_1_1_thread_loop.html</anchorfile>
+      <anchor>a85da861fe57a764ce110a1f5abf395ce</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="function" virtualness="pure">
       <type>virtual BSHP&lt; ThreadLoop &gt;</type>
       <name>CreateForNewThread</name>
       <anchorfile>classxms_1_1_thread_loop.html</anchorfile>
       <anchor>abf5ce6acd9882022efc6f41923e367e8</anchor>
       <arglist>()=0</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>int</type>
+      <name>CurrIdx</name>
+      <anchorfile>classxms_1_1_thread_loop.html</anchorfile>
+      <anchor>afebcb169439af245b14329587e6768f1</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function" protection="private" virtualness="pure">
       <type>virtual void</type>
@@ -5095,35 +6581,63 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>xms::ThreadLoop::impl</name>
-    <filename>classxms_1_1_thread_loop_1_1impl.html</filename>
-    <member kind="variable">
-      <type>int</type>
-      <name>m_start</name>
-      <anchorfile>classxms_1_1_thread_loop_1_1impl.html</anchorfile>
-      <anchor>a886105abdaebf1d3eb819f1df3093074</anchor>
-      <arglist></arglist>
+    <name>xms::ThreadMgr</name>
+    <filename>classxms_1_1_thread_mgr.html</filename>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>SetThreadLoopClass</name>
+      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
+      <anchor>a16f72cdde8894c836771e7da292a5da0</anchor>
+      <arglist>(BSHP&lt; ThreadLoop &gt; a_)=0</arglist>
     </member>
-    <member kind="variable">
-      <type>int</type>
-      <name>m_nIter</name>
-      <anchorfile>classxms_1_1_thread_loop_1_1impl.html</anchorfile>
-      <anchor>ac209d4aea4fe92e75135fa17c89d1426</anchor>
-      <arglist></arglist>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>ExplicitlySetNumThreads</name>
+      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
+      <anchor>a2621c25b999c657c64082161eb36931e</anchor>
+      <arglist>(int a_nThreads)=0</arglist>
     </member>
-    <member kind="variable">
-      <type>int</type>
-      <name>m_curIdx</name>
-      <anchorfile>classxms_1_1_thread_loop_1_1impl.html</anchorfile>
-      <anchor>aec808dae7359abc58fd3eac8e437aff7</anchor>
-      <arglist></arglist>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>RunThreads</name>
+      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
+      <anchor>a6ce6f8ca944cc8ed7944b276e1ccd34d</anchor>
+      <arglist>(int a_nIter)=0</arglist>
     </member>
-    <member kind="variable">
-      <type>int *</type>
-      <name>m_cntPtr</name>
-      <anchorfile>classxms_1_1_thread_loop_1_1impl.html</anchorfile>
-      <anchor>aa5e9e6aa7aa2b80772259d9a74d2cd2b</anchor>
-      <arglist></arglist>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>SetObserver</name>
+      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
+      <anchor>ad523516e40e779ea4f58ef4432d5ef64</anchor>
+      <arglist>(BSHP&lt; Observer &gt; a_prog)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual std::vector&lt; BSHP&lt; ThreadLoop &gt; &gt;</type>
+      <name>Threads</name>
+      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
+      <anchor>a925946129f98cb3d2cd63797e22b30dc</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static BSHP&lt; ThreadMgr &gt;</type>
+      <name>New</name>
+      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
+      <anchor>af20f5ccc34e6e699a6ffc63bd683470d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>ThreadMgr</name>
+      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
+      <anchor>a9b3e8c11763fd8fff8b0ad659e608457</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type></type>
+      <name>XM_DISALLOW_COPY_AND_ASSIGN</name>
+      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
+      <anchor>ab391ca89f70260edff7883f785239673</anchor>
+      <arglist>(ThreadMgr)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5257,90 +6771,16 @@
       <anchor>ad85e6817fe4a86146c05df7390913e42</anchor>
       <arglist></arglist>
     </member>
-    <member kind="function" static="yes">
-      <type>static BSHP&lt; ThreadMgr &gt;</type>
-      <name>New</name>
-      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
-      <anchor>af20f5ccc34e6e699a6ffc63bd683470d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type></type>
-      <name>ThreadMgr</name>
-      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
-      <anchor>a9b3e8c11763fd8fff8b0ad659e608457</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>xms::ThreadMgrImpl::myThread</name>
-    <filename>structxms_1_1_thread_mgr_impl_1_1my_thread.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>myThread</name>
-      <anchorfile>structxms_1_1_thread_mgr_impl_1_1my_thread.html</anchorfile>
-      <anchor>a2e0b89c1fae0e51dadceb45c3df8a6b9</anchor>
-      <arglist>(BSHP&lt; ThreadLoop &gt; a_)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>operator()</name>
-      <anchorfile>structxms_1_1_thread_mgr_impl_1_1my_thread.html</anchorfile>
-      <anchor>a3e1888f5f377a0724358131da243dcd4</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable">
-      <type>BSHP&lt; ThreadLoop &gt;</type>
-      <name>m_</name>
-      <anchorfile>structxms_1_1_thread_mgr_impl_1_1my_thread.html</anchorfile>
-      <anchor>a3059d4865c38dd28f5c4b858c0e09c9a</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="class">
-    <name>xms::ThreadMgr</name>
-    <filename>classxms_1_1_thread_mgr.html</filename>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>SetThreadLoopClass</name>
-      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
-      <anchor>a16f72cdde8894c836771e7da292a5da0</anchor>
-      <arglist>(BSHP&lt; ThreadLoop &gt; a_)=0</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>ExplicitlySetNumThreads</name>
-      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
-      <anchor>a2621c25b999c657c64082161eb36931e</anchor>
-      <arglist>(int a_nThreads)=0</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>RunThreads</name>
-      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
-      <anchor>a6ce6f8ca944cc8ed7944b276e1ccd34d</anchor>
-      <arglist>(int a_nIter)=0</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>SetObserver</name>
-      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
-      <anchor>ad523516e40e779ea4f58ef4432d5ef64</anchor>
-      <arglist>(BSHP&lt; Observer &gt; a_prog)=0</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual std::vector&lt; BSHP&lt; ThreadLoop &gt; &gt;</type>
-      <name>Threads</name>
-      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
-      <anchor>a925946129f98cb3d2cd63797e22b30dc</anchor>
-      <arglist>()=0</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type></type>
-      <name>XM_DISALLOW_COPY_AND_ASSIGN</name>
-      <anchorfile>classxms_1_1_thread_mgr.html</anchorfile>
-      <anchor>ab391ca89f70260edff7883f785239673</anchor>
-      <arglist>(ThreadMgr)</arglist>
+    <name>xms::TrAutoFixFourTrianglePts</name>
+    <filename>classxms_1_1_tr_auto_fix_four_triangle_pts.html</filename>
+    <member kind="function" static="yes">
+      <type>static BSHP&lt; TrAutoFixFourTrianglePts &gt;</type>
+      <name>New</name>
+      <anchorfile>classxms_1_1_tr_auto_fix_four_triangle_pts.html</anchorfile>
+      <anchor>a58773a2774574706c01b09c1d1ac3048</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5487,120 +6927,27 @@
       <anchor>ab1b475420cf47491c7600270b02dbee5</anchor>
       <arglist></arglist>
     </member>
-    <member kind="function" static="yes">
-      <type>static BSHP&lt; TrAutoFixFourTrianglePts &gt;</type>
-      <name>New</name>
-      <anchorfile>classxms_1_1_tr_auto_fix_four_triangle_pts.html</anchorfile>
-      <anchor>a58773a2774574706c01b09c1d1ac3048</anchor>
-      <arglist>()</arglist>
-    </member>
   </compound>
   <compound kind="class">
-    <name>xms::TrAutoFixFourTrianglePts</name>
-    <filename>classxms_1_1_tr_auto_fix_four_triangle_pts.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>xms::TrOuterTriangleDeleterImpl</name>
-    <filename>classxms_1_1_tr_outer_triangle_deleter_impl.html</filename>
-    <base>xms::TrOuterTriangleDeleter</base>
-    <member kind="enumeration">
-      <type></type>
-      <name>BoundaryEnum</name>
-      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
-      <anchor>af029069b0274826a71ae5677357d8041</anchor>
-      <arglist></arglist>
-    </member>
+    <name>TrAutoFixFourTrianglePtsUnitTests</name>
+    <filename>class_tr_auto_fix_four_triangle_pts_unit_tests.html</filename>
     <member kind="function">
-      <type></type>
-      <name>TrOuterTriangleDeleterImpl</name>
-      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
-      <anchor>a71d9018e45d0db42a74cfdaf97c9d108</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>Delete</name>
-      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
-      <anchor>ae68038220e16a9ad8cfb09088ec18b05</anchor>
-      <arglist>(const VecInt2d &amp;a_polys, BSHP&lt; TrTin &gt; a_tin) override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>SetObserver</name>
-      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
-      <anchor>abc04a864841bfbb4d75978de497eaed0</anchor>
-      <arglist>(BSHP&lt; Observer &gt; a_) override</arglist>
-    </member>
-    <member kind="function" protection="private">
       <type>void</type>
-      <name>FlagTrianglesAlongPolygon</name>
-      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
-      <anchor>af243755c164dc8b6af8504aa6a037b8d</anchor>
-      <arglist>(const VecInt &amp;a_poly, VecInt &amp;a_flags)</arglist>
-    </member>
-    <member kind="function" protection="private">
-      <type>void</type>
-      <name>MarkNeighbors</name>
-      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
-      <anchor>a98c87038a67b2dbad2caa84d97700b1a</anchor>
-      <arglist>(VecInt &amp;a_flags)</arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>VecInt2d</type>
-      <name>m_polys</name>
-      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
-      <anchor>a4c2c88e77f16bda161d8ce8811688fb5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>BSHP&lt; TrTin &gt;</type>
-      <name>m_tin</name>
-      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
-      <anchor>acf5005baf48c97e177782c0926d4644b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>BSHP&lt; Observer &gt;</type>
-      <name>m_observer</name>
-      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
-      <anchor>ac7c0d7113b1bcc08e14becfbf66fb449</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static boost::shared_ptr&lt; TrOuterTriangleDeleter &gt;</type>
-      <name>New</name>
-      <anchorfile>classxms_1_1_tr_outer_triangle_deleter.html</anchorfile>
-      <anchor>a0c647ff8f268d6f6cf8d46f2327a7f8f</anchor>
+      <name>test1</name>
+      <anchorfile>class_tr_auto_fix_four_triangle_pts_unit_tests.html</anchorfile>
+      <anchor>ab21bd9cb12084ff3dc1eb734f2626081</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
-    <name>xms::TrOuterTriangleDeleter</name>
-    <filename>classxms_1_1_tr_outer_triangle_deleter.html</filename>
-  </compound>
-  <compound kind="struct">
-    <name>xms::edgerecord</name>
-    <filename>structxms_1_1edgerecord.html</filename>
-    <member kind="variable">
-      <type>int</type>
-      <name>pt1</name>
-      <anchorfile>structxms_1_1edgerecord.html</anchorfile>
-      <anchor>a628ba61db2c8c725a8b5a603620f35cb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>int</type>
-      <name>pt2</name>
-      <anchorfile>structxms_1_1edgerecord.html</anchorfile>
-      <anchor>a37a472bed46ccd144b62eb755ad8770e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Pt3d</type>
-      <name>intersection</name>
-      <anchorfile>structxms_1_1edgerecord.html</anchorfile>
-      <anchor>a34b4f43309c69d116fad70ebe6cf0dfb</anchor>
-      <arglist></arglist>
+    <name>xms::TrBreaklineAdder</name>
+    <filename>classxms_1_1_tr_breakline_adder.html</filename>
+    <member kind="function" static="yes">
+      <type>static boost::shared_ptr&lt; TrBreaklineAdder &gt;</type>
+      <name>New</name>
+      <anchorfile>classxms_1_1_tr_breakline_adder.html</anchorfile>
+      <anchor>abdc62fc265ddc89580ad12885076c9c9</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5775,17 +7122,199 @@
       <anchor>ae928c362b7672a133aee9b3babf50637</anchor>
       <arglist></arglist>
     </member>
-    <member kind="function" static="yes">
-      <type>static boost::shared_ptr&lt; TrBreaklineAdder &gt;</type>
-      <name>New</name>
-      <anchorfile>classxms_1_1_tr_breakline_adder.html</anchorfile>
-      <anchor>abdc62fc265ddc89580ad12885076c9c9</anchor>
+  </compound>
+  <compound kind="class">
+    <name>TrBreaklineAdderUnitTests</name>
+    <filename>class_tr_breakline_adder_unit_tests.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>test1</name>
+      <anchorfile>class_tr_breakline_adder_unit_tests.html</anchorfile>
+      <anchor>aed5fc7ad1065440d05eb8e4387a19d6a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>test2</name>
+      <anchorfile>class_tr_breakline_adder_unit_tests.html</anchorfile>
+      <anchor>a29102789708793c51d7204d464c31e34</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testCrossingBoundary</name>
+      <anchorfile>class_tr_breakline_adder_unit_tests.html</anchorfile>
+      <anchor>af46bc719d5a27acd4a02f4f6ba2ea27d</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
-    <name>xms::TrBreaklineAdder</name>
-    <filename>classxms_1_1_tr_breakline_adder.html</filename>
+    <name>TriSearchUnitTests</name>
+    <filename>class_tri_search_unit_tests.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>testCreateClass</name>
+      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
+      <anchor>ab3d5e1da43f73a8071876dc0516fead6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testInterpWeights</name>
+      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
+      <anchor>a1364caa71954c0da28fe0be43b104c02</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testPtActivity</name>
+      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
+      <anchor>ad3db5f8baf65200980ce9ce64cf4e076</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testTriActivity</name>
+      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
+      <anchor>aaafe145f2ebb470f3604248b2a26c3fd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testSmsCase1</name>
+      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
+      <anchor>a5d1aa17f366ee0dddf326af59b775b8e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testTouch</name>
+      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
+      <anchor>af0c83cdfee2822cd88b5e784e5d646ea</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testTriEnvelopesOverlap</name>
+      <anchorfile>class_tri_search_unit_tests.html</anchorfile>
+      <anchor>a9115acc6d9662f1d757bb082cb730450</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::TrOuterTriangleDeleter</name>
+    <filename>classxms_1_1_tr_outer_triangle_deleter.html</filename>
+    <member kind="function" static="yes">
+      <type>static boost::shared_ptr&lt; TrOuterTriangleDeleter &gt;</type>
+      <name>New</name>
+      <anchorfile>classxms_1_1_tr_outer_triangle_deleter.html</anchorfile>
+      <anchor>a0c647ff8f268d6f6cf8d46f2327a7f8f</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::TrOuterTriangleDeleterImpl</name>
+    <filename>classxms_1_1_tr_outer_triangle_deleter_impl.html</filename>
+    <base>xms::TrOuterTriangleDeleter</base>
+    <member kind="enumeration">
+      <type></type>
+      <name>BoundaryEnum</name>
+      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
+      <anchor>af029069b0274826a71ae5677357d8041</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TrOuterTriangleDeleterImpl</name>
+      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
+      <anchor>a71d9018e45d0db42a74cfdaf97c9d108</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>Delete</name>
+      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
+      <anchor>ae68038220e16a9ad8cfb09088ec18b05</anchor>
+      <arglist>(const VecInt2d &amp;a_polys, BSHP&lt; TrTin &gt; a_tin) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>SetObserver</name>
+      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
+      <anchor>abc04a864841bfbb4d75978de497eaed0</anchor>
+      <arglist>(BSHP&lt; Observer &gt; a_) override</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>FlagTrianglesAlongPolygon</name>
+      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
+      <anchor>af243755c164dc8b6af8504aa6a037b8d</anchor>
+      <arglist>(const VecInt &amp;a_poly, VecInt &amp;a_flags)</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>MarkNeighbors</name>
+      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
+      <anchor>a98c87038a67b2dbad2caa84d97700b1a</anchor>
+      <arglist>(VecInt &amp;a_flags)</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>VecInt2d</type>
+      <name>m_polys</name>
+      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
+      <anchor>a4c2c88e77f16bda161d8ce8811688fb5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>BSHP&lt; TrTin &gt;</type>
+      <name>m_tin</name>
+      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
+      <anchor>acf5005baf48c97e177782c0926d4644b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>BSHP&lt; Observer &gt;</type>
+      <name>m_observer</name>
+      <anchorfile>classxms_1_1_tr_outer_triangle_deleter_impl.html</anchorfile>
+      <anchor>ac7c0d7113b1bcc08e14becfbf66fb449</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>TrOuterTriangleDeleterUnitTests</name>
+    <filename>class_tr_outer_triangle_deleter_unit_tests.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>test1</name>
+      <anchorfile>class_tr_outer_triangle_deleter_unit_tests.html</anchorfile>
+      <anchor>a294ae02e69ef1ba5ee88016a54af2882</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>xms::TrTin</name>
+    <filename>classxms_1_1_tr_tin.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~TrTin</name>
+      <anchorfile>classxms_1_1_tr_tin.html</anchorfile>
+      <anchor>acbac3ff7b8a488bec68feace756d1234</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static BSHP&lt; TrTin &gt;</type>
+      <name>New</name>
+      <anchorfile>classxms_1_1_tr_tin.html</anchorfile>
+      <anchor>ab1227a106b70c3061bd03cb3fb9833a7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>TrTin</name>
+      <anchorfile>classxms_1_1_tr_tin.html</anchorfile>
+      <anchor>a13e29683d761b3f8e663c2a69098bfd3</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>xms::TrTinImpl</name>
@@ -6071,13 +7600,6 @@
       <anchor>a83741ee7a8ad569412bb6715f500f3df</anchor>
       <arglist>(Archive &amp;archive, const unsigned int version)</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~TrTin</name>
-      <anchorfile>classxms_1_1_tr_tin.html</anchorfile>
-      <anchor>acbac3ff7b8a488bec68feace756d1234</anchor>
-      <arglist>()</arglist>
-    </member>
     <member kind="function" protection="private">
       <type>void</type>
       <name>InsertAdjacentTriangle</name>
@@ -6096,22 +7618,22 @@
       <type>bool</type>
       <name>TriIndexFound</name>
       <anchorfile>classxms_1_1_tr_tin_impl.html</anchorfile>
-      <anchor>a2e199033d208b1bca5ae030c6b18b3a3</anchor>
-      <arglist>(const int &amp;a_triPt) const </arglist>
+      <anchor>a253a5434ce056758375e7ee7b565c12e</anchor>
+      <arglist>(const int &amp;a_triPt) const</arglist>
     </member>
     <member kind="function" protection="private">
       <type>bool</type>
       <name>PointIndexFound</name>
       <anchorfile>classxms_1_1_tr_tin_impl.html</anchorfile>
-      <anchor>aaaf57e6166538ec0f6576f12b4515a7f</anchor>
-      <arglist>(const Pt3d &amp;a_point) const </arglist>
+      <anchor>a8947cb759381812e9b2b906b48874553</anchor>
+      <arglist>(const Pt3d &amp;a_point) const</arglist>
     </member>
     <member kind="function" protection="private">
       <type>bool</type>
       <name>AdjacentIndexFound</name>
       <anchorfile>classxms_1_1_tr_tin_impl.html</anchorfile>
-      <anchor>adb035a7e6e0313c1ffba030e0e84cb9c</anchor>
-      <arglist>(const VecInt &amp;a_point) const </arglist>
+      <anchor>ab66a31615263d8ea599d92d20316d329</anchor>
+      <arglist>(const VecInt &amp;a_point) const</arglist>
     </member>
     <member kind="function" protection="private">
       <type>bool</type>
@@ -6131,8 +7653,8 @@
       <type>void</type>
       <name>BuildTrisAdjToPtsConst</name>
       <anchorfile>classxms_1_1_tr_tin_impl.html</anchorfile>
-      <anchor>a91e6e3790a0a171a73091a6f9d8d762b</anchor>
-      <arglist>() const </arglist>
+      <anchor>a92fa71c48a02cb66695487cf01fef1cc</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="variable" protection="private">
       <type>BSHP&lt; VecPt3d &gt;</type>
@@ -6162,24 +7684,52 @@
       <anchor>ae197cb5a74cb139418af07ea12161ab6</anchor>
       <arglist></arglist>
     </member>
-    <member kind="function" static="yes">
-      <type>static BSHP&lt; TrTin &gt;</type>
-      <name>New</name>
-      <anchorfile>classxms_1_1_tr_tin.html</anchorfile>
-      <anchor>ab1227a106b70c3061bd03cb3fb9833a7</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type></type>
-      <name>TrTin</name>
-      <anchorfile>classxms_1_1_tr_tin.html</anchorfile>
-      <anchor>a13e29683d761b3f8e663c2a69098bfd3</anchor>
-      <arglist>()</arglist>
-    </member>
   </compound>
   <compound kind="class">
-    <name>xms::TrTin</name>
-    <filename>classxms_1_1_tr_tin.html</filename>
+    <name>TrTinUnitTests</name>
+    <filename>class_tr_tin_unit_tests.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>test1</name>
+      <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
+      <anchor>a198e55ca6fc0831488240809cffddea2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testOptimizeTriangulation</name>
+      <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
+      <anchor>a29a07efdba13d58663f8a61fd5404d4f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testSwap</name>
+      <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
+      <anchor>ab978361fc941ce007bfa7d419a0bce92</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testBoundaries</name>
+      <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
+      <anchor>a9a7adf7f4b8ab36ef62d3d7e55bf5c92</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testDeleteTriangles</name>
+      <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
+      <anchor>a390a1322e40b297601fccea53fad2472</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testDeletePoints</name>
+      <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
+      <anchor>a609dc373196faee1173a89d9955d1559</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>xms::TrTriangulator</name>
@@ -6323,171 +7873,70 @@
       <arglist></arglist>
     </member>
   </compound>
-  <compound kind="dir">
-    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/detail</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/detail/</path>
-    <filename>dir_28d1c5c851f14f0eca25667092a42b69.html</filename>
-    <file>TrAutoFixFourTrianglePts.cpp</file>
-    <file>TrAutoFixFourTrianglePts.h</file>
-    <file>TrAutoFixFourTrianglePts.t.h</file>
-    <file>triangulate.cpp</file>
-    <file>triangulate.h</file>
-    <file>TrOuterTriangleDeleter.cpp</file>
-    <file>TrOuterTriangleDeleter.h</file>
-    <file>TrOuterTriangleDeleter.t.h</file>
+  <compound kind="class">
+    <name>TrTriangulatorPointsUnitTests</name>
+    <filename>class_tr_triangulator_points_unit_tests.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>test1</name>
+      <anchorfile>class_tr_triangulator_points_unit_tests.html</anchorfile>
+      <anchor>a33422cef521b757882239d403bc6569d</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
-  <compound kind="dir">
-    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/detail</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/detail/</path>
-    <filename>dir_e17589ddcf6d566b0e256b924f5598e2.html</filename>
-    <file>InterpCt.cpp</file>
-    <file>InterpCt.h</file>
-    <file>InterpNatNeigh.cpp</file>
-    <file>InterpNatNeigh.h</file>
-    <file>InterpNatNeigh.t.h</file>
-    <file>NodalFunc.cpp</file>
-    <file>NodalFunc.h</file>
-    <file>NodalFunc.t.h</file>
+  <compound kind="class">
+    <name>TutInterpolationIntermediateTests</name>
+    <filename>class_tut_interpolation_intermediate_tests.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual const CxxTest::TestGroup &amp;</type>
+      <name>group</name>
+      <anchorfile>class_tut_interpolation_intermediate_tests.html</anchorfile>
+      <anchor>a195ff67bdc3ae586cbf79b7665c3f66b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>test_Example_IDW</name>
+      <anchorfile>class_tut_interpolation_intermediate_tests.html</anchorfile>
+      <anchor>a07da59ac97a03923d1894fc0db7ebd46</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>test_Example_Linear</name>
+      <anchorfile>class_tut_interpolation_intermediate_tests.html</anchorfile>
+      <anchor>a8a81dfb33fad9290a29c89a73febadfa</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>test_Example_NaturalNeighbor</name>
+      <anchorfile>class_tut_interpolation_intermediate_tests.html</anchorfile>
+      <anchor>a4016c266625b88129df8654a1d84df5d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>test_Example_Anisotropic</name>
+      <anchorfile>class_tut_interpolation_intermediate_tests.html</anchorfile>
+      <anchor>a938de7e5b7abc72bbeaeb2d014542e46</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
-  <compound kind="dir">
-    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry/</path>
-    <filename>dir_11d77a5cb34d2dcd924ab16385f16337.html</filename>
-    <file>geoms.cpp</file>
-    <file>geoms.h</file>
-    <file>geoms.t.h</file>
-    <file>GmBoostTypes.h</file>
-    <file>GmExtents.cpp</file>
-    <file>GmExtents.h</file>
-    <file>GmExtents.t.h</file>
-    <file>GmMultiPolyIntersectionSorter.h</file>
-    <file>GmMultiPolyIntersectionSorterTerse.cpp</file>
-    <file>GmMultiPolyIntersectionSorterTerse.h</file>
-    <file>GmMultiPolyIntersector.cpp</file>
-    <file>GmMultiPolyIntersector.h</file>
-    <file>GmMultiPolyIntersector.t.h</file>
-    <file>GmMultiPolyIntersectorData.h</file>
-    <file>GmPolygon.cpp</file>
-    <file>GmPolygon.h</file>
-    <file>GmPolygon.t.h</file>
-    <file>GmPolyLinePtRedistributer.cpp</file>
-    <file>GmPolyLinePtRedistributer.h</file>
-    <file>GmPolyLinePtRedistributer.t.h</file>
-    <file>GmPtSearch.cpp</file>
-    <file>GmPtSearch.h</file>
-    <file>GmPtSearch.t.h</file>
-    <file>GmTriSearch.cpp</file>
-    <file>GmTriSearch.h</file>
-    <file>GmTriSearch.t.h</file>
-  </compound>
-  <compound kind="dir">
-    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate/</path>
-    <filename>dir_891e27cd1483828d783aecbc58ac2c70.html</filename>
-    <file>__init__.py</file>
-    <file>InterpBase_py.cpp</file>
-    <file>InterpIdw_py.cpp</file>
-    <file>InterpIdw_pyt.py</file>
-    <file>InterpLinear_py.cpp</file>
-    <file>InterpLinear_pyt.py</file>
-    <file>interpolate_py.cpp</file>
-    <file>interpolate_py.h</file>
-  </compound>
-  <compound kind="dir">
-    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/</path>
-    <filename>dir_078a237877d04a472ae71a8c0b6a128b.html</filename>
-    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate/detail</dir>
-    <file>InterpBase.h</file>
-    <file>InterpIdw.cpp</file>
-    <file>InterpIdw.h</file>
-    <file>InterpIdw.t.h</file>
-    <file>InterpLinear.cpp</file>
-    <file>InterpLinear.h</file>
-    <file>InterpLinear.t.h</file>
-    <file>InterpSignals.cpp</file>
-    <file>InterpSignals.h</file>
-    <file>InterpUtil.cpp</file>
-    <file>InterpUtil.h</file>
-  </compound>
-  <compound kind="dir">
-    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/matrices</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/matrices/</path>
-    <filename>dir_8b8bc0146c835c938db011b4ee736969.html</filename>
-    <file>matrix.cpp</file>
-    <file>matrix.h</file>
-  </compound>
-  <compound kind="dir">
-    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/</path>
-    <filename>dir_53cfb6cd0b472f339d101e3e1947d282.html</filename>
-    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/interpolate</dir>
-    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/triangulate</dir>
-    <file>__init__.py</file>
-    <file>cxxtest.cpp</file>
-    <file>xmsinterp_py.cpp</file>
-  </compound>
-  <compound kind="dir">
-    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/thread</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/thread/</path>
-    <filename>dir_1d4b6524890a716b23a4a3c0b7bcaf08.html</filename>
-    <file>ThreadLoop.cpp</file>
-    <file>ThreadLoop.h</file>
-    <file>ThreadMgr.cpp</file>
-    <file>ThreadMgr.h</file>
-  </compound>
-  <compound kind="dir">
-    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/</path>
-    <filename>dir_5570b84191e767f5120164647d3cb3e2.html</filename>
-    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate/detail</dir>
-    <file>TrBreaklineAdder.cpp</file>
-    <file>TrBreaklineAdder.h</file>
-    <file>TrBreaklineAdder.t.h</file>
-    <file>triangles.cpp</file>
-    <file>triangles.h</file>
-    <file>TrTin.cpp</file>
-    <file>TrTin.h</file>
-    <file>TrTin.t.h</file>
-    <file>TrTriangulator.cpp</file>
-    <file>TrTriangulator.h</file>
-    <file>TrTriangulatorPoints.cpp</file>
-    <file>TrTriangulatorPoints.h</file>
-    <file>TrTriangulatorPoints.t.h</file>
-  </compound>
-  <compound kind="dir">
-    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/triangulate</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python/triangulate/</path>
-    <filename>dir_3fe4380a13b4832ac3f091a4cdba98af.html</filename>
-    <file>__init__.py</file>
-    <file>triangulate_py.cpp</file>
-    <file>triangulate_py.h</file>
-    <file>TrTin_py.cpp</file>
-    <file>TrTin_pyt.py</file>
-    <file>TrTriangulatorPoints_py.cpp</file>
-  </compound>
-  <compound kind="dir">
-    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/tutorial</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/tutorial/</path>
-    <filename>dir_91f3e0f572aaf3d48be19f7af4dd72e8.html</filename>
-    <file>TutInterpolation.cpp</file>
-    <file>TutInterpolation.t.h</file>
-  </compound>
-  <compound kind="dir">
-    <name>/home/travis/build/Aquaveo/xmsinterp/xmsinterp</name>
-    <path>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/</path>
-    <filename>dir_d5bd44cca6d9b750fd281691fd2973a5.html</filename>
-    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/geometry</dir>
-    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/interpolate</dir>
-    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/matrices</dir>
-    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/python</dir>
-    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/thread</dir>
-    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/triangulate</dir>
-    <dir>/home/travis/build/Aquaveo/xmsinterp/xmsinterp/tutorial</dir>
+  <compound kind="page">
+    <name>md_Interpolation_Tutorial</name>
+    <title>Interpolation_Tutorial</title>
+    <filename>md__interpolation__tutorial</filename>
+    <docanchor file="md__interpolation__tutorial" title="Interpolation Tutorial">Interpolation_Tutorial</docanchor>
+    <docanchor file="md__interpolation__tutorial" title="Introduction">Intro_Interpolation</docanchor>
+    <docanchor file="md__interpolation__tutorial" title="Example - Inverse Distance Weighted (IDW) Interpolation">Example_IDW</docanchor>
+    <docanchor file="md__interpolation__tutorial" title="Example - Linear Interpolation">Example_Linear</docanchor>
+    <docanchor file="md__interpolation__tutorial" title="Example - Natural Neighbor Interpolation">Example_NatNeigh</docanchor>
+    <docanchor file="md__interpolation__tutorial" title="Example - Anisotropic Interpolation">Example_Anisotropic</docanchor>
   </compound>
   <compound kind="page">
     <name>index</name>
-    <title></title>
+    <title>xmscore</title>
     <filename>index</filename>
     <docanchor file="index" title="xmsinterp ">xmsinterp</docanchor>
     <docanchor file="index" title="Introduction ">XmsinterpIntroduction</docanchor>

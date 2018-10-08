@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['messagetypeenum',['MessageTypeEnum',['https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588',1,'xmlog']]]
+  ['gmmultipolyintersectorqueryenum',['GmMultiPolyIntersectorQueryEnum',['../_gm_multi_poly_intersector_8h.html#af3e9dae61009fe77b79327ee8ebe9b2e',1,'xms']]]
 ];

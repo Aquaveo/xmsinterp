@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TrTin &mdash; XmsInterp Library  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TrTriangulatorPoints" href="TrTriangulatorPoints.html" />
+    <link rel="prev" title="GmTriSearch" href="../geometry/GmTriSearch.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XmsInterp Library
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../modules.html">Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#geometry">Geometry</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../modules.html#module-xmsinterp_py.triangulate">Triangulate</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">TrTin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TrTriangulatorPoints.html">TrTriangulatorPoints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-xmsinterp_py.interpolate">Interpolate</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XmsInterp Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../modules.html">Modules</a> &raquo;</li>
+        
+      <li>TrTin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modules/triangulate/TrTin.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="trtin">
+<h1>TrTin<a class="headerlink" href="#trtin" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="xmsinterp_py.triangulate.TrTin">
+<em class="property">class </em><code class="descclassname">xmsinterp_py.triangulate.</code><code class="descname">TrTin</code><a class="headerlink" href="#xmsinterp_py.triangulate.TrTin" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.adjacent_triangle">
+<code class="descname">adjacent_triangle</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>tri_idx: int</em>, <em>edge_idx: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.adjacent_triangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the triangle adjacentto a_triIdx across a_edgeIdx (0-2). Compare to trAdjacentTriangle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.build_tris_adj_to_pts">
+<code class="descname">build_tris_adj_to_pts</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.build_tris_adj_to_pts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build array of triangles adjacent to points.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the memory.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.common_edge_index">
+<code class="descname">common_edge_index</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>tri: int</em>, <em>adj_tri: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.common_edge_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return index of common edge between triangle and neighbor. Edge index is 0-2 based on a_tri. Compare to trCommonEdgeIndex.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.delete_points">
+<code class="descname">delete_points</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>pts: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.delete_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the points and any attached triangles, updates adjacency and renumbers things.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.delete_triangles">
+<code class="descname">delete_triangles</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>tris: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.delete_triangles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the triangles specified in  a_trisToDelete and updates and renumbers triangle adjacency info.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.export_tin_file">
+<code class="descname">export_tin_file</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>fname: unicode</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.export_tin_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export in the .tin file format. Useful for debugging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.from_string">
+<code class="descname">from_string</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>arg0: unicode</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.from_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use boost archive to turn the text into a TrTin.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.get_boundary_points">
+<code class="descname">get_boundary_points</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.get_boundary_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives the 0-based indices of all points on any boundary, in no particular order.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.get_boundary_polys">
+<code class="descname">get_boundary_polys</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em><span class="sig-paren">)</span> &#x2192; tuple<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.get_boundary_polys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets exterior boundary and all interior voids as polygons of 0-based point indices. First point is not repeated as the last point.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.get_extents">
+<code class="descname">get_extents</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em><span class="sig-paren">)</span> &#x2192; tuple<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.get_extents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the extents (min, max) of the tin.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.global_index">
+<code class="descname">global_index</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>tri_idx: int</em>, <em>local_pt: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.global_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns index into m_pts of a_localPt which is 0-2.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.local_index">
+<code class="descname">local_index</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>tri: int</em>, <em>pt: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.local_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns index (0-2) of point within triangle given global index. Compare to trIndex.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.next_boundary_point">
+<code class="descname">next_boundary_point</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>point: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.next_boundary_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the next point CW from point on the boundary. CCW if in an inside hole. Compare to trNextBoundaryVertex (or trPreviousBoundaryVertex since order here is CW, not CCW).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp_py.triangulate.TrTin.num_points">
+<code class="descname">num_points</code><a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.num_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of points.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp_py.triangulate.TrTin.num_triangles">
+<code class="descname">num_triangles</code><a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.num_triangles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of triangles.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.optimize_triangulation">
+<code class="descname">optimize_triangulation</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.optimize_triangulation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swaps triangle edges until they are a Delauney triangulation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.previous_boundary_point">
+<code class="descname">previous_boundary_point</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>point: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.previous_boundary_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the next point CCW from point on the boundary. CW if in an inside hole. Compare to trPreviousBoundaryVertex (or trNextBoundaryVertex since order here is CW, not CCW).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp_py.triangulate.TrTin.pts">
+<code class="descname">pts</code><a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.pts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the tin points.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.set_geometry">
+<code class="descname">set_geometry</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>vec_pts: iterable</em>, <em>vec_tris: iterable</em>, <em>vec_tris_adj: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.set_geometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set all the tin geometry at once (points, triangles, adjacency).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.set_points">
+<code class="descname">set_points</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>vec_pts: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.set_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the tin points.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.set_triangles">
+<code class="descname">set_triangles</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>vec_tris_adj: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.set_triangles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the tin triangles.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.set_triangles_adjacent_to_points">
+<code class="descname">set_triangles_adjacent_to_points</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>vec_tris_adj: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.set_triangles_adjacent_to_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the adjacency info of triangles adjacent to points.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.swap_edge">
+<code class="descname">swap_edge</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>tri_A: int</em>, <em>tri_B: int</em>, <em>check_angle: bool</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.swap_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swap edges if triangles combine to form convex quad. Compare to trSwapEdge.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.triangle_adjacent_to_edge">
+<code class="descname">triangle_adjacent_to_edge</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>pt1: int</em>, <em>pt2: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.triangle_adjacent_to_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the triangle adjacent to the edge defined by a_pt1 and a_pt2. Compare to trTriangleAdjacentToEdge.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.triangle_area">
+<code class="descname">triangle_area</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>tri: int</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.triangle_area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate and return the area of a triangle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.triangle_centroid">
+<code class="descname">triangle_centroid</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>tri: int</em><span class="sig-paren">)</span> &#x2192; tuple<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.triangle_centroid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate and return the centroid of a triangle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.triangle_from_edge">
+<code class="descname">triangle_from_edge</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>pt1: int</em>, <em>pt2: int</em><span class="sig-paren">)</span> &#x2192; tuple<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.triangle_from_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the triangle with the edge defined by a_pt1 and a_pt2 and the local index of those points. Compare to trTinTriFromEdge.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp_py.triangulate.TrTin.tris">
+<code class="descname">tris</code><a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.tris" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return 0-based indices of triangle points (grouped by 3s).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp_py.triangulate.TrTin.tris_adj">
+<code class="descname">tris_adj</code><a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.tris_adj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns triangles adjacent to points (0-based).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.triangulate.TrTin.vertices_are_adjacent">
+<code class="descname">vertices_are_adjacent</code><span class="sig-paren">(</span><em>self: xmsinterp_py.triangulate.TrTin</em>, <em>pt1: int</em>, <em>pt2: int</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#xmsinterp_py.triangulate.TrTin.vertices_are_adjacent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if vertices form the edge of a triangle. Compare to vrVerticesAreAdjacent.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="TrTriangulatorPoints.html" class="btn btn-neutral float-right" title="TrTriangulatorPoints" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../geometry/GmTriSearch.html" class="btn btn-neutral" title="GmTriSearch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, aquaveo
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

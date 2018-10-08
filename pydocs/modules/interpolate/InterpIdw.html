@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>InterpIdw &mdash; XmsInterp Library  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="InterpLinear" href="InterpLinear.html" />
+    <link rel="prev" title="InterpAnisotropic" href="InterpAnisotropic.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> XmsInterp Library
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../modules.html">Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#geometry">Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-xmsinterp_py.triangulate">Triangulate</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../modules.html#module-xmsinterp_py.interpolate">Interpolate</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="InterpAnisotropic.html">InterpAnisotropic</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">InterpIdw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="InterpLinear.html">InterpLinear</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XmsInterp Library</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../modules.html">Modules</a> &raquo;</li>
+        
+      <li>InterpIdw</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modules/interpolate/InterpIdw.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="interpidw">
+<h1>InterpIdw<a class="headerlink" href="#interpidw" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="xmsinterp_py.interpolate.InterpIdw">
+<em class="property">class </em><code class="descclassname">xmsinterp_py.interpolate.</code><code class="descname">InterpIdw</code><a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.interp_to_pt">
+<code class="descname">interp_to_pt</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>pt: tuple</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.interp_to_pt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolates to the location specified by pt and returns the value.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pt (tuple): The location of the interpolation point.</dd>
+<dt>Returns:</dt>
+<dd>float: The interpolated value.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.interp_to_pts">
+<code class="descname">interp_to_pts</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>vec_pts: iterable</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.interp_to_pts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolates to an array of points and fills in an array of scalars. 
+This method will run in parallel using multiple threads.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>vec_pts (iterable): Array of points to interpolate to.</dd>
+<dt>Returns:</dt>
+<dd>iterable: Array of scalar values.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.interp_weights">
+<code class="descname">interp_weights</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>point: tuple</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.interp_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a location and an array of points the weights associated with 
+array of points are calculated.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>point (tuple): Location of the interpolation point</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>iterable: Vector of indices indicating the location in the m_pts </dt>
+<dd>vector of the nearest points to a_pt. And Vector weights 
+associated with the nearest points to a_pt.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="xmsinterp_py.interpolate.InterpIdw.nodal_func_enum">
+<em class="property">class </em><code class="descname">nodal_func_enum</code><a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.nodal_func_enum" title="Permalink to this definition">¶</a></dt>
+<dd><p>nodal_func_enum for InterpIdw class</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp_py.interpolate.InterpIdw.pts">
+<code class="descname">pts</code><a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.pts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns points vector.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>iterable: points vector</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.set_multi_threading">
+<code class="descname">set_multi_threading</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>multithreading: bool</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.set_multi_threading" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets a flag to use (or not) multi-threading when interpolating</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>multithreading (bool): true will use multi-threading and false will </dt>
+<dd>not.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.set_nodal_function">
+<code class="descname">set_nodal_function</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>a: xms::InterpIdw::NodalFuncEnum</em>, <em>n_nearest: int</em>, <em>quad_oct: bool</em>, <em>obs: xms::PublicObserver</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.set_nodal_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the type of nodal function as well as options for computing nodal 
+functions.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">a (nodal_func_enum): The nodal function methodology: constant (0), 
+gradient plane (1), quadratic (2).
+n_nearest (int): The nearest number of points to use when</p>
+<blockquote>
+<div>calculating the nodal functions.</div></blockquote>
+<dl class="docutils">
+<dt>quad_oct (bool): Find the nearest number of points in each quadrant </dt>
+<dd>(2d) or octant (3d) when computing nodal functions.</dd>
+</dl>
+<p class="last">obs (Observer): Progress bar to give user feedback.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.set_observer">
+<code class="descname">set_observer</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>obs: xms::PublicObserver</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.set_observer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the observer class so that feedback on the interpolation process 
+can be received.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>obs (Observer): The observer</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.set_power">
+<code class="descname">set_power</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>power: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.set_power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the exponent for the interpolation. By default the class does 
+inverse distance squared weighting but the exponent can be changed to 
+any value.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>power (float): the exponent used to compute the point weights</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.set_pt_activity">
+<code class="descname">set_pt_activity</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>bitset: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.set_pt_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the activity on the point being used to interpolate</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>bitset (iterable): Bitset of point activity.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.set_pts">
+<code class="descname">set_pts</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>vec_pts: iterable</em>, <em>a2d: bool</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.set_pts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the points that will be used to do the interpolation.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>vec_pts (iterable):  array of the point locations
+a2d (bool): indicates if the class will do 2D or 3D interpolation</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.set_pts_tris">
+<code class="descname">set_pts_tris</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>vec_pts: iterable</em>, <em>vec_tris: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.set_pts_tris" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the points that will be used to do the interpolation.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>vec_pts (iterable):  array of the point locations
+vec_tris (iterable): triangles</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.set_save_weights">
+<code class="descname">set_save_weights</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>save_weight: bool</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.set_save_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets a flag to save the weights computed by the interpolation</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>save_weight (bool): true will save weights and false will no</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.set_search_opts">
+<code class="descname">set_search_opts</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>n_nearest_points: int</em>, <em>quad_oct_search: bool</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.set_search_opts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the search options for how to find the nearest points to the 
+interpolation point. The number of nearest points can be specified as 
+well as whether to find the nearest points in each quadrant or octant.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>n_nearest_points (int): the number of nearest points to the </dt>
+<dd>interpolation point. These points are used to do the 
+interpolation.</dd>
+<dt>quad_oct_search (bool): specifies if the search criterion should </dt>
+<dd>find the nearest points in each quadrant (2d) or octant (3d)</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.set_tri_activity">
+<code class="descname">set_tri_activity</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>bitset: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.set_tri_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets triangle activity. Ignored by IDW.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>bitset (iterable): Bitset of point activity.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.set_trunc">
+<code class="descname">set_trunc</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>smax: float</em>, <em>smin: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.set_trunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the truncation values for the interpolation and turn on truncation.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>smax (float): The maximum value for truncation.
+smin (float): The minimum value for truncation.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.set_weight_calc_method">
+<code class="descname">set_weight_calc_method</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em>, <em>method: xms::InterpIdw::WeightEnum</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.set_weight_calc_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the method for calculating the weights. The classic just uses 
+1/distance^exponent. The modified method uses another formulation based 
+on the distance of the furtherest location from the interpolation pt.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>method (weight_enum): The weight calculation method.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.interpolate.InterpIdw.to_string">
+<code class="descname">to_string</code><span class="sig-paren">(</span><em>self: xmsinterp_py.interpolate.InterpIdw</em><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.to_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the internals to a string.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>str: The internals as a string</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp_py.interpolate.InterpIdw.tris">
+<code class="descname">tris</code><a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.tris" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns triangles vector.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>iterable: triangles vector</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="xmsinterp_py.interpolate.InterpIdw.weight_enum">
+<em class="property">class </em><code class="descname">weight_enum</code><a class="headerlink" href="#xmsinterp_py.interpolate.InterpIdw.weight_enum" title="Permalink to this definition">¶</a></dt>
+<dd><p>weight_enum for InterpIdw class</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="InterpLinear.html" class="btn btn-neutral float-right" title="InterpLinear" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="InterpAnisotropic.html" class="btn btn-neutral" title="InterpAnisotropic" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, aquaveo
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
