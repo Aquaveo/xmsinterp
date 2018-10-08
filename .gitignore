@@ -53,9 +53,12 @@ Doxygen/html/*.html
 Doxygen/html/*.js
 Doxygen/html/*.png
 Doxygen/html/search
+Doxygen/html/pydocs/*
+doxy_warn.log
 
 # Sphinx
 pydocs/build
+sphinx_warnings.log
 
 # Build Folders
 build/*

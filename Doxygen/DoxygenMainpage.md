@@ -21,6 +21,11 @@ License {#XmsinterpLicense}
 
 The code is distributed under the xmsng Software License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at [http://www.aquaveo.com/xmsng/LICENSE_1_0.txt](http://www.aquaveo.com/xmsng/LICENSE_1_0.txt)). 
 
+Python
+------
+
+This library is available as a python module. See [Python Documentation](./pydocs)
+
 Features {#XmsinterpFeatures}
 --------
 The library supports both 2D (x,y) and 3D (x,y,z) interpolation. Supported 2d interpolation methods include: linear, natural neighbor, clough tocher, and inverse distance weighted (IDW). IDW also supports 3D interpolation. IDW and natural neighbor support modeling data trends using gradient plane and quadratic nodal functions. See the following tutorial for example code.
