@@ -13,12 +13,14 @@ set(IS_CONDA_BUILD NO CACHE BOOL "Set this if you want to make a conda package."
 set(PYTHON_TARGET_VERSION 3.6 CACHE STRING "Version of python to link to for python wrapping.")
 set(CONDA_PREFIX "" CACHE PATH "Path to the conda environment used to build.")
 set(IS_PYTHON_BUILD NO CACHE BOOL "Set this if you want to build the python bindings.")
+set(XMS_VERSION "\"99.99.99\"" CACHE STRING "Library Version")
 
 if(IS_PYTHON_BUILD AND BUILD_TESTING)
   message(FATAL_ERROR "Cannot build python module when testing is enabled")
 endif()
 
 project(xmsinterp C CXX)
+add_definitions(-DXMS_VERSION=\"${XMS_VERSION}\")
 
 if(WIN32)
     if(XMS_BUILD)
