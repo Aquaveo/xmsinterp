@@ -63,3 +63,4 @@ sphinx_warnings.log
 # Build Folders
 build/*
 pybuild/*
+build_py/*
