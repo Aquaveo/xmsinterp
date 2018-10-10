@@ -81,7 +81,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../modules.html">Modules</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../../modules.html#geometry">Geometry</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../modules.html#module-xmsinterp_py.geometry">Geometry</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">GmTriSearch</a></li>
 </ul>
 </li>
@@ -157,6 +157,123 @@
             
   <div class="section" id="gmtrisearch">
 <h1>GmTriSearch<a class="headerlink" href="#gmtrisearch" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="xmsinterp_py.geometry.GmTriSearch">
+<em class="property">class </em><code class="descclassname">xmsinterp_py.geometry.</code><code class="descname">GmTriSearch</code><a class="headerlink" href="#xmsinterp_py.geometry.GmTriSearch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="xmsinterp_py.geometry.GmTriSearch.interp_weights">
+<code class="descname">interp_weights</code><span class="sig-paren">(</span><em>self: xmsinterp_py.geometry.GmTriSearch</em>, <em>pt: iterable</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp_py.geometry.GmTriSearch.interp_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the stored triangles to get interpolation weights for a point.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pt(iterable):  Location that is interpolated to.</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>iterable: Contains a bool false if point is outside of the </dt>
+<dd>triangle, an iterable of triangle point indices, and 
+an iterable of triangle point weights</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.geometry.GmTriSearch.interp_weights_triangle_idx">
+<code class="descname">interp_weights_triangle_idx</code><span class="sig-paren">(</span><em>self: xmsinterp_py.geometry.GmTriSearch</em>, <em>pt: iterable</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp_py.geometry.GmTriSearch.interp_weights_triangle_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the stored triangles to get interpolation weights for a point.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pt(iterable):  Location that is interpolated to.</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>iterable: Contains a bool false if point is outside of the </dt>
+<dd>triangle, the found triangle index in the triangle array, 
+an iterable of triangle point indices, and an iterable 
+of triangle point weights</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.geometry.GmTriSearch.set_pt_activity">
+<code class="descname">set_pt_activity</code><span class="sig-paren">(</span><em>self: xmsinterp_py.geometry.GmTriSearch</em>, <em>activity: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.geometry.GmTriSearch.set_pt_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies the activity bitset of the points</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>activity (iterable):  bitset of the activity of the points</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.geometry.GmTriSearch.set_tri_activity">
+<code class="descname">set_tri_activity</code><span class="sig-paren">(</span><em>self: xmsinterp_py.geometry.GmTriSearch</em>, <em>activity: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.geometry.GmTriSearch.set_tri_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies the activity bitset of the triangles</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>activity (iterable):  bitset of the activity of the triangles</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.geometry.GmTriSearch.tri_containing_pt">
+<code class="descname">tri_containing_pt</code><span class="sig-paren">(</span><em>self: xmsinterp_py.geometry.GmTriSearch</em>, <em>pt: iterable</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp_py.geometry.GmTriSearch.tri_containing_pt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the triangle containing the point</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pt (iterable):  Location used to find a triangle.</dd>
+<dt>Returns:</dt>
+<dd>iterable: Index of triangle containing pt.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.geometry.GmTriSearch.tri_envelopes_containing_pt">
+<code class="descname">tri_envelopes_containing_pt</code><span class="sig-paren">(</span><em>self: xmsinterp_py.geometry.GmTriSearch</em>, <em>pt: iterable</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp_py.geometry.GmTriSearch.tri_envelopes_containing_pt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find all triangles whose envelope contains the point.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pt (iterable):  Location used to find a triangle.</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>iterable: The indices to triangles whose envelope contains </dt>
+<dd>the point</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.geometry.GmTriSearch.tri_envelopes_overlap">
+<code class="descname">tri_envelopes_overlap</code><span class="sig-paren">(</span><em>self: xmsinterp_py.geometry.GmTriSearch</em>, <em>pt_min: iterable</em>, <em>pt_min: iterable</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp_py.geometry.GmTriSearch.tri_envelopes_overlap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find all triangles whose envelope overlaps the envelope defined by
+a_pMin and a_pMax</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pt_min (iterable):  min x,y location of the box
+pt_max (iterable):  max x,y location of the box</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>iterable: The indices to triangles whose envelope intersects with</dt>
+<dd>the input envelope.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp_py.geometry.GmTriSearch.tris_to_search">
+<code class="descname">tris_to_search</code><span class="sig-paren">(</span><em>self: xmsinterp_py.geometry.GmTriSearch</em>, <em>pts: iterable</em>, <em>tris: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp_py.geometry.GmTriSearch.tris_to_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the points and triangles that are used to create an rtree.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pts (iterable):  array of the point locations
+tris (iterable): triangles</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
