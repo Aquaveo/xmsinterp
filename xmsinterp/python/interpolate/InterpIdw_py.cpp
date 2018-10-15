@@ -24,10 +24,13 @@ PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 
 void initInterpIdw(py::module &m) {
 
-  // Class
-  py::class_<xms::InterpIdw, xms::InterpBase, 
-    boost::shared_ptr<xms::InterpIdw>> iIdw(m, "InterpIdw");
-  iIdw.def(py::init(&xms::InterpIdw::New));
+    // Class
+    const char* interp_idw_doc = R"pydoc(
+        Class that performs inverse distance weighted interpolation
+    )pydoc";
+    py::class_<xms::InterpIdw, xms::InterpBase, 
+        boost::shared_ptr<xms::InterpIdw>> iIdw(m, "InterpIdw",interp_idw_doc);
+    iIdw.def(py::init(&xms::InterpIdw::New));
   // ---------------------------------------------------------------------------
   // function: set_pts_tris
   // ---------------------------------------------------------------------------
@@ -35,8 +38,8 @@ void initInterpIdw(py::module &m) {
         Sets the points that will be used to do the interpolation.
 
         Args:
-            pts (iterable):  array of the point locations
-            tris (iterable): triangles
+            pts (iterable):  Array of the point locations.
+            tris (iterable): Triangles.
     )pydoc";
 
     iIdw.def("set_pts_tris", [](xms::InterpIdw &self, py::iterable pts, 
@@ -52,14 +55,14 @@ void initInterpIdw(py::module &m) {
         Sets the points that will be used to do the interpolation.
 
         Args:
-            vec_pts (iterable):  array of the point locations
+            pts (iterable):  array of the point locations
             a2d (bool): indicates if the class will do 2D or 3D interpolation
     )pydoc";
 
     iIdw.def("set_pts", [](xms::InterpIdw &self, py::iterable pts, bool a2d) {
               BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
               self.SetPts(vec_pts, a2d);
-          }, set_pts_doc,py::arg("vec_pts"), py::arg("a2d"));
+          }, set_pts_doc,py::arg("pts"), py::arg("a2d"));
   // ---------------------------------------------------------------------------
   // function: interp_to_pt
   // ---------------------------------------------------------------------------
@@ -85,10 +88,12 @@ void initInterpIdw(py::module &m) {
         This method will run in parallel using multiple threads.
 
         Args:
-            vec_pts (iterable): Array of points to interpolate to.
+            pts (iterable): Array of points to interpolate to.
 
         Returns:
-          iterable: Array of scalar values.
+          iterable: Array of scalar values. It will be the same size as a_pts 
+            and each value corresponds to the interpolated value at the 
+            respective location in the a_pts array.
     )pydoc";
 
     iIdw.def("interp_to_pts", [](xms::InterpIdw &self, py::iterable pts) -> 
@@ -99,7 +104,7 @@ void initInterpIdw(py::module &m) {
               self.InterpToPts(*vec_pts, *vec_scalars);
               return xms::PyIterFromVecFlt(*vec_scalars, 
                   py::isinstance<py::array>(pts));
-          },interp_to_pts_doc, py::arg("vec_pts"));
+          },interp_to_pts_doc, py::arg("pts"));
   // ---------------------------------------------------------------------------
   // function: set_pt_activity
   // ---------------------------------------------------------------------------
@@ -107,14 +112,14 @@ void initInterpIdw(py::module &m) {
         Sets the activity on the point being used to interpolate
 
         Args:
-            bitset (iterable): Bitset of point activity.
+            activity (iterable): Bitset of point activity.
     )pydoc";
 
     iIdw.def("set_pt_activity", [](xms::InterpIdw &self, 
                                   py::iterable activity) {
               xms::DynBitset bitset = xms::DynamicBitsetFromPyIter(activity);
               self.SetPtActivity(bitset);
-          },set_pt_activity_doc,py::arg("bitset"));
+          },set_pt_activity_doc,py::arg("activity"));
   // ---------------------------------------------------------------------------
   // function: set_tri_activity
   // ---------------------------------------------------------------------------
@@ -122,14 +127,14 @@ void initInterpIdw(py::module &m) {
         Sets triangle activity. Ignored by IDW.
 
         Args:
-            bitset (iterable): Bitset of point activity.
+            activity (iterable): Bitset of point activity.
     )pydoc";
 
     iIdw.def("set_tri_activity", [](xms::InterpIdw &self, 
                                     py::iterable activity) {
               xms::DynBitset bitset = xms::DynamicBitsetFromPyIter(activity);
               self.SetTriActivity(bitset);
-          },set_tri_activity_doc,py::arg("bitset"));
+          },set_tri_activity_doc,py::arg("activity"));
   // ---------------------------------------------------------------------------
   // function: pts
   // ---------------------------------------------------------------------------
@@ -196,7 +201,8 @@ void initInterpIdw(py::module &m) {
         any value.
 
         Args:
-            power (float): the exponent used to compute the point weights
+            power (float): the exponent used to compute the point weights 
+                1 / distance^a_power
     )pydoc";
 
     iIdw.def("set_power", &xms::InterpIdw::SetPower,
@@ -265,7 +271,7 @@ void initInterpIdw(py::module &m) {
         sets a flag to save the weights computed by the interpolation
 
         Args:
-            save_weight (bool): true will save weights and false will no
+            save_weight (bool): true will save weights and false will not
     )pydoc";
 
     iIdw.def("set_save_weights", &xms::InterpIdw::SetSaveWeights,
@@ -278,12 +284,12 @@ void initInterpIdw(py::module &m) {
         array of points are calculated.
 
         Args:
-            point (tuple): Location of the interpolation point
+            pt (tuple): Location of the interpolation point
 
         Returns:
-            iterable: Vector of indices indicating the location in the m_pts 
-              vector of the nearest points to a_pt. And Vector weights 
-              associated with the nearest points to a_pt.
+            iterable: Contains an iterable  of indices indicating the location 
+                in the m_pts vector of the nearest points to pt and an interable 
+                of the weights associated with the nearest points to pt.
     )pydoc";
 
     iIdw.def("interp_weights", [](xms::InterpIdw &self, py::tuple pt) -> 
@@ -299,16 +305,16 @@ void initInterpIdw(py::module &m) {
                 py::array ret_wts = xms::PyIterFromVecDbl(wts, true);
                 return py::make_tuple(ret_idxs, ret_wts);
               }
-          },interp_weights_doc, py::arg("point"));
+          },interp_weights_doc, py::arg("pt"));
   // ---------------------------------------------------------------------------
   // function: set_multi_threading
   // ---------------------------------------------------------------------------
     const char* set_multi_threading_doc = R"pydoc(
-        sets a flag to use (or not) multi-threading when interpolating
+        Sets a flag to use (or not) multi-threading when interpolating.
 
         Args:
-            multithreading (bool): true will use multi-threading and false will 
-              not.
+            multithreading (bool): True will use multi-threading and false will 
+              not. The default setting for the class is to use multi-threading.
     )pydoc";
 
     iIdw.def("set_multi_threading", &xms::InterpIdw::SetMultiThreading,

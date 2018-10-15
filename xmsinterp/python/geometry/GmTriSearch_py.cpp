@@ -23,8 +23,12 @@ PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 void initGmTriSearch(py::module &m) {
 
   // Class
+  const char* gmi_tri_search_doc = R"pydoc(
+      Spatial index for searching triangles.
+  )pydoc";
   py::class_<xms::GmTriSearch,
-    boost::shared_ptr<xms::GmTriSearch>> iGmTriSearch(m, "GmTriSearch");
+    boost::shared_ptr<xms::GmTriSearch>> iGmTriSearch(m, "GmTriSearch",
+    gmi_tri_search_doc);
   iGmTriSearch.def(py::init(&xms::GmTriSearch::New));
   // ---------------------------------------------------------------------------
   // function: tris_to_search
@@ -33,8 +37,8 @@ void initGmTriSearch(py::module &m) {
         Sets the points and triangles that are used to create an rtree.
 
         Args:
-            pts (iterable):  array of the point locations
-            tris (iterable): triangles
+            pts (iterable):  Array of the point locations.
+            tris (iterable): Triangles.
     )pydoc";
 
   iGmTriSearch.def("tris_to_search", [](xms::GmTriSearch &self,
@@ -68,7 +72,7 @@ void initGmTriSearch(py::module &m) {
         Modifies the activity bitset of the points
 
         Args:
-            activity (iterable):  bitset of the activity of the points
+            activity (iterable): Bitset of the activity of the points.
     )pydoc";
 
   iGmTriSearch.def("set_pt_activity",
@@ -82,10 +86,10 @@ void initGmTriSearch(py::module &m) {
   // function: set_tri_activity
   // ---------------------------------------------------------------------------
   const char* set_tri_activity_doc = R"pydoc(
-        Modifies the activity bitset of the triangles
+        Modifies the activity bitset of the triangles.
 
         Args:
-            activity (iterable):  bitset of the activity of the triangles
+            activity (iterable): Bitset of the activity of the triangles.
     )pydoc";
 
   iGmTriSearch.def("set_tri_activity",
@@ -99,13 +103,14 @@ void initGmTriSearch(py::module &m) {
   // function: tri_containing_pt
   // ---------------------------------------------------------------------------
   const char* tri_containing_pt_doc = R"pydoc(
-        Find the triangle containing the point
+        Find the triangle containing the point.
 
         Args:
             pt (iterable):  Location used to find a triangle.
 
         Returns:
-            iterable: Index of triangle containing pt.
+            iterable: Index of triangle containing pt. If XM_NONE is returned 
+              then no triangle contained the point.
     )pydoc";
 
   iGmTriSearch.def("tri_containing_pt",
@@ -126,7 +131,7 @@ void initGmTriSearch(py::module &m) {
 
         Returns:
             iterable: The indices to triangles whose envelope contains 
-                the point
+                the point.
 
     )pydoc";
 
@@ -144,11 +149,11 @@ void initGmTriSearch(py::module &m) {
   // ---------------------------------------------------------------------------
   const char* tri_envelopes_overlap_doc = R"pydoc(
         Find all triangles whose envelope overlaps the envelope defined by
-        a_pMin and a_pMax
+        pt_min and pt_max.
 
         Args:
-            pt_min (iterable):  min x,y location of the box
-            pt_max (iterable):  max x,y location of the box
+            pt_min (iterable):  Min x,y location of the box.
+            pt_max (iterable):  Max x,y location of the box.
 
         Returns:
             iterable: The indices to triangles whose envelope intersects with
@@ -166,7 +171,7 @@ void initGmTriSearch(py::module &m) {
     self.TriEnvelopesOverlap(p_min, p_max, tris);
     return xms::PyIterFromVecInt(tris);
   },
-    tri_envelopes_overlap_doc, py::arg("pt_min"), py::arg("pt_min"));
+    tri_envelopes_overlap_doc, py::arg("pt_min"), py::arg("pt_max"));
   // ---------------------------------------------------------------------------
   // function: interp_weights
   // ---------------------------------------------------------------------------
@@ -174,12 +179,12 @@ void initGmTriSearch(py::module &m) {
         Use the stored triangles to get interpolation weights for a point.
 
         Args:
-            pt(iterable):  Location that is interpolated to.
+            pt (iterable):  Location that is interpolated to.
 
         Returns:
             iterable: Contains a bool false if point is outside of the 
                 triangle, an iterable of triangle point indices, and 
-                an iterable of triangle point weights
+                an iterable of triangle point weights.
 
     )pydoc";
 
@@ -210,7 +215,7 @@ void initGmTriSearch(py::module &m) {
             iterable: Contains a bool false if point is outside of the 
                 triangle, the found triangle index in the triangle array, 
                 an iterable of triangle point indices, and an iterable 
-                of triangle point weights
+                of triangle point weights.
 
     )pydoc";
 
@@ -234,7 +239,7 @@ void initGmTriSearch(py::module &m) {
   // function: __str__
   // ---------------------------------------------------------------------------
   const char* to_string_doc = R"pydoc(
-        Get the GmTriSearch as a string
+        Get the GmTriSearch as a string.
 
         Returns:
             A string representing the GmTriSearch class.

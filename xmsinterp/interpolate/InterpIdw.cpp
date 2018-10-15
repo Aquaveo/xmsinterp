@@ -100,7 +100,7 @@ public:
   virtual void SetTrunc(double a_sMax, double a_sMin) override;
 
   /// \brief sets a flag to save the weights computed by the interpolation
-  /// \param[in] a_ flag: true will save weights and false will no
+  /// \param[in] a_ flag: true will save weights and false will not
   virtual void SetSaveWeights(bool a_) override { m_saveWeights = a_; }
   virtual void InterpWeights(const Pt3d& a_pt,
                              std::vector<int>& a_idx,

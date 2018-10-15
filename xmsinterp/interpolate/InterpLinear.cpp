@@ -209,7 +209,7 @@ void InterpLinearImpl::SetPtActivity(DynBitset& a_activity)
 } // InterpLinearImpl::SetPtActivity
 //------------------------------------------------------------------------------
 /// \brief Modifies the activity bitset of the class.
-/// \param a_activity bitset of the activity of the points
+/// \param a_activity bitset of the activity of the triangles
 //------------------------------------------------------------------------------
 void InterpLinearImpl::SetTriActivity(DynBitset& a_activity)
 {
@@ -299,7 +299,7 @@ int InterpLinearImpl::TriContainingPt(const Pt3d& a_pt)
   return m_triSearch->TriContainingPt(a_pt);
 } // InterpLinearImpl::TriContainingPt
 //------------------------------------------------------------------------------
-/// \brief Find all triangle whose envelop contains the point.
+/// \brief Find all triangles whose envelop contains the point.
 /// \param a_pt Location used to find a triangle.
 /// \param a_tris The indices to triangles whose envelop contains the point
 //------------------------------------------------------------------------------
