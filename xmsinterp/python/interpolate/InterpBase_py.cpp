@@ -69,11 +69,19 @@ public:
 };
 
 void initInterpBase(py::module &m) {
-    py::class_<xms::InterpBase, PyInterpBase<>, boost::shared_ptr<xms::InterpBase>>
-      interpBase(m, "InterpBase");
-      interpBase
-        .def("__str__", &xms::InterpBase::ToString)
-        .def("to_string", &xms::InterpBase::ToString)
-        ;
+    const char* interp_base_doc = R"pydoc(
+        Base class for interpolation methods.
+    )pydoc";
+    py::class_<xms::InterpBase, PyInterpBase<>, 
+      boost::shared_ptr<xms::InterpBase>>
+      interpBase(m, "InterpBase",interp_base_doc);
+    const char* to_string_doc = R"pydoc(
+          Get the InterpBase as a string.
+
+          Returns:
+              A string representing the InterpBase class.
+      )pydoc";
+      interpBase.def("__str__", &xms::InterpBase::ToString,to_string_doc);
+      interpBase.def("to_string", &xms::InterpBase::ToString,to_string_doc);
 }
 

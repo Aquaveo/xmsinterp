@@ -22,9 +22,16 @@ namespace py = pybind11;
 PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 
 void initInterpAnisotropic(py::module &m) {
+    const char* interp_anistropic_doc = R"pydoc(
+        Class that performs anisotropic interpolation. Transforms points
+        so x is a distance of a projected normal onto the centerline and y
+        is the distance from (above or below) the centerline. Interpolate
+        using inverse distance weighted interpolation after scaling the
+        transformed x-values.
+    )pydoc";
     py::class_<xms::InterpAnisotropic, 
         boost::shared_ptr<xms::InterpAnisotropic>> iInterpAnisotropic(m, 
-        "InterpAnisotropic");
+        "InterpAnisotropic",interp_anistropic_doc);
     iInterpAnisotropic.def(py::init(&xms::InterpAnisotropic::New));
   // ---------------------------------------------------------------------------
   // function: set_points
@@ -34,20 +41,20 @@ void initInterpAnisotropic(py::module &m) {
         interpolate from.
 
         Args:
-            centerline_pts (iterable):  The centerline
+            centerline_pts (iterable):  The centerline.
             interpolation_pts (iterable): The points to interpolate from
                 (typically cross sections of the centerline).
-            pick_closest (bool): if true, only keep the transformed point
+            pick_closest (bool): If true, only keep the transformed point
                 for each interpolation point closest to the centerline.
     )pydoc";
     iInterpAnisotropic.def("set_points", [](xms::InterpAnisotropic &self, 
-        py::iterable a_centerlinePts, py::iterable a_interpolationPts, 
-        bool a_pickClosest) {
+        py::iterable centerline_pts, py::iterable interpolation_pts, 
+        bool pick_closest) {
         BSHP<xms::VecPt3d> vecCenterlinePts = 
-            xms::VecPt3dFromPyIter(a_centerlinePts);
+            xms::VecPt3dFromPyIter(centerline_pts);
         BSHP<xms::VecPt3d> vecInterpolationPts = 
-            xms::VecPt3dFromPyIter(a_interpolationPts);
-        self.SetPoints(*vecCenterlinePts, *vecInterpolationPts, a_pickClosest);
+            xms::VecPt3dFromPyIter(interpolation_pts);
+        self.SetPoints(*vecCenterlinePts, *vecInterpolationPts, pick_closest);
     },set_points_doc, py::arg("centerline_pts"), py::arg("interpolation_pts"), 
         py::arg("pick_closest"));
   // ---------------------------------------------------------------------------
@@ -57,13 +64,13 @@ void initInterpAnisotropic(py::module &m) {
         Interpolate z (3rd coordinate) values to a point.
 
         Args:
-            pt (iterable):  The point to interpolate to.
+            pt (iterable): The point to interpolate to.
 
         Returns:
             float: The scaled inverse distance weighted interpolated value.
     )pydoc";
     iInterpAnisotropic.def("interp_to_pt", [](xms::InterpAnisotropic &self, 
-        py::iterable a_pt) -> float {
+        py::iterable pt) -> float {
         xms::Pt3d pt = xms::Pt3dFromPyIter(a_pt);
         return self.InterpToPt(pt);
     },interp_to_pt_doc, py::arg("pt"));
@@ -80,12 +87,12 @@ void initInterpAnisotropic(py::module &m) {
             iterable: The interpolated values (one for each of a_pts)
     )pydoc";
     iInterpAnisotropic.def("interp_to_pts", [](xms::InterpAnisotropic &self, 
-        py::iterable a_pts) -> py::iterable {
-        BSHP<xms::VecPt3d> vecPts = xms::VecPt3dFromPyIter(a_pts);
+        py::iterable points) -> py::iterable {
+        BSHP<xms::VecPt3d> vecPts = xms::VecPt3dFromPyIter(points);
         xms::VecFlt vecResults;
         self.InterpToPts(*vecPts, vecResults);
         return xms::PyIterFromVecFlt(vecResults, 
-            py::isinstance<py::array>(a_pts));
+            py::isinstance<py::array>(points));
     },interp_to_pts_doc, py::arg("points"));
   // ---------------------------------------------------------------------------
   // function: get_interpolation_pts
@@ -95,7 +102,7 @@ void initInterpAnisotropic(py::module &m) {
 
         Returns:
             iterable: The transformed and scaled interpolation points 
-                (passed to SetPoints
+                (passed to SetPoints).
     )pydoc";
     iInterpAnisotropic.def("get_interpolation_pts", []
         (xms::InterpAnisotropic &self) -> py::iterable {
@@ -118,11 +125,11 @@ void initInterpAnisotropic(py::module &m) {
             iterable: The points transformed into (s,n,z) space.
     )pydoc";
     iInterpAnisotropic.def("get_transformed_pts", []
-        (xms::InterpAnisotropic &self, py::iterable a_points, 
-        bool a_pickClosest) -> py::iterable {
-        BSHP<xms::VecPt3d> vecPts = xms::VecPt3dFromPyIter(a_points);
+        (xms::InterpAnisotropic &self, py::iterable points, 
+        bool pick_closest) -> py::iterable {
+        BSHP<xms::VecPt3d> vecPts = xms::VecPt3dFromPyIter(points);
         xms::VecPt3d transformed;
-        self.GetTransformedPts(*vecPts, a_pickClosest, transformed);
+        self.GetTransformedPts(*vecPts, pick_closest, transformed);
         return xms::PyIterFromVecPt3d(transformed);
     },get_transformed_pts_doc, py::arg("points"), py::arg("pick_closest"));
   // ---------------------------------------------------------------------------
@@ -133,7 +140,7 @@ void initInterpAnisotropic(py::module &m) {
         (defaults to 2).
 
         Args:
-            power (iterable): The exponent to use.
+            power (float): The exponent to use.
     )pydoc";
     iInterpAnisotropic.def("set_power", &xms::InterpAnisotropic::SetPower,
     set_power_doc, py::arg("power"));
@@ -141,11 +148,11 @@ void initInterpAnisotropic(py::module &m) {
   // function: set_x_scale
   // ---------------------------------------------------------------------------
     const char* set_x_scale_doc = R"pydoc(
-        Set the scale factor to apply to transformed x (s) coordinates. 
+        Set the scale factor to apply to transformed x (s) coordinates. before 
+        computing the inverse distance weighting.
 
         Args:
-            power (iterable): Set the scale factor to apply to transformed x (s)
-                coordinates. before computing the inverse distance weighting.
+            x_scale (float): The x scale factor to use.
     )pydoc";
     iInterpAnisotropic.def("set_x_scale", &xms::InterpAnisotropic::SetXScale,
     set_x_scale_doc, py::arg("x_scale")

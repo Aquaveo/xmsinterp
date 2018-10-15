@@ -22,8 +22,12 @@ namespace py = pybind11;
 PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 
 void initInterpLinear(py::module &m) {
-  py::class_<xms::InterpLinear, xms::InterpBase,
-    boost::shared_ptr<xms::InterpLinear>> iLin(m, "InterpLinear");
+    const char* interp_linear_doc = R"pydoc(
+        Class that performs linear interpolation
+    )pydoc";
+    py::class_<xms::InterpLinear, xms::InterpBase,
+        boost::shared_ptr<xms::InterpLinear>> iLin(m, "InterpLinear",
+        interp_linear_doc);
     iLin.def(py::init(&xms::InterpLinear::New));
   // ---------------------------------------------------------------------------
   // function: __str__
@@ -51,14 +55,14 @@ void initInterpLinear(py::module &m) {
   // function: set_pts_tris
   // ---------------------------------------------------------------------------
     const char* set_pts_tris_doc = R"pydoc(
-        Adds the triangles to the class
+        Adds the triangles to the class.
 
         Args:
-            vec_pts (iterable): Array of point locations.
-            vec_pts (iterable): Array of triangles that references the a_pts 
+            pts (iterable): Array of point locations.
+            tris (iterable): Array of triangles that references the pts 
                 array. This array will have a size that is a multiple of 3. The 
                 first 3 locations in array represent the first triangle and will
-                have indices that correspond to locations in the a_pts array.
+                have indices that correspond to locations in the pts array.
     )pydoc";
 
     iLin.def("set_pts_tris", 
@@ -66,7 +70,7 @@ void initInterpLinear(py::module &m) {
             BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
             BSHP<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
             self.SetPtsTris(vec_pts, vec_tris);
-        },set_pts_tris_doc, py::arg("vec_pts"),py::arg("vec_tris"));
+        },set_pts_tris_doc, py::arg("pts"),py::arg("tris"));
   // ---------------------------------------------------------------------------
   // function: set_scalars
   // ---------------------------------------------------------------------------
@@ -74,13 +78,13 @@ void initInterpLinear(py::module &m) {
         Set the scalars that will be used to interpolate from.
 
         Args:
-            vec_scalars (iterable): Array of interpolation scalar values.
+            scalar (iterable): Array of interpolation scalar values.
     )pydoc";
 
     iLin.def("set_scalars", [](xms::InterpLinear &self, py::iterable scalar) {
             BSHP<xms::VecFlt> vec_scalars = xms::VecFltFromPyIter(scalar);
             return self.SetScalars(vec_scalars);
-        },set_scalars_doc, py::arg("vec_scalars"));
+        },set_scalars_doc, py::arg("scalar"));
   // ---------------------------------------------------------------------------
   // function: interp_to_pt
   // ---------------------------------------------------------------------------
@@ -89,7 +93,7 @@ void initInterpLinear(py::module &m) {
         extrapolation value if the point is outside the triangles.
 
         Args:
-            point (tuple): Location that is interpolated to.
+            pt (tuple): Location that is interpolated to.
 
         Returns:
             float: Interpolated value at a_pt.
@@ -98,7 +102,7 @@ void initInterpLinear(py::module &m) {
     iLin.def("interp_to_pt",[](xms::InterpLinear &self, py::tuple pt) -> float {
             xms::Pt3d point = xms::Pt3dFromPyIter(pt);
             return self.InterpToPt(point);
-        },interp_to_pt_doc, py::arg("point"));
+        },interp_to_pt_doc, py::arg("pt"));
   // ---------------------------------------------------------------------------
   // function: interp_to_pts
   // ---------------------------------------------------------------------------
@@ -106,10 +110,10 @@ void initInterpLinear(py::module &m) {
         Calls interp_to_pt in a loop.
 
         Args:
-            vec_pts (iterable): Locations of points.
+            pts (iterable): Locations of points.
 
         Returns:
-            iterable: Interpolated scalar values at a_pts.
+            iterable: Interpolated scalar values at pts.
     )pydoc";
 
     iLin.def("interp_to_pts", 
@@ -119,7 +123,7 @@ void initInterpLinear(py::module &m) {
             self.InterpToPts(*vec_pts, *vec_scalars);
             return xms::PyIterFromVecFlt(*vec_scalars, 
                                         py::isinstance<py::array>(pts));
-        },interp_to_pts_doc, py::arg("vec_pts"));
+        },interp_to_pts_doc, py::arg("pts"));
   // ---------------------------------------------------------------------------
   // function: set_pt_activity
   // ---------------------------------------------------------------------------
@@ -127,14 +131,14 @@ void initInterpLinear(py::module &m) {
         Modifies the activity bitset of the class.
 
         Args:
-            bitset (iterable): bitset of the activity of the points.
+            activity (iterable): Bitset of the activity of the points.
     )pydoc";
 
     iLin.def("set_pt_activity", 
         [](xms::InterpLinear &self, py::iterable activity) {
             xms::DynBitset bitset = xms::DynamicBitsetFromPyIter(activity);
             self.SetPtActivity(bitset);
-        },set_pt_activity_doc,py::arg("bitset"));
+        },set_pt_activity_doc,py::arg("activity"));
   // ---------------------------------------------------------------------------
   // function: set_tri_activity
   // ---------------------------------------------------------------------------
@@ -142,14 +146,14 @@ void initInterpLinear(py::module &m) {
         Modifies the activity bitset of the class.
 
         Args:
-            bitset (iterable): bitset of the activity of the triangles.
+            activity (iterable): Bitset of the activity of the triangles.
     )pydoc";
 
     iLin.def("set_tri_activity", 
         [](xms::InterpLinear &self, py::iterable activity) {
             xms::DynBitset bitset = xms::DynamicBitsetFromPyIter(activity);
             self.SetTriActivity(bitset);
-        },set_tri_activity_doc,py::arg("bitset"));
+        },set_tri_activity_doc,py::arg("activity"));
   // ---------------------------------------------------------------------------
   // function: tri_containing_pt
   // ---------------------------------------------------------------------------
@@ -157,29 +161,29 @@ void initInterpLinear(py::module &m) {
         Find the triangle containing the point
 
         Args:
-            point (tuple): Location used to find a triangle.
+            pt (tuple): Location used to find a triangle.
 
         Returns:
-            int: Index of triangle containing a_pt. If XM_NONE is returned then 
-                no triangle contained the point
+            int: Index of triangle containing pt. If XM_NONE is returned then 
+                no triangle contained the point.
     )pydoc";
 
     iLin.def("tri_containing_pt", 
         [](xms::InterpLinear &self, py::tuple pt) -> int {
             xms::Pt3d point = xms::Pt3dFromPyIter(pt);
             return self.TriContainingPt(point);
-        },tri_containing_pt_doc, py::arg("point"));
+        },tri_containing_pt_doc, py::arg("pt"));
   // ---------------------------------------------------------------------------
   // function: tri_envelops_containing_pt
   // ---------------------------------------------------------------------------
     const char* tri_envelops_containing_pt_doc = R"pydoc(
-        Find all triangle whose envelop contains the point.
+        Find all triangles whose envelop contains the point.
 
         Args:
-            point (tuple): Location used to find a triangle.
+            pt (tuple): Location used to find a triangle.
 
         Returns:
-            array: The indices to triangles whose envelop contains the point
+            array: The indices to triangles whose envelop contains the point.
     )pydoc";
 
     iLin.def("tri_envelops_containing_pt", 
@@ -188,7 +192,7 @@ void initInterpLinear(py::module &m) {
             xms::Pt3d point = xms::Pt3dFromPyIter(pt);
             self.TriEnvelopsContainingPt(point, tris);
             return xms::PyIterFromVecInt(tris);
-        },tri_envelops_containing_pt_doc, py::arg("point"));
+        },tri_envelops_containing_pt_doc, py::arg("pt"));
   // ---------------------------------------------------------------------------
   // function: interp_weights
   // ---------------------------------------------------------------------------
@@ -197,11 +201,13 @@ void initInterpLinear(py::module &m) {
         Returns false if the point is outside the triangles.
 
         Args:
-            point (tuple): Location that is interpolated to.
+            pt (tuple): Location that is interpolated to.
 
         Returns:
-            iterable: Vector of triangle point indices found in this method.
-                and Vector of triangle point weights found in this method.
+            iterable: Contains a boolean indicating if pt was inside of any of 
+                the triangles, an iterable of triangle point indices found in 
+                this method, and an iterable of triangle point weights found in 
+                this method.
     )pydoc";
 
     iLin.def("interp_weights", 
@@ -213,15 +219,15 @@ void initInterpLinear(py::module &m) {
             py::array ret_idxs = xms::PyIterFromVecInt(idxs, true);
             py::array ret_wts = xms::PyIterFromVecDbl(wts, true);
             return py::make_tuple(pt_inside, ret_idxs, ret_wts);
-        },interp_weights_doc, py::arg("point"));
+        },interp_weights_doc, py::arg("pt"));
   // ---------------------------------------------------------------------------
   // function: set_extrap_val
   // ---------------------------------------------------------------------------
     const char* set_extrap_val_doc = R"pydoc(
-        Set the constant extrapolation value
+        Set the constant extrapolation value.
 
         Args:
-            value (float): The value assigned to extrapolated points
+            value (float): The value assigned to extrapolated points.
     )pydoc";
 
     iLin.def("set_extrap_val", &xms::InterpLinear::SetExtrapVal, 
@@ -243,10 +249,10 @@ void initInterpLinear(py::module &m) {
   // function: pts
   // ---------------------------------------------------------------------------
     const char* pts_doc = R"pydoc(
-        Returns points vector.
+        Returns an iterable containing the points.
 
         Returns:
-            iterable: points vector
+            iterable: An iterable containing the points.
     )pydoc";
 
     iLin.def_property_readonly("pts", []
@@ -258,10 +264,10 @@ void initInterpLinear(py::module &m) {
   // function: tris
   // ---------------------------------------------------------------------------
     const char* tris_doc = R"pydoc(
-        Returns triangles vector.
+        Returns an iterable containing the triangles.
 
         Returns:
-            iterable: triangles vector
+            iterable: An iterable containing the triangles.
     )pydoc";
 
     iLin.def_property_readonly("tris", []

@@ -29,12 +29,21 @@ PYBIND11_MODULE(xmsinterp_py, m) {
           "Get current version of xmsinterp Python bindings.");
 
     // Interpolate module
-    py::module modInterpolate = m.def_submodule("interpolate");
+    const char* interpolate_doc = R"pydoc(
+
+    )pydoc";
+    py::module modInterpolate = m.def_submodule("interpolate",interpolate_doc);
     initInterpolate(modInterpolate);
 
-    py::module modTriangulate = m.def_submodule("triangulate");
+    const char* triangulate_doc = R"pydoc(
+
+    )pydoc";
+    py::module modTriangulate = m.def_submodule("triangulate",triangulate_doc);
     initTriangulate(modTriangulate);
 
-    py::module modGeometry = m.def_submodule("geometry");
+    const char* geometry_doc = R"pydoc(
+
+    )pydoc";
+    py::module modGeometry = m.def_submodule("geometry",geometry_doc);
     initGeometry(modGeometry);
 }
