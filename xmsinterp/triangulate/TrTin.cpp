@@ -114,6 +114,7 @@ public:
   virtual void DeleteTriangles(const SetInt& a_trisToDelete) override;
   virtual void DeletePoints(const SetInt& a_points) override;
   virtual bool OptimizeTriangulation() override;
+  virtual bool RemoveLongThinTrianglesOnPerimeter(const double a_ratio) override;
   virtual void Clear() override;
   virtual void BuildTrisAdjToPts() override;
 
@@ -131,6 +132,9 @@ private:
   bool CheckAndSwap(int a_triA, int a_triB, bool a_propagate, const VecInt& a_flags);
   bool PointIsInCircumcircle(int a_tri1, int a_tri2, int id);
   void BuildTrisAdjToPtsConst() const;
+  void CheckTriangle(const int a_tri, const int a_index, const double a_ratio,
+    VecInt &a_flags, SetInt &a_trisToDelete) const;
+  int AdjacentTriangleIndex(const int a_currTri, const int a_adjTri) const;
 
   BSHP<VecPt3d> m_pts;                  ///< tin points
   BSHP<VecInt> m_tris;                  ///< triangles, 0-based indices to m_pts, grouped by 3s
@@ -1141,6 +1145,98 @@ bool TrTinImpl::OptimizeTriangulation()
   return true;
 } // TrTinImpl::OptimizeTriangulation
 //------------------------------------------------------------------------------
+/// \brief finds the index of adjacent tri that points to the current tri
+//------------------------------------------------------------------------------
+int TrTinImpl::AdjacentTriangleIndex(const int a_currTri, const int a_adjTri) const
+{
+  if (a_currTri == XM_NONE || a_adjTri == XM_NONE)
+    return XM_NONE; // hold onto your butts
+  int index = 0;
+  while (index < 3)
+  {
+    if (AdjacentTriangle(a_adjTri, index) == a_currTri)
+      return index;
+    else
+      ++index;
+  }
+  return XM_NONE; // hold onto your butts
+} // TrTinImpl::AdjacentTriangleIndex
+//------------------------------------------------------------------------------
+/// \brief If triangle is long and thin (index edge is long compared to sum of
+///        other two edges) the triangle is marked for deletion and the
+///        triangles adjacent to the other two edges are checked.
+/// \param[in] a_tri: The index of the triangle to check.
+/// \param[in] a_index: The index of the triangle's edge to check.
+/// \param[in] a_ratio: The ratio of one edge length compared to the sum of the
+///            other two edge lengths.  If the length ratio of a triangle is
+///            greater then or equal to this given ratio, the triangle is marked
+///            for deletion.
+/// \param[in/out] a_flags: Flags for each of the triangles.
+/// \param[out] a_trisToDelete: Triangles to be deleted that are long and thin.
+//------------------------------------------------------------------------------
+void TrTinImpl::CheckTriangle(const int a_tri, const int a_index,
+  const double a_ratio, VecInt &a_flags, SetInt &a_trisToDelete) const
+{
+  if (a_tri != XM_NONE)
+  {
+    a_flags[a_tri] |= a_index;
+    const int indexPlus1 = trIncrementIndex(a_index);
+    const int indexPlus2 = trIncrementIndex(indexPlus1);
+    int t = a_tri * 3;
+    Pt3d p1((*m_pts)[(*m_tris)[t + a_index]]);
+    Pt3d p2((*m_pts)[(*m_tris)[t + indexPlus1]]);
+    Pt3d p3((*m_pts)[(*m_tris)[t + indexPlus2]]);
+    double l12 = gmXyDistance(p1, p2);
+    double l23 = gmXyDistance(p2, p3);
+    double l31 = gmXyDistance(p3, p1);
+    double lengthRatio = l12 / (l23 + l31);
+    if (lengthRatio >= a_ratio)
+    {
+      a_trisToDelete.insert(a_tri);
+      // check the two adjacent triangles
+      int adjTri = AdjacentTriangle(a_tri, indexPlus1);
+      if (adjTri != XM_NONE && !(a_flags[adjTri] & AdjacentTriangleIndex(a_tri, adjTri)))
+        CheckTriangle(adjTri, AdjacentTriangleIndex(a_tri, adjTri), a_ratio,
+          a_flags, a_trisToDelete);
+      adjTri = AdjacentTriangle(a_tri, indexPlus2);
+      if (adjTri && !(a_flags[adjTri] & AdjacentTriangleIndex(a_tri, adjTri)))
+        CheckTriangle(adjTri, AdjacentTriangleIndex(a_tri, adjTri), a_ratio,
+          a_flags, a_trisToDelete);
+    }
+  }
+} // TrTinImpl::CheckTriangle
+//------------------------------------------------------------------------------
+/// \brief Removes long thin triangles on the boundary of the TIN.
+/// \param[in] a_ratio: The ratio of one edge length compared to the sum of the
+///            other two edge lengths.  If the length ratio of a triangle is
+///            greater then or equal to this given ratio, the triangle is deleted.
+/// \return true on success.
+//------------------------------------------------------------------------------
+bool TrTinImpl::RemoveLongThinTrianglesOnPerimeter(const double a_ratio)
+{
+  // set flags so that a triangle does not get checked more than once
+  int nTri = NumTriangles();
+  VecInt flags(nTri, 4);
+  SetInt trisToDelete;
+  for (int tri = 0; tri < nTri; ++tri)
+  {
+    int i = 0;
+    while (i <= 2)
+    {
+      if (AdjacentTriangle(tri, i) == XM_NONE)
+      {
+        // No adjacent triangle on edge i.  currtriangle is on outside edge
+        CheckTriangle(tri, i, a_ratio, flags, trisToDelete);
+        // Don't stop.  Must check all edges as 2 may be on boundary and
+        // the first one might not have met the criteria but the 2nd might.
+      }
+      ++i;
+    }
+  }
+  DeleteTriangles(trisToDelete);
+  return true;
+} // TrTinImpl::RemoveLongThinTrianglesOnPerimeter
+//------------------------------------------------------------------------------
 /// \brief Delete the memory.
 //------------------------------------------------------------------------------
 void TrTinImpl::Clear()
@@ -1507,6 +1603,42 @@ BSHP<TrTin> trBuildTestTin8()
   tin->BuildTrisAdjToPts();
   return tin;
 } // trBuildTestTin8
+//------------------------------------------------------------------------------
+/// \brief Builds a TIN with long thin triangles for testing.
+/// \verbatim
+///
+///  10.0 7
+///       |\\
+///       |  \ \
+///       |    \  \
+///       |      \  \
+///       |   6    \ 7 \
+///       |          \   \
+///   5.0 4-----------5---6
+///       |\    4    /|\   \
+///       |  \     /  |  \ 5 \
+///       |    \ /    |    \  \
+///       |  2  3  3  |      \ \
+///       |    / \    |        \ \
+///       |  /     \  |    1     \\
+///       |/    0    \|            \
+///   0.0 0-----------1-------------2
+///      0.0   2.5   5.0          10.0
+///
+/// \endverbatim
+/// \return The tin.
+//------------------------------------------------------------------------------
+BSHP<TrTin> trBuildTestTin9()
+{
+  BSHP<TrTin> tin = TrTin::New();
+
+  tin->Points() = {{0, 0, 0}, {5, 0, 0}, {10, 0, 0}, {2.5, 2.5, 0},
+                   {0, 5, 0}, {5, 5, 0}, {6, 5, 0}, {0, 10, 0}};
+  int tris[] = {0, 1, 3, 1, 2, 5, 0, 3, 4, 1, 5, 3, 4, 3, 5, 5, 2, 6, 4, 5, 7, 5, 6, 7};
+  tin->Triangles().assign(&tris[0], &tris[XM_COUNTOF(tris)]);
+  tin->BuildTrisAdjToPts();
+  return tin;
+} // trBuildTestTin9
 
 ////////////////////////////////////////////////////////////////////////////////
 /// \class TrTinUnitTests
@@ -2045,6 +2177,20 @@ void TrTinUnitTests::testDeletePoints()
   TS_ASSERT_EQUALS((VecInt{39, 40, 43, 48}), trisAdjToPts[31]);
   TS_ASSERT_EQUALS((VecInt{26, 28, 29, 39}), trisAdjToPts[22]);
 } // TrTinUnitTests::testDeletePoints
+//------------------------------------------------------------------------------
+/// \brief Tests TrTin::RemoveLongThinTrianglesOnPerimeter
+//------------------------------------------------------------------------------
+void TrTinUnitTests::testRemoveLongThinTrianglesOnPerimeter()
+{
+  BSHP<TrTin> tin = trBuildTestTin9();
+  TS_ASSERT_EQUALS(tin->NumTriangles(), 8);
+  TS_ASSERT_EQUALS(tin->NumPoints(), 8);
+
+  tin->RemoveLongThinTrianglesOnPerimeter(0.75);
+
+  TS_ASSERT_EQUALS(tin->NumTriangles(), 6);
+  TS_ASSERT_EQUALS(tin->NumPoints(), 8);
+} // TrTinUnitTests::testRemoveLongThinTrianglesOnPerimeter
 
   //} // namespace xms
 

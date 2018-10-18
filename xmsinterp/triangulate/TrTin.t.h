@@ -40,6 +40,7 @@ public:
   void testBoundaries();
   void testDeleteTriangles();
   void testDeletePoints();
+  void testRemoveLongThinTrianglesOnPerimeter();
 };
 
 //----- Global functions -------------------------------------------------------
@@ -49,6 +50,7 @@ boost::shared_ptr<xms::TrTin> trBuildTestTin2();
 boost::shared_ptr<xms::TrTin> trBuildTestTin6();
 boost::shared_ptr<xms::TrTin> trBuildTestTin7();
 boost::shared_ptr<xms::TrTin> trBuildTestTin8();
+boost::shared_ptr<xms::TrTin> trBuildTestTin9();
 
 //} // namespace xms
 #endif

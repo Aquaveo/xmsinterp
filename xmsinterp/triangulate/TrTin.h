@@ -91,6 +91,7 @@ public:
   virtual void DeleteTriangles(const SetInt& a_triangles) = 0;
   virtual void DeletePoints(const SetInt& a_points) = 0;
   virtual bool OptimizeTriangulation() = 0;
+  virtual bool RemoveLongThinTrianglesOnPerimeter(const double a_ratio) = 0;
   virtual void BuildTrisAdjToPts() = 0; // Triangles adjacent to points
   virtual void Clear() = 0;
 

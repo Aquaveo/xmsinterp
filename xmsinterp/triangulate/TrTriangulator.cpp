@@ -56,5 +56,4 @@ bool TrTriangulator::Triangulate()
 {
   return trTriangulateIt(*this);
 } // TrTriangulator::Triangulate
-
 } // namespace xms
