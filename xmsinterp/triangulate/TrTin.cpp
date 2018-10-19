@@ -1204,7 +1204,7 @@ void TrTinImpl::CheckTriangle(const int a_tri, const int a_index,
         CheckTriangle(adjTri, AdjacentTriangleIndex(a_tri, adjTri), a_ratio,
           a_flags, a_trisToDelete);
       adjTri = AdjacentTriangle(a_tri, indexPlus2);
-      if (adjTri && !(a_flags[adjTri] & AdjacentTriangleIndex(a_tri, adjTri)))
+      if (adjTri != XM_NONE && !(a_flags[adjTri] & AdjacentTriangleIndex(a_tri, adjTri)))
         CheckTriangle(adjTri, AdjacentTriangleIndex(a_tri, adjTri), a_ratio,
           a_flags, a_trisToDelete);
     }
