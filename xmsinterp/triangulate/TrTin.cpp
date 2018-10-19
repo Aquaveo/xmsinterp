@@ -1145,7 +1145,12 @@ bool TrTinImpl::OptimizeTriangulation()
   return true;
 } // TrTinImpl::OptimizeTriangulation
 //------------------------------------------------------------------------------
-/// \brief finds the index of adjacent tri that points to the current tri
+/// \brief finds the index of adjacent triangle that points to the current
+///        triangle
+/// \param[in] a_currTri: The index of the triangle to check.
+/// \param[in] a_adjTri: The index of the adjacent triangle.
+/// \return The index of the adjacent triangle that points to the current
+///         triangle or XM_NONE if the triangles are not adjacent
 //------------------------------------------------------------------------------
 int TrTinImpl::AdjacentTriangleIndex(const int a_currTri, const int a_adjTri) const
 {
@@ -1171,7 +1176,7 @@ int TrTinImpl::AdjacentTriangleIndex(const int a_currTri, const int a_adjTri) co
 ///            other two edge lengths.  If the length ratio of a triangle is
 ///            greater then or equal to this given ratio, the triangle is marked
 ///            for deletion.
-/// \param[in/out] a_flags: Flags for each of the triangles.
+/// \param[in,out] a_flags: Flags for each of the triangles.
 /// \param[out] a_trisToDelete: Triangles to be deleted that are long and thin.
 //------------------------------------------------------------------------------
 void TrTinImpl::CheckTriangle(const int a_tri, const int a_index,
