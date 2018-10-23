@@ -30,19 +30,23 @@ PYBIND11_MODULE(xmsinterp_py, m) {
 
     // Interpolate module
     const char* interpolate_doc = R"pydoc(
-
+        The interpolate module of the xmsinterp python library contains classes
+        and functions for performing the following types of interpolation given
+        a set of points: IDW, linear, natural neighbor, and anisotropic.
     )pydoc";
     py::module modInterpolate = m.def_submodule("interpolate",interpolate_doc);
     initInterpolate(modInterpolate);
 
     const char* triangulate_doc = R"pydoc(
-
+        The triangulate module of the xmsinterp python library contains classes 
+        and functions for creating and triangulating a TIN from a set of points.
     )pydoc";
     py::module modTriangulate = m.def_submodule("triangulate",triangulate_doc);
     initTriangulate(modTriangulate);
 
     const char* geometry_doc = R"pydoc(
-
+        The geometry module of the xmsinterp python library contains classes 
+        and functions for finding triangles.
     )pydoc";
     py::module modGeometry = m.def_submodule("geometry",geometry_doc);
     initGeometry(modGeometry);
