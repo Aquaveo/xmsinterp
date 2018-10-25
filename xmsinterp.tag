@@ -2240,6 +2240,13 @@
       <anchor>a310ee9097c8a7ff014c12621714077fa</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="function">
+      <type>BSHP&lt; TrTin &gt;</type>
+      <name>trBuildTestTin9</name>
+      <anchorfile>_tr_tin_8cpp.html</anchorfile>
+      <anchor>a386420cc59bd28676fe65c2b57f17127</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>TrTin.h</name>
@@ -2292,6 +2299,13 @@
       <name>trBuildTestTin8</name>
       <anchorfile>_tr_tin_8t_8h.html</anchorfile>
       <anchor>a1492a1c9c30f02dc6dccad115531126b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>boost::shared_ptr&lt; xms::TrTin &gt;</type>
+      <name>trBuildTestTin9</name>
+      <anchorfile>_tr_tin_8t_8h.html</anchorfile>
+      <anchor>a36ccf1dbfe10bcde1d187234d0e8e619</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -7566,6 +7580,13 @@
       <arglist>() override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>RemoveLongThinTrianglesOnPerimeter</name>
+      <anchorfile>classxms_1_1_tr_tin_impl.html</anchorfile>
+      <anchor>a6539e41ceec60374722e504d8e38dfb2</anchor>
+      <arglist>(const double a_ratio) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>Clear</name>
       <anchorfile>classxms_1_1_tr_tin_impl.html</anchorfile>
@@ -7656,6 +7677,20 @@
       <anchor>a92fa71c48a02cb66695487cf01fef1cc</anchor>
       <arglist>() const</arglist>
     </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>CheckTriangle</name>
+      <anchorfile>classxms_1_1_tr_tin_impl.html</anchorfile>
+      <anchor>a819d105df8de79aae59791e7316ee209</anchor>
+      <arglist>(const int a_tri, const int a_index, const double a_ratio, VecInt &amp;a_flags, SetInt &amp;a_trisToDelete) const</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>int</type>
+      <name>AdjacentTriangleIndex</name>
+      <anchorfile>classxms_1_1_tr_tin_impl.html</anchorfile>
+      <anchor>a5fd85293103096659f5d7311c1e5f252</anchor>
+      <arglist>(const int a_currTri, const int a_adjTri) const</arglist>
+    </member>
     <member kind="variable" protection="private">
       <type>BSHP&lt; VecPt3d &gt;</type>
       <name>m_pts</name>
@@ -7728,6 +7763,13 @@
       <name>testDeletePoints</name>
       <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
       <anchor>a609dc373196faee1173a89d9955d1559</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testRemoveLongThinTrianglesOnPerimeter</name>
+      <anchorfile>class_tr_tin_unit_tests.html</anchorfile>
+      <anchor>a2393a141eb2f1bc3d75b8f45094e915d</anchor>
       <arglist>()</arglist>
     </member>
   </compound>

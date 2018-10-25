@@ -212,6 +212,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:a3edf221597262055cb3847430bd36ab8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_tr_tin_impl.html#a3edf221597262055cb3847430bd36ab8">OptimizeTriangulation</a> () override</td></tr>
 <tr class="memdesc:a3edf221597262055cb3847430bd36ab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps triangle edges until they are a Delauney triangulation.  <a href="#a3edf221597262055cb3847430bd36ab8">More...</a><br /></td></tr>
 <tr class="separator:a3edf221597262055cb3847430bd36ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6539e41ceec60374722e504d8e38dfb2"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_tr_tin_impl.html#a6539e41ceec60374722e504d8e38dfb2">RemoveLongThinTrianglesOnPerimeter</a> (const double a_ratio) override</td></tr>
+<tr class="memdesc:a6539e41ceec60374722e504d8e38dfb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes long thin triangles on the boundary of the TIN.  <a href="#a6539e41ceec60374722e504d8e38dfb2">More...</a><br /></td></tr>
+<tr class="separator:a6539e41ceec60374722e504d8e38dfb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac56cedd2e8a867bb3122716f8d30e1b8"><td class="memItemLeft" align="right" valign="top"><a id="ac56cedd2e8a867bb3122716f8d30e1b8"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_tr_tin_impl.html#ac56cedd2e8a867bb3122716f8d30e1b8">Clear</a> () override</td></tr>
 <tr class="memdesc:ac56cedd2e8a867bb3122716f8d30e1b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the memory. <br /></td></tr>
@@ -263,6 +266,12 @@ Private Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_tr_tin_impl.html#a92fa71c48a02cb66695487cf01fef1cc">BuildTrisAdjToPtsConst</a> () const</td></tr>
 <tr class="memdesc:a92fa71c48a02cb66695487cf01fef1cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">A const function used only internally and needed to modify m_trisAdjToPts which is mutable. <br /></td></tr>
 <tr class="separator:a92fa71c48a02cb66695487cf01fef1cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a819d105df8de79aae59791e7316ee209"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_tr_tin_impl.html#a819d105df8de79aae59791e7316ee209">CheckTriangle</a> (const int a_tri, const int a_index, const double a_ratio, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/vector_8h.html#ad81e1ef6499bc0e65df973717a1e2fbb">VecInt</a> &amp;a_flags, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/set_8h.html#af6291e795c0018d80c22e2bd9bc2888c">SetInt</a> &amp;a_trisToDelete) const</td></tr>
+<tr class="memdesc:a819d105df8de79aae59791e7316ee209"><td class="mdescLeft">&#160;</td><td class="mdescRight">If triangle is long and thin (index edge is long compared to sum of other two edges) the triangle is marked for deletion and the triangles adjacent to the other two edges are checked.  <a href="#a819d105df8de79aae59791e7316ee209">More...</a><br /></td></tr>
+<tr class="separator:a819d105df8de79aae59791e7316ee209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fd85293103096659f5d7311c1e5f252"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_tr_tin_impl.html#a5fd85293103096659f5d7311c1e5f252">AdjacentTriangleIndex</a> (const int a_currTri, const int a_adjTri) const</td></tr>
+<tr class="memdesc:a5fd85293103096659f5d7311c1e5f252"><td class="mdescLeft">&#160;</td><td class="mdescRight">finds the index of adjacent triangle that points to the current triangle  <a href="#a5fd85293103096659f5d7311c1e5f252">More...</a><br /></td></tr>
+<tr class="separator:a5fd85293103096659f5d7311c1e5f252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -334,11 +343,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if found, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00977">977</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00981">981</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00138">m_toDelete</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00142">m_toDelete</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l01057">DeletePoints()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l01061">DeletePoints()</a>.</p>
 
 </div>
 </div>
@@ -392,11 +401,63 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Triangle adjacent to a_tri along it's a_edge or XM_NONE if there is no triangle adjacent to the edge. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00630">630</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00634">634</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00299">TriangleFromEdge()</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00303">TriangleFromEdge()</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00514">CheckAndSwap()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00595">CommonEdgeIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00773">GetBoundaryPoints()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00707">NextBoundaryPoint()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l01103">OptimizeTriangulation()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00742">PreviousBoundaryPoint()</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00662">TriangleArea()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l01155">AdjacentTriangleIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00518">CheckAndSwap()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l01182">CheckTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00599">CommonEdgeIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00777">GetBoundaryPoints()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00711">NextBoundaryPoint()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l01107">OptimizeTriangulation()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00746">PreviousBoundaryPoint()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l01220">RemoveLongThinTrianglesOnPerimeter()</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00666">TriangleArea()</a>.</p>
+
+</div>
+</div>
+<a id="a5fd85293103096659f5d7311c1e5f252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fd85293103096659f5d7311c1e5f252">&#9670;&nbsp;</a></span>AdjacentTriangleIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int xms::TrTinImpl::AdjacentTriangleIndex </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>a_currTri</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>a_adjTri</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>finds the index of adjacent triangle that points to the current triangle </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a_currTri</td><td>The index of the triangle to check. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a_adjTri</td><td>The index of the adjacent triangle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the adjacent triangle that points to the current triangle or XM_NONE if the triangles are not adjacent </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l01155">1155</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00634">AdjacentTriangle()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l01182">CheckTriangle()</a>.</p>
 
 </div>
 </div>
@@ -467,11 +528,83 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if swap was successful. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00514">514</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00518">518</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00630">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00595">CommonEdgeIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00932">GlobalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00358">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00579">PointIsInCircumcircle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00416">SwapEdge()</a>, <a class="el" href="triangles_8h_source.html#l00055">xms::trDecrementIndex()</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00634">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00599">CommonEdgeIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00936">GlobalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00362">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00583">PointIsInCircumcircle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00420">SwapEdge()</a>, <a class="el" href="triangles_8h_source.html#l00055">xms::trDecrementIndex()</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l01103">OptimizeTriangulation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l01107">OptimizeTriangulation()</a>.</p>
+
+</div>
+</div>
+<a id="a819d105df8de79aae59791e7316ee209"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a819d105df8de79aae59791e7316ee209">&#9670;&nbsp;</a></span>CheckTriangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void xms::TrTinImpl::CheckTriangle </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>a_tri</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>a_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>a_ratio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/vector_8h.html#ad81e1ef6499bc0e65df973717a1e2fbb">VecInt</a> &amp;&#160;</td>
+          <td class="paramname"><em>a_flags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/set_8h.html#af6291e795c0018d80c22e2bd9bc2888c">SetInt</a> &amp;&#160;</td>
+          <td class="paramname"><em>a_trisToDelete</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If triangle is long and thin (index edge is long compared to sum of other two edges) the triangle is marked for deletion and the triangles adjacent to the other two edges are checked. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a_tri</td><td>The index of the triangle to check. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a_index</td><td>The index of the triangle's edge to check. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a_ratio</td><td>The ratio of one edge length compared to the sum of the other two edge lengths. If the length ratio of a triangle is greater then or equal to this given ratio, the triangle is marked for deletion. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">a_flags</td><td>Flags for each of the triangles. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">a_trisToDelete</td><td>Triangles to be deleted that are long and thin. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l01182">1182</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00634">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l01155">AdjacentTriangleIndex()</a>, <a class="el" href="geoms_8cpp_source.html#l00808">xms::gmXyDistance()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00139">m_pts</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l01220">RemoveLongThinTrianglesOnPerimeter()</a>.</p>
 
 </div>
 </div>
@@ -520,11 +653,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Index of edge (0-2) in a_tri between a_tri and a_adTri, or XM_NONE if not adjacent. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00595">595</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00599">599</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00630">AdjacentTriangle()</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00634">AdjacentTriangle()</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00514">CheckAndSwap()</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00416">SwapEdge()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00518">CheckAndSwap()</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00420">SwapEdge()</a>.</p>
 
 </div>
 </div>
@@ -571,9 +704,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00914">914</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00918">918</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00416">SwapEdge()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00420">SwapEdge()</a>.</p>
 
 </div>
 </div>
@@ -609,9 +742,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l01057">1057</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l01061">1061</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00977">AdjacentIndexFound()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00987">DeleteTriangles()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00138">m_toDelete</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00137">m_trisAdjToPts</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00962">PointIndexFound()</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l01276">xms::trRenumberOnDelete()</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00981">AdjacentIndexFound()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00991">DeleteTriangles()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00142">m_toDelete</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00141">m_trisAdjToPts</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00966">PointIndexFound()</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l01377">xms::trRenumberOnDelete()</a>.</p>
 
 </div>
 </div>
@@ -647,11 +780,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00987">987</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00991">991</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00138">m_toDelete</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00285">NumTriangles()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00947">TriIndexFound()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a23da302a5e3a5ad9f79b60045c2fd24e">XM_ENSURE_TRUE_VOID_NO_ASSERT</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00142">m_toDelete</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00289">NumTriangles()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00951">TriIndexFound()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a23da302a5e3a5ad9f79b60045c2fd24e">XM_ENSURE_TRUE_VOID_NO_ASSERT</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l01057">DeletePoints()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l01061">DeletePoints()</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l01220">RemoveLongThinTrianglesOnPerimeter()</a>.</p>
 
 </div>
 </div>
@@ -687,9 +820,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00873">873</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00877">877</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00285">NumTriangles()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_string_util_8cpp.html#ac1a247a3a486723b3ce08d4e732845f3">STRstd()</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00289">NumTriangles()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_string_util_8cpp.html#ac1a247a3a486723b3ce08d4e732845f3">STRstd()</a>.</p>
 
 </div>
 </div>
@@ -725,7 +858,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l01179">1179</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l01280">1280</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
 </div>
 </div>
@@ -761,11 +894,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00773">773</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00777">777</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00630">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l01210">BuildTrisAdjToPtsConst()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00229">TrisAdjToPts()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00634">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l01311">BuildTrisAdjToPtsConst()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00233">TrisAdjToPts()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00807">GetBoundaryPolys()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00811">GetBoundaryPolys()</a>.</p>
 
 </div>
 </div>
@@ -801,9 +934,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00807">807</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00811">811</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00773">GetBoundaryPoints()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00707">NextBoundaryPoint()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a6298031baaba1124b5b331212084dcb3">xmlog::warning</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00777">GetBoundaryPoints()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00711">NextBoundaryPoint()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a6298031baaba1124b5b331212084dcb3">xmlog::warning</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a>.</p>
 
 </div>
 </div>
@@ -851,7 +984,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if there are any points and the extents were computed. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00854">854</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00858">858</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="geoms_8cpp_source.html#l00763">xms::gmAddToExtents()</a>.</p>
 
@@ -901,11 +1034,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Global index into m_pts of a_localPt. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00932">932</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00936">936</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a3dc5059ab2a87bfa4876b29ca6567376">XM_ENSURE_TRUE</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a3dc5059ab2a87bfa4876b29ca6567376">XM_ENSURE_TRUE</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00514">CheckAndSwap()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00707">NextBoundaryPoint()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00579">PointIsInCircumcircle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00742">PreviousBoundaryPoint()</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00416">SwapEdge()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00518">CheckAndSwap()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00711">NextBoundaryPoint()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00583">PointIsInCircumcircle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00746">PreviousBoundaryPoint()</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00420">SwapEdge()</a>.</p>
 
 </div>
 </div>
@@ -952,11 +1085,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00902">902</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00906">906</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
 <p class="reference">References <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a798220cc4b67dd310ec6c362531f2a02">XM_ENSURE_TRUE_VOID</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00416">SwapEdge()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00420">SwapEdge()</a>.</p>
 
 </div>
 </div>
@@ -1004,11 +1137,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The local index (0-2) of the point a_pt in the triangle a_tri or XM_NONE if a_pt is not on a_tri. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00358">358</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00362">362</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00514">CheckAndSwap()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00707">NextBoundaryPoint()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00742">PreviousBoundaryPoint()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00416">SwapEdge()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00331">TriangleAdjacentToEdge()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00662">TriangleArea()</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00299">TriangleFromEdge()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00518">CheckAndSwap()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00711">NextBoundaryPoint()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00746">PreviousBoundaryPoint()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00420">SwapEdge()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00335">TriangleAdjacentToEdge()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00666">TriangleArea()</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00303">TriangleFromEdge()</a>.</p>
 
 </div>
 </div>
@@ -1045,11 +1178,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The point index or XM_NONE if not found. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00707">707</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00711">711</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00630">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00932">GlobalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00358">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00137">m_trisAdjToPts</a>, <a class="el" href="triangles_8h_source.html#l00055">xms::trDecrementIndex()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00634">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00936">GlobalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00362">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00141">m_trisAdjToPts</a>, <a class="el" href="triangles_8h_source.html#l00055">xms::trDecrementIndex()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00807">GetBoundaryPolys()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00811">GetBoundaryPolys()</a>.</p>
 
 </div>
 </div>
@@ -1079,9 +1212,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Return the number of points. </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of points. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00277">277</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00281">281</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00662">TriangleArea()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00666">TriangleArea()</a>.</p>
 
 </div>
 </div>
@@ -1111,9 +1244,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Return the number of triangles. </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of triangles. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00285">285</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00289">289</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00987">DeleteTriangles()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00873">ExportTinFile()</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l01103">OptimizeTriangulation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00991">DeleteTriangles()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00877">ExportTinFile()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l01107">OptimizeTriangulation()</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l01220">RemoveLongThinTrianglesOnPerimeter()</a>.</p>
 
 </div>
 </div>
@@ -1143,9 +1276,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Swaps triangle edges until they are a Delauney triangulation. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if modified. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l01103">1103</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l01107">1107</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00630">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00514">CheckAndSwap()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00285">NumTriangles()</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00634">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00518">CheckAndSwap()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00289">NumTriangles()</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
 </div>
 </div>
@@ -1183,11 +1316,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if found, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00962">962</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00966">966</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00138">m_toDelete</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00142">m_toDelete</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l01057">DeletePoints()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l01061">DeletePoints()</a>.</p>
 
 </div>
 </div>
@@ -1253,11 +1386,11 @@ Additional Inherited Members</h2></td></tr>
 ///                      a_localPt
 /// </pre> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00579">579</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00583">583</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00932">GlobalIndex()</a>, <a class="el" href="geoms_8cpp_source.html#l00159">xms::gmPtInCircumcircle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00135">m_pts</a>, and <a class="el" href="geoms_8h_source.html#l00039">xms::PT_IN</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00936">GlobalIndex()</a>, <a class="el" href="geoms_8cpp_source.html#l00159">xms::gmPtInCircumcircle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00139">m_pts</a>, and <a class="el" href="geoms_8h_source.html#l00039">xms::PT_IN</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00514">CheckAndSwap()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00518">CheckAndSwap()</a>.</p>
 
 </div>
 </div>
@@ -1287,9 +1420,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Return the tin points. </p>
 <dl class="section return"><dt>Returns</dt><dd>The points in the tin. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00213">213</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00217">217</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00135">m_pts</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00139">m_pts</a>.</p>
 
 </div>
 </div>
@@ -1319,9 +1452,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Return the tin points. </p>
 <dl class="section return"><dt>Returns</dt><dd>The points in the tin. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00237">237</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00241">241</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00135">m_pts</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00139">m_pts</a>.</p>
 
 </div>
 </div>
@@ -1351,9 +1484,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Return the pointer to tin points. </p>
 <dl class="section return"><dt>Returns</dt><dd>Shared pointer to the points vector. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00261">261</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00265">265</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00135">m_pts</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00139">m_pts</a>.</p>
 
 </div>
 </div>
@@ -1390,9 +1523,48 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The point index or XM_NONE if not found. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00742">742</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00746">746</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00630">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00932">GlobalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00358">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00137">m_trisAdjToPts</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00634">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00936">GlobalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00362">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00141">m_trisAdjToPts</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+
+</div>
+</div>
+<a id="a6539e41ceec60374722e504d8e38dfb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6539e41ceec60374722e504d8e38dfb2">&#9670;&nbsp;</a></span>RemoveLongThinTrianglesOnPerimeter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool xms::TrTinImpl::RemoveLongThinTrianglesOnPerimeter </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>a_ratio</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes long thin triangles on the boundary of the TIN. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a_ratio</td><td>The ratio of one edge length compared to the sum of the other two edge lengths. If the length ratio of a triangle is greater then or equal to this given ratio, the triangle is deleted. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true on success. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l01220">1220</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00634">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l01182">CheckTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00991">DeleteTriangles()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00289">NumTriangles()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
 </div>
 </div>
@@ -1433,9 +1605,9 @@ template&lt;typename Archive &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l01193">1193</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l01294">1294</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00135">m_pts</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00137">m_trisAdjToPts</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00139">m_pts</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00141">m_trisAdjToPts</a>.</p>
 
 </div>
 </div>
@@ -1489,9 +1661,9 @@ template&lt;typename Archive &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00203">203</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00207">207</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00135">m_pts</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00137">m_trisAdjToPts</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00139">m_pts</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00141">m_trisAdjToPts</a>.</p>
 
 </div>
 </div>
@@ -1527,9 +1699,9 @@ template&lt;typename Archive &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00177">177</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00181">181</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00135">m_pts</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00139">m_pts</a>.</p>
 
 </div>
 </div>
@@ -1565,9 +1737,9 @@ template&lt;typename Archive &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00185">185</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00189">189</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>.</p>
 
 </div>
 </div>
@@ -1603,9 +1775,9 @@ template&lt;typename Archive &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00193">193</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00197">197</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00137">m_trisAdjToPts</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00141">m_trisAdjToPts</a>.</p>
 
 </div>
 </div>
@@ -1669,11 +1841,11 @@ template&lt;typename Archive &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if swap was successful. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00416">416</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00420">420</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00595">CommonEdgeIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00914">DeleteAdjacentTriangle()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a6c90100ca9f6986351a3a437374735c1">xmlog::error</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00932">GlobalIndex()</a>, <a class="el" href="geoms_8cpp_source.html#l00631">xms::gmAngleBetweenEdges()</a>, <a class="el" href="geoms_8cpp_source.html#l00551">xms::gmCounterClockwiseTri()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00902">InsertAdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00358">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00135">m_pts</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>, <a class="el" href="triangles_8cpp_source.html#l00047">xms::trArea()</a>, <a class="el" href="triangles_8h_source.html#l00055">xms::trDecrementIndex()</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a2fd384675f63eadb4674ab11e5e2cd5a">XM_PI</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00599">CommonEdgeIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00918">DeleteAdjacentTriangle()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a6c90100ca9f6986351a3a437374735c1">xmlog::error</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00936">GlobalIndex()</a>, <a class="el" href="geoms_8cpp_source.html#l00631">xms::gmAngleBetweenEdges()</a>, <a class="el" href="geoms_8cpp_source.html#l00551">xms::gmCounterClockwiseTri()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00906">InsertAdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00362">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00139">m_pts</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>, <a class="el" href="triangles_8cpp_source.html#l00047">xms::trArea()</a>, <a class="el" href="triangles_8h_source.html#l00055">xms::trDecrementIndex()</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_log_8h.html#a2aa4d2a0a80e464d6acba7f32b13f978">XM_LOG</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a2fd384675f63eadb4674ab11e5e2cd5a">XM_PI</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00514">CheckAndSwap()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00518">CheckAndSwap()</a>.</p>
 
 </div>
 </div>
@@ -1703,7 +1875,7 @@ template&lt;typename Archive &gt; </div>
 <p>Use boost archive to get the <a class="el" href="classxms_1_1_tr_tin.html">TrTin</a> as text. </p>
 <dl class="section return"><dt>Returns</dt><dd>The string. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l01166">1166</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l01267">1267</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
 </div>
 </div>
@@ -1751,9 +1923,9 @@ template&lt;typename Archive &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The triangle adjacent to the edge. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00331">331</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00335">335</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00358">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>, <a class="el" href="triangles_8h_source.html#l00055">xms::trDecrementIndex()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00362">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>, <a class="el" href="triangles_8h_source.html#l00055">xms::trDecrementIndex()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
 </div>
 </div>
@@ -1790,9 +1962,9 @@ template&lt;typename Archive &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The area. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00662">662</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00666">666</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00630">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00358">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00135">m_pts</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00277">NumPoints()</a>, <a class="el" href="triangles_8cpp_source.html#l00047">xms::trArea()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00634">AdjacentTriangle()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00362">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00139">m_pts</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00281">NumPoints()</a>, <a class="el" href="triangles_8cpp_source.html#l00047">xms::trArea()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a7702fc672d7c96a60db6e183e29935a6">XM_ENSURE_TRUE_NO_ASSERT</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
 </div>
 </div>
@@ -1829,9 +2001,9 @@ template&lt;typename Archive &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The centroid. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00649">649</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00653">653</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00135">m_pts</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00139">m_pts</a>, and <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>.</p>
 
 </div>
 </div>
@@ -1900,11 +2072,11 @@ template&lt;typename Archive &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if found. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00299">299</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00303">303</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00358">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00362">LocalIndex()</a>, <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>, <a class="el" href="triangles_8h_source.html#l00045">xms::trIncrementIndex()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/xmstype_8h.html#a8a1e225f1a26f97086b87346b57b4c16">XM_NONE</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00630">AdjacentTriangle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00634">AdjacentTriangle()</a>.</p>
 
 </div>
 </div>
@@ -1934,9 +2106,9 @@ template&lt;typename Archive &gt; </div>
 <p>Return 0-based indices of triangle points (grouped by 3s). </p>
 <dl class="section return"><dt>Returns</dt><dd>Triangles as 0-based indices of triangle points (grouped by 3s). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00221">221</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00225">225</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>.</p>
 
 </div>
 </div>
@@ -1966,9 +2138,9 @@ template&lt;typename Archive &gt; </div>
 <p>Return 0-based indices of triangle points (grouped by 3s). </p>
 <dl class="section return"><dt>Returns</dt><dd>Triangles as 0-based indices of triangle points (grouped by 3s). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00245">245</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00249">249</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>.</p>
 
 </div>
 </div>
@@ -1998,9 +2170,9 @@ template&lt;typename Archive &gt; </div>
 <p>Return the pointer to tin triangles. </p>
 <dl class="section return"><dt>Returns</dt><dd>Shared pointer to the triangle points vector. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00269">269</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00273">273</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>.</p>
 
 </div>
 </div>
@@ -2038,11 +2210,11 @@ template&lt;typename Archive &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if found, else false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00947">947</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00951">951</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00138">m_toDelete</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00142">m_toDelete</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00987">DeleteTriangles()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00991">DeleteTriangles()</a>.</p>
 
 </div>
 </div>
@@ -2072,11 +2244,11 @@ template&lt;typename Archive &gt; </div>
 <p>Returns triangles adjacent to points (0-based). </p>
 <dl class="section return"><dt>Returns</dt><dd>2D vector with triangles adjacent to points, size of num points. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00229">229</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00233">233</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00137">m_trisAdjToPts</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00141">m_trisAdjToPts</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00773">GetBoundaryPoints()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_tr_tin_8cpp_source.html#l00777">GetBoundaryPoints()</a>.</p>
 
 </div>
 </div>
@@ -2106,9 +2278,9 @@ template&lt;typename Archive &gt; </div>
 <p>Returns triangles adjacent to points (0-based). </p>
 <dl class="section return"><dt>Returns</dt><dd>2D vector with triangles adjacent to points, size of num points. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00253">253</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00257">257</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00137">m_trisAdjToPts</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00141">m_trisAdjToPts</a>.</p>
 
 </div>
 </div>
@@ -2156,9 +2328,9 @@ template&lt;typename Archive &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if points are adjacent. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00375">375</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_tr_tin_8cpp_source.html#l00379">379</a> of file <a class="el" href="_tr_tin_8cpp_source.html">TrTin.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00136">m_tris</a>.</p>
+<p class="reference">References <a class="el" href="_tr_tin_8cpp_source.html#l00140">m_tris</a>.</p>
 
 </div>
 </div>
@@ -2171,7 +2343,7 @@ template&lt;typename Archive &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>xms</b></li><li class="navelem"><a class="el" href="classxms_1_1_tr_tin_impl.html">TrTinImpl</a></li>
-    <li class="footer">Generated on Wed Oct 10 2018 17:04:58 for xmsinterp by
+    <li class="footer">Generated on Thu Oct 25 2018 20:41:56 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

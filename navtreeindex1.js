@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"class_gm_multi_poly_intersector_unit_tests.html#aa5baa916d12383da4dbe7877af0a956e":[2,0,6,6],
+"class_gm_multi_poly_intersector_unit_tests.html#aa6ebb5373b16aea4f77837dd3f3b7091":[2,0,6,21],
 "class_gm_multi_poly_intersector_unit_tests.html#aa9d101ac50cce7df1ad548edbe558d25":[2,0,6,16],
 "class_gm_multi_poly_intersector_unit_tests.html#aab29e414a3c777ea2e6a6ab6d4842c5f":[2,0,6,24],
 "class_gm_multi_poly_intersector_unit_tests.html#ab02b7de0c41d00d91983178ed2cc1ba9":[2,0,6,25],
@@ -107,11 +109,12 @@ var NAVTREEINDEX1 =
 "class_tr_outer_triangle_deleter_unit_tests.html#a294ae02e69ef1ba5ee88016a54af2882":[2,0,22,0],
 "class_tr_tin_unit_tests.html":[2,0,23],
 "class_tr_tin_unit_tests.html#a198e55ca6fc0831488240809cffddea2":[2,0,23,0],
+"class_tr_tin_unit_tests.html#a2393a141eb2f1bc3d75b8f45094e915d":[2,0,23,5],
 "class_tr_tin_unit_tests.html#a29a07efdba13d58663f8a61fd5404d4f":[2,0,23,4],
 "class_tr_tin_unit_tests.html#a390a1322e40b297601fccea53fad2472":[2,0,23,3],
 "class_tr_tin_unit_tests.html#a609dc373196faee1173a89d9955d1559":[2,0,23,2],
 "class_tr_tin_unit_tests.html#a9a7adf7f4b8ab36ef62d3d7e55bf5c92":[2,0,23,1],
-"class_tr_tin_unit_tests.html#ab978361fc941ce007bfa7d419a0bce92":[2,0,23,5],
+"class_tr_tin_unit_tests.html#ab978361fc941ce007bfa7d419a0bce92":[2,0,23,6],
 "class_tr_triangulator_points_unit_tests.html":[2,0,24],
 "class_tr_triangulator_points_unit_tests.html#a33422cef521b757882239d403bc6569d":[2,0,24,0],
 "class_tri_search_unit_tests.html":[2,0,21],
@@ -246,8 +249,5 @@ var NAVTREEINDEX1 =
 "classxms_1_1_gm_multi_poly_intersector_impl.html#ac8c9bc9edcf78e66b2b19b429fdd748b":[2,0,0,10,24],
 "classxms_1_1_gm_multi_poly_intersector_impl.html#ad44f26ecf4069c3406c27806dabf13f8":[2,0,0,10,15],
 "classxms_1_1_gm_multi_poly_intersector_impl.html#ad7d468b9c1de82c05149fc6bf429dab1":[2,0,0,10,12],
-"classxms_1_1_gm_multi_poly_intersector_impl.html#ad8a8d896823f5f70b3ffc250b453434c":[2,0,0,10,16],
-"classxms_1_1_gm_multi_poly_intersector_impl.html#ae25a886c347f59cc97cdd4d09d0f2ecf":[2,0,0,10,27],
-"classxms_1_1_gm_multi_poly_intersector_impl.html#ae6d9d3489cc6f4ffad6bbdbaefadddf5":[2,0,0,10,2],
-"classxms_1_1_gm_multi_poly_intersector_impl.html#ae78756aa2652d524131bb6259534df04":[2,0,0,10,11]
+"classxms_1_1_gm_multi_poly_intersector_impl.html#ad8a8d896823f5f70b3ffc250b453434c":[2,0,0,10,16]
 };

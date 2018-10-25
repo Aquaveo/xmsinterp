@@ -5,5 +5,6 @@ var class_tr_tin_unit_tests =
     [ "testDeletePoints", "class_tr_tin_unit_tests.html#a609dc373196faee1173a89d9955d1559", null ],
     [ "testDeleteTriangles", "class_tr_tin_unit_tests.html#a390a1322e40b297601fccea53fad2472", null ],
     [ "testOptimizeTriangulation", "class_tr_tin_unit_tests.html#a29a07efdba13d58663f8a61fd5404d4f", null ],
+    [ "testRemoveLongThinTrianglesOnPerimeter", "class_tr_tin_unit_tests.html#a2393a141eb2f1bc3d75b8f45094e915d", null ],
     [ "testSwap", "class_tr_tin_unit_tests.html#ab978361fc941ce007bfa7d419a0bce92", null ]
 ];

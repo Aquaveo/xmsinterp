@@ -9,6 +9,7 @@ var searchData=
   ['addtopolyidsandtvalues',['AddToPolyIdsAndTValues',['../classxms_1_1_gm_multi_poly_intersection_sorter_terse.html#a0cb9995b0273c1953428f420f12eaffb',1,'xms::GmMultiPolyIntersectionSorterTerse']]],
   ['adjacentindexfound',['AdjacentIndexFound',['../classxms_1_1_tr_tin_impl.html#ab66a31615263d8ea599d92d20316d329',1,'xms::TrTinImpl']]],
   ['adjacenttriangle',['AdjacentTriangle',['../classxms_1_1_interp_nat_neigh_impl.html#a13915edcf34f12baff5fbaa1b2f50a38',1,'xms::InterpNatNeighImpl::AdjacentTriangle()'],['../classxms_1_1_tr_tin_impl.html#ae50a008ac967323421d9574df798d69b',1,'xms::TrTinImpl::AdjacentTriangle()']]],
+  ['adjacenttriangleindex',['AdjacentTriangleIndex',['../classxms_1_1_tr_tin_impl.html#a5fd85293103096659f5d7311c1e5f252',1,'xms::TrTinImpl']]],
   ['anisotropicdistancesquared',['AnisotropicDistanceSquared',['../classxms_1_1_anisotropic_interpolator.html#a208cd08d32b9c9f29ef3c1899bc4e0a4',1,'xms::AnisotropicInterpolator']]],
   ['anisotropicinterpolator',['AnisotropicInterpolator',['../classxms_1_1_anisotropic_interpolator.html',1,'xms::AnisotropicInterpolator'],['../classxms_1_1_anisotropic_interpolator.html#addce3b33f2e24362650ebeb3abbba4b6',1,'xms::AnisotropicInterpolator::AnisotropicInterpolator()']]],
   ['anisotropicinterpolator_2ecpp',['AnisotropicInterpolator.cpp',['../_anisotropic_interpolator_8cpp.html',1,'']]],

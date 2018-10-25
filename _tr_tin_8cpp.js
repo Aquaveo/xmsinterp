@@ -7,5 +7,6 @@ var _tr_tin_8cpp =
     [ "trBuildTestTin6", "_tr_tin_8cpp.html#a60fe241cf170639ac6a6c0d2b342821c", null ],
     [ "trBuildTestTin7", "_tr_tin_8cpp.html#a068ae1567736bd473d51b406c9ade227", null ],
     [ "trBuildTestTin8", "_tr_tin_8cpp.html#a310ee9097c8a7ff014c12621714077fa", null ],
+    [ "trBuildTestTin9", "_tr_tin_8cpp.html#a386420cc59bd28676fe65c2b57f17127", null ],
     [ "trRenumberOnDelete", "_tr_tin_8cpp.html#a66eebefbcd706efc80c4ca1cdceb05d3", null ]
 ];

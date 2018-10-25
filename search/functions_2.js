@@ -5,6 +5,7 @@ var searchData=
   ['checkandswap',['CheckAndSwap',['../classxms_1_1_tr_tin_impl.html#a2283ff7bbf56262e0ba0d4ecbfb15b35',1,'xms::TrTinImpl']]],
   ['checkpoint',['CheckPoint',['../class_gm_point_in_poly_tester__gm_point_in_polygon2_d.html#a49d08071fc94eaade3a90093804d1583',1,'GmPointInPolyTester_gmPointInPolygon2D::CheckPoint()'],['../class_gm_point_in_poly_unit_tests.html#a6c8f3ccf1f1fc9b26f4354bea316c6a2',1,'GmPointInPolyUnitTests::CheckPoint()'],['../class_gm_point_in_poly_tester___gm_polygon.html#a6266bdf8e4c1276bda6063a2c419576c',1,'GmPointInPolyTester_GmPolygon::CheckPoint()']]],
   ['checkpoints',['CheckPoints',['../class_gm_point_in_poly_unit_tests.html#a9fbcdd807e9e110065b9b44fe07755c0',1,'GmPointInPolyUnitTests']]],
+  ['checktriangle',['CheckTriangle',['../classxms_1_1_tr_tin_impl.html#a819d105df8de79aae59791e7316ee209',1,'xms::TrTinImpl']]],
   ['clear',['Clear',['../classxms_1_1_gm_extents2d.html#a60780f3b3471ce34744412fed1938f47',1,'xms::GmExtents2d::Clear()'],['../classxms_1_1_gm_extents3d.html#af7b8f4955c9068c0853354ab1f34f297',1,'xms::GmExtents3d::Clear()'],['../classxms_1_1_tr_tin_impl.html#ac56cedd2e8a867bb3122716f8d30e1b8',1,'xms::TrTinImpl::Clear()']]],
   ['clearadjtrisifcreated',['ClearAdjTrisIfCreated',['../classxms_1_1_tr_auto_fix_four_triangle_pts_impl.html#a359ac2134d3f2bc3b4c0c551f1cd27d7',1,'xms::TrAutoFixFourTrianglePtsImpl']]],
   ['cleardefault',['ClearDefault',['https://aquaveo.github.io/xmscore/classxms_1_1_e_test_messaging_state.html#aade9d4c6d37ea3d95c689ae38a757ed8',1,'xms::ETestMessagingState']]],
