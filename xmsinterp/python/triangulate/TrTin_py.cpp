@@ -254,9 +254,9 @@ void initTrTin(py::module &m) {
   iTrTin.def("vertices_are_adjacent", &xms::TrTin::VerticesAreAdjacent,
     vertices_are_adjacent_doc, py::arg("pt1"),py::arg("pt2"));
   // ---------------------------------------------------------------------------
-  // function: vertices_are_adjacent
+  // function: common_edge_index
   // ---------------------------------------------------------------------------
-  const char* vertices_are_adjacent_doc = R"pydoc(
+  const char* common_edge_index_doc = R"pydoc(
       Return true if vertices form the edge of a triangle. 
 
       Args:
@@ -268,7 +268,7 @@ void initTrTin(py::module &m) {
   )pydoc";
 
   iTrTin.def("common_edge_index", &xms::TrTin::CommonEdgeIndex,
-    vertices_are_adjacent_doc, py::arg("tri"), py::arg("adj_tri"));
+    common_edge_index_doc, py::arg("tri"), py::arg("adj_tri"));
   // ---------------------------------------------------------------------------
   // function: adjacent_triangle
   // ---------------------------------------------------------------------------

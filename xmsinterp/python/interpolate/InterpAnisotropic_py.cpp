@@ -71,8 +71,8 @@ void initInterpAnisotropic(py::module &m) {
     )pydoc";
     iInterpAnisotropic.def("interp_to_pt", [](xms::InterpAnisotropic &self, 
         py::iterable pt) -> float {
-        xms::Pt3d pt = xms::Pt3dFromPyIter(a_pt);
-        return self.InterpToPt(pt);
+        xms::Pt3d pt3d = xms::Pt3dFromPyIter(pt);
+        return self.InterpToPt(pt3d);
     },interp_to_pt_doc, py::arg("pt"));
   // ---------------------------------------------------------------------------
   // function: interp_to_pts
@@ -118,8 +118,8 @@ void initInterpAnisotropic(py::module &m) {
 
         Args:
             points (iterable): The points to transform into (s,n,z) space.
-            pick_closest (bool): Pick only the transform point closest to 
-                the centerline.
+
+            pick_closest (bool): Pick only the transform point closest to the centerline.
 
         Returns:
             iterable: The points transformed into (s,n,z) space.
