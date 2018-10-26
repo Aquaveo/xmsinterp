@@ -91,9 +91,7 @@ void initInterpIdw(py::module &m) {
             pts (iterable): Array of points to interpolate to.
 
         Returns:
-          iterable: Array of scalar values. It will be the same size as a_pts 
-            and each value corresponds to the interpolated value at the 
-            respective location in the a_pts array.
+          iterable: Array of scalar values. It will be the same size as a_pts and each value corresponds to the interpolated value at the respective location in the a_pts array.
     )pydoc";
 
     iIdw.def("interp_to_pts", [](xms::InterpIdw &self, py::iterable pts) -> 
@@ -216,11 +214,9 @@ void initInterpIdw(py::module &m) {
         well as whether to find the nearest points in each quadrant or octant.
 
         Args:
-            n_nearest_points (int): the number of nearest points to the 
-              interpolation point. These points are used to do the 
-              interpolation.
-            quad_oct_search (bool): specifies if the search criterion should 
-              find the nearest points in each quadrant (2d) or octant (3d)
+            n_nearest_points (int): the number of nearest points to the interpolation point. These points are used to do the interpolation.
+
+            quad_oct_search (bool): specifies if the search criterion should find the nearest points in each quadrant (2d) or octant (3d)
     )pydoc";
 
     iIdw.def("set_search_opts", &xms::InterpIdw::SetSearchOpts,
@@ -248,12 +244,12 @@ void initInterpIdw(py::module &m) {
         functions.
 
         Args:
-            a (nodal_func_enum): The nodal function methodology: constant (0), 
-            gradient plane (1), quadratic (2).
-            n_nearest (int): The nearest number of points to use when 
-              calculating the nodal functions.
-            quad_oct (bool): Find the nearest number of points in each quadrant 
-              (2d) or octant (3d) when computing nodal functions.
+            a (nodal_func_enum): The nodal function methodology: constant (0), gradient plane (1), quadratic (2).
+
+            n_nearest (int): The nearest number of points to use when calculating the nodal functions.
+
+            quad_oct (bool): Find the nearest number of points in each quadrant (2d) or octant (3d) when computing nodal functions.
+
             obs (Observer): Progress bar to give user feedback.
     )pydoc";
 
@@ -287,9 +283,7 @@ void initInterpIdw(py::module &m) {
             pt (tuple): Location of the interpolation point
 
         Returns:
-            iterable: Contains an iterable  of indices indicating the location 
-                in the m_pts vector of the nearest points to pt and an interable 
-                of the weights associated with the nearest points to pt.
+            iterable: Contains an iterable  of indices indicating the location in the m_pts vector of the nearest points to pt and an interable of the weights associated with the nearest points to pt.
     )pydoc";
 
     iIdw.def("interp_weights", [](xms::InterpIdw &self, py::tuple pt) -> 
@@ -313,8 +307,7 @@ void initInterpIdw(py::module &m) {
         Sets a flag to use (or not) multi-threading when interpolating.
 
         Args:
-            multithreading (bool): True will use multi-threading and false will 
-              not. The default setting for the class is to use multi-threading.
+            multithreading (bool): True will use multi-threading and false will not. The default setting for the class is to use multi-threading.
     )pydoc";
 
     iIdw.def("set_multi_threading", &xms::InterpIdw::SetMultiThreading,

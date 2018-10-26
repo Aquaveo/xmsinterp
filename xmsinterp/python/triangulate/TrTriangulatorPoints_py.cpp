@@ -33,11 +33,10 @@ void initTrTriangulatorPoints(py::module &m) {
 
             Args:
                   pts (iterable): The points to triangulate.
-                  tris (iterable): 0-based indices into a_pts defining the 
-                        triangles. Every three elements defines a triangle. 
-                        Size of num triangles * 3.
-                  tris_adj (iterable): 0-based triangles adjacent to points. 
-                        Size of a_pts. Optional - include if you want this info.
+
+                  tris (iterable): 0-based indices into a_pts defining the triangles. Every three elements defines a triangle. Size of num triangles * 3.
+
+                  tris_adj (iterable): 0-based triangles adjacent to points. Size of a_pts. Optional - include if you want this info.
       )pydoc";
 
       modMeshUtils.def("triangulate", [](py::iterable pts, py::iterable tris, py::iterable tris_adj) -> py::iterable {

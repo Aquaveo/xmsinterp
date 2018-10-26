@@ -42,10 +42,10 @@ void initInterpAnisotropic(py::module &m) {
 
         Args:
             centerline_pts (iterable):  The centerline.
-            interpolation_pts (iterable): The points to interpolate from
-                (typically cross sections of the centerline).
-            pick_closest (bool): If true, only keep the transformed point
-                for each interpolation point closest to the centerline.
+
+            interpolation_pts (iterable): The points to interpolate from (typically cross sections of the centerline).
+
+            pick_closest (bool): If true, only keep the transformed point for each interpolation point closest to the centerline.
     )pydoc";
     iInterpAnisotropic.def("set_points", [](xms::InterpAnisotropic &self, 
         py::iterable centerline_pts, py::iterable interpolation_pts, 
@@ -101,8 +101,7 @@ void initInterpAnisotropic(py::module &m) {
         Get the interpolation points transformed into (s,n,z) space and scaled.
 
         Returns:
-            iterable: The transformed and scaled interpolation points 
-                (passed to SetPoints).
+            iterable: The transformed and scaled interpolation points (passed to SetPoints).
     )pydoc";
     iInterpAnisotropic.def("get_interpolation_pts", []
         (xms::InterpAnisotropic &self) -> py::iterable {

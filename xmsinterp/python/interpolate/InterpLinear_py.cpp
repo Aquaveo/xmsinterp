@@ -59,10 +59,8 @@ void initInterpLinear(py::module &m) {
 
         Args:
             pts (iterable): Array of point locations.
-            tris (iterable): Array of triangles that references the pts 
-                array. This array will have a size that is a multiple of 3. The 
-                first 3 locations in array represent the first triangle and will
-                have indices that correspond to locations in the pts array.
+
+            tris (iterable): Array of triangles that references the pts array. This array will have a size that is a multiple of 3. The first 3 locations in array represent the first triangle and will have indices that correspond to locations in the pts array.
     )pydoc";
 
     iLin.def("set_pts_tris", 
@@ -164,8 +162,7 @@ void initInterpLinear(py::module &m) {
             pt (tuple): Location used to find a triangle.
 
         Returns:
-            int: Index of triangle containing pt. If XM_NONE is returned then 
-                no triangle contained the point.
+            int: Index of triangle containing pt. If XM_NONE is returned then no triangle contained the point.
     )pydoc";
 
     iLin.def("tri_containing_pt", 
@@ -204,10 +201,7 @@ void initInterpLinear(py::module &m) {
             pt (tuple): Location that is interpolated to.
 
         Returns:
-            iterable: Contains a boolean indicating if pt was inside of any of 
-                the triangles, an iterable of triangle point indices found in 
-                this method, and an iterable of triangle point weights found in 
-                this method.
+            iterable: Contains a boolean indicating if pt was inside of any of the triangles, an iterable of triangle point indices found in this method, and an iterable of triangle point weights found in this method.
     )pydoc";
 
     iLin.def("interp_weights", 
@@ -240,6 +234,7 @@ void initInterpLinear(py::module &m) {
 
         Args:
             max (float): The maximum value for truncation.
+
             min (float): The minimum value for truncation.
     )pydoc";
 
@@ -280,15 +275,12 @@ void initInterpLinear(py::module &m) {
   // ---------------------------------------------------------------------------
     const char* set_use_clough_tocher_doc = R"pydoc(
         Set the class to use the Clough Tocher interpolation method. This is a 
-        legacy feature from GMS. Frankly it is so similar to linear that there 
-        is really no reason to use it but it is here because users complain if 
-        features are removed.
+        legacy feature from GMS. Compare to linear.
 
         Args:
             on (bool): True/False to indicate if CT should be used.
-            observer (Observer): Progress bar to give users feed back on the set
-                up process of CT. If you have a really large set of triangles 
-                this may take some time.
+
+            observer (Observer): Progress bar to give users feed back on the set up process of CT. If you have a really large set of triangles this may take some time.
     )pydoc";
 
     iLin.def("set_use_clough_tocher", [](xms::InterpLinear &self, bool on,
@@ -303,15 +295,16 @@ void initInterpLinear(py::module &m) {
 
         Args:
             on (bool): True/False to indicate if NN should be used.
+
             nodal_func (int): Indicates which nodal function to use.
-            nd_func_opt (int): Indicates options for the nearest points when 
-                computing the nodal functions.
-            nd_func_num_nearest_pts (int): The number of nearest points for 
-                nodal function computation.
-            blend_weights (bool): Option to use a blending function on the 
-                calculated weights.
-            observer (Observer): Progress bar to give user feedback for 
-                generation of the nodal functions.
+
+            nd_func_opt (int): Indicates options for the nearest points when computing the nodal functions.
+
+            nd_func_num_nearest_pts (int): The number of nearest points for nodal function computation.
+
+            blend_weights (bool): Option to use a blending function on the calculated weights.
+
+            observer (Observer): Progress bar to give user feedback for generation of the nodal functions.
     )pydoc";
 
     iLin.def("set_use_nat_neigh", [](xms::InterpLinear &self, bool on, 

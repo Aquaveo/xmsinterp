@@ -363,9 +363,7 @@ void InterpLinearImpl::SetTrunc(double a_sMax, double a_sMin)
 } // InterpLinearImpl::SetTrunc
 //------------------------------------------------------------------------------
 /// \brief Set the class to use the Clough Tocher interpolation method. This is
-/// a legacy feature from GMS. Frankly it is so similar to linear that there is
-/// really no reason to use it but it is here because users complain if features
-/// are removed.
+/// a legacy feature from GMS. Compare to linear.
 /// \param a_ True/False to indicate if CT should be used.
 /// \param a_prog Progress bar to give users feed back on the set up process
 /// of CT. If you have a really large set of triangles this may take some time.
