@@ -38,6 +38,7 @@ void initGmTriSearch(py::module &m) {
 
         Args:
             pts (iterable):  Array of the point locations.
+
             tris (iterable): Triangles.
     )pydoc";
 
@@ -109,8 +110,7 @@ void initGmTriSearch(py::module &m) {
             pt (iterable):  Location used to find a triangle.
 
         Returns:
-            iterable: Index of triangle containing pt. If XM_NONE is returned 
-              then no triangle contained the point.
+            iterable: Index of triangle containing pt. If XM_NONE is returned then no triangle contained the point.
     )pydoc";
 
   iGmTriSearch.def("tri_containing_pt",
@@ -130,8 +130,7 @@ void initGmTriSearch(py::module &m) {
             pt (iterable):  Location used to find a triangle.
 
         Returns:
-            iterable: The indices to triangles whose envelope contains 
-                the point.
+            iterable: The indices to triangles whose envelope contains the point.
 
     )pydoc";
 
@@ -153,11 +152,11 @@ void initGmTriSearch(py::module &m) {
 
         Args:
             pt_min (iterable):  Min x,y location of the box.
+
             pt_max (iterable):  Max x,y location of the box.
 
         Returns:
-            iterable: The indices to triangles whose envelope intersects with
-                the input envelope.
+            iterable: The indices to triangles whose envelope intersects with the input envelope.
 
     )pydoc";
 
@@ -182,9 +181,7 @@ void initGmTriSearch(py::module &m) {
             pt (iterable):  Location that is interpolated to.
 
         Returns:
-            iterable: Contains a bool false if point is outside of the 
-                triangle, an iterable of triangle point indices, and 
-                an iterable of triangle point weights.
+            iterable: Contains a bool false if point is outside of the triangle, an iterable of triangle point indices, and an iterable of triangle point weights.
 
     )pydoc";
 
@@ -212,10 +209,7 @@ void initGmTriSearch(py::module &m) {
             pt(iterable):  Location that is interpolated to.
 
         Returns:
-            iterable: Contains a bool false if point is outside of the 
-                triangle, the found triangle index in the triangle array, 
-                an iterable of triangle point indices, and an iterable 
-                of triangle point weights.
+            iterable: Contains a bool false if point is outside of the triangle, the found triangle index in the triangle array, an iterable of triangle point indices, and an iterable of triangle point weights.
 
     )pydoc";
 

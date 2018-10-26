@@ -50,8 +50,7 @@ void initTrTin(py::module &m) {
       Sets the tin triangles.
 
       Args:
-          tris (iterable): 0-based indices of each triangle's points (grouped 
-            by 3s).
+          tris (iterable): 0-based indices of each triangle's points (grouped by 3s).
   )pydoc";
 
   iTrTin.def("set_triangles", [](xms::TrTin &self, py::iterable tris) {
@@ -81,7 +80,9 @@ void initTrTin(py::module &m) {
 
       Args:
           pts (iterable): The tin points.
+
           tris (iterable):  0-based indices of triangle points (grouped by 3s).
+
           tris_adj (iterable): 0-based indices of triangles adjacent to points.
   )pydoc";
 
@@ -114,8 +115,7 @@ void initTrTin(py::module &m) {
       Return 0-based indices of triangle points (grouped by 3s).
 
       Returns:
-          iterable: Triangles as 0-based indices of triangle points 
-            (grouped by 3s).
+          iterable: Triangles as 0-based indices of triangle points (grouped by 3s).
   )pydoc";
 
   iTrTin.def_property_readonly("tris", [](xms::TrTin &self) -> py::iterable {
@@ -173,10 +173,7 @@ void initTrTin(py::module &m) {
           pt2 (int): Second edge point index (0-based).
       
       Returns:
-          tuple: Tuple containing a bool that is true if the triangle is found,
-            the index of the triangle if found, the index of 
-            local pt (0-2) of pt1 in a_tri, and the index of local pt (0-2) of 
-            pt2 in a_tri.
+          tuple: Tuple containing a bool that is true if the triangle is found, the index of the triangle if found, the index of local pt (0-2) of pt1 in a_tri, and the index of local pt (0-2) of pt2 in a_tri.
   )pydoc";
 
   iTrTin.def("triangle_from_edge", 
@@ -194,6 +191,7 @@ void initTrTin(py::module &m) {
 
       Args:
           pt1 (int): First edge point index (0-based).
+
           pt2 (int): Second edge point index (0-based).
       
       Returns:
@@ -212,11 +210,11 @@ void initTrTin(py::module &m) {
 
       Args:
           tri (int): Triangle index (0-based).
+
           pt (int): Global point index (0-based).
       
       Returns:
-          int: The local index (0-2) of the point pt in the triangle tri
-            if pt is found on tri.
+          int: The local index (0-2) of the point pt in the triangle tri if pt is found on tri.
   )pydoc";
 
   iTrTin.def("local_index", &xms::TrTin::LocalIndex, local_index_doc, 
@@ -245,6 +243,7 @@ void initTrTin(py::module &m) {
 
       Args:
           pt1 (int): First point index (0-based).
+
           pt2 (int): Second point index (0-based).
       
       Returns:
@@ -261,6 +260,7 @@ void initTrTin(py::module &m) {
 
       Args:
           pt1 (int): First point index (0-based).
+
           pt2 (int): Second point index (0-based).
       
       Returns:
@@ -277,11 +277,11 @@ void initTrTin(py::module &m) {
 
       Args:
           tri (int): Triangle index (0-based).
+
           edge (int): Local edge index (0-2) in tri.
       
       Returns:
-          int: Triangle adjacent to tri along it's a_edge if there is a 
-            triangle adjacent to the edge.
+          int: Triangle adjacent to tri along it's a_edge if there is a triangle adjacent to the edge.
   )pydoc";
 
   iTrTin.def("adjacent_triangle", &xms::TrTin::AdjacentTriangle, 
@@ -374,8 +374,7 @@ void initTrTin(py::module &m) {
       indices. First point is not repeated as the last point.
       
       Returns:
-          tuple: A tuple containing all of the polygons. Outer polygon is CW, 
-            inner polys are CCW. First point is repeated at the end.
+          tuple: A tuple containing all of the polygons. Outer polygon is CW, inner polys are CCW. First point is repeated at the end.
   )pydoc";
 
   iTrTin.def("get_boundary_polys", [](xms::TrTin &self) -> py::tuple {
@@ -390,8 +389,7 @@ void initTrTin(py::module &m) {
       Computes the extents (min, max) of the tin.
       
       Returns:
-          tuple: Contains an iterable of the minimum xy, and an iterable of the
-            maximum xyz.
+          tuple: Contains an iterable of the minimum xy, and an iterable of the maximum xyz.
   )pydoc";
 
   iTrTin.def("get_extents", [](xms::TrTin &self) -> py::tuple {
@@ -427,9 +425,10 @@ void initTrTin(py::module &m) {
       
       Args:
           tri_A (int): First triangle.
+
           tri_B (int): Second triangle.
-          check_angle (bool): If true, won't swap if very thin triangle would be 
-            created.
+
+          check_angle (bool): If true, won't swap if very thin triangle would be created.
       Returns:
           bool: true if swap was successful.
   )pydoc";
