@@ -55,17 +55,6 @@ namespace xms
 /// \brief Tests for interpolation tutorial.
 ////////////////////////////////////////////////////////////////////////////////
 //------------------------------------------------------------------------------
-/// \brief    Defines the test group.
-/// \return CxxTest::TestGroup reference.
-//------------------------------------------------------------------------------
-#ifndef CXXTEST4
-const CxxTest::TestGroup& TutInterpolationIntermediateTests::group()
-{
-  // return CxxTest::TestSuite::group();
-  return *CxxTest::TestGroup::GetGroup(CxxTest::TG_INTERMEDIATE);
-} // TutInterpolationIntermediateTests::group
-#endif
-//------------------------------------------------------------------------------
 /// \brief Example for IDW Interpolation
 //------------------------------------------------------------------------------
 //! [snip_test_Example_Idw]

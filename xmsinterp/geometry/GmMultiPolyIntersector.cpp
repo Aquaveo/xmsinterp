@@ -1833,15 +1833,6 @@ void GmMultiPolyIntersectorUnitTests::testSmsCase1() {
 /// \brief Tests for GmMultiPolyIntersector that take longer to run.
 ////////////////////////////////////////////////////////////////////////////////
 //------------------------------------------------------------------------------
-/// \brief Returns the test group.
-/// \return CxxTest::TestGroup reference.
-//------------------------------------------------------------------------------
-#ifndef CXXTEST4
-const CxxTest::TestGroup &GmMultiPolyIntersector2IntermediateTests::group() {
-  return *CxxTest::TestGroup::GetGroup(CxxTest::TG_INTERMEDIATE);
-} // GmMultiPolyIntersector2IntermediateTests::group
-#endif
-//------------------------------------------------------------------------------
 /// \brief Test a large number of polygons for speed.
 //------------------------------------------------------------------------------
 void GmMultiPolyIntersector2IntermediateTests::testLargeNumPolys() {
