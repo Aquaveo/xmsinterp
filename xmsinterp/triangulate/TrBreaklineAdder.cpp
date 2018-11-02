@@ -19,6 +19,7 @@
 // 4. External library headers
 
 // 5. Shared code headers
+#include <xmscore/misc/Progress.h>
 #include <xmscore/stl/set.h>
 #include <xmscore/stl/vector.h>
 #include <xmsinterp/geometry/geoms.h>
@@ -181,18 +182,9 @@ void TrBreaklineAdderImpl::SetTin(BSHP<TrTin> a_tin, double a_tol /*-1*/)
 void TrBreaklineAdderImpl::AddBreakline(const VecInt& a_breakline)
 {
   XM_ENSURE_TRUE_T_NO_ASSERT(m_tin, std::runtime_error("No tin set in TrBreaklineAdder."));
-
-  bool progressStarted = false;
-  if (m_observer)
-  {
-    if (m_totNumSegs < 1)
-    {
-      m_observer->BeginOperationString("Adding Breaklines");
-      progressStarted = true;
-      m_totNumSegs = a_breakline.size() - 1;
-      m_segCount = 0;
-    }
-  }
+  Progress prog("Adding Breaklines");
+  double totNumSegs = static_cast<double>(a_breakline.size() - 1);
+  double segCount(0.0);
 
   for (size_t pt = 1; pt < a_breakline.size(); ++pt)
   {
@@ -202,18 +194,9 @@ void TrBreaklineAdderImpl::AddBreakline(const VecInt& a_breakline)
     {
       ProcessSegmentBySwapping(pt1, pt2);
     }
-    if (m_observer)
-    {
-      m_observer->ProgressStatus(m_segCount / (double)m_totNumSegs);
-      m_segCount++;
-    }
+    segCount += 1.0;
+    prog.ProgressStatus(std::min(1.0, segCount / totNumSegs));
   }
-
-  if (m_observer && progressStarted)
-  {
-    m_observer->EndOperation();
-  }
-
 } // TrBreaklineAdderImpl::AddBreakline
 //------------------------------------------------------------------------------
 /// \brief Add breaklines by swapping. Compare to bkProcessScatBySwapping.
@@ -224,29 +207,19 @@ void TrBreaklineAdderImpl::AddBreakline(const VecInt& a_breakline)
 void TrBreaklineAdderImpl::AddBreaklines(const VecInt2d& a_breaklines)
 {
   XM_ENSURE_TRUE_T_NO_ASSERT(m_tin, std::runtime_error("No tin set in TrBreaklineAdder."));
-
-  if (m_observer)
-  {
-    m_observer->BeginOperationString("Adding Breaklines");
-    m_segCount = 0;
-    m_totNumSegs = 0;
-    for (size_t i = 0; i < a_breaklines.size(); ++i)
-    {
-      m_totNumSegs += a_breaklines[i].size() - 1;
-    }
-  }
-
+  Progress prog("Adding Breaklines");
+  size_t segCount(0);
+  size_t totNumSegs(0);
   for (size_t i = 0; i < a_breaklines.size(); ++i)
   {
-    AddBreakline(a_breaklines[i]);
+    totNumSegs += a_breaklines[i].size() - 1;
   }
-
-  m_segCount = 0;
-  m_totNumSegs = 0;
-
-  if (m_observer)
+  double total = static_cast<double>(totNumSegs);
+  for (size_t i = 0; i < a_breaklines.size(); ++i)
   {
-    m_observer->EndOperation();
+    segCount += a_breaklines[i].size() - 1;
+    AddBreakline(a_breaklines[i]);
+    prog.ProgressStatus(static_cast<double>(segCount) / total);
   }
 } // TrBreaklineAdderImpl::AddBreaklines
 //------------------------------------------------------------------------------

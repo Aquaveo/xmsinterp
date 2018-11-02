@@ -147,8 +147,6 @@ void TrTriangulatorPoints::IncrementPoint()
 //------------------------------------------------------------------------------
 void TrTriangulatorPoints::PrepareToReceiveTriangles()
 {
-  if (m_observer)
-    m_observer->BeginOperationString("Triangulating Points");
   if (m_trisAdjToPts)
   {
     m_trisAdjToPts->resize(m_pts.size(), VecInt());
@@ -159,8 +157,6 @@ void TrTriangulatorPoints::PrepareToReceiveTriangles()
 //------------------------------------------------------------------------------
 void TrTriangulatorPoints::FinalizeTriangulation()
 {
-  if (m_observer)
-    m_observer->EndOperation();
   stShrinkCapacity(m_tris);
   if (m_trisAdjToPts)
   {
@@ -192,11 +188,6 @@ void TrTriangulatorPoints::ReceiveTriangle(int a_id1, int a_id2, int a_id3)
     (*m_trisAdjToPts)[a_id1 - 1].push_back(triIdx);
     (*m_trisAdjToPts)[a_id2 - 1].push_back(triIdx);
     (*m_trisAdjToPts)[a_id3 - 1].push_back(triIdx);
-  }
-  if (m_observer)
-  {
-    double prog = std::min(m_tris.size() / (double)(m_pts.size() * 2), 1.0);
-    m_observer->ProgressStatus(prog);
   }
 } // TrTriangulatorPoints::ReceiveTriangle
 //------------------------------------------------------------------------------

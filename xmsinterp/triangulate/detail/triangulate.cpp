@@ -20,6 +20,7 @@
 // 4. External library headers
 
 // 5. Shared code headers
+#include <xmscore/misc/Progress.h>
 #include <xmscore/misc/XmLog.h> // XM_LOG
 #include <xmsinterp/triangulate/TrTriangulator.h>
 
@@ -921,8 +922,11 @@ static void triFillTriList(TrTriangulator& a_Client, TriVars& t)
   Tedge triangleloop;
   Tpt p1, p2, p3;
 
+  Progress prog("Triangulating Points");
   // prepare to recieve trianlges
   a_Client.PrepareToReceiveTriangles();
+  double triCount(0.0);
+  double total = static_cast<double>(a_Client.GetNPoints());
 
   triTraversalInit(&t.m_triangles);
   triangleloop.tri = triTriangleTraverse(t);
@@ -939,6 +943,8 @@ static void triFillTriList(TrTriangulator& a_Client, TriVars& t)
 
     // recieve the triangle
     a_Client.ReceiveTriangle(id1, id2, id3);
+    triCount += 2.0;
+    prog.ProgressStatus(std::min(1.0, triCount / total));
 
     triangleloop.tri = triTriangleTraverse(t);
   }
