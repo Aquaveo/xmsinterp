@@ -11,10 +11,6 @@ Geometry
 
 .. automodule:: xmsinterp_py.geometry
 
-.. note::
-   
-    Description of the geometry module is coming soon!
-
 .. toctree::
    :maxdepth: 1
    
@@ -24,10 +20,6 @@ Triangulate
 ===========
 
 .. automodule:: xmsinterp_py.triangulate
-
-.. note::
-   
-    Description of the interpolate module is coming soon!
 
 .. toctree::
    :maxdepth: 1
@@ -39,10 +31,6 @@ Interpolate
 ===========
 
 .. automodule:: xmsinterp_py.interpolate
-
-.. note::
-   
-    Description of the interpolate module is coming soon!
 
 .. toctree::
    :maxdepth: 1

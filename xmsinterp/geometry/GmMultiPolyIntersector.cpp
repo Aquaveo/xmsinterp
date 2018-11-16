@@ -1,9 +1,8 @@
 //------------------------------------------------------------------------------
 /// \file
 /// \ingroup geometry
-/// \copyright (C) Copyright Aquaveo 2018. Distributed under the xmsng
-///  Software License, Version 1.0. (See accompanying file
-///  LICENSE_1_0.txt or copy at http://www.aquaveo.com/xmsng/LICENSE_1_0.txt)
+/// \copyright (C) Copyright Aquaveo 2018. Distributed under FreeBSD License
+/// (See accompanying file LICENSE or https://aqaveo.com/bsd/license.txt)
 //------------------------------------------------------------------------------
 
 //----- Included files ---------------------------------------------------------
@@ -1833,15 +1832,6 @@ void GmMultiPolyIntersectorUnitTests::testSmsCase1() {
 /// \class GmMultiPolyIntersector2IntermediateTests
 /// \brief Tests for GmMultiPolyIntersector that take longer to run.
 ////////////////////////////////////////////////////////////////////////////////
-//------------------------------------------------------------------------------
-/// \brief Returns the test group.
-/// \return CxxTest::TestGroup reference.
-//------------------------------------------------------------------------------
-#ifndef CXXTEST4
-const CxxTest::TestGroup &GmMultiPolyIntersector2IntermediateTests::group() {
-  return *CxxTest::TestGroup::GetGroup(CxxTest::TG_INTERMEDIATE);
-} // GmMultiPolyIntersector2IntermediateTests::group
-#endif
 //------------------------------------------------------------------------------
 /// \brief Test a large number of polygons for speed.
 //------------------------------------------------------------------------------

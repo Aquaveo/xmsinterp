@@ -1,9 +1,8 @@
 //------------------------------------------------------------------------------
 /// \file
 /// \ingroup interpolate
-/// \copyright (C) Copyright Aquaveo 2018. Distributed under the xmsng
-///  Software License, Version 1.0. (See accompanying file
-///  LICENSE_1_0.txt or copy at http://www.aquaveo.com/xmsng/LICENSE_1_0.txt)
+/// \copyright (C) Copyright Aquaveo 2018. Distributed under FreeBSD License
+/// (See accompanying file LICENSE or https://aqaveo.com/bsd/license.txt)
 //------------------------------------------------------------------------------
 
 //----- Included files ---------------------------------------------------------
@@ -101,7 +100,7 @@ public:
   virtual void SetTrunc(double a_sMax, double a_sMin) override;
 
   /// \brief sets a flag to save the weights computed by the interpolation
-  /// \param[in] a_ flag: true will save weights and false will no
+  /// \param[in] a_ flag: true will save weights and false will not
   virtual void SetSaveWeights(bool a_) override { m_saveWeights = a_; }
   virtual void InterpWeights(const Pt3d& a_pt,
                              std::vector<int>& a_idx,

@@ -2,9 +2,8 @@
 /// \file
 /// \brief Functions dealing with geometry.
 /// \ingroup geometry
-/// \copyright (C) Copyright Aquaveo 2018. Distributed under the xmsng
-///  Software License, Version 1.0. (See accompanying file
-///  LICENSE_1_0.txt or copy at http://www.aquaveo.com/xmsng/LICENSE_1_0.txt)
+/// \copyright (C) Copyright Aquaveo 2018. Distributed under FreeBSD License
+/// (See accompanying file LICENSE or https://aqaveo.com/bsd/license.txt)
 //------------------------------------------------------------------------------
 
 // 1. Precompiled header
@@ -2393,17 +2392,6 @@ void GeomsXmsngUnitTests::test_gmPointInPolygon2D_Speed()
 /// \class GeomsXmsngIntermediateTests
 /// \brief Intermediate tests for functions in geoms.cpp
 ////////////////////////////////////////////////////////////////////////////////
-//------------------------------------------------------------------------------
-/// \brief    Defines the test group.
-/// \return CxxTest::TestGroup reference.
-//------------------------------------------------------------------------------
-#ifndef CXXTEST4
-const CxxTest::TestGroup& GeomsXmsngIntermediateTests::group()
-{
-  return *CxxTest::TestGroup::GetGroup(CxxTest::TG_INTERMEDIATE);
-  // return CxxTest::TestSuite::group();
-}
-#endif
 //------------------------------------------------------------------------------
 /// \brief
 /// \verbatim
