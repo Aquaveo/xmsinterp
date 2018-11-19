@@ -2,5 +2,5 @@
 TrTriangulatorPoints
 ********************
 
-.. autoclass:: xmsinterp_py.triangulate.TrTriangulatorPoints
+.. automodule:: xmsinterp_py.triangulate.TrTriangulatorPoints
    :members:

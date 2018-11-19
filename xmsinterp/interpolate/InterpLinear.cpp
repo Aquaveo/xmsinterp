@@ -3,9 +3,8 @@
 /// \brief Linear interpolation class as well as other triangle based
 /// interpolation such as natural neighbor and clough-toucher.
 /// \ingroup interpolate
-/// \copyright (C) Copyright Aquaveo 2018. Distributed under the xmsng
-///  Software License, Version 1.0. (See accompanying file
-///  LICENSE_1_0.txt or copy at http://www.aquaveo.com/xmsng/LICENSE_1_0.txt)
+/// \copyright (C) Copyright Aquaveo 2018. Distributed under FreeBSD License
+/// (See accompanying file LICENSE or https://aqaveo.com/bsd/license.txt)
 //------------------------------------------------------------------------------
 
 //----- Included files ---------------------------------------------------------
@@ -210,7 +209,7 @@ void InterpLinearImpl::SetPtActivity(DynBitset& a_activity)
 } // InterpLinearImpl::SetPtActivity
 //------------------------------------------------------------------------------
 /// \brief Modifies the activity bitset of the class.
-/// \param a_activity bitset of the activity of the points
+/// \param a_activity bitset of the activity of the triangles
 //------------------------------------------------------------------------------
 void InterpLinearImpl::SetTriActivity(DynBitset& a_activity)
 {
@@ -300,7 +299,7 @@ int InterpLinearImpl::TriContainingPt(const Pt3d& a_pt)
   return m_triSearch->TriContainingPt(a_pt);
 } // InterpLinearImpl::TriContainingPt
 //------------------------------------------------------------------------------
-/// \brief Find all triangle whose envelop contains the point.
+/// \brief Find all triangles whose envelop contains the point.
 /// \param a_pt Location used to find a triangle.
 /// \param a_tris The indices to triangles whose envelop contains the point
 //------------------------------------------------------------------------------
@@ -364,9 +363,7 @@ void InterpLinearImpl::SetTrunc(double a_sMax, double a_sMin)
 } // InterpLinearImpl::SetTrunc
 //------------------------------------------------------------------------------
 /// \brief Set the class to use the Clough Tocher interpolation method. This is
-/// a legacy feature from GMS. Frankly it is so similar to linear that there is
-/// really no reason to use it but it is here because users complain if features
-/// are removed.
+/// a legacy feature from GMS. Compare to linear.
 /// \param a_ True/False to indicate if CT should be used.
 /// \param a_prog Progress bar to give users feed back on the set up process
 /// of CT. If you have a really large set of triangles this may take some time.

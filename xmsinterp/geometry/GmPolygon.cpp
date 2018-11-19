@@ -1,9 +1,8 @@
 //------------------------------------------------------------------------------
 /// \file
 /// \ingroup geometry
-/// \copyright (C) Copyright Aquaveo 2018. Distributed under the xmsng
-///  Software License, Version 1.0. (See accompanying file
-///  LICENSE_1_0.txt or copy at http://www.aquaveo.com/xmsng/LICENSE_1_0.txt)
+/// \copyright (C) Copyright Aquaveo 2018. Distributed under FreeBSD License
+/// (See accompanying file LICENSE or https://aqaveo.com/bsd/license.txt)
 //------------------------------------------------------------------------------
 //----- Included files ---------------------------------------------------------
 
@@ -789,17 +788,6 @@ void GmPolygonUnitTests::testUnion()
 ////////////////////////////////////////////////////////////////////////////////
 /// \brief
 ////////////////////////////////////////////////////////////////////////////////
-//------------------------------------------------------------------------------
-/// \brief Returns the test group.
-/// \return CxxTest::TestGroup reference.
-//------------------------------------------------------------------------------
-// virtual
-#ifndef CXXTEST4
-const CxxTest::TestGroup& GmPolygonIntermediateTests::group()
-{
-  return *CxxTest::TestGroup::GetGroup(CxxTest::TG_INTERMEDIATE);
-} // GmPolygonIntermediateTests::group
-#endif
 //------------------------------------------------------------------------------
 /// \brief Test lots of points for timing purposes. Only in release, not debug.
 /// \see PointInPolyTests::testSpeed

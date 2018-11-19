@@ -1,9 +1,8 @@
 //------------------------------------------------------------------------------
 /// \file
 /// \ingroup tutorial
-/// \copyright (C) Copyright Aquaveo 2018. Distributed under the xmsng
-///  Software License, Version 1. (See accompanying file
-///  LICENSE_1_0.txt or copy at http://www.aquaveo.com/xmsng/LICENSE_1_0.txt)
+/// \copyright (C) Copyright Aquaveo 2018. Distributed under FreeBSD License
+/// (See accompanying file LICENSE or https://aqaveo.com/bsd/license.txt)
 //------------------------------------------------------------------------------
 
 //----- Included files ---------------------------------------------------------
@@ -55,17 +54,6 @@ namespace xms
 /// \class TutInterpolationIntermediateTests
 /// \brief Tests for interpolation tutorial.
 ////////////////////////////////////////////////////////////////////////////////
-//------------------------------------------------------------------------------
-/// \brief    Defines the test group.
-/// \return CxxTest::TestGroup reference.
-//------------------------------------------------------------------------------
-#ifndef CXXTEST4
-const CxxTest::TestGroup& TutInterpolationIntermediateTests::group()
-{
-  // return CxxTest::TestSuite::group();
-  return *CxxTest::TestGroup::GetGroup(CxxTest::TG_INTERMEDIATE);
-} // TutInterpolationIntermediateTests::group
-#endif
 //------------------------------------------------------------------------------
 /// \brief Example for IDW Interpolation
 //------------------------------------------------------------------------------
