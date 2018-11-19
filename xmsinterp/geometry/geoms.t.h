@@ -73,10 +73,6 @@ private:
 class GeomsXmsngIntermediateTests : public CxxTest::TestSuite
 {
 public:
-#ifndef CXXTEST4
-  virtual const CxxTest::TestGroup& group();
-#endif
-
   void test_gmPointInPolygon2D();
 };
 

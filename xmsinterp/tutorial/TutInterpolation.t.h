@@ -21,9 +21,6 @@
 class TutInterpolationIntermediateTests : public CxxTest::TestSuite
 {
 public:
-#ifndef CXXTEST4
-  virtual const CxxTest::TestGroup& group();
-#endif
   void test_Example_IDW();
   void test_Example_Linear();
   void test_Example_NaturalNeighbor();
