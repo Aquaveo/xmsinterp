@@ -82,9 +82,6 @@ public:
 class GmMultiPolyIntersector2IntermediateTests : public CxxTest::TestSuite
 {
 public:
-#ifndef CXXTEST4
-  virtual const CxxTest::TestGroup& group();
-#endif
   void testLargeNumPolys();
   void testLargeNumPolysAndSegments();
 };
