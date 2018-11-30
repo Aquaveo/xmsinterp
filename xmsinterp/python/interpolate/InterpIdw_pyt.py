@@ -479,11 +479,11 @@ class TestInterpIdw(unittest.TestCase):
         tris = ()
         tris2 = (0, 1, 3, 1, 2, 3)
 
-        interp.set_pts_tris(pts, tris)
+        interp = xmsinterp.interpolate.InterpIdw(pts, tris)
         val = interp.interp_to_pt((5, 5, 0))
         self.assertEqual(1.5, val)
 
-        interp.set_pts_tris(pts, tris2)
+        interp = xmsinterp.interpolate.InterpIdw(pts, tris2)
         val2 = interp.interp_to_pt((5, 5, 0))
         self.assertEqual(1.5, val2)
 
