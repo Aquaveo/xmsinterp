@@ -38,7 +38,8 @@ public:
   virtual void SetPtActivity(DynBitset& a_activity) = 0;
   // bitset is number of triangles in length not numtri*3 like the tris array
   virtual void SetTriActivity(DynBitset& a_activity) = 0;
-  virtual DynBitset GetPtActivity() = 0;
+  virtual DynBitset GetPtActivity() const = 0;
+  virtual DynBitset GetTriActivity() const = 0;
   // find triangle
   virtual int TriContainingPt(const Pt3d& a_pt) = 0;
   virtual void TriEnvelopsContainingPt(const Pt3d& a_pt, std::vector<int>& a_tris) = 0;
@@ -53,6 +54,8 @@ public:
                                         int& a_triangleIdx,
                                         std::vector<int>& a_idxs,
                                         std::vector<double>& a_wts) = 0;
+  virtual const BSHP<VecPt3d> GetPoints() const = 0;
+  virtual const BSHP<VecInt>  GetTriangles() const = 0;
 
   virtual std::string ToString() const = 0;
 

@@ -6,8 +6,10 @@
 //------------------------------------------------------------------------------
 
 //----- Included files ---------------------------------------------------------
+#include <sstream>
 #include <pybind11/pybind11.h>
 #include <pybind11/numpy.h>  // Needed for PyUtils.h
+
 #include <xmscore/misc/boost_defines.h>
 #include <xmscore/misc/DynBitset.h>
 #include <xmscore/python/misc/PyUtils.h>
@@ -27,9 +29,32 @@ void initGmTriSearch(py::module &m) {
       Spatial index for searching triangles.
   )pydoc";
   py::class_<xms::GmTriSearch,
-    boost::shared_ptr<xms::GmTriSearch>> iGmTriSearch(m, "GmTriSearch",
+    boost::shared_ptr<xms::GmTriSearch>> iGmTriSearch(m, "TriSearch",
     gmi_tri_search_doc);
   iGmTriSearch.def(py::init(&xms::GmTriSearch::New));
+  iGmTriSearch.def(py::init([](py::iterable pts, py::iterable tris) {
+    boost::shared_ptr<xms::GmTriSearch> rval(xms::GmTriSearch::New());
+    boost::shared_ptr<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
+    boost::shared_ptr<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
+    rval->TrisToSearch(vec_pts, vec_tris);
+    return rval;
+  }), py::arg("pts"), py::arg("tris"));
+  // ---------------------------------------------------------------------------
+  // attribute: __repr__
+  // ---------------------------------------------------------------------------
+  iGmTriSearch.def("__repr__",
+               [](const xms::GmTriSearch &ts)
+               {
+                 const boost::shared_ptr<xms::VecPt3d> pts = ts.GetPoints();
+                 const xms::VecPt3d& cpts(*pts);
+                 std::stringstream ss;
+                 ss << "pts " << xms::StringFromVecPt3d(cpts);
+                 const boost::shared_ptr<xms::VecInt> tris = ts.GetTriangles();
+                 const xms::VecInt& ctris(*tris);
+                 ss << "\ntris " << xms::StringFromVecInt(ctris);
+                 return ss.str();
+               }
+  );
   // ---------------------------------------------------------------------------
   // function: tris_to_search
   // ---------------------------------------------------------------------------

@@ -1,10 +1,10 @@
 """Test InterpLinear_py.cpp."""
 import unittest
-import xmsinterp_py
-import xmscore_py
+import xmsinterp
+import xmscore
 
 
-class MockObserver(xmscore_py.misc.Observer):
+class MockObserver(xmscore.misc.Observer):
     """Mock Observer class for testing."""
 
     def __init__(self):
@@ -47,15 +47,16 @@ class TestInterpLinear(unittest.TestCase):
 
     def setUp(self):
         """Set up for each test case."""
-        self.interp_linear_obj = xmsinterp_py.interpolate.InterpLinear()
+        pts = ((1, 2, 3), (1, 2, 3))
+        self.interp_linear_obj = xmsinterp.interpolate.InterpLinear(pts)
 
     def test_to_string(self):
         """Ensure class can be printed as a string."""
-        base_string = '0=cloughTocher 0=natNeigh 0=trunc 0=truncMax ' \
-                      '0=truncMin -1e+07=extrap \n' \
-                      '3.40282e+38,3.40282e+38,3.40282e+38=min-3.40282e+38,' \
-                      '-3.40282e+38,-3.40282e+38=max\n=pts \n=tris \n' \
-                      '=triActivity \n=triSearch \n=pts \n=tris \n=scalar \n\n'
+        base_string = "0=cloughTocher 0=natNeigh 0=trunc 0=truncMax 0=truncMin -1e+07=extrap \n" \
+                      "3.40282e+38,3.40282e+38,3.40282e+38=min" \
+                      "-3.40282e+38,-3.40282e+38,-3.40282e+38=max\n" \
+                      "1,2,3 1,2,3=pts \n=tris \n=triActivity \n=triSearch \n1,2,3 1,2,3=pts \n" \
+                      "=tris \n3 3=scalar \n\n"
         self.assertEqual(base_string, self.interp_linear_obj.to_string())
 
     def test_set_pts_tris(self):
@@ -169,7 +170,7 @@ class TestInterpLinear(unittest.TestCase):
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
         interp.set_pts_tris(pts, tris)
-        ret = interp.tri_envelops_containing_pt((5, 5, 2))
+        ret = interp.tri_envelopes_containing_pt((5, 5, 2))
         np.testing.assert_array_equal(np.array([0, 3], np.int32), ret)
 
     def test_interp_weights(self):
@@ -195,13 +196,12 @@ class TestInterpLinear(unittest.TestCase):
         """Test set_extrap_val"""
         interp = self.interp_linear_obj
         extrap_val = 7.11
-        interp.set_extrap_val(extrap_val)
-        base_string = '0=cloughTocher 0=natNeigh 0=trunc 0=truncMax ' \
-                      '0=truncMin {}=extrap \n' \
-                      '3.40282e+38,3.40282e+38,3.40282e+38=min-3.40282e+38,' \
-                      '-3.40282e+38,-3.40282e+38=max\n=pts \n=tris \n' \
-                      '=triActivity \n=triSearch \n=pts \n=tris \n=scalar \n\n' \
-                      .format(extrap_val)
+        interp.set_extrapolation_value(extrap_val)
+        base_string = "0=cloughTocher 0=natNeigh 0=trunc 0=truncMax 0=truncMin 7.11=extrap \n" \
+                      "3.40282e+38,3.40282e+38,3.40282e+38=min" \
+                      "-3.40282e+38,-3.40282e+38,-3.40282e+38=max\n" \
+                      "1,2,3 1,2,3=pts \n=tris \n=triActivity \n=triSearch \n1,2,3 1,2,3=pts \n" \
+                      "=tris \n3 3=scalar \n\n"
         self.assertEqual(base_string, self.interp_linear_obj.to_string())
 
     def test_set_trunc(self):
@@ -209,13 +209,12 @@ class TestInterpLinear(unittest.TestCase):
         interp = self.interp_linear_obj
         t_min = 7.11
         t_max = 11.7
-        interp.set_trunc(t_max, t_min)
-        base_string = '0=cloughTocher 0=natNeigh 1=trunc {}=truncMax ' \
-                      '{}=truncMin -1e+07=extrap \n' \
-                      '3.40282e+38,3.40282e+38,3.40282e+38=min-3.40282e+38,' \
-                      '-3.40282e+38,-3.40282e+38=max\n=pts \n=tris \n' \
-                      '=triActivity \n=triSearch \n=pts \n=tris \n=scalar \n\n' \
-                      .format(t_max, t_min)
+        interp.set_truncation_max_min(t_max, t_min)
+        base_string = "0=cloughTocher 0=natNeigh 1=trunc 11.7=truncMax " \
+                      "7.11=truncMin -1e+07=extrap \n" \
+                      "3.40282e+38,3.40282e+38,3.40282e+38=min-3.40282e+38," \
+                      "-3.40282e+38,-3.40282e+38=max\n1,2,3 1,2,3=pts \n=tris \n" \
+                      "=triActivity \n=triSearch \n1,2,3 1,2,3=pts \n=tris \n3 3=scalar \n\n"
         self.assertEqual(base_string, self.interp_linear_obj.to_string())
 
     def test_set_use_clough_tocher(self):
@@ -238,11 +237,11 @@ class TestInterpLinear(unittest.TestCase):
         tris = (0, 1, 3, 1, 2, 3)
         interp.set_pts_tris(pts, tris)
 
-        nodal_func = 0
-        nodal_func_opts = 1
+        nodal_func = "constant"
+        nodal_func_opts = "nearest_pts"
         n_nearest = 12
         blend_weights = False
-        interp.set_use_nat_neigh(True, nodal_func, nodal_func_opts, n_nearest, blend_weights, observer)
+        interp.set_use_natural_neighbor(True, nodal_func, nodal_func_opts, n_nearest, blend_weights, observer)
 
         val = interp.interp_to_pt((2, 1, 0))
         self.assertIn('1=natNeigh', self.interp_linear_obj.to_string())

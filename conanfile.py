@@ -55,7 +55,7 @@ class XmsinterpConan(ConanFile):
             self.requires("pybind11/2.2.2@aquaveo/stable")
 
         # Use the dev version of XMSCore
-        self.requires("xmscore/[>=1.0.43,<2.0.0]@aquaveo/stable")
+        self.requires("xmscore/[>=2.0.0,<3.0.0]@aquaveo/stable")
 
     def build(self):
         cmake = CMake(self)
@@ -114,6 +114,6 @@ class XmsinterpConan(ConanFile):
     def package_info(self):
         self.env_info.PYTHONPATH.append(os.path.join(self.package_folder, "site-packages"))
         if self.settings.build_type == 'Debug':
-            self.cpp_info.libs = ["xmsinterp_d"]
+            self.cpp_info.libs = ["xmsinterplib_d"]
         else:
-            self.cpp_info.libs = ["xmsinterp"]
+            self.cpp_info.libs = ["xmsinterplib"]

@@ -19,6 +19,35 @@
 //----- Namespace declaration --------------------------------------------------
 namespace py = pybind11;
 
+//----- Internal functions -----------------------------------------------------
+namespace {
+
+// -----------------------------------------------------------------------------
+/// \brief gets an enum value from a string. This will throw if the string is not
+/// recognized.
+/// \param[in] a_: string to be converted to an enum
+/// \return NodalFuncEnum
+// -----------------------------------------------------------------------------
+xms::InterpIdw::NodalFuncEnum NodalFuncEnumFromString(const std::string& a_nodal_func_type)
+{
+  xms::InterpIdw::NodalFuncEnum nodal_func;
+  if (a_nodal_func_type == "constant")
+    nodal_func = xms::InterpIdw::CONSTANT;
+  else if (a_nodal_func_type == "gradient_plane")
+    nodal_func = xms::InterpIdw::GRAD_PLANE;
+  else if (a_nodal_func_type == "quadratic")
+    nodal_func = xms::InterpIdw::QUADRATIC;
+  else
+  {
+    std::string msg = "nodal_func_type string must be one of 'constant', 'gradient_plane', "
+                      "'quadratic' not " + a_nodal_func_type;
+    throw py::value_error(msg);
+  }
+  return nodal_func;
+} // NodalFuncEnumFromString
+
+} // unnamed namespace
+
 //----- Python Interface -------------------------------------------------------
 PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 
@@ -27,10 +56,41 @@ void initInterpIdw(py::module &m) {
     // Class
     const char* interp_idw_doc = R"pydoc(
         Class that performs inverse distance weighted interpolation
+
+        Args:
+            pts (iterable):  Array of the point locations.
+            tris (iterable): Triangles.
+            scalar (iterable): Array of interpolation scalar values.
+
     )pydoc";
     py::class_<xms::InterpIdw, xms::InterpBase, 
         boost::shared_ptr<xms::InterpIdw>> iIdw(m, "InterpIdw",interp_idw_doc);
-    iIdw.def(py::init(&xms::InterpIdw::New));
+    iIdw.def(py::init([](py::iterable pts, py::iterable tris,
+                         py::iterable scalars) {
+      BSHP<xms::InterpIdw> idw(xms::InterpIdw::New());
+      BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
+      BSHP<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
+      idw->SetPtsTris(vec_pts, vec_tris);
+
+      if (py::len(scalars) > 0)
+      {
+        BSHP<xms::VecFlt> vec_scalars = xms::VecFltFromPyIter(scalars);
+        if (vec_scalars->size() != vec_pts->size())
+          throw std::length_error("scalars length != pts length.");
+        idw->SetScalars(vec_scalars);
+      }
+
+      return idw;
+    }), py::arg("pts"), py::arg("tris") = py::make_tuple(),
+        py::arg("scalars") = py::make_tuple());
+  // ---------------------------------------------------------------------------
+  // attribute: __repr__
+  // ---------------------------------------------------------------------------
+    iIdw.def("__repr__",[](const xms::InterpIdw &iIdw)
+           {
+             return PyReprStringFromInterpBase(iIdw);
+           }
+    );
   // ---------------------------------------------------------------------------
   // function: set_pts_tris
   // ---------------------------------------------------------------------------
@@ -173,7 +233,7 @@ void initInterpIdw(py::module &m) {
             smin (float): The minimum value for truncation.
     )pydoc";
 
-    iIdw.def("set_trunc", &xms::InterpIdw::SetTrunc,
+    iIdw.def("set_truncation_max_min", &xms::InterpIdw::SetTrunc,
             set_trunc_doc,py::arg("smax"), py::arg("smin"));
   // ---------------------------------------------------------------------------
   // function: set_observer
@@ -214,64 +274,91 @@ void initInterpIdw(py::module &m) {
         well as whether to find the nearest points in each quadrant or octant.
 
         Args:
-            n_nearest_points (int): the number of nearest points to the interpolation point. These points are used to do the interpolation.
+            number_nearest_points (int): the number of nearest points to the interpolation point. These points are used to do the interpolation.
 
-            quad_oct_search (bool): specifies if the search criterion should find the nearest points in each quadrant (2d) or octant (3d)
+            use_quad_oct_search (bool): specifies if the search criterion should find the nearest points in each quadrant (2d) or octant (3d)
     )pydoc";
 
     iIdw.def("set_search_opts", &xms::InterpIdw::SetSearchOpts,
-            set_search_opts_doc, py::arg("n_nearest_points"), 
-            py::arg("quad_oct_search"));
+            set_search_opts_doc, py::arg("number_nearest_points"),
+            py::arg("use_quadrant_octant_search"));
   // ---------------------------------------------------------------------------
   // function: set_weight_calc_method
   // ---------------------------------------------------------------------------
     const char* set_weight_calc_method_doc = R"pydoc(
         Sets the method for calculating the weights. The classic just uses 
         1/distance^exponent. The modified method uses another formulation based 
-        on the distance of the furtherest location from the interpolation pt.
+        on the distance of the furthest location from the interpolation pt.
 
         Args:
-            method (weight_enum): The weight calculation method.
+            method (string): The weight calculation method. Must be "classic" or "modified"
     )pydoc";
 
-    iIdw.def("set_weight_calc_method", &xms::InterpIdw::SetWeightCalcMethod,
-            set_weight_calc_method_doc,py::arg("method"));
+    iIdw.def("set_weight_calc_method", [](xms::InterpIdw& self, std::string method)
+    {
+      xms::InterpIdw::WeightEnum we;
+      if (method == "classic")
+        we = xms::InterpIdw::CLASSIC;
+      else if (method == "modified")
+        we = xms::InterpIdw::MODIFIED;
+      else
+      {
+        std::string msg = "method string must be one of 'classic', 'modified' not " + method;
+        throw py::value_error(msg);
+      }
+      self.SetWeightCalcMethod(we);
+    }, set_weight_calc_method_doc,py::arg("method"));
   // ---------------------------------------------------------------------------
   // function: set_nodal_function
   // ---------------------------------------------------------------------------
     const char* set_nodal_function_doc = R"pydoc(
+        Sets the type of nodal function as well as options for computing nodal
+        functions.
+
+        Args:
+            nodal_func_type (string): The nodal function methodology: "constant", "gradient_plane", "quadratic".
+
+            num_nearest_points (int): The nearest number of points to use when calculating the nodal functions.
+
+            use_quadrant_octant_search (bool): Find the nearest number of points in each quadrant (2d) or octant (3d) when computing nodal functions.
+    )pydoc";
+
+    iIdw.def("set_nodal_function", [](xms::InterpIdw &self,
+                                      std::string nodal_func_type,
+                                      int n_nearest, bool quad_oct)
+    {
+      boost::shared_ptr<xms::PublicObserver> obs;
+      xms::InterpIdw::NodalFuncEnum w = NodalFuncEnumFromString(nodal_func_type);
+
+      self.SetNodalFunction(w, n_nearest, quad_oct, obs);
+    },set_nodal_function_doc, py::arg("nodal_func_type"), py::arg("num_nearest_points"),
+      py::arg("use_quadrant_octant_search"));
+  // ---------------------------------------------------------------------------
+  // function: set_nodal_function
+  // ---------------------------------------------------------------------------
+    const char* set_nodal_function_doc1 = R"pydoc(
         Sets the type of nodal function as well as options for computing nodal 
         functions.
 
         Args:
-            a (nodal_func_enum): The nodal function methodology: constant (0), gradient plane (1), quadratic (2).
+            nodal_func_type (nodal_func_enum): The nodal function methodology: constant (0), gradient plane (1), quadratic (2).
 
-            n_nearest (int): The nearest number of points to use when calculating the nodal functions.
+            num_nearest_points (int): The nearest number of points to use when calculating the nodal functions.
 
-            quad_oct (bool): Find the nearest number of points in each quadrant (2d) or octant (3d) when computing nodal functions.
+            use_quadrant_octant_search (bool): Find the nearest number of points in each quadrant (2d) or octant (3d) when computing nodal functions.
 
             obs (Observer): Progress bar to give user feedback.
     )pydoc";
 
     iIdw.def("set_nodal_function", [](xms::InterpIdw &self, 
-                                        xms::InterpIdw::NodalFuncEnum a,
-                                        int n_nearest, bool quad_oct,
-                                  boost::shared_ptr<xms::PublicObserver> obs) {
-              self.SetNodalFunction(a, n_nearest, quad_oct, obs);
-          },set_nodal_function_doc, py::arg("a"), py::arg("n_nearest"), 
-          py::arg("quad_oct"), py::arg("obs"));
-  // ---------------------------------------------------------------------------
-  // function: set_save_weights
-  // ---------------------------------------------------------------------------
-    const char* set_save_weights_doc = R"pydoc(
-        sets a flag to save the weights computed by the interpolation
-
-        Args:
-            save_weight (bool): true will save weights and false will not
-    )pydoc";
-
-    iIdw.def("set_save_weights", &xms::InterpIdw::SetSaveWeights,
-            set_save_weights_doc, py::arg("save_weight"));
+                                      std::string nodal_func_type,
+                                      int n_nearest, bool quad_oct,
+                                  boost::shared_ptr<xms::PublicObserver> obs)
+    {
+      xms::InterpIdw::NodalFuncEnum w = NodalFuncEnumFromString(nodal_func_type);
+      self.SetNodalFunction(w, n_nearest, quad_oct, obs);
+    },set_nodal_function_doc1, py::arg("nodal_func_type"), py::arg("num_nearest_points"),
+          py::arg("use_quadrant_octant_search"), py::arg("obs"));
   // ---------------------------------------------------------------------------
   // function: interp_weights
   // ---------------------------------------------------------------------------
@@ -335,16 +422,4 @@ void initInterpIdw(py::module &m) {
 
     iIdw.def("to_string", &xms::InterpIdw::ToString,to_string_doc);
 
-      py::enum_<xms::InterpIdw::WeightEnum>(iIdw, "weight_enum", 
-                                            "weight_enum for InterpIdw class")
-          .value("CLASSIC", xms::InterpIdw::WeightEnum::CLASSIC)
-          .value("MODIFIED", xms::InterpIdw::WeightEnum::MODIFIED)
-          .export_values();
-
-      py::enum_<xms::InterpIdw::NodalFuncEnum>(iIdw, "nodal_func_enum", 
-                                          "nodal_func_enum for InterpIdw class")
-          .value("CONSTANT", xms::InterpIdw::NodalFuncEnum::CONSTANT)
-          .value("GRAD_PLANE", xms::InterpIdw::NodalFuncEnum::GRAD_PLANE)
-          .value("QUADRATIC", xms::InterpIdw::NodalFuncEnum::QUADRATIC)
-          .export_values();
 }

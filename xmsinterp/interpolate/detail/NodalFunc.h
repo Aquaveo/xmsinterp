@@ -48,6 +48,11 @@ public:
   virtual void GradientFromPtIdx(int a_ptIdx, Pt3d& a_grad) const = 0;
   virtual void ComputeNodalFuncs() = 0;
   virtual std::string ToString() const = 0;
+  virtual int GetType() const = 0;
+  virtual int GetNearestPointsOption() const = 0;
+  virtual int GetNumNearestPoints() const = 0;
+  virtual bool GetUseModifiedShepardWeights() const = 0;
+  virtual bool GetUseQuadrantSearch() const = 0;
 
 private:
   XM_DISALLOW_COPY_AND_ASSIGN(NodalFunc);

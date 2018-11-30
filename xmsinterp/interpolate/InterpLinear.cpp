@@ -60,8 +60,11 @@ public:
   virtual void SetPtActivity(DynBitset& a_activity) override;
   // bitset is number of triangles in length not numtri*3 like the tris array
   virtual void SetTriActivity(DynBitset& a_activity) override;
-  virtual BSHP<VecPt3d> GetPts() override;
-  virtual BSHP<VecInt> GetTris() override;
+  virtual const BSHP<VecPt3d> GetPts() const override;
+  virtual const BSHP<VecInt> GetTris() const override;
+  virtual const BSHP<VecFlt> GetScalars() const override;
+  virtual DynBitset GetPtActivity() const override;
+  virtual DynBitset GetTriActivity() const override;
 
   virtual float InterpToPt(const Pt3d& a_pt) override;
   virtual void InterpToPts(const VecPt3d& a_pts, VecFlt& a_scalars) override;
@@ -84,11 +87,64 @@ public:
                               int a_ndFuncNumNearestPts,
                               bool a_blendWeights,
                               BSHP<Observer> a_prog) override;
+
+  /// \brief get extrapolation value
+  /// \return the extrapolation value
+  virtual double GetExtrapVal() const { return m_extrap; }
+  /// \brief get the option to truncate interpolated values
+  /// \return the option to truncate interpolated values
+  virtual bool GetTruncateInterpolatedValues() const { return m_trunc; }
+  /// \brief get minimum truncation value
+  /// \return the minimum truncation value
+  virtual double GetTruncMin() const { return m_truncMin; }
+  /// \brief get the maximum truncation value
+  /// \return the maximum truncation value
+  virtual double GetTruncMax() const { return m_truncMax; }
+  /// \brief get the option for using Clough Tocher interpolation
+  /// \return the option for using Clough Tocher interpolation
+  virtual bool GetUseCloughTocher() const { return m_cloughTocher; }
+  /// \brief get the option for using Natural Neighbor interpolation
+  /// \return the option for using Natural Neighbor interpolation
+  virtual bool GetUseNatNeigh() const { return m_natNeigh; }
+  /// \brief get the value for the Natural Neighbor nodal function
+  /// \return the value for the Natural Neighbor nodal function
+  virtual int GetNatNeighNodalFunc() const
+  {
+    if (!m_nodal)
+      return 0;
+    return m_nodal->GetType();
+  }
+  /// \brief get the option for the Natural Neighbor nodal function nearest points.
+  /// Nearest points or nearest natural neighbors.
+  /// \return the option for the Natural Neighbor nodal function nearest points.
+  virtual int GetNatNeighNodalFuncNearestPtsOption() const
+  {
+    if (!m_nodal)
+      return 0;
+    return m_nodal->GetNearestPointsOption();
+  }
+  /// \brief get the value for the number of nearest points to use when calculating
+  /// the nodal function
+  /// \return the value for the number of nearest points
+  virtual int GetNatNeighNodalFuncNumNearestPts() const
+  {
+    if (!m_nodal)
+      return 0;
+    return m_nodal->GetNumNearestPoints();
+  }
+  /// \brief get the option for blending weights when using Natural Neighbor
+  /// \return the option for blending weights when using Natural Neighbor
+  virtual bool GetNatNeighBlendWeights() const
+  {
+    if (!m_nodal)
+      return false;
+    return m_nodal->GetUseModifiedShepardWeights();
+  }
+
+
   BSHP<GmPtSearch> CreatePtSearch();
   void RecalcNodalFunc();
   virtual std::string ToString() const override;
-  virtual void SetIdString(const std::string& a_id) override;
-  virtual std::string GetIdString() const override;
 
 protected:
   BSHP<GmTriSearch> m_triSearch; ///< spatial index for searching triangles
@@ -220,7 +276,7 @@ void InterpLinearImpl::SetTriActivity(DynBitset& a_activity)
 /// \brief Returns shared pointer to points vector.
 /// \return Shared pointer to points vector.
 //------------------------------------------------------------------------------
-BSHP<VecPt3d> InterpLinearImpl::GetPts()
+const BSHP<VecPt3d> InterpLinearImpl::GetPts() const
 {
   return m_pts;
 } // InterpLinearImpl::GetPts
@@ -228,10 +284,34 @@ BSHP<VecPt3d> InterpLinearImpl::GetPts()
 /// \brief Returns shared pointer to triangles vector.
 /// \return Shared pointer to triangles vector.
 //------------------------------------------------------------------------------
-BSHP<VecInt> InterpLinearImpl::GetTris()
+const BSHP<VecInt> InterpLinearImpl::GetTris() const
 {
   return m_tris;
 } // InterpLinearImpl::GetTris
+//------------------------------------------------------------------------------
+/// \brief Returns shared pointer to scalars vector.
+/// \return Shared pointer to scalars vector.
+//------------------------------------------------------------------------------
+const BSHP<VecFlt> InterpLinearImpl::GetScalars() const
+{
+  return m_scalar;
+} // InterpLinearImpl::GetScalars
+//------------------------------------------------------------------------------
+/// \brief Returns bitset of point activity
+/// \return Returns bitset of point activity
+//------------------------------------------------------------------------------
+DynBitset InterpLinearImpl::GetPtActivity() const
+{
+  return m_triSearch->GetPtActivity();
+} // InterpLinearImpl::GetPtActivity
+//------------------------------------------------------------------------------
+/// \brief Returns bitset of triangle activity
+/// \return Returns bitset of triangle activity
+//------------------------------------------------------------------------------
+DynBitset InterpLinearImpl::GetTriActivity() const
+{
+  return m_triSearch->GetTriActivity();
+} // InterpLinearImpl::GetTriActivity
 //------------------------------------------------------------------------------
 /// \brief Use the stored triangles to interpolate to a point. Returns
 /// extrapolation value if the point is outside the triangles.
@@ -496,22 +576,6 @@ std::string InterpLinearImpl::ToString() const
   ss << "\n";
   return ss.str();
 } // InterpLinearImpl::ToString
-//------------------------------------------------------------------------------
-/// \brief Set string that identifies this interp class instance.
-/// \param a_id: The ID string.
-//------------------------------------------------------------------------------
-void InterpLinearImpl::SetIdString(const std::string& a_id)
-{
-  m_idString = a_id;
-} // InterpLinearImpl::SetIdString
-//------------------------------------------------------------------------------
-/// \brief Get string that identifies this interp class instance.
-/// \return a_id: The ID string.
-//------------------------------------------------------------------------------
-std::string InterpLinearImpl::GetIdString() const
-{
-  return m_idString;
-} // InterpLinearImpl::GetIdString
 
 } // namespace xms
 

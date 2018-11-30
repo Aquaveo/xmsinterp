@@ -107,6 +107,26 @@ public:
   virtual void GradientFromPtIdx(int a_ptIdx, Pt3d& a_grad) const override;
   virtual void ComputeNodalFuncs() override;
   virtual std::string ToString() const override;
+  /// \brief get the nodal function type 1 = gradient plane, 2 = quadratic
+  /// \return the nodal function type
+  virtual int GetType() const { return m_type; }
+  /// \brief get the nearest points option 0 = nearest points, 1 = natural neighbors
+  /// \return the nearest points option
+  virtual int GetNearestPointsOption() const
+  {
+    if (m_natNeigh)
+      return 0;
+    return 1;
+  }
+  /// \brief get the number of nearest points used in the nodal function calculation
+  /// \return the number of nearest points
+  virtual int GetNumNearestPoints() const { return m_nNearest; };
+  /// \brief get the option for using Modified Shepard Weights
+  /// \return the option for using Modified Shepard Weights
+  virtual bool GetUseModifiedShepardWeights() const { return m_modifiedShepardWeights; }
+  /// \brief get the option for using a quadrant (octant in 3d) search for the nearest points
+  /// \return the option for using a quadrant
+  virtual bool GetUseQuadrantSearch() const { return m_quadOct; }
 
   void NfForPt(int a_ptIdx,
                BSHP<GmPtSearch> a_s,

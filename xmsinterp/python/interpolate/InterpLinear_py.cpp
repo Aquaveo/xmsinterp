@@ -10,13 +10,66 @@
 #include <pybind11/numpy.h>
 #include <boost/shared_ptr.hpp>
 #include <xmscore/misc/DynBitset.h>
+#include <xmscore/misc/StringUtil.h>
 #include <xmscore/python/misc/PyUtils.h>
-#include <xmscore/python/misc/PublicObserver.h>
+#include <xmscore/python/misc/PyObserver.h>
+#include <xmsinterp/interpolate/InterpIdw.h>
 #include <xmsinterp/interpolate/InterpLinear.h>
 #include <xmsinterp/python/interpolate/interpolate_py.h>
 
 //----- Namespace declaration --------------------------------------------------
 namespace py = pybind11;
+
+//----- Internal functions -----------------------------------------------------
+namespace {
+
+// -----------------------------------------------------------------------------
+/// \brief converts string to an int. This will throw if the string is not
+/// recognized.
+/// \param[in] a_: string to be converted to an enum
+/// \return int representing the nodal function 0-constant, 1-gradient_plane,
+/// 2-quadratic
+// -----------------------------------------------------------------------------
+int NodalFuncTypeFromString(const std::string& a_nodal_func_type)
+{
+  int nodal_func(0);
+  if (a_nodal_func_type == "constant")
+    nodal_func = static_cast<int>(xms::InterpIdw::CONSTANT);
+  else if (a_nodal_func_type == "gradient_plane")
+    nodal_func = static_cast<int>(xms::InterpIdw::GRAD_PLANE);
+  else if (a_nodal_func_type == "quadratic")
+    nodal_func = static_cast<int>(xms::InterpIdw::QUADRATIC);
+  else
+  {
+    std::string msg = "nodal_func_type string must be one of 'constant', 'gradient_plane', "
+                      "'quadratic' not " + a_nodal_func_type;
+    throw py::value_error(msg);
+  }
+  return nodal_func;
+} // NodalFuncTypeFromString
+// -----------------------------------------------------------------------------
+/// \brief converts string to an int. This will throw if the string is not
+/// recognized.
+/// \param[in] a_: string to be converted to an enum
+/// \return int representing the search option 0-nearest_pts, 1-natural_neighbors
+// -----------------------------------------------------------------------------
+int NodalFuncPtSearchOptFromString(const std::string& a_nodal_func_pt_search_opt)
+{
+  int searchOpt(0);
+  if (a_nodal_func_pt_search_opt == "natural_neighbors")
+    searchOpt = 0;
+  else if (a_nodal_func_pt_search_opt == "nearest_pts")
+    searchOpt = 1;
+  else
+  {
+    std::string msg = "a_nodal_func_pt_search_opt string must be one of 'natural_neighbors',"
+                      " 'nearest_pts' not " + a_nodal_func_pt_search_opt;
+    throw py::value_error(msg);
+  }
+  return searchOpt;
+} // NodalFuncPtSearchOptFromString
+
+} // unnamed namespace
 
 //----- Python Interface -------------------------------------------------------
 PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
@@ -24,11 +77,33 @@ PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 void initInterpLinear(py::module &m) {
     const char* interp_linear_doc = R"pydoc(
         Class that performs linear interpolation
+
+        Args:
+            pts (iterable):  Array of the point locations.
+            tris (iterable): Triangles.
+            scalar (iterable): Array of interpolation scalar values.
+
     )pydoc";
     py::class_<xms::InterpLinear, xms::InterpBase,
         boost::shared_ptr<xms::InterpLinear>> iLin(m, "InterpLinear",
         interp_linear_doc);
-    iLin.def(py::init(&xms::InterpLinear::New));
+    iLin.def(py::init([](py::iterable pts, py::iterable tris,
+                          py::iterable scalars) {
+      boost::shared_ptr<xms::InterpLinear> rval(xms::InterpLinear::New());
+      boost::shared_ptr<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
+      boost::shared_ptr<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
+      rval->SetPtsTris(vec_pts, vec_tris);
+
+      if (py::len(scalars) > 0)
+      {
+        BSHP<xms::VecFlt> vec_scalars = xms::VecFltFromPyIter(scalars);
+        if (vec_scalars->size() != vec_pts->size())
+          throw std::length_error("scalars length != pts length.");
+        rval->SetScalars(vec_scalars);
+      }
+
+      return rval;
+    }), py::arg("pts"), py::arg("tris") = py::make_tuple(), py::arg("scalars") = py::make_tuple());
   // ---------------------------------------------------------------------------
   // function: __str__
   // ---------------------------------------------------------------------------
@@ -40,6 +115,14 @@ void initInterpLinear(py::module &m) {
     )pydoc";
 
     iLin.def("__str__", &xms::InterpLinear::ToString,__str__doc);
+  // ---------------------------------------------------------------------------
+  // attribute: __repr__
+  // ---------------------------------------------------------------------------
+    iLin.def("__repr__", [](const xms::InterpLinear &il)
+           {
+             return PyReprStringFromInterpBase(il);
+           }
+    );
   // ---------------------------------------------------------------------------
   // function: to_string
   // ---------------------------------------------------------------------------
@@ -183,7 +266,7 @@ void initInterpLinear(py::module &m) {
             array: The indices to triangles whose envelop contains the point.
     )pydoc";
 
-    iLin.def("tri_envelops_containing_pt", 
+    iLin.def("tri_envelopes_containing_pt",
         [](xms::InterpLinear &self, py::tuple pt) -> py::array {
             xms::VecInt tris;
             xms::Pt3d point = xms::Pt3dFromPyIter(pt);
@@ -224,7 +307,7 @@ void initInterpLinear(py::module &m) {
             value (float): The value assigned to extrapolated points.
     )pydoc";
 
-    iLin.def("set_extrap_val", &xms::InterpLinear::SetExtrapVal, 
+    iLin.def("set_extrapolation_value", &xms::InterpLinear::SetExtrapVal,
             set_extrap_val_doc, py::arg("value"));
   // ---------------------------------------------------------------------------
   // function: set_trunc
@@ -238,7 +321,7 @@ void initInterpLinear(py::module &m) {
             min (float): The minimum value for truncation.
     )pydoc";
 
-    iLin.def("set_trunc", &xms::InterpLinear::SetTrunc,set_trunc_doc,
+    iLin.def("set_truncation_max_min", &xms::InterpLinear::SetTrunc,set_trunc_doc,
             py::arg("max"), py::arg("min"));
   // ---------------------------------------------------------------------------
   // function: pts
@@ -273,6 +356,23 @@ void initInterpLinear(py::module &m) {
   // ---------------------------------------------------------------------------
   // function: set_use_clough_tocher
   // ---------------------------------------------------------------------------
+    const char* set_use_clough_tocher_doc1 = R"pydoc(
+        Set the class to use the Clough Tocher interpolation method. This is a
+        legacy feature from GMS. Compare to linear.
+
+        Args:
+            on (bool): True/False to indicate if CT should be used.
+
+            observer (Observer): Progress bar to give users feed back on the set up process of CT. If you have a really large set of triangles this may take some time.
+    )pydoc";
+
+    iLin.def("set_use_clough_tocher", [](xms::InterpLinear &self, bool on) {
+          BSHP<xms::PublicObserver> obs;
+          self.SetUseCloughTocher(on, obs);
+        },set_use_clough_tocher_doc1, py::arg("on"));
+  // ---------------------------------------------------------------------------
+  // function: set_use_clough_tocher
+  // ---------------------------------------------------------------------------
     const char* set_use_clough_tocher_doc = R"pydoc(
         Set the class to use the Clough Tocher interpolation method. This is a 
         legacy feature from GMS. Compare to linear.
@@ -290,33 +390,70 @@ void initInterpLinear(py::module &m) {
   // ---------------------------------------------------------------------------
   // function: set_use_nat_neigh
   // ---------------------------------------------------------------------------
+    const char* set_use_nat_neigh_doc1 = R"pydoc(
+        Set the class to use natural neighbor (NN) interpolation.
+
+        Args:
+            on (bool): True/False to indicate if NN should be used.
+
+            nodal_func_type (string): Indicates which type of nodal function to use: "constant", "gradient_plane", or "quadratic".
+
+            nd_func_pt_search_opt (string): Indicates options for the nearest points when computing the nodal functions: "natural_neighbors" or "nearest_pts".
+
+            nd_func_num_nearest_pts (int): The number of nearest points for nodal function computation.
+
+            nd_func_blend_weights (bool): Option to use a blending function on the calculated weights.
+    )pydoc";
+
+    iLin.def("set_use_natural_neighbor",
+     [](xms::InterpLinear &self, bool on,
+        std::string nodal_func_type, std::string nd_func_pt_search_opt,
+        int nd_func_num_nearest_pts,
+        bool nd_func_blend_weights)
+        {
+          BSHP<xms::PublicObserver> obs;
+          int nodalFuncType = NodalFuncTypeFromString(nodal_func_type);
+          int nodalFuncPtSearchOpt = NodalFuncPtSearchOptFromString(nd_func_pt_search_opt);
+          self.SetUseNatNeigh(on, nodalFuncType, nodalFuncPtSearchOpt,
+                              nd_func_num_nearest_pts, nd_func_blend_weights, obs);
+        },set_use_nat_neigh_doc1,
+            py::arg("on"), py::arg("nodal_func_type"), py::arg("nd_func_pt_search_opt"),
+            py::arg("nd_func_num_nearest_pts"), py::arg("nd_func_blend_weights")
+        );
+  // ---------------------------------------------------------------------------
+  // function: set_use_nat_neigh
+  // ---------------------------------------------------------------------------
     const char* set_use_nat_neigh_doc = R"pydoc(
         Set the class to use natural neighbor (NN) interpolation.
 
         Args:
             on (bool): True/False to indicate if NN should be used.
 
-            nodal_func (int): Indicates which nodal function to use.
+            nodal_func_type (string): Indicates which type of nodal function to use: "constant", "gradient_plane", or "quadratic".
 
-            nd_func_opt (int): Indicates options for the nearest points when computing the nodal functions.
+            nd_func_pt_search_opt (string): Indicates options for the nearest points when computing the nodal functions: "natural_neighbors" or "nearest_pts".
 
             nd_func_num_nearest_pts (int): The number of nearest points for nodal function computation.
 
-            blend_weights (bool): Option to use a blending function on the calculated weights.
+            nd_func_blend_weights (bool): Option to use a blending function on the calculated weights.
 
             observer (Observer): Progress bar to give user feedback for generation of the nodal functions.
     )pydoc";
 
-    iLin.def("set_use_nat_neigh", [](xms::InterpLinear &self, bool on, 
-                                    int nodal_func, int nd_func_opt,
-                                     int nd_func_num_nearest_pts, 
-                                     bool blend_weights,
-                              boost::shared_ptr<xms::PublicObserver> observer) {
-          self.SetUseNatNeigh(on, nodal_func, nd_func_opt, 
-                              nd_func_num_nearest_pts, blend_weights, observer);
+    iLin.def("set_use_natural_neighbor",
+     [](xms::InterpLinear &self, bool on,
+        std::string nodal_func_type, std::string nd_func_pt_search_opt,
+        int nd_func_num_nearest_pts,
+        bool nd_func_blend_weights,
+        BSHP<xms::PublicObserver> observer)
+        {
+          int nodalFuncType = NodalFuncTypeFromString(nodal_func_type);
+          int nodalFuncPtSearchOpt = NodalFuncPtSearchOptFromString(nd_func_pt_search_opt);
+          self.SetUseNatNeigh(on, nodalFuncType, nodalFuncPtSearchOpt,
+                              nd_func_num_nearest_pts, nd_func_blend_weights, observer);
         },set_use_nat_neigh_doc,
-            py::arg("on"), py::arg("nodal_func"), py::arg("nd_func_opt"), 
-            py::arg("nd_func_num_nearest_pts"), py::arg("blend_weights"), 
+            py::arg("on"), py::arg("nodal_func_type"), py::arg("nd_func_pt_search_opt"),
+            py::arg("nd_func_num_nearest_pts"), py::arg("nd_func_blend_weights"),
             py::arg("observer")
         );
 }

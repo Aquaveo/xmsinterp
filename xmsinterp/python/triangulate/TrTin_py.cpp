@@ -11,6 +11,7 @@
 #include <boost/shared_ptr.hpp>
 #include <xmscore/python/misc/PyUtils.h>
 #include <xmsinterp/triangulate/TrTin.h>
+#include <xmsinterp/triangulate/TrTriangulatorPoints.h>
 #include <iostream>
 #include <fstream>
 
@@ -27,9 +28,52 @@ void initTrTin(py::module &m) {
       Class to encapsulate a tin made simply of arrays of points,
       triangles and adjacency information. Also methods to manipulate it.
   )pydoc";
-  py::class_<xms::TrTin, boost::shared_ptr<xms::TrTin>> iTrTin(m, "TrTin",
+  py::class_<xms::TrTin, boost::shared_ptr<xms::TrTin>> iTrTin(m, "Tin",
     tr_tin_doc);
-  iTrTin.def(py::init(&xms::TrTin::New));
+  iTrTin.def(py::init([](py::iterable pts, py::iterable tris) {
+    boost::shared_ptr<xms::TrTin> rval(xms::TrTin::New());
+    boost::shared_ptr<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
+    boost::shared_ptr<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
+    rval->SetPoints(vec_pts);
+    rval->SetTriangles(vec_tris);
+    return rval;
+  }), py::arg("pts"), py::arg("tris") = py::make_tuple());
+  // ---------------------------------------------------------------------------
+  // attribute: __repr__
+  // ---------------------------------------------------------------------------
+  iTrTin.def("__repr__",
+         [](const xms::TrTin &tin)
+         {
+           const xms::VecPt3d& pts(tin.Points());
+           std::stringstream ss;
+           ss << "pts " << xms::StringFromVecPt3d(pts);
+           const xms::VecInt& tris(tin.Triangles());
+           ss << "tris " << xms::StringFromVecInt(tris);
+           const xms::VecInt2d& adjTris(tin.TrisAdjToPts());
+           ss << "adjacent tris " << xms::StringFromVecInt2d(adjTris);
+           return ss.str();
+         }
+  );
+
+  // ---------------------------------------------------------------------------
+  // function: triangulate
+  // ---------------------------------------------------------------------------
+  const char* triangulate_doc = R"pydoc(
+      Creates triangles and adjacent triangles from the tin points.
+
+  )pydoc";
+  iTrTin.def("triangulate", [](xms::TrTin &self) {
+      boost::shared_ptr<xms::VecPt3d> vec_pts = self.PointsPtr();
+      if (!vec_pts || vec_pts->empty())
+      {
+        throw std::length_error("No points defined in TIN.");
+      }
+      boost::shared_ptr<xms::VecInt> vec_tris(new xms::VecInt());
+      boost::shared_ptr<xms::VecInt2d> vec_adj_tris(new xms::VecInt2d());
+      xms::TrTriangulatorPoints triangulator(*vec_pts, *vec_tris, &(*vec_adj_tris));
+      triangulator.Triangulate();
+      self.SetGeometry(vec_pts, vec_tris, vec_adj_tris);
+  },triangulate_doc);
   // ---------------------------------------------------------------------------
   // function: set_points
   // ---------------------------------------------------------------------------
@@ -410,10 +454,14 @@ void initTrTin(py::module &m) {
   )pydoc";
 
   iTrTin.def("export_tin_file", [](xms::TrTin &self, std::string fname) {
-      // TODO: This needs some error checking
       std::filebuf fb;
       fb.open(fname, std::ios::out);
+      std::string msg = "Unable to open file " + fname + ".";
+      if (!fb.is_open())
+        throw std::runtime_error(msg.c_str());
       std::ostream os(&fb);
+      if (os.bad())
+        throw std::runtime_error(msg.c_str());
       self.ExportTinFile(os);
       fb.close();
   },export_tin_file_doc,py::arg("fname"));

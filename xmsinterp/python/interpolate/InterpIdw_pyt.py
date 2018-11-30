@@ -1,10 +1,9 @@
 """Test InterpIdw_py.cpp."""
 import unittest
-import xmsinterp_py
-import xmscore_py
+import xmsinterp
+import xmscore
 
-
-class MockObserver(xmscore_py.misc.Observer):
+class MockObserver(xmscore.misc.Observer):
     """Mock Observer class for testing."""
     def __init__(self, obs_id="X"):
         self.status = {
@@ -41,53 +40,20 @@ class MockObserver(xmscore_py.misc.Observer):
     def time_elapsed_in_seconds(self, elapsed_seconds):
         self.status['elapsed_seconds'] = elapsed_seconds
 
-
-class TestIdwEnums(unittest.TestCase):
-    """Test IDW Enums"""
-
-    def test_idw_weight_enum(self):
-        """weight_enum test"""
-        from xmsinterp_py.interpolate import InterpIdw as iIdw
-        self.assertEqual("weight_enum.CLASSIC", str(iIdw.weight_enum.CLASSIC))
-        self.assertEqual("weight_enum.MODIFIED", str(iIdw.weight_enum.MODIFIED))
-        self.assertEqual(2, len(iIdw.weight_enum.__members__))
-        self.assertDictEqual(
-            iIdw.weight_enum.__members__,
-            {
-                "CLASSIC": iIdw.weight_enum.CLASSIC,
-                "MODIFIED": iIdw.weight_enum.MODIFIED
-            }
-        )
-
-    def test_idw_nodal_func_enum(self):
-        """weight_enum test"""
-        from xmsinterp_py.interpolate import InterpIdw as iIdw
-        self.assertEqual("nodal_func_enum.CONSTANT", str(iIdw.nodal_func_enum.CONSTANT))
-        self.assertEqual("nodal_func_enum.GRAD_PLANE", str(iIdw.nodal_func_enum.GRAD_PLANE))
-        self.assertEqual("nodal_func_enum.QUADRATIC", str(iIdw.nodal_func_enum.QUADRATIC))
-        self.assertEqual(3, len(iIdw.nodal_func_enum.__members__))
-        self.assertDictEqual(
-            iIdw.nodal_func_enum.__members__,
-            {
-                "CONSTANT": iIdw.nodal_func_enum.CONSTANT,
-                "GRAD_PLANE": iIdw.nodal_func_enum.GRAD_PLANE,
-                "QUADRATIC": iIdw.nodal_func_enum.QUADRATIC
-            }
-        )
-
-
 class TestInterpIdw(unittest.TestCase):
     """Test IDW Interpolation Class."""
 
     def setUp(self):
         """Set up for each test case."""
-        self.interp_idw_obj = xmsinterp_py.interpolate.InterpIdw()
+        pts = ((1, 2, 3), (1, 2, 3))
+        self.interp_idw_obj = xmsinterp.interpolate.InterpIdw(pts)
 
     def test_to_string(self):
         """Ensure class can be printed as a string."""
-        base_string = '1=2d 0=quadOctSearch 1=modifiedShepardWeights ' \
-                      '16=nNearestPts 2=power 0=saveWeights 1=multiThread \n=pts \n=tris ' \
-                      '\n=scalarFrom \n=ptIdx \n=weights \n'
+        base_string = "1=2d 0=quadOctSearch 1=modifiedShepardWeights 16=nNearestPts 2=power " \
+                      "0=saveWeights 1=multiThread \n1=2dSearch 0,1,2=min 2,3,4=max \n=activity \n" \
+                      "1,2,3 1,2,3=bshpPt3d \n=ptSearch \n1,2,3 1,2,3=pts \n=tris \n3 3=scalarFrom \n" \
+                      "=ptIdx \n=weights \n"
         self.assertEqual(base_string, self.interp_idw_obj.to_string())
 
     def test_set_pts_tris(self):
@@ -95,8 +61,9 @@ class TestInterpIdw(unittest.TestCase):
         interp = self.interp_idw_obj
         # Test that the a proper call does not throw
         base_before = "1=2d 0=quadOctSearch 1=modifiedShepardWeights 16=nNearestPts 2=power " \
-                      "0=saveWeights 1=multiThread \n=pts \n=tris \n=scalarFrom \n=ptIdx "\
-                      "\n=weights \n"
+                      "0=saveWeights 1=multiThread \n1=2dSearch 0,1,2=min 2,3,4=max \n" \
+                      "=activity \n1,2,3 1,2,3=bshpPt3d \n=ptSearch \n1,2,3 1,2,3=pts \n" \
+                      "=tris \n3 3=scalarFrom \n=ptIdx \n=weights \n"
         self.assertEqual(base_before, str(interp))
 
         interp.set_pts_tris(((1, 2, 3), (1, 2, 3)), (1, 2))
@@ -112,12 +79,9 @@ class TestInterpIdw(unittest.TestCase):
         # Test that the a proper call does not throw
         interp.set_pts(((1, 2, 3), (1, 2, 3)), False)
 
-        base = '0=2d 0=quadOctSearch 1=modifiedShepardWeights ' \
-               '16=nNearestPts 2=power 0=saveWeights 1=multiThread \n' \
-               '0=2dSearch 0,1,2=min 2,3,4=max \n' \
-               '=activity \n1,2,3 1,2,3=bshpPt3d \n=ptSearch \n' \
-               '1,2,3 1,2,3=pts \n=tris ' \
-               '\n=scalarFrom \n=ptIdx \n=weights \n'
+        base = "0=2d 0=quadOctSearch 1=modifiedShepardWeights 16=nNearestPts 2=power 0=saveWeights " \
+               "1=multiThread \n0=2dSearch 0,1,2=min 2,3,4=max \n=activity \n1,2,3 1,2,3=bshpPt3d \n" \
+               "=ptSearch \n1,2,3 1,2,3=pts \n=tris \n3 3=scalarFrom \n=ptIdx \n=weights \n"
         self.assertEqual(base, str(interp))
 
     def test_set_pts_2d(self):
@@ -138,14 +102,12 @@ class TestInterpIdw(unittest.TestCase):
         """Interpolate to a specific point."""
         interp = self.interp_idw_obj
         val = interp.interp_to_pt((1, 2, 3))
-        self.assertEqual(0.0, val)
+        self.assertEqual(3.0, val)
 
     def test_interp_to_pts(self):
         """Interpolate to multiple points"""
-        interp = self.interp_idw_obj
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
-        tris = (0, 1, 3, 1, 2, 3)
-        interp.set_pts_tris(pts, tris)
+        interp = xmsinterp.interpolate.InterpIdw(pts)
         ret = interp.interp_to_pts(((2, 1, 0), (5, 10, 2.5)))
         self.assertIsInstance(ret, tuple)
         self.assertEqual((0.02681550197303295, 2.5), ret)
@@ -153,10 +115,8 @@ class TestInterpIdw(unittest.TestCase):
     def test_interp_to_pts_numpy(self):
         """Interpolate to multiple points"""
         import numpy as np
-        interp = self.interp_idw_obj
         pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
-        tris = np.array([0, 1, 3, 1, 2, 3])
-        interp.set_pts_tris(pts, tris)
+        interp = xmsinterp.interpolate.InterpIdw(pts)
         ret = interp.interp_to_pts(np.array([(2, 1, 0), (5, 10, 2.5)]))
         self.assertIsInstance(ret, np.ndarray)
         np.testing.assert_array_equal(np.array([0.02681550197303295, 2.5]), ret)
@@ -214,15 +174,14 @@ class TestInterpIdw(unittest.TestCase):
     def test_set_trunc(self):
         """Test set_trunc"""
         import numpy as np
-        interp = self.interp_idw_obj
         t_min = 7.11
         t_max = 11.7
 
         pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
         tris = np.array([0, 1, 3, 1, 2, 3])
-        interp.set_pts_tris(pts, tris)
+        interp = xmsinterp.interpolate.InterpIdw(pts, tris)
 
-        interp.set_trunc(t_max, t_min)
+        interp.set_truncation_max_min(t_max, t_min)
         base = "1=2d 0=quadOctSearch 1=modifiedShepardWeights 16=nNearestPts " \
                "2=power 0=saveWeights 1=multiThread \n1=2dSearch -1,-1,-1=min 11,11,4=max \n" \
                "=activity \n0,0,0 10,0,1 10,10,2 0,10,3=bshpPt3d \n=ptSearch \n" \
@@ -347,10 +306,11 @@ class TestInterpIdw(unittest.TestCase):
         self.assertIn(typeerror, str(err))
 
         # Bad Arguments
-        with self.assertRaises(TypeError) as context:
-            interp.set_weight_calc_method("not_an_enum")
+        with self.assertRaises(ValueError) as context:
+            interp.set_weight_calc_method("bad_string")
         err = context.exception
-        self.assertIn(typeerror, str(err))
+        errStr = "method string must be one of 'classic', 'modified' not bad_string"
+        self.assertIn(errStr, str(err))
 
         with self.assertRaises(TypeError) as context:
             interp.set_weight_calc_method(123)
@@ -358,25 +318,22 @@ class TestInterpIdw(unittest.TestCase):
         self.assertIn(typeerror, str(err))
 
         # Valid Arguments
-        weight_enum = xmsinterp_py.interpolate.InterpIdw.weight_enum
 
-        interp.set_weight_calc_method(weight_enum.MODIFIED)
+        interp.set_weight_calc_method("modified")
         self.assertIn(" 1=modifiedShepardWeights ", str(interp))
 
-        interp.set_weight_calc_method(weight_enum.CLASSIC)
+        interp.set_weight_calc_method("classic")
         self.assertIn(" 0=modifiedShepardWeights ", str(interp))
 
     def test_set_nodal_function(self):
         """Setting nodal function"""
         import numpy as np
-        interp = self.interp_idw_obj
         observer = MockObserver()
-        nodal_func_enum = xmsinterp_py.interpolate.InterpIdw.nodal_func_enum
         typeerror = "set_nodal_function(): incompatible function arguments."
 
         pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
         tris = np.array([0, 1, 3, 1, 2, 3])
-        interp.set_pts_tris(pts, tris)
+        interp = xmsinterp.interpolate.InterpIdw(pts, tris)
 
         # No Argument
         with self.assertRaises(TypeError) as context:
@@ -390,7 +347,7 @@ class TestInterpIdw(unittest.TestCase):
         err = context.exception
         self.assertIn(typeerror, str(err))
         with self.assertRaises(TypeError) as context:
-            interp.set_nodal_function(nodal_func_enum.CONSTANT, None, True, observer)
+            interp.set_nodal_function("constant", None, True, observer)
         err = context.exception
         self.assertIn(typeerror, str(err))
 
@@ -399,33 +356,35 @@ class TestInterpIdw(unittest.TestCase):
             interp.set_nodal_function(1, 1, True, observer)
         err = context.exception
         self.assertIn(typeerror, str(err))
-        with self.assertRaises(TypeError) as context:
+        with self.assertRaises(ValueError) as context:
             interp.set_nodal_function("abc", 1, True, observer)
         err = context.exception
-        self.assertIn(typeerror, str(err))
+        errStr = "nodal_func_type string must be one of 'constant', " \
+                 "'gradient_plane', 'quadratic' not abc"
+        self.assertIn(errStr, str(err))
         with self.assertRaises(TypeError) as context:
-            interp.set_nodal_function(nodal_func_enum.CONSTANT, "1234", True, observer)
+            interp.set_nodal_function("constant", "1234", True, observer)
         err = context.exception
         self.assertIn(typeerror, str(err))
         with self.assertRaises(TypeError) as context:
-            interp.set_nodal_function(nodal_func_enum.CONSTANT, 1.4, True, observer)
+            interp.set_nodal_function("constant", 1.4, True, observer)
         err = context.exception
         self.assertIn(typeerror, str(err))
         with self.assertRaises(TypeError) as context:
-            interp.set_nodal_function(nodal_func_enum.CONSTANT, 1, True, 1)
+            interp.set_nodal_function("constant", 1, True, 1)
         err = context.exception
         self.assertIn(typeerror, str(err))
         with self.assertRaises(TypeError) as context:
-            interp.set_nodal_function(nodal_func_enum.CONSTANT, 1, True, "abcd")
+            interp.set_nodal_function("constant", 1, True, "abcd")
         err = context.exception
         self.assertIn(typeerror, str(err))
 
         # Good Args
         base = str(interp)
-        interp.set_nodal_function(nodal_func_enum.CONSTANT, 7, True, observer)
+        interp.set_nodal_function("constant", 7, True, observer)
         self.assertEqual(base, str(interp))
 
-        interp.set_nodal_function(nodal_func_enum.GRAD_PLANE, 9, True, observer)
+        interp.set_nodal_function("gradient_plane", 9, True, observer)
         base_grad_plane = "1=2d 0=quadOctSearch 1=modifiedShepardWeights 16=nNearestPts " \
                           "2=power 0=saveWeights 1=multiThread \n1=2dSearch -1,-1,-1=min 11,11,4=max " \
                           "\n=activity \n0,0,0 10,0,1 10,10,2 0,10,3=bshpPt3d \n=ptSearch " \
@@ -437,7 +396,7 @@ class TestInterpIdw(unittest.TestCase):
                           "\n=nodalFunc \n=ptIdx \n=weights \n"
         self.assertEqual(base_grad_plane, str(interp))
 
-        interp.set_nodal_function(nodal_func_enum.QUADRATIC, 11, True, observer)
+        interp.set_nodal_function("quadratic", 11, True, observer)
         base_q = "1=2d 0=quadOctSearch 1=modifiedShepardWeights " \
                  "16=nNearestPts 2=power 0=saveWeights 1=multiThread \n" \
                  "1=2dSearch -1,-1,-1=min 11,11,4=max \n" \
@@ -463,22 +422,6 @@ class TestInterpIdw(unittest.TestCase):
                  "=weights \n"
         self.maxDiff = None
         self.assertEqual(base_q, str(interp))
-
-    def test_set_save_weights(self):
-        """Setting save weights"""
-        interp = self.interp_idw_obj
-        typeerror = "set_save_weights(): incompatible function arguments."
-
-        # No Argument
-        with self.assertRaises(TypeError) as context:
-            interp.set_save_weights()
-        err = context.exception
-        self.assertIn(typeerror, str(err))
-
-        interp.set_save_weights(True)
-        self.assertIn(" 1=saveWeights ", str(interp))
-        interp.set_save_weights(False)
-        self.assertIn(" 0=saveWeights ", str(interp))
 
     def test_interp_weights(self):
         """Test interp_weights"""
@@ -515,14 +458,18 @@ class TestInterpIdw(unittest.TestCase):
 
         interp.set_multi_threading(False)
         base_multi_off = "1=2d 0=quadOctSearch 1=modifiedShepardWeights " \
-                         "16=nNearestPts 2=power 0=saveWeights 0=multiThread " \
-                         "\n=pts \n=tris \n=scalarFrom \n=ptIdx \n=weights \n"
+                         "16=nNearestPts 2=power 0=saveWeights 0=multiThread \n"\
+                         "1=2dSearch 0,1,2=min 2,3,4=max \n=activity \n" \
+                         "1,2,3 1,2,3=bshpPt3d \n=ptSearch \n1,2,3 1,2,3=pts \n" \
+                         "=tris \n3 3=scalarFrom \n=ptIdx \n=weights \n"
         self.assertEqual(base_multi_off, str(interp))
 
         interp.set_multi_threading(True)
         base_multi_on = "1=2d 0=quadOctSearch 1=modifiedShepardWeights " \
-                        "16=nNearestPts 2=power 0=saveWeights 1=multiThread " \
-                        "\n=pts \n=tris \n=scalarFrom \n=ptIdx \n=weights \n"
+                        "16=nNearestPts 2=power 0=saveWeights 1=multiThread \n" \
+                        "1=2dSearch 0,1,2=min 2,3,4=max \n=activity \n" \
+                        "1,2,3 1,2,3=bshpPt3d \n=ptSearch \n1,2,3 1,2,3=pts \n" \
+                        "=tris \n3 3=scalarFrom \n=ptIdx \n=weights \n"
         self.assertEqual(base_multi_on, str(interp))
 
     def test_tutorial(self):

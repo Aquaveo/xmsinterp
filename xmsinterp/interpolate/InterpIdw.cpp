@@ -55,7 +55,7 @@ public:
     /// \param[in] a_ Idw interpolation class
     /// \param[out] a_s Scalars filled by this class
     /// \param[in] a_p Pts being interpolated to
-    InterpThread(InterpIdwImpl& a_, std::vector<float>& a_s, const std::vector<Pt3d>& a_p)
+    InterpThread(InterpIdwImpl& a_, VecFlt& a_s, const VecPt3d& a_p)
     : m_interp(a_)
     , m_scalarTo(a_s)
     , m_pts(a_p)
@@ -63,8 +63,8 @@ public:
     } // InterpThread
 
     InterpIdwImpl& m_interp;        ///< Idw interpolation class
-    std::vector<float>& m_scalarTo; ///< Scalars filled by this class
-    const std::vector<Pt3d>& m_pts; ///< Pts being interpolated to
+    VecFlt& m_scalarTo; ///< Scalars filled by this class
+    const VecPt3d& m_pts; ///< Pts being interpolated to
 
     /// \brief creates an instance of this class for a new thread
     /// \return Shared pointer to ThreadLoop.
@@ -87,24 +87,81 @@ public:
   InterpIdwImpl();
   virtual ~InterpIdwImpl();
 
-  virtual void SetPtsTris(BSHP<VecPt3d> a_pts, BSHP<VecInt> a_tris);
-  virtual void SetPts(BSHP<std::vector<Pt3d>> a_pts, bool a_2d);
+  virtual void SetPtsTris(BSHP<VecPt3d> a_pts, BSHP<VecInt> a_tris) override;
+  void SetScalars(const float* a_scalar, size_t a_n) override;
+  void SetScalars(BSHP<VecFlt> a_scalar);
+  virtual void SetPts(BSHP<VecPt3d> a_pts, bool a_2d) override;
   // this method will run parallel
   virtual float InterpToPt(const Pt3d& a_pt) override;
-  virtual void InterpToPts(const std::vector<Pt3d>& a_pts, std::vector<float>& a_scalars);
-  virtual void SetPtActivity(DynBitset& a_activity);
+  virtual void InterpToPts(const VecPt3d& a_pts, VecFlt& a_scalars) override;
+  virtual void SetPtActivity(DynBitset& a_activity) override;
   /// \brief Sets triangle activity. Ignored by IDW.
-  virtual void SetTriActivity(DynBitset&) {}
-  virtual BSHP<std::vector<Pt3d>> GetPts();
-  virtual BSHP<std::vector<int>> GetTris();
+  virtual void SetTriActivity(DynBitset&) override {}
+  virtual const BSHP<VecPt3d> GetPts() const override;
+  virtual const BSHP<VecInt> GetTris() const override;
+  virtual const BSHP<VecFlt> GetScalars() const override;
+  virtual DynBitset GetPtActivity() const override;
+  virtual DynBitset GetTriActivity() const override;
   virtual void SetTrunc(double a_sMax, double a_sMin) override;
+
+  /// \brief get the option to truncate interpolated values
+  /// \return the option to truncate interpolated values
+  virtual bool GetTruncateInterpolatedValues() const { return m_trunc; }
+  /// \brief get minimum truncation value
+  /// \return the minimum truncation value
+  virtual double GetTruncMin() const { return m_truncMin; }
+  /// \brief get the maximum truncation value
+  /// \return the maximum truncation value
+  virtual double GetTruncMax() const { return m_truncMax; }
+  /// \brief get the idw power (1/d or 1/d^2 or 1/d^3)
+  /// \return the power
+  virtual double GetPower() const { return m_power; }
+  /// \brief get the search options number of nearest points
+  /// \return the number of nearest points
+  virtual int GetSearchOptsNumNearestPts() const { return m_nNearestPts; }
+  /// \brief get the search options option to do a quadrant or octant search
+  /// \return the option to do a quadrant or octant search
+  virtual bool GetSearchOptsUseQuadrantSearch() const { return m_quadOctSearch; }
+  /// \brief get the weight calculation method
+  /// \return the weight calculation method
+  virtual WeightEnum GetWeightCalcMethod() const
+  {
+    if (!m_modifiedShepardWeights)
+      return InterpIdw::CLASSIC;
+    return InterpIdw::MODIFIED;
+  }
+  /// \brief get the type of nodal function (constant, gradient plane, quadratic)
+  /// \return the type of nodal function
+  virtual NodalFuncEnum GetNodalFunctionType() const
+  {
+    if (!m_nodalFunc)
+      return InterpIdw::CONSTANT;
+    return static_cast<InterpIdw::NodalFuncEnum>(m_nodalFunc->GetType());
+  }
+  /// \brief get the nodal function number of nearest points
+  /// \return the nodal function number of nearest points
+  virtual int GetNodalFunctionNumNearestPts() const
+  {
+    if (!m_nodalFunc)
+      return 0;
+    return m_nodalFunc->GetNumNearestPoints();
+  }
+  /// \brief get the nodal function option to use a quadrant search
+  /// \return the nodal function option to use a quadrant search
+  virtual bool GetNodalFunctionUseQuadrantSearch() const
+  {
+    if (!m_nodalFunc)
+      return false;
+    return m_nodalFunc->GetUseQuadrantSearch();
+  }
+
 
   /// \brief sets a flag to save the weights computed by the interpolation
   /// \param[in] a_ flag: true will save weights and false will not
   virtual void SetSaveWeights(bool a_) override { m_saveWeights = a_; }
   virtual void InterpWeights(const Pt3d& a_pt,
-                             std::vector<int>& a_idx,
-                             std::vector<double>& a_wt) const;
+                             VecInt& a_idx,
+                             VecDbl& a_wt) const;
 
   /// \brief sets a flag to use (or not) multi-threading when interpolating
   /// \param[in] a_ flag: true will use multi-threading and false will not.
@@ -112,11 +169,7 @@ public:
   virtual void SetMultiThreading(bool a_) override { m_multiThread = a_; }
 
   virtual std::string ToString() const override;
-  virtual void SetIdString(const std::string& a_id) override;
-  virtual std::string GetIdString() const override;
 
-  void SetScalars(const float* a_scalar, size_t a_n) override;
-  void SetScalars(BSHP<std::vector<float>> a_scalar);
   void SetPower(double a_power) override;
   void RecalcNodalFunc();
   void SetSearchOpts(int a_nNearestPoints, bool a_quad_oct_Search) override;
@@ -126,8 +179,8 @@ public:
   /// \param a_prog: The observer.
   void SetObserver(BSHP<Observer> a_prog) override { m_prog = a_prog; }
 
-  void ValFromWeights(std::vector<double>& a_w,
-                      std::vector<int>& a_nPts,
+  void ValFromWeights(VecDbl& a_w,
+                      VecInt& a_nPts,
                       float& a_val,
                       int a_ptIdx,
                       const Pt3d& a_pt) const;
@@ -143,25 +196,25 @@ public:
   double ScalarFromNodalFunc(int a_ptIdx, const Pt3d& a_loc) const;
 
   bool m_2d; ///< flag for computing distances in xy instead of xyz
-  bool
-    m_quadOctSearch; ///< flag for performing quadrant(2d) or octant (3d) searching for nearest pts
-  bool m_modifiedShepardWeights; ///< flag for calculating weights using a the modified shepard's
-                                 ///< approach
+  /// flag for performing quadrant(2d) or octant (3d) searching for nearest ps
+  bool m_quadOctSearch;
+  /// flag for calculating weights using a the modified shepard's approach
+  bool m_modifiedShepardWeights;
   int m_nNearestPts;             ///< number of nearest points to use in the interpolation
   /// The exponent to be used with the inverse of the distance. By default this
   /// is 2 so we use 1/d^2. The exponent can be changed so that the calculation
   /// is 1/d or 1/d^3...
   double m_power;
-  BSHP<GmPtSearch> m_ptSearch;           ///< Class used to find nearest points
-  BSHP<std::vector<Pt3d>> m_pts;         ///< Points used to interpolate
-  BSHP<std::vector<int>> m_tris;         ///< triangles ignored by idw
-  BSHP<std::vector<float>> m_scalarFrom; ///< Scalars at the points used to interpolate
-  BSHP<NodalFunc> m_nodalFunc;           ///< Nodal function (constant, gradient plane, quadratic)
-  BSHP<Observer> m_prog;                 ///< Observer that reports status of interpolation process
-  bool m_saveWeights;                    ///< flag for saving the interpolation weights
-  std::vector<std::vector<int>> m_ptIdx; ///< pt indexes for saving weights
-  std::vector<std::vector<double>> m_weights; ///< calculated weights for saving weights
-  bool m_trunc;                               ///< flag to indicate if truncation is on
+  BSHP<GmPtSearch> m_ptSearch; ///< Class used to find nearest points
+  BSHP<VecPt3d> m_pts;         ///< Points used to interpolate
+  BSHP<VecInt> m_tris;         ///< triangles ignored by idw
+  BSHP<VecFlt> m_scalarFrom;   ///< Scalars at the points used to interpolate
+  BSHP<NodalFunc> m_nodalFunc; ///< Nodal function (constant, gradient plane, quadratic)
+  BSHP<Observer> m_prog;       ///< Observer that reports status of interpolation process
+  bool m_saveWeights;          ///< flag for saving the interpolation weights
+  VecInt2d m_ptIdx;            ///< pt indexes for saving weights
+  VecDbl2d m_weights;          ///< calculated weights for saving weights
+  bool m_trunc;                ///< flag to indicate if truncation is on
   double m_truncMax;      ///< Maximum truncation value. All interpolated values will be <=
   double m_truncMin;      ///< Minimum truncation value. All interpolated values will be >=
   bool m_multiThread;     ///< flag to indicate if multithreading should be used when interpolating
@@ -174,17 +227,17 @@ namespace
 //------------------------------------------------------------------------------
 /// \brief Static variable to store point indices
 //------------------------------------------------------------------------------
-static std::vector<std::vector<int>>& iPtIdx()
+static VecInt2d& iPtIdx()
 {
-  static std::vector<std::vector<int>> m_;
+  static VecInt2d m_;
   return m_;
 }
 //------------------------------------------------------------------------------
 /// \brief Static variable to store point weights
 //------------------------------------------------------------------------------
-static std::vector<std::vector<double>>& iWeights()
+static VecDbl2d& iWeights()
 {
-  static std::vector<std::vector<double>> m_weights;
+  static VecDbl2d m_weights;
   return m_weights;
 }
 //------------------------------------------------------------------------------
@@ -203,8 +256,8 @@ static void iSaveWeight(int a_ptIdx, int a_pt, double a_val)
 /// are used to interpolate to a particular location. This gets used by
 /// pilot point stuff in GMS. Not really used any other time.
 //------------------------------------------------------------------------------
-static void iCallSignals(std::vector<std::vector<int>>& a_ptIdx,
-                         std::vector<std::vector<double>>& a_weights)
+static void iCallSignals(VecInt2d& a_ptIdx,
+                         VecDbl2d& a_weights)
 {
   for (size_t i = 0; i < a_ptIdx.size(); ++i)
   {
@@ -263,7 +316,7 @@ InterpIdwImpl::InterpIdwImpl()
 , m_ptSearch()
 , m_pts(new VecPt3d())
 , m_tris(new VecInt())
-, m_scalarFrom(new std::vector<float>())
+, m_scalarFrom(new VecFlt())
 , m_nodalFunc()
 , m_prog()
 , m_saveWeights(false)
@@ -284,7 +337,7 @@ InterpIdwImpl::~InterpIdwImpl()
 /// \param a_pts array of the point locations
 /// \param a_tris triangles
 //------------------------------------------------------------------------------
-void InterpIdwImpl::SetPtsTris(BSHP<std::vector<Pt3d>> a_pts, BSHP<std::vector<int>> a_tris)
+void InterpIdwImpl::SetPtsTris(BSHP<VecPt3d> a_pts, BSHP<VecInt> a_tris)
 {
   SetPts(a_pts, true);
   m_tris = a_tris;
@@ -294,7 +347,7 @@ void InterpIdwImpl::SetPtsTris(BSHP<std::vector<Pt3d>> a_pts, BSHP<std::vector<i
 /// \param a_pts array of the point locations
 /// \param a_2d  indicates if the class will do 2D or 3D interpolation
 //------------------------------------------------------------------------------
-void InterpIdwImpl::SetPts(BSHP<std::vector<Pt3d>> a_pts, bool a_2d)
+void InterpIdwImpl::SetPts(BSHP<VecPt3d> a_pts, bool a_2d)
 {
   m_2d = a_2d;
   m_pts = a_pts;
@@ -325,7 +378,7 @@ void InterpIdwImpl::SetScalars(const float* a_scalar, size_t a_n)
 /// \brief Sets the scalar values that will be used to do the interpolation.
 /// \param a_scalar array of scalar values
 //------------------------------------------------------------------------------
-void InterpIdwImpl::SetScalars(BSHP<std::vector<float>> a_scalar)
+void InterpIdwImpl::SetScalars(BSHP<VecFlt> a_scalar)
 {
   m_scalarFrom = a_scalar;
   RecalcNodalFunc();
@@ -388,8 +441,8 @@ float InterpIdwImpl::InterpToPt(const Pt3d& a_pt, int a_idx) const
 {
   float rval(0);
   XM_ENSURE_FALSE(m_scalarFrom->empty(), rval);
-  std::vector<int> nPts;
-  std::vector<double> w;
+  VecInt nPts;
+  VecDbl w;
   InterpWeights(a_pt, nPts, w);
   if (1 == nPts.size())
   {
@@ -416,13 +469,13 @@ float InterpIdwImpl::InterpToPt(const Pt3d& a_pt, int a_idx) const
 /// a_scalars will be the same size as a_pts and each value corresponds to the
 /// interpolated value at the respective location in the a_pts array.
 //------------------------------------------------------------------------------
-void InterpIdwImpl::InterpToPts(const std::vector<Pt3d>& a_pts, std::vector<float>& a_scalars)
+void InterpIdwImpl::InterpToPts(const VecPt3d& a_pts, VecFlt& a_scalars)
 {
   a_scalars.assign(a_pts.size(), 0);
   if (m_saveWeights)
   {
-    iPtIdx().assign(a_scalars.size(), std::vector<int>());
-    iWeights().assign(a_scalars.size(), std::vector<double>());
+    iPtIdx().assign(a_scalars.size(), VecInt());
+    iWeights().assign(a_scalars.size(), VecDbl());
   }
 
   if (!m_multiThread)
@@ -457,7 +510,7 @@ void InterpIdwImpl::SetPtActivity(DynBitset& a_activity)
 /// \brief Returns shared pointer to points vector.
 /// \return Shared pointer to points vector.
 //------------------------------------------------------------------------------
-BSHP<std::vector<Pt3d>> InterpIdwImpl::GetPts()
+const BSHP<VecPt3d> InterpIdwImpl::GetPts() const
 {
   return m_pts;
 } // InterpIdwImpl::GetPts
@@ -465,10 +518,36 @@ BSHP<std::vector<Pt3d>> InterpIdwImpl::GetPts()
 /// \brief Returns shared pointer to triangles vector.
 /// \return Shared pointer to triangles vector.
 //------------------------------------------------------------------------------
-BSHP<std::vector<int>> InterpIdwImpl::GetTris()
+const BSHP<VecInt> InterpIdwImpl::GetTris() const
 {
   return m_tris;
 } // InterpIdwImpl::GetTris
+//------------------------------------------------------------------------------
+/// \brief Returns shared pointer to scalars vector.
+/// \return Shared pointer to scalars vector.
+//------------------------------------------------------------------------------
+const BSHP<VecFlt> InterpIdwImpl::GetScalars() const
+{
+  return m_scalarFrom;
+} // InterpIdwImpl::GetScalars
+//------------------------------------------------------------------------------
+/// \brief Returns bitset of point activity
+/// \return Returns bitset of point activity
+//------------------------------------------------------------------------------
+DynBitset InterpIdwImpl::GetPtActivity() const
+{
+  if (!m_ptSearch)
+    return DynBitset();
+  return m_ptSearch->GetActivity();
+} // InterpIdwImpl::GetPtActivity
+//------------------------------------------------------------------------------
+/// \brief Returns empty bitset. No triangles used for idw
+/// \return Returns empty bitset
+//------------------------------------------------------------------------------
+DynBitset InterpIdwImpl::GetTriActivity() const
+{
+  return DynBitset();
+} // InterpIdwImpl::GetTriActivity
 //------------------------------------------------------------------------------
 /// \brief Set the truncation values for the interpolation and turn on
 /// truncation.
@@ -490,10 +569,10 @@ void InterpIdwImpl::SetTrunc(double a_sMax, double a_sMin)
 /// \param a_w     Vector weights associated with the nearest points to a_pt.
 //------------------------------------------------------------------------------
 void InterpIdwImpl::InterpWeights(const Pt3d& a_pt,
-                                  std::vector<int>& a_nPts,
-                                  std::vector<double>& a_w) const
+                                  VecInt& a_nPts,
+                                  VecDbl& a_w) const
 {
-  std::vector<double> d2;
+  VecDbl d2;
   // first see if we are at this location
   m_ptSearch->NearestPtsToPt(a_pt, 1, false, a_nPts);
   // get the distance between our location and the nearest point
@@ -559,22 +638,6 @@ std::string InterpIdwImpl::ToString() const
   return ss.str();
 } // InterpIdwImpl::ToString
 //------------------------------------------------------------------------------
-/// \brief Set string that identifies this interp class instance.
-/// \param a_id: The ID string.
-//------------------------------------------------------------------------------
-void InterpIdwImpl::SetIdString(const std::string& a_id)
-{
-  m_idString = a_id;
-} // InterpIdwImpl::SetIdString
-//------------------------------------------------------------------------------
-/// \brief Get string that identifies this interp class instance.
-/// \return a_id: The ID string.
-//------------------------------------------------------------------------------
-std::string InterpIdwImpl::GetIdString() const
-{
-  return m_idString;
-} // InterpIdwImpl::GetIdString
-//------------------------------------------------------------------------------
 /// \brief Given a vector of weights, the interpolated value a_val is computed
 /// at the point a_pt.
 /// \param a_w Vector of weights associated with locations indicated in the
@@ -586,8 +649,8 @@ std::string InterpIdwImpl::GetIdString() const
 /// interpolation weights.
 /// \param a_pt The location of the interpolation point.
 //------------------------------------------------------------------------------
-void InterpIdwImpl::ValFromWeights(std::vector<double>& a_w,
-                                   std::vector<int>& a_nPts,
+void InterpIdwImpl::ValFromWeights(VecDbl& a_w,
+                                   VecInt& a_nPts,
                                    float& a_val,
                                    int a_ptIdx,
                                    const Pt3d& a_pt) const
@@ -695,9 +758,9 @@ using namespace xms;
 /// \param a_scalar: Scalars.
 /// \param a_iPts: Interpolation points.
 //------------------------------------------------------------------------------
-static void iGetPoints(std::vector<Pt3d>& a_pts,
-                       std::vector<float>& a_scalar,
-                       std::vector<Pt3d>& a_iPts)
+static void iGetPoints(VecPt3d& a_pts,
+                       VecFlt& a_scalar,
+                       VecPt3d& a_iPts)
 {
   a_pts = {{-75.0, -16.0, 0.0}, {-60.0, 32.0, 0.0},   {-34.0, 50.0, 0.0},   {-34.0, 27.0, 0.0},
            {-8.0, 40.0, 0.0},   {16.0, 38.0, 0.0},    {-25.0, 14.0, 43.64}, {10.0, 18.0, 44.16},
@@ -731,9 +794,9 @@ void InterpIdwUnitTests::testCreateClass()
 void InterpIdwUnitTests::testInterpToPts()
 {
   BSHP<InterpIdw> idw = InterpIdw::New();
-  BSHP<std::vector<Pt3d>> pts(new std::vector<Pt3d>());
+  BSHP<VecPt3d> pts(new VecPt3d());
   pts->push_back(Pt3d());
-  std::vector<float> scalar(1, 2);
+  VecFlt scalar(1, 2);
   idw->SetPts(pts, true);
   idw->SetScalars(&scalar[0], scalar.size());
 
@@ -750,9 +813,9 @@ void InterpIdwUnitTests::testInterpToPts()
 void InterpIdwUnitTests::testInterp2d_a()
 {
   BSHP<VecPt3d> pts(new VecPt3d());
-  std::vector<Pt3d> ipts;
+  VecPt3d ipts;
   BSHP<VecFlt> scalar(new VecFlt());
-  std::vector<float> s, vBase;
+  VecFlt s, vBase;
   iGetPoints(*pts, *scalar, ipts);
 
   BSHP<InterpIdw> idw = InterpIdw::New();
@@ -769,8 +832,8 @@ void InterpIdwUnitTests::testInterp2d_a()
 void InterpIdwUnitTests::testInterp2d_b()
 {
   BSHP<VecPt3d> pts(new VecPt3d());
-  std::vector<Pt3d> ipts;
-  std::vector<float> scalar, s(5), vBase;
+  VecPt3d ipts;
+  VecFlt scalar, s(5), vBase;
   iGetPoints(*pts, scalar, ipts);
   BSHP<InterpIdw> idw = InterpIdw::New();
   idw->SetPts(pts, true);
@@ -787,15 +850,15 @@ void InterpIdwUnitTests::testInterp2d_b()
 void InterpIdwUnitTests::testInterp2d_c()
 {
   BSHP<VecPt3d> pts(new VecPt3d());
-  std::vector<Pt3d> ipts;
-  std::vector<float> scalar;
+  VecPt3d ipts;
+  VecFlt scalar;
   iGetPoints(*pts, scalar, ipts);
   BSHP<InterpIdw> idw = InterpIdw::New();
   idw->SetPts(pts, true);
   idw->SetScalars(&scalar[0], scalar.size());
   idw->SetSearchOpts(5, false);
-  std::vector<int> idx;
-  std::vector<double> wt, wtBase;
+  VecInt idx;
+  VecDbl wt, wtBase;
   Pt3d myPt;
   idw->InterpWeights(myPt, idx, wt);
   wtBase = {0.0019633969662346436, 0.064476394365326525, 0.0, 0.014616102731534851,
@@ -808,8 +871,8 @@ void InterpIdwUnitTests::testInterp2d_c()
 void InterpIdwUnitTests::testInterp2d_d()
 {
   BSHP<VecPt3d> pts(new VecPt3d());
-  std::vector<Pt3d> ipts;
-  std::vector<float> scalar, s(5), vBase;
+  VecPt3d ipts;
+  VecFlt scalar, s(5), vBase;
   iGetPoints(*pts, scalar, ipts);
   BSHP<InterpIdw> idw = InterpIdw::New();
   idw->SetPts(pts, true);
@@ -828,8 +891,8 @@ void InterpIdwUnitTests::testInterp2d_d()
 void InterpIdwUnitTests::testInterp2d_e()
 {
   BSHP<VecPt3d> pts(new VecPt3d());
-  std::vector<Pt3d> ipts;
-  std::vector<float> scalar, s(5), vBase;
+  VecPt3d ipts;
+  VecFlt scalar, s(5), vBase;
   iGetPoints(*pts, scalar, ipts);
   BSHP<InterpIdw> idw = InterpIdw::New();
   idw->SetPts(pts, true);
@@ -851,8 +914,8 @@ void InterpIdwUnitTests::testInterp2d_e()
 void InterpIdwUnitTests::testInterp2d_f()
 {
   BSHP<VecPt3d> pts(new VecPt3d());
-  std::vector<Pt3d> ipts;
-  std::vector<float> scalar, s(5), vBase;
+  VecPt3d ipts;
+  VecFlt scalar, s(5), vBase;
   iGetPoints(*pts, scalar, ipts);
   BSHP<InterpIdw> idw = InterpIdw::New();
   idw->SetPts(pts, true);
@@ -869,8 +932,8 @@ void InterpIdwUnitTests::testInterp2d_f()
 void InterpIdwUnitTests::testInterp3d()
 {
   BSHP<VecPt3d> pts(new VecPt3d());
-  std::vector<Pt3d> ipts;
-  std::vector<float> scalar, s(5), vBase;
+  VecPt3d ipts;
+  VecFlt scalar, s(5), vBase;
   iGetPoints(*pts, scalar, ipts);
   BSHP<InterpIdw> idw = InterpIdw::New();
   idw->SetPts(pts, false);
@@ -893,8 +956,8 @@ void InterpIdwUnitTests::testInterp3d()
 void InterpIdwUnitTests::testErrors()
 {
   BSHP<VecPt3d> pts(new VecPt3d());
-  std::vector<Pt3d> ipts;
-  std::vector<float> scalar, s(5), vBase;
+  VecPt3d ipts;
+  VecFlt scalar, s(5), vBase;
   *pts = {{0, 0, 0}, {1, 0, 0}, {2, 0, 0}, {3, 0, 0}};
   scalar.assign(pts->size(), 0);
   ipts.assign(5, Pt3d(-1, 0, 0));
@@ -916,8 +979,8 @@ void InterpIdwUnitTests::testErrors()
 void InterpIdwUnitTests::testErrors2()
 {
   BSHP<VecPt3d> pts(new VecPt3d());
-  std::vector<Pt3d> ipts;
-  std::vector<float> scalar, s(5), vBase;
+  VecPt3d ipts;
+  VecFlt scalar, s(5), vBase;
   *pts = {{0, 0, 0}, {1, 0, 0}, {2, 0, 0}, {3, 0, 0}};
   scalar.assign(pts->size(), 0);
   ipts.assign(5, Pt3d(-1, 0, 0));

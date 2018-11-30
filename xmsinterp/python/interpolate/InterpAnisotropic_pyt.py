@@ -1,7 +1,7 @@
 """Test InterpLinear_py.cpp."""
 import unittest
-import xmsinterp_py
-import xmscore_py
+import xmsinterp
+import xmscore
 
 class TestInterpAnisotropic(unittest.TestCase):
     """Test Anisotropic Interpolation Class."""
@@ -43,7 +43,7 @@ class TestInterpAnisotropic(unittest.TestCase):
             [60, 10, 50]]
 
         # create the interpolator class
-        interpolator = xmsinterp_py.interpolate.InterpAnisotropic()
+        interpolator = xmsinterp.interpolate.InterpAnisotropic()
 
         # Set the centerline and interpolation points used by the interpolator.
         # Any point may project onto several segments of the centerline. You can use
@@ -431,7 +431,7 @@ class TestInterpAnisotropic(unittest.TestCase):
             (-3.2360679774997894, 2.351141009169893, 1))
         target = (1.6, 2.6, 0)
 
-        interpolator = xmsinterp_py.interpolate.InterpAnisotropic()
+        interpolator = xmsinterp.interpolate.InterpAnisotropic()
         pick_closest = True
         interpolator.set_points(centerline, cross_sections, pick_closest)
         sn_points = interpolator.get_interpolation_pts()

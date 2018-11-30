@@ -8,7 +8,7 @@ else()
 	set(CMAKE_POSITION_INDEPENDENT_CODE True)
 endif()
 
-project(xmsinterp C CXX)
+project(xmsinterplib C CXX)
 
 set(BUILD_TESTING NO CACHE BOOL "Enable/Disable testing")
 set(IS_CONDA_BUILD NO CACHE BOOL "Set this if you want to make a conda package.")
@@ -135,7 +135,6 @@ set(xmsinterp_py
   # Triangulate
   xmsinterp/python/triangulate/triangulate_py.cpp
   xmsinterp/python/triangulate/TrTin_py.cpp
-  xmsinterp/python/triangulate/TrTriangulatorPoints_py.cpp
 )
 set(xmsinterp_py_headers
   xmsinterp/python/geometry/geometry_py.h
@@ -231,26 +230,26 @@ if(IS_PYTHON_BUILD)
         include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11Tools.cmake")
     endif()
 
-    pybind11_add_module(xmsinterp_py
+    pybind11_add_module(xmsinterp
       ${xmsinterp_py} ${xmsinterp_py_headers}
     )
-    target_include_directories(xmsinterp_py
+    target_include_directories(xmsinterp
         PRIVATE
 	        ${EXT_LIBS}
           ${PYTHON_INCLUDE_DIRS}
     )
-    target_link_libraries(xmsinterp_py
+    target_link_libraries(xmsinterp
       PRIVATE
         ${EXT_LIBS}
         ${PROJECT_NAME}
     )
-    set_target_properties(xmsinterp_py PROPERTIES
+    set_target_properties(xmsinterp PROPERTIES
       LINKER_LANGUAGE CXX
     )
 
     # Install recipe
     install(
-      TARGETS xmsinterp_py
+      TARGETS xmsinterp
       ARCHIVE DESTINATION "site-packages"
       LIBRARY DESTINATION "site-packages"
     )
@@ -279,7 +278,4 @@ foreach (header IN LISTS xmsinterp_headers xmsinterp_py_headers)
     DESTINATION "include/${subdir}"
   )
 endforeach ()
-
-
-
 

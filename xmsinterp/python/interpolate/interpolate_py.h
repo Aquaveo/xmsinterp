@@ -11,6 +11,7 @@
 
 //----- Namespace declaration --------------------------------------------------
 namespace py = pybind11;
+namespace xms { class InterpBase; }
 
 //----- Function declarations --------------------------------------------------
 void initInterpolate(py::module &);
@@ -19,4 +20,4 @@ void initInterpAnisotropic(py::module &);
 void initInterpLinear(py::module &);
 void initInterpIdw(py::module &);
 void initInterpBase(py::module &);
-//void initNodalFunc(py::module &);
+std::string PyReprStringFromInterpBase(const xms::InterpBase& a_interpBase);

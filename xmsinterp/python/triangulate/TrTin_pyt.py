@@ -1,7 +1,7 @@
 import os
 import unittest
 import numpy as np
-import xmsinterp_py.triangulate as xt
+import xmsinterp.triangulate as xt
 
 
 class TestTrTin(unittest.TestCase):
@@ -9,20 +9,26 @@ class TestTrTin(unittest.TestCase):
 
     def setUp(self):
         """Set up for each test case."""
-        self.trTin = xt.TrTin()
         self.pts = ((0, 0, 0), (10, 0, 0), (20, 0, 0), (5, 10, 0), (15, 10, 0))
         self.pts_np = np.array([(0, 0, 0), (10, 0, 0), (20, 0, 0), (5, 10, 0), (15, 10, 0)])
         self.tris = (3, 0, 1, 1, 2, 4, 1, 4, 3)
         self.tris_np = np.array([3, 0, 1, 1, 2, 4, 1, 4, 3])
         self.tris_adj = ((0,), (0, 1, 2), (1,), (0, 2), (1, 2))
         self.tris_adj_np = np.array([[0], [0, 1, 2], [1], [0, 2], [1, 2]])
+        self.Tin = xt.Tin(self.pts, self.tris)
 
     def test_to_string(self):
-        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 0 0 0 0 0 0 0 0\n"
-        self.assertEqual(base, str(self.trTin))
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 5 0 0 0 " \
+               "0.00000000000000000e+00 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "1.00000000000000000e+01 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "2.00000000000000000e+01 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "5.00000000000000000e+00 1.00000000000000000e+01 0.00000000000000000e+00 " \
+               "1.50000000000000000e+01 1.00000000000000000e+01 0.00000000000000000e+00 " \
+               "9 0 3 0 1 1 2 4 1 4 3 0 0 0 0\n"
+        self.assertEqual(base, str(self.Tin))
 
     def test_set_pts(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         pts = self.pts
         trtin.set_points(pts)
 
@@ -35,7 +41,7 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(base, str(trtin))
 
     def test_set_pts_numpy(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         pts = self.pts_np
         trtin.set_points(pts)
 
@@ -48,41 +54,61 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(base, str(trtin))
 
     def test_set_tris(self):
-        trtin = xt.TrTin()
-        tris = self.tris
-        trtin.set_triangles(tris)
+        trtin = xt.Tin(self.pts, self.tris)
 
-        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 0 0 9 0 3 0 1 1 2 4 1 4 3 0 0 0 0\n"
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 5 0 0 0 " \
+               "0.00000000000000000e+00 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "1.00000000000000000e+01 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "2.00000000000000000e+01 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "5.00000000000000000e+00 1.00000000000000000e+01 0.00000000000000000e+00 " \
+               "1.50000000000000000e+01 1.00000000000000000e+01 0.00000000000000000e+00 " \
+               "9 0 3 0 1 1 2 4 1 4 3 0 0 0 0\n"
         self.assertEqual(base, str(trtin))
 
     def test_set_tris_numpy(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         tris = self.tris_np
         trtin.set_triangles(tris)
 
-        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 0 0 9 0 3 0 1 1 2 4 1 4 3 0 0 0 0\n"
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 5 0 0 0 " \
+               "0.00000000000000000e+00 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "1.00000000000000000e+01 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "2.00000000000000000e+01 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "5.00000000000000000e+00 1.00000000000000000e+01 0.00000000000000000e+00 " \
+               "1.50000000000000000e+01 1.00000000000000000e+01 0.00000000000000000e+00 " \
+               "9 0 3 0 1 1 2 4 1 4 3 0 0 0 0\n"
         self.assertEqual(base, str(trtin))
 
     def test_set_tris_adj(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         tris_adj = self.tris_adj
         trtin.set_triangles_adjacent_to_points(tris_adj)
 
-        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 0 0 0 0 0 0 5 0 1 0 0 3 0 0 1 " \
-               "2 1 0 1 2 0 0 2 2 0 1 2\n"
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 5 0 0 0 " \
+               "0.00000000000000000e+00 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "1.00000000000000000e+01 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "2.00000000000000000e+01 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "5.00000000000000000e+00 1.00000000000000000e+01 0.00000000000000000e+00 " \
+               "1.50000000000000000e+01 1.00000000000000000e+01 0.00000000000000000e+00 " \
+               "0 0 0 0 5 0 1 0 0 3 0 0 1 2 1 0 1 2 0 0 2 2 0 1 2\n"
         self.assertEqual(base, str(trtin))
 
     def test_set_tris_adj_numpy(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         tris_adj = self.tris_adj_np
         trtin.set_triangles_adjacent_to_points(tris_adj)
 
-        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 0 0 0 0 0 0 5 0 1 0 0 3 0 0 1 " \
-               "2 1 0 1 2 0 0 2 2 0 1 2\n"
+        base = "22 serialization::archive 16 1 0\n0 0 0 0 0 5 0 0 0 " \
+               "0.00000000000000000e+00 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "1.00000000000000000e+01 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "2.00000000000000000e+01 0.00000000000000000e+00 0.00000000000000000e+00 " \
+               "5.00000000000000000e+00 1.00000000000000000e+01 0.00000000000000000e+00 " \
+               "1.50000000000000000e+01 1.00000000000000000e+01 0.00000000000000000e+00 " \
+               "0 0 0 0 5 0 1 0 0 3 0 0 1 2 1 0 1 2 0 0 2 2 0 1 2\n"
         self.assertEqual(base, str(trtin))
 
     def test_set_geometry(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         pts = self.pts
         tris = self.tris
         tris_adj = self.tris_adj
@@ -98,7 +124,7 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(base, str(trtin))
 
     def test_set_geometry_numpy(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         pts = self.pts_np
         tris = self.tris_np
         tris_adj = self.tris_adj_np
@@ -114,37 +140,37 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(base, str(trtin))
 
     def test_get_pts(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         pts = self.pts
         trtin.set_points(pts)
         np.testing.assert_array_equal(pts, trtin.pts)
 
     def test_get_tris(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         tris = self.tris
         trtin.set_triangles(tris)
         np.testing.assert_array_equal(tris, trtin.tris)
 
     def test_get_tris_adj(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         tris_adj = self.tris_adj
         trtin.set_triangles_adjacent_to_points(tris_adj)
         self.assertEqual(tris_adj, trtin.tris_adj)
 
     def test_num_points(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         pts = self.pts_np
         trtin.set_points(pts)
         self.assertEqual(5, trtin.num_points)
 
     def test_num_triangles(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         tris = self.tris_np
         trtin.set_triangles(tris)
         self.assertEqual(3, trtin.num_triangles)
 
     def test_triangle_from_edge(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         rv, tri, idx1, idx2 = trtin.triangle_from_edge(1, 3)
         self.assertEqual(rv, True)
@@ -160,7 +186,7 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(rv, False)
 
     def test_triangle_adjacent_to_edge(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         tri = trtin.triangle_adjacent_to_edge(1, 3)
         self.assertEqual(2, tri)
@@ -170,7 +196,7 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(0, tri)
 
     def test_local_index(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         self.assertEqual(1, trtin.local_index(0, 0))
         self.assertEqual(2, trtin.local_index(0, 1))
@@ -178,7 +204,7 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(-1, trtin.local_index(0, 4))
 
     def test_global_index(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         self.assertEqual(3, trtin.global_index(0, 0))
         self.assertEqual(0, trtin.global_index(0, 1))
@@ -186,7 +212,7 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(-1, trtin.global_index(3, 2))
 
     def test_common_edge_index(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         self.assertEqual(2, trtin.common_edge_index(0, 2))
         self.assertEqual(2, trtin.common_edge_index(2, 0))
@@ -195,7 +221,7 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(-1, trtin.common_edge_index(0, 1))
 
     def test_adjacent_triangle(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         self.assertEqual(-1, trtin.adjacent_triangle(0, 0))
         self.assertEqual(-1, trtin.adjacent_triangle(0, 1))
@@ -208,7 +234,7 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(0, trtin.adjacent_triangle(2, 2))
 
     def test_triangle_centroid(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         x0, y0, z0 = trtin.triangle_centroid(0)
         self.assertEqual(5, x0)
@@ -224,14 +250,14 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(0, z2)
 
     def test_triangle_area(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         self.assertAlmostEqual(50.00000, trtin.triangle_area(0), places=4)
         self.assertAlmostEqual(50.00000, trtin.triangle_area(1), places=4)
         self.assertAlmostEqual(50.00000, trtin.triangle_area(2), places=4)
 
     def test_next_boundry_point(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         self.assertEqual(3, trtin.next_boundary_point(0))
         self.assertEqual(4, trtin.next_boundary_point(3))
@@ -240,7 +266,7 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(0, trtin.next_boundary_point(1))
 
     def test_previous_boundary_point(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         self.assertEqual(1, trtin.previous_boundary_point(0))
         self.assertEqual(2, trtin.previous_boundary_point(1))
@@ -249,7 +275,7 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(0, trtin.previous_boundary_point(3))
 
     def test_get_boundary_points(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         pts = ((0, 0, 0), (10, 0, 0), (20, 0, 0), (0, 10, 0), (10, 10, 0),
                (20, 10, 0), (0, 20, 0), (10, 20, 0), (20, 20, 0),)
         tris = (0, 1, 3, 1, 6, 3, 1, 4, 6, 4, 7, 6,
@@ -263,25 +289,25 @@ class TestTrTin(unittest.TestCase):
         )
 
     def test_get_boundary_polys(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         self.assertEqual(((0, 3, 4, 2, 1, 0),), trtin.get_boundary_polys())
 
     def test_get_extents(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         mn, mx = trtin.get_extents()
         self.assertEqual((0, 0, 0), mn)
         self.assertEqual((20, 10, 0), mx)
 
     def test_export_tin_file(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         trtin.export_tin_file("testfile.txt")
         self.assertTrue(os.path.isfile("testfile.txt"))
 
     def test_swap_edge(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         rv = trtin.swap_edge(0, 2, True)
         self.assertEqual(True, rv)
@@ -304,7 +330,7 @@ class TestTrTin(unittest.TestCase):
 
     def test_delete_triangles(self):
         # TODO: I don't think this is right.
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         to_delete = (1, 0)
         trtin.delete_triangles(to_delete)
@@ -312,7 +338,7 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(1, trtin.num_triangles)
 
     def test_delete_points(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         to_delete = (2, 4)
         trtin.delete_points(to_delete)
@@ -320,7 +346,7 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual(1, trtin.num_triangles)
 
     def test_optimize_triangulation(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         pts = ((0, 0, 0), (10, 0, 0), (20, 0, 0), (0, 10, 0), (10, 10, 0),
                (20, 10, 0), (0, 20, 0), (10, 20, 0), (20, 20, 0),)
         tris = (0, 1, 3, 1, 6, 3, 1, 4, 6, 4, 7, 6,
@@ -332,13 +358,13 @@ class TestTrTin(unittest.TestCase):
         np.testing.assert_array_equal(np.array(tris), trtin.tris)
 
     def test_build_tris_adj_to_pts(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         trtin.build_tris_adj_to_pts()
         self.assertEqual(((0,), (0, 1, 2), (1,), (0, 2), (1, 2)), trtin.tris_adj)
 
     def test_clear(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
         trtin.set_geometry(self.pts, self.tris, self.tris_adj)
         np.testing.assert_array_equal(self.pts_np, trtin.pts)
         np.testing.assert_array_equal(self.tris_np, trtin.tris)
@@ -349,7 +375,7 @@ class TestTrTin(unittest.TestCase):
         self.assertEqual((), trtin.tris_adj)
 
     def test_from_string(self):
-        trtin = xt.TrTin()
+        trtin = xt.Tin(self.pts)
 
         inpt = "22 serialization::archive 16 1 0\n0 0 0 0 0 5 0 0 0 0.00000000000000000e+00 " \
                "0.00000000000000000e+00 0.00000000000000000e+00 1.00000000000000000e+01 " \

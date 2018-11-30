@@ -16,4 +16,3 @@ namespace py = pybind11;
 void initTriangulate(py::module &);
 
 void initTrTin(py::module &);
-void initTrTriangulatorPoints(py::module &);

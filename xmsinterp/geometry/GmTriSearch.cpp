@@ -131,8 +131,9 @@ public:
   virtual void SetTriActivity(DynBitset& a_activity) override;
   /// \brief Activity of the points based on the triangle activity
   /// \return boost::dynamic_bitset of size_t
-  virtual DynBitset GetPtActivity() override { return PointActivityFromTriActivity(); }
-  bool ActiveTri(int a_idx);
+  virtual DynBitset GetPtActivity() const override { return PointActivityFromTriActivity(); }
+  virtual DynBitset GetTriActivity() const override;
+  bool ActiveTri(int a_idx) const;
   virtual int TriContainingPt(const Pt3d& a_pt) override;
   virtual void TriEnvelopsContainingPt(const Pt3d& a_pt, std::vector<int>& a_tris) override;
   virtual void TriEnvelopesOverlap(const Pt3d& a_pMin,
@@ -146,6 +147,8 @@ public:
                                         int& a_triangleIdx,
                                         std::vector<int>& a_idxs,
                                         std::vector<double>& a_wts) override;
+  virtual const BSHP<VecPt3d> GetPoints() const override;
+  virtual const BSHP<VecInt>  GetTriangles() const override;
 
   virtual std::string ToString() const override;
 
@@ -155,7 +158,7 @@ public:
   int FindTriangle(const Pt3d& a_pt, int ix[3], Pt3d& weights);
   void GetTriBarycentricVals(int a_idx, int a_ix[3], BarycentricVals& a_b);
 
-  DynBitset PointActivityFromTriActivity();
+  DynBitset PointActivityFromTriActivity() const;
   BSHP<GmPtSearch> CreatePtSearch();
 
   Pt3d m_min; ///< mininum extents of all points
@@ -328,7 +331,7 @@ void GmTriSearchImpl::SetPtActivity(DynBitset& a_activity)
 } // GmTriSearchImpl::SetPtActivity
 //------------------------------------------------------------------------------
 /// \brief Modifies the activity bitset of the triangles.
-/// \param a_activity bitset of the activity of the points
+/// \param a_activity bitset of the activity of the triangles
 //------------------------------------------------------------------------------
 void GmTriSearchImpl::SetTriActivity(DynBitset& a_activity)
 {
@@ -352,12 +355,28 @@ void GmTriSearchImpl::SetTriActivity(DynBitset& a_activity)
   }
 } // GmTriSearchImpl::SetTriActivity
 //------------------------------------------------------------------------------
+/// \brief Gets the activity bitset of the triangles.
+/// \return bitset of the activity of the triangles
+//------------------------------------------------------------------------------
+DynBitset GmTriSearchImpl::GetTriActivity() const
+{
+  DynBitset rval;
+  if (m_triActivity.empty() || m_tris->empty())
+    return rval;
+  rval.resize(m_tris->size() / 3, 1);
+  for (size_t i = 0; i < rval.size(); ++i)
+  {
+    size_t idx = i * 3;
+    rval[i] = m_triActivity[idx];
+  }
+} // GmTriSearchImpl::GetTriActivity
+//------------------------------------------------------------------------------
 /// \brief Tests if a triangle is active. If any of the points of the tri
 /// are not active then the tri is not active
 /// \param a_idx Triangle index
 /// \return true if the triangle a_idx is active.
 //------------------------------------------------------------------------------
-bool GmTriSearchImpl::ActiveTri(int a_idx)
+bool GmTriSearchImpl::ActiveTri(int a_idx) const
 {
   if (m_triActivity.empty())
     return true;
@@ -467,6 +486,22 @@ bool GmTriSearchImpl::InterpWeightsTriangleIdx(const Pt3d& a_pt, int& a_triangle
   }
   return false;
 } // GmTriSearchImpl::InterpWeightsTriangleIdx
+//------------------------------------------------------------------------------
+/// \brief Returns the points
+/// \return constant shared pointer to the vector of points.
+//------------------------------------------------------------------------------
+const BSHP<VecPt3d> GmTriSearchImpl::GetPoints() const
+{
+  return m_pts;
+} // GmTriSearchImpl::GetPoints
+//------------------------------------------------------------------------------
+/// \brief Returns the triangles
+/// \return constant shared pointer to the vector of triangles.
+//------------------------------------------------------------------------------
+const BSHP<VecInt>  GmTriSearchImpl::GetTriangles() const
+{
+  return m_tris;
+} // GmTriSearchImpl::GetTriangles
 //------------------------------------------------------------------------------
 /// \brief Write the internals to a string.
 /// \return The string.
@@ -594,7 +629,7 @@ void GmTriSearchImpl::GetTriBarycentricVals(int a_idx, int a_ix[3], BarycentricV
 /// \brief Gets the activity of the points from the triangles
 /// \return bitset of the activity of the points.
 //------------------------------------------------------------------------------
-DynBitset GmTriSearchImpl::PointActivityFromTriActivity()
+DynBitset GmTriSearchImpl::PointActivityFromTriActivity() const
 {
   DynBitset r;
   if (m_triActivity.empty())

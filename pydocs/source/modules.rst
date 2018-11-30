@@ -25,7 +25,6 @@ Triangulate
    :maxdepth: 1
    
    modules/triangulate/TrTin
-   modules/triangulate/TrTriangulatorPoints
 
 Interpolate
 ===========

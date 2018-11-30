@@ -51,20 +51,14 @@ public:
   void SetTrunc(double a_sMax, double a_sMin) override {
     PYBIND11_OVERLOAD_PURE(void, InterpBase_, SetTrunc, a_sMax, a_sMin);
   }
-  boost::shared_ptr<std::vector<xms::Pt3d>> GetPts() override {
+  const boost::shared_ptr<std::vector<xms::Pt3d>> GetPts() const override {
     PYBIND11_OVERLOAD_PURE(boost::shared_ptr<std::vector<xms::Pt3d>>, InterpBase_, GetPts, );
   }
-  boost::shared_ptr<std::vector<int>> GetTris() override {
+  const boost::shared_ptr<std::vector<int>> GetTris() const override {
     PYBIND11_OVERLOAD_PURE(boost::shared_ptr<std::vector<int>>, InterpBase_, GetTris, );
   }
   std::string ToString() const override {
     PYBIND11_OVERLOAD_PURE(std::string, InterpBase_, ToString, );
-  }
-  void SetIdString(const std::string& a_id) override {
-    PYBIND11_OVERLOAD_PURE(void, InterpBase_, SetIdString, a_id);
-  }
-  std::string GetIdString() const override {
-    PYBIND11_OVERLOAD_PURE(std::string, InterpBase_, GetIdString, );
   }
 };
 
