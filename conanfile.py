@@ -75,6 +75,7 @@ class XmsinterpConan(ConanFile):
         cmake.definitions["PYTHON_TARGET_VERSION"] = self.env.get("PYTHON_TARGET_VERSION", "3.6")
         cmake.configure(source_folder=".")
         cmake.build()
+        cmake.install()
 
         if self.options.testing:
             print("***********(0.0)*************")
@@ -99,16 +100,6 @@ class XmsinterpConan(ConanFile):
 
 
     def package(self):
-        self.copy("*.h", dst="include/xmsinterp", src="xmsinterp")
-        self.copy("*.lib", dst="lib", keep_path=False)
-        self.copy("*.exp", dst="lib", keep_path=False)
-        self.copy("*.pyd", dst="site-packages", keep_path=False)
-        self.copy("*_py.*.so", dst="site-packages", keep_path=False)
-        self.copy("*_py.so", dst="site-packages", keep_path=False)
-        self.copy("*.dll", dst="bin", keep_path=False)
-        self.copy("*.dylib*", dst="lib", keep_path=False)
-        self.copy("*.so", dst="lib", keep_path=False)
-        self.copy("*.a", dst="lib", keep_path=False)
         self.copy("license", dst="licenses", ignore_case=True, keep_path=False)
 
     def package_info(self):
