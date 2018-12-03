@@ -1,3 +1,26 @@
+/*
+@ @licstart  The following is the entire license notice for the
+JavaScript code in this file.
+
+Copyright (C) 1997-2017 by Dimitri van Heesch
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+@licend  The above is the entire license notice
+for the JavaScript code in this file
+*/
 var NAVTREE =
 [
   [ "xmsinterp", "index.html", [
@@ -34,8 +57,8 @@ var NAVTREE =
         [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
-    [ "Files", null, [
-      [ "File List", "files.html", "files" ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
@@ -48,11 +71,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"class_gm_multi_poly_intersector_unit_tests.html#aa5baa916d12383da4dbe7877af0a956e",
-"classxms_1_1_gm_multi_poly_intersector_impl.html#ae25a886c347f59cc97cdd4d09d0f2ecf",
-"classxms_1_1_interp_nat_neigh_impl.html#a722cb830e57088a15fb8ff92c96d9c77",
-"classxms_1_1_tr_triangulator.html",
-"geoms_8h.html#ad512367ef48bf109240552ff3c30cc7a"
+"class_gm_multi_poly_intersector_unit_tests.html#aa9d101ac50cce7df1ad548edbe558d25",
+"classxms_1_1_gm_multi_poly_intersector_impl.html#aee888465df13dc924b99fc607071223e",
+"classxms_1_1_interp_linear_impl.html#aea728571e8f169e0491abcbe8219272c",
+"classxms_1_1_tr_tin_impl.html#a70f4eb6dd87eb85eaca86e34f11da4fc",
+"geoms_8h.html#a89f7d814569daefeabe9f5e3b5fbd213a5f2058ee26998db92e7beedea5fd7e1c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1577,8 +1577,8 @@
       <type>static void</type>
       <name>iGetPoints</name>
       <anchorfile>_interp_idw_8cpp.html</anchorfile>
-      <anchor>aaed66ab565b54e7986f7354a75cbdd5c</anchor>
-      <arglist>(std::vector&lt; Pt3d &gt; &amp;a_pts, std::vector&lt; float &gt; &amp;a_scalar, std::vector&lt; Pt3d &gt; &amp;a_iPts)</arglist>
+      <anchor>a5ecbe3f746652c820934c79ac25de71a</anchor>
+      <arglist>(VecPt3d &amp;a_pts, VecFlt &amp;a_scalar, VecPt3d &amp;a_iPts)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -2601,13 +2601,6 @@
   <compound kind="class">
     <name>GeomsXmsngIntermediateTests</name>
     <filename>class_geoms_xmsng_intermediate_tests.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual const CxxTest::TestGroup &amp;</type>
-      <name>group</name>
-      <anchorfile>class_geoms_xmsng_intermediate_tests.html</anchorfile>
-      <anchor>aef5edd3a634e8426082d33177059befb</anchor>
-      <arglist>()</arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>test_gmPointInPolygon2D</name>
@@ -3173,13 +3166,6 @@
   <compound kind="class">
     <name>GmMultiPolyIntersector2IntermediateTests</name>
     <filename>class_gm_multi_poly_intersector2_intermediate_tests.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual const CxxTest::TestGroup &amp;</type>
-      <name>group</name>
-      <anchorfile>class_gm_multi_poly_intersector2_intermediate_tests.html</anchorfile>
-      <anchor>aa6a644162f42d054f0299aadba21e922</anchor>
-      <arglist>()</arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>testLargeNumPolys</name>
@@ -4018,13 +4004,6 @@
   <compound kind="class">
     <name>GmPolygonIntermediateTests</name>
     <filename>class_gm_polygon_intermediate_tests.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual const CxxTest::TestGroup &amp;</type>
-      <name>group</name>
-      <anchorfile>class_gm_polygon_intermediate_tests.html</anchorfile>
-      <anchor>af4eb4d2ec4454de006730ce7b33c5c6b</anchor>
-      <arglist>()</arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>testSpeed</name>
@@ -4386,15 +4365,22 @@
       <type>virtual DynBitset</type>
       <name>GetPtActivity</name>
       <anchorfile>classxms_1_1_gm_tri_search_impl.html</anchorfile>
-      <anchor>a88b9fbb5c768f1a76a0c69dc7be10935</anchor>
-      <arglist>() override</arglist>
+      <anchor>a7ef7b01bc917d68bc9cbe258b6e6a9b4</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual DynBitset</type>
+      <name>GetTriActivity</name>
+      <anchorfile>classxms_1_1_gm_tri_search_impl.html</anchorfile>
+      <anchor>a07303c6ed2b3ddc399cd218d439c0446</anchor>
+      <arglist>() const override</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>ActiveTri</name>
       <anchorfile>classxms_1_1_gm_tri_search_impl.html</anchorfile>
-      <anchor>aa44079e32ef05ec71f9ae47d805c4811</anchor>
-      <arglist>(int a_idx)</arglist>
+      <anchor>ac281a7bee912f5a25c2f29596d85c8c7</anchor>
+      <arglist>(int a_idx) const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual int</type>
@@ -4430,6 +4416,20 @@
       <anchorfile>classxms_1_1_gm_tri_search_impl.html</anchorfile>
       <anchor>a6f831e143724ccc2a55c0daa7995e449</anchor>
       <arglist>(const Pt3d &amp;a_pt, int &amp;a_triangleIdx, std::vector&lt; int &gt; &amp;a_idxs, std::vector&lt; double &gt; &amp;a_wts) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual const BSHP&lt; VecPt3d &gt;</type>
+      <name>GetPoints</name>
+      <anchorfile>classxms_1_1_gm_tri_search_impl.html</anchorfile>
+      <anchor>a681a886b30b96254f6b3ab5e9cf1b1fc</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual const BSHP&lt; VecInt &gt;</type>
+      <name>GetTriangles</name>
+      <anchorfile>classxms_1_1_gm_tri_search_impl.html</anchorfile>
+      <anchor>ac3f2d17dc8d0568e1f67b9049d3cb827</anchor>
+      <arglist>() const override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual std::string</type>
@@ -4470,8 +4470,8 @@
       <type>DynBitset</type>
       <name>PointActivityFromTriActivity</name>
       <anchorfile>classxms_1_1_gm_tri_search_impl.html</anchorfile>
-      <anchor>a5b26bb57b6a3dc0373188675dbf09c11</anchor>
-      <arglist>()</arglist>
+      <anchor>aa3ae01b7bd0dfc9648e51550dfc8d8b9</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>BSHP&lt; GmPtSearch &gt;</type>
@@ -4913,15 +4913,29 @@
       <type>virtual void</type>
       <name>SetPtsTris</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>af34c7cead7fc8a591985593e3fc0d000</anchor>
-      <arglist>(BSHP&lt; VecPt3d &gt; a_pts, BSHP&lt; VecInt &gt; a_tris)</arglist>
+      <anchor>af241f63a703b1ec13fe0409710f74b1e</anchor>
+      <arglist>(BSHP&lt; VecPt3d &gt; a_pts, BSHP&lt; VecInt &gt; a_tris) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>SetScalars</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>a4b3657d29033724bb6f585a52a9c6b45</anchor>
+      <arglist>(const float *a_scalar, size_t a_n) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>SetScalars</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>a9c233e1542f76292caff9bce18f59afe</anchor>
+      <arglist>(BSHP&lt; VecFlt &gt; a_scalar)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>SetPts</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>a2d4b1e66423c71e58b71c69132525aa4</anchor>
-      <arglist>(BSHP&lt; std::vector&lt; Pt3d &gt;&gt; a_pts, bool a_2d)</arglist>
+      <anchor>ac6c7a272f475452822ad8cf6e0f4b0f6</anchor>
+      <arglist>(BSHP&lt; VecPt3d &gt; a_pts, bool a_2d) override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual float</type>
@@ -4934,36 +4948,57 @@
       <type>virtual void</type>
       <name>InterpToPts</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>accf865202659ed8b760a1524b00f7593</anchor>
-      <arglist>(const std::vector&lt; Pt3d &gt; &amp;a_pts, std::vector&lt; float &gt; &amp;a_scalars)</arglist>
+      <anchor>a9262e2a2544a0b094aaca1e155f67dae</anchor>
+      <arglist>(const VecPt3d &amp;a_pts, VecFlt &amp;a_scalars) override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>SetPtActivity</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>ae4d04a94ccc0c154d0a393121e24185e</anchor>
-      <arglist>(DynBitset &amp;a_activity)</arglist>
+      <anchor>af17b9db69cd62e21e2a566f38463491d</anchor>
+      <arglist>(DynBitset &amp;a_activity) override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>SetTriActivity</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>abdf8de95138f5b5a73411b4d1d77e2bc</anchor>
-      <arglist>(DynBitset &amp;)</arglist>
+      <anchor>a46b0f8615ccad8d9b07053285275ecfb</anchor>
+      <arglist>(DynBitset &amp;) override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual BSHP&lt; std::vector&lt; Pt3d &gt; &gt;</type>
+      <type>virtual const BSHP&lt; VecPt3d &gt;</type>
       <name>GetPts</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>af674b8955a7ecebacc2d7c4a8cfe7bce</anchor>
-      <arglist>()</arglist>
+      <anchor>aa55c4098a59244f43ea7a76193f2b478</anchor>
+      <arglist>() const override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual BSHP&lt; std::vector&lt; int &gt; &gt;</type>
+      <type>virtual const BSHP&lt; VecInt &gt;</type>
       <name>GetTris</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>a2f49dccc1544e1e04b16358e458a94cb</anchor>
-      <arglist>()</arglist>
+      <anchor>a04cdf9e0213da80deaf52c4a991ffffd</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual const BSHP&lt; VecFlt &gt;</type>
+      <name>GetScalars</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>a92b2dcf7c9a01c3d4cf617482e09007f</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual DynBitset</type>
+      <name>GetPtActivity</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>a639ecc0af8c0e7888ae3540aa14066f3</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual DynBitset</type>
+      <name>GetTriActivity</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>a7f3c4ccce6f66f5c549e2f73374be805</anchor>
+      <arglist>() const override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -4971,6 +5006,76 @@
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
       <anchor>a3360ed1fa84ea3addbb31580c4cfbb77</anchor>
       <arglist>(double a_sMax, double a_sMin) override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>GetTruncateInterpolatedValues</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>a79b0102a94dfa16ba4aad354edafdb93</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual double</type>
+      <name>GetTruncMin</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>a67c1443cd9b515a0b0607b6529f97ea2</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual double</type>
+      <name>GetTruncMax</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>a88a5032a6a11629b6c169c4b9cb40bb0</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual double</type>
+      <name>GetPower</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>ad4739f2995998505a249bb9d26dadd22</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>GetSearchOptsNumNearestPts</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>a61f613156555511c79494e5db8ea8bf1</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>GetSearchOptsUseQuadrantSearch</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>a0569c30ec4904909f720dd363f4ee944</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual WeightEnum</type>
+      <name>GetWeightCalcMethod</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>ab7a4e3fb47473a35cbc790446cee1bf0</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual NodalFuncEnum</type>
+      <name>GetNodalFunctionType</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>ae768e6e683a57d60a70376c21bd1392c</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>GetNodalFunctionNumNearestPts</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>a43e381afbf7598421859c33f8f5d0fb9</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>GetNodalFunctionUseQuadrantSearch</name>
+      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
+      <anchor>a6acdd5a78e1dadb452436576b35b46c6</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -4983,8 +5088,8 @@
       <type>virtual void</type>
       <name>InterpWeights</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>aa1bbe8926db4bd13281fbb559758d19d</anchor>
-      <arglist>(const Pt3d &amp;a_pt, std::vector&lt; int &gt; &amp;a_idx, std::vector&lt; double &gt; &amp;a_wt) const</arglist>
+      <anchor>a5c57455c6ddb22d8c1ff2850bd2d9ac9</anchor>
+      <arglist>(const Pt3d &amp;a_pt, VecInt &amp;a_idx, VecDbl &amp;a_wt) const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -4999,34 +5104,6 @@
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
       <anchor>aca966e59b934c8ccf1301fa8ed1d36b4</anchor>
       <arglist>() const override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>SetIdString</name>
-      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>a296a65d6d0a4148cb71cc6a0958bde59</anchor>
-      <arglist>(const std::string &amp;a_id) override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual std::string</type>
-      <name>GetIdString</name>
-      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>a4cf5464d0959c44b39d2a26397e31525</anchor>
-      <arglist>() const override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>SetScalars</name>
-      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>a4b3657d29033724bb6f585a52a9c6b45</anchor>
-      <arglist>(const float *a_scalar, size_t a_n) override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>SetScalars</name>
-      <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>af4c80070303cae01545c909219580e08</anchor>
-      <arglist>(BSHP&lt; std::vector&lt; float &gt;&gt; a_scalar)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -5067,8 +5144,8 @@
       <type>void</type>
       <name>ValFromWeights</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>afc66127bd5ac9675e7ba3e008030c591</anchor>
-      <arglist>(std::vector&lt; double &gt; &amp;a_w, std::vector&lt; int &gt; &amp;a_nPts, float &amp;a_val, int a_ptIdx, const Pt3d &amp;a_pt) const</arglist>
+      <anchor>abcca11a941582407c4764175f2306339</anchor>
+      <arglist>(VecDbl &amp;a_w, VecInt &amp;a_nPts, float &amp;a_val, int a_ptIdx, const Pt3d &amp;a_pt) const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -5141,24 +5218,24 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>BSHP&lt; std::vector&lt; Pt3d &gt; &gt;</type>
+      <type>BSHP&lt; VecPt3d &gt;</type>
       <name>m_pts</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>a1175fedcb9c6d8e7d4a80e2aeac9a8dd</anchor>
+      <anchor>ad2362456e5e398a247b1abfbe92b6ad0</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>BSHP&lt; std::vector&lt; int &gt; &gt;</type>
+      <type>BSHP&lt; VecInt &gt;</type>
       <name>m_tris</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>a192580cb209683ec63620b4915677e88</anchor>
+      <anchor>acdfeb655e85c0ca17712df838d668271</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>BSHP&lt; std::vector&lt; float &gt; &gt;</type>
+      <type>BSHP&lt; VecFlt &gt;</type>
       <name>m_scalarFrom</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>aeb79efd0ab17fb6c6ea2f331a31d5abc</anchor>
+      <anchor>aab3aed24914630596b37ab676194425c</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -5183,17 +5260,17 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+      <type>VecInt2d</type>
       <name>m_ptIdx</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>ab7343722fc68233fdeb0b401753808a8</anchor>
+      <anchor>a965e0cf697e00394cb1317076b4b80cd</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+      <type>VecDbl2d</type>
       <name>m_weights</name>
       <anchorfile>classxms_1_1_interp_idw_impl.html</anchorfile>
-      <anchor>a6d04093d8f1538299dcf5d744dc8c47b</anchor>
+      <anchor>ad182cdbf040e9b2b7703feed5b27c26e</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -5365,18 +5442,39 @@
       <arglist>(DynBitset &amp;a_activity) override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual BSHP&lt; VecPt3d &gt;</type>
+      <type>virtual const BSHP&lt; VecPt3d &gt;</type>
       <name>GetPts</name>
       <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
-      <anchor>a6f2b8504a9242006d0018a05f0a0068d</anchor>
-      <arglist>() override</arglist>
+      <anchor>ac01c636f694f3a957257e4668a5564d4</anchor>
+      <arglist>() const override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
-      <type>virtual BSHP&lt; VecInt &gt;</type>
+      <type>virtual const BSHP&lt; VecInt &gt;</type>
       <name>GetTris</name>
       <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
-      <anchor>a95d23288e73e243188be4d0b2a8715e7</anchor>
-      <arglist>() override</arglist>
+      <anchor>a846ac7162509c7331389570e7c3c637b</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual const BSHP&lt; VecFlt &gt;</type>
+      <name>GetScalars</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>af60b3d1f6512e52d93793b847ffeb9aa</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual DynBitset</type>
+      <name>GetPtActivity</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>abbbcf1e86f2e49326f4481e7392690fa</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual DynBitset</type>
+      <name>GetTriActivity</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>aa2441661030f3dc05ca12addee8f04e2</anchor>
+      <arglist>() const override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual float</type>
@@ -5455,6 +5553,76 @@
       <anchor>a98827037d28e5c1ce5c245c59bde6e01</anchor>
       <arglist>(bool a_, int a_nodalFunc, int a_ndFuncOpt, int a_ndFuncNumNearestPts, bool a_blendWeights, BSHP&lt; Observer &gt; a_prog) override</arglist>
     </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual double</type>
+      <name>GetExtrapVal</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>a911cf59620ef151e1fd15d3c10f352c1</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>GetTruncateInterpolatedValues</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>aa4fee152c56a2e8aa6d12d0072f86065</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual double</type>
+      <name>GetTruncMin</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>a761b1e5df9b6b6bf242d132c0a6a1d1f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual double</type>
+      <name>GetTruncMax</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>ac6a4bc609c1c03de66803c49d35eeb4f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>GetUseCloughTocher</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>a66355a591cbaa961b64f778abe009475</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>GetUseNatNeigh</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>a54bab145d7bbc8a094a3eb043b2fc137</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>GetNatNeighNodalFunc</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>a0d9be835477d66976a5983dd1195b17a</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>GetNatNeighNodalFuncNearestPtsOption</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>a8014ef517cbde1835b81e6359e062edc</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>GetNatNeighNodalFuncNumNearestPts</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>aa3f497b48a657af675fbee37249f950e</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>GetNatNeighBlendWeights</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>a94c879c826c11cd977bd6f555c01c30c</anchor>
+      <arglist>() const</arglist>
+    </member>
     <member kind="function">
       <type>BSHP&lt; GmPtSearch &gt;</type>
       <name>CreatePtSearch</name>
@@ -5474,20 +5642,6 @@
       <name>ToString</name>
       <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
       <anchor>a0145d7a1f9d28fc67ced0479694cf6a6</anchor>
-      <arglist>() const override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>SetIdString</name>
-      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
-      <anchor>aafd786ca1650cc1ab4ca4ffc0d5e6a62</anchor>
-      <arglist>(const std::string &amp;a_id) override</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual std::string</type>
-      <name>GetIdString</name>
-      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
-      <anchor>a08fc5d545abcb21ce436ffec93a8a55e</anchor>
       <arglist>() const override</arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -5961,8 +6115,8 @@
       <type></type>
       <name>InterpThread</name>
       <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
-      <anchor>a50d03ded4102db31e8ed1854fb0c4db6</anchor>
-      <arglist>(InterpIdwImpl &amp;a_, std::vector&lt; float &gt; &amp;a_s, const std::vector&lt; Pt3d &gt; &amp;a_p)</arglist>
+      <anchor>aad5946619307257a6f66fe8d89d8c115</anchor>
+      <arglist>(InterpIdwImpl &amp;a_, VecFlt &amp;a_s, const VecPt3d &amp;a_p)</arglist>
     </member>
     <member kind="function">
       <type>BSHP&lt; ThreadLoop &gt;</type>
@@ -5979,17 +6133,17 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>std::vector&lt; float &gt; &amp;</type>
+      <type>VecFlt &amp;</type>
       <name>m_scalarTo</name>
       <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
-      <anchor>ad89ee8ab61bc305b07ed6d0d4c344ad2</anchor>
+      <anchor>a67f759105b3e65aaf54abfdef2f9a8a3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>const std::vector&lt; Pt3d &gt; &amp;</type>
+      <type>const VecPt3d &amp;</type>
       <name>m_pts</name>
       <anchorfile>classxms_1_1_interp_idw_impl_1_1_interp_thread.html</anchorfile>
-      <anchor>a70d394f7096ca5f365335eb7af10b4c8</anchor>
+      <anchor>a26bb5b1a02b05e20ca148e1da7a3b109</anchor>
       <arglist></arglist>
     </member>
     <member kind="function" protection="private">
@@ -6267,6 +6421,41 @@
       <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
       <anchor>a1855ac8e5977ff2558c3698c026bba76</anchor>
       <arglist>() const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>GetType</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>aaf0378f0f2ff97bb47e8bd81a84381bf</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>GetNearestPointsOption</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a9130e3e27d380c7f53a36f7237e2fe24</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>GetNumNearestPoints</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a5926267a376fe79c7deaa4d07d4fdd8f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>GetUseModifiedShepardWeights</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a2bd5c77c94b61450738a331ff4df6233</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>GetUseQuadrantSearch</name>
+      <anchorfile>classxms_1_1_nodal_func_impl.html</anchorfile>
+      <anchor>a3f21fc02bdc360282dd15684d0b7af4f</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -7929,13 +8118,6 @@
   <compound kind="class">
     <name>TutInterpolationIntermediateTests</name>
     <filename>class_tut_interpolation_intermediate_tests.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual const CxxTest::TestGroup &amp;</type>
-      <name>group</name>
-      <anchorfile>class_tut_interpolation_intermediate_tests.html</anchorfile>
-      <anchor>a195ff67bdc3ae586cbf79b7665c3f66b</anchor>
-      <arglist>()</arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>test_Example_IDW</name>

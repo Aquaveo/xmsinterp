@@ -1,7 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"class_gm_multi_poly_intersector_unit_tests.html#aa5baa916d12383da4dbe7877af0a956e":[2,0,6,6],
-"class_gm_multi_poly_intersector_unit_tests.html#aa6ebb5373b16aea4f77837dd3f3b7091":[2,0,6,21],
 "class_gm_multi_poly_intersector_unit_tests.html#aa9d101ac50cce7df1ad548edbe558d25":[2,0,6,16],
 "class_gm_multi_poly_intersector_unit_tests.html#aab29e414a3c777ea2e6a6ab6d4842c5f":[2,0,6,24],
 "class_gm_multi_poly_intersector_unit_tests.html#ab02b7de0c41d00d91983178ed2cc1ba9":[2,0,6,25],
@@ -51,8 +49,7 @@ var NAVTREEINDEX1 =
 "class_gm_poly_line_pt_redistributer_unit_tests.html#a408aa5befac9d84f88fe51828a343ddd":[2,0,12,0],
 "class_gm_poly_line_pt_redistributer_unit_tests.html#ae730c8c2625bc12b21001743446a9ce8":[2,0,12,2],
 "class_gm_polygon_intermediate_tests.html":[2,0,10],
-"class_gm_polygon_intermediate_tests.html#af4eb4d2ec4454de006730ce7b33c5c6b":[2,0,10,0],
-"class_gm_polygon_intermediate_tests.html#af601eb8418e0b14047243e8fe948a757":[2,0,10,1],
+"class_gm_polygon_intermediate_tests.html#af601eb8418e0b14047243e8fe948a757":[2,0,10,0],
 "class_gm_polygon_unit_tests.html":[2,0,11],
 "class_gm_polygon_unit_tests.html#a06d62122ec097576fbe8e2831c434259":[2,0,11,2],
 "class_gm_polygon_unit_tests.html#a0978e7f7e86b26f1a4e971b3e5d8a31a":[2,0,11,4],
@@ -126,11 +123,10 @@ var NAVTREEINDEX1 =
 "class_tri_search_unit_tests.html#ad3db5f8baf65200980ce9ce64cf4e076":[2,0,21,2],
 "class_tri_search_unit_tests.html#af0c83cdfee2822cd88b5e784e5d646ea":[2,0,21,4],
 "class_tut_interpolation_intermediate_tests.html":[2,0,25],
-"class_tut_interpolation_intermediate_tests.html#a07da59ac97a03923d1894fc0db7ebd46":[2,0,25,2],
-"class_tut_interpolation_intermediate_tests.html#a195ff67bdc3ae586cbf79b7665c3f66b":[2,0,25,0],
-"class_tut_interpolation_intermediate_tests.html#a4016c266625b88129df8654a1d84df5d":[2,0,25,4],
-"class_tut_interpolation_intermediate_tests.html#a8a81dfb33fad9290a29c89a73febadfa":[2,0,25,3],
-"class_tut_interpolation_intermediate_tests.html#a938de7e5b7abc72bbeaeb2d014542e46":[2,0,25,1],
+"class_tut_interpolation_intermediate_tests.html#a07da59ac97a03923d1894fc0db7ebd46":[2,0,25,1],
+"class_tut_interpolation_intermediate_tests.html#a4016c266625b88129df8654a1d84df5d":[2,0,25,3],
+"class_tut_interpolation_intermediate_tests.html#a8a81dfb33fad9290a29c89a73febadfa":[2,0,25,2],
+"class_tut_interpolation_intermediate_tests.html#a938de7e5b7abc72bbeaeb2d014542e46":[2,0,25,0],
 "classxms_1_1_anisotropic_interpolator.html":[2,0,0,0],
 "classxms_1_1_anisotropic_interpolator.html#a1a66b1b43199caf4469a9b6db2209c8b":[2,0,0,0,6],
 "classxms_1_1_anisotropic_interpolator.html#a2029e95c27c05e502ec0f4a084ff1585":[2,0,0,0,10],
@@ -249,5 +245,9 @@ var NAVTREEINDEX1 =
 "classxms_1_1_gm_multi_poly_intersector_impl.html#ac8c9bc9edcf78e66b2b19b429fdd748b":[2,0,0,10,24],
 "classxms_1_1_gm_multi_poly_intersector_impl.html#ad44f26ecf4069c3406c27806dabf13f8":[2,0,0,10,15],
 "classxms_1_1_gm_multi_poly_intersector_impl.html#ad7d468b9c1de82c05149fc6bf429dab1":[2,0,0,10,12],
-"classxms_1_1_gm_multi_poly_intersector_impl.html#ad8a8d896823f5f70b3ffc250b453434c":[2,0,0,10,16]
+"classxms_1_1_gm_multi_poly_intersector_impl.html#ad8a8d896823f5f70b3ffc250b453434c":[2,0,0,10,16],
+"classxms_1_1_gm_multi_poly_intersector_impl.html#ae25a886c347f59cc97cdd4d09d0f2ecf":[2,0,0,10,27],
+"classxms_1_1_gm_multi_poly_intersector_impl.html#ae6d9d3489cc6f4ffad6bbdbaefadddf5":[2,0,0,10,2],
+"classxms_1_1_gm_multi_poly_intersector_impl.html#ae78756aa2652d524131bb6259534df04":[2,0,0,10,11],
+"classxms_1_1_gm_multi_poly_intersector_impl.html#aece8a77964a59bb161d95a8d0f36e598":[2,0,0,10,22]
 };
