@@ -99,8 +99,6 @@ private:
   BSHP<TrTin> m_tin;         ///< The tin
   BSHP<Observer> m_observer; ///< The observer
   double m_xyTol;            ///< Xy tolerance used with geom functions
-  size_t m_totNumSegs;       ///< Total num segments. For progress.
-  size_t m_segCount;         ///< Current segment. For progress.
   VecInt* m_tris;            ///< Pointer to m_tin triangles for convenience
   VecPt3d* m_pts;            ///< Pointer to m_tin points for convenience
   VecInt2d* m_trisAdjToPts;  ///< Pointer to m_tin trisAdjToPts for convenience
@@ -126,8 +124,6 @@ TrBreaklineAdderImpl::TrBreaklineAdderImpl()
 : m_tin()
 , m_observer()
 , m_xyTol(1e-9)
-, m_totNumSegs(0)
-, m_segCount(0)
 , m_tris(nullptr)
 , m_pts(nullptr)
 , m_trisAdjToPts(nullptr)

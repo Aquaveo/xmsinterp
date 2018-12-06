@@ -68,7 +68,7 @@ public:
 
     /// \brief creates an instance of this class for a new thread
     /// \return Shared pointer to ThreadLoop.
-    BSHP<ThreadLoop> CreateForNewThread()
+    BSHP<ThreadLoop> CreateForNewThread() override
     {
       BSHP<InterpThread> r(new InterpThread(m_interp, m_scalarTo, m_pts));
       BSHP<ThreadLoop> q = BDPC<ThreadLoop>(r);
@@ -89,7 +89,7 @@ public:
 
   virtual void SetPtsTris(BSHP<VecPt3d> a_pts, BSHP<VecInt> a_tris) override;
   void SetScalars(const float* a_scalar, size_t a_n) override;
-  void SetScalars(BSHP<VecFlt> a_scalar);
+  void SetScalars(BSHP<VecFlt> a_scalar) override;
   virtual void SetPts(BSHP<VecPt3d> a_pts, bool a_2d) override;
   // this method will run parallel
   virtual float InterpToPt(const Pt3d& a_pt) override;
@@ -106,25 +106,25 @@ public:
 
   /// \brief get the option to truncate interpolated values
   /// \return the option to truncate interpolated values
-  virtual bool GetTruncateInterpolatedValues() const { return m_trunc; }
+  virtual bool GetTruncateInterpolatedValues() const override { return m_trunc; }
   /// \brief get minimum truncation value
   /// \return the minimum truncation value
-  virtual double GetTruncMin() const { return m_truncMin; }
+  virtual double GetTruncMin() const override { return m_truncMin; }
   /// \brief get the maximum truncation value
   /// \return the maximum truncation value
-  virtual double GetTruncMax() const { return m_truncMax; }
+  virtual double GetTruncMax() const override { return m_truncMax; }
   /// \brief get the idw power (1/d or 1/d^2 or 1/d^3)
   /// \return the power
-  virtual double GetPower() const { return m_power; }
+  virtual double GetPower() const override { return m_power; }
   /// \brief get the search options number of nearest points
   /// \return the number of nearest points
-  virtual int GetSearchOptsNumNearestPts() const { return m_nNearestPts; }
+  virtual int GetSearchOptsNumNearestPts() const override { return m_nNearestPts; }
   /// \brief get the search options option to do a quadrant or octant search
   /// \return the option to do a quadrant or octant search
-  virtual bool GetSearchOptsUseQuadrantSearch() const { return m_quadOctSearch; }
+  virtual bool GetSearchOptsUseQuadrantSearch() const override { return m_quadOctSearch; }
   /// \brief get the weight calculation method
   /// \return the weight calculation method
-  virtual WeightEnum GetWeightCalcMethod() const
+  virtual WeightEnum GetWeightCalcMethod() const override
   {
     if (!m_modifiedShepardWeights)
       return InterpIdw::CLASSIC;
@@ -132,7 +132,7 @@ public:
   }
   /// \brief get the type of nodal function (constant, gradient plane, quadratic)
   /// \return the type of nodal function
-  virtual NodalFuncEnum GetNodalFunctionType() const
+  virtual NodalFuncEnum GetNodalFunctionType() const override
   {
     if (!m_nodalFunc)
       return InterpIdw::CONSTANT;
@@ -140,7 +140,7 @@ public:
   }
   /// \brief get the nodal function number of nearest points
   /// \return the nodal function number of nearest points
-  virtual int GetNodalFunctionNumNearestPts() const
+  virtual int GetNodalFunctionNumNearestPts() const override
   {
     if (!m_nodalFunc)
       return 0;
@@ -148,7 +148,7 @@ public:
   }
   /// \brief get the nodal function option to use a quadrant search
   /// \return the nodal function option to use a quadrant search
-  virtual bool GetNodalFunctionUseQuadrantSearch() const
+  virtual bool GetNodalFunctionUseQuadrantSearch() const override
   {
     if (!m_nodalFunc)
       return false;
@@ -161,7 +161,7 @@ public:
   virtual void SetSaveWeights(bool a_) override { m_saveWeights = a_; }
   virtual void InterpWeights(const Pt3d& a_pt,
                              VecInt& a_idx,
-                             VecDbl& a_wt) const;
+                             VecDbl& a_wt) const override;
 
   /// \brief sets a flag to use (or not) multi-threading when interpolating
   /// \param[in] a_ flag: true will use multi-threading and false will not.

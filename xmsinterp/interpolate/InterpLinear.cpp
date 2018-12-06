@@ -90,25 +90,25 @@ public:
 
   /// \brief get extrapolation value
   /// \return the extrapolation value
-  virtual double GetExtrapVal() const { return m_extrap; }
+  virtual double GetExtrapVal() const override { return m_extrap; }
   /// \brief get the option to truncate interpolated values
   /// \return the option to truncate interpolated values
-  virtual bool GetTruncateInterpolatedValues() const { return m_trunc; }
+  virtual bool GetTruncateInterpolatedValues() const override { return m_trunc; }
   /// \brief get minimum truncation value
   /// \return the minimum truncation value
-  virtual double GetTruncMin() const { return m_truncMin; }
+  virtual double GetTruncMin() const override { return m_truncMin; }
   /// \brief get the maximum truncation value
   /// \return the maximum truncation value
-  virtual double GetTruncMax() const { return m_truncMax; }
+  virtual double GetTruncMax() const override { return m_truncMax; }
   /// \brief get the option for using Clough Tocher interpolation
   /// \return the option for using Clough Tocher interpolation
-  virtual bool GetUseCloughTocher() const { return m_cloughTocher; }
+  virtual bool GetUseCloughTocher() const override { return m_cloughTocher; }
   /// \brief get the option for using Natural Neighbor interpolation
   /// \return the option for using Natural Neighbor interpolation
-  virtual bool GetUseNatNeigh() const { return m_natNeigh; }
+  virtual bool GetUseNatNeigh() const override { return m_natNeigh; }
   /// \brief get the value for the Natural Neighbor nodal function
   /// \return the value for the Natural Neighbor nodal function
-  virtual int GetNatNeighNodalFunc() const
+  virtual int GetNatNeighNodalFunc() const override
   {
     if (!m_nodal)
       return 0;
@@ -117,7 +117,7 @@ public:
   /// \brief get the option for the Natural Neighbor nodal function nearest points.
   /// Nearest points or nearest natural neighbors.
   /// \return the option for the Natural Neighbor nodal function nearest points.
-  virtual int GetNatNeighNodalFuncNearestPtsOption() const
+  virtual int GetNatNeighNodalFuncNearestPtsOption() const override
   {
     if (!m_nodal)
       return 0;
@@ -126,7 +126,7 @@ public:
   /// \brief get the value for the number of nearest points to use when calculating
   /// the nodal function
   /// \return the value for the number of nearest points
-  virtual int GetNatNeighNodalFuncNumNearestPts() const
+  virtual int GetNatNeighNodalFuncNumNearestPts() const override
   {
     if (!m_nodal)
       return 0;
@@ -134,7 +134,7 @@ public:
   }
   /// \brief get the option for blending weights when using Natural Neighbor
   /// \return the option for blending weights when using Natural Neighbor
-  virtual bool GetNatNeighBlendWeights() const
+  virtual bool GetNatNeighBlendWeights() const override
   {
     if (!m_nodal)
       return false;

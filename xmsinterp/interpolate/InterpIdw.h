@@ -39,8 +39,8 @@ public:
   /// \cond
 
   virtual void SetPtsTris(BSHP<VecPt3d> a_, BSHP<VecInt> a_tris) override = 0;
-  virtual void SetScalars(const float* a_scalar, size_t a_n) = 0;
-  virtual void SetScalars(BSHP<VecFlt> a_scalar) = 0;
+  virtual void SetScalars(const float* a_scalar, size_t a_n) override = 0;
+  virtual void SetScalars(BSHP<VecFlt> a_scalar) override = 0;
   virtual void SetPts(BSHP<VecPt3d> a_, bool a_2d) = 0;
   virtual float InterpToPt(const Pt3d& a_pt) override = 0;
   // this method will run parallel
@@ -52,8 +52,8 @@ public:
   virtual const BSHP<VecPt3d> GetPts() const override = 0;
   virtual const BSHP<VecInt> GetTris() const override = 0;
   virtual const BSHP<VecFlt> GetScalars() const override = 0;
-  virtual DynBitset GetPtActivity() const = 0;
-  virtual DynBitset GetTriActivity() const = 0;
+  virtual DynBitset GetPtActivity() const override = 0;
+  virtual DynBitset GetTriActivity() const override = 0;
   virtual void SetTrunc(double a_sMax, double a_sMin) override = 0;
 
   virtual bool GetTruncateInterpolatedValues() const = 0;

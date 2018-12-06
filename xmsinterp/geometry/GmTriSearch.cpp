@@ -369,6 +369,7 @@ DynBitset GmTriSearchImpl::GetTriActivity() const
     size_t idx = i * 3;
     rval[i] = m_triActivity[idx];
   }
+  return rval;
 } // GmTriSearchImpl::GetTriActivity
 //------------------------------------------------------------------------------
 /// \brief Tests if a triangle is active. If any of the points of the tri

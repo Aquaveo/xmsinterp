@@ -336,7 +336,7 @@ void InterpNatNeighImpl::EdgesFromTri(int a_triIdx, std::pair<int, int> a_edges[
 void InterpNatNeighImpl::NeighTriFromTriIdx(int a_triIdx, std::vector<int>& a_tris)
 {
   a_tris.resize(0);
-  std::pair<int, int> edges[3], pairTri;
+  std::pair<int, int> edges[3];
   EdgesFromTri(a_triIdx, edges);
   std::set<int> setTris;
   for (int i = 0; i < 3; ++i)
@@ -667,7 +667,7 @@ static void iGetPtsTris(std::vector<xms::Pt3d>& a_pts,
   a_pts = {{26, 74, 5},  {15, 31, 8},  {60, -3, 4}, {78, 78, 7},
            {56, 64, 10}, {75, 45, 11}, {43, 22, 2}};
   a_tris = {0, 4, 3, 0, 1, 4, 4, 5, 3, 4, 6, 5, 4, 1, 6, 1, 2, 6, 2, 5, 6};
-  a_scalar = {{5.0f}, {8.0f}, {4.0f}, {7.0f}, {10.0f}, {11.0f}, {2.0f}};
+  a_scalar = {5.0f, 8.0f, 4.0f, 7.0f, 10.0f, 11.0f, 2.0f};
 } // iGetPtsTris
 } // unnamed namespace
 

@@ -67,7 +67,7 @@ public:
   void RunThreads(int a_nIter) override;
   /// \param a_prog: An observer
   void SetObserver(BSHP<Observer> a_prog) override { m_prog = a_prog; }
-  std::vector<BSHP<ThreadLoop>> Threads();
+  std::vector<BSHP<ThreadLoop>> Threads() override;
 
   void SetupThreads();
   void MonitorThreads();

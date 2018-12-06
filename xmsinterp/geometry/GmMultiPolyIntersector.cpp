@@ -66,13 +66,13 @@ public:
 
   virtual void SetQuery(GmMultiPolyIntersectorQueryEnum a_query) override;
   virtual void TraverseLineSegment(double x1, double y1, double x2, double y2,
-                                   VecInt &polyids, VecDbl &tvalues);
+                                   VecInt &polyids, VecDbl &tvalues) override;
   virtual void TraverseLineSegment(double x1, double y1, double x2, double y2,
-                                   VecInt &polyids);
+                                   VecInt &polyids) override;
   virtual void TraverseLineSegment(double a_x1, double a_y1, double a_x2,
                                    double a_y2, VecInt &a_polyids,
-                                   std::vector<Pt3d> &a_pts);
-  virtual int PolygonFromPoint(const Pt3d &a_pt);
+                                   std::vector<Pt3d> &a_pts) override;
+  virtual int PolygonFromPoint(const Pt3d &a_pt) override;
 
 private:
   void CalculateBuffer();
@@ -926,7 +926,7 @@ void GmMultiPolyIntersectorUnitTests::test1EdgeOutIn() {
   VecPt3d expectedPoints = {{0.0, 10.0, 0.0}, {5.0, 10.0, 0.0}};
   iRunTest(-1, 10, 5, 10, pts, polys, expectedIds, expectedTvals,
            expectedPoints);
-  expectedTvals = {0.0, {5 / 6.0}};
+  expectedTvals = {0.0, 5 / 6.0};
   expectedPoints = {{5.0, 10.0, 0.0}, {0.0, 10.0, 0.0}};
   iRunTest(5, 10, -1, 10, pts, polys, expectedIds, expectedTvals,
            expectedPoints);
@@ -1332,12 +1332,12 @@ void GmMultiPolyIntersectorUnitTests::test2InEdgePt() {
               {0, 10, 104}, {10, 10, 103}, {20, 10, 106}};
   VecInt2d polys = {{0, 1, 4, 3}, {1, 2, 5, 4}};
   VecInt expectedIds{1, 2, -1};
-  VecDbl expectedTvals = {{0.0}, {1 / 3.0}, {1}};
+  VecDbl expectedTvals = {0.0, 1 / 3.0, 1};
   VecPt3d expectedPoints = {
       {5.0, 10.0, 0.0}, {10.0, 10.0, 0.0}, {20.0, 10.0, 0.0}};
   iRunTest(5, 10, 20, 10, pts, polys, expectedIds, expectedTvals,
            expectedPoints);
-  expectedIds = {{2}, {1}, {-1}};
+  expectedIds = {2, 1, -1};
   expectedPoints = {{15.0, 10.0, 0.0}, {10.0, 10.0, 0.0}, {0.0, 10.0, 0.0}};
   iRunTest(15, 10, 0, 10, pts, polys, expectedIds, expectedTvals,
            expectedPoints);
@@ -1366,8 +1366,8 @@ void GmMultiPolyIntersectorUnitTests::test2InOutIn() {
   VecPt3d pts{{0, 10, 0}, {10, 10, 0}, {10, 20, 0}, {0, 20, 0},
               {10, 0, 0}, {20, 0, 0},  {20, 10, 0}};
   VecInt2d polys = {{0, 1, 2, 3}, {4, 5, 6, 1}};
-  VecInt expectedIds = {{1}, {-1}, {2}, {-1}}; // old: (1)(2)
-  VecDbl expectedTvals = {{0.0}, {0.2}, {0.8}, {1.0}};
+  VecInt expectedIds = {1, -1, 2, -1}; // old: (1)(2)
+  VecDbl expectedTvals = {0.0, 0.2, 0.8, 1.0};
   VecPt3d expectedPoints = {
       {8.0, 18.0, 0.0}, {10.0, 16.0, 0.0}, {16.0, 10.0, 0.0}, {18.0, 8.0, 0.0}};
   iRunTest(8, 18, 18, 8, pts, polys, expectedIds, expectedTvals,

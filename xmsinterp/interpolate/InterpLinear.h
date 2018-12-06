@@ -53,8 +53,8 @@ public:
   virtual const BSHP<VecPt3d> GetPts() const override = 0;
   virtual const BSHP<VecInt> GetTris() const override = 0;
   virtual const BSHP<VecFlt> GetScalars() const override = 0;
-  virtual DynBitset GetPtActivity() const = 0;
-  virtual DynBitset GetTriActivity() const = 0;
+  virtual DynBitset GetPtActivity() const override = 0;
+  virtual DynBitset GetTriActivity() const override = 0;
 
   // find triangle
   virtual int TriContainingPt(const Pt3d& a_pt) = 0;

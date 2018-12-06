@@ -171,28 +171,28 @@ public:
   GmPtSearchImpl(bool a_2dSearch);
   virtual ~GmPtSearchImpl();
 
-  virtual void PtsToSearch(BSHP<std::vector<Pt3d>> a_pts);
+  virtual void PtsToSearch(BSHP<std::vector<Pt3d>> a_pts) override;
 
-  virtual void VectorThatGrowsToSearch(BSHP<std::vector<Pt3d>> a_);
+  virtual void VectorThatGrowsToSearch(BSHP<std::vector<Pt3d>> a_) override;
   virtual bool AddPtToVectorIfUnique(const Pt3d& a_, double a_tol, int& a_ptIdx) override;
 
   virtual void NearestPtsToPt(const Pt3d& a_pt,
                               int a_numPtsToFind,
                               bool a_quad_oct_Search,
-                              std::vector<int>& a_nearest) const;
+                              std::vector<int>& a_nearest) const override;
 
   virtual void NearestPtsToPtInRtree(int a_ptIdx,
                                      const Pt3d& a_pt,
                                      int a_numPtsToFind,
                                      bool a_quad_oct_Search,
-                                     std::vector<int>& a_nearest) const;
+                                     std::vector<int>& a_nearest) const override;
 
   virtual bool PtInRTree(const Pt3d& a_pt, const double a_tol) override;
 
   virtual void PtsWithinDistanceToPtInRtree(int a_ptIdx,
                                             const Pt3d& a_pt,
                                             double a_dist,
-                                            std::vector<int>& a_nearest) const;
+                                            std::vector<int>& a_nearest) const override;
 
   virtual void NearestPtsToPt(const Pt3d& a_pt,
                               int a_numPtsToFind,
@@ -200,7 +200,7 @@ public:
                               std::vector<int>& a_nearest,
                               fSatisfies* a_fsat) const;
 
-  virtual void SetActivity(DynBitset& a_activity);
+  virtual void SetActivity(DynBitset& a_activity) override;
   virtual DynBitset GetActivity() override;
 
   /// \brief Returns shared point to the point locations in the RTree
