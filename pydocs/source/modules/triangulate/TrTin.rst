@@ -1,6 +1,6 @@
-*****
-TrTin
-*****
+***
+Tin
+***
 
-.. autoclass:: xmsinterp_py.triangulate.TrTin
+.. autoclass:: xmsinterp.triangulate.Tin
    :members:

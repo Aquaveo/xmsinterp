@@ -1,6 +1,6 @@
-***********
-GmTriSearch
-***********
+*********
+TriSearch
+*********
 
-.. autoclass:: xmsinterp_py.geometry.GmTriSearch
+.. autoclass:: xmsinterp.geometry.TriSearch
    :members:
