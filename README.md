@@ -1,9 +1,13 @@
-[![Build Status](https://travis-ci.org/Aquaveo/xmsinterp.svg?branch=master)](https://travis-ci.org/Aquaveo/xmsinterp)
-[![Build status](https://ci.appveyor.com/api/projects/status/tkgmhrs31cc4l3ph?svg=true)](https://ci.appveyor.com/project/Aquaveo/xmsinterp)
-
 XMSInterp
 ========
 Interpolation library for XMS products
+
+Master Branch Status
+--------------------
+
+[![Build Status](https://travis-ci.org/Aquaveo/xmsinterp.svg?branch=master)](https://travis-ci.org/Aquaveo/xmsinterp)
+
+[![Build status](https://ci.appveyor.com/api/projects/status/tkgmhrs31cc4l3ph?svg=true)](https://ci.appveyor.com/project/Aquaveo/xmsinterp)
 
 Prerequisites
 --------------
@@ -18,4 +22,6 @@ See xmscore build [instructions](https://github.com/Aquaveo/xmscore/wiki/Buildin
 Documentation
 -------------
 
-See: [xmsinterp documentation](https://aquaveo.github.io/xmsinterp/)
+[C++ Documentation](https://aquaveo.github.io/xmsinterp/)
+
+[Python Documentation](https://aquaveo.github.io/xmsinterp/pydocs)
