@@ -19,7 +19,7 @@ xmsinterp is a spatial interpolation library used in xms libraries and products.
 License {#XmsinterpLicense}
 -------
 
-The code is distributed under the xmsng Software License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at [http://www.aquaveo.com/xmsng/LICENSE_1_0.txt](http://www.aquaveo.com/xmsng/LICENSE_1_0.txt)). 
+The code is distributed under the FreeBSD Software License. (See accompanying file LICENSE or copy at [http://www.aquaveo.com/bsd/LICENSE.txt](http://www.aquaveo.com/bsd/license.txt)). 
 
 Python
 ------
