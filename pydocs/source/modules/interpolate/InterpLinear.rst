@@ -2,5 +2,5 @@
 InterpLinear
 ************
 
-.. autoclass:: xmsinterp_py.interpolate.InterpLinear
+.. autoclass:: xmsinterp.interpolate.InterpLinear
    :members:
