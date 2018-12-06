@@ -14,7 +14,7 @@ Geometry
 .. toctree::
    :maxdepth: 1
    
-   modules/geometry/GmTriSearch
+   modules/geometry/TriSearch
 
 Triangulate
 ===========
@@ -24,7 +24,7 @@ Triangulate
 .. toctree::
    :maxdepth: 1
    
-   modules/triangulate/TrTin
+   modules/triangulate/Tin
 
 Interpolate
 ===========
