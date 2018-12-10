@@ -449,7 +449,12 @@ void initInterpLinear(py::module &m) {
         {
           BSHP<xms::Observer> obs;
           if (!observer.is_none())
-            obs = observer.cast<BSHP<xms::Observer>>();
+          {
+            if (!py::isinstance<PyObserver>(observer))
+              throw std::invalid_argument("observer must be of type xmscore.misc.Observer");
+            BSHP<PyObserver> po = observer.cast<BSHP<PyObserver>>();
+            obs = BDPC<xms::Observer>(po);
+          }
           int nodalFuncType = NodalFuncTypeFromString(nodal_func_type);
           int nodalFuncPtSearchOpt = NodalFuncPtSearchOptFromString(nd_func_pt_search_opt);
           self.SetUseNatNeigh(on, nodalFuncType, nodalFuncPtSearchOpt,
