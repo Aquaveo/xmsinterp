@@ -59,8 +59,8 @@ void initInterpIdw(py::module &m) {
 
         Args:
             pts (iterable):  Array of the point locations.
-            tris (iterable): Triangles.
-            scalar (iterable): Array of interpolation scalar values.
+            tris (:obj:`iterable`, optional): Triangles.
+            scalar (:obj:`iterable`, optional): Array of interpolation scalar values.
 
     )pydoc";
     py::class_<xms::InterpIdw, xms::InterpBase, 
@@ -311,54 +311,36 @@ void initInterpIdw(py::module &m) {
   // ---------------------------------------------------------------------------
   // function: set_nodal_function
   // ---------------------------------------------------------------------------
-    const char* set_nodal_function_doc = R"pydoc(
-        Sets the type of nodal function as well as options for computing nodal
-        functions.
-
-        Args:
-            nodal_func_type (string): The nodal function methodology: "constant", "gradient_plane", "quadratic".
-
-            num_nearest_points (int): The nearest number of points to use when calculating the nodal functions.
-
-            use_quadrant_octant_search (bool): Find the nearest number of points in each quadrant (2d) or octant (3d) when computing nodal functions.
-    )pydoc";
-
-    iIdw.def("set_nodal_function", [](xms::InterpIdw &self,
-                                      std::string nodal_func_type,
-                                      int n_nearest, bool quad_oct)
-    {
-      boost::shared_ptr<xms::PublicObserver> obs;
-      xms::InterpIdw::NodalFuncEnum w = NodalFuncEnumFromString(nodal_func_type);
-
-      self.SetNodalFunction(w, n_nearest, quad_oct, obs);
-    },set_nodal_function_doc, py::arg("nodal_func_type"), py::arg("num_nearest_points"),
-      py::arg("use_quadrant_octant_search"));
-  // ---------------------------------------------------------------------------
-  // function: set_nodal_function
-  // ---------------------------------------------------------------------------
     const char* set_nodal_function_doc1 = R"pydoc(
         Sets the type of nodal function as well as options for computing nodal 
         functions.
 
         Args:
-            nodal_func_type (nodal_func_enum): The nodal function methodology: constant (0), gradient plane (1), quadratic (2).
+            nodal_func_type (:obj:`string`, optional): The nodal function methodology: constant (0), gradient plane (1), quadratic (2).
 
-            num_nearest_points (int): The nearest number of points to use when calculating the nodal functions.
+            num_nearest_points (:obj:`int`, optional): The nearest number of points to use when calculating the nodal functions.
 
-            use_quadrant_octant_search (bool): Find the nearest number of points in each quadrant (2d) or octant (3d) when computing nodal functions.
+            use_quadrant_octant_search (:obj:`bool`, optional): Find the nearest number of points in each quadrant (2d) or octant (3d) when computing nodal functions.
 
-            obs (Observer): Progress bar to give user feedback.
+            obs (:obj:`Observer`, optional): Progress bar to give user feedback.
     )pydoc";
 
     iIdw.def("set_nodal_function", [](xms::InterpIdw &self, 
                                       std::string nodal_func_type,
                                       int n_nearest, bool quad_oct,
-                                  boost::shared_ptr<xms::PublicObserver> obs)
+                                      py::object obs)
     {
+      BSHP<xms::Observer> observer;
+      if (!obs.is_none())
+        observer = obs.cast<BSHP<xms::Observer>>();
       xms::InterpIdw::NodalFuncEnum w = NodalFuncEnumFromString(nodal_func_type);
-      self.SetNodalFunction(w, n_nearest, quad_oct, obs);
-    },set_nodal_function_doc1, py::arg("nodal_func_type"), py::arg("num_nearest_points"),
-          py::arg("use_quadrant_octant_search"), py::arg("obs"));
+      self.SetNodalFunction(w, n_nearest, quad_oct, observer);
+    },set_nodal_function_doc1,
+      py::arg("nodal_func_type") = "constant",
+      py::arg("num_nearest_points") = 16,
+      py::arg("use_quadrant_octant_search") = false,
+      py::arg("obs") = py::none()
+  );
   // ---------------------------------------------------------------------------
   // function: interp_weights
   // ---------------------------------------------------------------------------
