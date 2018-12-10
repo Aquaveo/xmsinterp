@@ -11,7 +11,7 @@
 #include <boost/shared_ptr.hpp>
 #include <xmscore/misc/boost_defines.h>
 #include <xmscore/misc/DynBitset.h>
-#include <xmscore/python/misc/PublicObserver.h>
+#include <xmscore/python/misc/PyObserver.h>
 #include <xmscore/python/misc/PyUtils.h>
 #include <xmsinterp/interpolate/InterpIdw.h>
 #include <xmsinterp/python/interpolate/interpolate_py.h>
@@ -322,24 +322,29 @@ void initInterpIdw(py::module &m) {
 
             use_quadrant_octant_search (:obj:`bool`, optional): Find the nearest number of points in each quadrant (2d) or octant (3d) when computing nodal functions.
 
-            obs (:obj:`Observer`, optional): Progress bar to give user feedback.
+            observer (:obj:`Observer`, optional): Progress bar to give user feedback.
     )pydoc";
 
     iIdw.def("set_nodal_function", [](xms::InterpIdw &self, 
                                       std::string nodal_func_type,
                                       int n_nearest, bool quad_oct,
-                                      py::object obs)
+                                      py::object observer)
     {
-      BSHP<xms::Observer> observer;
-      if (!obs.is_none())
-        observer = obs.cast<BSHP<xms::Observer>>();
+      BSHP<xms::Observer> obs;
+      if (!observer.is_none())
+      {
+        if (!py::isinstance<PyObserver>(observer))
+          throw std::invalid_argument("observer must be of type xmscore.misc.Observer");
+        BSHP<PyObserver> po = observer.cast<BSHP<PyObserver>>();
+        obs = BDPC<xms::Observer>(po);
+      }
       xms::InterpIdw::NodalFuncEnum w = NodalFuncEnumFromString(nodal_func_type);
-      self.SetNodalFunction(w, n_nearest, quad_oct, observer);
+      self.SetNodalFunction(w, n_nearest, quad_oct, obs);
     },set_nodal_function_doc1,
       py::arg("nodal_func_type") = "constant",
       py::arg("num_nearest_points") = 16,
       py::arg("use_quadrant_octant_search") = false,
-      py::arg("obs") = py::none()
+      py::arg("observer") = py::none()
   );
   // ---------------------------------------------------------------------------
   // function: interp_weights

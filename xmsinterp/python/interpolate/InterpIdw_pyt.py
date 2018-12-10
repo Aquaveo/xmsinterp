@@ -336,10 +336,7 @@ class TestInterpIdw(unittest.TestCase):
         interp = xmsinterp.interpolate.InterpIdw(pts, tris)
 
         # No Argument
-        with self.assertRaises(TypeError) as context:
-            interp.set_nodal_function()
-        err = context.exception
-        self.assertIn(typeerror, str(err))
+        interp.set_nodal_function()
 
         # None Args for each argument
         with self.assertRaises(TypeError) as context:
@@ -370,14 +367,15 @@ class TestInterpIdw(unittest.TestCase):
             interp.set_nodal_function("constant", 1.4, True, observer)
         err = context.exception
         self.assertIn(typeerror, str(err))
-        with self.assertRaises(TypeError) as context:
+        with self.assertRaises(ValueError) as context:
             interp.set_nodal_function("constant", 1, True, 1)
+        errStr = "observer must be of type xmscore.misc.Observer"
         err = context.exception
-        self.assertIn(typeerror, str(err))
-        with self.assertRaises(TypeError) as context:
+        self.assertIn(errStr, str(err))
+        with self.assertRaises(ValueError) as context:
             interp.set_nodal_function("constant", 1, True, "abcd")
         err = context.exception
-        self.assertIn(typeerror, str(err))
+        self.assertIn(errStr, str(err))
 
         # Good Args
         base = str(interp)
