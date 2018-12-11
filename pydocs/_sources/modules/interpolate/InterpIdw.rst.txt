@@ -2,5 +2,5 @@
 InterpIdw
 *********
 
-.. autoclass:: xmsinterp_py.interpolate.InterpIdw
+.. autoclass:: xmsinterp.interpolate.InterpIdw
    :members:

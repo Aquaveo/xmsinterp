@@ -9,7 +9,7 @@ var classxms_1_1_thread_mgr_impl =
     [ "SetObserver", "classxms_1_1_thread_mgr_impl.html#adb747e7ebd68cf2f2a143de15d75a969", null ],
     [ "SetThreadLoopClass", "classxms_1_1_thread_mgr_impl.html#a21af9b43c5397c043e93d76b27808364", null ],
     [ "SetupThreads", "classxms_1_1_thread_mgr_impl.html#a644e8117ad62493b7f0f2970e9024d86", null ],
-    [ "Threads", "classxms_1_1_thread_mgr_impl.html#af9ab72cdded0dccc5ee4f25c6eba92b3", null ],
+    [ "Threads", "classxms_1_1_thread_mgr_impl.html#a242f47dba9999a759701bdbb81b47f17", null ],
     [ "m_beg", "classxms_1_1_thread_mgr_impl.html#ac442b3638d9f2842da1905e2b014e966", null ],
     [ "m_counts", "classxms_1_1_thread_mgr_impl.html#a5cd96dbeb73212fea8ff96832279ac80", null ],
     [ "m_nIter", "classxms_1_1_thread_mgr_impl.html#af07e3fe8c5c2a3f0060b60d493c274a4", null ],

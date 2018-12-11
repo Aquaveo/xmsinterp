@@ -20,9 +20,7 @@ var classxms_1_1_tr_breakline_adder_impl =
     [ "m_observer", "classxms_1_1_tr_breakline_adder_impl.html#a4d101ef2d3e4e463803db9f05373ab13", null ],
     [ "m_pts", "classxms_1_1_tr_breakline_adder_impl.html#a0f1ea456ca21a815d85be9befa601b84", null ],
     [ "m_searcher", "classxms_1_1_tr_breakline_adder_impl.html#ae928c362b7672a133aee9b3babf50637", null ],
-    [ "m_segCount", "classxms_1_1_tr_breakline_adder_impl.html#ae4c7593836c2a616f2d329913ad77b45", null ],
     [ "m_tin", "classxms_1_1_tr_breakline_adder_impl.html#a3e1ef5566a50db9c950ad3f25f87b7eb", null ],
-    [ "m_totNumSegs", "classxms_1_1_tr_breakline_adder_impl.html#a7dc2aa9766729d2b8f32738bdabe3041", null ],
     [ "m_tris", "classxms_1_1_tr_breakline_adder_impl.html#a4832c9d590ee0eade459297b359e4636", null ],
     [ "m_trisAdjToPts", "classxms_1_1_tr_breakline_adder_impl.html#a6255379baf587e613b1d8a4f25f9f690", null ],
     [ "m_xyTol", "classxms_1_1_tr_breakline_adder_impl.html#a78e61b3d04bb68dc283c2b4170270e11", null ]

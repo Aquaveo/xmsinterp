@@ -7,7 +7,7 @@
 XmsInterp |version|
 *******************
 
-**Last Updated:** October 5, 2018
+**Last Updated:** December 5, 2018
 
 The xmsinerp library is a interpolation library for other aquaveo products. This library contains classes used to perform interpolation.
 

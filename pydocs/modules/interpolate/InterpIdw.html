@@ -57,6 +57,10 @@
           
             
             
+              <div class="version">
+                2.1.0
+              </div>
+            
           
 
           
@@ -81,9 +85,9 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../modules.html">Modules</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../modules.html#geometry">Geometry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../modules.html#triangulate">Triangulate</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../modules.html#interpolate">Interpolate</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-xmsinterp.geometry">Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-xmsinterp.triangulate">Triangulate</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../modules.html#module-xmsinterp.interpolate">Interpolate</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="InterpAnisotropic.html">InterpAnisotropic</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">InterpIdw</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InterpLinear.html">InterpLinear</a></li>
@@ -159,6 +163,217 @@
             
   <div class="section" id="interpidw">
 <h1>InterpIdw<a class="headerlink" href="#interpidw" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="xmsinterp.interpolate.InterpIdw">
+<em class="property">class </em><code class="descclassname">xmsinterp.interpolate.</code><code class="descname">InterpIdw</code><a class="headerlink" href="#xmsinterp.interpolate.InterpIdw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that performs inverse distance weighted interpolation</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pts (iterable):  Array of the point locations.
+tris (<code class="xref py py-obj docutils literal notranslate"><span class="pre">iterable</span></code>, optional): Triangles.
+scalar (<code class="xref py py-obj docutils literal notranslate"><span class="pre">iterable</span></code>, optional): Array of interpolation scalar values.</dd>
+</dl>
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.interp_to_pt">
+<code class="descname">interp_to_pt</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>pt: tuple</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.interp_to_pt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolates to the location specified by pt and returns the value.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pt (tuple): The location of the interpolation point.</dd>
+<dt>Returns:</dt>
+<dd>float: The interpolated value.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.interp_to_pts">
+<code class="descname">interp_to_pts</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>pts: iterable</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.interp_to_pts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolates to an array of points and fills in an array of scalars. 
+This method will run in parallel using multiple threads.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pts (iterable): Array of points to interpolate to.</dd>
+<dt>Returns:</dt>
+<dd>iterable: Array of scalar values. It will be the same size as a_pts and each value corresponds to the interpolated value at the respective location in the a_pts array.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.interp_weights">
+<code class="descname">interp_weights</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>pt: tuple</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.interp_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a location and an array of points the weights associated with 
+array of points are calculated.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pt (tuple): Location of the interpolation point</dd>
+<dt>Returns:</dt>
+<dd>iterable: Contains an iterable  of indices indicating the location in the m_pts vector of the nearest points to pt and an interable of the weights associated with the nearest points to pt.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpIdw.pts">
+<code class="descname">pts</code><a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.pts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns points vector.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>iterable: points vector</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.set_multi_threading">
+<code class="descname">set_multi_threading</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>multithreading: bool</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.set_multi_threading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a flag to use (or not) multi-threading when interpolating.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>multithreading (bool): True will use multi-threading and false will not. The default setting for the class is to use multi-threading.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.set_nodal_function">
+<code class="descname">set_nodal_function</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>nodal_func_type: unicode=u'constant'</em>, <em>num_nearest_points: int=16L</em>, <em>use_quadrant_octant_search: bool=False</em>, <em>observer: object=None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.set_nodal_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the type of nodal function as well as options for computing nodal 
+functions.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">nodal_func_type (<code class="xref py py-obj docutils literal notranslate"><span class="pre">string</span></code>, optional): The nodal function methodology: constant (0), gradient plane (1), quadratic (2).</p>
+<p>num_nearest_points (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, optional): The nearest number of points to use when calculating the nodal functions.</p>
+<p>use_quadrant_octant_search (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>, optional): Find the nearest number of points in each quadrant (2d) or octant (3d) when computing nodal functions.</p>
+<p class="last">observer (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Observer</span></code>, optional): Progress bar to give user feedback.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.set_observer">
+<code class="descname">set_observer</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>obs: xms::PublicObserver</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.set_observer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the observer class so that feedback on the interpolation process 
+can be received.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>obs (Observer): The observer</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.set_power">
+<code class="descname">set_power</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>power: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.set_power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the exponent for the interpolation. By default the class does 
+inverse distance squared weighting but the exponent can be changed to 
+any value.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>power (float): the exponent used to compute the point weights </dt>
+<dd>1 / distance^a_power</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.set_pt_activity">
+<code class="descname">set_pt_activity</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>activity: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.set_pt_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the activity on the point being used to interpolate</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>activity (iterable): Bitset of point activity.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.set_pts">
+<code class="descname">set_pts</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>pts: iterable</em>, <em>a2d: bool</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.set_pts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the points that will be used to do the interpolation.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pts (iterable):  array of the point locations
+a2d (bool): indicates if the class will do 2D or 3D interpolation</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.set_pts_tris">
+<code class="descname">set_pts_tris</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>pts: iterable</em>, <em>tris: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.set_pts_tris" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the points that will be used to do the interpolation.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pts (iterable):  Array of the point locations.
+tris (iterable): Triangles.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.set_search_opts">
+<code class="descname">set_search_opts</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>number_nearest_points: int</em>, <em>use_quadrant_octant_search: bool</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.set_search_opts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the search options for how to find the nearest points to the 
+interpolation point. The number of nearest points can be specified as 
+well as whether to find the nearest points in each quadrant or octant.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">number_nearest_points (int): the number of nearest points to the interpolation point. These points are used to do the interpolation.</p>
+<p class="last">use_quad_oct_search (bool): specifies if the search criterion should find the nearest points in each quadrant (2d) or octant (3d)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.set_tri_activity">
+<code class="descname">set_tri_activity</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>activity: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.set_tri_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets triangle activity. Ignored by IDW.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>activity (iterable): Bitset of point activity.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.set_truncation_max_min">
+<code class="descname">set_truncation_max_min</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>smax: float</em>, <em>smin: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.set_truncation_max_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the truncation values for the interpolation and turn on truncation.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>smax (float): The maximum value for truncation.
+smin (float): The minimum value for truncation.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.set_weight_calc_method">
+<code class="descname">set_weight_calc_method</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em>, <em>method: unicode</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.set_weight_calc_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the method for calculating the weights. The classic just uses 
+1/distance^exponent. The modified method uses another formulation based 
+on the distance of the furthest location from the interpolation pt.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>method (string): The weight calculation method. Must be “classic” or “modified”</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpIdw.to_string">
+<code class="descname">to_string</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpIdw</em><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.to_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the internals to a string.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>str: The internals as a string</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpIdw.tris">
+<code class="descname">tris</code><a class="headerlink" href="#xmsinterp.interpolate.InterpIdw.tris" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns triangles vector.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>iterable: triangles vector</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 

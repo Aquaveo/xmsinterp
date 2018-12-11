@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="InterpIdw" href="InterpIdw.html" />
-    <link rel="prev" title="TrTin" href="../triangulate/TrTin.html" /> 
+    <link rel="prev" title="Tin" href="../triangulate/Tin.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -57,6 +57,10 @@
           
             
             
+              <div class="version">
+                2.1.0
+              </div>
+            
           
 
           
@@ -81,9 +85,9 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../modules.html">Modules</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../modules.html#geometry">Geometry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../modules.html#triangulate">Triangulate</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../modules.html#interpolate">Interpolate</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-xmsinterp.geometry">Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-xmsinterp.triangulate">Triangulate</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../modules.html#module-xmsinterp.interpolate">Interpolate</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">InterpAnisotropic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InterpIdw.html">InterpIdw</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InterpLinear.html">InterpLinear</a></li>
@@ -159,6 +163,100 @@
             
   <div class="section" id="interpanisotropic">
 <h1>InterpAnisotropic<a class="headerlink" href="#interpanisotropic" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="xmsinterp.interpolate.InterpAnisotropic">
+<em class="property">class </em><code class="descclassname">xmsinterp.interpolate.</code><code class="descname">InterpAnisotropic</code><a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that performs anisotropic interpolation. Transforms points
+so x is a distance of a projected normal onto the centerline and y
+is the distance from (above or below) the centerline. Interpolate
+using inverse distance weighted interpolation after scaling the
+transformed x-values.</p>
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpAnisotropic.get_interpolation_pts">
+<code class="descname">get_interpolation_pts</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.get_interpolation_pts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the interpolation points transformed into (s,n,z) space and scaled.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>iterable: The transformed and scaled interpolation points (passed to SetPoints).</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpAnisotropic.get_transformed_pts">
+<code class="descname">get_transformed_pts</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em>, <em>points: iterable</em>, <em>pick_closest: bool</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.get_transformed_pts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform points into (s,n,z) space and then scale.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">points (iterable): The points to transform into (s,n,z) space.</p>
+<p class="last">pick_closest (bool): Pick only the transform point closest to the centerline.</p>
+</dd>
+<dt>Returns:</dt>
+<dd>iterable: The points transformed into (s,n,z) space.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpAnisotropic.interp_to_pt">
+<code class="descname">interp_to_pt</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em>, <em>pt: iterable</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.interp_to_pt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolate z (3rd coordinate) values to a point.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pt (iterable): The point to interpolate to.</dd>
+<dt>Returns:</dt>
+<dd>float: The scaled inverse distance weighted interpolated value.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpAnisotropic.interp_to_pts">
+<code class="descname">interp_to_pts</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em>, <em>points: iterable</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.interp_to_pts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolate z values to many points.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>points (iterable):  The points to interpolate to.</dd>
+<dt>Returns:</dt>
+<dd>iterable: The interpolated values (one for each of a_pts)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpAnisotropic.set_points">
+<code class="descname">set_points</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em>, <em>centerline_pts: iterable</em>, <em>interpolation_pts: iterable</em>, <em>pick_closest: bool</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.set_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the centerline to define the interpolation space and the points to
+interpolate from.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">centerline_pts (iterable):  The centerline.</p>
+<p>interpolation_pts (iterable): The points to interpolate from (typically cross sections of the centerline).</p>
+<p class="last">pick_closest (bool): If true, only keep the transformed point for each interpolation point closest to the centerline.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpAnisotropic.set_power">
+<code class="descname">set_power</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em>, <em>power: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.set_power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the exponent to use on the inverse distance weighting 
+(defaults to 2).</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>power (float): The exponent to use.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpAnisotropic.set_x_scale">
+<code class="descname">set_x_scale</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em>, <em>x_scale: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.set_x_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the scale factor to apply to transformed x (s) coordinates. before 
+computing the inverse distance weighting.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>x_scale (float): The x scale factor to use.</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -172,7 +270,7 @@
         <a href="InterpIdw.html" class="btn btn-neutral float-right" title="InterpIdw" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../triangulate/TrTin.html" class="btn btn-neutral" title="TrTin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../triangulate/Tin.html" class="btn btn-neutral" title="Tin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

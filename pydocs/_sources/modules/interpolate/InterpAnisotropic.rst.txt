@@ -2,5 +2,5 @@
 InterpAnisotropic
 *****************
 
-.. autoclass:: xmsinterp_py.interpolate.InterpAnisotropic
+.. autoclass:: xmsinterp.interpolate.InterpAnisotropic
    :members:
