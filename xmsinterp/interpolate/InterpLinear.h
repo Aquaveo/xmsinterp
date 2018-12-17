@@ -55,6 +55,7 @@ public:
   virtual const BSHP<VecFlt> GetScalars() const override = 0;
   virtual DynBitset GetPtActivity() const override = 0;
   virtual DynBitset GetTriActivity() const override = 0;
+  virtual VecInt GetExtrapolationPointIndexes() const = 0;
 
   // find triangle
   virtual int TriContainingPt(const Pt3d& a_pt) = 0;

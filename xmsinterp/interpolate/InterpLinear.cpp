@@ -65,8 +65,10 @@ public:
   virtual const BSHP<VecFlt> GetScalars() const override;
   virtual DynBitset GetPtActivity() const override;
   virtual DynBitset GetTriActivity() const override;
+  virtual VecInt GetExtrapolationPointIndexes() const override;
 
   virtual float InterpToPt(const Pt3d& a_pt) override;
+          float InterpToPtImpl(const Pt3d& a_pt, int a_ptIdx);
   virtual void InterpToPts(const VecPt3d& a_pts, VecFlt& a_scalars) override;
 
   // find triangle
@@ -160,7 +162,7 @@ protected:
   BSHP<NodalFunc> m_nodal;   ///< Nodal function (constant, gradient plane, quadratic)
   BSHP<InterpCt> m_ct;       ///< Clough Tocher interpolation class
   BSHP<InterpNatNeigh> m_nn; ///< Natural neighbor interpolation class
-  std::string m_idString;    ///< identification for comparison with other Interp classes
+  VecInt m_extrapolationPointIndexes; ///< indexes of points that are outside of all triangles
 };
 
 //----- Internal functions -----------------------------------------------------
@@ -313,12 +315,32 @@ DynBitset InterpLinearImpl::GetTriActivity() const
   return m_triSearch->GetTriActivity();
 } // InterpLinearImpl::GetTriActivity
 //------------------------------------------------------------------------------
+/// \brief Returns vector of point indexes for points that were outside of
+/// all triangles
+/// \return Returns vector of points indexes
+//------------------------------------------------------------------------------
+VecInt InterpLinearImpl::GetExtrapolationPointIndexes() const
+{
+  return m_extrapolationPointIndexes;
+} // InterpLinearImpl::GetExtrapolationPointIndexes
+//------------------------------------------------------------------------------
 /// \brief Use the stored triangles to interpolate to a point. Returns
 /// extrapolation value if the point is outside the triangles.
 /// \param a_pt Location that is interpolated to.
 /// \return Interpolated value at a_pt.
 //------------------------------------------------------------------------------
 float InterpLinearImpl::InterpToPt(const Pt3d& a_pt)
+{
+  return InterpToPtImpl(a_pt, 0);
+} // InterpLinearImpl::InterpToPt
+//------------------------------------------------------------------------------
+/// \brief Use the stored triangles to interpolate to a point. Returns
+/// extrapolation value if the point is outside the triangles.
+/// \param a_pt Location that is interpolated to.
+/// \param a_ptIdx point index
+/// \return Interpolated value at a_pt.
+//------------------------------------------------------------------------------
+float InterpLinearImpl::InterpToPtImpl(const Pt3d& a_pt, int a_ptIdx)
 {
   // return m_triSearch->InterpToPt(a_pt);
   float rval((float)m_extrap);
@@ -345,6 +367,10 @@ float InterpLinearImpl::InterpToPt(const Pt3d& a_pt)
       }
     }
   }
+  else
+  {
+    m_extrapolationPointIndexes.push_back(a_ptIdx);
+  }
   if (m_trunc)
   {
     if (rval < m_truncMin)
@@ -362,10 +388,11 @@ float InterpLinearImpl::InterpToPt(const Pt3d& a_pt)
 void InterpLinearImpl::InterpToPts(const VecPt3d& a_pts, VecFlt& a_scalars)
 {
   // m_triSearch->InterpToPts(a_pts, a_scalars);
+  m_extrapolationPointIndexes.clear();
   a_scalars.assign(a_pts.size(), 0);
   for (size_t i = 0; i < a_pts.size(); i++)
   {
-    a_scalars[i] = InterpToPt(a_pts[i]);
+    a_scalars[i] = InterpToPtImpl(a_pts[i], static_cast<int>(i));
   }
 } // InterpLinearImpl::InterpToPts
 //------------------------------------------------------------------------------
@@ -642,6 +669,17 @@ void InterpLinearUnitTests::testOneTriangle()
   TS_ASSERT_DELTA(1, linear.InterpToPt(pt), FLT_EPSILON);
   pt = Pt3d(1, 0, 0);
   TS_ASSERT_DELTA(1, linear.InterpToPt(pt), FLT_EPSILON);
+
+  VecInt idxes = linear.GetExtrapolationPointIndexes();
+  VecInt baseIdxes = { 0, 0 };
+  TS_ASSERT_EQUALS(baseIdxes, idxes);
+
+  VecPt3d vPts = {{ .5, .5, 0 }, { -1, 0, 0 }, { -.5, 0, 0 }};
+  VecFlt scalar;
+  linear.InterpToPts(vPts, scalar);
+  idxes = linear.GetExtrapolationPointIndexes();
+  baseIdxes = { 1, 2 };
+  TS_ASSERT_EQUALS(baseIdxes, idxes);
 } // InterpLinearUnitTests::testOneTriangle
 //------------------------------------------------------------------------------
 /// \brief test interpolating from 3 triangles
