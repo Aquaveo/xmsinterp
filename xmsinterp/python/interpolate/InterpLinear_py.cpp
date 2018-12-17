@@ -355,7 +355,7 @@ void initInterpLinear(py::module &m) {
     )pydoc";
 
     iLin.def("set_truncation_max_min", &xms::InterpLinear::SetTrunc,set_trunc_doc,
-            py::arg("max"), py::arg("min"));
+            py::arg("smax"), py::arg("smin"));
   // ---------------------------------------------------------------------------
   // function: pts
   // ---------------------------------------------------------------------------
@@ -389,23 +389,6 @@ void initInterpLinear(py::module &m) {
   // ---------------------------------------------------------------------------
   // function: set_use_clough_tocher
   // ---------------------------------------------------------------------------
-    const char* set_use_clough_tocher_doc1 = R"pydoc(
-        Set the class to use the Clough Tocher interpolation method. This is a
-        legacy feature from GMS. Compare to linear.
-
-        Args:
-            on (bool): True/False to indicate if CT should be used.
-
-            observer (Observer): Progress bar to give users feed back on the set up process of CT. If you have a really large set of triangles this may take some time.
-    )pydoc";
-
-    iLin.def("set_use_clough_tocher", [](xms::InterpLinear &self, bool on) {
-          BSHP<xms::PublicObserver> obs;
-          self.SetUseCloughTocher(on, obs);
-        },set_use_clough_tocher_doc1, py::arg("on"));
-  // ---------------------------------------------------------------------------
-  // function: set_use_clough_tocher
-  // ---------------------------------------------------------------------------
     const char* set_use_clough_tocher_doc = R"pydoc(
         Set the class to use the Clough Tocher interpolation method. This is a 
         legacy feature from GMS. Compare to linear.
@@ -417,9 +400,20 @@ void initInterpLinear(py::module &m) {
     )pydoc";
 
     iLin.def("set_use_clough_tocher", [](xms::InterpLinear &self, bool on,
-                              boost::shared_ptr<xms::PublicObserver> observer) {
-          self.SetUseCloughTocher(on, observer);
-        },set_use_clough_tocher_doc, py::arg("on"), py::arg("observer"));
+                                         py::object observer) {
+          BSHP<xms::Observer> obs;
+          if (!observer.is_none())
+          {
+            if (!py::isinstance<PyObserver>(observer))
+              throw std::invalid_argument("observer must be of type xmscore.misc.Observer");
+            BSHP<PyObserver> po = observer.cast<BSHP<PyObserver>>();
+            obs = BDPC<xms::Observer>(po);
+          }
+          self.SetUseCloughTocher(on, obs);
+        },set_use_clough_tocher_doc
+         , py::arg("on") = true
+         , py::arg("observer") = py::none()
+         );
   // ---------------------------------------------------------------------------
   // function: set_use_nat_neigh
   // ---------------------------------------------------------------------------
@@ -461,7 +455,7 @@ void initInterpLinear(py::module &m) {
                               nd_func_num_nearest_pts, nd_func_blend_weights, obs);
         },set_use_nat_neigh_doc,
             py::arg("on") = true, py::arg("nodal_func_type") = "constant",
-            py::arg("nd_func_pt_search_opt") = "natural_neighbors",
+            py::arg("nd_func_pt_search_opt") = "nearest_pts",
             py::arg("nd_func_num_nearest_pts") = 16,
             py::arg("nd_func_blend_weights") = true,
             py::arg("observer") = py::none()
