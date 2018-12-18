@@ -93,7 +93,24 @@ void initInterpLinear(py::module &m) {
                           py::iterable scalars) {
       boost::shared_ptr<xms::InterpLinear> rval(xms::InterpLinear::New());
       boost::shared_ptr<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
+      if (!vec_pts || vec_pts->size() < 3)
+      {
+        throw std::invalid_argument("Number of points is less than 3.");
+      }
+
       boost::shared_ptr<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
+      if (!vec_tris || vec_tris->empty())
+      {
+        if (!vec_tris)
+          vec_tris.reset(new xms::VecInt());
+        xms::TrTriangulatorPoints t(*vec_pts, *vec_tris);
+        t.Triangulate();
+        if (vec_tris->size() < 3)
+        {
+          throw std::domain_error("Unable to triangulate points. Aborting.");
+        }
+      }
+
       rval->SetPtsTris(vec_pts, vec_tris);
 
       if (py::len(scalars) > 0)
@@ -103,6 +120,8 @@ void initInterpLinear(py::module &m) {
           throw std::length_error("scalars length != pts length.");
         rval->SetScalars(vec_scalars);
       }
+
+      rval->SetExtrapVal(std::numeric_limits<float>::quiet_NaN());
 
       return rval;
     }), py::arg("pts"), py::arg("tris") = py::make_tuple(), py::arg("scalars") = py::make_tuple());
@@ -151,7 +170,15 @@ void initInterpLinear(py::module &m) {
     iLin.def("set_pts_tris", 
         [](xms::InterpLinear &self, py::iterable pts, py::iterable tris) {
             BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
+            if (!vec_pts || vec_pts->size() < 3)
+            {
+              throw std::invalid_argument("Number of points is less than 3.");
+            }
             BSHP<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
+            if (!vec_tris || vec_tris->size() < 3)
+            {
+              throw std::invalid_argument("Number of triangles is less than 1.");
+            }
             self.SetPtsTris(vec_pts, vec_tris);
         },set_pts_tris_doc, py::arg("pts"),py::arg("tris"));
   // ---------------------------------------------------------------------------
@@ -183,22 +210,11 @@ void initInterpLinear(py::module &m) {
     )pydoc";
 
     iLin.def("interp_to_pt",[](xms::InterpLinear &self, py::tuple pt) -> float {
-            if (!self.GetTris() || self.GetTris()->empty())
+            if (!self.GetPts())
             {
-              const BSHP<xms::VecPt3d> vec_pts = self.GetPts();
-              if (vec_pts && !vec_pts->empty())
-              {
-                boost::shared_ptr<xms::VecInt> vec_tris(new xms::VecInt());
-                xms::TrTriangulatorPoints t(*vec_pts, *vec_tris);
-                t.Triangulate();
-                self.SetPtsTris(vec_pts, vec_tris);
-              }
+              throw std::domain_error("No points defined in interpolation object. Aborting.");
             }
-            xms::Pt3d point = xms::Pt3dFromPyIter(pt);
-            float s = self.InterpToPt(point);
-            if (self.GetExtrapVal() == s)
-              s = std::numeric_limits<float>::quiet_NaN();
-            return s;
+            return self.InterpToPt(xms::Pt3dFromPyIter(pt));
         },interp_to_pt_doc, py::arg("pt"));
   // ---------------------------------------------------------------------------
   // function: interp_to_pts
@@ -215,26 +231,9 @@ void initInterpLinear(py::module &m) {
 
     iLin.def("interp_to_pts", 
         [](xms::InterpLinear &self, py::iterable pts) -> py::iterable {
-            if (!self.GetTris() || self.GetTris()->empty())
-            {
-              const BSHP<xms::VecPt3d> vec_pts = self.GetPts();
-              if (vec_pts && !vec_pts->empty())
-              {
-                boost::shared_ptr<xms::VecInt> vec_tris(new xms::VecInt());
-                xms::TrTriangulatorPoints t(*vec_pts, *vec_tris);
-                t.Triangulate();
-                self.SetPtsTris(vec_pts, vec_tris);
-              }
-            }
             BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
             xms::VecFlt vec_scalars;
             self.InterpToPts(*vec_pts, vec_scalars);
-            double extrap = self.GetExtrapVal();
-            for (auto& s : vec_scalars)
-            {
-              if (extrap == s)
-                s = std::numeric_limits<float>::quiet_NaN();
-            }
             return xms::PyIterFromVecFlt(vec_scalars,
                                          py::isinstance<py::array>(pts));
         },interp_to_pts_doc, py::arg("pts"));
