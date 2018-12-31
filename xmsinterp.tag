@@ -5477,11 +5477,25 @@
       <arglist>() const override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
+      <type>virtual VecInt</type>
+      <name>GetExtrapolationPointIndexes</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>ab007495c2c27769e269461063d6e6614</anchor>
+      <arglist>() const override</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
       <type>virtual float</type>
       <name>InterpToPt</name>
       <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
       <anchor>ada8409ec023fe78c4df3de1d2f133dc7</anchor>
       <arglist>(const Pt3d &amp;a_pt) override</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>InterpToPtImpl</name>
+      <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
+      <anchor>aee7cddf436ed89f9997f9c2396a16a9c</anchor>
+      <arglist>(const Pt3d &amp;a_pt, int a_ptIdx)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -5736,10 +5750,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>std::string</type>
-      <name>m_idString</name>
+      <type>VecInt</type>
+      <name>m_extrapolationPointIndexes</name>
       <anchorfile>classxms_1_1_interp_linear_impl.html</anchorfile>
-      <anchor>aff0667556500d4220f1943f2a0737703</anchor>
+      <anchor>ab8cc560a805fa06fb7d49ae11132bc42</anchor>
       <arglist></arglist>
     </member>
   </compound>

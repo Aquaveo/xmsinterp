@@ -141,9 +141,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa2441661030f3dc05ca12addee8f04e2"><td class="memItemLeft" align="right" valign="top">virtual <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_dyn_bitset_8h.html#aba8c1eacfbbd2d1f45cef2fd55a35d93">DynBitset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_interp_linear_impl.html#aa2441661030f3dc05ca12addee8f04e2">GetTriActivity</a> () const override</td></tr>
 <tr class="memdesc:aa2441661030f3dc05ca12addee8f04e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns bitset of triangle activity.  <a href="#aa2441661030f3dc05ca12addee8f04e2">More...</a><br /></td></tr>
 <tr class="separator:aa2441661030f3dc05ca12addee8f04e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab007495c2c27769e269461063d6e6614"><td class="memItemLeft" align="right" valign="top">virtual <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/vector_8h.html#ad81e1ef6499bc0e65df973717a1e2fbb">VecInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_interp_linear_impl.html#ab007495c2c27769e269461063d6e6614">GetExtrapolationPointIndexes</a> () const override</td></tr>
+<tr class="memdesc:ab007495c2c27769e269461063d6e6614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns vector of point indexes for points that were outside of all triangles.  <a href="#ab007495c2c27769e269461063d6e6614">More...</a><br /></td></tr>
+<tr class="separator:ab007495c2c27769e269461063d6e6614"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada8409ec023fe78c4df3de1d2f133dc7"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_interp_linear_impl.html#ada8409ec023fe78c4df3de1d2f133dc7">InterpToPt</a> (const <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/ptsfwd_8h.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a> &amp;a_pt) override</td></tr>
 <tr class="memdesc:ada8409ec023fe78c4df3de1d2f133dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the stored triangles to interpolate to a point. Returns extrapolation value if the point is outside the triangles.  <a href="#ada8409ec023fe78c4df3de1d2f133dc7">More...</a><br /></td></tr>
 <tr class="separator:ada8409ec023fe78c4df3de1d2f133dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee7cddf436ed89f9997f9c2396a16a9c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_interp_linear_impl.html#aee7cddf436ed89f9997f9c2396a16a9c">InterpToPtImpl</a> (const <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/ptsfwd_8h.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a> &amp;a_pt, int a_ptIdx)</td></tr>
+<tr class="memdesc:aee7cddf436ed89f9997f9c2396a16a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the stored triangles to interpolate to a point. Returns extrapolation value if the point is outside the triangles.  <a href="#aee7cddf436ed89f9997f9c2396a16a9c">More...</a><br /></td></tr>
+<tr class="separator:aee7cddf436ed89f9997f9c2396a16a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affebfe1c64d7b27d8fd721b169910884"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_interp_linear_impl.html#affebfe1c64d7b27d8fd721b169910884">InterpToPts</a> (const <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/vector_8h.html#a0dc29604ee813731d584232b63f54922">VecPt3d</a> &amp;a_pts, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/vector_8h.html#a386622729e9b0e733d6eaac4e0e711c7">VecFlt</a> &amp;a_scalars) override</td></tr>
 <tr class="memdesc:affebfe1c64d7b27d8fd721b169910884"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls InterpToPt in a loop.  <a href="#affebfe1c64d7b27d8fd721b169910884">More...</a><br /></td></tr>
 <tr class="separator:affebfe1c64d7b27d8fd721b169910884"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -269,10 +275,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/boost__defines_8h.html#a37efc6913312f9271e2ea37f1acbc2dc">BSHP</a>&lt; <a class="el" href="classxms_1_1_interp_nat_neigh.html">InterpNatNeigh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_interp_linear_impl.html#adfa5e75e3a8ba28e1bf0074c0fccf910">m_nn</a></td></tr>
 <tr class="memdesc:adfa5e75e3a8ba28e1bf0074c0fccf910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Natural neighbor interpolation class. <br /></td></tr>
 <tr class="separator:adfa5e75e3a8ba28e1bf0074c0fccf910"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff0667556500d4220f1943f2a0737703"><td class="memItemLeft" align="right" valign="top"><a id="aff0667556500d4220f1943f2a0737703"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_interp_linear_impl.html#aff0667556500d4220f1943f2a0737703">m_idString</a></td></tr>
-<tr class="memdesc:aff0667556500d4220f1943f2a0737703"><td class="mdescLeft">&#160;</td><td class="mdescRight">identification for comparison with other Interp classes <br /></td></tr>
-<tr class="separator:aff0667556500d4220f1943f2a0737703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8cc560a805fa06fb7d49ae11132bc42"><td class="memItemLeft" align="right" valign="top"><a id="ab8cc560a805fa06fb7d49ae11132bc42"></a>
+<a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/vector_8h.html#ad81e1ef6499bc0e65df973717a1e2fbb">VecInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxms_1_1_interp_linear_impl.html#ab8cc560a805fa06fb7d49ae11132bc42">m_extrapolationPointIndexes</a></td></tr>
+<tr class="memdesc:ab8cc560a805fa06fb7d49ae11132bc42"><td class="mdescLeft">&#160;</td><td class="mdescRight">indexes of points that are outside of all triangles <br /></td></tr>
+<tr class="separator:ab8cc560a805fa06fb7d49ae11132bc42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -323,11 +329,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Interpolated value at a_pt. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00409">409</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00436">436</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00161">m_ct</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00163">m_ct</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00321">InterpToPt()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00343">InterpToPtImpl()</a>.</p>
 
 </div>
 </div>
@@ -349,11 +355,45 @@ Additional Inherited Members</h2></td></tr>
 <p>Creates a <a class="el" href="classxms_1_1_gm_pt_search.html" title="Spatial index for searching points. ">GmPtSearch</a> class to be used for nodal function generation. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classxms_1_1_gm_pt_search.html" title="Spatial index for searching points. ">GmPtSearch</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00518">518</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00545">545</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00151">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00150">m_triSearch</a>, and <a class="el" href="_gm_pt_search_8cpp_source.html#l00235">xms::GmPtSearch::New()</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_triSearch</a>, and <a class="el" href="_gm_pt_search_8cpp_source.html#l00235">xms::GmPtSearch::New()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00451">SetUseCloughTocher()</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00483">SetUseNatNeigh()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00478">SetUseCloughTocher()</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00510">SetUseNatNeigh()</a>.</p>
+
+</div>
+</div>
+<a id="ab007495c2c27769e269461063d6e6614"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab007495c2c27769e269461063d6e6614">&#9670;&nbsp;</a></span>GetExtrapolationPointIndexes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/vector_8h.html#ad81e1ef6499bc0e65df973717a1e2fbb">VecInt</a> xms::InterpLinearImpl::GetExtrapolationPointIndexes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns vector of point indexes for points that were outside of all triangles. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns vector of points indexes </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00322">322</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00165">m_extrapolationPointIndexes</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00636">InterpLinearUnitTests::testOneTriangle()</a>.</p>
 
 </div>
 </div>
@@ -383,9 +423,9 @@ Additional Inherited Members</h2></td></tr>
 <p>get extrapolation value </p>
 <dl class="section return"><dt>Returns</dt><dd>the extrapolation value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00093">93</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00095">95</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00154">m_extrap</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00156">m_extrap</a>.</p>
 
 </div>
 </div>
@@ -415,9 +455,9 @@ Additional Inherited Members</h2></td></tr>
 <p>get the option for blending weights when using Natural Neighbor </p>
 <dl class="section return"><dt>Returns</dt><dd>the option for blending weights when using Natural Neighbor </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00137">137</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00139">139</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00160">m_nodal</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00162">m_nodal</a>.</p>
 
 </div>
 </div>
@@ -447,9 +487,9 @@ Additional Inherited Members</h2></td></tr>
 <p>get the value for the Natural Neighbor nodal function </p>
 <dl class="section return"><dt>Returns</dt><dd>the value for the Natural Neighbor nodal function </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00111">111</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00113">113</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00160">m_nodal</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00162">m_nodal</a>.</p>
 
 </div>
 </div>
@@ -479,9 +519,9 @@ Additional Inherited Members</h2></td></tr>
 <p>get the option for the Natural Neighbor nodal function nearest points. Nearest points or nearest natural neighbors. </p>
 <dl class="section return"><dt>Returns</dt><dd>the option for the Natural Neighbor nodal function nearest points. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00120">120</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00122">122</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00160">m_nodal</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00162">m_nodal</a>.</p>
 
 </div>
 </div>
@@ -511,9 +551,9 @@ Additional Inherited Members</h2></td></tr>
 <p>get the value for the number of nearest points to use when calculating the nodal function </p>
 <dl class="section return"><dt>Returns</dt><dd>the value for the number of nearest points </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00129">129</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00131">131</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00160">m_nodal</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00162">m_nodal</a>.</p>
 
 </div>
 </div>
@@ -543,9 +583,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns bitset of point activity. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns bitset of point activity </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00303">303</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00305">305</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00150">m_triSearch</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_triSearch</a>.</p>
 
 </div>
 </div>
@@ -575,9 +615,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns shared pointer to points vector. </p>
 <dl class="section return"><dt>Returns</dt><dd>Shared pointer to points vector. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00279">279</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00281">281</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00151">m_pts</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_pts</a>.</p>
 
 </div>
 </div>
@@ -607,9 +647,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns shared pointer to scalars vector. </p>
 <dl class="section return"><dt>Returns</dt><dd>Shared pointer to scalars vector. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00295">295</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00297">297</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_scalar</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00155">m_scalar</a>.</p>
 
 </div>
 </div>
@@ -639,9 +679,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns bitset of triangle activity. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns bitset of triangle activity </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00311">311</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00313">313</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00150">m_triSearch</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_triSearch</a>.</p>
 
 </div>
 </div>
@@ -671,9 +711,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns shared pointer to triangles vector. </p>
 <dl class="section return"><dt>Returns</dt><dd>Shared pointer to triangles vector. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00287">287</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00289">289</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_tris</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00154">m_tris</a>.</p>
 
 </div>
 </div>
@@ -703,9 +743,9 @@ Additional Inherited Members</h2></td></tr>
 <p>get the option to truncate interpolated values </p>
 <dl class="section return"><dt>Returns</dt><dd>the option to truncate interpolated values </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00096">96</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00098">98</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00155">m_trunc</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00157">m_trunc</a>.</p>
 
 </div>
 </div>
@@ -735,9 +775,9 @@ Additional Inherited Members</h2></td></tr>
 <p>get the maximum truncation value </p>
 <dl class="section return"><dt>Returns</dt><dd>the maximum truncation value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00102">102</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00104">104</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00156">m_truncMax</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00158">m_truncMax</a>.</p>
 
 </div>
 </div>
@@ -767,9 +807,9 @@ Additional Inherited Members</h2></td></tr>
 <p>get minimum truncation value </p>
 <dl class="section return"><dt>Returns</dt><dd>the minimum truncation value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00099">99</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00101">101</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00157">m_truncMin</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00159">m_truncMin</a>.</p>
 
 </div>
 </div>
@@ -799,9 +839,9 @@ Additional Inherited Members</h2></td></tr>
 <p>get the option for using Clough Tocher interpolation </p>
 <dl class="section return"><dt>Returns</dt><dd>the option for using Clough Tocher interpolation </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00105">105</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00107">107</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00158">m_cloughTocher</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00160">m_cloughTocher</a>.</p>
 
 </div>
 </div>
@@ -831,9 +871,9 @@ Additional Inherited Members</h2></td></tr>
 <p>get the option for using Natural Neighbor interpolation </p>
 <dl class="section return"><dt>Returns</dt><dd>the option for using Natural Neighbor interpolation </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00108">108</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00110">110</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00159">m_natNeigh</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00161">m_natNeigh</a>.</p>
 
 </div>
 </div>
@@ -870,11 +910,55 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Interpolated value at a_pt. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00321">321</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00332">332</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00409">CloughTocherInterp()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/math_8h.html#ad2b764be90f289082998491db1b52711">EQ_TOL()</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00158">m_cloughTocher</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00154">m_extrap</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00159">m_natNeigh</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00150">m_triSearch</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00155">m_trunc</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00156">m_truncMax</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00157">m_truncMin</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00420">NatNeighInterp()</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00343">InterpToPtImpl()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00362">InterpToPts()</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00671">InterpLinearUnitTests::testCt()</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00649">InterpLinearUnitTests::testInterp()</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00609">InterpLinearUnitTests::testOneTriangle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00709">InterpLinearUnitTests::testCt()</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00687">InterpLinearUnitTests::testInterp()</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00636">InterpLinearUnitTests::testOneTriangle()</a>.</p>
+
+</div>
+</div>
+<a id="aee7cddf436ed89f9997f9c2396a16a9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee7cddf436ed89f9997f9c2396a16a9c">&#9670;&nbsp;</a></span>InterpToPtImpl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float xms::InterpLinearImpl::InterpToPtImpl </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/ptsfwd_8h.html#a33ae0c78e599c46ba59bce7f2b32d7ab">Pt3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>a_pt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>a_ptIdx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use the stored triangles to interpolate to a point. Returns extrapolation value if the point is outside the triangles. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a_pt</td><td>Location that is interpolated to. </td></tr>
+    <tr><td class="paramname">a_ptIdx</td><td>point index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Interpolated value at a_pt. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00343">343</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00436">CloughTocherInterp()</a>, <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/math_8h.html#ad2b764be90f289082998491db1b52711">EQ_TOL()</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00160">m_cloughTocher</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00156">m_extrap</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00165">m_extrapolationPointIndexes</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00161">m_natNeigh</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_triSearch</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00157">m_trunc</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00158">m_truncMax</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00159">m_truncMin</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00447">NatNeighInterp()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00332">InterpToPt()</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00388">InterpToPts()</a>.</p>
 
 </div>
 </div>
@@ -921,9 +1005,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00362">362</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00388">388</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00321">InterpToPt()</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00343">InterpToPtImpl()</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00165">m_extrapolationPointIndexes</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00636">InterpLinearUnitTests::testOneTriangle()</a>.</p>
 
 </div>
 </div>
@@ -978,9 +1064,9 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>false if a_pt is not inside of any triangle </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00398">398</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00425">425</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00150">m_triSearch</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_triSearch</a>.</p>
 
 </div>
 </div>
@@ -1009,11 +1095,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Interpolated value at a_pt. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00420">420</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00447">447</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00162">m_nn</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00164">m_nn</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00321">InterpToPt()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00343">InterpToPtImpl()</a>.</p>
 
 </div>
 </div>
@@ -1049,11 +1135,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00428">428</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00455">455</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00154">m_extrap</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00156">m_extrap</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00609">InterpLinearUnitTests::testOneTriangle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00636">InterpLinearUnitTests::testOneTriangle()</a>.</p>
 
 </div>
 </div>
@@ -1089,9 +1175,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00261">261</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00263">263</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00150">m_triSearch</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00529">RecalcNodalFunc()</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_triSearch</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00556">RecalcNodalFunc()</a>.</p>
 
 </div>
 </div>
@@ -1138,11 +1224,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00227">227</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00229">229</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00151">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_scalar</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_tris</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00150">m_triSearch</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00155">m_scalar</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00154">m_tris</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_triSearch</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00671">InterpLinearUnitTests::testCt()</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00649">InterpLinearUnitTests::testInterp()</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00609">InterpLinearUnitTests::testOneTriangle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00709">InterpLinearUnitTests::testCt()</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00687">InterpLinearUnitTests::testInterp()</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00636">InterpLinearUnitTests::testOneTriangle()</a>.</p>
 
 </div>
 </div>
@@ -1189,9 +1275,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00241">241</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00243">243</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00151">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_scalar</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00529">RecalcNodalFunc()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a3dc5059ab2a87bfa4876b29ca6567376">XM_ENSURE_TRUE</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00155">m_scalar</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00556">RecalcNodalFunc()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a3dc5059ab2a87bfa4876b29ca6567376">XM_ENSURE_TRUE</a>.</p>
 
 </div>
 </div>
@@ -1227,9 +1313,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00251">251</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00253">253</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00151">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_scalar</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00529">RecalcNodalFunc()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a3dc5059ab2a87bfa4876b29ca6567376">XM_ENSURE_TRUE</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00155">m_scalar</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00556">RecalcNodalFunc()</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/_xm_error_8h.html#a3dc5059ab2a87bfa4876b29ca6567376">XM_ENSURE_TRUE</a>.</p>
 
 </div>
 </div>
@@ -1265,9 +1351,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00270">270</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00272">272</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00150">m_triSearch</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00529">RecalcNodalFunc()</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_triSearch</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00556">RecalcNodalFunc()</a>.</p>
 
 </div>
 </div>
@@ -1314,11 +1400,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00438">438</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00465">465</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00155">m_trunc</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00156">m_truncMax</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00157">m_truncMin</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00157">m_trunc</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00158">m_truncMax</a>, and <a class="el" href="_interp_linear_8cpp_source.html#l00159">m_truncMin</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00671">InterpLinearUnitTests::testCt()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00709">InterpLinearUnitTests::testCt()</a>.</p>
 
 </div>
 </div>
@@ -1365,11 +1451,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00451">451</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00478">478</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00518">CreatePtSearch()</a>, <a class="el" href="_interp_util_8cpp_source.html#l00363">xms::inAllScalarsEqual()</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00158">m_cloughTocher</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00161">m_ct</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00160">m_nodal</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00151">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_scalar</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00150">m_triSearch</a>, and <a class="el" href="_nodal_func_8cpp_source.html#l00188">xms::NodalFunc::New()</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00545">CreatePtSearch()</a>, <a class="el" href="_interp_util_8cpp_source.html#l00363">xms::inAllScalarsEqual()</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00160">m_cloughTocher</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00163">m_ct</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00162">m_nodal</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00155">m_scalar</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_triSearch</a>, and <a class="el" href="_nodal_func_8cpp_source.html#l00188">xms::NodalFunc::New()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00671">InterpLinearUnitTests::testCt()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_interp_linear_8cpp_source.html#l00709">InterpLinearUnitTests::testCt()</a>.</p>
 
 </div>
 </div>
@@ -1444,9 +1530,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00483">483</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00510">510</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00518">CreatePtSearch()</a>, <a class="el" href="_interp_util_8cpp_source.html#l00363">xms::inAllScalarsEqual()</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00159">m_natNeigh</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00162">m_nn</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00160">m_nodal</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00151">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_scalar</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_tris</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00150">m_triSearch</a>, <a class="el" href="_interp_nat_neigh_8cpp_source.html#l00136">xms::InterpNatNeigh::New()</a>, and <a class="el" href="_nodal_func_8cpp_source.html#l00188">xms::NodalFunc::New()</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00545">CreatePtSearch()</a>, <a class="el" href="_interp_util_8cpp_source.html#l00363">xms::inAllScalarsEqual()</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00161">m_natNeigh</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00164">m_nn</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00162">m_nodal</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00155">m_scalar</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00154">m_tris</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_triSearch</a>, <a class="el" href="_interp_nat_neigh_8cpp_source.html#l00136">xms::InterpNatNeigh::New()</a>, and <a class="el" href="_nodal_func_8cpp_source.html#l00188">xms::NodalFunc::New()</a>.</p>
 
 </div>
 </div>
@@ -1476,9 +1562,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Write the internals to a string. </p>
 <dl class="section return"><dt>Returns</dt><dd>The string. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00540">540</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00567">567</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00158">m_cloughTocher</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00161">m_ct</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00154">m_extrap</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00159">m_natNeigh</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00162">m_nn</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00160">m_nodal</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00151">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_scalar</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_tris</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00150">m_triSearch</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00155">m_trunc</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00156">m_truncMax</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00157">m_truncMin</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/utility_8h.html#a9be33abf1221de1679a4ff237b549efb">VecToStream()</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00160">m_cloughTocher</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00163">m_ct</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00156">m_extrap</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00161">m_natNeigh</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00164">m_nn</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00162">m_nodal</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00153">m_pts</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00155">m_scalar</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00154">m_tris</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_triSearch</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00157">m_trunc</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00158">m_truncMax</a>, <a class="el" href="_interp_linear_8cpp_source.html#l00159">m_truncMin</a>, and <a class="elRef" doxygen="/home/conan/Doxygen/xmscore.tag:https://aquaveo.github.io/xmscore/" href="https://aquaveo.github.io/xmscore/utility_8h.html#a9be33abf1221de1679a4ff237b549efb">VecToStream()</a>.</p>
 
 </div>
 </div>
@@ -1515,9 +1601,9 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Index of triangle containing a_pt. If XM_NONE is returned then no triangle contained the point. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00377">377</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00404">404</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00150">m_triSearch</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_triSearch</a>.</p>
 
 </div>
 </div>
@@ -1564,9 +1650,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00386">386</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_interp_linear_8cpp_source.html#l00413">413</a> of file <a class="el" href="_interp_linear_8cpp_source.html">InterpLinear.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00150">m_triSearch</a>.</p>
+<p class="reference">References <a class="el" href="_interp_linear_8cpp_source.html#l00152">m_triSearch</a>.</p>
 
 </div>
 </div>
@@ -1579,7 +1665,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>xms</b></li><li class="navelem"><a class="el" href="classxms_1_1_interp_linear_impl.html">InterpLinearImpl</a></li>
-    <li class="footer">Generated on Tue Dec 11 2018 18:25:26 for xmsinterp by
+    <li class="footer">Generated on Mon Dec 31 2018 05:26:52 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
   </ul>

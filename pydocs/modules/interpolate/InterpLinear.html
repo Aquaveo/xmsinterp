@@ -57,7 +57,7 @@
             
             
               <div class="version">
-                2.1.0
+                2.2.0
               </div>
             
           
@@ -274,7 +274,7 @@ Returns false if the point is outside the triangles.</p>
 
 <dl class="method">
 <dt id="xmsinterp.interpolate.InterpLinear.set_truncation_max_min">
-<code class="descname">set_truncation_max_min</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>max: float</em>, <em>min: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_truncation_max_min" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_truncation_max_min</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>smax: float</em>, <em>smin: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_truncation_max_min" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the truncation values for the interpolation and turn on truncation.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -286,12 +286,8 @@ Returns false if the point is outside the triangles.</p>
 
 <dl class="method">
 <dt id="xmsinterp.interpolate.InterpLinear.set_use_clough_tocher">
-<code class="descname">set_use_clough_tocher</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_use_clough_tocher" title="Permalink to this definition">¶</a></dt>
-<dd><p>Overloaded function.</p>
-<ol class="arabic">
-<li><p class="first">set_use_clough_tocher(self: xmsinterp.interpolate.InterpLinear, on: bool) -&gt; None</p>
-<blockquote>
-<div><p>Set the class to use the Clough Tocher interpolation method. This is a
+<code class="descname">set_use_clough_tocher</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>on: bool=True</em>, <em>observer: object=None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_use_clough_tocher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the class to use the Clough Tocher interpolation method. This is a 
 legacy feature from GMS. Compare to linear.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -299,26 +295,11 @@ legacy feature from GMS. Compare to linear.</p>
 <p class="last">observer (Observer): Progress bar to give users feed back on the set up process of CT. If you have a really large set of triangles this may take some time.</p>
 </dd>
 </dl>
-</div></blockquote>
-</li>
-<li><p class="first">set_use_clough_tocher(self: xmsinterp.interpolate.InterpLinear, on: bool, observer: xms::PublicObserver) -&gt; None</p>
-<blockquote>
-<div><p>Set the class to use the Clough Tocher interpolation method. This is a 
-legacy feature from GMS. Compare to linear.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">on (bool): True/False to indicate if CT should be used.</p>
-<p class="last">observer (Observer): Progress bar to give users feed back on the set up process of CT. If you have a really large set of triangles this may take some time.</p>
-</dd>
-</dl>
-</div></blockquote>
-</li>
-</ol>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.interpolate.InterpLinear.set_use_natural_neighbor">
-<code class="descname">set_use_natural_neighbor</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>on: bool=True</em>, <em>nodal_func_type: unicode=u'constant'</em>, <em>nd_func_pt_search_opt: unicode=u'natural_neighbors'</em>, <em>nd_func_num_nearest_pts: int=16L</em>, <em>nd_func_blend_weights: bool=True</em>, <em>observer: object=None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_use_natural_neighbor" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_use_natural_neighbor</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>on: bool=True</em>, <em>nodal_func_type: unicode=u'constant'</em>, <em>nd_func_pt_search_opt: unicode=u'nearest_pts'</em>, <em>nd_func_num_nearest_pts: int=16L</em>, <em>nd_func_blend_weights: bool=True</em>, <em>observer: object=None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_use_natural_neighbor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the class to use natural neighbor (NN) interpolation.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -423,6 +404,7 @@ legacy feature from GMS. Compare to linear.</p>
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
     
 
   
