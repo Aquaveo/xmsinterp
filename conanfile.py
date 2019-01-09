@@ -5,7 +5,7 @@ from conans.errors import ConanException
 
 class XmsinterpConan(ConanFile):
     name = "xmsinterp"
-    version = None
+    # version = None  # This no longer worked after conan version 1.11
     license = "XMSNG Software License"
     url = "https://github.com/Aquaveo/xmsinterp"
     description = "Interpolation library for XMS products"
