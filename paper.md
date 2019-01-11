@@ -5,12 +5,16 @@ tags:
   - interpolation
   - python
 authors:
-  - name: Alan Zundel
   - name: Alan M. Lemon
     orcid: 0000-0003-3931-4587
     affiliation: 1
+  - name: Alan Zundel
   - name: William J. Dolinar
   - name: Gage Larsen
+  - name: Dharhas Pothina
+  - name: Kevin D. Winters
+  - name: Scott D. Christensen
+  - name: Kimberly C. Pevey
   - name: Other Aquaveo Employees
 affiliations:
 date: 9 January 2019
