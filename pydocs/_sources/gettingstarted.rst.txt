@@ -2,16 +2,8 @@
 Getting Started
 ***************
 
-Installation
-============
-
-.. note::
-   
-    Installation instructions coming soon!
-
-Tutorial
+Examples
 ========
 
-.. note::
-   Tutorial coming soon!
-
+.. raw:: html
+  :file: ../../examples/2D_Interpolation.html

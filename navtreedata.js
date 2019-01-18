@@ -24,18 +24,16 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "xmsinterp", "index.html", [
-    [ "xmscore", "index.html", [
-      [ "xmsinterp ", "index.html#xmsinterp", [
-        [ "Introduction ", "index.html#XmsinterpIntroduction", null ],
-        [ "License ", "index.html#XmsinterpLicense", null ],
-        [ "Features ", "index.html#XmsinterpFeatures", null ],
-        [ "Testing ", "index.html#XmsinterpTesting", null ],
-        [ "The Code ", "index.html#XmsinterpTheCode", [
-          [ "Namespaces", "index.html#XmsinterpNamespaces", null ],
-          [ "Interface pattern", "index.html#XmsinterpInterfacePattern", null ]
-        ] ],
-        [ "\"xmsinterp\" Name ", "index.html#xmsinterpName", null ]
-      ] ]
+    [ "xmsinterp ", "index.html#xmsinterp", [
+      [ "Introduction ", "index.html#XmsinterpIntroduction", null ],
+      [ "License ", "index.html#XmsinterpLicense", null ],
+      [ "Features ", "index.html#XmsinterpFeatures", null ],
+      [ "Testing ", "index.html#XmsinterpTesting", null ],
+      [ "The Code ", "index.html#XmsinterpTheCode", [
+        [ "Namespaces", "index.html#XmsinterpNamespaces", null ],
+        [ "Interface pattern", "index.html#XmsinterpInterfacePattern", null ]
+      ] ],
+      [ "\"xmsinterp\" Name ", "index.html#xmsinterpName", null ]
     ] ],
     [ "Interpolation_Tutorial", "md__interpolation__tutorial.html", [
       [ "Interpolation Tutorial", "md__interpolation__tutorial.html#Interpolation_Tutorial", [

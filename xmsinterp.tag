@@ -8160,7 +8160,7 @@
   </compound>
   <compound kind="page">
     <name>index</name>
-    <title>xmscore</title>
+    <title>xmsinterp</title>
     <filename>index</filename>
     <docanchor file="index" title="xmsinterp ">xmsinterp</docanchor>
     <docanchor file="index" title="Introduction ">XmsinterpIntroduction</docanchor>
