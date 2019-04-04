@@ -78,17 +78,17 @@ PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 
 void initInterpLinear(py::module &m) {
     const char* interp_linear_doc = R"pydoc(
-        Class that performs linear interpolation
+        Linear Interpolation
 
         Args:
             pts (iterable):  Array of the point locations.
-            tris (:obj:`iterable`, optional): Triangles.
-            scalar (:obj:`iterable`, optional): Array of interpolation scalar values.
+            tris (iterable, optional): Triangles.
+            scalar (iterable, optional): Array of interpolation scalar values.
 
     )pydoc";
     py::class_<xms::InterpLinear, xms::InterpBase,
-        boost::shared_ptr<xms::InterpLinear>> iLin(m, "InterpLinear",
-        interp_linear_doc);
+        boost::shared_ptr<xms::InterpLinear>> iLin(m, "InterpLinear");
+
     iLin.def(py::init([](py::iterable pts, py::iterable tris,
                           py::iterable scalars) {
       boost::shared_ptr<xms::InterpLinear> rval(xms::InterpLinear::New());
@@ -124,7 +124,7 @@ void initInterpLinear(py::module &m) {
       rval->SetExtrapVal(std::numeric_limits<float>::quiet_NaN());
 
       return rval;
-    }), py::arg("pts"), py::arg("tris") = py::make_tuple(), py::arg("scalars") = py::make_tuple());
+    }), interp_linear_doc, py::arg("pts"), py::arg("tris") = py::make_tuple(), py::arg("scalars") = py::make_tuple());
   // ---------------------------------------------------------------------------
   // function: __str__
   // ---------------------------------------------------------------------------
@@ -163,7 +163,6 @@ void initInterpLinear(py::module &m) {
 
         Args:
             pts (iterable): Array of point locations.
-
             tris (iterable): Array of triangles that references the pts array. This array will have a size that is a multiple of 3. The first 3 locations in array represent the first triangle and will have indices that correspond to locations in the pts array.
     )pydoc";
 
@@ -349,7 +348,6 @@ void initInterpLinear(py::module &m) {
 
         Args:
             max (float): The maximum value for truncation.
-
             min (float): The minimum value for truncation.
     )pydoc";
 
@@ -394,7 +392,6 @@ void initInterpLinear(py::module &m) {
 
         Args:
             on (bool): True/False to indicate if CT should be used.
-
             observer (Observer): Progress bar to give users feed back on the set up process of CT. If you have a really large set of triangles this may take some time.
     )pydoc";
 
@@ -420,17 +417,12 @@ void initInterpLinear(py::module &m) {
         Set the class to use natural neighbor (NN) interpolation.
 
         Args:
-            on (:obj:`bool`, optional): True/False to indicate if NN should be used.
-
-            nodal_func_type (:obj:`string`, optional): Indicates which type of nodal function to use: "constant", "gradient_plane", or "quadratic".
-
-            nd_func_pt_search_opt (:obj:`string`, optional): Indicates options for the nearest points when computing the nodal functions: "natural_neighbors" or "nearest_pts".
-
-            nd_func_num_nearest_pts (:obj:`int`, optional): The number of nearest points for nodal function computation.
-
-            nd_func_blend_weights (:obj:`bool`, optional): Option to use a blending function on the calculated weights.
-
-            observer (:obj:`Observer`, optional): Progress bar to give user feedback for generation of the nodal functions.
+            on (bool, optional): True/False to indicate if NN should be used.
+            nodal_func_type (string, optional): Indicates which type of nodal function to use: "constant", "gradient_plane", or "quadratic".
+            nd_func_pt_search_opt (string, optional): Indicates options for the nearest points when computing the nodal functions: "natural_neighbors" or "nearest_pts".
+            nd_func_num_nearest_pts (int, optional): The number of nearest points for nodal function computation.
+            nd_func_blend_weights (bool, optional): Option to use a blending function on the calculated weights.
+            observer (Observer, optional): Progress bar to give user feedback for generation of the nodal functions.
     )pydoc";
 
     iLin.def("set_use_natural_neighbor",

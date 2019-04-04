@@ -55,16 +55,17 @@ void initInterpIdw(py::module &m) {
 
     // Class
     const char* interp_idw_doc = R"pydoc(
-        Class that performs inverse distance weighted interpolation
+        IDW Interpolation
 
         Args:
             pts (iterable):  Array of the point locations.
-            tris (:obj:`iterable`, optional): Triangles.
-            scalar (:obj:`iterable`, optional): Array of interpolation scalar values.
+            tris (iterable, optional): Triangles.
+            scalar (iterable, optional): Array of interpolation scalar values.
 
     )pydoc";
     py::class_<xms::InterpIdw, xms::InterpBase, 
-        boost::shared_ptr<xms::InterpIdw>> iIdw(m, "InterpIdw",interp_idw_doc);
+        boost::shared_ptr<xms::InterpIdw>> iIdw(m, "InterpIdw");
+
     iIdw.def(py::init([](py::iterable pts, py::iterable tris,
                          py::iterable scalars) {
       BSHP<xms::InterpIdw> idw(xms::InterpIdw::New());
@@ -81,7 +82,7 @@ void initInterpIdw(py::module &m) {
       }
 
       return idw;
-    }), py::arg("pts"), py::arg("tris") = py::make_tuple(),
+    }), interp_idw_doc, py::arg("pts"), py::arg("tris") = py::make_tuple(),
         py::arg("scalars") = py::make_tuple());
   // ---------------------------------------------------------------------------
   // attribute: __repr__
@@ -151,7 +152,7 @@ void initInterpIdw(py::module &m) {
             pts (iterable): Array of points to interpolate to.
 
         Returns:
-          iterable: Array of scalar values. It will be the same size as a_pts and each value corresponds to the interpolated value at the respective location in the a_pts array.
+            iterable: Array of scalar values. It will be the same size as a_pts and each value corresponds to the interpolated value at the respective location in the a_pts array.
     )pydoc";
 
     iIdw.def("interp_to_pts", [](xms::InterpIdw &self, py::iterable pts) -> 
@@ -316,13 +317,10 @@ void initInterpIdw(py::module &m) {
         functions.
 
         Args:
-            nodal_func_type (:obj:`string`, optional): The nodal function methodology: constant (0), gradient plane (1), quadratic (2).
-
-            num_nearest_points (:obj:`int`, optional): The nearest number of points to use when calculating the nodal functions.
-
-            use_quadrant_octant_search (:obj:`bool`, optional): Find the nearest number of points in each quadrant (2d) or octant (3d) when computing nodal functions.
-
-            observer (:obj:`Observer`, optional): Progress bar to give user feedback.
+            nodal_func_type (string, optional): The nodal function methodology: constant (0), gradient plane (1), quadratic (2).
+            num_nearest_points (int, optional): The nearest number of points to use when calculating the nodal functions.
+            use_quadrant_octant_search (bool, optional): Find the nearest number of points in each quadrant (2d) or octant (3d) when computing nodal functions.
+            observer (Observer, optional): Progress bar to give user feedback.
     )pydoc";
 
     iIdw.def("set_nodal_function", [](xms::InterpIdw &self, 

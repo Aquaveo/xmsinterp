@@ -27,18 +27,20 @@ void initGmTriSearch(py::module &m) {
   // Class
   const char* gmi_tri_search_doc = R"pydoc(
       Spatial index for searching triangles.
+
+      Args:
+          pts (iterable): A list of point locations.
+          tris (iterable): Triangles that reference the point indexes.
   )pydoc";
   py::class_<xms::GmTriSearch,
-    boost::shared_ptr<xms::GmTriSearch>> iGmTriSearch(m, "TriSearch",
-    gmi_tri_search_doc);
-  iGmTriSearch.def(py::init(&xms::GmTriSearch::New));
+    boost::shared_ptr<xms::GmTriSearch>> iGmTriSearch(m, "TriSearch");
   iGmTriSearch.def(py::init([](py::iterable pts, py::iterable tris) {
     boost::shared_ptr<xms::GmTriSearch> rval(xms::GmTriSearch::New());
     boost::shared_ptr<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
     boost::shared_ptr<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
     rval->TrisToSearch(vec_pts, vec_tris);
     return rval;
-  }), py::arg("pts"), py::arg("tris"));
+  }), gmi_tri_search_doc, py::arg("pts"), py::arg("tris"));
   // ---------------------------------------------------------------------------
   // attribute: __repr__
   // ---------------------------------------------------------------------------
@@ -63,7 +65,6 @@ void initGmTriSearch(py::module &m) {
 
         Args:
             pts (iterable):  Array of the point locations.
-
             tris (iterable): Triangles.
     )pydoc";
 
@@ -177,9 +178,6 @@ void initGmTriSearch(py::module &m) {
 
         Args:
             pt_min (iterable):  Min x,y location of the box.
-
-            pt_max (iterable):  Max x,y location of the box.
-
             pt_max (iterable):  Max x,y location of the box.
 
         Returns:

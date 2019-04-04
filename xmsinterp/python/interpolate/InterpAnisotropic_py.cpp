@@ -22,16 +22,11 @@ namespace py = pybind11;
 PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 
 void initInterpAnisotropic(py::module &m) {
-    const char* interp_anistropic_doc = R"pydoc(
-        Class that performs anisotropic interpolation. Transforms points
-        so x is a distance of a projected normal onto the centerline and y
-        is the distance from (above or below) the centerline. Interpolate
-        using inverse distance weighted interpolation after scaling the
-        transformed x-values.
-    )pydoc";
+
     py::class_<xms::InterpAnisotropic, 
         boost::shared_ptr<xms::InterpAnisotropic>> iInterpAnisotropic(m, 
-        "InterpAnisotropic",interp_anistropic_doc);
+        "InterpAnisotropic");
+
     iInterpAnisotropic.def(py::init(&xms::InterpAnisotropic::New));
   // ---------------------------------------------------------------------------
   // function: set_points
@@ -42,9 +37,7 @@ void initInterpAnisotropic(py::module &m) {
 
         Args:
             centerline_pts (iterable):  The centerline.
-
             interpolation_pts (iterable): The points to interpolate from (typically cross sections of the centerline).
-
             pick_closest (bool): If true, only keep the transformed point for each interpolation point closest to the centerline.
     )pydoc";
     iInterpAnisotropic.def("set_points", [](xms::InterpAnisotropic &self, 
