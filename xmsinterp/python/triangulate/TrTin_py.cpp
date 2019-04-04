@@ -25,11 +25,10 @@ PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 void initTrTin(py::module &m) {
   // Class
   const char* tr_tin_doc = R"pydoc(
-      Class to encapsulate a tin made simply of arrays of points,
-      triangles and adjacency information. Also methods to manipulate it.
+    Tin containing info about poinst and triangles.
   )pydoc";
-  py::class_<xms::TrTin, boost::shared_ptr<xms::TrTin>> iTrTin(m, "Tin",
-    tr_tin_doc);
+  py::class_<xms::TrTin, boost::shared_ptr<xms::TrTin>> iTrTin(m, "Tin");
+
   iTrTin.def(py::init([](py::iterable pts, py::iterable tris) {
     boost::shared_ptr<xms::TrTin> rval(xms::TrTin::New());
     boost::shared_ptr<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
@@ -37,7 +36,7 @@ void initTrTin(py::module &m) {
     rval->SetPoints(vec_pts);
     rval->SetTriangles(vec_tris);
     return rval;
-  }), py::arg("pts"), py::arg("tris") = py::make_tuple());
+  }), tr_tin_doc, py::arg("pts"), py::arg("tris") = py::make_tuple());
   // ---------------------------------------------------------------------------
   // attribute: __repr__
   // ---------------------------------------------------------------------------
@@ -124,9 +123,7 @@ void initTrTin(py::module &m) {
 
       Args:
           pts (iterable): The tin points.
-
           tris (iterable):  0-based indices of triangle points (grouped by 3s).
-
           tris_adj (iterable): 0-based indices of triangles adjacent to points.
   )pydoc";
 
@@ -235,7 +232,6 @@ void initTrTin(py::module &m) {
 
       Args:
           pt1 (int): First edge point index (0-based).
-
           pt2 (int): Second edge point index (0-based).
       
       Returns:
@@ -254,7 +250,6 @@ void initTrTin(py::module &m) {
 
       Args:
           tri (int): Triangle index (0-based).
-
           pt (int): Global point index (0-based).
       
       Returns:
@@ -287,7 +282,6 @@ void initTrTin(py::module &m) {
 
       Args:
           pt1 (int): First point index (0-based).
-
           pt2 (int): Second point index (0-based).
       
       Returns:
@@ -304,7 +298,6 @@ void initTrTin(py::module &m) {
 
       Args:
           pt1 (int): First point index (0-based).
-
           pt2 (int): Second point index (0-based).
       
       Returns:
@@ -321,7 +314,6 @@ void initTrTin(py::module &m) {
 
       Args:
           tri (int): Triangle index (0-based).
-
           edge (int): Local edge index (0-2) in tri.
       
       Returns:
@@ -473,10 +465,9 @@ void initTrTin(py::module &m) {
       
       Args:
           tri_A (int): First triangle.
-
           tri_B (int): Second triangle.
-
           check_angle (bool): If true, won't swap if very thin triangle would be created.
+
       Returns:
           bool: true if swap was successful.
   )pydoc";
