@@ -4,6 +4,7 @@ set -e
 set -x
 
 if [[ "$(uname -s)" == 'Darwin' ]]; then
+    export PYTHON_BUILD_CONFIGURE_WITH_OPENSSL=1
     brew update || brew update
     brew outdated pyenv || brew upgrade pyenv
     brew install pyenv-virtualenv
