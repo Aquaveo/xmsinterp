@@ -17,34 +17,35 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="InterpAnisotropic" href="../interpolate/InterpAnisotropic.html" />
-    <link rel="prev" title="TriSearch" href="../geometry/TriSearch.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
+    <link rel="prev" title="InterpLinear" href="../interpolate/InterpLinear.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -58,7 +59,7 @@
             
             
               <div class="version">
-                2.2.2
+                2.2.3
               </div>
             
           
@@ -82,17 +83,18 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html">Getting Started</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../modules.html">Modules</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-xmsinterp.geometry">Geometry</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../modules.html#module-xmsinterp.triangulate">Triangulate</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Tin</a></li>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html#usage">Usage</a></li>
 </ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-xmsinterp.interpolate">Interpolate</a></li>
-</ul>
-</li>
+<p class="caption"><span class="caption-text">User Interface</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../geometry/TriSearch.html">TriSearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interpolate/InterpAnisotropic.html">InterpAnisotropic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interpolate/InterpIdw.html">InterpIdw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interpolate/InterpLinear.html">InterpLinear</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tin</a></li>
 </ul>
 
             
@@ -138,8 +140,6 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../modules.html">Modules</a> &raquo;</li>
-        
       <li>Tin</li>
     
     
@@ -161,23 +161,39 @@
             
   <div class="section" id="tin">
 <h1>Tin<a class="headerlink" href="#tin" title="Permalink to this headline">¶</a></h1>
+<p>Class to encapsulate a tin made simply of arrays of points,
+triangles and adjacency information. Also methods to manipulate it.</p>
 <dl class="class">
 <dt id="xmsinterp.triangulate.Tin">
 <em class="property">class </em><code class="descclassname">xmsinterp.triangulate.</code><code class="descname">Tin</code><a class="headerlink" href="#xmsinterp.triangulate.Tin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class to encapsulate a tin made simply of arrays of points,
-triangles and adjacency information. Also methods to manipulate it.</p>
+<dd><dl class="method">
+<dt id="xmsinterp.triangulate.Tin.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>pts: iterable</em>, <em>tris: iterable=()</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.triangulate.Tin.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tin containing info about poinst and triangles.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.adjacent_triangle">
 <code class="descname">adjacent_triangle</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>tri: int</em>, <em>edge: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp.triangulate.Tin.adjacent_triangle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the triangle adjacent to tri across edge (0-2).</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">tri (int): Triangle index (0-based).</p>
-<p class="last">edge (int): Local edge index (0-2) in tri.</p>
-</dd>
-<dt>Returns:</dt>
-<dd>int: Triangle adjacent to tri along it’s a_edge if there is a triangle adjacent to the edge.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tri</strong> (<em>int</em>) – Triangle index (0-based).</li>
+<li><strong>edge</strong> (<em>int</em>) – Local edge index (0-2) in tri.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Triangle adjacent to tri along it’s a_edge if there is a triangle adjacent to the edge.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -196,292 +212,454 @@ triangles and adjacency information. Also methods to manipulate it.</p>
 <dt id="xmsinterp.triangulate.Tin.common_edge_index">
 <code class="descname">common_edge_index</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>tri: int</em>, <em>adj_tri: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp.triangulate.Tin.common_edge_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return true if vertices form the edge of a triangle.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">pt1 (int): First point index (0-based).</p>
-<p class="last">pt2 (int): Second point index (0-based).</p>
-</dd>
-<dt>Returns:</dt>
-<dd>bool: true if points are adjacent.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pt1</strong> (<em>int</em>) – First point index (0-based).</li>
+<li><strong>pt2</strong> (<em>int</em>) – Second point index (0-based).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">true if points are adjacent.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.delete_points">
 <code class="descname">delete_points</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>pts: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.triangulate.Tin.delete_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deletes the points and any attached triangles, updates adjacency and 
+<dd><p>Deletes the points and any attached triangles, updates adjacency and
 renumbers things.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>pts (iterable): The set of points to delete.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pts</strong> (<em>iterable</em>) – The set of points to delete.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.delete_triangles">
 <code class="descname">delete_triangles</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>tris: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.triangulate.Tin.delete_triangles" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deletes the triangles specified in a tris and updates and renumbers 
+<dd><p>Deletes the triangles specified in a tris and updates and renumbers
 triangle adjacency info.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>tris (iterable): Triangles to be deleted.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tris</strong> (<em>iterable</em>) – Triangles to be deleted.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.export_tin_file">
 <code class="descname">export_tin_file</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>fname: unicode</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.triangulate.Tin.export_tin_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Export in the .tin file format. Useful for debugging.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>fname (str): The name of the file to export to</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fname</strong> (<em>str</em>) – The name of the file to export to</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.from_string">
 <code class="descname">from_string</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>text: unicode</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.triangulate.Tin.from_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use boost archive to turn the text into a TrTin.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>text (str): The string.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text</strong> (<em>str</em>) – The string.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.get_boundary_points">
 <code class="descname">get_boundary_points</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.triangulate.Tin.get_boundary_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gives the 0-based indices of all points on any boundary, in no particular 
+<dd><p>Gives the 0-based indices of all points on any boundary, in no particular
 order.</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd>iterable: The 0-based indices of all points on the boundary.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The 0-based indices of all points on the boundary.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.get_boundary_polys">
 <code class="descname">get_boundary_polys</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em><span class="sig-paren">)</span> &#x2192; tuple<a class="headerlink" href="#xmsinterp.triangulate.Tin.get_boundary_polys" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets exterior boundary and all interior voids as polygons of 0-based point 
+<dd><p>Gets exterior boundary and all interior voids as polygons of 0-based point
 indices. First point is not repeated as the last point.</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd>tuple: A tuple containing all of the polygons. Outer polygon is CW, inner polys are CCW. First point is repeated at the end.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A tuple containing all of the polygons. Outer polygon is CW, inner polys are CCW. First point is repeated at the end.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.get_extents">
 <code class="descname">get_extents</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em><span class="sig-paren">)</span> &#x2192; tuple<a class="headerlink" href="#xmsinterp.triangulate.Tin.get_extents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the extents (min, max) of the tin.</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd>tuple: Contains an iterable of the minimum xy, and an iterable of the maximum xyz.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Contains an iterable of the minimum xy, and an iterable of the maximum xyz.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.global_index">
 <code class="descname">global_index</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>tri: int</em>, <em>pt: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp.triangulate.Tin.global_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns index into the global set of points of pt which is 0-2.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>tri (int): Triangle index (0-based).
-pt (int): Local index (0-2) of point within the triangle.</dd>
-<dt>Returns:</dt>
-<dd>int: Global index into the global set of points of pt.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tri</strong> (<em>int</em>) – Triangle index (0-based).</li>
+<li><strong>pt</strong> (<em>int</em>) – Local index (0-2) of point within the triangle.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Global index into the global set of points of pt.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.local_index">
 <code class="descname">local_index</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>tri: int</em>, <em>pt: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp.triangulate.Tin.local_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns index (0-2) of point within triangle given global index.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">tri (int): Triangle index (0-based).</p>
-<p class="last">pt (int): Global point index (0-based).</p>
-</dd>
-<dt>Returns:</dt>
-<dd>int: The local index (0-2) of the point pt in the triangle tri if pt is found on tri.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tri</strong> (<em>int</em>) – Triangle index (0-based).</li>
+<li><strong>pt</strong> (<em>int</em>) – Global point index (0-based).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The local index (0-2) of the point pt in the triangle tri if pt is found on tri.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.next_boundary_point">
 <code class="descname">next_boundary_point</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>point: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp.triangulate.Tin.next_boundary_point" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the next point CW from point on the boundary. CCW if in an inside 
+<dd><p>Returns the next point CW from point on the boundary. CCW if in an inside
 hole. Point must be on the boundary.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>point (int): The starting point.</dd>
-<dt>Returns:</dt>
-<dd>int: The point index if found</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<em>int</em>) – The starting point.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The point index if found</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="xmsinterp.triangulate.Tin.num_points">
 <code class="descname">num_points</code><a class="headerlink" href="#xmsinterp.triangulate.Tin.num_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the number of points.</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd>int: The number of points.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The number of points.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="xmsinterp.triangulate.Tin.num_triangles">
 <code class="descname">num_triangles</code><a class="headerlink" href="#xmsinterp.triangulate.Tin.num_triangles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the number of triangles.</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd>int: The number of triangles.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The number of triangles.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.optimize_triangulation">
 <code class="descname">optimize_triangulation</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#xmsinterp.triangulate.Tin.optimize_triangulation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Swaps triangle edges until they are a Delauney triangulation.</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd>bool: True if modified.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if modified.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.previous_boundary_point">
 <code class="descname">previous_boundary_point</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>point: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp.triangulate.Tin.previous_boundary_point" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the previous point CCW from point on the boundary. CW if in an 
+<dd><p>Returns the previous point CCW from point on the boundary. CW if in an
 inside hole.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>point (int): The starting point.</dd>
-<dt>Returns:</dt>
-<dd>int: The point index if found</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<em>int</em>) – The starting point.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The point index if found</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="xmsinterp.triangulate.Tin.pts">
 <code class="descname">pts</code><a class="headerlink" href="#xmsinterp.triangulate.Tin.pts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the tin points.</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd>iterable: The points in the tin.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The points in the tin.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.set_geometry">
 <code class="descname">set_geometry</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>pts: iterable</em>, <em>tris: iterable</em>, <em>tris_adj: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.triangulate.Tin.set_geometry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set all the tin geometry at once (points, triangles, adjacency).</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">pts (iterable): The tin points.</p>
-<p>tris (iterable):  0-based indices of triangle points (grouped by 3s).</p>
-<p class="last">tris_adj (iterable): 0-based indices of triangles adjacent to points.</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pts</strong> (<em>iterable</em>) – The tin points.</li>
+<li><strong>tris</strong> (<em>iterable</em>) – 0-based indices of triangle points (grouped by 3s).</li>
+<li><strong>tris_adj</strong> (<em>iterable</em>) – 0-based indices of triangles adjacent to points.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.set_points">
 <code class="descname">set_points</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>pts: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.triangulate.Tin.set_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the tin points.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>pts (iterable): The points.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pts</strong> (<em>iterable</em>) – The points.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.set_triangles">
 <code class="descname">set_triangles</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>tris: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.triangulate.Tin.set_triangles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the tin triangles.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>tris (iterable): 0-based indices of each triangle’s points (grouped by 3s).</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tris</strong> (<em>iterable</em>) – 0-based indices of each triangle’s points (grouped by 3s).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.set_triangles_adjacent_to_points">
 <code class="descname">set_triangles_adjacent_to_points</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>tris_adj: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.triangulate.Tin.set_triangles_adjacent_to_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the adjacency info of triangles adjacent to points.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>tris (iterable): 0-based indices of triangles adjacent to points.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tris</strong> (<em>iterable</em>) – 0-based indices of triangles adjacent to points.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.swap_edge">
 <code class="descname">swap_edge</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>tri_A: int</em>, <em>tri_B: int</em>, <em>check_angle: bool</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#xmsinterp.triangulate.Tin.swap_edge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Swap edges if triangles combine to form convex quad.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">tri_A (int): First triangle.</p>
-<p>tri_B (int): Second triangle.</p>
-<p class="last">check_angle (bool): If true, won’t swap if very thin triangle would be created.</p>
-</dd>
-<dt>Returns:</dt>
-<dd>bool: true if swap was successful.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tri_A</strong> (<em>int</em>) – First triangle.</li>
+<li><strong>tri_B</strong> (<em>int</em>) – Second triangle.</li>
+<li><strong>check_angle</strong> (<em>bool</em>) – If true, won’t swap if very thin triangle would be created.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">true if swap was successful.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.triangle_adjacent_to_edge">
 <code class="descname">triangle_adjacent_to_edge</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>pt1: int</em>, <em>pt2: int</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp.triangulate.Tin.triangle_adjacent_to_edge" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the triangle adjacent to the edge defined by a_pt1 and a_pt2. 
+<dd><p>Returns the triangle adjacent to the edge defined by a_pt1 and a_pt2.
 Gives triangle on the right side of the edge.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">pt1 (int): First edge point index (0-based).</p>
-<p class="last">pt2 (int): Second edge point index (0-based).</p>
-</dd>
-<dt>Returns:</dt>
-<dd>int: The triangle adjacent to the edge.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pt1</strong> (<em>int</em>) – First edge point index (0-based).</li>
+<li><strong>pt2</strong> (<em>int</em>) – Second edge point index (0-based).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The triangle adjacent to the edge.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.triangle_area">
 <code class="descname">triangle_area</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>tri: int</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#xmsinterp.triangulate.Tin.triangle_area" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate and return the area of a triangle.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>tri (int): Triangle index (0-based).</dd>
-<dt>Returns:</dt>
-<dd>float: The area.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tri</strong> (<em>int</em>) – Triangle index (0-based).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The area.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.triangle_centroid">
 <code class="descname">triangle_centroid</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>tri: int</em><span class="sig-paren">)</span> &#x2192; tuple<a class="headerlink" href="#xmsinterp.triangulate.Tin.triangle_centroid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate and return the centroid of a triangle.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>tri (int): Triangle index (0-based).</dd>
-<dt>Returns:</dt>
-<dd>tuple: The centroid.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tri</strong> (<em>int</em>) – Triangle index (0-based).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The centroid.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.triangle_from_edge">
 <code class="descname">triangle_from_edge</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>pt1: int</em>, <em>pt2: int</em><span class="sig-paren">)</span> &#x2192; tuple<a class="headerlink" href="#xmsinterp.triangulate.Tin.triangle_from_edge" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds the triangle with the edge defined by a_pt1 and a_pt2 and the local 
+<dd><p>Finds the triangle with the edge defined by a_pt1 and a_pt2 and the local
 index of those points.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>pt1 (int): First edge point index (0-based).
-pt2 (int): Second edge point index (0-based).</dd>
-<dt>Returns:</dt>
-<dd>tuple: Tuple containing a bool that is true if the triangle is found, the index of the triangle if found, the index of local pt (0-2) of pt1 in a_tri, and the index of local pt (0-2) of pt2 in a_tri.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pt1</strong> (<em>int</em>) – First edge point index (0-based).</li>
+<li><strong>pt2</strong> (<em>int</em>) – Second edge point index (0-based).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Tuple containing a bool that is true if the triangle is found, the index of the triangle if found, the index of local pt (0-2) of pt1 in a_tri, and the index of local pt (0-2) of pt2 in a_tri.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -494,38 +672,60 @@ pt2 (int): Second edge point index (0-based).</dd>
 <dt id="xmsinterp.triangulate.Tin.tris">
 <code class="descname">tris</code><a class="headerlink" href="#xmsinterp.triangulate.Tin.tris" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return 0-based indices of triangle points (grouped by 3s).</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd>iterable: Triangles as 0-based indices of triangle points (grouped by 3s).</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Triangles as 0-based indices of triangle points (grouped by 3s).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="xmsinterp.triangulate.Tin.tris_adj">
 <code class="descname">tris_adj</code><a class="headerlink" href="#xmsinterp.triangulate.Tin.tris_adj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns triangles adjacent to points (0-based).</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>iterable: 2D vector with triangles adjacent to points, size of num </dt>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>2D vector with triangles adjacent to points, size of num</dt>
 <dd>points.</dd>
 </dl>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.triangulate.Tin.vertices_are_adjacent">
 <code class="descname">vertices_are_adjacent</code><span class="sig-paren">(</span><em>self: xmsinterp.triangulate.Tin</em>, <em>pt1: int</em>, <em>pt2: int</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#xmsinterp.triangulate.Tin.vertices_are_adjacent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return true if vertices form the edge of a triangle.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">pt1 (int): First point index (0-based).</p>
-<p class="last">pt2 (int): Second point index (0-based).</p>
-</dd>
-<dt>Returns:</dt>
-<dd>bool: true if points are adjacent.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pt1</strong> (<em>int</em>) – First point index (0-based).</li>
+<li><strong>pt2</strong> (<em>int</em>) – Second point index (0-based).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">true if points are adjacent.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -540,10 +740,8 @@ pt2 (int): Second edge point index (0-based).</dd>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../interpolate/InterpAnisotropic.html" class="btn btn-neutral float-right" title="InterpAnisotropic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="../geometry/TriSearch.html" class="btn btn-neutral" title="TriSearch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../interpolate/InterpLinear.html" class="btn btn-neutral float-left" title="InterpLinear" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -569,26 +767,16 @@ pt2 (int): Second edge point index (0-based).</dd>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

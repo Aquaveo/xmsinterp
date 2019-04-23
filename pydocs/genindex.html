@@ -18,32 +18,34 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -57,7 +59,7 @@
             
             
               <div class="version">
-                2.2.2
+                2.2.3
               </div>
             
           
@@ -81,9 +83,18 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html#usage">Usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Interface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/geometry/TriSearch.html">TriSearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/interpolate/InterpAnisotropic.html">InterpAnisotropic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/interpolate/InterpIdw.html">InterpIdw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/interpolate/InterpLinear.html">InterpLinear</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/triangulate/Tin.html">Tin</a></li>
 </ul>
 
             
@@ -150,7 +161,8 @@
 <h1 id="index">Index</h1>
 
 <div class="genindex-jumpbox">
- <a href="#A"><strong>A</strong></a>
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
  | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
@@ -165,9 +177,24 @@
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  | <a href="#V"><strong>V</strong></a>
- | <a href="#X"><strong>X</strong></a>
  
 </div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/geometry/TriSearch.html#xmsinterp.geometry.TriSearch.__init__">__init__() (xmsinterp.geometry.TriSearch method)</a>
+
+      <ul>
+        <li><a href="modules/interpolate/InterpIdw.html#xmsinterp.interpolate.InterpIdw.__init__">(xmsinterp.interpolate.InterpIdw method)</a>
+</li>
+        <li><a href="modules/interpolate/InterpLinear.html#xmsinterp.interpolate.InterpLinear.__init__">(xmsinterp.interpolate.InterpLinear method)</a>
+</li>
+        <li><a href="modules/triangulate/Tin.html#xmsinterp.triangulate.Tin.__init__">(xmsinterp.triangulate.Tin method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -470,20 +497,6 @@
   </ul></td>
 </tr></table>
 
-<h2 id="X">X</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules.html#module-xmsinterp.geometry">xmsinterp.geometry (module)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules.html#module-xmsinterp.interpolate">xmsinterp.interpolate (module)</a>
-</li>
-      <li><a href="modules.html#module-xmsinterp.triangulate">xmsinterp.triangulate (module)</a>
-</li>
-  </ul></td>
-</tr></table>
-
 
 
            </div>
@@ -513,26 +526,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

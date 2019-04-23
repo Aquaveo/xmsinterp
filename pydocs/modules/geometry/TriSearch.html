@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Tin" href="../triangulate/Tin.html" />
-    <link rel="prev" title="Modules" href="../../modules.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
+    <link rel="next" title="InterpAnisotropic" href="../interpolate/InterpAnisotropic.html" />
+    <link rel="prev" title="Installation" href="../../getting_started.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -58,7 +60,7 @@
             
             
               <div class="version">
-                2.2.2
+                2.2.3
               </div>
             
           
@@ -82,17 +84,18 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted.html">Getting Started</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../modules.html">Modules</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../../modules.html#module-xmsinterp.geometry">Geometry</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">TriSearch</a></li>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html#usage">Usage</a></li>
 </ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-xmsinterp.triangulate">Triangulate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../modules.html#module-xmsinterp.interpolate">Interpolate</a></li>
-</ul>
-</li>
+<p class="caption"><span class="caption-text">User Interface</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TriSearch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interpolate/InterpAnisotropic.html">InterpAnisotropic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interpolate/InterpIdw.html">InterpIdw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interpolate/InterpLinear.html">InterpLinear</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../triangulate/Tin.html">Tin</a></li>
 </ul>
 
             
@@ -138,8 +141,6 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../modules.html">Modules</a> &raquo;</li>
-        
       <li>TriSearch</li>
     
     
@@ -161,76 +162,126 @@
             
   <div class="section" id="trisearch">
 <h1>TriSearch<a class="headerlink" href="#trisearch" title="Permalink to this headline">¶</a></h1>
+<p>The TriSearch class is used to create a spatial inex for searching triangles.</p>
 <dl class="class">
 <dt id="xmsinterp.geometry.TriSearch">
 <em class="property">class </em><code class="descclassname">xmsinterp.geometry.</code><code class="descname">TriSearch</code><a class="headerlink" href="#xmsinterp.geometry.TriSearch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="xmsinterp.geometry.TriSearch.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>self: xmsinterp.geometry.TriSearch</em>, <em>pts: iterable</em>, <em>tris: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.geometry.TriSearch.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Spatial index for searching triangles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pts</strong> (<em>iterable</em>) – A list of point locations.</li>
+<li><strong>tris</strong> (<em>iterable</em>) – Triangles that reference the point indexes.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="xmsinterp.geometry.TriSearch.interp_weights">
 <code class="descname">interp_weights</code><span class="sig-paren">(</span><em>self: xmsinterp.geometry.TriSearch</em>, <em>pt: iterable</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.geometry.TriSearch.interp_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use the stored triangles to get interpolation weights for a point.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>pt (iterable):  Location that is interpolated to.</dd>
-<dt>Returns:</dt>
-<dd>iterable: Contains a bool false if point is outside of the triangle, an iterable of triangle point indices, and an iterable of triangle point weights.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt</strong> (<em>iterable</em>) – Location that is interpolated to.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Contains a bool false if point is outside of the triangle, an iterable of triangle point indices, and an iterable of triangle point weights.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.geometry.TriSearch.interp_weights_triangle_idx">
 <code class="descname">interp_weights_triangle_idx</code><span class="sig-paren">(</span><em>self: xmsinterp.geometry.TriSearch</em>, <em>pt: iterable</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.geometry.TriSearch.interp_weights_triangle_idx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use the stored triangles to get interpolation weights for a point.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>pt(iterable):  Location that is interpolated to.</dd>
-<dt>Returns:</dt>
-<dd>iterable: Contains a bool false if point is outside of the triangle, the found triangle index in the triangle array, an iterable of triangle point indices, and an iterable of triangle point weights.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt</strong> (<em>iterable</em>) – Location that is interpolated to.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Contains a bool false if point is outside of the triangle, the found triangle index in the triangle array, an iterable of triangle point indices, and an iterable of triangle point weights.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.geometry.TriSearch.set_pt_activity">
 <code class="descname">set_pt_activity</code><span class="sig-paren">(</span><em>self: xmsinterp.geometry.TriSearch</em>, <em>activity: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.geometry.TriSearch.set_pt_activity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modifies the activity bitset of the points</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>activity (iterable): Bitset of the activity of the points.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>activity</strong> (<em>iterable</em>) – Bitset of the activity of the points.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.geometry.TriSearch.set_tri_activity">
 <code class="descname">set_tri_activity</code><span class="sig-paren">(</span><em>self: xmsinterp.geometry.TriSearch</em>, <em>activity: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.geometry.TriSearch.set_tri_activity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modifies the activity bitset of the triangles.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>activity (iterable): Bitset of the activity of the triangles.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>activity</strong> (<em>iterable</em>) – Bitset of the activity of the triangles.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.geometry.TriSearch.tri_containing_pt">
 <code class="descname">tri_containing_pt</code><span class="sig-paren">(</span><em>self: xmsinterp.geometry.TriSearch</em>, <em>pt: iterable</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp.geometry.TriSearch.tri_containing_pt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the triangle containing the point.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>pt (iterable):  Location used to find a triangle.</dd>
-<dt>Returns:</dt>
-<dd>iterable: Index of triangle containing pt. If XM_NONE is returned then no triangle contained the point.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt</strong> (<em>iterable</em>) – Location used to find a triangle.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Index of triangle containing pt. If XM_NONE is returned then no triangle contained the point.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.geometry.TriSearch.tri_envelopes_containing_pt">
 <code class="descname">tri_envelopes_containing_pt</code><span class="sig-paren">(</span><em>self: xmsinterp.geometry.TriSearch</em>, <em>pt: iterable</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.geometry.TriSearch.tri_envelopes_containing_pt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find all triangles whose envelope contains the point.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>pt (iterable):  Location used to find a triangle.</dd>
-<dt>Returns:</dt>
-<dd>iterable: The indices to triangles whose envelope contains the point.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt</strong> (<em>iterable</em>) – Location used to find a triangle.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The indices to triangles whose envelope contains the point.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -238,27 +289,42 @@
 <code class="descname">tri_envelopes_overlap</code><span class="sig-paren">(</span><em>self: xmsinterp.geometry.TriSearch</em>, <em>pt_min: iterable</em>, <em>pt_max: iterable</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.geometry.TriSearch.tri_envelopes_overlap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find all triangles whose envelope overlaps the envelope defined by
 pt_min and pt_max.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">pt_min (iterable):  Min x,y location of the box.</p>
-<p>pt_max (iterable):  Max x,y location of the box.</p>
-<p class="last">pt_max (iterable):  Max x,y location of the box.</p>
-</dd>
-<dt>Returns:</dt>
-<dd>iterable: The indices to triangles whose envelope intersects with the input envelope.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pt_min</strong> (<em>iterable</em>) – Min x,y location of the box.</li>
+<li><strong>pt_max</strong> (<em>iterable</em>) – Max x,y location of the box.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The indices to triangles whose envelope intersects with the input envelope.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">iterable</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xmsinterp.geometry.TriSearch.tris_to_search">
 <code class="descname">tris_to_search</code><span class="sig-paren">(</span><em>self: xmsinterp.geometry.TriSearch</em>, <em>pts: iterable</em>, <em>tris: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.geometry.TriSearch.tris_to_search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the points and triangles that are used to create an rtree.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">pts (iterable):  Array of the point locations.</p>
-<p class="last">tris (iterable): Triangles.</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pts</strong> (<em>iterable</em>) – Array of the point locations.</li>
+<li><strong>tris</strong> (<em>iterable</em>) – Triangles.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -273,10 +339,10 @@ pt_min and pt_max.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../triangulate/Tin.html" class="btn btn-neutral float-right" title="Tin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../interpolate/InterpAnisotropic.html" class="btn btn-neutral float-right" title="InterpAnisotropic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../modules.html" class="btn btn-neutral" title="Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../getting_started.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -302,26 +368,16 @@ pt_min and pt_max.</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
