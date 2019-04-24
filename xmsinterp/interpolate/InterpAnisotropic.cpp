@@ -20,7 +20,7 @@
 #include <xmscore/math/math.h>
 #include <xmscore/stl/utility.h>
 #include <xmscore/stl/vector.h>
-#include <xmsinterp/geometry/geoms.h>
+#include <xmsgrid/geometry/geoms.h>
 #include <xmsinterp/interpolate/detail/AnisotropicInterpolator.h>
 #include <xmscore/misc/XmError.h>
 #include <xmscore/misc/xmstype.h>

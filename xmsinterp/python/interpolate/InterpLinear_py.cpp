@@ -14,10 +14,10 @@
 #include <xmscore/stl/vector.h>
 #include <xmscore/python/misc/PyUtils.h>
 #include <xmscore/python/misc/PyObserver.h>
+#include <xmsgrid/triangulate/TrTriangulatorPoints.h>
 #include <xmsinterp/interpolate/InterpIdw.h>
 #include <xmsinterp/interpolate/InterpLinear.h>
 #include <xmsinterp/python/interpolate/interpolate_py.h>
-#include <xmsinterp/triangulate/TrTriangulatorPoints.h>
 
 //----- Namespace declaration --------------------------------------------------
 namespace py = pybind11;

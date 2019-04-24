@@ -20,11 +20,11 @@
 #include <xmscore/math/math.h>
 #include <xmscore/stl/utility.h>
 #include <xmscore/stl/vector.h>
-#include <xmsinterp/geometry/GmPtSearch.h>
+#include <xmsgrid/geometry/GmPtSearch.h>
 #include <xmsinterp/interpolate/InterpSignals.h>
 #include <xmsinterp/interpolate/InterpUtil.h>
 #include <xmsinterp/interpolate/detail/NodalFunc.h>
-#include <xmsinterp/geometry/geoms.h>
+#include <xmsgrid/geometry/geoms.h>
 #include <xmsinterp/thread/ThreadLoop.h>
 #include <xmsinterp/thread/ThreadMgr.h>
 #include <xmscore/misc/XmError.h>

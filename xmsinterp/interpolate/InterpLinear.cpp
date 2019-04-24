@@ -22,8 +22,8 @@
 
 // 5. Shared Headers
 #include <xmscore/math/math.h>
-#include <xmsinterp/geometry/GmPtSearch.h>
-#include <xmsinterp/geometry/GmTriSearch.h>
+#include <xmsgrid/geometry/GmPtSearch.h>
+#include <xmsgrid/geometry/GmTriSearch.h>
 #include <xmsinterp/interpolate/detail/InterpCt.h>
 #include <xmsinterp/interpolate/detail/InterpNatNeigh.h>
 #include <xmsinterp/interpolate/detail/NodalFunc.h>

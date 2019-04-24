@@ -7,9 +7,7 @@
 
 //----- Included files ---------------------------------------------------------
 #include <pybind11/pybind11.h>
-#include <xmsinterp/python/geometry/geometry_py.h>
 #include <xmsinterp/python/interpolate/interpolate_py.h>
-#include <xmsinterp/python/triangulate/triangulate_py.h>
 
 //----- Namespace declaration --------------------------------------------------
 namespace py = pybind11;
@@ -23,7 +21,7 @@ namespace py = pybind11;
 
 
 //------ Primary Module --------------------------------------------------------
-PYBIND11_MODULE(xmsinterp, m) {
+PYBIND11_MODULE(_xmsinterp, m) {
     m.doc() = "Python bindings for xmsinterp"; // optional module docstring
     m.attr("__version__") = XMS_VERSION;
 
@@ -35,18 +33,4 @@ PYBIND11_MODULE(xmsinterp, m) {
     )pydoc";
     py::module modInterpolate = m.def_submodule("interpolate",interpolate_doc);
     initInterpolate(modInterpolate);
-
-    const char* triangulate_doc = R"pydoc(
-        The triangulate module of the xmsinterp python library contains classes 
-        and functions for creating and triangulating a TIN from a set of points.
-    )pydoc";
-    py::module modTriangulate = m.def_submodule("triangulate",triangulate_doc);
-    initTriangulate(modTriangulate);
-
-    const char* geometry_doc = R"pydoc(
-        The geometry module of the xmsinterp python library contains classes 
-        and functions for finding triangles.
-    )pydoc";
-    py::module modGeometry = m.def_submodule("geometry",geometry_doc);
-    initGeometry(modGeometry);
 }

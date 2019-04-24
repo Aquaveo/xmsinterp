@@ -18,11 +18,11 @@ set(IS_PYTHON_BUILD NO CACHE BOOL "Set this if you want to build the python bind
 set(XMS_TEST_PATH ${PROJECT_SOURCE_DIR}/test_files/ CACHE PATH "Path to test files for testing")
 set(XMS_VERSION "\"99.99.99\"" CACHE STRING "Library Version")
 
+add_definitions(-DXMS_VERSION=\"${XMS_VERSION}\")
+
 if(IS_PYTHON_BUILD AND BUILD_TESTING)
   message(FATAL_ERROR "Cannot build python module when testing is enabled")
 endif()
-
-add_definitions(-DXMS_VERSION=\"${XMS_VERSION}\")
 
 if(WIN32)
     if(XMS_BUILD)
@@ -44,6 +44,38 @@ else() # If we are not using conda, we are using conan
   set(EXT_LIBS ${CONAN_LIBS})
 endif(IS_CONDA_BUILD)
 
+if(IS_PYTHON_BUILD)
+      # linux and mac builds for conan (on TRAVISCI) use a docker that has python
+    # 2.7 as system python. We do not have control over that docker image so we
+    # can't change this and it is fine for building conan packages and checking
+    # that we don't have errors in the python wrapping. We have conda recipes
+    # for building python packages that target other versions of python.
+    find_package(PythonLibs ${PYTHON_TARGET_VERSION} EXACT REQUIRED)
+
+    message("PYTHON_INCLUDE: ${PYTHON_INCLUDE_DIRS}")
+    message("PYTHON_LIBS: ${PYTHON_LIBRARIES}")
+
+    # Pybind11 module
+    if(IS_CONDA_BUILD)
+        include("${CONDA_PREFIX}/share/cmake/pybind11/pybind11Targets.cmake")
+        include("${CONDA_PREFIX}/share/cmake/pybind11/FindPythonLibsNew.cmake")
+        include("${CONDA_PREFIX}/share/cmake/pybind11/pybind11Config.cmake")
+        include("${CONDA_PREFIX}/share/cmake/pybind11/pybind11ConfigVersion.cmake")
+        include("${CONDA_PREFIX}/share/cmake/pybind11/pybind11Tools.cmake")
+
+    else()
+        include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11Targets.cmake")
+        include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/FindPythonLibsNew.cmake")
+        include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11Config.cmake")
+        include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11ConfigVersion.cmake")
+        include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11Tools.cmake")
+    endif()
+
+    list(APPEND EXT_INCLUDE_DIRS
+      ${PYTHON_INCLUDE_DIRS}
+    )
+endif()
+
 message("External Include Dirs: ${EXT_INCLUDE_DIRS}")
 message("External Lib Dirs: ${EXT_LIB_DIRS}")
 message("Extneral Libs: ${EXT_LIBS}")
@@ -54,14 +86,7 @@ link_directories(${EXT_LIB_DIRS})
 
 # Static library sources
 set(xmsinterp_sources
-  xmsinterp/geometry/geoms.cpp
-  xmsinterp/geometry/GmExtents.cpp
-  xmsinterp/geometry/GmMultiPolyIntersectionSorterTerse.cpp
-  xmsinterp/geometry/GmMultiPolyIntersector.cpp
-  xmsinterp/geometry/GmPolygon.cpp
-  xmsinterp/geometry/GmPolyLinePtRedistributer.cpp
-  xmsinterp/geometry/GmPtSearch.cpp
-  xmsinterp/geometry/GmTriSearch.cpp
+  # Interpolate
   xmsinterp/interpolate/InterpAnisotropic.cpp
   xmsinterp/interpolate/InterpIdw.cpp
   xmsinterp/interpolate/InterpLinear.cpp
@@ -71,32 +96,15 @@ set(xmsinterp_sources
   xmsinterp/interpolate/detail/InterpCt.cpp
   xmsinterp/interpolate/detail/InterpNatNeigh.cpp
   xmsinterp/interpolate/detail/NodalFunc.cpp
-  xmsinterp/matrices/matrix.cpp
+  # Thread
   xmsinterp/thread/ThreadLoop.cpp
   xmsinterp/thread/ThreadMgr.cpp
-  xmsinterp/triangulate/TrBreaklineAdder.cpp
-  xmsinterp/triangulate/triangles.cpp
-  xmsinterp/triangulate/TrTin.cpp
-  xmsinterp/triangulate/TrTriangulator.cpp
-  xmsinterp/triangulate/TrTriangulatorPoints.cpp
-  xmsinterp/triangulate/detail/TrAutoFixFourTrianglePts.cpp
-  xmsinterp/triangulate/detail/triangulate.cpp
-  xmsinterp/triangulate/detail/TrOuterTriangleDeleter.cpp
+  # Tutorial
   xmsinterp/tutorial/TutInterpolation.cpp
 )
 
 set(xmsinterp_headers
-  xmsinterp/geometry/geoms.h
-  xmsinterp/geometry/GmBoostTypes.h
-  xmsinterp/geometry/GmExtents.h
-  xmsinterp/geometry/GmMultiPolyIntersectionSorter.h
-  xmsinterp/geometry/GmMultiPolyIntersectionSorterTerse.h
-  xmsinterp/geometry/GmMultiPolyIntersector.h
-  xmsinterp/geometry/GmMultiPolyIntersectorData.h
-  xmsinterp/geometry/GmPolygon.h
-  xmsinterp/geometry/GmPolyLinePtRedistributer.h
-  xmsinterp/geometry/GmPtSearch.h
-  xmsinterp/geometry/GmTriSearch.h
+  # Interpolate
   xmsinterp/interpolate/InterpAnisotropic.h
   xmsinterp/interpolate/InterpBase.h
   xmsinterp/interpolate/InterpIdw.h
@@ -107,38 +115,22 @@ set(xmsinterp_headers
   xmsinterp/interpolate/detail/InterpCt.h
   xmsinterp/interpolate/detail/InterpNatNeigh.h
   xmsinterp/interpolate/detail/NodalFunc.h
-  xmsinterp/matrices/matrix.h
+  # Thread
   xmsinterp/thread/ThreadLoop.h
   xmsinterp/thread/ThreadMgr.h
-  xmsinterp/triangulate/TrBreaklineAdder.h
-  xmsinterp/triangulate/triangles.h
-  xmsinterp/triangulate/TrTin.h
-  xmsinterp/triangulate/TrTriangulator.h
-  xmsinterp/triangulate/TrTriangulatorPoints.h
-  xmsinterp/triangulate/detail/TrAutoFixFourTrianglePts.h
-  xmsinterp/triangulate/detail/triangulate.h
-  xmsinterp/triangulate/detail/TrOuterTriangleDeleter.h
 )
 
 # Pybind11 sources
 set(xmsinterp_py
   xmsinterp/python/xmsinterp_py.cpp
-  # Geometry
-  xmsinterp/python/geometry/geometry_py.cpp
-  xmsinterp/python/geometry/GmTriSearch_py.cpp
   # Interpolate
   xmsinterp/python/interpolate/interpolate_py.cpp
   xmsinterp/python/interpolate/InterpAnisotropic_py.cpp
   xmsinterp/python/interpolate/InterpBase_py.cpp
   xmsinterp/python/interpolate/InterpIdw_py.cpp
   xmsinterp/python/interpolate/InterpLinear_py.cpp
-  # Triangulate
-  xmsinterp/python/triangulate/triangulate_py.cpp
-  xmsinterp/python/triangulate/TrTin_py.cpp
 )
 set(xmsinterp_py_headers
-  xmsinterp/python/geometry/geometry_py.h
-  xmsinterp/python/triangulate/triangulate_py.h
   xmsinterp/python/interpolate/interpolate_py.h
 )
 
@@ -148,24 +140,12 @@ if (BUILD_TESTING)
  add_definitions(-DCXX_TEST -DCXXTEST4)
 
  list(APPEND xmsinterp_sources
-   xmsinterp/geometry/geoms.t.h
-   xmsinterp/geometry/GmExtents.t.h
-   xmsinterp/geometry/GmMultiPolyIntersector.t.h
-   xmsinterp/geometry/GmPolygon.t.h
-   xmsinterp/geometry/GmPolyLinePtRedistributer.t.h
-   xmsinterp/geometry/GmPtSearch.t.h
-   xmsinterp/geometry/GmTriSearch.t.h
    xmsinterp/interpolate/InterpAnisotropic.t.h
    xmsinterp/interpolate/InterpIdw.t.h
    xmsinterp/interpolate/InterpLinear.t.h
    xmsinterp/interpolate/detail/AnisotropicInterpolator.t.h
    xmsinterp/interpolate/detail/InterpNatNeigh.t.h
    xmsinterp/interpolate/detail/NodalFunc.t.h
-   xmsinterp/triangulate/TrBreaklineAdder.t.h
-   xmsinterp/triangulate/TrTin.t.h
-   xmsinterp/triangulate/TrTriangulatorPoints.t.h
-   xmsinterp/triangulate/detail/TrAutoFixFourTrianglePts.t.h
-   xmsinterp/triangulate/detail/TrOuterTriangleDeleter.t.h
    xmsinterp/tutorial/TutInterpolation.t.h
  )
 
@@ -204,66 +184,43 @@ if(UNIX AND NOT APPLE)
     target_link_libraries(${PROJECT_NAME} rt)
 endif()
 
-if(IS_PYTHON_BUILD) 
-    # linux and mac builds for conan (on TRAVISCI) use a docker that has python
-    # 2.7 as system python. We do not have control over that docker image so we
-    # can't change this and it is fine for building conan packages and checking
-    # that we don't have errors in the python wrapping. We have conda recipes
-    # for building python packages that target other versions of python.
-    find_package(PythonLibs ${PYTHON_TARGET_VERSION} EXACT REQUIRED)
-
-    message("PYTHON_INCLUDE: ${PYTHON_INCLUDE_DIRS}")
-    message("PYTHON_LIBS: ${PYTHON_LIBRARIES}")
-
-    # Pybind11 module
-    if(IS_CONDA_BUILD)
-        include("${CONDA_PREFIX}/share/cmake/pybind11/pybind11Targets.cmake")
-        include("${CONDA_PREFIX}/share/cmake/pybind11/FindPythonLibsNew.cmake")
-        include("${CONDA_PREFIX}/share/cmake/pybind11/pybind11Config.cmake")
-        include("${CONDA_PREFIX}/share/cmake/pybind11/pybind11ConfigVersion.cmake")
-        include("${CONDA_PREFIX}/share/cmake/pybind11/pybind11Tools.cmake")
-    else()
-        include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11Targets.cmake")
-        include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/FindPythonLibsNew.cmake")
-        include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11Config.cmake")
-        include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11ConfigVersion.cmake")
-        include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11Tools.cmake")
-    endif()
-
-    pybind11_add_module(xmsinterp
+if(IS_PYTHON_BUILD)
+    pybind11_add_module(_xmsinterp
       ${xmsinterp_py} ${xmsinterp_py_headers}
     )
-    target_include_directories(xmsinterp
+    target_include_directories(_xmsinterp
         PRIVATE
-	        ${EXT_LIBS}
+	      ${EXT_LIBS}
           ${PYTHON_INCLUDE_DIRS}
     )
-    target_link_libraries(xmsinterp
+    target_link_libraries(_xmsinterp
       PRIVATE
         ${EXT_LIBS}
         ${PROJECT_NAME}
     )
-    set_target_properties(xmsinterp PROPERTIES
+    set_target_properties(_xmsinterp PROPERTIES
       LINKER_LANGUAGE CXX
     )
 
     # Install recipe
     install(
-      TARGETS xmsinterp
-      ARCHIVE DESTINATION "site-packages"
-      LIBRARY DESTINATION "site-packages"
+      TARGETS _xmsinterp
+      ARCHIVE DESTINATION "_package/xmsinterp"
+      LIBRARY DESTINATION "_package/xmsinterp"
     )
 
+    install(DIRECTORY "_package/" DESTINATION "_package"
+             FILES_MATCHING PATTERN "*.py")
 endif()
 
 # Disable Optimization for GCC6 for now... Report issue to gcc and pybind
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" AND IS_PYTHON_BUILD)
-  if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL 6 AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 7)
-    Message("Disabling Optimization for GCC 6...")
-    STRING(REPLACE "-O3" "" CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE})
-    STRING(REPLACE "-O3" "" CMAKE_C_FLAGS_RELEASE ${CMAKE_C_FLAGS_RELEASE})
-  endif()
-endif()
+# if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" AND IS_PYTHON_BUILD)
+#   if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL 6 AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 7)
+#     Message("Disabling Optimization for GCC 6...")
+#     STRING(REPLACE "-O3" "" CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE})
+#     STRING(REPLACE "-O3" "" CMAKE_C_FLAGS_RELEASE ${CMAKE_C_FLAGS_RELEASE})
+#   endif()
+# endif()
 
 # Install recipe
 install(
