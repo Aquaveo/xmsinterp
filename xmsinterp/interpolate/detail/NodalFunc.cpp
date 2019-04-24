@@ -24,10 +24,10 @@
 #include <xmscore/misc/XmLog.h>
 #include <xmscore/stl/vector.h>
 #include <xmscore/stl/utility.h>
-#include <xmsinterp/geometry/GmPtSearch.h>
+#include <xmsgrid/geometry/GmPtSearch.h>
+#include <xmsgrid/matrices/matrix.h>
 #include <xmsinterp/interpolate/InterpUtil.h>
 #include <xmsinterp/interpolate/detail/InterpNatNeigh.h>
-#include <xmsinterp/matrices/matrix.h>
 #include <xmsinterp/thread/ThreadLoop.h>
 #include <xmsinterp/thread/ThreadMgr.h>
 

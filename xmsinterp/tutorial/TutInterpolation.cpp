@@ -16,7 +16,7 @@
 // 4. External library headers
 
 // 5. Shared code headers
-#include <xmsinterp/geometry/geoms.h>
+#include <xmsgrid/geometry/geoms.h>
 #include <xmscore/misc/xmstype.h>
 // 6. Non-shared code headers
 

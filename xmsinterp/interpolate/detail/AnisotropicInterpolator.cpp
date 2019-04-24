@@ -23,7 +23,7 @@
 #include <xmscore/misc/XmError.h>
 #include <xmscore/misc/xmstype.h>
 #include <xmscore/stl/vector.h>
-#include <xmsinterp/geometry/geoms.h>
+#include <xmsgrid/geometry/geoms.h>
 
 // 6. Non-shared Headers
 
