@@ -66,7 +66,7 @@ class TestInterpAnisotropic(unittest.TestCase):
         # You can access the actual transformed interpolation points as shown below.
         # This isn't necessary for the interpolation, but is useful if you want
         # plot and visualize the transformation.
-        sn_points = interpolator.get_interpolation_pts()
+        sn_points = interpolator.get_interpolation_points()
         expected_sn_points = [
             # cross-section 1
             (0, 10, 100), # 0
@@ -97,7 +97,7 @@ class TestInterpAnisotropic(unittest.TestCase):
         np.testing.assert_allclose(expected_sn_points, sn_points, atol=0.01)
         # interpolate to a location and verify the value.
         loc = (20, 5, 0)
-        val = interpolator.interp_to_pt(loc)
+        val = interpolator.interp_to_point(loc)
         base = 59.5313
         self.assertAlmostEqual(base, val, delta=0.001)
 
@@ -115,7 +115,7 @@ class TestInterpAnisotropic(unittest.TestCase):
         # The transformed values of interpolated to points can be retrieved by
         # using get_transformed_pts. The transformed points could be used for
         # plotting or using another interpolation method.
-        sn_interp_to_points = interpolator.get_transformed_pts(interp_to_points, False)
+        sn_interp_to_points = interpolator.get_transformed_points(interp_to_points, False)
         expected_sn_interp_to_points = [
             [2.5, 5, 0], [2.5, 0, 0],  [2.5, -5, 0], # points 0, 1, 2
             [10, 5, 0],  [11.768, 3.536, 0],  # point 3 is transformed to 2 stations
@@ -125,7 +125,7 @@ class TestInterpAnisotropic(unittest.TestCase):
             [24.142, -7.071, 0],  [26.642, -5, 0]] # point 11 is transformed to 2 stations
         np.testing.assert_allclose(expected_sn_interp_to_points, sn_interp_to_points, atol=0.001)
 
-        interp_values = interpolator.interp_to_pts(interp_to_points)
+        interp_values = interpolator.interp_to_points(interp_to_points)
         expected_interp_values = (64.614, 54.390, 71.970, 59.531, 58.468, 68.0917, 81.688, 76.032, 53.130, 35.413, 40.457, 50.839, -9999999.0, -9999999.0)
         np.testing.assert_allclose(expected_interp_values, interp_values, atol=0.01)
 
@@ -434,7 +434,7 @@ class TestInterpAnisotropic(unittest.TestCase):
         interpolator = xmsinterp.interpolate.InterpAnisotropic()
         pick_closest = True
         interpolator.set_points(centerline, cross_sections, pick_closest)
-        sn_points = interpolator.get_interpolation_pts()
+        sn_points = interpolator.get_interpolation_points()
         expected_sn_points = (
             (7.861695483191204, -0.9931736833190422, 1.0),
             (7.8602657756205705, -0.9431941281363231, 1.0),
@@ -726,7 +726,7 @@ class TestInterpAnisotropic(unittest.TestCase):
         np.testing.assert_allclose(expected_sn_points, sn_points, atol=1.0e-5)
         interpolator.set_x_scale(1.0 / 20.0)
         interpolator.set_power(3)
-        result = interpolator.interp_to_pt(target)
+        result = interpolator.interp_to_point(target)
         expect = 0.12388033238213704
         self.assertAlmostEqual(expect, result, delta=1.0e-5)
 

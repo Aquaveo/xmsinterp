@@ -23,432 +23,292 @@
 namespace py = pybind11;
 
 //----- Internal functions -----------------------------------------------------
-namespace {
-
-// -----------------------------------------------------------------------------
-/// \brief converts string to an int. This will throw if the string is not
-/// recognized.
-/// \param[in] a_: string to be converted to an enum
-/// \return int representing the nodal function 0-constant, 1-gradient_plane,
-/// 2-quadratic
-// -----------------------------------------------------------------------------
-int NodalFuncTypeFromString(const std::string& a_nodal_func_type)
-{
-  int nodal_func(0);
-  if (a_nodal_func_type == "constant")
-    nodal_func = static_cast<int>(xms::InterpIdw::CONSTANT);
-  else if (a_nodal_func_type == "gradient_plane")
-    nodal_func = static_cast<int>(xms::InterpIdw::GRAD_PLANE);
-  else if (a_nodal_func_type == "quadratic")
-    nodal_func = static_cast<int>(xms::InterpIdw::QUADRATIC);
-  else
-  {
-    std::string msg = "nodal_func_type string must be one of 'constant', 'gradient_plane', "
-                      "'quadratic' not " + a_nodal_func_type;
-    throw py::value_error(msg);
-  }
-  return nodal_func;
-} // NodalFuncTypeFromString
-// -----------------------------------------------------------------------------
-/// \brief converts string to an int. This will throw if the string is not
-/// recognized.
-/// \param[in] a_: string to be converted to an enum
-/// \return int representing the search option 0-nearest_pts, 1-natural_neighbors
-// -----------------------------------------------------------------------------
-int NodalFuncPtSearchOptFromString(const std::string& a_nodal_func_pt_search_opt)
-{
-  int searchOpt(0);
-  if (a_nodal_func_pt_search_opt == "natural_neighbors")
-    searchOpt = 0;
-  else if (a_nodal_func_pt_search_opt == "nearest_pts")
-    searchOpt = 1;
-  else
-  {
-    std::string msg = "a_nodal_func_pt_search_opt string must be one of 'natural_neighbors',"
-                      " 'nearest_pts' not " + a_nodal_func_pt_search_opt;
-    throw py::value_error(msg);
-  }
-  return searchOpt;
-} // NodalFuncPtSearchOptFromString
-
-} // unnamed namespace
+//namespace {
+//
+//// -----------------------------------------------------------------------------
+///// \brief converts string to an int. This will throw if the string is not
+///// recognized.
+///// \param[in] a_: string to be converted to an enum
+///// \return int representing the nodal function 0-constant, 1-gradient_plane,
+///// 2-quadratic
+//// -----------------------------------------------------------------------------
+//int NodalFuncTypeFromString(const std::string& a_nodal_func_type)
+//{
+//  int nodal_func(0);
+//  if (a_nodal_func_type == "constant")
+//    nodal_func = static_cast<int>(xms::InterpIdw::CONSTANT);
+//  else if (a_nodal_func_type == "gradient_plane")
+//    nodal_func = static_cast<int>(xms::InterpIdw::GRAD_PLANE);
+//  else if (a_nodal_func_type == "quadratic")
+//    nodal_func = static_cast<int>(xms::InterpIdw::QUADRATIC);
+//  else
+//  {
+//    std::string msg = "nodal_func_type string must be one of 'constant', 'gradient_plane', "
+//                      "'quadratic' not " + a_nodal_func_type;
+//    throw py::value_error(msg);
+//  }
+//  return nodal_func;
+//} // NodalFuncTypeFromString
+//// -----------------------------------------------------------------------------
+///// \brief converts string to an int. This will throw if the string is not
+///// recognized.
+///// \param[in] a_: string to be converted to an enum
+///// \return int representing the search option 0-nearest_pts, 1-natural_neighbors
+//// -----------------------------------------------------------------------------
+//int NodalFuncPtSearchOptFromString(const std::string& a_nodal_func_pt_search_opt)
+//{
+//  int searchOpt(0);
+//  if (a_nodal_func_pt_search_opt == "natural_neighbors")
+//    searchOpt = 0;
+//  else if (a_nodal_func_pt_search_opt == "nearest_pts")
+//    searchOpt = 1;
+//  else
+//  {
+//    std::string msg = "a_nodal_func_pt_search_opt string must be one of 'natural_neighbors',"
+//                      " 'nearest_pts' not " + a_nodal_func_pt_search_opt;
+//    throw py::value_error(msg);
+//  }
+//  return searchOpt;
+//} // NodalFuncPtSearchOptFromString
+//
+//} // unnamed namespace
 
 //----- Python Interface -------------------------------------------------------
 PYBIND11_DECLARE_HOLDER_TYPE(T, boost::shared_ptr<T>);
 
 void initInterpLinear(py::module &m) {
-    const char* interp_linear_doc = R"pydoc(
-        Linear Interpolation
 
-        Args:
-            pts (iterable):  Array of the point locations.
-            tris (iterable, optional): Triangles.
-            scalar (iterable, optional): Array of interpolation scalar values.
-
-    )pydoc";
     py::class_<xms::InterpLinear, xms::InterpBase,
         boost::shared_ptr<xms::InterpLinear>> iLin(m, "InterpLinear");
 
-    iLin.def(py::init([](py::iterable pts, py::iterable tris,
-                          py::iterable scalars) {
-      boost::shared_ptr<xms::InterpLinear> rval(xms::InterpLinear::New());
-      boost::shared_ptr<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
-      if (!vec_pts || vec_pts->size() < 3)
+	// ---------------------------------------------------------------------------
+	// function: __init__
+	// ---------------------------------------------------------------------------
+  iLin.def(py::init([](py::iterable pts, py::iterable tris, py::iterable scalars) {
+    boost::shared_ptr<xms::InterpLinear> rval(xms::InterpLinear::New());
+    boost::shared_ptr<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
+    boost::shared_ptr<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
+
+    if (!vec_tris || vec_tris->empty())
+    {
+      if (!vec_tris)
+        vec_tris.reset(new xms::VecInt());
+      xms::TrTriangulatorPoints t(*vec_pts, *vec_tris);
+      t.Triangulate();
+      if (vec_tris->size() < 3)
       {
-        throw std::invalid_argument("Number of points is less than 3.");
+        throw std::domain_error("Unable to triangulate points. Aborting.");
       }
+    }
 
-      boost::shared_ptr<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
-      if (!vec_tris || vec_tris->empty())
+    rval->SetPtsTris(vec_pts, vec_tris);
+
+    if (py::len(scalars) > 0)
+    {
+      BSHP<xms::VecFlt> vec_scalars = xms::VecFltFromPyIter(scalars);
+      rval->SetScalars(vec_scalars);
+    }
+
+    rval->SetExtrapVal(std::numeric_limits<float>::quiet_NaN());
+
+    return rval;
+  }), py::arg("pts"), py::arg("tris"), py::arg("scalars"));
+  // ---------------------------------------------------------------------------
+  // function: SetPtsTris
+  // ---------------------------------------------------------------------------
+  iLin.def("SetPtsTris", [](xms::InterpLinear &self, py::iterable pts, py::iterable tris) {
+    BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
+    BSHP<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
+    self.SetPtsTris(vec_pts, vec_tris);
+  }, py::arg("pts"),py::arg("tris"));
+  // ---------------------------------------------------------------------------
+  // function: SetScalars
+  // ---------------------------------------------------------------------------
+  iLin.def("SetScalars", [](xms::InterpLinear &self, py::iterable scalar) {
+    BSHP<xms::VecFlt> vec_scalars = xms::VecFltFromPyIter(scalar);
+    self.SetScalars(vec_scalars);
+  }, py::arg("scalar"));
+  // ---------------------------------------------------------------------------
+  // function: InterpToPt
+  // ---------------------------------------------------------------------------
+  iLin.def("InterpToPt",[](xms::InterpLinear &self, py::tuple pt) -> float {
+    return self.InterpToPt(xms::Pt3dFromPyIter(pt));
+  }, py::arg("pt"));
+  // ---------------------------------------------------------------------------
+  // function: InterpToPts
+  // ---------------------------------------------------------------------------
+  iLin.def("InterpToPts", [](xms::InterpLinear &self, py::iterable pts) -> py::iterable {
+    BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
+    xms::VecFlt vec_scalars;
+    self.InterpToPts(*vec_pts, vec_scalars);
+    return xms::PyIterFromVecFlt(vec_scalars, py::isinstance<py::array>(pts));
+  }, py::arg("pts"));
+  // ---------------------------------------------------------------------------
+  // function: SetPtActivity
+  // ---------------------------------------------------------------------------
+  iLin.def("SetPtActivity", [](xms::InterpLinear &self, py::iterable activity) {
+    xms::DynBitset bitset = xms::DynamicBitsetFromPyIter(activity);
+    self.SetPtActivity(bitset);
+  },py::arg("activity"));
+  // ---------------------------------------------------------------------------
+  // function: SetTriActivity
+  // ---------------------------------------------------------------------------
+  iLin.def("SetTriActivity", [](xms::InterpLinear &self, py::iterable activity) {
+	  xms::DynBitset bitset = xms::DynamicBitsetFromPyIter(activity);
+	  self.SetTriActivity(bitset);
+  },py::arg("activity"));
+	// ---------------------------------------------------------------------------
+	// function: GetPts
+	// ---------------------------------------------------------------------------
+	iLin.def_property_readonly("GetPts", [](xms::InterpLinear &self) -> py::iterable {
+		BSHP<xms::VecPt3d> pts = self.GetPts();
+		return xms::PyIterFromVecPt3d(*pts);
+	});
+	// ---------------------------------------------------------------------------
+	// function: GetTris
+	// ---------------------------------------------------------------------------
+	iLin.def_property_readonly("GetTris", [](xms::InterpLinear &self) -> py::iterable {
+		BSHP<std::vector<int>> tris = self.GetTris();
+		return xms::PyIterFromVecInt(*tris, true);
+	});
+  // ---------------------------------------------------------------------------
+  // function: GetScalars
+  // ---------------------------------------------------------------------------
+  iLin.def_property_readonly("GetScalars", [](xms::InterpLinear &self) -> py::iterable {
+    BSHP<std::vector<float>> scalars = self.GetScalars();
+    return xms::PyIterFromVecFlt(*scalars, true);
+  });
+  // ---------------------------------------------------------------------------
+  // function: GetPtActivity
+  // ---------------------------------------------------------------------------
+  iLin.def_property_readonly("GetPtActivity", [](xms::InterpLinear &self) -> py::iterable {
+    xms::DynBitset ptActivity = self.GetPtActivity();
+    return xms::PyIterFromDynamicBitset(ptActivity, true);
+  });
+  // ---------------------------------------------------------------------------
+  // function: GetTriActivity
+  // ---------------------------------------------------------------------------
+  iLin.def_property_readonly("GetTriActivity", [](xms::InterpLinear &self) -> py::iterable {
+    xms::DynBitset triActivity = self.GetTriActivity();
+    return xms::PyIterFromDynamicBitset(triActivity, true);
+  });
+  // ---------------------------------------------------------------------------
+  // function: GetExtrapolationPointIndexes
+  // ---------------------------------------------------------------------------
+  iLin.def_property_readonly("GetExtrapolationPointIndexes", [](xms::InterpLinear &self) -> py::iterable {
+    xms::VecInt extrapPtIndexes = self.GetExtrapolationPointIndexes();
+    return xms::PyIterFromVecInt(extrapPtIndexes, true);
+  });
+  // ---------------------------------------------------------------------------
+  // function: TriContainingPt
+  // ---------------------------------------------------------------------------
+  iLin.def("TriContainingPt", [](xms::InterpLinear &self, py::tuple pt) -> int {
+    xms::Pt3d point = xms::Pt3dFromPyIter(pt);
+    return self.TriContainingPt(point);
+  }, py::arg("pt"));
+  // ---------------------------------------------------------------------------
+  // function: TriEnvelopsContainingPt
+  // ---------------------------------------------------------------------------
+  iLin.def("TriEnvelopsContainingPt", [](xms::InterpLinear &self, py::tuple pt) -> py::array {
+    xms::VecInt tris;
+    xms::Pt3d point = xms::Pt3dFromPyIter(pt);
+    self.TriEnvelopsContainingPt(point, tris);
+    return xms::PyIterFromVecInt(tris);
+  }, py::arg("pt"));
+  // ---------------------------------------------------------------------------
+  // function: InterpWeights
+  // ---------------------------------------------------------------------------
+  iLin.def("InterpWeights", [](xms::InterpLinear &self, py::tuple pt) -> py::iterable {
+    xms::VecInt idxs;
+    xms::VecDbl wts;
+    xms::Pt3d point = xms::Pt3dFromPyIter(pt);
+    bool pt_inside = self.InterpWeights(point, idxs, wts);
+    py::array ret_idxs = xms::PyIterFromVecInt(idxs, true);
+    py::array ret_wts = xms::PyIterFromVecDbl(wts, true);
+    return py::make_tuple(pt_inside, ret_idxs, ret_wts);
+  }, py::arg("pt"));
+  // ---------------------------------------------------------------------------
+  // function: SetExtrapVal
+  // ---------------------------------------------------------------------------
+  iLin.def("SetExtrapVal", &xms::InterpLinear::SetExtrapVal, py::arg("value"));
+  // ---------------------------------------------------------------------------
+  // function: SetTrunc
+  // ---------------------------------------------------------------------------
+  iLin.def("SetTrunc", &xms::InterpLinear::SetTrunc, py::arg("smax"), py::arg("smin"));
+  // ---------------------------------------------------------------------------
+  // function: SetUseCloughTocher
+  // ---------------------------------------------------------------------------
+  iLin.def("SetUseCloughTocher", [](xms::InterpLinear &self, bool on, py::object observer) {
+    BSHP<xms::Observer> obs;
+    if (!observer.is_none())
+    {
+      if (!py::isinstance<PyObserver>(observer))
+        throw std::invalid_argument("observer must be of type xmscore.misc.Observer");
+      BSHP<PyObserver> po = observer.cast<BSHP<PyObserver>>();
+      obs = BDPC<xms::Observer>(po);
+    }
+    self.SetUseCloughTocher(on, obs);
+  }, py::arg("on") = true, py::arg("observer"));
+  // ---------------------------------------------------------------------------
+  // function: SetUseNatNeigh
+  // ---------------------------------------------------------------------------
+  iLin.def("SetUseNatNeigh", [](xms::InterpLinear &self, bool on,
+    int nodal_func_type, int nd_func_pt_search_opt,
+    int nd_func_num_nearest_pts,
+    bool nd_func_blend_weights,
+    py::object observer)
+    {
+      BSHP<xms::Observer> obs;
+      if (!observer.is_none())
       {
-        if (!vec_tris)
-          vec_tris.reset(new xms::VecInt());
-        xms::TrTriangulatorPoints t(*vec_pts, *vec_tris);
-        t.Triangulate();
-        if (vec_tris->size() < 3)
-        {
-          throw std::domain_error("Unable to triangulate points. Aborting.");
-        }
+        if (!py::isinstance<PyObserver>(observer))
+          throw std::invalid_argument("observer must be of type xmscore.misc.Observer");
+        BSHP<PyObserver> po = observer.cast<BSHP<PyObserver>>();
+        obs = BDPC<xms::Observer>(po);
       }
+      self.SetUseNatNeigh(on, nodal_func_type, nd_func_pt_search_opt,
+                          nd_func_num_nearest_pts, nd_func_blend_weights, obs);
+    },  py::arg("on"), py::arg("nodal_func_type"), py::arg("nd_func_pt_search_opt"),
+        py::arg("nd_func_num_nearest_pts"), py::arg("nd_func_blend_weights"),  py::arg("observer"));
+    // ---------------------------------------------------------------------------
+    // function: GetExtrapVal
+    // ---------------------------------------------------------------------------
+    iLin.def_property_readonly("GetExtrapVal", &xms::InterpLinear::SetExtrapVal);
+    // ---------------------------------------------------------------------------
+    // function: GetTruncateInterpolatedValues
+    // ---------------------------------------------------------------------------
+    iLin.def_property_readonly("GetTruncateInterpolatedValues", &xms::InterpLinear::GetTruncateInterpolatedValues);
+    // ---------------------------------------------------------------------------
+    // function: GetTruncMin
+    // ---------------------------------------------------------------------------
+    iLin.def_property_readonly("GetTruncMin", &xms::InterpLinear::GetTruncMin);
+    // ---------------------------------------------------------------------------
+    // function: GetTruncMax
+    // ---------------------------------------------------------------------------
+    iLin.def_property_readonly("GetTruncMax", &xms::InterpLinear::GetTruncMax);
+    // ---------------------------------------------------------------------------
+    // function: GetUseCloughTocher
+    // ---------------------------------------------------------------------------
+    iLin.def_property_readonly("GetUseCloughTocher", &xms::InterpLinear::GetUseCloughTocher);
+    // ---------------------------------------------------------------------------
+    // function: GetUseNatNeigh
+    // ---------------------------------------------------------------------------
+    iLin.def_property_readonly("GetUseNatNeigh", &xms::InterpLinear::GetUseNatNeigh);
+    // ---------------------------------------------------------------------------
+    // function: GetNatNeighNodalFunc
+    // ---------------------------------------------------------------------------
+    iLin.def_property_readonly("GetNatNeighNodalFunc", &xms::InterpLinear::GetNatNeighNodalFunc);
+    // ---------------------------------------------------------------------------
+    // function: GetNatNeighNodalFuncNearestPtsOption
+    // ---------------------------------------------------------------------------
+    iLin.def_property_readonly("GetNatNeighNodalFuncNearestPtsOption", &xms::InterpLinear::GetNatNeighNodalFuncNearestPtsOption);
+    // ---------------------------------------------------------------------------
+    // function: GetNatNeighNodalFuncNumNearestPts
+    // ---------------------------------------------------------------------------
+    iLin.def_property_readonly("GetNatNeighNodalFuncNumNearestPts", &xms::InterpLinear::GetNatNeighNodalFuncNumNearestPts);
+    // ---------------------------------------------------------------------------
+    // function: GetNatNeighBlendWeights
+    // ---------------------------------------------------------------------------
+    iLin.def_property_readonly("GetNatNeighBlendWeights", &xms::InterpLinear::GetNatNeighBlendWeights);
 
-      rval->SetPtsTris(vec_pts, vec_tris);
-
-      if (py::len(scalars) > 0)
-      {
-        BSHP<xms::VecFlt> vec_scalars = xms::VecFltFromPyIter(scalars);
-        if (vec_scalars->size() != vec_pts->size())
-          throw std::length_error("scalars length != pts length.");
-        rval->SetScalars(vec_scalars);
-      }
-
-      rval->SetExtrapVal(std::numeric_limits<float>::quiet_NaN());
-
-      return rval;
-    }), interp_linear_doc, py::arg("pts"), py::arg("tris") = py::make_tuple(), py::arg("scalars") = py::make_tuple());
-  // ---------------------------------------------------------------------------
-  // function: __str__
-  // ---------------------------------------------------------------------------
-    const char* __str__doc = R"pydoc(
-        Write the internals to a string.
-
-        Returns:
-            str: The internals as a string
-    )pydoc";
-
-    iLin.def("__str__", &xms::InterpLinear::ToString,__str__doc);
-  // ---------------------------------------------------------------------------
-  // attribute: __repr__
-  // ---------------------------------------------------------------------------
-    iLin.def("__repr__", [](const xms::InterpLinear &il)
-           {
-             return PyReprStringFromInterpBase(il);
-           }
-    );
-  // ---------------------------------------------------------------------------
-  // function: to_string
-  // ---------------------------------------------------------------------------
-    const char* to_string_doc = R"pydoc(
-        Write the internals to a string.
-
-        Returns:
-            str: The internals as a string
-    )pydoc";
-
-    iLin.def("to_string", &xms::InterpLinear::ToString, to_string_doc);
-  // ---------------------------------------------------------------------------
-  // function: set_pts_tris
-  // ---------------------------------------------------------------------------
-    const char* set_pts_tris_doc = R"pydoc(
-        Adds the triangles to the class.
-
-        Args:
-            pts (iterable): Array of point locations.
-            tris (iterable): Array of triangles that references the pts array. This array will have a size that is a multiple of 3. The first 3 locations in array represent the first triangle and will have indices that correspond to locations in the pts array.
-    )pydoc";
-
-    iLin.def("set_pts_tris", 
-        [](xms::InterpLinear &self, py::iterable pts, py::iterable tris) {
-            BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
-            if (!vec_pts || vec_pts->size() < 3)
-            {
-              throw std::invalid_argument("Number of points is less than 3.");
-            }
-            BSHP<xms::VecInt> vec_tris = xms::VecIntFromPyIter(tris);
-            if (!vec_tris || vec_tris->size() < 3)
-            {
-              throw std::invalid_argument("Number of triangles is less than 1.");
-            }
-            self.SetPtsTris(vec_pts, vec_tris);
-        },set_pts_tris_doc, py::arg("pts"),py::arg("tris"));
-  // ---------------------------------------------------------------------------
-  // function: set_scalars
-  // ---------------------------------------------------------------------------
-    const char* set_scalars_doc = R"pydoc(
-        Set the scalars that will be used to interpolate from.
-
-        Args:
-            scalar (iterable): Array of interpolation scalar values.
-    )pydoc";
-
-    iLin.def("set_scalars", [](xms::InterpLinear &self, py::iterable scalar) {
-            BSHP<xms::VecFlt> vec_scalars = xms::VecFltFromPyIter(scalar);
-            return self.SetScalars(vec_scalars);
-        },set_scalars_doc, py::arg("scalar"));
-  // ---------------------------------------------------------------------------
-  // function: interp_to_pt
-  // ---------------------------------------------------------------------------
-    const char* interp_to_pt_doc = R"pydoc(
-        Use the stored triangles to interpolate to a point. Returns 
-        extrapolation value if the point is outside the triangles.
-
-        Args:
-            pt (tuple): Location that is interpolated to.
-
-        Returns:
-            float: Interpolated value at a_pt.
-    )pydoc";
-
-    iLin.def("interp_to_pt",[](xms::InterpLinear &self, py::tuple pt) -> float {
-            if (!self.GetPts())
-            {
-              throw std::domain_error("No points defined in interpolation object. Aborting.");
-            }
-            return self.InterpToPt(xms::Pt3dFromPyIter(pt));
-        },interp_to_pt_doc, py::arg("pt"));
-  // ---------------------------------------------------------------------------
-  // function: interp_to_pts
-  // ---------------------------------------------------------------------------
-    const char* interp_to_pts_doc = R"pydoc(
-        Calls interp_to_pt in a loop.
-
-        Args:
-            pts (iterable): Locations of points.
-
-        Returns:
-            iterable: Interpolated scalar values at pts.
-    )pydoc";
-
-    iLin.def("interp_to_pts", 
-        [](xms::InterpLinear &self, py::iterable pts) -> py::iterable {
-            BSHP<xms::VecPt3d> vec_pts = xms::VecPt3dFromPyIter(pts);
-            xms::VecFlt vec_scalars;
-            self.InterpToPts(*vec_pts, vec_scalars);
-            return xms::PyIterFromVecFlt(vec_scalars,
-                                         py::isinstance<py::array>(pts));
-        },interp_to_pts_doc, py::arg("pts"));
-  // ---------------------------------------------------------------------------
-  // function: set_pt_activity
-  // ---------------------------------------------------------------------------
-    const char* set_pt_activity_doc = R"pydoc(
-        Modifies the activity bitset of the class.
-
-        Args:
-            activity (iterable): Bitset of the activity of the points.
-    )pydoc";
-
-    iLin.def("set_pt_activity", 
-        [](xms::InterpLinear &self, py::iterable activity) {
-            xms::DynBitset bitset = xms::DynamicBitsetFromPyIter(activity);
-            self.SetPtActivity(bitset);
-        },set_pt_activity_doc,py::arg("activity"));
-  // ---------------------------------------------------------------------------
-  // function: set_tri_activity
-  // ---------------------------------------------------------------------------
-    const char* set_tri_activity_doc = R"pydoc(
-        Modifies the activity bitset of the class.
-
-        Args:
-            activity (iterable): Bitset of the activity of the triangles.
-    )pydoc";
-
-    iLin.def("set_tri_activity", 
-        [](xms::InterpLinear &self, py::iterable activity) {
-            xms::DynBitset bitset = xms::DynamicBitsetFromPyIter(activity);
-            self.SetTriActivity(bitset);
-        },set_tri_activity_doc,py::arg("activity"));
-  // ---------------------------------------------------------------------------
-  // function: tri_containing_pt
-  // ---------------------------------------------------------------------------
-    const char* tri_containing_pt_doc = R"pydoc(
-        Find the triangle containing the point
-
-        Args:
-            pt (tuple): Location used to find a triangle.
-
-        Returns:
-            int: Index of triangle containing pt. If XM_NONE is returned then no triangle contained the point.
-    )pydoc";
-
-    iLin.def("tri_containing_pt", 
-        [](xms::InterpLinear &self, py::tuple pt) -> int {
-            xms::Pt3d point = xms::Pt3dFromPyIter(pt);
-            return self.TriContainingPt(point);
-        },tri_containing_pt_doc, py::arg("pt"));
-  // ---------------------------------------------------------------------------
-  // function: tri_envelops_containing_pt
-  // ---------------------------------------------------------------------------
-    const char* tri_envelops_containing_pt_doc = R"pydoc(
-        Find all triangles whose envelop contains the point.
-
-        Args:
-            pt (tuple): Location used to find a triangle.
-
-        Returns:
-            array: The indices to triangles whose envelop contains the point.
-    )pydoc";
-
-    iLin.def("tri_envelopes_containing_pt",
-        [](xms::InterpLinear &self, py::tuple pt) -> py::array {
-            xms::VecInt tris;
-            xms::Pt3d point = xms::Pt3dFromPyIter(pt);
-            self.TriEnvelopsContainingPt(point, tris);
-            return xms::PyIterFromVecInt(tris);
-        },tri_envelops_containing_pt_doc, py::arg("pt"));
-  // ---------------------------------------------------------------------------
-  // function: interp_weights
-  // ---------------------------------------------------------------------------
-    const char* interp_weights_doc = R"pydoc(
-        Use the stored triangles to get interpolation weights for a point. 
-        Returns false if the point is outside the triangles.
-
-        Args:
-            pt (tuple): Location that is interpolated to.
-
-        Returns:
-            iterable: Contains a boolean indicating if pt was inside of any of the triangles, an iterable of triangle point indices found in this method, and an iterable of triangle point weights found in this method.
-    )pydoc";
-
-    iLin.def("interp_weights", 
-        [](xms::InterpLinear &self, py::tuple pt) -> py::iterable {
-            xms::VecInt idxs;
-            xms::VecDbl wts;
-            xms::Pt3d point = xms::Pt3dFromPyIter(pt);
-            bool pt_inside = self.InterpWeights(point, idxs, wts);
-            py::array ret_idxs = xms::PyIterFromVecInt(idxs, true);
-            py::array ret_wts = xms::PyIterFromVecDbl(wts, true);
-            return py::make_tuple(pt_inside, ret_idxs, ret_wts);
-        },interp_weights_doc, py::arg("pt"));
-  // ---------------------------------------------------------------------------
-  // function: set_extrap_val
-  // ---------------------------------------------------------------------------
-    const char* set_extrap_val_doc = R"pydoc(
-        Set the constant extrapolation value.
-
-        Args:
-            value (float): The value assigned to extrapolated points.
-    )pydoc";
-
-    iLin.def("set_extrapolation_value", &xms::InterpLinear::SetExtrapVal,
-            set_extrap_val_doc, py::arg("value"));
-  // ---------------------------------------------------------------------------
-  // function: set_trunc
-  // ---------------------------------------------------------------------------
-    const char* set_trunc_doc = R"pydoc(
-        Set the truncation values for the interpolation and turn on truncation.
-
-        Args:
-            max (float): The maximum value for truncation.
-            min (float): The minimum value for truncation.
-    )pydoc";
-
-    iLin.def("set_truncation_max_min", &xms::InterpLinear::SetTrunc,set_trunc_doc,
-            py::arg("smax"), py::arg("smin"));
-  // ---------------------------------------------------------------------------
-  // function: pts
-  // ---------------------------------------------------------------------------
-    const char* pts_doc = R"pydoc(
-        Returns an iterable containing the points.
-
-        Returns:
-            iterable: An iterable containing the points.
-    )pydoc";
-
-    iLin.def_property_readonly("pts", []
-        (xms::InterpLinear &self) -> py::iterable {
-            BSHP<xms::VecPt3d> pts = self.GetPts();
-            return xms::PyIterFromVecPt3d(*pts);
-        },pts_doc);
-  // ---------------------------------------------------------------------------
-  // function: tris
-  // ---------------------------------------------------------------------------
-    const char* tris_doc = R"pydoc(
-        Returns an iterable containing the triangles.
-
-        Returns:
-            iterable: An iterable containing the triangles.
-    )pydoc";
-
-    iLin.def_property_readonly("tris", []
-        (xms::InterpLinear &self) -> py::iterable {
-          BSHP<std::vector<int>> tris = self.GetTris();
-          return xms::PyIterFromVecInt(*tris, true);
-        },tris_doc);
-  // ---------------------------------------------------------------------------
-  // function: set_use_clough_tocher
-  // ---------------------------------------------------------------------------
-    const char* set_use_clough_tocher_doc = R"pydoc(
-        Set the class to use the Clough Tocher interpolation method. This is a 
-        legacy feature from GMS. Compare to linear.
-
-        Args:
-            on (bool): True/False to indicate if CT should be used.
-            observer (Observer): Progress bar to give users feed back on the set up process of CT. If you have a really large set of triangles this may take some time.
-    )pydoc";
-
-    iLin.def("set_use_clough_tocher", [](xms::InterpLinear &self, bool on,
-                                         py::object observer) {
-          BSHP<xms::Observer> obs;
-          if (!observer.is_none())
-          {
-            if (!py::isinstance<PyObserver>(observer))
-              throw std::invalid_argument("observer must be of type xmscore.misc.Observer");
-            BSHP<PyObserver> po = observer.cast<BSHP<PyObserver>>();
-            obs = BDPC<xms::Observer>(po);
-          }
-          self.SetUseCloughTocher(on, obs);
-        },set_use_clough_tocher_doc
-         , py::arg("on") = true
-         , py::arg("observer") = py::none()
-         );
-  // ---------------------------------------------------------------------------
-  // function: set_use_nat_neigh
-  // ---------------------------------------------------------------------------
-    const char* set_use_nat_neigh_doc = R"pydoc(
-        Set the class to use natural neighbor (NN) interpolation.
-
-        Args:
-            on (bool, optional): True/False to indicate if NN should be used.
-            nodal_func_type (string, optional): Indicates which type of nodal function to use: "constant", "gradient_plane", or "quadratic".
-            nd_func_pt_search_opt (string, optional): Indicates options for the nearest points when computing the nodal functions: "natural_neighbors" or "nearest_pts".
-            nd_func_num_nearest_pts (int, optional): The number of nearest points for nodal function computation.
-            nd_func_blend_weights (bool, optional): Option to use a blending function on the calculated weights.
-            observer (Observer, optional): Progress bar to give user feedback for generation of the nodal functions.
-    )pydoc";
-
-    iLin.def("set_use_natural_neighbor",
-     [](xms::InterpLinear &self, bool on,
-        std::string nodal_func_type, std::string nd_func_pt_search_opt,
-        int nd_func_num_nearest_pts,
-        bool nd_func_blend_weights,
-        py::object observer)
-        {
-          BSHP<xms::Observer> obs;
-          if (!observer.is_none())
-          {
-            if (!py::isinstance<PyObserver>(observer))
-              throw std::invalid_argument("observer must be of type xmscore.misc.Observer");
-            BSHP<PyObserver> po = observer.cast<BSHP<PyObserver>>();
-            obs = BDPC<xms::Observer>(po);
-          }
-          int nodalFuncType = NodalFuncTypeFromString(nodal_func_type);
-          int nodalFuncPtSearchOpt = NodalFuncPtSearchOptFromString(nd_func_pt_search_opt);
-          self.SetUseNatNeigh(on, nodalFuncType, nodalFuncPtSearchOpt,
-                              nd_func_num_nearest_pts, nd_func_blend_weights, obs);
-        },set_use_nat_neigh_doc,
-            py::arg("on") = true, py::arg("nodal_func_type") = "constant",
-            py::arg("nd_func_pt_search_opt") = "nearest_pts",
-            py::arg("nd_func_num_nearest_pts") = 16,
-            py::arg("nd_func_blend_weights") = true,
-            py::arg("observer") = py::none()
-        );
 }
