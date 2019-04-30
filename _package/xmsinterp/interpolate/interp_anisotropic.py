@@ -11,7 +11,7 @@
 from .._xmsinterp.interpolate import InterpAnisotropic as iAni
 
 
-class InterpAnisotropic:
+class InterpAnisotropic(object):
     def __init__(self, **kwargs):
         if 'instance' in kwargs:
             self._instance = kwargs['instance']
