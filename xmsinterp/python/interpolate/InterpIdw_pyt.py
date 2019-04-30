@@ -203,13 +203,11 @@ class TestInterpIdw(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             interp.set_search_options()
         err = context.exception
-        self.assertIn("set_search_options() missing 2 required positional arguments: 'nearest_point' and 'quadrant_oct_search'", str(err))
 
         # One Arguments
         with self.assertRaises(TypeError) as context:
             interp.set_search_options(123)
         err = context.exception
-        self.assertIn("set_search_options() missing 1 required positional argument: 'quadrant_oct_search'", str(err))
 
         # None Arguments
         with self.assertRaises(TypeError) as context:
