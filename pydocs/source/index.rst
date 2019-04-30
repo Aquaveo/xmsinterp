@@ -7,7 +7,7 @@
 XmsInterp |version|
 *******************
 
-**Last Updated:** April 4, 2018
+**Last Updated:** April 30, 2018
 
 The xmsinterp library is a interpolation library for other aquaveo products. This library
 contains classes used to perform interpolation.
@@ -34,22 +34,18 @@ Index
 
 **User Interface**
 
-* :doc:`modules/geometry/TriSearch`
 * :doc:`modules/interpolate/InterpAnisotropic`
 * :doc:`modules/interpolate/InterpIdw`
 * :doc:`modules/interpolate/InterpLinear`
-* :doc:`modules/triangulate/Tin`
 
 .. toctree::
    :maxdepth: 1
    :hidden:
    :caption: User Interface
 
-   modules/geometry/TriSearch.rst
    modules/interpolate/InterpAnisotropic.rst
    modules/interpolate/InterpIdw.rst
    modules/interpolate/InterpLinear.rst
-   modules/triangulate/Tin.rst
 
 Acknowledgements
 ================
