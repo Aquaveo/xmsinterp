@@ -50,13 +50,13 @@ class InterpLinear:
     def __repr__(self):
         return '<InterpLinear - Point Count: {}, Triangle Count: {}>'.format(
             len(self.points),
-            len(self.triangles) / 3,
+            int(len(self.triangles) / 3),
         )
 
     def __str__(self):
         return '<InterpLinear - Point Count: {}, Triangle Count: {}>'.format(
             len(self.points),
-            len(self.triangles) / 3,
+            int(len(self.triangles) / 3),
         )
 
     @staticmethod

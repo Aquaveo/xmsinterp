@@ -60,7 +60,7 @@ class TestInterpLinear(unittest.TestCase):
         tris = (0, 2, 1)
         interp = InterpLinear(pts, tris)
         base_string =\
-"""<InterpLinear - Point Count: 3, Triangle Count: 1.0>"""
+"""<InterpLinear - Point Count: 3, Triangle Count: 1>"""
         rStr = repr(interp)
         self.assertEqual(base_string, rStr)
 
@@ -72,7 +72,7 @@ class TestInterpLinear(unittest.TestCase):
         pts = np.array([(0, 0, 0), (1, 1, 0), (1, 0, 0)])
         tris = np.array([0, 2, 1])
         base_string = \
-"""<InterpLinear - Point Count: 3, Triangle Count: 1.0>"""
+"""<InterpLinear - Point Count: 3, Triangle Count: 1>"""
         interp = InterpLinear(pts, tris)
         rStr = repr(interp)
         self.assertEqual(base_string, rStr)
@@ -201,7 +201,7 @@ class TestInterpLinear(unittest.TestCase):
         extrap_val = 7.11
         interp.extrapolation_value = extrap_val
         base_string =\
-"""<InterpLinear - Point Count: 3, Triangle Count: 1.0>"""
+"""<InterpLinear - Point Count: 3, Triangle Count: 1>"""
         rStr = repr(self.interp_linear_obj)
         self.assertEqual(base_string, rStr)
 
@@ -212,7 +212,7 @@ class TestInterpLinear(unittest.TestCase):
         t_max = 11.7
         interp.set_truncation(t_max, t_min)
         base_string =\
-"""<InterpLinear - Point Count: 3, Triangle Count: 1.0>"""
+"""<InterpLinear - Point Count: 3, Triangle Count: 1>"""
         rStr = repr(self.interp_linear_obj)
         self.assertEqual(base_string, rStr)
 
