@@ -15,7 +15,7 @@ from setuptools import setup, find_packages
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 requires = [
-    'numpy', 'xmscore',  # 'xmsgrid'
+    'numpy', 'xmscore', 'xmsgrid'
 ]
 
 version = '3.0.0'
@@ -30,9 +30,8 @@ setup(
     description='',
     author='Aquaveo',
     install_requires=requires,
-    package_data={'': ['*.pyd']}
-    # extras_require={
-    #     'tests': [],
-    # },
-    # test_suite='tests',
+    package_data={'': ['*.pyd']},
+    dependency_links=[
+        'https://aquapi.aquaveo.com/aquaveo/stable'
+    ],
 )

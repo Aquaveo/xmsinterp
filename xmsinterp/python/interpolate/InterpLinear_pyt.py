@@ -1,11 +1,12 @@
 """Test InterpLinear_py.cpp."""
 import unittest
 import xmsinterp
-import xmscore
+from xmsinterp.interpolate import InterpLinear
+from xmscore.misc import Observer
 import math
 
 
-class MockObserver(xmscore.misc.Observer):
+class MockObserver(Observer):
     """Mock Observer class for testing."""
 
     def __init__(self):
@@ -51,44 +52,15 @@ class TestInterpLinear(unittest.TestCase):
         pts = ((0, 0, 0), (1, 1, 0), (1, 0, 0))
         self.interp_linear_obj = xmsinterp.interpolate.InterpLinear(pts)
 
-    def test_to_string(self):
-        """Ensure class can be printed as a string."""
-        base_string =\
-"""pts (length 3): 
-[(0.0, 0.0, 0.0), 
- (1.0, 1.0, 0.0), 
- (1.0, 0.0, 0.0)]
-tris (length 3): [0, 2, 1]
-scalars (length 3): [0.0, 0.0, 0.0]
-pt activity (length 0): []
-tri activity (length 0): []
-use truncation: False
-extrapolation value: NaN
-use clough tocher: False
-use natural neighbor: False
-"""
-        rStr = repr(self.interp_linear_obj)
-        self.assertEqual(base_string, rStr)
-
     def test_set_pts_tris(self):
         """Set base points."""
         interp = self.interp_linear_obj
         # Test that the a proper call does not throw
-        interp.set_pts_tris(((0, 0, 0), (1, 1, 0), (1, 0, 0)), (0, 2, 1))
+        pts = ((0, 0, 0), (1, 1, 0), (1, 0, 0))
+        tris = (0, 2, 1)
+        interp = InterpLinear(pts, tris)
         base_string =\
-"""pts (length 3): 
-[(0.0, 0.0, 0.0), 
- (1.0, 1.0, 0.0), 
- (1.0, 0.0, 0.0)]
-tris (length 3): [0, 2, 1]
-scalars (length 3): [0.0, 0.0, 0.0]
-pt activity (length 0): []
-tri activity (length 0): []
-use truncation: False
-extrapolation value: NaN
-use clough tocher: False
-use natural neighbor: False
-"""
+"""<InterpLinear - Point Count: 3, Triangle Count: 1.0>"""
         rStr = repr(interp)
         self.assertEqual(base_string, rStr)
 
@@ -96,30 +68,19 @@ use natural neighbor: False
         """Set base points."""
         import numpy as np
 
-        interp = self.interp_linear_obj
         # Test that the a proper call does not throw
-        interp.set_pts_tris(np.array([(0, 0, 0), (1, 1, 0), (1, 0, 0)]), np.array([0, 2, 1]))
+        pts = np.array([(0, 0, 0), (1, 1, 0), (1, 0, 0)])
+        tris = np.array([0, 2, 1])
         base_string = \
-"""pts (length 3): 
-[(0.0, 0.0, 0.0), 
- (1.0, 1.0, 0.0), 
- (1.0, 0.0, 0.0)]
-tris (length 3): [0, 2, 1]
-scalars (length 3): [0.0, 0.0, 0.0]
-pt activity (length 0): []
-tri activity (length 0): []
-use truncation: False
-extrapolation value: NaN
-use clough tocher: False
-use natural neighbor: False
-"""
+"""<InterpLinear - Point Count: 3, Triangle Count: 1.0>"""
+        interp = InterpLinear(pts, tris)
         rStr = repr(interp)
         self.assertEqual(base_string, rStr)
 
-    def test_interp_to_pt(self):
+    def test_interpolate_to_point(self):
         """Interpolate to a specific point."""
         interp = self.interp_linear_obj
-        val = interp.interp_to_pt((1, 2, 3))
+        val = interp.interpolate_to_point((1, 2, 3))
         math.isnan(val)
 
     def test_intperp_to_pts(self):
@@ -127,8 +88,8 @@ use natural neighbor: False
         interp = self.interp_linear_obj
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
-        interp.set_pts_tris(pts, tris)
-        ret = interp.interp_to_pts(((2, 1, 0), (5, 10, 2.5)))
+        interp = InterpLinear(pts, tris)
+        ret = interp.interpolate_to_points(((2, 1, 0), (5, 10, 2.5)))
         self.assertIsInstance(ret, tuple)
         self.assertEqual((0.5, 2.5), ret)
 
@@ -138,8 +99,8 @@ use natural neighbor: False
         interp = self.interp_linear_obj
         pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
         tris = np.array([0, 1, 3, 1, 2, 3])
-        interp.set_pts_tris(pts, tris)
-        ret = interp.interp_to_pts(np.array([(2, 1, 0), (5, 10, 2.5)]))
+        interp = InterpLinear(pts, tris)
+        ret = interp.interpolate_to_points(np.array([(2, 1, 0), (5, 10, 2.5)]))
         self.assertIsInstance(ret, np.ndarray)
         np.testing.assert_array_equal(np.array([0.5, 2.5]), ret)
 
@@ -149,25 +110,25 @@ use natural neighbor: False
 
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
-        interp.set_pts_tris(pts, tris)
+        interp = InterpLinear(pts, tris)
         act1 = (True, False, False, True)
-        interp.set_pt_activity(act1)
+        interp.point_activity = act1
 
         act2 = (0, 1, 0, 1)
-        interp.set_pt_activity(act2)
+        interp.point_activity = act2
 
-    def test_set_tri_activity(self):
+    def test_set_triangle_activity(self):
         """Setting tri activity"""
         interp = self.interp_linear_obj
 
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
-        interp.set_pts_tris(pts, tris)
+        interp = InterpLinear(pts, tris)
         act1 = (True, False)
-        interp.set_tri_activity(act1)
+        interp.triangle_activity = act1
 
         act2 = (1, 1)
-        interp.set_tri_activity(act2)
+        interp.triangle_activity = act2
 
     def test_get_pts(self):
         """Getting interp object points"""
@@ -176,9 +137,9 @@ use natural neighbor: False
 
         pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
         tris = np.array([0, 1, 3, 1, 2, 3])
-        interp.set_pts_tris(pts, tris)
+        interp = InterpLinear(pts, tris)
 
-        ret = interp.pts
+        ret = interp.points
         np.testing.assert_array_equal(pts, ret)
 
     def test_get_tris(self):
@@ -188,9 +149,9 @@ use natural neighbor: False
 
         pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
         tris = np.array([0, 1, 3, 1, 2, 3])
-        interp.set_pts_tris(pts, tris)
+        interp = InterpLinear(pts, tris)
 
-        ret = interp.tris
+        ret = interp.triangles
         np.testing.assert_array_equal(tris, ret)
 
     def test_tri_containing_pt(self):
@@ -199,8 +160,8 @@ use natural neighbor: False
 
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
-        interp.set_pts_tris(pts, tris)
-        ret = interp.tri_containing_pt((5, 5, 2))
+        interp = InterpLinear(pts, tris)
+        ret = interp.triangle_containing_point((5, 5, 2))
         self.assertEqual(0, ret)
 
     def test_tri_envelops_containing_pt(self):
@@ -210,8 +171,9 @@ use natural neighbor: False
 
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
-        interp.set_pts_tris(pts, tris)
-        ret = interp.tri_envelopes_containing_pt((5, 5, 2))
+
+        interp = InterpLinear(pts, tris)
+        ret = interp.triangle_envelopes_containing_point((5, 5, 2))
         np.testing.assert_array_equal(np.array([0, 3], np.int32), ret)
 
     def test_interp_weights(self):
@@ -221,14 +183,14 @@ use natural neighbor: False
 
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
-        interp.set_pts_tris(pts, tris)
+        interp = InterpLinear(pts, tris)
 
-        pt_inside, idxs, wts = interp.interp_weights((5, 5, 2))
+        pt_inside, idxs, wts = interp.interpolate_weights((5, 5, 2))
         self.assertTrue(pt_inside)
         np.testing.assert_array_equal(np.array([0, 1, 3], np.int32), idxs)
         np.testing.assert_array_equal(np.array([0, 0.5, 0.5]), wts)
 
-        pt_inside, idxs, wts = interp.interp_weights((-10, -10, -10))
+        pt_inside, idxs, wts = interp.interpolate_weights((-10, -10, -10))
         self.assertFalse(pt_inside)
         np.testing.assert_array_equal(np.array([], np.int32), idxs)
         np.testing.assert_array_equal(np.array([]), wts)
@@ -237,21 +199,9 @@ use natural neighbor: False
         """Test set_extrap_val"""
         interp = self.interp_linear_obj
         extrap_val = 7.11
-        interp.set_extrapolation_value(extrap_val)
+        interp.extrapolation_value = extrap_val
         base_string =\
-"""pts (length 3): 
-[(0.0, 0.0, 0.0), 
- (1.0, 1.0, 0.0), 
- (1.0, 0.0, 0.0)]
-tris (length 3): [0, 2, 1]
-scalars (length 3): [0.0, 0.0, 0.0]
-pt activity (length 0): []
-tri activity (length 0): []
-use truncation: False
-extrapolation value: 7.11
-use clough tocher: False
-use natural neighbor: False
-"""
+"""<InterpLinear - Point Count: 3, Triangle Count: 1.0>"""
         rStr = repr(self.interp_linear_obj)
         self.assertEqual(base_string, rStr)
 
@@ -260,23 +210,9 @@ use natural neighbor: False
         interp = self.interp_linear_obj
         t_min = 7.11
         t_max = 11.7
-        interp.set_truncation_max_min(t_max, t_min)
+        interp.set_truncation(t_max, t_min)
         base_string =\
-"""pts (length 3): 
-[(0.0, 0.0, 0.0), 
- (1.0, 1.0, 0.0), 
- (1.0, 0.0, 0.0)]
-tris (length 3): [0, 2, 1]
-scalars (length 3): [0.0, 0.0, 0.0]
-pt activity (length 0): []
-tri activity (length 0): []
-use truncation: True
-truncation min: 7.11
-truncation max: 11.7
-extrapolation value: NaN
-use clough tocher: False
-use natural neighbor: False
-"""
+"""<InterpLinear - Point Count: 3, Triangle Count: 1.0>"""
         rStr = repr(self.interp_linear_obj)
         self.assertEqual(base_string, rStr)
 
@@ -286,19 +222,17 @@ use natural neighbor: False
         observer = MockObserver()
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
-        interp.set_pts_tris(pts, tris)
+        interp = InterpLinear(pts, tris)
         interp.set_use_clough_tocher(True, observer)
-        val = interp.interp_to_pt((2, 1, 0))
-        self.assertIn('1=cloughTocher', self.interp_linear_obj.to_string())
+        val = interp.interpolate_to_point((2, 1, 0))
         self.assertAlmostEqual(0.2574999928474426, val, places=9)
 
     def test_set_use_nat_neigh(self):
         """Test set_use_nat_neigh"""
-        interp = self.interp_linear_obj
         observer = MockObserver()
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
-        interp.set_pts_tris(pts, tris)
+        interp = InterpLinear(pts, tris)
 
         nodal_func = "constant"
         nodal_func_opts = "nearest_pts"
@@ -306,17 +240,15 @@ use natural neighbor: False
         blend_weights = False
         interp.set_use_natural_neighbor(True, nodal_func, nodal_func_opts, n_nearest, blend_weights, observer)
 
-        val = interp.interp_to_pt((2, 1, 0))
-        self.assertIn('1=natNeigh', self.interp_linear_obj.to_string())
+        val = interp.interpolate_to_point((2, 1, 0))
         self.assertAlmostEqual(0.4600000, val, places=7)
 
     def test_tutorial(self):
         """Ensure the tutorial will work."""
-        interp = self.interp_linear_obj
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
-        interp.set_pts_tris(pts, tris)
-        val = interp.interp_to_pt((2, 1, 0))
+        interp = InterpLinear(pts, tris)
+        val = interp.interpolate_to_point((2, 1, 0))
         self.assertEqual(0.5, val)
 
 
