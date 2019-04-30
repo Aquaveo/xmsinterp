@@ -213,7 +213,7 @@ if(IS_PYTHON_BUILD)
              FILES_MATCHING PATTERN "*.py")
 endif()
 
-Disable Optimization for GCC6 for now... Report issue to gcc and pybind
+# Disable Optimization for GCC6 for now... Report issue to gcc and pybind
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" AND IS_PYTHON_BUILD)
   if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL 6 AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 7)
     Message("Disabling Optimization for GCC 6...")
