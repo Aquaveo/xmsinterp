@@ -11,7 +11,7 @@
 from .._xmsinterp.interpolate import InterpLinear as iLin
 
 
-class InterpLinear:
+class InterpLinear(object):
 
     nodal_function_types = {
         'constant': 0,

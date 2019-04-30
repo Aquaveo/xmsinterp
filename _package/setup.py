@@ -31,7 +31,4 @@ setup(
     author='Aquaveo',
     install_requires=requires,
     package_data={'': ['*.pyd']},
-    dependency_links=[
-        'https://aquapi.aquaveo.com/aquaveo/stable'
-    ],
 )
