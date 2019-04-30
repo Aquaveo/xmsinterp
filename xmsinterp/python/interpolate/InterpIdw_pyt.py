@@ -237,20 +237,20 @@ class TestInterpIdw(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             interp.weight_calculation_method = None
         err = context.exception
-        none_value_error = '"weights" must be one of classic, modified, not None'
+        none_value_error = '"weights" must be one of {}, not None'.format(', '.join(InterpIdw.weights))
         self.assertIn(none_value_error, str(err))
 
         # Bad Arguments
         with self.assertRaises(ValueError) as context:
             interp.weight_calculation_method ="bad_string"
         err = context.exception
-        errStr = '"weights" must be one of classic, modified, not bad_string'
+        errStr = '"weights" must be one of {}, not bad_string'.format(', '.join(InterpIdw.weights))
         self.assertIn(errStr, str(err))
 
         with self.assertRaises(ValueError) as context:
             interp.weight_calculation_method = 123
         err = context.exception
-        errStr = '"weights" must be one of classic, modified, not 123'
+        errStr = '"weights" must be one of {}, not 123'.format(', '.join(InterpIdw.weights))
         self.assertIn(errStr, str(err))
 
         # Valid Arguments
@@ -276,7 +276,8 @@ class TestInterpIdw(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             interp.set_nodal_function(None, 1, True, observer)
         err = context.exception
-        func_type_error = '"nodal_function_type" must be one of constant, grad_plane, quadratic, not None'
+        func_type_error = '"nodal_function_type" must be one of {}, not None'.format(
+            ", ".join(InterpIdw.nodal_function_types))
         self.assertIn(func_type_error, str(err))
         with self.assertRaises(TypeError) as context:
             interp.set_nodal_function("constant", None, True, observer)
@@ -287,13 +288,14 @@ class TestInterpIdw(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             interp.set_nodal_function(1, 1, True, observer)
         err = context.exception
-        func_type_error = '"nodal_function_type" must be one of constant, grad_plane, quadratic, not 1'
+        func_type_error = '"nodal_function_type" must be one of {}, not 1'.format(
+            ", ".join(InterpIdw.nodal_function_types))
         self.assertIn(func_type_error, str(err))
         with self.assertRaises(ValueError) as context:
             interp.set_nodal_function("abc", 1, True, observer)
         err = context.exception
-        errStr = '"nodal_function_type" must be one of constant, ' \
-                 'grad_plane, quadratic, not abc'
+        errStr = '"nodal_function_type" must be one of {}, not abc'.format(
+            ", ".join(InterpIdw.nodal_function_types))
         self.assertIn(errStr, str(err))
         with self.assertRaises(TypeError) as context:
             interp.set_nodal_function("constant", "1234", True, observer)
