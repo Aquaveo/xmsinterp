@@ -2,9 +2,10 @@ build: false
 version: 1.0.0-{build}  # This version is somewhat arbitrary. Does not affect the version of the package.
 
 environment:
-    PYTHON: "C:\\Python35-x64"
+    PYTHON: "C:\\Python36-x64"
     PYTHON_ARCH: 64
-    PYTHON_VERSION: 3.5
+    PYTHON_VERSION: 3.6
+    RELEASE_PYTHON: 'False'
     PYTHON_TARGET_VERSION: ${PYTHON_VERSION}
     XMS_VERSION: ${APPVEYOR_REPO_TAG_NAME}
     AQUAVEO_CONAN: https://conan.aquaveo.com:443
@@ -14,23 +15,26 @@ environment:
     CONAN_LOGIN_USERNAME: ${CONAN_USER_SECRET}
     CONAN_PASSWORD: ${CONAN_PASSWORD_SECRET}
     CONAN_REMOTES: ${AQUAVEO_CONAN}
+    TWINE_USERNAME: ${TWINE_USERNAME_SECRET}
+    TWINE_PASSWORD: ${TWINE_PASSWORD_SECRET}
+    CONAN_STABLE_BRANCH_PATTERN: ^\d+\.\d+\.\d+$
     CONAN_UPLOAD_ONLY_WHEN_STABLE: 1
     
     matrix:
-        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
-          CONAN_VISUAL_VERSIONS: 12
+        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+          CONAN_VISUAL_VERSIONS: 14
           CONAN_BUILD_TYPES: Debug
           CONAN_ARCHS: x86_64
-        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
-          CONAN_VISUAL_VERSIONS: 12
+        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+          CONAN_VISUAL_VERSIONS: 14
           CONAN_BUILD_TYPES: Release
           CONAN_ARCHS: x86_64
-        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-          CONAN_VISUAL_VERSIONS: 14
+        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
+          CONAN_VISUAL_VERSIONS: 12
           CONAN_BUILD_TYPES: Debug
           CONAN_ARCHS: x86_64
-        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-          CONAN_VISUAL_VERSIONS: 14
+        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
+          CONAN_VISUAL_VERSIONS: 12
           CONAN_BUILD_TYPES: Release
           CONAN_ARCHS: x86_64
 
@@ -49,10 +53,12 @@ build_script:
       } else { 
         $env:XMS_VERSION = $env:APPVEYOR_REPO_TAG_NAME 
         $env:CONAN_UPLOAD = $env:AQUAVEO_CONAN
+        $env:RELEASE_PYTHON = 'True'
       }
       $env:CONAN_REFERENCE = 'xmsinterp/'+$env:XMS_VERSION
       echo 'XMS_VERSION: '+$env:XMS_VERSION
       echo 'CONAN_REFERENCE: '+$env:CONAN_REFERENCE
+      echo 'RELEASE_PYTHON: '+$env:RELEASE_PYTHON
   - python build.py
 
 test_script:

@@ -19,7 +19,7 @@ class XmsinterpConan(ConanFile):
     generators = "cmake"
     build_requires = "cxxtest/4.4@aquaveo/stable"
     exports = "CMakeLists.txt", "LICENSE"
-    exports_sources = "xmsinterp/*"
+    exports_sources = "xmsinterp/*", "_package/*"
 
     def configure(self):
         # Set verion dynamically using XMS_VERSION env variable.
@@ -60,7 +60,7 @@ class XmsinterpConan(ConanFile):
 
         # Use the dev version of XMSCore
         self.requires("xmscore/[>=3.0.2,<4.0.0]@aquaveo/stable")
-        self.requires("xmsgrid/99.99.99@aquaveo/testing")
+        self.requires("xmsgrid/[>=3.0.1,<4.0.0]@aquaveo/stable")
 
     def build(self):
         cmake = CMake(self)
@@ -101,8 +101,15 @@ class XmsinterpConan(ConanFile):
                   self.run('pip install --user numpy')
                 else:
                   self.run('pip install numpy')
-                self.run('python -m unittest discover -v -p *_pyt.py -s ../xmsinterp/python', cwd="./lib")
-
+                self.run('python -m unittest discover -v -p *_pyt.py -s {}/xmsinterp/python'.format(
+                    os.path.join(self.build_folder)), cwd=os.path.join(self.package_folder, "_package"))
+                # Create and upload wheel to PyPi if release and windows
+                is_release = self.env.get("RELEASE_PYTHON", 'False')
+                if self.settings.os == "Windows" and is_release == 'True' and \
+                        str(self.settings.compiler.runtime) == "MD":
+                    self.run('python setup.py bdist_wheel --plat-name=win_amd64 --dist-dir {}'.format(
+                        os.path.join(self.build_folder, "dist")), cwd=os.path.join(self.package_folder, "_package"))
+                    self.run('twine upload dist/*', cwd=".")
 
     def package(self):
         self.copy("license", dst="licenses", ignore_case=True, keep_path=False)
