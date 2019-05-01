@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="InterpIdw" href="InterpIdw.html" />
-    <link rel="prev" title="TriSearch" href="../geometry/TriSearch.html" /> 
+    <link rel="prev" title="Installation" href="../../getting_started.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                2.2.3
+                3.0.1
               </div>
             
           
@@ -91,11 +91,9 @@
 </ul>
 <p class="caption"><span class="caption-text">User Interface</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../geometry/TriSearch.html">TriSearch</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">InterpAnisotropic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="InterpIdw.html">InterpIdw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="InterpLinear.html">InterpLinear</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../triangulate/Tin.html">Tin</a></li>
 </ul>
 
             
@@ -169,10 +167,10 @@ using inverse distance weighted interpolation after scaling the
 transformed x-values.</p>
 <dl class="class">
 <dt id="xmsinterp.interpolate.InterpAnisotropic">
-<em class="property">class </em><code class="descclassname">xmsinterp.interpolate.</code><code class="descname">InterpAnisotropic</code><a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">xmsinterp.interpolate.</code><code class="descname">InterpAnisotropic</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
-<dt id="xmsinterp.interpolate.InterpAnisotropic.get_interpolation_pts">
-<code class="descname">get_interpolation_pts</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.get_interpolation_pts" title="Permalink to this definition">¶</a></dt>
+<dt id="xmsinterp.interpolate.InterpAnisotropic.get_interpolation_points">
+<code class="descname">get_interpolation_points</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.get_interpolation_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the interpolation points transformed into (s,n,z) space and scaled.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -180,15 +178,13 @@ transformed x-values.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The transformed and scaled interpolation points (passed to SetPoints).</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
-</tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="xmsinterp.interpolate.InterpAnisotropic.get_transformed_pts">
-<code class="descname">get_transformed_pts</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em>, <em>points: iterable</em>, <em>pick_closest: bool</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.get_transformed_pts" title="Permalink to this definition">¶</a></dt>
+<dt id="xmsinterp.interpolate.InterpAnisotropic.get_transformed_points">
+<code class="descname">get_transformed_points</code><span class="sig-paren">(</span><em>points</em>, <em>get_closest</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.get_transformed_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform points into (s,n,z) space and then scale.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -196,14 +192,11 @@ transformed x-values.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>points</strong> (<em>iterable</em>) – The points to transform into (s,n,z) space.</li>
-<li><strong>pick_closest</strong> (<em>bool</em>) – Pick only the transform point closest to the centerline.</li>
+<li><strong>get_closest</strong> (<em>bool</em>) – True to pick only the closest transformed point.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The points transformed into (s,n,z) space.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">iterable</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The points transformed into (s,n,z) space.</p>
 </td>
 </tr>
 </tbody>
@@ -211,36 +204,32 @@ transformed x-values.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="xmsinterp.interpolate.InterpAnisotropic.interp_to_pt">
-<code class="descname">interp_to_pt</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em>, <em>pt: iterable</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.interp_to_pt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Interpolate z (3rd coordinate) values to a point.</p>
+<dt id="xmsinterp.interpolate.InterpAnisotropic.interp_to_point">
+<code class="descname">interp_to_point</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.interp_to_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolates to the location specified by a_pt and returns the value.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt</strong> (<em>iterable</em>) – The point to interpolate to.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<em>tuple</em>) – The location of the interpolation point</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The scaled inverse distance weighted interpolated value.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The interpolated value</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="xmsinterp.interpolate.InterpAnisotropic.interp_to_pts">
-<code class="descname">interp_to_pts</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em>, <em>points: iterable</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.interp_to_pts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Interpolate z values to many points.</p>
+<dt id="xmsinterp.interpolate.InterpAnisotropic.interp_to_points">
+<code class="descname">interp_to_points</code><span class="sig-paren">(</span><em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.interp_to_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolates to the locations specified by a_pts and returns the values.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>points</strong> (<em>iterable</em>) – The points to interpolate to.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>points</strong> (<em>iterable</em>) – The points to interpolate to</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The interpolated values (one for each of a_pts)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The interpolated values</td>
 </tr>
 </tbody>
 </table>
@@ -248,17 +237,17 @@ transformed x-values.</p>
 
 <dl class="method">
 <dt id="xmsinterp.interpolate.InterpAnisotropic.set_points">
-<code class="descname">set_points</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em>, <em>centerline_pts: iterable</em>, <em>interpolation_pts: iterable</em>, <em>pick_closest: bool</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.set_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the centerline to define the interpolation space and the points to
-interpolate from.</p>
+<code class="descname">set_points</code><span class="sig-paren">(</span><em>center_line_points</em>, <em>interpolation_points</em>, <em>pick_closest</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.set_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets points that wil be used for the centerline and interpolation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>centerline_pts</strong> (<em>iterable</em>) – The centerline.</li>
-<li><strong>interpolation_pts</strong> (<em>iterable</em>) – The points to interpolate from (typically cross sections of the centerline).</li>
-<li><strong>pick_closest</strong> (<em>bool</em>) – If true, only keep the transformed point for each interpolation point closest to the centerline.</li>
+<li><strong>center_line_points</strong> (<em>iterable</em>) – Points that make the centerline</li>
+<li><strong>interpolation_points</strong> (<em>iterable</em>) – Points that will be used to interpolate from</li>
+<li><strong>pick_closest</strong> (<em>bool</em>) – If true, only keep one transformed interpolation point (that is closest to the
+centerline)</li>
 </ul>
 </td>
 </tr>
@@ -268,14 +257,13 @@ interpolate from.</p>
 
 <dl class="method">
 <dt id="xmsinterp.interpolate.InterpAnisotropic.set_power">
-<code class="descname">set_power</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em>, <em>power: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.set_power" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the exponent to use on the inverse distance weighting
-(defaults to 2).</p>
+<code class="descname">set_power</code><span class="sig-paren">(</span><em>power</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.set_power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the exponent for the interpolation. By default the class does inverse distance squared weighting but the exponent can be changed to any value.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>power</strong> (<em>float</em>) – The exponent to use.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>power</strong> (<em>float</em>) – The exponent used to compute the point weights</td>
 </tr>
 </tbody>
 </table>
@@ -283,14 +271,13 @@ interpolate from.</p>
 
 <dl class="method">
 <dt id="xmsinterp.interpolate.InterpAnisotropic.set_x_scale">
-<code class="descname">set_x_scale</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpAnisotropic</em>, <em>x_scale: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.set_x_scale" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the scale factor to apply to transformed x (s) coordinates. before
-computing the inverse distance weighting.</p>
+<code class="descname">set_x_scale</code><span class="sig-paren">(</span><em>scale</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpAnisotropic.set_x_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the X Scale.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x_scale</strong> (<em>float</em>) – The x scale factor to use.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scale</strong> (<em>float</em>) – X scale</td>
 </tr>
 </tbody>
 </table>
@@ -311,7 +298,7 @@ computing the inverse distance weighting.</p>
         <a href="InterpIdw.html" class="btn btn-neutral float-right" title="InterpIdw" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../geometry/TriSearch.html" class="btn btn-neutral float-left" title="TriSearch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../getting_started.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

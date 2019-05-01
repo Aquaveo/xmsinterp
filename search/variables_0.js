@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['coef',['coef',['../structxms_1_1_barycentric_vals.html#aebed3bc5a1c410ee503863972249b13b',1,'xms::BarycentricVals']]]
+  ['debug',['debug',['https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a42797ff955c778a8a9e21bdd5580a92e',1,'xmlog']]]
 ];

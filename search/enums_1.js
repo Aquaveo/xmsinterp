@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gmmultipolyintersectorqueryenum',['GmMultiPolyIntersectorQueryEnum',['../_gm_multi_poly_intersector_8h.html#af3e9dae61009fe77b79327ee8ebe9b2e',1,'xms']]]
+  ['nodalfuncenum',['NodalFuncEnum',['../classxms_1_1_interp_idw.html#a9f0d45e41829c4a94b53dd336d086f4a',1,'xms::InterpIdw']]]
 ];

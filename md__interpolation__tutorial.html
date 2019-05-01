@@ -107,7 +107,7 @@ Interpolation Tutorial</h1>
 Introduction</h2>
 <p>The purpose of this tutorial is to provide explanation on how to use the classes defined in xmsinterp to perform spatial interpolation. The examples provided in this tutorial refer to test cases that are in the <a class="el" href="_tut_interpolation_8cpp.html">xmsinterp/tutorial/TutInterpolation.cpp</a> source file.</p>
 <p>The xmsinterp library contains classes for performing 2d (x,y) linear, natural neighbor, and idw interpolation: <a class="el" href="classxms_1_1_interp_linear.html" title="Class that performs linear interpolation. ">xms::InterpLinear</a> and <a class="el" href="classxms_1_1_interp_idw.html" title="Class that performs inverse distance weighted interpolation. ">xms::InterpIdw</a>. Natural neighbor interpolation is performed using the linear interpolation class. 3d (x,y,z) interpolation can be performed using the idw class.</p>
-<p>Both interpolators are derived off of <a class="el" href="classxms_1_1_interp_base.html" title="Base class for interpolation methods. ">xms::InterpBase</a>. This class has methods for setting the points and triangles used to interpolate as well as methods to set scalar values and activity on points and triangles (you can imagine activity as points or cells that may have a “dry” value when the scalars are generated from a numerical model). At a minimum, you must specify the points to set up an interpolation class. The InterpLinear class requires triangles to perform the interpolation. If none are specified then the points are triangulated using <a class="el" href="classxms_1_1_tr_triangulator.html" title="Base class used to derive a class to triangulate points. ">xms::TrTriangulator</a>;</p>
+<p>Both interpolators are derived off of <a class="el" href="classxms_1_1_interp_base.html" title="Base class for interpolation methods. ">xms::InterpBase</a>. This class has methods for setting the points and triangles used to interpolate as well as methods to set scalar values and activity on points and triangles (you can imagine activity as points or cells that may have a “dry” value when the scalars are generated from a numerical model). At a minimum, you must specify the points to set up an interpolation class. The InterpLinear class requires triangles to perform the interpolation. If none are specified then the points are triangulated using xms::TrTriangulator;</p>
 <h2><a class="anchor" id="Example_IDW"></a>
 Example - Inverse Distance Weighted (IDW) Interpolation</h2>
 <p>The following example shows how to use the IDW interpolator. The testing code for this example is TutInterpolationTests::test_Example_IDW.</p>
@@ -131,7 +131,7 @@ Anisotropic (scale = 0.5) vs IDW interpolation (power = 3 on both)</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Apr 23 2019 22:10:39 for xmsinterp by
+    <li class="footer">Generated on Wed May 1 2019 16:42:27 for xmsinterp by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
   </ul>

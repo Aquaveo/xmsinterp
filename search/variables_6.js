@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['observert',['ObserverT',['https://aquaveo.github.io/xmscore/classxms_1_1_observer.html#a9014ba5c372ca8fd9b02170ce3636408',1,'xms::Observer']]],
-  ['orig',['orig',['../structxms_1_1_barycentric_vals.html#ae88c2de12a80a534faf78addd416f38c',1,'xms::BarycentricVals']]]
+  ['singleton_3c_20xmlog_20_3e',['Singleton&lt; XmLog &gt;',['https://aquaveo.github.io/xmscore/classxms_1_1_xm_log.html#a7fb5edb11e589948eb870d1b327fa401',1,'xms::XmLog']]]
 ];

@@ -35,7 +35,6 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Tin" href="../triangulate/Tin.html" />
     <link rel="prev" title="InterpIdw" href="InterpIdw.html" /> 
 </head>
 
@@ -60,7 +59,7 @@
             
             
               <div class="version">
-                2.2.3
+                3.0.1
               </div>
             
           
@@ -91,11 +90,9 @@
 </ul>
 <p class="caption"><span class="caption-text">User Interface</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../geometry/TriSearch.html">TriSearch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="InterpAnisotropic.html">InterpAnisotropic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="InterpIdw.html">InterpIdw</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">InterpLinear</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../triangulate/Tin.html">Tin</a></li>
 </ul>
 
             
@@ -165,137 +162,130 @@
 <p>Class that performs linear interpolation</p>
 <dl class="class">
 <dt id="xmsinterp.interpolate.InterpLinear">
-<em class="property">class </em><code class="descclassname">xmsinterp.interpolate.</code><code class="descname">InterpLinear</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">xmsinterp.interpolate.</code><code class="descname">InterpLinear</code><span class="sig-paren">(</span><em>points=None</em>, <em>triangles=None</em>, <em>scalars=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="xmsinterp.interpolate.InterpLinear.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>pts: iterable</em>, <em>tris: iterable=()</em>, <em>scalars: iterable=()</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Linear Interpolation</p>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>points=None</em>, <em>triangles=None</em>, <em>scalars=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__init__(…) initializes x; see help(type(x)) for signature</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.extrapolation_point_indexes">
+<code class="descname">extrapolation_point_indexes</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.extrapolation_point_indexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns vector of point indexes for points that were outside of all triangles</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.extrapolation_value">
+<code class="descname">extrapolation_value</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.extrapolation_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the constant extrapolation value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmsinterp.interpolate.InterpLinear.interpolate_to_point">
+<code class="descname">interpolate_to_point</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.interpolate_to_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the stored triangles to interpolate to a point. Returns extrapolation value if the point is outside the
+triangles.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pts</strong> (<em>iterable</em>) – Array of the point locations.</li>
-<li><strong>tris</strong> (<em>iterable</em><em>, </em><em>optional</em>) – Triangles.</li>
-<li><strong>scalar</strong> (<em>iterable</em><em>, </em><em>optional</em>) – Array of interpolation scalar values.</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<em>tuple</em>) – Location that is interpolated to.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Interpolated value at point.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="xmsinterp.interpolate.InterpLinear.interp_to_pt">
-<code class="descname">interp_to_pt</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>pt: tuple</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.interp_to_pt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Use the stored triangles to interpolate to a point. Returns
-extrapolation value if the point is outside the triangles.</p>
+<dt id="xmsinterp.interpolate.InterpLinear.interpolate_to_points">
+<code class="descname">interpolate_to_points</code><span class="sig-paren">(</span><em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.interpolate_to_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls InterpToPt in a loop.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt</strong> (<em>tuple</em>) – Location that is interpolated to.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>points</strong> (<em>iterable</em>) – Locations of points.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Interpolated value at a_pt.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Interpolated values at points.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="xmsinterp.interpolate.InterpLinear.interp_to_pts">
-<code class="descname">interp_to_pts</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>pts: iterable</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.interp_to_pts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calls interp_to_pt in a loop.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pts</strong> (<em>iterable</em>) – Locations of points.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Interpolated scalar values at pts.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="xmsinterp.interpolate.InterpLinear.interp_weights">
-<code class="descname">interp_weights</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>pt: tuple</em><span class="sig-paren">)</span> &#x2192; iterable<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.interp_weights" title="Permalink to this definition">¶</a></dt>
+<dt id="xmsinterp.interpolate.InterpLinear.interpolate_weights">
+<code class="descname">interpolate_weights</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.interpolate_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use the stored triangles to get interpolation weights for a point.
 Returns false if the point is outside the triangles.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt</strong> (<em>tuple</em>) – Location that is interpolated to.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<em>tuple</em>) – Location that is interpolated to.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Contains a boolean indicating if pt was inside of any of the triangles, an iterable of triangle point indices found in this method, and an iterable of triangle point weights found in this method.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">tuple of a bool, array of indexes, and array of weights</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="xmsinterp.interpolate.InterpLinear.pts">
-<code class="descname">pts</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.pts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an iterable containing the points.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">An iterable containing the points.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
-</tr>
-</tbody>
-</table>
+<dt id="xmsinterp.interpolate.InterpLinear.native_neighbor_blend_weights">
+<code class="descname">native_neighbor_blend_weights</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.native_neighbor_blend_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the option for blending weights when using Natural Neighbor</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.native_neighbor_nodal_func">
+<code class="descname">native_neighbor_nodal_func</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.native_neighbor_nodal_func" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value for the Natural Neighbor nodal function</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.native_neighbor_nodal_func_nearest_points_option">
+<code class="descname">native_neighbor_nodal_func_nearest_points_option</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.native_neighbor_nodal_func_nearest_points_option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the option for the Natural Neighbor nodal function nearest points.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.native_neighbor_nodal_func_number_nearest_points">
+<code class="descname">native_neighbor_nodal_func_number_nearest_points</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.native_neighbor_nodal_func_number_nearest_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value for the number of nearest points to use when calculating the nodal function</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.point_activity">
+<code class="descname">point_activity</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.point_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the point activity</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.points">
+<code class="descname">points</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the points</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.scalars">
+<code class="descname">scalars</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.scalars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the scalars</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="xmsinterp.interpolate.InterpLinear.set_extrapolation_value">
-<code class="descname">set_extrapolation_value</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>value: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_extrapolation_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the constant extrapolation value.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>float</em>) – The value assigned to extrapolated points.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="xmsinterp.interpolate.InterpLinear.set_pt_activity">
-<code class="descname">set_pt_activity</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>activity: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_pt_activity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Modifies the activity bitset of the class.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>activity</strong> (<em>iterable</em>) – Bitset of the activity of the points.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="xmsinterp.interpolate.InterpLinear.set_pts_tris">
-<code class="descname">set_pts_tris</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>pts: iterable</em>, <em>tris: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_pts_tris" title="Permalink to this definition">¶</a></dt>
+<dt id="xmsinterp.interpolate.InterpLinear.set_points_and_triangles">
+<code class="descname">set_points_and_triangles</code><span class="sig-paren">(</span><em>points</em>, <em>triangles</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_points_and_triangles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds the triangles to the class.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pts</strong> (<em>iterable</em>) – Array of point locations.</li>
-<li><strong>tris</strong> (<em>iterable</em>) – Array of triangles that references the pts array. This array will have a size that is a multiple of 3. The first 3 locations in array represent the first triangle and will have indices that correspond to locations in the pts array.</li>
+<li><strong>points</strong> (<em>iterable</em>) – Array of point locations.</li>
+<li><strong>triangles</strong> (<em>iterable</em>) – Array of triangles that references the a_pts array. This array will have a size that
+is a multiple of 3. The first 3 locations in array represent the first triangle and
+will have indices that correspond to locations in the a_pts array.</li>
 </ul>
 </td>
 </tr>
@@ -304,44 +294,16 @@ Returns false if the point is outside the triangles.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="xmsinterp.interpolate.InterpLinear.set_scalars">
-<code class="descname">set_scalars</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>scalar: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_scalars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the scalars that will be used to interpolate from.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scalar</strong> (<em>iterable</em>) – Array of interpolation scalar values.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="xmsinterp.interpolate.InterpLinear.set_tri_activity">
-<code class="descname">set_tri_activity</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>activity: iterable</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_tri_activity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Modifies the activity bitset of the class.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>activity</strong> (<em>iterable</em>) – Bitset of the activity of the triangles.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="xmsinterp.interpolate.InterpLinear.set_truncation_max_min">
-<code class="descname">set_truncation_max_min</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>smax: float</em>, <em>smin: float</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_truncation_max_min" title="Permalink to this definition">¶</a></dt>
+<dt id="xmsinterp.interpolate.InterpLinear.set_truncation">
+<code class="descname">set_truncation</code><span class="sig-paren">(</span><em>maximum</em>, <em>minimum</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_truncation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the truncation values for the interpolation and turn on truncation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>max</strong> (<em>float</em>) – The maximum value for truncation.</li>
-<li><strong>min</strong> (<em>float</em>) – The minimum value for truncation.</li>
+<li><strong>maximum</strong> (<em>float</em>) – The maximum value for truncation.</li>
+<li><strong>minimum</strong> (<em>float</em>) – The minimum value for truncation.</li>
 </ul>
 </td>
 </tr>
@@ -351,16 +313,17 @@ Returns false if the point is outside the triangles.</p>
 
 <dl class="method">
 <dt id="xmsinterp.interpolate.InterpLinear.set_use_clough_tocher">
-<code class="descname">set_use_clough_tocher</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>on: bool=True</em>, <em>observer: object=None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_use_clough_tocher" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the class to use the Clough Tocher interpolation method. This is a
-legacy feature from GMS. Compare to linear.</p>
+<code class="descname">set_use_clough_tocher</code><span class="sig-paren">(</span><em>on</em>, <em>progress=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_use_clough_tocher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the class to use the Clough Tocher interpolation method.
+This is a legacy feature from GMS. Compare to linear.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>on</strong> (<em>bool</em>) – True/False to indicate if CT should be used.</li>
-<li><strong>observer</strong> (<em>Observer</em>) – Progress bar to give users feed back on the set up process of CT. If you have a really large set of triangles this may take some time.</li>
+<li><strong>on</strong> (<em>bool</em>) – TIndicate if CT should be used.</li>
+<li><strong>progress</strong> (<em>observer</em>) – Progress bar to give users feed back on the set up process of CT.
+If you have a really large set of triangles this may take some time.</li>
 </ul>
 </td>
 </tr>
@@ -370,19 +333,20 @@ legacy feature from GMS. Compare to linear.</p>
 
 <dl class="method">
 <dt id="xmsinterp.interpolate.InterpLinear.set_use_natural_neighbor">
-<code class="descname">set_use_natural_neighbor</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>on: bool=True</em>, <em>nodal_func_type: unicode=u'constant'</em>, <em>nd_func_pt_search_opt: unicode=u'nearest_pts'</em>, <em>nd_func_num_nearest_pts: int=16L</em>, <em>nd_func_blend_weights: bool=True</em>, <em>observer: object=None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_use_natural_neighbor" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_use_natural_neighbor</code><span class="sig-paren">(</span><em>on</em>, <em>nodal_function_type='constant'</em>, <em>nodal_function_point_search_option='nearest_pts'</em>, <em>nodal_function_number_nearest_points=16</em>, <em>nodal_function_blend_weights=True</em>, <em>progress=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.set_use_natural_neighbor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the class to use natural neighbor (NN) interpolation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>on</strong> (<em>bool</em><em>, </em><em>optional</em>) – True/False to indicate if NN should be used.</li>
-<li><strong>nodal_func_type</strong> (<em>string</em><em>, </em><em>optional</em>) – Indicates which type of nodal function to use: “constant”, “gradient_plane”, or “quadratic”.</li>
-<li><strong>nd_func_pt_search_opt</strong> (<em>string</em><em>, </em><em>optional</em>) – Indicates options for the nearest points when computing the nodal functions: “natural_neighbors” or “nearest_pts”.</li>
-<li><strong>nd_func_num_nearest_pts</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of nearest points for nodal function computation.</li>
-<li><strong>nd_func_blend_weights</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to use a blending function on the calculated weights.</li>
-<li><strong>observer</strong> (<em>Observer</em><em>, </em><em>optional</em>) – Progress bar to give user feedback for generation of the nodal functions.</li>
+<li><strong>on</strong> (<em>bool</em>) – Indicate if NN should be used.</li>
+<li><strong>nodal_function_type</strong> (<em>int</em>) – Indicates which nodal function to use.</li>
+<li><strong>nodal_function_point_search_option</strong> (<em>int</em>) – Indicates options for the nearest points when computing
+the nodal functions.</li>
+<li><strong>nodal_function_number_nearest_points</strong> (<em>int</em>) – The number of nearest points for nodal function computation.</li>
+<li><strong>nodal_function_blend_weights</strong> (<em>bool</em>) – Option to use a blending function on the calculated weights.</li>
+<li><strong>progress</strong> (<em>observer</em>) – Progress bar to give user feedback for generation of the nodal functions.</li>
 </ul>
 </td>
 </tr>
@@ -390,72 +354,78 @@ legacy feature from GMS. Compare to linear.</p>
 </table>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.triangle_activity">
+<code class="descname">triangle_activity</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.triangle_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the triangle activity</p>
+</dd></dl>
+
 <dl class="method">
-<dt id="xmsinterp.interpolate.InterpLinear.to_string">
-<code class="descname">to_string</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em><span class="sig-paren">)</span> &#x2192; unicode<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.to_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write the internals to a string.</p>
+<dt id="xmsinterp.interpolate.InterpLinear.triangle_containing_point">
+<code class="descname">triangle_containing_point</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.triangle_containing_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the triangle containing the point.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The internals as a string</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<em>tuple</em>) – Location used to find a triangle.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Index of triangle containing point. If None is returned then no triangle contained the point.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="xmsinterp.interpolate.InterpLinear.tri_containing_pt">
-<code class="descname">tri_containing_pt</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>pt: tuple</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.tri_containing_pt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find the triangle containing the point</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt</strong> (<em>tuple</em>) – Location used to find a triangle.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Index of triangle containing pt. If XM_NONE is returned then no triangle contained the point.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="xmsinterp.interpolate.InterpLinear.tri_envelopes_containing_pt">
-<code class="descname">tri_envelopes_containing_pt</code><span class="sig-paren">(</span><em>self: xmsinterp.interpolate.InterpLinear</em>, <em>pt: tuple</em><span class="sig-paren">)</span> &#x2192; array<a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.tri_envelopes_containing_pt" title="Permalink to this definition">¶</a></dt>
+<dt id="xmsinterp.interpolate.InterpLinear.triangle_envelopes_containing_point">
+<code class="descname">triangle_envelopes_containing_point</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.triangle_envelopes_containing_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find all triangles whose envelop contains the point.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt</strong> (<em>tuple</em>) – Location used to find a triangle.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<em>tuple</em>) – Location used to find a triangle.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The indices to triangles whose envelop contains the point.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">array</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Iterable of triangle indexes containing the point</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="xmsinterp.interpolate.InterpLinear.tris">
-<code class="descname">tris</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.tris" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an iterable containing the triangles.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">An iterable containing the triangles.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">iterable</td>
-</tr>
-</tbody>
-</table>
+<dt id="xmsinterp.interpolate.InterpLinear.triangles">
+<code class="descname">triangles</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.triangles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the triangles</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.truncate_interpolated_values">
+<code class="descname">truncate_interpolated_values</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.truncate_interpolated_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the option to truncate interpolated values</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.truncate_max">
+<code class="descname">truncate_max</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.truncate_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get maximum truncation value</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.truncate_min">
+<code class="descname">truncate_min</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.truncate_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get minimum truncation value</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.use_clough_tocher">
+<code class="descname">use_clough_tocher</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.use_clough_tocher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the option for using Clough Tocher interpolation</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmsinterp.interpolate.InterpLinear.use_natural_neighbor">
+<code class="descname">use_natural_neighbor</code><a class="headerlink" href="#xmsinterp.interpolate.InterpLinear.use_natural_neighbor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the option for using Natural Neighbor interpolation</p>
 </dd></dl>
 
 </dd></dl>
@@ -469,8 +439,6 @@ legacy feature from GMS. Compare to linear.</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../triangulate/Tin.html" class="btn btn-neutral float-right" title="Tin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="InterpIdw.html" class="btn btn-neutral float-left" title="InterpIdw" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

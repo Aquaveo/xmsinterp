@@ -1,13 +1,18 @@
 var searchData=
 [
-  ['valfromweights',['ValFromWeights',['../classxms_1_1_interp_idw_impl.html#abcca11a941582407c4764175f2306339',1,'xms::InterpIdwImpl']]],
-  ['value',['value',['../_gm_pt_search_8cpp.html#ac246bb2df10f44751d78d40e43d88da2',1,'xms']]],
-  ['value_5ftype',['value_type',['https://aquaveo.github.io/xmscore/classxms_1_1_pt3.html#af2484d57712d9ac194506cec5538b241',1,'xms::Pt3']]],
-  ['valuebox',['ValueBox',['../_gm_multi_poly_intersector_8cpp.html#ad371b9317cd9cab40e2625cb4e35df05',1,'xms']]],
-  ['vecedge',['VecEdge',['../_tr_breakline_adder_8cpp.html#a7541b74c2b86c70e57e863b57304bdcc',1,'xms']]],
-  ['vecsnresult',['VecSNResult',['../_anisotropic_interpolator_8h.html#a6cd6a805924ff382dbcbc74fc9e34b9c',1,'xms']]],
-  ['vector_2ecpp',['vector.cpp',['https://aquaveo.github.io/xmscore/vector_8cpp.html',1,'']]],
-  ['vector_2eh',['vector.h',['https://aquaveo.github.io/xmscore/vector_8h.html',1,'']]],
-  ['vectorthatgrowstosearch',['VectorThatGrowsToSearch',['../classxms_1_1_gm_pt_search_impl.html#a8397d8d68e7de98085af3ebc3e198308',1,'xms::GmPtSearchImpl']]],
-  ['verticesareadjacent',['VerticesAreAdjacent',['../classxms_1_1_tr_tin_impl.html#a70f4eb6dd87eb85eaca86e34f11da4fc',1,'xms::TrTinImpl']]]
+  ['xmsinterp',['xmsinterp',['../index.html',1,'']]],
+  ['observer',['Observer',['https://aquaveo.github.io/xmscore/classxms_1_1_observer_1_1impl.html',1,'xms']]],
+  ['x',['x',['https://aquaveo.github.io/xmscore/classxms_1_1_pt2.html#ad745ecd6452f58f494bb7272f15ba094',1,'xms::Pt2::x()'],['https://aquaveo.github.io/xmscore/classxms_1_1_pt3.html#a3870f08593cabc47fd5d213ea1c0898a',1,'xms::Pt3::x()'],['https://aquaveo.github.io/xmscore/classxms_1_1_pt4.html#aad37780e1c7e2ee393de407fb197b8f9',1,'xms::Pt4::x()']]],
+  ['xm_5fdisallow_5fcopy_5fand_5fassign',['XM_DISALLOW_COPY_AND_ASSIGN',['../classxms_1_1_thread_loop.html#a78ca96fb2d551350de931e7de3a3aa6b',1,'xms::ThreadLoop::XM_DISALLOW_COPY_AND_ASSIGN()'],['../classxms_1_1_thread_mgr.html#ab391ca89f70260edff7883f785239673',1,'xms::ThreadMgr::XM_DISALLOW_COPY_AND_ASSIGN()']]],
+  ['xmconst_2eh',['XmConst.h',['https://aquaveo.github.io/xmscore/_xm_const_8h.html',1,'']]],
+  ['xmerror_2ecpp',['XmError.cpp',['https://aquaveo.github.io/xmscore/_xm_error_8cpp.html',1,'']]],
+  ['xmerror_2eh',['XmError.h',['https://aquaveo.github.io/xmscore/_xm_error_8h.html',1,'']]],
+  ['xmerror_2et_2eh',['XmError.t.h',['https://aquaveo.github.io/xmscore/_xm_error_8t_8h.html',1,'']]],
+  ['xmerrorunittests',['XmErrorUnitTests',['https://aquaveo.github.io/xmscore/class_xm_error_unit_tests.html',1,'']]],
+  ['xmlog',['XmLog',['https://aquaveo.github.io/xmscore/classxms_1_1_xm_log.html',1,'xms::XmLog'],['https://aquaveo.github.io/xmscore/namespacexmlog.html',1,'xmlog'],['https://aquaveo.github.io/xmscore/structxms_1_1_xm_log_1_1_impl.html',1,'xms::XmLog'],['https://aquaveo.github.io/xmscore/classxms_1_1_xm_log.html#aa755e43cb07d364b0bce3b265569985b',1,'xms::XmLog::XmLog()']]],
+  ['xmlog_2ecpp',['XmLog.cpp',['https://aquaveo.github.io/xmscore/_xm_log_8cpp.html',1,'']]],
+  ['xmlog_2eh',['XmLog.h',['https://aquaveo.github.io/xmscore/_xm_log_8h.html',1,'']]],
+  ['xmlog_2et_2eh',['XmLog.t.h',['https://aquaveo.github.io/xmscore/_xm_log_8t_8h.html',1,'']]],
+  ['xmlogunittests',['XmLogUnitTests',['https://aquaveo.github.io/xmscore/class_xm_log_unit_tests.html',1,'']]],
+  ['xmstype_2eh',['xmstype.h',['https://aquaveo.github.io/xmscore/xmstype_8h.html',1,'']]]
 ];

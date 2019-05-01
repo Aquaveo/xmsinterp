@@ -1,19 +1,12 @@
 var searchData=
 [
-  ['debug',['debug',['https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a42797ff955c778a8a9e21bdd5580a92e',1,'xmlog']]],
-  ['defaultvalwasset',['DefaultValWasSet',['https://aquaveo.github.io/xmscore/classxms_1_1_e_test_messaging_state.html#adc5d8d8b958ecb0f95a901c9b819054e',1,'xms::ETestMessagingState']]],
-  ['delete',['Delete',['https://aquaveo.github.io/xmscore/classxms_1_1_shared_singleton.html#a76f7a809ade5852f0b238b22149c3a6e',1,'xms::SharedSingleton::Delete()'],['https://aquaveo.github.io/xmscore/classxms_1_1_singleton.html#a626d4977e56e0f37c7d369834f4b235d',1,'xms::Singleton::Delete()'],['https://aquaveo.github.io/xmscore/classxms_1_1_singleton.html#a626d4977e56e0f37c7d369834f4b235d',1,'Singleton&lt; XmLog &gt;::Delete()'],['../classxms_1_1_tr_outer_triangle_deleter_impl.html#ae68038220e16a9ad8cfb09088ec18b05',1,'xms::TrOuterTriangleDeleterImpl::Delete()']]],
-  ['deleteadjacenttriangle',['DeleteAdjacentTriangle',['../classxms_1_1_tr_tin_impl.html#a472a843922d633fdf17061006fce3868',1,'xms::TrTinImpl']]],
-  ['deletepoints',['DeletePoints',['../classxms_1_1_tr_tin_impl.html#af26463b8da49e0aa9bf2577468c28182',1,'xms::TrTinImpl']]],
-  ['deletetriangles',['DeleteTriangles',['../classxms_1_1_tr_tin_impl.html#a0a160157240d033a400f55c730bb18f6',1,'xms::TrTinImpl']]],
-  ['deque_2eh',['deque.h',['https://aquaveo.github.io/xmscore/deque_8h.html',1,'']]],
-  ['determineregion',['DetermineRegion',['../classxms_1_1_interp_ct.html#aa13b461213f3eefd295cb3fcd9d7bc86',1,'xms::InterpCt']]],
-  ['dir',['dir',['../structxms_1_1_barycentric_vals.html#acb8bf1c437d7b0141c565730738b297a',1,'xms::BarycentricVals']]],
-  ['distance',['Distance',['../classxms_1_1_anisotropic_interpolator.html#a76b97e4fa7f0e2beb567a385e181e2a1',1,'xms::AnisotropicInterpolator']]],
-  ['do_5fgrouping',['do_grouping',['https://aquaveo.github.io/xmscore/classxms_1_1_st_comma_numpunct.html#a17aeaec77523b6b019d5e373451ff383',1,'xms::StCommaNumpunct']]],
-  ['do_5fthousands_5fsep',['do_thousands_sep',['https://aquaveo.github.io/xmscore/classxms_1_1_st_comma_numpunct.html#a0015f37da2fd4be987636209b8c8c727',1,'xms::StCommaNumpunct']]],
-  ['dotest',['DoTest',['../class_gm_point_in_poly_unit_tests.html#aad892797953c9679e60aacab95c59a27',1,'GmPointInPolyUnitTests']]],
-  ['dowork',['DoWork',['../classxms_1_1_thread_loop.html#a85da861fe57a764ce110a1f5abf395ce',1,'xms::ThreadLoop']]],
-  ['dynbitset_2ecpp',['DynBitset.cpp',['https://aquaveo.github.io/xmscore/_dyn_bitset_8cpp.html',1,'']]],
-  ['dynbitset_2eh',['DynBitset.h',['https://aquaveo.github.io/xmscore/_dyn_bitset_8h.html',1,'']]]
+  ['edgesfromtri',['EdgesFromTri',['../classxms_1_1_interp_nat_neigh_impl.html#aad6c40b2274ba9a16d9aeb78b3034eff',1,'xms::InterpNatNeighImpl']]],
+  ['elapsedtimeinseconds',['ElapsedTimeInSeconds',['https://aquaveo.github.io/xmscore/classxms_1_1_observer_1_1impl.html#a771e88ca3833f7216df22bb69ba996bf',1,'xms::Observer::impl']]],
+  ['endoperation',['EndOperation',['https://aquaveo.github.io/xmscore/classxms_1_1_observer_1_1impl.html#a149ecbc4f1ee7fbd718da8f9b88c5fd2',1,'xms::Observer::impl::EndOperation()'],['https://aquaveo.github.io/xmscore/classxms_1_1_observer.html#a6ab39e266617c93fb0720f23efa723e0',1,'xms::Observer::EndOperation()']]],
+  ['environment_2eh',['environment.h',['https://aquaveo.github.io/xmscore/environment_8h.html',1,'']]],
+  ['errcount',['ErrCount',['https://aquaveo.github.io/xmscore/classxms_1_1_xm_log.html#a20ed692af6d8c0100c02f314c6395379',1,'xms::XmLog']]],
+  ['error',['error',['https://aquaveo.github.io/xmscore/namespacexmlog.html#a7f66c92bb821241cbb29fb07d7bce588a6c90100ca9f6986351a3a437374735c1',1,'xmlog']]],
+  ['estimatedtimeremaininginsec',['EstimatedTimeRemainingInSec',['https://aquaveo.github.io/xmscore/classxms_1_1_observer_1_1impl.html#a4eaed90dc0e25cf1119fc449aea1fcf6',1,'xms::Observer::impl']]],
+  ['etestmessagingstate',['ETestMessagingState',['https://aquaveo.github.io/xmscore/classxms_1_1_e_test_messaging_state.html',1,'xms::ETestMessagingState'],['https://aquaveo.github.io/xmscore/classxms_1_1_e_test_messaging_state.html#a90828ce997911657701af863ffde668c',1,'xms::ETestMessagingState::ETestMessagingState()']]],
+  ['explicitlysetnumthreads',['ExplicitlySetNumThreads',['../classxms_1_1_thread_mgr_impl.html#a51734bab808fe6e5d8d3f69466e40a13',1,'xms::ThreadMgrImpl::ExplicitlySetNumThreads()'],['../classxms_1_1_thread_mgr.html#a2621c25b999c657c64082161eb36931e',1,'xms::ThreadMgr::ExplicitlySetNumThreads()']]]
 ];
