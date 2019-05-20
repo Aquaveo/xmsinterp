@@ -2,7 +2,7 @@
 import unittest
 import numpy as np
 from xmsinterp.interpolate import InterpIdw
-from xmscore.misc import Observer
+from xms.core.misc import Observer
 
 class MockObserver(Observer):
     """Mock Observer class for testing."""

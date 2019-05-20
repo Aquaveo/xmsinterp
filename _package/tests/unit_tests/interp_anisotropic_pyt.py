@@ -1,7 +1,7 @@
 """Test InterpLinear_py.cpp."""
 import unittest
 import xmsinterp
-import xmscore
+from xms import core
 
 class TestInterpAnisotropic(unittest.TestCase):
     """Test Anisotropic Interpolation Class."""
