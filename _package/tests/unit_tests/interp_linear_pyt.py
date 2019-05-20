@@ -2,7 +2,7 @@
 import unittest
 import xmsinterp
 from xmsinterp.interpolate import InterpLinear
-from xmscore.misc import Observer
+from xms.core.misc import Observer
 import math
 
 

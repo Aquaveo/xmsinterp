@@ -59,8 +59,8 @@ class XmsinterpConan(ConanFile):
             self.requires("pybind11/2.2.2@aquaveo/stable")
 
         # Use the dev version of XMSCore
-        self.requires("xmscore/[>=3.0.2,<4.0.0]@aquaveo/stable")
-        self.requires("xmsgrid/[>=3.0.1,<4.0.0]@aquaveo/stable")
+        self.requires("xmscore/[>=3.0.4,<4.0.0]@aquaveo/stable")
+        self.requires("xmsgrid/[>=3.0.2,<4.0.0]@aquaveo/stable")
 
     def build(self):
         cmake = CMake(self)
