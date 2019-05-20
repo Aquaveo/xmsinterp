@@ -20,7 +20,7 @@ class InterpIdw(object):
 
     nodal_function_types = {
         'constant': 0,
-        'grad_plane': 1,
+        'gradient_plane': 1,
         'quadratic': 2
     }
 
