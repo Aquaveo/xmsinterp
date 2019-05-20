@@ -20,8 +20,8 @@ class InterpLinear(object):
     }
 
     nodal_function_point_search_options = {
-        'natural_neighbors': 0,
-        'nearest_pts': 1,
+        'natural_neighbor': 0,
+        'nearest_points': 1,
     }
 
     def __init__(self, points=None, triangles=None, scalars=None, **kwargs):
@@ -134,7 +134,7 @@ class InterpLinear(object):
         Gets the nodal function point search option.
 
         Args:
-            _str (string): Search option: 'natural_neighbors' or 'nearest_pts'
+            _str (string): Search option: 'natural_neighbors' or 'nearest_points'
 
         Returns:
             The int value based on the nodal function point search option
@@ -151,9 +151,9 @@ class InterpLinear(object):
 
         Args:
             points (iterable): Array of point locations.
-            triangles (iterable): Array of triangles that references the a_pts array. This array will have a size that
+            triangles (iterable): Array of triangles that references the points array. This array will have a size that
                                   is a multiple of 3. The first 3 locations in array represent the first triangle and
-                                  will have indices that correspond to locations in the a_pts array.
+                                  will have indices that correspond to locations in the points array.
         """
         self._instance.SetPtsTris(points, triangles)
 
@@ -327,7 +327,7 @@ class InterpLinear(object):
         return self._instance.GetUseNatNeigh()
 
     def set_use_natural_neighbor(self, on, nodal_function_type="constant",
-                                 nodal_function_point_search_option="nearest_pts",
+                                 nodal_function_point_search_option="nearest_points",
                                  nodal_function_number_nearest_points=16, nodal_function_blend_weights=True,
                                  progress=None):
         """
@@ -363,17 +363,17 @@ class InterpLinear(object):
         return self._instance.GetTruncMax
 
     @property
-    def native_neighbor_nodal_func(self):
+    def native_neighbor_nodal_function(self):
         """Get the value for the Natural Neighbor nodal function"""
         return self._instance.GetNatNeighNodalFunc
 
     @property
-    def native_neighbor_nodal_func_nearest_points_option(self):
+    def native_neighbor_nodal_function_nearest_points_option(self):
         """Get the option for the Natural Neighbor nodal function nearest points."""
         return self._instance.GetNatNeighNodalFuncNearestPtsOption
 
     @property
-    def native_neighbor_nodal_func_number_nearest_points(self):
+    def native_neighbor_nodal_function_number_nearest_points(self):
         """Get the value for the number of nearest points to use when calculating the nodal function"""
         return self._instance.GetNatNeighNodalFuncNumNearestPts
 
