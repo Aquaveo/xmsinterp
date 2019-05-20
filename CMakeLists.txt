@@ -205,8 +205,8 @@ if(IS_PYTHON_BUILD)
     # Install recipe
     install(
       TARGETS _xmsinterp
-      ARCHIVE DESTINATION "_package/xmsinterp"
-      LIBRARY DESTINATION "_package/xmsinterp"
+      ARCHIVE DESTINATION "_package/xms/interp"
+      LIBRARY DESTINATION "_package/xms/interp"
     )
 
     install(DIRECTORY "_package/" DESTINATION "_package"

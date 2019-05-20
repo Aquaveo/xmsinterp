@@ -7,7 +7,7 @@
 XmsInterp |version|
 *******************
 
-**Last Updated:** April 30, 2018
+**Last Updated:** May 20, 2019
 
 The xmsinterp library is a interpolation library for other aquaveo products. This library
 contains classes used to perform interpolation.

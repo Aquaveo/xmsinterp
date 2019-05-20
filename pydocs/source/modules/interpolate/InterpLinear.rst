@@ -5,7 +5,7 @@ InterpLinear
 
 Class that performs linear interpolation
 
-.. autoclass:: xmsinterp.interpolate.InterpLinear
+.. autoclass:: xms.interp.interpolate.InterpLinear
    :members:
 
    .. automethod:: __init__
