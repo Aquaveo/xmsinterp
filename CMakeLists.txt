@@ -209,8 +209,9 @@ if(IS_PYTHON_BUILD)
       LIBRARY DESTINATION "_package/xms/interp"
     )
 
-    install(DIRECTORY "_package/" DESTINATION "_package"
-             FILES_MATCHING PATTERN "*.py")
+  install(DIRECTORY "_package/" DESTINATION "_package"
+           FILES_MATCHING PATTERN "*.py"
+           PATTERN "_package/tests" EXCLUDE)
 endif()
 
 # Disable Optimization for GCC6 for now... Report issue to gcc and pybind

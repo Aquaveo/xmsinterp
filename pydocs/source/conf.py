@@ -25,8 +25,8 @@ copyright = '2018, aquaveo'
 author = 'aquaveo'
 
 # The short X.Y version
-import xmsinterp
-version = xmsinterp.__version__
+from xms.interp import __version__
+version = __version__
 # The full version, including alpha/beta/rc tags
 release = ''
 
