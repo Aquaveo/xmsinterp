@@ -8,5 +8,5 @@ is the distance from (above or below) the centerline. Interpolate
 using inverse distance weighted interpolation after scaling the
 transformed x-values.
 
-.. autoclass:: xmsinterp.interpolate.InterpAnisotropic
+.. autoclass:: xms.interp.interpolate.InterpAnisotropic
    :members:

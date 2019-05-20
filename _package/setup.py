@@ -9,6 +9,7 @@
 """
 import os
 from setuptools import setup, find_packages
+from xms.core import __version__
 
 
 # allow setup.py to be run from any path
@@ -18,17 +19,19 @@ requires = [
     'numpy', 'xmscore', 'xmsgrid'
 ]
 
-version = '3.0.1'
+version = __version__
 
 setup(
     python_requires='==3.6.*',
     name='xmsinterp',
     version=version,
-    packages=find_packages(),
+    packages=['xms.interp', 'xms.interp.interpolate'],
     include_package_data=True,
     license='BSD 2-Clause License',
     description='',
     author='Aquaveo',
     install_requires=requires,
-    package_data={'': ['*.pyd']},
+    package_data={'': ['*.pyd', '*.so']},
+    test_suite="tests",
 )
+
