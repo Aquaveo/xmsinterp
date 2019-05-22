@@ -1,7 +1,7 @@
 """Test InterpIdw_py.cpp."""
 import unittest
 import numpy as np
-from xmsinterp.interpolate import InterpIdw
+from xms.interp.interpolate import InterpIdw
 from xms.core.misc import Observer
 
 class MockObserver(Observer):
@@ -318,7 +318,7 @@ class TestInterpIdw(unittest.TestCase):
         interp.set_nodal_function("constant", 7, True, observer)
         self.assertEqual(base, str(interp))
 
-        interp.set_nodal_function("grad_plane", 9, True, observer)
+        interp.set_nodal_function("gradient_plane", 9, True, observer)
         # TODO: Removed to_string checks. Need another way to test this
 
         interp.set_nodal_function("quadratic", 11, True, observer)
