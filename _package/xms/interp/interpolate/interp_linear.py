@@ -8,10 +8,11 @@
 ********************************************************************************
 """
 
+from .interpolator import Interpolator
 from .._xmsinterp.interpolate import InterpLinear as iLin
 
 
-class InterpLinear(object):
+class InterpLinear(Interpolator):
 
     nodal_function_types = {
         'constant': 0,
@@ -24,7 +25,9 @@ class InterpLinear(object):
         'nearest_points': 1,
     }
 
-    def __init__(self, points=None, triangles=None, scalars=None, **kwargs):
+    def __init__(self, points=None, triangles=None, scalars=None, nodal_function=None,
+                 point_search_option="natural_neighbor", number_nearest_points=16, blend_weights=True,
+                 progress=None, **kwargs):
         if 'instance' in kwargs:
             self._instance = kwargs['instance']
             return
@@ -44,6 +47,11 @@ class InterpLinear(object):
             self._check_scalars(scalars, len(points))
 
         self._instance = iLin(points, triangles, scalars)
+
+        if nodal_function is not None:
+            self.set_use_natural_neighbor(True, nodal_function, point_search_option, number_nearest_points, blend_weights, progress)
+
+        super().__init__(**kwargs)
 
     def __repr__(self):
         return '<InterpLinear - Point Count: {}, Triangle Count: {}>'.format(
@@ -326,26 +334,26 @@ class InterpLinear(object):
         """Get the option for using Natural Neighbor interpolation"""
         return self._instance.GetUseNatNeigh()
 
-    def set_use_natural_neighbor(self, on, nodal_function_type="constant",
-                                 nodal_function_point_search_option="nearest_points",
-                                 nodal_function_number_nearest_points=16, nodal_function_blend_weights=True,
+    def set_use_natural_neighbor(self, on=True, nodal_function="constant",
+                                 point_search_option="natural_neighbor",
+                                 number_nearest_points=16, blend_weights=True,
                                  progress=None):
         """
         Set the class to use natural neighbor (NN) interpolation.
 
         Args:
             on (bool): Indicate if NN should be used.
-            nodal_function_type (int): Indicates which nodal function to use.
-            nodal_function_point_search_option (int): Indicates options for the nearest points when computing
+            nodal_function (str): Indicates which nodal function to use.
+            point_search_option (str): Indicates options for the nearest points when computing
                                                       the nodal functions.
-            nodal_function_number_nearest_points (int): The number of nearest points for nodal function computation.
-            nodal_function_blend_weights (bool): Option to use a blending function on the calculated weights.
+            number_nearest_points (int): The number of nearest points for nodal function computation.
+            blend_weights (bool): Option to use a blending function on the calculated weights.
             progress (observer): Progress bar to give user feedback for generation of the nodal functions.
         """
-        nft = self._get_nodal_function_type(nodal_function_type)
-        nfpso = self._get_nodal_function_point_search_options(nodal_function_point_search_option)
-        self._instance.SetUseNatNeigh(on, nft, nfpso, nodal_function_number_nearest_points,
-                                      nodal_function_blend_weights, progress)
+        nft = self._get_nodal_function_type(nodal_function)
+        nfpso = self._get_nodal_function_point_search_options(point_search_option)
+        self._instance.SetUseNatNeigh(on, nft, nfpso, number_nearest_points,
+                                      blend_weights, progress)
 
     @property
     def truncate_interpolated_values(self):

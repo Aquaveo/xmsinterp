@@ -1,7 +1,7 @@
 """Test InterpLinear_py.cpp."""
 import unittest
-import xmsinterp
-from xmsinterp.interpolate import InterpLinear
+from xms import interp
+from xms.interp.interpolate import InterpLinear
 from xms.core.misc import Observer
 import math
 
@@ -50,7 +50,7 @@ class TestInterpLinear(unittest.TestCase):
     def setUp(self):
         """Set up for each test case."""
         pts = ((0, 0, 0), (1, 1, 0), (1, 0, 0))
-        self.interp_linear_obj = xmsinterp.interpolate.InterpLinear(pts)
+        self.interp_linear_obj = interp.interpolate.InterpLinear(pts)
 
     def test_set_pts_tris(self):
         """Set base points."""
@@ -85,29 +85,25 @@ class TestInterpLinear(unittest.TestCase):
 
     def test_intperp_to_pts(self):
         """Interpolate to multiple points"""
-        interp = self.interp_linear_obj
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
-        interp = InterpLinear(pts, tris)
-        ret = interp.interpolate_to_points(((2, 1, 0), (5, 10, 2.5)))
+        interp_ = InterpLinear(pts, tris)
+        ret = interp_.interpolate_to_points(((2, 1, 0), (5, 10, 2.5)))
         self.assertIsInstance(ret, tuple)
         self.assertEqual((0.5, 2.5), ret)
 
     def test_intperp_to_pts_numpy(self):
         """Interpolate to multiple points"""
         import numpy as np
-        interp = self.interp_linear_obj
         pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
         tris = np.array([0, 1, 3, 1, 2, 3])
-        interp = InterpLinear(pts, tris)
-        ret = interp.interpolate_to_points(np.array([(2, 1, 0), (5, 10, 2.5)]))
+        interp_ = InterpLinear(pts, tris)
+        ret = interp_.interpolate_to_points(np.array([(2, 1, 0), (5, 10, 2.5)]))
         self.assertIsInstance(ret, np.ndarray)
         np.testing.assert_array_equal(np.array([0.5, 2.5]), ret)
 
     def test_set_pt_activity(self):
         """Setting point activity"""
-        interp = self.interp_linear_obj
-
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
         interp = InterpLinear(pts, tris)
@@ -119,8 +115,6 @@ class TestInterpLinear(unittest.TestCase):
 
     def test_set_triangle_activity(self):
         """Setting tri activity"""
-        interp = self.interp_linear_obj
-
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
         interp = InterpLinear(pts, tris)
@@ -133,8 +127,6 @@ class TestInterpLinear(unittest.TestCase):
     def test_get_pts(self):
         """Getting interp object points"""
         import numpy as np
-        interp = self.interp_linear_obj
-
         pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
         tris = np.array([0, 1, 3, 1, 2, 3])
         interp = InterpLinear(pts, tris)
@@ -145,8 +137,6 @@ class TestInterpLinear(unittest.TestCase):
     def test_get_tris(self):
         """Getting interp object points"""
         import numpy as np
-        interp = self.interp_linear_obj
-
         pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
         tris = np.array([0, 1, 3, 1, 2, 3])
         interp = InterpLinear(pts, tris)
@@ -156,8 +146,6 @@ class TestInterpLinear(unittest.TestCase):
 
     def test_tri_containing_pt(self):
         """Getting tri containing point"""
-        interp = self.interp_linear_obj
-
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
         interp = InterpLinear(pts, tris)
@@ -167,8 +155,6 @@ class TestInterpLinear(unittest.TestCase):
     def test_tri_envelops_containing_pt(self):
         """Getting tri containing point"""
         import numpy as np
-        interp = self.interp_linear_obj
-
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
 
@@ -179,8 +165,6 @@ class TestInterpLinear(unittest.TestCase):
     def test_interp_weights(self):
         """Test interp_weights"""
         import numpy as np
-        interp = self.interp_linear_obj
-
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
         interp = InterpLinear(pts, tris)
@@ -235,7 +219,7 @@ class TestInterpLinear(unittest.TestCase):
         interp = InterpLinear(pts, tris)
 
         nodal_func = "constant"
-        nodal_func_opts = "nearest_pts"
+        nodal_func_opts = "nearest_points"
         n_nearest = 12
         blend_weights = False
         interp.set_use_natural_neighbor(True, nodal_func, nodal_func_opts, n_nearest, blend_weights, observer)

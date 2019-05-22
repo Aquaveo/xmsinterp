@@ -8,10 +8,11 @@
 ********************************************************************************
 """
 
+from .interpolator import Interpolator
 from .._xmsinterp.interpolate import InterpIdw as iIdw
 
 
-class InterpIdw(object):
+class InterpIdw(Interpolator):
 
     weights = {
         'classic': 0,
@@ -24,7 +25,9 @@ class InterpIdw(object):
         'quadratic': 2
     }
 
-    def __init__(self, points=None, triangles=None, scalars=None, **kwargs):
+    def __init__(self, points=None, triangles=None, scalars=None,
+                 nodal_function=None, number_nearest_points=16,
+                 quadrant_oct=False, progress=None, **kwargs):
         if 'instance' in kwargs:
             self._instance = kwargs['instance']
             return
@@ -44,6 +47,17 @@ class InterpIdw(object):
             self._check_scalars(scalars, len(points))
 
         self._instance = iIdw(points, triangles, scalars)
+
+        if nodal_function is not None:
+            self.set_nodal_function(nodal_function, number_nearest_points, quadrant_oct, progress)
+
+        super().__init__(**kwargs)
+
+    def __str__(self):
+        return self._instance.__str__()
+
+    def __repr__(self):
+        return self._instance.__repr__()
 
     @staticmethod
     def _check_points(points):
@@ -240,7 +254,7 @@ class InterpIdw(object):
             minimum (float): The minimum value for truncation.
         """
         if maximum < minimum:
-            raise ValueError('maximum must be greater than minimum')
+            raise ValueError('The truncation maximum must be greater than minimum')
         self._instance.SetTrunc(maximum, minimum)
 
     @property
@@ -338,20 +352,20 @@ class InterpIdw(object):
         """
         self._instance.SetSearchOpts(nearest_point, quadrant_oct_search)
 
-    def set_nodal_function(self, nodal_function_type="constant", number_of_nearest_points=16, quadrant_oct=False, progress=None):
+    def set_nodal_function(self, nodal_function="constant", number_nearest_points=16, quadrant_oct=False, progress=None):
         """
         Sets the type of nodal function as well as options for computing nodal functions.
 
         Args:
-            nodal_function_type (string): The nodal function methodology:
+            nodal_function (string): The nodal function methodology:
                                           constant (0), gradient plane (1), quadratic (2).
-            number_of_nearest_points (int): The nearest number of points to use when calculating the nodal functions.
+            number_nearest_points (int): The nearest number of points to use when calculating the nodal functions.
             quadrant_oct (bool): Find the nearest number of points in each quadrant (2d) or octant (3d) when computing
                                  nodal functions.
             progress (float): Progress bar to give user feedback.
         """
-        nft = self._get_nodal_function_type(nodal_function_type)
-        self._instance.SetNodalFunction(nft, number_of_nearest_points, quadrant_oct, progress)
+        nft = self._get_nodal_function_type(nodal_function)
+        self._instance.SetNodalFunction(nft, number_nearest_points, quadrant_oct, progress)
 
     def set_save_weights(self, save):
         """
