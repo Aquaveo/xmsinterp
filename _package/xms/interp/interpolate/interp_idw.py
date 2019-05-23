@@ -53,6 +53,16 @@ class InterpIdw(Interpolator):
 
         super().__init__(**kwargs)
 
+    def __eq__(self, other):
+        other_instance = getattr(other, '_instance', None)
+        if not other_instance or not isinstance(other_instance, iIdw):
+            return False
+        return other_instance == self._instance
+
+    def __ne__(self, other):
+        result = self.__eq__(other)
+        return not result
+
     def __str__(self):
         return self._instance.__str__()
 
