@@ -8,7 +8,6 @@
 ********************************************************************************
 """
 
-from .interpolator import Interpolator
 from .._xmsinterp.interpolate import InterpAnisotropic as iAni
 
 
@@ -18,7 +17,6 @@ class InterpAnisotropic(object):
             self._instance = kwargs['instance']
             return
         self._instance = iAni()
-        super().__init__(**kwargs)
 
     def __str__(self):
         return self._instance.__str__()
