@@ -45,16 +45,6 @@ else() # If we are not using conda, we are using conan
 endif(IS_CONDA_BUILD)
 
 if(IS_PYTHON_BUILD)
-      # linux and mac builds for conan (on TRAVISCI) use a docker that has python
-    # 2.7 as system python. We do not have control over that docker image so we
-    # can't change this and it is fine for building conan packages and checking
-    # that we don't have errors in the python wrapping. We have conda recipes
-    # for building python packages that target other versions of python.
-    find_package(PythonLibs ${PYTHON_TARGET_VERSION} EXACT REQUIRED)
-
-    message("PYTHON_INCLUDE: ${PYTHON_INCLUDE_DIRS}")
-    message("PYTHON_LIBS: ${PYTHON_LIBRARIES}")
-
     # Pybind11 module
     if(IS_CONDA_BUILD)
         include("${CONDA_PREFIX}/share/cmake/pybind11/pybind11Targets.cmake")
@@ -70,6 +60,11 @@ if(IS_PYTHON_BUILD)
         include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11ConfigVersion.cmake")
         include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11Tools.cmake")
     endif()
+    
+    find_package(PythonLibs ${PYTHON_TARGET_VERSION} EXACT REQUIRED)
+
+    message("PYTHON_INCLUDE: ${PYTHON_INCLUDE_DIRS}")
+    message("PYTHON_LIBS: ${PYTHON_LIBRARIES}")
 
     list(APPEND EXT_INCLUDE_DIRS
       ${PYTHON_INCLUDE_DIRS}
