@@ -26,6 +26,16 @@ class InterpAnisotropic(object):
     def __repr__(self):
         return self._instance.__repr__()
 
+    def __eq__(self, other):
+        other_instance = getattr(other, '_instance', None)
+        if not other_instance or not isinstance(other_instance, iAni):
+            return False
+        return other_instance == self._instance
+
+    def __ne__(self, other):
+        result = self.__eq__(other)
+        return not result
+
     def set_points(self, center_line_points, interpolation_points, pick_closest):
         """
         Sets points that wil be used for the centerline and interpolation.
