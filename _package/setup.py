@@ -8,8 +8,8 @@
 ********************************************************************************
 """
 import os
-from setuptools import setup, find_packages
-from xms.core import __version__
+from setuptools import setup
+from xms.interp import __version__
 
 
 # allow setup.py to be run from any path
