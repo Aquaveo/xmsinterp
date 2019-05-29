@@ -11,6 +11,8 @@ test_package/build/
 .lvimrc
 .idea
 .vscode
+cmake-build-debug/
+cmake-build-release/
 
 # Prerequisites
 *.d
