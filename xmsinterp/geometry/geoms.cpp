@@ -1473,6 +1473,8 @@ bool gmInsideOrOnLineWithTol(const Pt3d* p1,
 //------------------------------------------------------------------------------
 double gmPolygonArea(const Pt3d* pts, size_t npoints)
 {
+  if (npoints < 3)
+    return 0.0;
   size_t id;
   double area = 0.0;
 
