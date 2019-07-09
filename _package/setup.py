@@ -25,7 +25,7 @@ setup(
     python_requires='==3.6.*',
     name='xmsinterp',
     version=version,
-    packages=['xms.interp', 'xms.interp.interpolate'],
+    packages=['xms.interp', 'xms.interp.interpolate', 'xms.interp.api'],
     include_package_data=True,
     license='BSD 2-Clause License',
     description='',
