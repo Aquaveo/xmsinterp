@@ -60,6 +60,10 @@ if(IS_PYTHON_BUILD)
         include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11ConfigVersion.cmake")
         include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11Tools.cmake")
     endif()
+	
+	list(APPEND EXT_INCLUDE_DIRS
+        ${pybind11_INCLUDE_DIR}
+    )
     
     find_package(PythonLibsNew ${PYTHON_TARGET_VERSION} EXACT REQUIRED)
 
