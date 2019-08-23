@@ -22,7 +22,7 @@ requires = [
 version = __version__
 
 setup(
-    python_requires='==3.6.*',
+    python_requires='>=3.6',
     name='xmsinterp',
     version=version,
     packages=['xms.interp', 'xms.interp.interpolate', 'xms.interp.api'],
