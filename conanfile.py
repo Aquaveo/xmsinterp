@@ -61,7 +61,7 @@ class XmsinterpConan(ConanFile):
 
         # Use the dev version of XMSCore
         self.requires("xmscore/[>=3.0.5,<4.0.0]@aquaveo/stable")
-        self.requires("xmsgrid/[>=3.0.3,<4.0.0]@aquaveo/stable")
+        self.requires("xmsgrid/[>=3.0.3,<5.0.0]@aquaveo/stable")
 
     def build(self):
         cmake = CMake(self)
