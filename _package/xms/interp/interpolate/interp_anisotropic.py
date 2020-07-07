@@ -1,36 +1,49 @@
 """
-********************************************************************************
-* Name: interp_anisotropic.py
-* Author: Gage Larsen, Matt LeBaron
-* Created On: April 29th, 2019
-* Copyright: (c)
-* License: BSD 2-Clause
-********************************************************************************
+interp_anisotropic class for the interpolate module.
 """
 
 from .._xmsinterp.interpolate import InterpAnisotropic as iAni
 
 
 class InterpAnisotropic(object):
+    """
+    The InterpAnisotropic class.
+    """
+
     def __init__(self, **kwargs):
+        """
+        The __init__ function for the InterpAnisotropic class.
+        """
         if 'instance' in kwargs:
             self._instance = kwargs['instance']
             return
         self._instance = iAni()
 
     def __str__(self):
+        """
+        The __str__ overload.
+        """
         return self._instance.__str__()
 
     def __repr__(self):
+        """
+        The __repr__ overload.
+        """
         return self._instance.__repr__()
 
     def __eq__(self, other):
+        """
+        The __eq__ overload.
+        """
         other_instance = getattr(other, '_instance', None)
         if not other_instance or not isinstance(other_instance, iAni):
             return False
         return other_instance == self._instance
 
     def __ne__(self, other):
+        """
+        The __ne__ overload.
+        """
         result = self.__eq__(other)
         return not result
 
@@ -94,7 +107,9 @@ class InterpAnisotropic(object):
 
     def set_power(self, power):
         """
-        Sets the exponent for the interpolation. By default the class does inverse distance squared weighting but the exponent can be changed to any value.
+        Sets the exponent for the interpolation.
+
+        By default the class does inverse distance squared weighting but the exponent can be changed to any value.
 
         Args:
             power (float): The exponent used to compute the point weights

@@ -1,11 +1,5 @@
 """
-********************************************************************************
-* Name: interp_linear.py
-* Author: Gage Larsen, Matt LeBaron
-* Created On: April 29th, 2019
-* Copyright: (c)
-* License: BSD 2-Clause
-********************************************************************************
+The interp_linear class for the interpolate module.
 """
 
 from .interpolator import Interpolator
@@ -13,7 +7,9 @@ from .._xmsinterp.interpolate import InterpLinear as iLin
 
 
 class InterpLinear(Interpolator):
-
+    """
+    The Interp Linear Class use for Linear Interpolation.
+    """
     nodal_function_types = {
         'constant': 0,
         'gradient_plane': 1,
@@ -28,6 +24,9 @@ class InterpLinear(Interpolator):
     def __init__(self, points=None, triangles=None, scalars=None, nodal_function=None,
                  point_search_option="natural_neighbor", number_nearest_points=16, blend_weights=True,
                  progress=None, **kwargs):
+        """
+        The __init__ function for the InterpLinear class.
+        """
         if 'instance' in kwargs:
             self._instance = kwargs['instance']
             return
@@ -49,27 +48,40 @@ class InterpLinear(Interpolator):
         self._instance = iLin(points, triangles, scalars)
 
         if nodal_function is not None:
-            self.set_use_natural_neighbor(True, nodal_function, point_search_option, number_nearest_points, blend_weights, progress)
+            self.set_use_natural_neighbor(True, nodal_function, point_search_option,
+                                          number_nearest_points, blend_weights, progress)
 
         super().__init__(**kwargs)
 
     def __eq__(self, other):
+        """
+        The __eq__ overload.
+        """
         other_instance = getattr(other, '_instance', None)
         if not other_instance or not isinstance(other_instance, iLin):
             return False
         return other_instance == self._instance
 
     def __ne__(self, other):
+        """
+        The __ne__ overload.
+        """
         result = self.__eq__(other)
         return not result
 
     def __repr__(self):
+        """
+        The __repr__ overload.
+        """
         return '<InterpLinear - Point Count: {}, Triangle Count: {}>'.format(
             len(self.points),
             int(len(self.triangles) / 3),
         )
 
     def __str__(self):
+        """
+        The __str__ overload.
+        """
         return '<InterpLinear - Point Count: {}, Triangle Count: {}>'.format(
             len(self.points),
             int(len(self.triangles) / 3),
@@ -177,17 +189,17 @@ class InterpLinear(Interpolator):
 
     @property
     def points(self):
-        """Gets the points"""
+        """Gets the points."""
         return self._instance.GetPts
 
     @property
     def triangles(self):
-        """Gets the triangles"""
+        """Gets the triangles."""
         return self._instance.GetTris
 
     @property
     def scalars(self):
-        """Gets the scalars"""
+        """Gets the scalars."""
         return self._instance.GetScalars
 
     @scalars.setter
@@ -203,14 +215,13 @@ class InterpLinear(Interpolator):
 
     def interpolate_to_point(self, point):
         """
-        Use the stored triangles to interpolate to a point. Returns extrapolation value if the point is outside the
-        triangles.
+        Use the stored triangles to interpolate to a point.
 
         Args:
             point (tuple): Location that is interpolated to.
 
         Returns:
-            Interpolated value at point.
+            Interpolated value at point or extrapolation value if the point is outside the triangles.
         """
         return self._instance.InterpToPt(point)
 
@@ -228,7 +239,7 @@ class InterpLinear(Interpolator):
 
     @property
     def point_activity(self):
-        """Gets the point activity"""
+        """Gets the point activity."""
         return self._instance.GetPtActivity
 
     @point_activity.setter
@@ -244,7 +255,7 @@ class InterpLinear(Interpolator):
 
     @property
     def triangle_activity(self):
-        """Gets the triangle activity"""
+        """Gets the triangle activity."""
         return self._instance.GetTriActivity
 
     @triangle_activity.setter
@@ -260,7 +271,7 @@ class InterpLinear(Interpolator):
 
     @property
     def extrapolation_point_indexes(self):
-        """Returns vector of point indexes for points that were outside of all triangles"""
+        """Returns vector of point indexes for points that were outside of all triangles."""
         return self._instance.GetExtrapolationPointIndexes
 
     def triangle_containing_point(self, point):
@@ -290,24 +301,23 @@ class InterpLinear(Interpolator):
     def interpolate_weights(self, point):
         """
         Use the stored triangles to get interpolation weights for a point.
-        Returns false if the point is outside the triangles.
 
         Args:
             point (tuple): Location that is interpolated to.
 
         Returns:
-            tuple of a bool, array of indexes, and array of weights
+            tuple of a bool of if the point is outside the triangles, array of indexes, and array of weights,
         """
         return self._instance.InterpWeights(point)
 
     @property
     def extrapolation_value(self):
-        """Set the constant extrapolation value"""
+        """Set the constant extrapolation value."""
         return self._instance.GetExtrapVal
 
     @extrapolation_value.setter
     def extrapolation_value(self, value):
-        """Get extrapolation value"""
+        """Get extrapolation value."""
         self._instance.SetExtrapVal(value)
 
     def set_truncation(self, maximum, minimum):
@@ -324,12 +334,13 @@ class InterpLinear(Interpolator):
 
     @property
     def use_clough_tocher(self):
-        """Get the option for using Clough Tocher interpolation"""
+        """Get the option for using Clough Tocher interpolation."""
         return self._instance.GetUseCloughTocher()
 
     def set_use_clough_tocher(self, on, progress=None):
         """
         Set the class to use the Clough Tocher interpolation method.
+
         This is a legacy feature from GMS. Compare to linear.
 
         Args:
@@ -341,7 +352,7 @@ class InterpLinear(Interpolator):
 
     @property
     def use_natural_neighbor(self):
-        """Get the option for using Natural Neighbor interpolation"""
+        """Get the option for using Natural Neighbor interpolation."""
         return self._instance.GetUseNatNeigh()
 
     def set_use_natural_neighbor(self, on=True, nodal_function="constant",
@@ -367,22 +378,22 @@ class InterpLinear(Interpolator):
 
     @property
     def truncate_interpolated_values(self):
-        """Get the option to truncate interpolated values"""
+        """Get the option to truncate interpolated values."""
         return self._instance.GetTruncateInterpolatedValues
 
     @property
     def truncate_min(self):
-        """Get minimum truncation value"""
+        """Get minimum truncation value."""
         return self._instance.GetTruncMin
 
     @property
     def truncate_max(self):
-        """Get maximum truncation value"""
+        """Get maximum truncation value."""
         return self._instance.GetTruncMax
 
     @property
     def native_neighbor_nodal_function(self):
-        """Get the value for the Natural Neighbor nodal function"""
+        """Get the value for the Natural Neighbor nodal function."""
         return self._instance.GetNatNeighNodalFunc
 
     @property
@@ -392,10 +403,10 @@ class InterpLinear(Interpolator):
 
     @property
     def native_neighbor_nodal_function_number_nearest_points(self):
-        """Get the value for the number of nearest points to use when calculating the nodal function"""
+        """Get the value for the number of nearest points to use when calculating the nodal function."""
         return self._instance.GetNatNeighNodalFuncNumNearestPts
 
     @property
     def native_neighbor_blend_weights(self):
-        """Get the option for blending weights when using Natural Neighbor"""
+        """Get the option for blending weights when using Natural Neighbor."""
         return self._instance.GetNatNeighBlendWeights

@@ -1,6 +1,9 @@
+"""
+The build.py file for the xmsinterp conan library.
+"""
 import os
-from conan.packager import ConanMultiPackager
-import time
+
+from cpt.packager import ConanMultiPackager
 
 
 if __name__ == "__main__":
@@ -17,7 +20,7 @@ if __name__ == "__main__":
     aquapi_password = os.environ.get('AQUAPI_PASSWORD', None)
     aquapi_url = os.environ.get('AQUAPI_URL', None)
 
-    for settings, options, env_vars, build_requires, reference in builder.items:
+    for settings, _, env_vars, _, _ in builder.items:
         # General Options
         env_vars.update({
             'XMS_VERSION': XMS_VERSION,
@@ -35,12 +38,10 @@ if __name__ == "__main__":
                 'compiler.libcxx': 'libstdc++11'
             })
 
-
     pybind_updated_builds = []
-    for settings, options, env_vars, build_requires, reference in builder.items:
+    for settings, options, env_vars, build_requires, _ in builder.items:
         # pybind option
-        if (not settings['compiler'] == "Visual Studio" \
-                     or int(settings['compiler.version']) > 12) \
+        if (not settings['compiler'] == "Visual Studio" or int(settings['compiler.version']) > 12) \
                 and settings['arch'] == "x86_64" and settings['build_type'] != 'Debug':
             pybind_options = dict(options)
             pybind_options.update({'xmsinterp:pybind': True})
@@ -50,7 +51,7 @@ if __name__ == "__main__":
     builder.builds = pybind_updated_builds
 
     xms_updated_builds = []
-    for settings, options, env_vars, build_requires, reference in builder.items:
+    for settings, options, env_vars, build_requires, _ in builder.items:
         # xms option
         if settings['compiler'] == 'Visual Studio' \
                 and 'MD' in settings['compiler.runtime'] \
@@ -62,7 +63,7 @@ if __name__ == "__main__":
     builder.builds = xms_updated_builds
 
     testing_updated_builds = []
-    for settings, options, env_vars, build_requires, reference in builder.items:
+    for settings, options, env_vars, build_requires, _ in builder.items:
         # xms option
         if not options.get('xmsinterp:xms', False) and not options.get('xmsinterp:pybind', False):
             testing_options = dict(options)

@@ -1,5 +1,8 @@
-import logging
+"""
+The interpolator class for the interpolation module.
+"""
 from abc import ABC, abstractmethod
+import logging
 
 from xms.interp import interpolate
 
@@ -7,9 +10,12 @@ logger = logging.getLogger('xms.interp')
 
 
 class Interpolator(ABC):
-    """Abstract interpolate base class"""
+    """Abstract interpolate base class."""
 
     def __init__(self, **kwargs):
+        """
+        The Interpolator __init__ function.
+        """
         self.truncation_max = kwargs.pop('truncation_max', None)
         self.truncation_min = kwargs.pop('truncation_min', None)
 
@@ -18,35 +24,69 @@ class Interpolator(ABC):
 
     @abstractmethod
     def __str__(self):
+        """
+        The __str__ overload.
+        """
         pass
 
     @abstractmethod
     def __repr__(self):
+        """
+        The __repr__ overload.
+        """
         pass
 
     def __eq__(self, other):
+        """
+        The __eq__ overload.
+        """
         other_instance = getattr(other, '_instance', None)
         if not other_instance or not isinstance(other_instance, self.__class__):
             return False
         return other_instance == self._instance
 
     def __ne__(self, other):
+        """
+        The __ne__ overload.
+        """
         result = self.__eq__(other)
         return not result
 
     @abstractmethod
     def set_truncation(self, **kwargs):
+        """
+        Set Truncation.
+        """
         pass
 
     @abstractmethod
     def interpolate_to_points(self, **kwargs):
+        """
+        Interpolate to points.
+        """
         pass
 
     def _configure_truncation(self):
+        """
+        Configure truncation helper.
+        """
         if self.truncation_max is not None and self.truncation_min is not None:
             self.set_truncation(maximum=self.truncation_max, minimum=self.truncation_min)
 
     def interpolate(self, pts, x='x', y='y', z='z', in_place=True):
+        """
+        Do an interpolation.
+
+        Args:
+            pts: The points
+            x: The x
+            y: The y
+            z: The z
+            in_place: Should it be done in place.
+
+        Returns:
+            The z values.
+        """
         pts_is_dataframe = False
         try:
             # Assuming pts is a pandas dataframe
@@ -67,9 +107,17 @@ class Interpolator(ABC):
 
         return z_values
 
-
     @classmethod
     def get_interpolator_types(cls, as_dict=False):
+        """
+        Get the different types of interpolator.
+
+        Args:
+            as_dict: Return as a dict.
+
+        Returns:
+            The different types of interpolator.
+        """
         types = {
             'linear': interpolate.InterpLinear,
             'idw': interpolate.InterpIdw,
@@ -81,10 +129,20 @@ class Interpolator(ABC):
 
     @classmethod
     def get_interpolator(cls, interpolator_type, values, **kwargs):
+        """
+        Get an interpolator.
+
+        Args:
+            interpolator_type: The type of interpolate
+            values: The values.
+
+        Returns:
+            The Interpolator that you requested.
+        """
         types = cls.get_interpolator_types(as_dict=True)
 
         try:
-            #assume values is a pandas dataframe
+            # assume values is a pandas dataframe
             values = values.values
         except AttributeError:
             pass

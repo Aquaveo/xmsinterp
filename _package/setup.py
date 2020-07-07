@@ -1,14 +1,10 @@
 """
-********************************************************************************
-* Name: setup.py
-* Author: Gage Larsen, Andrew Clark
-* Created On: April 18th, 2019
-* Copyright: (c)
-* License: BSD 2-Clause
-********************************************************************************
+The setup.py file for the xmsinterp python library.
 """
 import os
+
 from setuptools import setup
+
 from xms.interp import __version__
 
 
@@ -34,4 +30,3 @@ setup(
     package_data={'': ['*.pyd', '*.so']},
     test_suite="tests",
 )
-

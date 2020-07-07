@@ -1,3 +1,6 @@
+"""
+The test.py file for the conda package.
+"""
 # Run tests
 
 if __name__ == '__main__':

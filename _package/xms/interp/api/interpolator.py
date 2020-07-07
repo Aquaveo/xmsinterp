@@ -1,3 +1,6 @@
+"""
+The interpolator methods from the api module.
+"""
 import numpy as np
 
 from xms.interp.interpolate import Interpolator
@@ -17,6 +20,7 @@ except ImportError:
 
 def interpolate_to_points(interpolation_points, points, method, x='x', y='y', z='z', **kwargs):
     """
+    Interpolate to points.
 
     Args:
         interpolation_points: The points to be used for interpolation
@@ -35,7 +39,7 @@ def interpolate_to_points(interpolation_points, points, method, x='x', y='y', z=
 
 def _buffer_range(range_min, range_max, buf_by=0.1):
     """
-    Get the (x, y) range of the data and expand by a percentage
+    Get the (x, y) range of the data and expand by a percentage.
 
     Args:
         range_min: The minimum
@@ -51,7 +55,7 @@ def _buffer_range(range_min, range_max, buf_by=0.1):
 
 def _generate_x_y_coords(interpolation_points, size, buffer_by=0.1):
     """
-    Generate the x and y coordinates of a grid
+    Generate the x and y coordinates of a grid.
 
     Args:
         interpolation_points: The interpolation points
@@ -79,6 +83,7 @@ def _generate_x_y_coords(interpolation_points, size, buffer_by=0.1):
 def interpolate_to_grid(interpolation_points, method, grid=None, size=(100, 100), x='x', y='y', z='z',
                         in_place=False, as_xr_dataarray=False, as_xr_dataset=False, **kwargs):
     """
+    Interpolate to a grid.
 
     Args:
         interpolation_points: The points to be used for interpolation
