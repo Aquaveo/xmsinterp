@@ -1,7 +1,13 @@
-set(CMAKE_CXX_STANDARD 11)
 cmake_minimum_required(VERSION 3.1.2)
 cmake_policy(SET CMP0015 NEW) # Link Directory Pathing
 set(CMAKE_DEBUG_POSTFIX _d)
+
+if (APPLE)
+    set(CMAKE_CXX_STANDARD 17)
+else()
+    set(CMAKE_CXX_STANDARD 11)
+endif()
+
 if (APPLE)
 	set(CMAKE_POSITION_INDEPENDENT_CODE False)
 else()
@@ -60,11 +66,11 @@ if(IS_PYTHON_BUILD)
         include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11ConfigVersion.cmake")
         include("${CONAN_PYBIND11_ROOT}/share/cmake/pybind11/pybind11Tools.cmake")
     endif()
-	
+
 	list(APPEND EXT_INCLUDE_DIRS
         ${pybind11_INCLUDE_DIR}
     )
-    
+
     find_package(PythonLibsNew ${PYTHON_TARGET_VERSION} EXACT REQUIRED)
 
     message("PYTHON_INCLUDE: ${PYTHON_INCLUDE_DIRS}")
