@@ -88,13 +88,13 @@ jobs:
       # OSX
       - stage: test
         <<: *osx
-        osx_image: xcode9.2
-        env: CONAN_APPLE_CLANG_VERSIONS=9.0 CONAN_BUILD_TYPES=Debug CONAN_ARCHS=x86_64
+        osx_image: xcode11.6
+        env: CONAN_APPLE_CLANG_VERSIONS=11.0 CONAN_BUILD_TYPES=Debug CONAN_ARCHS=x86_64
       - stage: test
         <<: *osx
-        osx_image: xcode9.2
-        env: CONAN_APPLE_CLANG_VERSIONS=9.0 CONAN_BUILD_TYPES=Release CONAN_ARCHS=x86_64
- 
+        osx_image: xcode11.6
+        env: CONAN_APPLE_CLANG_VERSIONS=11.0 CONAN_BUILD_TYPES=Release CONAN_ARCHS=x86_64
+
       # --- DEPLOY STAGE ----------------------------------------------------------------------------------------------
 
       # GCC 5
@@ -127,13 +127,13 @@ jobs:
       # OSX
       - stage: deploy
         <<: *osx
-        osx_image: xcode9.2
-        env: CONAN_APPLE_CLANG_VERSIONS=9.0 CONAN_UPLOAD=$AQUAVEO_CONAN CONAN_BUILD_TYPES=Debug CONAN_ARCHS=x86_64
+        osx_image: xcode11.6
+        env: CONAN_APPLE_CLANG_VERSIONS=11.0 CONAN_UPLOAD=$AQUAVEO_CONAN CONAN_BUILD_TYPES=Debug CONAN_ARCHS=x86_64
         after_success: true
       - stage: deploy
         <<: *osx
-        osx_image: xcode9.2
-        env: CONAN_APPLE_CLANG_VERSIONS=9.0 AQUAPI_USERNAME=$AQUAPI_USERNAME_SECRET AQUAPI_PASSWORD=$AQUAPI_PASSWORD_SECRET AQUAPI_URL=$AQUAPI_URL_SECRET RELEASE_PYTHON='True' CONAN_UPLOAD=$AQUAVEO_CONAN CONAN_BUILD_TYPES=Release CONAN_ARCHS=x86_64
+        osx_image: xcode11.6
+        env: CONAN_APPLE_CLANG_VERSIONS=11.0 AQUAPI_USERNAME=$AQUAPI_USERNAME_SECRET AQUAPI_PASSWORD=$AQUAPI_PASSWORD_SECRET AQUAPI_URL=$AQUAPI_URL_SECRET RELEASE_PYTHON='True' CONAN_UPLOAD=$AQUAVEO_CONAN CONAN_BUILD_TYPES=Release CONAN_ARCHS=x86_64
         after_success: true
 
       # DOCUMENTATION
@@ -153,7 +153,7 @@ jobs:
               - graphviz
         <<: *linux
         env: TASK_NAME=Documentation
-        script: 
+        script:
           - cd $TRAVIS_BUILD_DIR
           - chmod +x generateDocumentationAndDeploy.sh
           - sudo docker login -u ${AQUAVEO_DOCKER_USERNAME_SECRET} -p ${AQUAVEO_DOCKER_USERNAME_PASSWORD} docker.aquaveo.com

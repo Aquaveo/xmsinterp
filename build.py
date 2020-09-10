@@ -34,6 +34,8 @@ if __name__ == "__main__":
             settings.update({
                 'compiler.libcxx': 'libstdc++11'
             })
+        elif settings['compiler'] == 'apple-clang':
+            settings.update({'cppstd': 'gnu17'})
 
 
     pybind_updated_builds = []
