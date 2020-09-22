@@ -34,9 +34,15 @@ if __name__ == "__main__":
             settings.update({
                 'compiler.libcxx': 'libstdc++11'
             })
+            compiler_version = int(settings['compiler.version'])
+            if compiler_version in [5, 6]:
+                settings.update({'cppstd': '14'})
+            elif compiler_version == 7:
+                settings.update({'cppstd': '17'})
         elif settings['compiler'] == 'apple-clang':
             settings.update({'cppstd': 'gnu17'})
-
+        elif settings['compiler'] == 'Visual Studio':
+            settings.update({'cppstd': '17'})
 
     pybind_updated_builds = []
     for settings, options, env_vars, build_requires, reference in builder.items:
@@ -50,18 +56,6 @@ if __name__ == "__main__":
 
         pybind_updated_builds.append([settings, options, env_vars, build_requires])
     builder.builds = pybind_updated_builds
-
-    xms_updated_builds = []
-    for settings, options, env_vars, build_requires, reference in builder.items:
-        # xms option
-        if settings['compiler'] == 'Visual Studio' \
-                and 'MD' in settings['compiler.runtime'] \
-                and int(settings['compiler.version']) < 13:
-            xms_options = dict(options)
-            xms_options.update({'xmsinterp:xms': True})
-            xms_updated_builds.append([settings, xms_options, env_vars, build_requires])
-        xms_updated_builds.append([settings, options, env_vars, build_requires])
-    builder.builds = xms_updated_builds
 
     testing_updated_builds = []
     for settings, options, env_vars, build_requires, reference in builder.items:
