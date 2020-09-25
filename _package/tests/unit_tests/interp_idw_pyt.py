@@ -1,12 +1,21 @@
 """Test InterpIdw_py.cpp."""
 import unittest
+
 import numpy as np
-from xms.interp.interpolate import InterpIdw
+
 from xms.core.misc import Observer
+
+from xms.interp.interpolate import InterpIdw
+
 
 class MockObserver(Observer):
     """Mock Observer class for testing."""
     def __init__(self, obs_id="X"):
+        """Constructor.
+
+        Args:
+            obs_id (str): Id of the observer
+        """
         self.status = {
             'operation': None,
             'operation_end': False,
@@ -20,26 +29,54 @@ class MockObserver(Observer):
         super(MockObserver, self).__init__()
 
     def __str__(self):
+        """Returns a string representation of the mock observer."""
         return str(self.status)
 
     def on_progress_status(self, percent_complete):
+        """Update progress status.
+
+        Args:
+            percent_complete (float): The percent of the operation completed
+        """
         self.status['percent_complete'] = percent_complete
 
     def on_begin_operation_string(self, operation):
+        """Called when an operation begins.
+
+        Args:
+            operation (str): Name of the operation
+        """
         self.status['operation_begin'] = True
         self.status['operation'] = operation
 
     def on_end_operation(self):
+        """Called when an operation ends."""
         self.status['operation_end'] = True
 
     def on_update_message(self, message):
+        """Update the progress message.
+
+        Args:
+            message (str): The new progress message
+        """
         self.status['message'] = message
 
     def time_remaining_in_seconds(self, remaining_seconds):
+        """Update the remaining time in seconds.
+
+        Args:
+            remaining_seconds (float): The remaining time in seconds
+        """
         self.status['remaining_seconds'] = remaining_seconds
 
     def time_elapsed_in_seconds(self, elapsed_seconds):
+        """Update the elapsed time in seconds.
+
+        Args:
+            elapsed_seconds (float): The elapsed time in seconds
+        """
         self.status['elapsed_seconds'] = elapsed_seconds
+
 
 class TestInterpIdw(unittest.TestCase):
     """Test IDW Interpolation Class."""
@@ -50,13 +87,13 @@ class TestInterpIdw(unittest.TestCase):
         self.interp_idw_obj = InterpIdw(pts)
 
     def test_set_pts(self):
-        """Set base points"""
+        """Set base points."""
         interp = self.interp_idw_obj
         # Test that the a proper call does not throw
         interp.set_points(((1, 2, 3), (1, 2, 3), (3, 3, 3)), False)
 
     def test_set_pts_2d(self):
-        """Set base points"""
+        """Set base points."""
         interp = self.interp_idw_obj
         # Test that the a proper call does not throw
         interp.set_points(((1, 2, 3), (1, 2, 3), (3, 3, 3)), True)
@@ -68,15 +105,14 @@ class TestInterpIdw(unittest.TestCase):
         self.assertEqual(3.0, val)
 
     def test_interp_to_pts(self):
-        """Interpolate to multiple points"""
+        """Interpolate to multiple points."""
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         interp = InterpIdw(pts)
         ret = interp.interpolate_to_points(np.array([(2.0, 1.0, 0.0), (5.0, 10.0, 2.5)]))
         np.testing.assert_array_almost_equal((0.02681550197303295, 2.5), ret)
 
     def test_interp_to_pts_numpy(self):
-        """Interpolate to multiple points"""
-        import numpy as np
+        """Interpolate to multiple points."""
         pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
         interp = InterpIdw(pts)
         ret = interp.interpolate_to_points(np.array(((2.0, 1.0, 0.0), (5.0, 10.0, 2.5))))
@@ -84,9 +120,7 @@ class TestInterpIdw(unittest.TestCase):
         np.testing.assert_array_equal(np.array([0.02681550197303295, 2.5]), ret)
 
     def test_set_pt_activity(self):
-        """Setting point activity"""
-        interp = self.interp_idw_obj
-
+        """Setting point activity."""
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
         interp = InterpIdw(pts, tris)
@@ -97,9 +131,7 @@ class TestInterpIdw(unittest.TestCase):
         interp.point_activity = act2
 
     def test_triangle_activity(self):
-        """Setting tri activity"""
-        interp = self.interp_idw_obj
-
+        """Setting tri activity."""
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
         interp = InterpIdw(pts, tris)
@@ -110,10 +142,7 @@ class TestInterpIdw(unittest.TestCase):
         interp.triangle_activity = act2
 
     def test_get_pts(self):
-        """Getting interp object points"""
-        import numpy as np
-        interp = self.interp_idw_obj
-
+        """Getting interp object points."""
         pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
         tris = np.array([0, 1, 3, 1, 2, 3])
         interp = InterpIdw(pts, tris)
@@ -122,10 +151,7 @@ class TestInterpIdw(unittest.TestCase):
         np.testing.assert_array_equal(pts, ret)
 
     def test_get_tris(self):
-        """Getting interp object points"""
-        import numpy as np
-        interp = self.interp_idw_obj
-
+        """Getting interp object points."""
         pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
         tris = np.array([0, 1, 3, 1, 2, 3])
         interp = InterpIdw(pts, tris)
@@ -134,8 +160,7 @@ class TestInterpIdw(unittest.TestCase):
         np.testing.assert_array_equal(tris, ret)
 
     def test_set_trunc(self):
-        """Test set_trunc"""
-        import numpy as np
+        """Test set_trunc."""
         t_min = 7.11
         t_max = 11.7
 
@@ -148,8 +173,7 @@ class TestInterpIdw(unittest.TestCase):
         self.assertEquals(t_max, interp.truncate_max)
 
     def test_set_observer(self):
-        """Test set_observer"""
-        import numpy as np
+        """Test set_observer."""
         observer1 = MockObserver("Obs1")
         observer2 = MockObserver("Obs2")
 
@@ -174,7 +198,7 @@ class TestInterpIdw(unittest.TestCase):
         self.assertGreater(observer2.status['elapsed_seconds'], 0.0)
 
     def test_set_power(self):
-        """Set power on InterpIdw objects"""
+        """Set power on InterpIdw objects."""
         interp = self.interp_idw_obj
 
         # None Type
@@ -227,9 +251,8 @@ class TestInterpIdw(unittest.TestCase):
         interp.set_search_options(15, False)
 
     def test_set_weight_calc_method(self):
-        """Setting weight calc method with enum"""
+        """Setting weight calc method with enum."""
         interp = self.interp_idw_obj
-        typeerror = "set_weight_calc_method(): incompatible function arguments."
 
         # None Argument
         with self.assertRaises(ValueError) as context:
@@ -240,16 +263,16 @@ class TestInterpIdw(unittest.TestCase):
 
         # Bad Arguments
         with self.assertRaises(ValueError) as context:
-            interp.weight_calculation_method ="bad_string"
+            interp.weight_calculation_method = "bad_string"
         err = context.exception
-        errStr = '"weights" must be one of {}, not bad_string'.format(', '.join(InterpIdw.weights))
-        self.assertIn(errStr, str(err))
+        err_str = '"weights" must be one of {}, not bad_string'.format(', '.join(InterpIdw.weights))
+        self.assertIn(err_str, str(err))
 
         with self.assertRaises(ValueError) as context:
             interp.weight_calculation_method = 123
         err = context.exception
-        errStr = '"weights" must be one of {}, not 123'.format(', '.join(InterpIdw.weights))
-        self.assertIn(errStr, str(err))
+        err_str = '"weights" must be one of {}, not 123'.format(', '.join(InterpIdw.weights))
+        self.assertIn(err_str, str(err))
 
         # Valid Arguments
 
@@ -258,8 +281,7 @@ class TestInterpIdw(unittest.TestCase):
         interp.weight_calculation_method = "classic"
 
     def test_set_nodal_function(self):
-        """Setting nodal function"""
-        import numpy as np
+        """Setting nodal function."""
         observer = MockObserver()
         typeerror = "SetNodalFunction(): incompatible function arguments."
 
@@ -292,9 +314,9 @@ class TestInterpIdw(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             interp.set_nodal_function("abc", 1, True, observer)
         err = context.exception
-        errStr = '"nodal_function_type" must be one of {}, not abc'.format(
+        err_str = '"nodal_function_type" must be one of {}, not abc'.format(
             ", ".join(InterpIdw.nodal_function_types))
-        self.assertIn(errStr, str(err))
+        self.assertIn(err_str, str(err))
         with self.assertRaises(TypeError) as context:
             interp.set_nodal_function("constant", "1234", True, observer)
         err = context.exception
@@ -305,13 +327,13 @@ class TestInterpIdw(unittest.TestCase):
         self.assertIn(typeerror, str(err))
         with self.assertRaises(ValueError) as context:
             interp.set_nodal_function("constant", 1, True, 1)
-        errStr = "observer must be of type xmscore.misc.Observer"
+        err_str = "observer must be of type xmscore.misc.Observer"
         err = context.exception
-        self.assertIn(errStr, str(err))
+        self.assertIn(err_str, str(err))
         with self.assertRaises(ValueError) as context:
             interp.set_nodal_function("constant", 1, True, "abcd")
         err = context.exception
-        self.assertIn(errStr, str(err))
+        self.assertIn(err_str, str(err))
 
         # Good Args
         base = str(interp)
@@ -325,10 +347,7 @@ class TestInterpIdw(unittest.TestCase):
         # TODO: Removed to_string checks. Need another way to test this
 
     def test_interpolate_weights(self):
-        """Test interpolate_weights"""
-        import numpy as np
-        interp = self.interp_idw_obj
-
+        """Test interpolate_weights."""
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = (0, 1, 3, 1, 2, 3)
         interp = InterpIdw(pts, tris)
@@ -343,21 +362,17 @@ class TestInterpIdw(unittest.TestCase):
 
         idxs, wts = interp.interpolate_weights((-10, -10, -10))
         np.testing.assert_array_equal(np.array([0, 1, 2, 3], np.int32), idxs)
-        np.testing.assert_array_almost_equal(np.array([0.876919, 0.06154, 
+        np.testing.assert_array_almost_equal(np.array([0.876919, 0.06154,
                                              0.0, 0.06154]), wts, decimal=5)
 
     def test_set_multi_threading(self):
-        """Setting multi threading"""
+        """Setting multi threading."""
         interp = self.interp_idw_obj
-        typeerror = "SetMultiThreading(): incompatible function arguments."
-
         interp.set_multithreading(False)
-
         interp.set_multithreading(True)
 
     def test_tutorial(self):
         """Ensure the tutorial will work."""
-        interp = self.interp_idw_obj
         pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
         tris = ()
         tris2 = (0, 1, 3, 1, 2, 3)

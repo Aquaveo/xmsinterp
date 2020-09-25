@@ -1,19 +1,10 @@
-"""
-********************************************************************************
-* Name: interp_idw.py
-* Author: Gage Larsen, Matt LeBaron
-* Created On: April 29th, 2019
-* Copyright: (c)
-* License: BSD 2-Clause
-********************************************************************************
-"""
-
+"""Pure Python wrapping for InterpLinear class."""
 from .interpolator import Interpolator
 from .._xmsinterp.interpolate import InterpIdw as iIdw
 
 
 class InterpIdw(Interpolator):
-
+    """Class for performing IDW interpolation."""
     weights = {
         'classic': 0,
         'modified': 1
@@ -28,6 +19,18 @@ class InterpIdw(Interpolator):
     def __init__(self, points=None, triangles=None, scalars=None,
                  nodal_function=None, number_nearest_points=16,
                  quadrant_oct=False, progress=None, **kwargs):
+        """Constructor.
+
+        Args:
+            points (list): The points of the source geometry as x,y,z tuples
+            triangles (list): The triangles of the source geometry as point index tuples
+            scalars (list): The scalar values at the points
+            nodal_function (str): The nodal function to use One of: 'constant', 'gradient_plane', 'quadratic'
+            number_nearest_points (int): The number of nearest points to consider
+            quadrant_oct (bool): True if quadrant search should be used
+            progress (Observer): Observer object for providing feedback
+            **kwargs (dict): Generic keyword arguments
+        """
         if 'instance' in kwargs:
             self._instance = kwargs['instance']
             return
@@ -54,25 +57,42 @@ class InterpIdw(Interpolator):
         super().__init__(**kwargs)
 
     def __eq__(self, other):
+        """Equality operator.
+
+        Args:
+            other (InterpIdw): InterpIdw to compare
+
+        Returns:
+            bool: True if InterpIdws are equal
+        """
         other_instance = getattr(other, '_instance', None)
         if not other_instance or not isinstance(other_instance, iIdw):
             return False
         return other_instance == self._instance
 
     def __ne__(self, other):
+        """Equality operator.
+
+        Args:
+            other (InterpIdw): InterpIdw to compare
+
+        Returns:
+            bool: True if InterpIdws are not equal
+        """
         result = self.__eq__(other)
         return not result
 
     def __str__(self):
+        """Returns a string representation of the InterpIdw."""
         return self._instance.__str__()
 
     def __repr__(self):
+        """Returns a string representation of the InterpIdw."""
         return self._instance.__repr__()
 
     @staticmethod
     def _check_points(points):
-        """
-        Verifies that there are at least three points.
+        """Verifies that there are at least three points.
 
         Args:
             points (iterable): All of the points
@@ -82,8 +102,7 @@ class InterpIdw(Interpolator):
 
     @staticmethod
     def _check_triangles(triangles, point_length):
-        """
-        Verifies that the triangles are correct.
+        """Verifies that the triangles are correct.
 
         Args:
             triangles (iterable): All of the triangles
@@ -100,8 +119,7 @@ class InterpIdw(Interpolator):
 
     @staticmethod
     def _check_scalars(scalars, point_length):
-        """
-        Verifies that there are the same number of points and scalars.
+        """Verifies that there are the same number of points and scalars.
 
         Args:
             scalars (iterable): All of the scalars
@@ -112,8 +130,7 @@ class InterpIdw(Interpolator):
 
     @staticmethod
     def _check_activity(activity, _length, _type):
-        """
-        Verifies that the activity length and the length of the points or triangles are the same.
+        """Verifies that the activity length and the length of the points or triangles are the same.
 
         Args:
             activity (iterable): Activity at a given location
@@ -125,12 +142,13 @@ class InterpIdw(Interpolator):
 
     @staticmethod
     def _get_weight(_str):
-        """
+        """Get the specified weight.
+
         Args:
             _str (string): Key for weights
 
-        Returns (int): Int value from weights
-
+        Returns:
+            int: value from weights
         """
         weight_type = InterpIdw.weights.get(_str, None)
         if weight_type is None:
@@ -140,14 +158,13 @@ class InterpIdw(Interpolator):
 
     @staticmethod
     def _get_nodal_function_type(_str):
-        """
-        Gets the nodal_function_types int value from key string.
+        """Gets the nodal_function_types int value from key string.
 
         Args:
             _str (string): Key for nodal_function_types
 
         Returns:
-            Int value from nodal_function_types
+            int: value from nodal_function_types
         """
         nodal_function_type = InterpIdw.nodal_function_types.get(_str, None)
         if nodal_function_type is None:
@@ -156,8 +173,7 @@ class InterpIdw(Interpolator):
         return nodal_function_type
 
     def set_points_and_triangles(self, points, triangles):
-        """
-        Sets the points that will be used to do the interpolation.
+        """Sets the points that will be used to do the interpolation.
 
         Args:
             points (iterable): Array of the point locations
@@ -167,13 +183,12 @@ class InterpIdw(Interpolator):
 
     @property
     def scalars(self):
-        """Gets all of the scalars"""
+        """Gets all of the scalars."""
         return self._instance.GetScalars
 
     @scalars.setter
     def scalars(self, value):
-        """
-        Sets the scalar values that will be used to do the interpolation.
+        """Sets the scalar values that will be used to do the interpolation.
 
         Args:
             value (iterable): Array of scalars
@@ -183,12 +198,11 @@ class InterpIdw(Interpolator):
 
     @property
     def points(self):
-        """Gets all of the points"""
+        """Gets all of the points."""
         return self._instance.GetPts
 
     def set_points(self, points, is_2d):
-        """
-        Sets the points that will be used to do the interpolation.
+        """Sets the points that will be used to do the interpolation.
 
         Args:
             points (iterable): Array of the point locations
@@ -199,12 +213,11 @@ class InterpIdw(Interpolator):
 
     @property
     def triangles(self):
-        """Gets all of the triangles"""
+        """Gets all of the triangles."""
         return self._instance.GetTris
 
     def interpolate_to_point(self, point):
-        """
-        Interpolates to the location specified by a_pt and returns the value.
+        """Interpolates to the location specified by a_pt and returns the value.
 
         Args:
             point (tuple): The location of the interpolation point.
@@ -215,8 +228,7 @@ class InterpIdw(Interpolator):
         return self._instance.InterpToPt(point)
 
     def interpolate_to_points(self, points):
-        """
-        Interpolates to an array of points and fills in an array of scalars.
+        """Interpolates to an array of points and fills in an array of scalars.
 
         Args:
             points (iterable): Array of points to interpolate to.
@@ -225,13 +237,12 @@ class InterpIdw(Interpolator):
 
     @property
     def point_activity(self):
-        """Gets the point activity"""
+        """Gets the point activity."""
         return self._instance.GetPtActivity
 
     @point_activity.setter
     def point_activity(self, value):
-        """
-        Sets the activity on the point being used to interpolate
+        """Sets the activity on the point being used to interpolate.
 
         Args:
             value (iterable): Bitset of point activity.
@@ -241,13 +252,12 @@ class InterpIdw(Interpolator):
 
     @property
     def triangle_activity(self):
-        """Gets the triangle activity"""
+        """Gets the triangle activity."""
         return self._instance.GetTriActivity
 
     @triangle_activity.setter
     def triangle_activity(self, value):
-        """
-        Sets the triangle activity.
+        """Sets the triangle activity.
 
         Args:
             value (iterable): Bitset of point activity.
@@ -256,8 +266,7 @@ class InterpIdw(Interpolator):
         self._instance.SetTriActivity(value)
 
     def set_truncation(self, maximum, minimum):
-        """
-        Set the truncation values for the interpolation and turn on truncation.
+        """Set the truncation values for the interpolation and turn on truncation.
 
         Args:
             maximum (float): The maximum value for truncation.
@@ -269,29 +278,29 @@ class InterpIdw(Interpolator):
 
     @property
     def truncate_interpolation_values(self):
-        """Gets the truncation interpolation values"""
+        """Gets the truncation interpolation values."""
         return self._instance.GetTruncateInterpolatedValues
 
     @property
     def truncate_min(self):
-        """Gets the truncation minimum"""
+        """Gets the truncation minimum."""
         return self._instance.GetTruncMin
 
     @property
     def truncate_max(self):
-        """Gets the truncation maximum"""
+        """Gets the truncation maximum."""
         return self._instance.GetTruncMax
 
     @property
     def power(self):
-        """Gets the power"""
+        """Gets the power."""
         return self._instance.GetPower
 
     @power.setter
     def power(self, value):
-        """
-        Sets the exponent for the interpolation. By default the class does inverse distance squared weighting but the
-        exponent can be changed to any value.
+        """Sets the exponent for the interpolation.
+
+        By default the class does inverse distance squared weighting but the exponent can be changed to any value.
 
         Args:
             value (float): The exponent used to compute the point weights
@@ -300,24 +309,25 @@ class InterpIdw(Interpolator):
 
     @property
     def search_options_number_nearest_points(self):
-        """Gets the search options number nearest points"""
+        """Gets the search options number nearest points."""
         return self._instance.GetSearchOptsNumNearestPts
 
     @property
     def search_options_use_quadrant_search(self):
-        """Gets the search options using quadrant search"""
+        """Gets the search options using quadrant search."""
         return self._instance.GetSearchOptsUseQuadrantSearch
 
     @property
     def weight_calculation_method(self):
-        """Gets the weight calculation method"""
+        """Gets the weight calculation method."""
         return self._instance.GetWeightCalcMethod
 
     @weight_calculation_method.setter
     def weight_calculation_method(self, weight):
-        """
-        Sets the method for calculating the weights. The classic just uses 1/distance^exponent. The modified method
-        uses another formulation based on the distance of the furtherest location from the interpolation pt.
+        """Sets the method for calculating the weights.
+
+        The classic just uses 1/distance^exponent. The modified method uses another formulation based on the
+        distance of the furtherest location from the interpolation pt.
 
         Args:
             weight (string): 'modified' or 'classic'
@@ -327,22 +337,21 @@ class InterpIdw(Interpolator):
 
     @property
     def nodal_function_type(self):
-        """Gets the nodal function type"""
+        """Gets the nodal function type."""
         return self._instance.GetNodalFunctionType
 
     @property
     def nodal_function_number_nearest_points(self):
-        """Gets the nodal function number nearest the points"""
+        """Gets the nodal function number nearest the points."""
         return self._instance.GetNodalFunctionNumNearestPts
 
     @property
     def nodal_function_use_quadrant_search(self):
-        """Gets the nodal function using quadrant search"""
+        """Gets the nodal function using quadrant search."""
         return self._instance.GetNodalFunctionUseQuadrantSearch
 
     def set_observer(self, progress=None):
-        """
-        Set the observer class so that feedback on the interpolation process can be received.
+        """Set the observer class so that feedback on the interpolation process can be received.
 
         Args:
             progress (observer): The observer
@@ -350,9 +359,10 @@ class InterpIdw(Interpolator):
         self._instance.SetObserver(progress)
 
     def set_search_options(self, nearest_point, quadrant_oct_search):
-        """
-        Sets the search options for how to find the nearest points to the interpolation point. The number of nearest
-        points can be specified as well as whether to find the nearest points in each quadrant or octant.
+        """Sets the search options for how to find the nearest points to the interpolation point.
+
+        The number of nearest points can be specified as well as whether to find the nearest points in each
+        quadrant or octant.
 
         Args:
             nearest_point (int): The number of nearest points to the interpolation point. These points are used to do
@@ -362,9 +372,9 @@ class InterpIdw(Interpolator):
         """
         self._instance.SetSearchOpts(nearest_point, quadrant_oct_search)
 
-    def set_nodal_function(self, nodal_function="constant", number_nearest_points=16, quadrant_oct=False, progress=None):
-        """
-        Sets the type of nodal function as well as options for computing nodal functions.
+    def set_nodal_function(self, nodal_function="constant", number_nearest_points=16, quadrant_oct=False,
+                           progress=None):
+        """Sets the type of nodal function as well as options for computing nodal functions.
 
         Args:
             nodal_function (string): The nodal function methodology:
@@ -378,8 +388,7 @@ class InterpIdw(Interpolator):
         self._instance.SetNodalFunction(nft, number_nearest_points, quadrant_oct, progress)
 
     def set_save_weights(self, save):
-        """
-        Sets the flag for saving weights.
+        """Sets the flag for saving weights.
 
         Args:
             save (bool): Specifies if the weights should be saved
@@ -387,8 +396,7 @@ class InterpIdw(Interpolator):
         self._instance.SetSaveWeights(save)
 
     def interpolate_weights(self, point):
-        """
-        Given a location and an array of points the weights associated with array of points are calculated.
+        """Given a location and an array of points the weights associated with array of points are calculated.
 
         Args:
             point (tuple): Location of the interpolation point
@@ -396,8 +404,7 @@ class InterpIdw(Interpolator):
         return self._instance.InterpWeights(point)
 
     def set_multithreading(self, use_multithreading):
-        """
-        Sets the flag for multi-threading.
+        """Sets the flag for multi-threading.
 
         Args:
             use_multithreading (bool): Specifies if multi-threading will be used
