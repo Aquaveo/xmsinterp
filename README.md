@@ -5,9 +5,7 @@ Interpolation library for XMS products
 Master Branch Status
 --------------------
 
-![Linux-CI](https://github.com/Aquaveo/xmsinterp/workflows/Linux-CI/badge.svg)
-![Mac-CI](https://github.com/Aquaveo/xmsinterp/workflows/Mac-CI/badge.svg)
-![Windows-CI](https://github.com/Aquaveo/xmsinterp/workflows/Windows-CI/badge.svg)
+![XmsInterp-CI](https://github.com/Aquaveo/xmsinterp/workflows/XmsInterp-4.0/badge.svg)
 
 Prerequisites
 --------------
