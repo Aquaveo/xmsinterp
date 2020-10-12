@@ -52,10 +52,8 @@ class XmsinterpConan(ConanFile):
         if self.options.pybind:
             self.requires("pybind11/2.5.0@aquaveo/testing")
 
-        # Use the dev version of XMSCore
-        self.requires("xmscore/[>=4.0.0,<5.0.0]@aquaveo/testing")
-        # self.requires("xmsgrid/[>=5.0.0,<6.0.0]@aquaveo/testing")
-        self.requires("xmsgrid/5.0.0-rc1@aquaveo/testing")
+        self.requires("xmscore/4.0.0@aquaveo/stable")
+        self.requires("xmsgrid/5.0.2@aquaveo/stable")
 
     def build(self):
         cmake = CMake(self)
@@ -102,10 +100,11 @@ class XmsinterpConan(ConanFile):
                 # We are uploading to aquapi here instead of pypi because pypi doesn't accept
                 # the type of package 'linux_x86_64 that we want to upload. They only accept
                 # manylinux1 as the plat-tag
-                is_release = self.env.get("RELEASE_PYTHON", 'False')
-                if is_release == 'True' and ((self.settings.os == "Macos" or (self.settings.os == "Linux" and float(self.settings.compiler.version.value) == 6.0))
-                                             or (self.settings.os == "Windows" and
-                                             str(self.settings.compiler.runtime) == "MD")):
+                is_release = self.env.get("RELEASE_PYTHON", 'False') == 'True'
+                is_mac_os = self.settings.os == 'Macos'
+                is_gcc_6 = self.settings.os == "Linux" and float(self.settings.compiler.version.value) == 6.0
+                is_windows_md = (self.settings.os == "Windows" and str(self.settings.compiler.runtime) == "MD")
+                if is_release and (is_mac_os or is_gcc_6 or is_windows_md):
                     devpi_url = self.env.get("AQUAPI_URL", 'NO_URL')
                     devpi_username = self.env.get("AQUAPI_USERNAME", 'NO_USERNAME')
                     devpi_password = self.env.get("AQUAPI_PASSWORD", 'NO_PASSWORD')
