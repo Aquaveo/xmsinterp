@@ -57,7 +57,7 @@ class XmsinterpConan(ConanFile):
             self.requires("pybind11/2.5.0@aquaveo/testing")
 
         self.requires("xmscore/4.0.2@aquaveo/stable")
-        self.requires("xmsgrid/5.0.4@aquaveo/stable")
+        self.requires("xmsgrid/5.0.5@aquaveo/stable")
 
         if self.settings.os == 'Macos':
             # Use conan-center-index syntax for Mac
