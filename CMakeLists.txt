@@ -30,15 +30,6 @@ if(IS_PYTHON_BUILD AND BUILD_TESTING)
   message(FATAL_ERROR "Cannot build python module when testing is enabled")
 endif()
 
-if(WIN32)
-    if(XMS_BUILD)
-        add_definitions(/D _WIN32_WINNT=0x0501)  # Windows XP and higher
-        add_definitions(/Zc:wchar_t-)  # Treat wchar_t as built-in type
-    else(NOT XMS_BUILD)
-        add_definitions(/D BOOST_ALL_NO_LIB)
-    endif()
-endif()
-
 if(IS_CONDA_BUILD)
   include(${CMAKE_CURRENT_LIST_DIR}/condabuildinfo.cmake)
 else() # If we are not using conda, we are using conan
@@ -49,6 +40,27 @@ else() # If we are not using conda, we are using conan
   set(EXT_LIB_DIRS ${CONAN_LIB_DIRS})
   set(EXT_LIBS ${CONAN_LIBS})
 endif(IS_CONDA_BUILD)
+
+if(WIN32)
+    string(COMPARE EQUAL "${CONAN_SETTINGS_COMPILER_RUNTIME}" "MT" USES_MT)
+    if(NOT USES_MT)
+        string(COMPARE EQUAL "${CONAN_SETTINGS_COMPILER_RUNTIME}" "MTd" USES_MT)
+    endif()
+
+    if(USES_MT)
+        message("Treating wchar_t as a built-in type.")
+        add_definitions(/Zc:wchar_t)  # Treat wchar_t as built-in type
+    else()
+        message("Treating wchar_t as a typedef.")
+        add_definitions(/Zc:wchar_t-)  # Treat wchar_t as typedef
+    endif()
+
+    if(XMS_BUILD)
+        add_definitions(/D _WIN32_WINNT=0x0501)  # Windows XP and higher
+    else(NOT XMS_BUILD)
+        add_definitions(/D BOOST_ALL_NO_LIB)
+    endif()
+endif()
 
 if(IS_PYTHON_BUILD)
     # Pybind11 module
