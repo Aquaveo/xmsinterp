@@ -41,7 +41,7 @@ jobs:
 # MAC
 # ----------------------------------------------------------------------------------------------
   mac:
-    name: Clang-11.0 (${{ matrix.build_type }}, Macos)
+    name: Clang-11.0 (${{ matrix.build_type }}, ${{ matrix.python-version }}, Macos)
     runs-on: ${{ matrix.platform }}
 
     strategy:
@@ -99,15 +99,15 @@ jobs:
         run: conan user
       - name: Set Conan Path
         run: |
-          echo ::set-env name=CONAN_PATH::$(conan config get storage.path)
+          echo "CONAN_PATH=$(conan config get storage.path)" >> $GITHUB_ENV
       # Get Tag Name (ONLY RUNS ON TAGS)
       - name: Get Tag
         id: gitTag
-        uses: olegtarasov/get-tag@v2
+        uses: little-core-labs/get-git-tag@v3.0.2
         if: startsWith(github.ref, 'refs/tags/')
       # Set Conan Version (ONLY RUNS ON TAGS)
       - name: Set Conan Version
-        uses: allenevans/set-env@v1.1.0
+        uses: allenevans/set-env@v2.0.0
         with:
           CONAN_REFERENCE: 'xmsinterp/${{ steps.gitTag.outputs.tag }}'
           XMS_VERSION: ${{ steps.gitTag.outputs.tag }}
@@ -117,9 +117,9 @@ jobs:
       # Check for release branch
       - name: Get Branch Name
         id: gitBranch
-        uses: nelonoel/branch-name@v1
+        uses: nelonoel/branch-name@v1.0.1
       - name: Change Channel and URL if Release Branch
-        uses: allenevans/set-env@v1.1.0
+        uses: allenevans/set-env@v2.0.0
         with:
           CONAN_CHANNEL: stable
           AQUAPI_URL: ${{ secrets.AQUAPI_URL_STABLE }}
@@ -159,7 +159,7 @@ jobs:
 # LINUX
 # ----------------------------------------------------------------------------------------------
   linux:
-    name: GCC-${{ matrix.compiler-version }} (${{ matrix.build_type }}, Linux)
+    name: GCC-${{ matrix.compiler-version }} (${{ matrix.build_type }}, ${{ matrix.python-version }}, Linux)
     runs-on: ${{ matrix.platform }}
 
     strategy:
@@ -218,20 +218,20 @@ jobs:
         run: conan user
       - name: Set Conan Path
         run: |
-          echo ::set-env name=CONAN_PATH::$(conan config get storage.path)
+          echo "CONAN_PATH=$(conan config get storage.path)" >> $GITHUB_ENV
           mkdir -p $(conan config get storage.path)
       - name: Set Conan Docker Options
-        uses: allenevans/set-env@v1.1.0
+        uses: allenevans/set-env@v2.0.0
         with:
           CONAN_DOCKER_RUN_OPTIONS: "-v '${{ env.CONAN_PATH }}:/home/conan/.conan/data'"
       # Get Tag Name
       - name: Get Tag
         id: gitTag
-        uses: olegtarasov/get-tag@v2
+        uses: little-core-labs/get-git-tag@v3.0.2
         if: startsWith(github.ref, 'refs/tags/')
       # Set Conan Version
       - name: Set Conan Version
-        uses: allenevans/set-env@v1.1.0
+        uses: allenevans/set-env@v2.0.0
         with:
           CONAN_REFERENCE: 'xmsinterp/${{ steps.gitTag.outputs.tag }}'
           XMS_VERSION: ${{ steps.gitTag.outputs.tag }}
@@ -241,9 +241,9 @@ jobs:
       # Check for release branch
       - name: Get Branch Name
         id: gitBranch
-        uses: nelonoel/branch-name@v1
+        uses: nelonoel/branch-name@v1.0.1
       - name: Change Channel and URL if Release Branch
-        uses: allenevans/set-env@v1.1.0
+        uses: allenevans/set-env@v2.0.0
         with:
           CONAN_CHANNEL: stable
           AQUAPI_URL: ${{ secrets.AQUAPI_URL_STABLE }}
@@ -285,7 +285,7 @@ jobs:
 # WINDOWS
 # ----------------------------------------------------------------------------------------------
   windows:
-    name: Visual Studio ${{ matrix.compiler-version }} (${{ matrix.build_type }}, Windows)
+    name: Visual Studio ${{ matrix.compiler-version }} (${{ matrix.build_type }}, ${{ matrix.python-version }}, Windows)
     runs-on: ${{ matrix.platform }}
 
     strategy:
@@ -335,7 +335,7 @@ jobs:
           pip install conan conan_package_tools devpi-client wheel
       # Setup Visual Studio
       - name: Setup Visual Studio
-        uses: microsoft/setup-msbuild@v1.0.1
+        uses: microsoft/setup-msbuild@v1.0.2
         with:
           vs-version: ${{ matrix.compiler-version }}
       # Setup Conan
@@ -344,16 +344,16 @@ jobs:
         shell: cmd
       - name: Set Conan Path
         run: |
-          echo "::set-env name=CONAN_PATH::$(conan config get storage.path)"
+          echo "CONAN_PATH=$(conan config get storage.path)" >> $env:GITHUB_ENV
         shell: powershell
       # Get Tag Name
       - name: Get Tag
         id: gitTag
-        uses: olegtarasov/get-tag@v2
+        uses: little-core-labs/get-git-tag@v3.0.2
         if: startsWith(github.ref, 'refs/tags/')
       # Set Conan Version
       - name: Set Conan Version
-        uses: allenevans/set-env@v1.1.0
+        uses: allenevans/set-env@v2.0.0
         with:
           CONAN_REFERENCE: 'xmsinterp/${{ steps.gitTag.outputs.tag }}'
           XMS_VERSION: ${{ steps.gitTag.outputs.tag }}
@@ -363,9 +363,9 @@ jobs:
       # Check for release branch
       - name: Get Branch Name
         id: gitBranch
-        uses: nelonoel/branch-name@v1
+        uses: nelonoel/branch-name@v1.0.1
       - name: Change Channel and URL if Release Branch
-        uses: allenevans/set-env@v1.1.0
+        uses: allenevans/set-env@v2.0.0
         with:
           CONAN_CHANNEL: stable
           AQUAPI_URL: ${{ secrets.AQUAPI_URL_STABLE }}
