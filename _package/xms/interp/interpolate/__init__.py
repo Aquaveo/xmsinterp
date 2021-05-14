@@ -1,4 +1,5 @@
 """Initialize the module."""
+from . import interp_util  # NOQA: F401
 from .interp_anisotropic import InterpAnisotropic  # NOQA: F401
 from .interp_idw import InterpIdw  # NOQA: F401
 from .interp_linear import InterpLinear  # NOQA: F401
