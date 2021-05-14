@@ -19,5 +19,6 @@ void initInterpolate(py::module &);
 void initInterpAnisotropic(py::module &);
 void initInterpLinear(py::module &);
 void initInterpIdw(py::module &);
-void initInterpBase(py::module &);
+void initInterpBase(py::module&);
+void initInterpUtil(py::module&);
 std::string PyReprStringFromInterpBase(const xms::InterpBase& a_interpBase);
