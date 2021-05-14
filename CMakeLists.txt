@@ -134,6 +134,7 @@ set(xmsinterp_py
   xmsinterp/python/interpolate/InterpBase_py.cpp
   xmsinterp/python/interpolate/InterpIdw_py.cpp
   xmsinterp/python/interpolate/InterpLinear_py.cpp
+  xmsinterp/python/interpolate/InterpUtil_py.cpp
 )
 set(xmsinterp_py_headers
   xmsinterp/python/interpolate/interpolate_py.h
@@ -148,6 +149,7 @@ if (BUILD_TESTING)
    xmsinterp/interpolate/InterpAnisotropic.t.h
    xmsinterp/interpolate/InterpIdw.t.h
    xmsinterp/interpolate/InterpLinear.t.h
+   xmsinterp/interpolate/InterpUtil.t.h
    xmsinterp/interpolate/detail/AnisotropicInterpolator.t.h
    xmsinterp/interpolate/detail/InterpNatNeigh.t.h
    xmsinterp/interpolate/detail/NodalFunc.t.h

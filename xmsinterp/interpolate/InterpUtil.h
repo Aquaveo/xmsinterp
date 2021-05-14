@@ -63,5 +63,11 @@ void inIdwWeights(const std::vector<double>& a_d2,
                   bool a_modifiedShepardWeights,
                   std::vector<double>& a_w);
 bool inAllScalarsEqual(const std::vector<float>& a_scalar, const DynBitset& a_act);
+std::vector<float> inGenerateRasterIdw(const std::vector<Pt3d>& a_pts,
+                           const Pt3d& a_minPt,
+                           const Pt3d& a_size,
+                           int a_numRows,
+                           int a_numCols,
+                           const std::vector<int>& a_activity);
 
 } // namespace xms

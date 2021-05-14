@@ -26,6 +26,7 @@ void initInterpolate(py::module &m) {
     initInterpBase(m);
     initInterpLinear(m);
     initInterpIdw(m);
+    initInterpUtil(m);
 }
 
 namespace {
