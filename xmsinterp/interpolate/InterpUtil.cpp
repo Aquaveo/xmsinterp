@@ -19,6 +19,7 @@
 // 4. External library headers
 #include <xmscore/math/math.h>
 #include <xmscore/misc/boost_defines.h> // BSHP
+#include <xmscore/misc/XmError.h> // XM_ENSURE_TRUE
 #include <xmscore/misc/xmstype.h> // XM_NODATA
 #include <xmscore/stl/vector.h> // VecInt, VecPt3d, etc.
 
@@ -415,8 +416,9 @@ bool inAllScalarsEqual(const std::vector<float>& a_scalars, const DynBitset& a_a
 std::vector<float> inGenerateRasterIdw(const std::vector<Pt3d>& a_pts,
                                        const Pt3d& a_minPt,
                                        const Pt3d& a_size,
-                                       int a_numRows,
-                                       int a_numCols,
+                                       const int a_numRows,
+                                       const int a_numCols,
+                                       const float a_noDataVal,
                                        const std::vector<int>& a_activity)
 {
   int numThreads = (int)std::thread::hardware_concurrency();
@@ -433,20 +435,54 @@ std::vector<float> inGenerateRasterIdw(const std::vector<Pt3d>& a_pts,
   static bool useQuadrants = false;
   idw->SetSearchOpts(numPts, useQuadrants);
   // Determine the vector of points for interpolation
-  VecFlt vals;
+  VecFlt vals, retVals;
   VecPt3d rasterPts;
   rasterPts.reserve(a_numRows * a_numCols);
   auto halfSize = a_size / 2.0;
-  for (int x = 0; x < a_numCols; x++)
+  const bool useActivity = !a_activity.empty();
+  if (useActivity)
   {
-    for (int y = 0; y < a_numRows; y++)
+    XM_ENSURE_TRUE(a_activity.size() == a_numRows * a_numCols, retVals);
+  }
+  int count = 0;
+  for (int y = 0; y < a_numRows; ++y)
+  {
+    for (int x = 0; x < a_numCols; ++x)
     {
-      const Pt2d xy(x, y);
-      rasterPts.push_back(a_minPt + xy * a_size + halfSize);
+      if (!useActivity || (useActivity && a_activity[count]))
+      {
+        const Pt2d xy(x, y);
+        rasterPts.push_back(a_minPt + xy * a_size + halfSize);
+      }
+      ++count;
     }
   }
   idw->InterpToPts(rasterPts, vals);
-  return vals;
+  if (useActivity)
+  {
+    count = 0;
+    int activeCount = 0;
+    retVals.reserve(a_numRows * a_numCols);
+    for (int y = 0; y < a_numRows; ++y)
+    {
+      for (int x = 0; x < a_numCols; ++x)
+      {
+        if (a_activity[count])
+        {
+          retVals.push_back(vals[activeCount]);
+          ++activeCount;
+        }
+        else
+          retVals.push_back(a_noDataVal);
+        ++count;
+      }
+    }
+  }
+  else
+  {
+    retVals = vals;
+  }
+  return retVals;
 } // inGenerateRasterIdw
 
 } // namespace xms
@@ -470,9 +506,17 @@ using namespace xms;
 void InterpUtilUnitTests::testGenerateRasterIdw()
 {
   VecPt3d pts = {{0.0, 0.0, 1.0}, {0.0, 1.0, 2.0}, {1.0, 0.0, 3.0}};
-  auto vals = inGenerateRasterIdw(pts, Pt3d(-1.0, -1.0, 0.0), Pt3d(1.0, 1.0, 0.0), 4, 4, VecInt());
-  VecFlt expectedVals = {1.00, 1.50, 1.97, 1.97, 2.00, 2.00, 2.00, 2.00, 2.94, 3.00, 2.50, 2.13,
-    2.94, 3.00, 2.87, 2.50};
+  auto vals = inGenerateRasterIdw(pts, Pt3d(-1.0, -1.0, 0.0), Pt3d(1.0, 1.0, 0.0), 4, 4, XM_NODATA,
+    VecInt());
+  VecFlt expectedVals = {1.00, 2.00, 2.94, 2.94, 1.50, 2.00, 3.00, 3.00,
+                         1.97, 2.00, 2.50, 2.87, 1.97, 2.00, 2.13, 2.50};
+  TS_ASSERT_DELTA_VEC(vals, expectedVals, 0.01);
+  VecInt activity = {0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0};
+  vals = inGenerateRasterIdw(pts, Pt3d(-1.0, -1.0, 0.0), Pt3d(1.0, 1.0, 0.0), 4, 4, XM_NODATA,
+    activity);
+  expectedVals = {XM_NODATA, XM_NODATA, XM_NODATA, XM_NODATA, 1.50, 2.00,
+                  3.00,      3.00,      1.97,      2.00,      2.50, 2.87,
+                  XM_NODATA, XM_NODATA, XM_NODATA, XM_NODATA};
   TS_ASSERT_DELTA_VEC(vals, expectedVals, 0.01);
 } // InterpUtilUnitTests::testGenerateRasterIdw
 #endif // CXX_TEST
