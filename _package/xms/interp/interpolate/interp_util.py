@@ -5,7 +5,8 @@ __all__ = ['generate_raster_idw']
 
 
 def generate_raster_idw(pts, min_pt, size, num_rows, num_cols, no_data_val, activity):
-    """Returns an array of values given mesh information.
+    """Returns an array of raster values given mesh point data and raster information.
+
     Args:
         pts (iterable): The measured depths at point locations.
         min_pt (tuple): The minimum element edge size.
