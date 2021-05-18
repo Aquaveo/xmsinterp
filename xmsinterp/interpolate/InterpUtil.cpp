@@ -508,14 +508,14 @@ void InterpUtilUnitTests::testGenerateRasterIdw()
   VecPt3d pts = {{0.0, 0.0, 1.0}, {0.0, 1.0, 2.0}, {1.0, 0.0, 3.0}};
   auto vals = inGenerateRasterIdw(pts, Pt3d(-1.0, -1.0, 0.0), Pt3d(1.0, 1.0, 0.0), 4, 4, XM_NODATA,
     VecInt());
-  VecFlt expectedVals = {1.00, 2.00, 2.94, 2.94, 1.50, 2.00, 3.00, 3.00,
-                         1.97, 2.00, 2.50, 2.87, 1.97, 2.00, 2.13, 2.50};
+  VecFlt expectedVals = {1.00f, 2.00f, 2.94f, 2.94f, 1.50f, 2.00f, 3.00f, 3.00f,
+                         1.97f, 2.00f, 2.50f, 2.87f, 1.97f, 2.00f, 2.13f, 2.50f};
   TS_ASSERT_DELTA_VEC(vals, expectedVals, 0.01);
   VecInt activity = {0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0};
   vals = inGenerateRasterIdw(pts, Pt3d(-1.0, -1.0, 0.0), Pt3d(1.0, 1.0, 0.0), 4, 4, XM_NODATA,
     activity);
   expectedVals = {XM_NODATA, XM_NODATA, XM_NODATA, XM_NODATA, 1.50, 2.00,
-                  3.00,      3.00,      1.97,      2.00,      2.50, 2.87,
+                  3.00,      3.00,      1.97f,      2.00,      2.50, 2.87f,
                   XM_NODATA, XM_NODATA, XM_NODATA, XM_NODATA};
   TS_ASSERT_DELTA_VEC(vals, expectedVals, 0.01);
 } // InterpUtilUnitTests::testGenerateRasterIdw
