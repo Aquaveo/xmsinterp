@@ -58,11 +58,10 @@ class XmsinterpConan(ConanFile):
 
         self.requires("xmscore/4.0.2@aquaveo/stable")
         self.requires("xmsgrid/5.0.5@aquaveo/stable")
-
-        if self.settings.os == 'Macos':
-            # Use conan-center-index syntax for Mac
-            # TODO: Use bzip2 package from Aquaveo server when available.
-            self.requires('bzip2/1.0.8')
+        # zlib and bzip2 are required by boost. They used to get pulled automatically from conan-center, but something
+        # changed and we now need to explicitly list them as requirements using the new style notation.
+        self.requires('zlib/1.2.11')
+        self.requires('bzip2/1.0.8')
 
     def build(self):
         cmake = CMake(self)
