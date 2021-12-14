@@ -353,7 +353,7 @@ void InterpIdwImpl::SetPts(BSHP<VecPt3d> a_pts, bool a_2d)
   m_pts = a_pts;
   m_ptSearch = GmPtSearch::New(m_2d);
   m_ptSearch->PtsToSearch(m_pts);
-  if (m_2d && m_scalarFrom->empty())
+  if (m_scalarFrom->empty())
   {
     m_scalarFrom->resize(0);
     m_scalarFrom->reserve(m_pts->size());
@@ -370,8 +370,9 @@ void InterpIdwImpl::SetPts(BSHP<VecPt3d> a_pts, bool a_2d)
 //------------------------------------------------------------------------------
 void InterpIdwImpl::SetScalars(const float* a_scalar, size_t a_n)
 {
-  m_scalarFrom->resize(0);
-  m_scalarFrom->insert(m_scalarFrom->begin(), a_scalar, a_scalar + a_n);
+  XM_ENSURE_TRUE(m_scalarFrom->size() == a_n);
+  for (size_t i = 0; i < a_n; ++i)
+    (*m_scalarFrom)[i] = a_scalar[i];
   RecalcNodalFunc();
 } // InterpIdwImpl::SetScalars
 //------------------------------------------------------------------------------
@@ -380,8 +381,8 @@ void InterpIdwImpl::SetScalars(const float* a_scalar, size_t a_n)
 //------------------------------------------------------------------------------
 void InterpIdwImpl::SetScalars(BSHP<VecFlt> a_scalar)
 {
-  m_scalarFrom = a_scalar;
-  RecalcNodalFunc();
+  XM_ENSURE_TRUE(a_scalar);
+  SetScalars(&(*a_scalar)[0], a_scalar->size());
 } // InterpIdwImpl::SetScalars
 //------------------------------------------------------------------------------
 /// \brief Sets the exponent for the interpolation. By default the class does

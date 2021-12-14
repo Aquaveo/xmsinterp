@@ -32,6 +32,7 @@ public:
   void testOneTriangle();
   void testInterp();
   void testCt();
+  void testCt2();
 };
 //----- Function prototypes ----------------------------------------------------
 

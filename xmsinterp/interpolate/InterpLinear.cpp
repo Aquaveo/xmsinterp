@@ -243,7 +243,8 @@ void InterpLinearImpl::SetPtsTris(BSHP<VecPt3d> a_pts, BSHP<VecInt> a_tris)
 void InterpLinearImpl::SetScalars(const float* a_scalar, size_t a_n)
 {
   XM_ENSURE_TRUE(a_n == m_pts->size());
-  m_scalar->assign(&a_scalar[0], &a_scalar[a_n]);
+  for (size_t i = 0; i < a_n; ++i)
+    (*m_scalar)[i] = a_scalar[i];
   RecalcNodalFunc();
 } // InterpLinearImpl::SetScalars
 //------------------------------------------------------------------------------
@@ -252,9 +253,8 @@ void InterpLinearImpl::SetScalars(const float* a_scalar, size_t a_n)
 //------------------------------------------------------------------------------
 void InterpLinearImpl::SetScalars(BSHP<VecFlt> a_scalar)
 {
-  XM_ENSURE_TRUE(a_scalar->size() == m_pts->size());
-  m_scalar = a_scalar;
-  RecalcNodalFunc();
+  XM_ENSURE_TRUE(a_scalar);
+  SetScalars(&(*a_scalar)[0], a_scalar->size());
 } // InterpLinear::SetScalars
 //------------------------------------------------------------------------------
 /// \brief Modifies the activity bitset of the class.
@@ -610,6 +610,8 @@ std::string InterpLinearImpl::ToString() const
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <xmsinterp/interpolate/InterpLinear.t.h>
+#include <xmsgrid/triangulate/TrTriangulatorPoints.h>
+
 
 // namespace xms {
 using namespace xms;
@@ -730,6 +732,31 @@ void InterpLinearUnitTests::testCt()
   pt.y = .5;
   TS_ASSERT_DELTA(-1.0f, linear.InterpToPt(pt), FLT_EPSILON);
 } // InterpLinearUnitTests::testCt
+//------------------------------------------------------------------------------
+/// \brief test clough tocher interpolation
+//------------------------------------------------------------------------------
+void InterpLinearUnitTests::testCt2()
+{
+  BSHP<VecPt3d> p(new VecPt3d());
+  *p = {{-75.0, -16.0, 0.0}, {-60.0, 32.0, 0.0},   {-34.0, 50.0, 0.0},   {-34.0, 27.0, 0.0},
+        {-8.0, 40.0, 0.0},   {16.0, 38.0, 0.0},    {-25.0, 14.0, 43.64}, {10.0, 18.0, 44.16},
+        {27.0, 26.0, 0.0},   {63.0, 35.0, 0.0},    {-32.0, 0.0, 59.04},  {-7.0, 7.0, 90.2},
+        {26.0, 6.0, 67.2},   {75.0, 7.0, 0.0},     {-37.0, -15.0, 9.24}, {-7.0, -13.0, 71.0},
+        {2.0, -3.0, 98.4},   {31.0, -15.0, 25.56}, {60.0, -13.0, 0.0},   {-50.0, -30.0, 0.0},
+        {-30.0, -28.0, 0.0}, {43.0, -22.0, 0.0},   {-32.0, -50.0, 0.0},  {27.0, -37.0, 0.0},
+        {60.0, -33.0, 0.0}};
+  BSHP<VecInt> t(new VecInt());
+  TrTriangulatorPoints tri(*p, *t);
+  tri.Triangulate();
+
+  BSHP<InterpLinear> linear = InterpLinear::New();
+  linear->SetPtsTris(p, t);
+  linear->SetUseCloughTocher(true, nullptr);
+  BSHP<VecFlt> s(new VecFlt);
+  *s = {0.0, 0.0,   0.0,   0.0,   0.0,    0.0, 43.64f, 44.16f, 0.0, 0.0, 59.04f, 90.2f, 67.2f,
+        0.0, 9.24f, 71.0f, 98.4f, 25.56f, 0.0, 0.0,    0.0,    0.0, 0.0, 0.0,    0.0};
+  linear->SetScalars(s);
+} // InterpLinearUnitTests::testCt2
 
 //} // namespace xms
 #endif // CXX_TEST
