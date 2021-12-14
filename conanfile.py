@@ -57,7 +57,7 @@ class XmsinterpConan(ConanFile):
             self.requires("pybind11/2.5.0@aquaveo/testing")
 
         self.requires("xmscore/4.0.2@aquaveo/stable")
-        self.requires("xmsgrid/5.0.5@aquaveo/stable")
+        self.requires("xmsgrid/5.5.0@aquaveo/stable")
         # zlib and bzip2 are required by boost. They used to get pulled automatically from conan-center, but something
         # changed and we now need to explicitly list them as requirements using the new style notation.
         self.requires('zlib/1.2.11')
