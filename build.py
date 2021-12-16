@@ -42,14 +42,16 @@ if __name__ == "__main__":
         elif settings['compiler'] == 'apple-clang':
             settings.update({'cppstd': 'gnu17'})
         elif settings['compiler'] == 'Visual Studio':
-            settings.update({'cppstd': '17'})
+            compiler_version = int(settings['compiler.version'])
+            if compiler_version == 14:
+                settings.update({'cppstd': '14'})
+            elif compiler_version == 16:
+                settings.update({'cppstd': '17'})
 
     pybind_updated_builds = []
     for settings, options, env_vars, build_requires, reference in builder.items:
         # pybind option
-        if (not settings['compiler'] == "Visual Studio" \
-                     or int(settings['compiler.version']) > 12) \
-                and settings['arch'] == "x86_64" and settings['build_type'] != 'Debug':
+        if settings['arch'] == "x86_64" and settings['build_type'] != 'Debug':
             pybind_options = dict(options)
             pybind_options.update({'xmsinterp:pybind': True})
             pybind_updated_builds.append([settings, pybind_options, env_vars, build_requires])
