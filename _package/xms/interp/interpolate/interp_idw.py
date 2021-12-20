@@ -18,7 +18,9 @@ class InterpIdw(Interpolator):
 
     def __init__(self, points=None, triangles=None, scalars=None,
                  nodal_function=None, number_nearest_points=16,
-                 quadrant_oct=False, progress=None, **kwargs):
+                 quadrant_oct=False, progress=None, is_2d=True,
+                 weight_number_nearest_points=16, weight_quadrant_oct=False,
+                 **kwargs):
         """Constructor.
 
         Args:
@@ -29,6 +31,9 @@ class InterpIdw(Interpolator):
             number_nearest_points (int): The number of nearest points to consider
             quadrant_oct (bool): True if quadrant search should be used
             progress (Observer): Observer object for providing feedback
+            is_2d (bool): flag for 2d vs 3d interpolation
+            weight_number_nearest_points (int): number of points to include in interpolation weight calculation
+            weight_quadrant_oct (bool): get nearest points from quadrants for weight calculation
             **kwargs (dict): Generic keyword arguments
         """
         if 'instance' in kwargs:
@@ -39,20 +44,24 @@ class InterpIdw(Interpolator):
             raise ValueError('"points" is a required argument.')
         self._check_points(points)
 
-        if triangles is None or len(triangles) == 0:
-            triangles = []
-        else:
-            self._check_triangles(triangles, len(points))
+        # triangles are not used by IDW
+        # if triangles is None or len(triangles) == 0:
+        #     triangles = []
+        # else:
+        #     self._check_triangles(triangles, len(points))
 
         if scalars is None or len(scalars) == 0:
             scalars = []
         else:
             self._check_scalars(scalars, len(points))
 
-        self._instance = iIdw(points, triangles, scalars)
+        self._instance = iIdw([], [], [])
+        self._instance.SetPts(points, is_2d)
+        self._instance.SetScalars(scalars)
 
         if nodal_function is not None:
             self.set_nodal_function(nodal_function, number_nearest_points, quadrant_oct, progress)
+        self.set_search_options(nearest_point=weight_number_nearest_points, quadrant_oct_search=weight_quadrant_oct)
 
         super().__init__(**kwargs)
 
