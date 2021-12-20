@@ -130,16 +130,17 @@ class TestInterpIdw(unittest.TestCase):
         act2 = (0, 1, 0, 1)
         interp.point_activity = act2
 
-    def test_triangle_activity(self):
-        """Setting tri activity."""
-        pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
-        tris = (0, 1, 3, 1, 2, 3)
-        interp = InterpIdw(pts, tris)
-        act1 = (True, False)
-        interp.triangle_activity = act1
-
-        act2 = (1, 1)
-        interp.triangle_activity = act2
+    # IDW doesn't use triangles
+    # def test_triangle_activity(self):
+    #     """Setting tri activity."""
+    #     pts = ((0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3))
+    #     tris = (0, 1, 3, 1, 2, 3)
+    #     interp = InterpIdw(pts, tris)
+    #     act1 = (True, False)
+    #     interp.triangle_activity = act1
+    #
+    #     act2 = (1, 1)
+    #     interp.triangle_activity = act2
 
     def test_get_pts(self):
         """Getting interp object points."""
@@ -150,14 +151,15 @@ class TestInterpIdw(unittest.TestCase):
         ret = interp.points
         np.testing.assert_array_equal(pts, ret)
 
-    def test_get_tris(self):
-        """Getting interp object points."""
-        pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
-        tris = np.array([0, 1, 3, 1, 2, 3])
-        interp = InterpIdw(pts, tris)
-
-        ret = interp.triangles
-        np.testing.assert_array_equal(tris, ret)
+    # IDW doesn't use triangles
+    # def test_get_tris(self):
+    #     """Getting interp object points."""
+    #     pts = np.array([(0, 0, 0), (10, 0, 1), (10, 10, 2), (0, 10, 3)])
+    #     tris = np.array([0, 1, 3, 1, 2, 3])
+    #     interp = InterpIdw(pts, tris)
+    #
+    #     ret = interp.triangles
+    #     np.testing.assert_array_equal(tris, ret)
 
     def test_set_trunc(self):
         """Test set_trunc."""
