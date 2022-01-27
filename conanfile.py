@@ -62,20 +62,13 @@ class XmsinterpConan(ConanFile):
 
     def requirements(self):
         """Requirements."""
-        if self.settings.compiler == 'Visual Studio' and 'MD' in str(self.settings.compiler.runtime):
-            self.requires("boost/1.74.0@aquaveo/testing")  # Use legacy wchar_t setting for XMS.
-        else:
-            self.requires("boost/1.74.0@aquaveo/stable")
+        self.requires("boost/1.74.3@aquaveo/stable")
 
         if self.options.pybind:
             self.requires("pybind11/2.5.0@aquaveo/testing")
 
-        self.requires("xmscore/4.0.2@aquaveo/stable")
-        self.requires("xmsgrid/5.5.0@aquaveo/stable")
-        # zlib and bzip2 are required by boost. They used to get pulled automatically from conan-center, but something
-        # changed and we now need to explicitly list them as requirements using the new style notation.
-        self.requires('zlib/1.2.11')
-        self.requires('bzip2/1.0.8')
+        self.requires("xmscore/5.0.1@aquaveo/stable")
+        self.requires("xmsgrid/6.0.0@aquaveo/stable")
 
     def build(self):
         cmake = CMake(self)
