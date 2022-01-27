@@ -1,4 +1,4 @@
-name: XmsInterp-4.0
+name: XmsInterp-5.0
 
 on: [push, pull_request]
 
@@ -54,9 +54,9 @@ jobs:
     env:
       # Library Variables
       LIBRARY_NAME: xmsinterp
-      XMS_VERSION: 4.0.0
+      XMS_VERSION: 5.0.0
       # Conan Variables
-      CONAN_REFERENCE: xmsinterp/4.0.0
+      CONAN_REFERENCE: xmsinterp/5.0.0
       CONAN_ARCHS: x86_64
       CONAN_USERNAME: aquaveo
       CONAN_CHANNEL: testing
@@ -173,9 +173,9 @@ jobs:
     env:
       # Library Variables
       LIBRARY_NAME: xmsinterp
-      XMS_VERSION: 4.0.0
+      XMS_VERSION: 5.0.0
       # Conan Variables
-      CONAN_REFERENCE: xmsinterp/4.0.0
+      CONAN_REFERENCE: xmsinterp/5.0.0
       CONAN_ARCHS: x86_64
       CONAN_USERNAME: aquaveo
       CONAN_CHANNEL: testing
@@ -301,9 +301,9 @@ jobs:
     env:
       # Library Variables
       LIBRARY_NAME: xmsinterp
-      XMS_VERSION: 4.0.0
+      XMS_VERSION: 5.0.0
       # Conan Variables
-      CONAN_REFERENCE: xmsinterp/4.0.0
+      CONAN_REFERENCE: xmsinterp/5.0.0
       CONAN_ARCHS: x86_64
       CONAN_USERNAME: aquaveo
       CONAN_CHANNEL: testing
