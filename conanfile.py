@@ -56,6 +56,10 @@ class XmsinterpConan(ConanFile):
             self.options['xmsgrid'].wchar_t = self.options.wchar_t
             self.options['boost'].wchar_t = self.options.wchar_t
 
+    def config_options(self):
+        if self.settings.compiler != 'Visual Studio':
+            del self.options.wchar_t
+
     def requirements(self):
         """Requirements."""
         if self.settings.compiler == 'Visual Studio' and 'MD' in str(self.settings.compiler.runtime):
