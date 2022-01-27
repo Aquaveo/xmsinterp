@@ -11,11 +11,15 @@ class XmsinterpConan(ConanFile):
     description = "Interpolation library for XMS products"
     settings = "os", "compiler", "build_type", "arch"
     options = {
-        "xms": [True, False],
+        "wchar_t": ['builtin', 'typedef'],
         "pybind": [True, False],
         "testing": [True, False],
     }
-    default_options = "xms=False", "pybind=False", "testing=False"
+    default_options = {
+        'wchar_t': 'builtin',
+        'pybind': False,
+        'testing': False,
+    }
     generators = "cmake"
     build_requires = "cxxtest/4.4@aquaveo/stable"
     exports = "CMakeLists.txt", "LICENSE"
@@ -65,9 +69,6 @@ class XmsinterpConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-
-        if self.settings.compiler == 'Visual Studio':
-            cmake.definitions["XMS_BUILD"] = self.options.xms
 
         # CXXTest doesn't play nice with PyBind. Also, it would be nice to not
         # have tests in release code. Thus, if we want to run tests, we will
