@@ -83,7 +83,7 @@ class XmsinterpConan(ConanFile):
         cmake.definitions["XMS_TEST_PATH"] = "test_files"
         cmake.definitions["PYTHON_TARGET_VERSION"] = self.env.get("PYTHON_TARGET_VERSION", "3.6")
         if self.settings.compiler == 'Visual Studio':
-            cmake.definitions["USE_TYPEDEF_WCHAR_T"] = (self.options.wchar_t == 'typedef')
+            cmake.definitions["USE_NATIVE_WCHAR_T"] = (self.options.wchar_t == 'builtin')
         cmake.configure(source_folder=".")
         cmake.build()
         cmake.install()

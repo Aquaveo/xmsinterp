@@ -42,7 +42,7 @@ else() # If we are not using conda, we are using conan
 endif(IS_CONDA_BUILD)
 
 if(WIN32)
-    if(USES_NATIVE_WCHAR_T)
+    if(USE_NATIVE_WCHAR_T)
         message("Treating wchar_t as a built-in type.")
         add_definitions(/Zc:wchar_t)  # Treat wchar_t as built-in type
     else()
