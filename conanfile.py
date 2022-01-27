@@ -62,7 +62,7 @@ class XmsinterpConan(ConanFile):
 
     def requirements(self):
         """Requirements."""
-        self.requires("boost/1.74.3@aquaveo/stable")
+        self.requires("boost/1.74.0.3@aquaveo/stable")
 
         if self.options.pybind:
             self.requires("pybind11/2.5.0@aquaveo/testing")
