@@ -45,13 +45,16 @@ class XmsinterpConan(ConanFile):
         if s_compiler == 'Visual Studio' and self.options.wchar_t == 'typedef' and self.options.pybind:
             raise ConanException("wchar_t=typedef not supported with pybind=True")
 
-        self.options['xmscore'].xms = self.options.xms
         self.options['xmscore'].pybind = self.options.pybind
         self.options['xmscore'].testing = self.options.testing
 
-        self.options['xmsgrid'].xms = self.options.xms
         self.options['xmsgrid'].pybind = self.options.pybind
         self.options['xmsgrid'].testing = self.options.testing
+        
+        if s_compiler == 'Visual Studio':
+            self.options['xmscore'].wchar_t = self.options.wchar_t
+            self.options['xmsgrid'].wchar_t = self.options.wchar_t
+            self.options['boost'].wchar_t = self.options.wchar_t
 
     def requirements(self):
         """Requirements."""
