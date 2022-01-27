@@ -42,12 +42,7 @@ else() # If we are not using conda, we are using conan
 endif(IS_CONDA_BUILD)
 
 if(WIN32)
-    string(COMPARE EQUAL "${CONAN_SETTINGS_COMPILER_RUNTIME}" "MT" USES_MT)
-    if(NOT USES_MT)
-        string(COMPARE EQUAL "${CONAN_SETTINGS_COMPILER_RUNTIME}" "MTd" USES_MT)
-    endif()
-
-    if(USES_MT)
+    if(USES_NATIVE_WCHAR_T)
         message("Treating wchar_t as a built-in type.")
         add_definitions(/Zc:wchar_t)  # Treat wchar_t as built-in type
     else()
