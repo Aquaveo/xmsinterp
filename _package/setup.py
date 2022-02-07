@@ -11,14 +11,14 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 requires = [
     'numpy',
-    'xmscore>=4.0.2',
-    'xmsgrid>=5.0.5',
+    'xmscore>=6.0.0',
+    'xmsgrid>=7.0.0',
 ]
 
 version = __version__
 
 setup(
-    python_requires='>=3.6',
+    python_requires='>=3.10',
     name='xmsinterp',
     version=version,
     packages=['xms.interp', 'xms.interp.interpolate', 'xms.interp.api'],

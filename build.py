@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     # Add environment variables to build definitions
     XMS_VERSION = os.environ.get('XMS_VERSION', None)
-    python_target_version = os.environ.get('PYTHON_TARGET_VERSION', "3.6")
+    python_target_version = os.environ.get('PYTHON_TARGET_VERSION', "3.10")
     release_python = os.environ.get('RELEASE_PYTHON', 'False')
     aquapi_username = os.environ.get('AQUAPI_USERNAME', None)
     aquapi_password = os.environ.get('AQUAPI_PASSWORD', None)
