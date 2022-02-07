@@ -8,7 +8,7 @@ set CONAN_ARCHS=x86_64
 set CONAN_BUILD_TYPES=Release
 set CONAN_USERNAME=aquaveo
 set CONAN_PASSWORD=aquaveo
-set PYTHON_TARGET_VERSION=3.6
+set PYTHON_TARGET_VERSION=3.10
 REM export CONAN_UPLOAD="<conanserver>"
 set | findstr "XMS"
 set | findstr "CONAN"
