@@ -2,9 +2,7 @@ name: XmsInterp-6.0
 
 on: [push, pull_request]
 
-
 jobs:
-
 # ----------------------------------------------------------------------------------------------
 # FLAKE
 # ----------------------------------------------------------------------------------------------
@@ -74,7 +72,6 @@ jobs:
       PYTHON_TARGET_VERSION: ${{ matrix.python-version }}
       RELEASE_PYTHON: 'False'
 
-
     steps:
       # Checkout Sources
       - name: Checkout Source
@@ -88,7 +85,8 @@ jobs:
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install conan==1.41.0 conan_package_tools==0.35.1 devpi-client wheel
+          pip install conan==1.41.0 conan-package-tools==0.35.1 devpi-client wheel MarkupSafe==2.0.0
+          python -m pip install -i https://public.aquapi.aquaveo.com/aquaveo/stable/+simple/ xmsconan
       # Setup Xcode
       - name: Setup XCode
         uses: sinoru/actions-setup-xcode@v2
@@ -185,7 +183,7 @@ jobs:
       CONAN_REMOTES: https://conan.aquaveo.com
       CONAN_BUILD_TYPES: ${{ matrix.build_type }}
       CONAN_GCC_VERSIONS: ${{ matrix.compiler-version }}
-      CONAN_DOCKER_IMAGE: docker.aquaveo.com/aquaveo/conan-docker/conan-gcc${{ matrix.compiler-version }}:py36
+      CONAN_DOCKER_IMAGE: docker.aquaveo.com/aquaveo/conan-docker/conan-gcc${{ matrix.compiler-version }}-py3.10:latest
       CONAN_PIP_INSTALL: 'conan-package-tools==0.35.1'
       CONAN_PIP_PACKAGE: 'conan==1.41.0'
       # Aquapi Variables
@@ -195,7 +193,6 @@ jobs:
       # Python Variables
       PYTHON_TARGET_VERSION: ${{ matrix.python-version }}
       RELEASE_PYTHON: 'False'
-
 
     steps:
       # Checkout Sources
@@ -210,7 +207,8 @@ jobs:
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install conan==1.41.0 conan_package_tools==0.35.1 devpi-client wheel
+          pip install conan==1.41.0 conan-package-tools==0.35.1 devpi-client wheel MarkupSafe==2.0.0
+          python -m pip install -i https://public.aquapi.aquaveo.com/aquaveo/stable/+simple/ xmsconan
       # Login to Aquaveo Docker
       - name: Login to Aquaveo Docker
         run: sudo docker login -u ${{ secrets.AQUAVEO_DOCKER_USERNAME_SECRET }} -p ${{ secrets.AQUAVEO_DOCKER_TOKEN }} docker.aquaveo.com
@@ -299,6 +297,7 @@ jobs:
         build_type: [Release, Debug]
 
     env:
+      MATRIX_NAME: ${{ matrix.platform }}-VS${{ matrix.compiler-version }}-${{ matrix.build_type }}
       # Library Variables
       LIBRARY_NAME: xmsinterp
       XMS_VERSION: 6.0.0
@@ -334,7 +333,8 @@ jobs:
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install conan==1.41.0 conan_package_tools==0.35.1 devpi-client wheel
+          pip install conan==1.41.0 conan-package-tools==0.35.1 devpi-client wheel MarkupSafe==2.0.0
+          python -m pip install -i https://public.aquapi.aquaveo.com/aquaveo/stable/+simple/ xmsconan
       # Setup Visual Studio
       - name: Setup Visual Studio
         uses: microsoft/setup-msbuild@v1.0.2
@@ -379,12 +379,12 @@ jobs:
       # Zip Packages
       - name: Zip Conan Packages
         run: |
-          tar czf ${{ github.workspace }}/${{ matrix.platform }}-VS${{ matrix.compiler-version }}-${{ matrix.build_type }}.tar.gz ${{ env.CONAN_PATH }}/${{ env.LIBRARY_NAME }}/${{ env.XMS_VERSION }}/aquaveo/${{ env.CONAN_CHANNEL}}/package
+          tar czf ${{ github.workspace }}/${{ env.MATRIX_NAME }}.tar.gz ${{ env.CONAN_PATH }}/${{ env.LIBRARY_NAME }}/${{ env.XMS_VERSION }}/aquaveo/${{ env.CONAN_CHANNEL}}/package
       - name: Add Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: ${{ matrix.platform }}-VS${{ matrix.compiler-version }}-${{ matrix.build_type }}
-          path: ${{ github.workspace }}/${{ matrix.platform }}-VS${{ matrix.compiler-version }}-${{ matrix.build_type }}.tar.gz
+          name: ${{ env.MATRIX_NAME }}
+          path: ${{ github.workspace }}/${{ env.MATRIX_NAME }}.tar.gz
       # Get the Release Data
       - name: Get Release
         id: git_release
@@ -399,7 +399,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.AQUAVEO_GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.git_release.outputs.upload_url }}
-          asset_path: ${{ github.workspace }}/${{ matrix.platform }}-VS${{ matrix.compiler-version }}-${{ matrix.build_type }}.tar.gz
-          asset_name: ${{ matrix.platform }}-VS${{ matrix.compiler-version }}-${{ matrix.build_type }}.tar.gz
+          asset_path: ${{ github.workspace }}/${{ env.MATRIX_NAME }}.tar.gz
+          asset_name: ${{ env.MATRIX_NAME }}.tar.gz
           asset_content_type: application/zip
         if: startsWith(github.ref, 'refs/tags/')
