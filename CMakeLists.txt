@@ -42,15 +42,15 @@ else() # If we are not using conda, we are using conan
 endif(IS_CONDA_BUILD)
 
 if(WIN32)
-    if(USE_NATIVE_WCHAR_T)
-        message("Treating wchar_t as a built-in type.")
-        add_definitions(/Zc:wchar_t)  # Treat wchar_t as built-in type
-    else()
+    if(USE_TYPEDEF_WCHAR_T)
         message("Treating wchar_t as a typedef.")
-        add_definitions(/Zc:wchar_t-)  # Treat wchar_t as typedef
+        add_definitions(/Zc:wchar_t-)
+    else()
+        message("Treating wchar_t as a built-in type.")
+        add_definitions(/Zc:wchar_t)
     endif()
 
-    add_definitions(/D BOOST_ALL_NO_LIB)
+	add_definitions(/D BOOST_ALL_NO_LIB)
 endif()
 
 if(IS_PYTHON_BUILD)
