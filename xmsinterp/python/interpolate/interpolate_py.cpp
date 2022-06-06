@@ -25,6 +25,7 @@ void initInterpolate(py::module &m) {
     initInterpAnisotropic(m);
     initInterpBase(m);
     initInterpLinear(m);
+    initInterpLinearExtrapIdw(m);
     initInterpIdw(m);
     initInterpUtil(m);
 }
