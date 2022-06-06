@@ -1,8 +1,5 @@
 """Test InterpLinear_py.cpp."""
-import math
 import unittest
-
-import numpy as np
 
 from xms.interp.interpolate import InterpLinearExtrapIdw
 
