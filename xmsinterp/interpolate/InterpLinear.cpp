@@ -608,7 +608,7 @@ std::string InterpLinearImpl::ToString() const
 
 #ifdef CXX_TEST
 ////////////////////////////////////////////////////////////////////////////////
-
+#include <float.h>
 #include <xmsinterp/interpolate/InterpLinear.t.h>
 #include <xmsgrid/triangulate/TrTriangulatorPoints.h>
 
