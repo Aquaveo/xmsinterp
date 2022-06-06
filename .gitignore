@@ -66,3 +66,4 @@ sphinx_warnings.log
 build/*
 pybuild/*
 build_py/*
+build_test/*
