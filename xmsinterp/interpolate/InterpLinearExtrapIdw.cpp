@@ -371,6 +371,7 @@ std::string InterpLinearExtrapIdw::ToString() const
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <xmsinterp/interpolate/InterpLinearExtrapIdw.t.h>
+#include <xmsgrid/triangulate/TrTriangulatorPoints.h>
 
 
 // namespace xms {
