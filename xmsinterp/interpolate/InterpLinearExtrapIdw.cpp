@@ -398,7 +398,7 @@ void InterpLinearExtrapIdwUnitTests::testOutsideInterpolatePoint()
   Pt3d pt(0, 25, 0);
 
   float val = interpolator->InterpToPt(pt);
-  TS_ASSERT_DELTA(2.70349288, val, FLT_EPSILON);
+  TS_ASSERT_DELTA(2.70349288, val, 1e-7);
 } // InterpLinearExtrapIdwUnitTests::testOutsideInterpolatePoint
 //------------------------------------------------------------------------------
 /// \brief tests doing interpolation to point inside the triangles
@@ -416,7 +416,7 @@ void InterpLinearExtrapIdwUnitTests::testInsideInterpolatePoint()
   Pt3d pt(5, 5, 0);
 
   float val = interpolator->InterpToPt(pt);
-  TS_ASSERT_DELTA(2.0, val, FLT_EPSILON);
+  TS_ASSERT_DELTA(2.0, val, 1e-7);
 } // InterpLinearExtrapIdwUnitTests::testInsideInterpolatePoint
 //------------------------------------------------------------------------------
 /// \brief tests doing interpolation to point inside the triangles
@@ -434,7 +434,7 @@ void InterpLinearExtrapIdwUnitTests::testOneEdgeInterpolatePoint()
   Pt3d pt(10, 10, 0);
 
   float val = interpolator->InterpToPt(pt);
-  TS_ASSERT_DELTA(2.0, val, FLT_EPSILON);
+  TS_ASSERT_DELTA(2.0, val, 1e-7);
 } // InterpLinearExtrapIdwUnitTests::testOneEdgeInterpolatePoint
 //} // namespace xms
 #endif // CXX_TEST
