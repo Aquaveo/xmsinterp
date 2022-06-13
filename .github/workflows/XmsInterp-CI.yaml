@@ -52,9 +52,9 @@ jobs:
     env:
       # Library Variables
       LIBRARY_NAME: xmsinterp
-      XMS_VERSION: 6.0.0
+      XMS_VERSION: 6.1.0
       # Conan Variables
-      CONAN_REFERENCE: xmsinterp/6.0.0
+      CONAN_REFERENCE: xmsinterp/6.1.0
       CONAN_ARCHS: x86_64
       CONAN_USERNAME: aquaveo
       CONAN_CHANNEL: testing
@@ -171,9 +171,9 @@ jobs:
     env:
       # Library Variables
       LIBRARY_NAME: xmsinterp
-      XMS_VERSION: 6.0.0
+      XMS_VERSION: 6.1.0
       # Conan Variables
-      CONAN_REFERENCE: xmsinterp/6.0.0
+      CONAN_REFERENCE: xmsinterp/6.1.0
       CONAN_ARCHS: x86_64
       CONAN_USERNAME: aquaveo
       CONAN_CHANNEL: testing
@@ -300,9 +300,9 @@ jobs:
       MATRIX_NAME: ${{ matrix.platform }}-VS${{ matrix.compiler-version }}-${{ matrix.build_type }}
       # Library Variables
       LIBRARY_NAME: xmsinterp
-      XMS_VERSION: 6.0.0
+      XMS_VERSION: 6.1.0
       # Conan Variables
-      CONAN_REFERENCE: xmsinterp/6.0.0
+      CONAN_REFERENCE: xmsinterp/6.1.0
       CONAN_ARCHS: x86_64
       CONAN_USERNAME: aquaveo
       CONAN_CHANNEL: testing
