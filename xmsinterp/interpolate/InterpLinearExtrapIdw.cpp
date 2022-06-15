@@ -357,6 +357,38 @@ void InterpLinearExtrapIdw::SetUseNatNeigh(bool a_,
                            a_blendWeights, a_prog);
 } // InterpLinearExtrapIdw::SetUseNatNeigh
 //------------------------------------------------------------------------------
+/// \brief Sets the type of nodal function as well as options for computing
+/// nodal functions.
+/// \param a_ The nodal function methodology: constant (0), gradient plane (1),
+/// quadratic (2).
+/// \param a_nNearest The nearest number of points to use when calculating the
+/// nodal functions.
+/// \param a_quad_oct Find the nearest number of points in each quadrant (2d)
+/// or octant (3d) when computing nodal functions.
+/// \param a_p Progress bar to give user feedback.
+//------------------------------------------------------------------------------
+void InterpLinearExtrapIdw::SetIdwNodalFunc(InterpIdw::NodalFuncEnum a_,
+                                            int a_nNearest,
+                                            bool a_quad_oct,
+                                            BSHP<Observer> a_p)
+{
+  m_idw->SetNodalFunction(a_, a_nNearest, a_quad_oct, a_p);
+} // InterpIdwImpl::SetNodalFunction
+//------------------------------------------------------------------------------
+/// \brief Sets the search options for how to find the nearest points to the
+/// interpolation point. The number of nearest points can be specified as well
+/// as whether to find the nearest points in each quadrant or octant.
+/// \param a_nNearestPoints the number of nearest points to the interpolation
+/// point. These points are used to do the interpolation.
+/// \param a_quad_oct_Search specifies if the search criterion should find the
+/// nearest points in each quadrant (2d) or octant (3d)
+//------------------------------------------------------------------------------
+void InterpLinearExtrapIdw::SetIdwSearchOpts(int a_nNearestPoints, bool a_quad_oct_Search)
+{
+  m_idw->SetSearchOpts(a_nNearestPoints, a_quad_oct_Search);
+} // InterpLinearExtrapIdw::SetIdwSearchOpts
+
+//------------------------------------------------------------------------------
 /// \brief Write the internals to a string.
 /// \return The string.
 //------------------------------------------------------------------------------

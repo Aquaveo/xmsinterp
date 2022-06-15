@@ -18,7 +18,8 @@ class InterpLinearExtrapIdw(Interpolator):
 
     def __init__(self, points=None, triangles=None, scalars=None, nodal_function=None,
                  point_search_option="natural_neighbor", number_nearest_points=16, blend_weights=True,
-                 progress=None, **kwargs):
+                 progress=None, quadrant_oct=False, weight_quadrant_oct=False, 
+                 weight_number_nearest_points=16, **kwargs):
         """Constructor.
 
         Args:
@@ -30,6 +31,9 @@ class InterpLinearExtrapIdw(Interpolator):
             number_nearest_points (int): The number of nearest points to consider
             blend_weights (bool): True if weights should be blended
             progress (Observer): Observer object for providing feedback
+            weight_number_nearest_points (int): number of points to include in interpolation weight calculation
+            quadrant_oct (bool): True if quadrant search should be used
+            weight_quadrant_oct (bool): get nearest points from quadrants for weight calculation
             **kwargs (dict): Generic keyword arguments
         """
         if 'instance' in kwargs:
@@ -55,6 +59,8 @@ class InterpLinearExtrapIdw(Interpolator):
         if nodal_function is not None:
             self.set_use_natural_neighbor(True, nodal_function, point_search_option, number_nearest_points,
                                           blend_weights, progress)
+            self.set_idw_nodal_function(nodal_function, number_nearest_points, quadrant_oct, progress)
+        self.set__idw_search_options(nearest_point=weight_number_nearest_points, quadrant_oct_search=weight_quadrant_oct)
 
         super().__init__(**kwargs)
 
@@ -373,6 +379,35 @@ class InterpLinearExtrapIdw(Interpolator):
         self._instance.SetUseNatNeigh(on, nft, nfpso, number_nearest_points,
                                       blend_weights, progress)
 
+    def set_idw_nodal_function(self, nodal_function="constant", number_nearest_points=16, quadrant_oct=False,
+                               progress=None):
+        """Sets the type of nodal function as well as options for computing nodal functions.
+
+        Args:
+            nodal_function (string): The nodal function methodology:
+                                          constant (0), gradient plane (1), quadratic (2).
+            number_nearest_points (int): The nearest number of points to use when calculating the nodal functions.
+            quadrant_oct (bool): Find the nearest number of points in each quadrant (2d) or octant (3d) when computing
+                                 nodal functions.
+            progress (float): Progress bar to give user feedback.
+        """
+        nft = self._get_nodal_function_type(nodal_function)
+        self._instance.SetNodalFunction(nft, number_nearest_points, quadrant_oct, progress)
+
+    def set_idw_search_options(self, nearest_point, quadrant_oct_search):
+        """Sets the search options for how to find the nearest points to the interpolation point.
+
+        The number of nearest points can be specified as well as whether to find the nearest points in each
+        quadrant or octant.
+
+        Args:
+            nearest_point (int): The number of nearest points to the interpolation point. These points are used to do
+                                 the interpolation.
+            quadrant_oct_search (bool): Specifies if the search criterion should find the nearest points in each
+                                 quadrant (2d) or octant (3d)
+        """
+        self._instance.SetSearchOpts(nearest_point, quadrant_oct_search)
+        
     @property
     def truncate_interpolated_values(self):
         """Get the option to truncate interpolated values."""

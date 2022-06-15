@@ -219,6 +219,35 @@ void initInterpLinearExtrapIdw(py::module &m) {
     },  py::arg("on"), py::arg("nodal_func_type"), py::arg("nd_func_pt_search_opt"),
         py::arg("nd_func_num_nearest_pts"), py::arg("nd_func_blend_weights"),  py::arg("observer"));
     // ---------------------------------------------------------------------------
+    // function: SetIdwNodalFunction
+    // ---------------------------------------------------------------------------
+    iLin.def("SetIdwNodalFunction", [](xms::InterpLinearExtrapIdw &self, 
+                                        int nodal_func_type,
+                                        int n_nearest, bool quad_oct,
+                                        py::object observer)
+      {
+        BSHP<xms::Observer> obs;
+        if (!observer.is_none())
+        {
+          if (!py::isinstance<PyObserver>(observer))
+            throw std::invalid_argument("observer must be of type xmscore.misc.Observer");
+          BSHP<PyObserver> po = observer.cast<BSHP<PyObserver>>();
+          obs = BDPC<xms::Observer>(po);
+        }
+        xms::InterpIdw::NodalFuncEnum w = static_cast<xms::InterpIdw::NodalFuncEnum>(nodal_func_type);
+        self.SetIdwNodalFunc(w, n_nearest, quad_oct, obs);
+      },
+        py::arg("nodal_func_type") = 0,
+        py::arg("num_nearest_points") = 16,
+        py::arg("use_quadrant_octant_search") = false,
+        py::arg("observer") = py::none()
+    );
+    // ---------------------------------------------------------------------------
+    // function: SetIdwSearchOpts
+    // ---------------------------------------------------------------------------
+    iLin.def("SetIdwSearchOpts", &xms::InterpLinearExtrapIdw::SetIdwSearchOpts, py::arg("number_nearest_points"),
+                py::arg("use_quadrant_octant_search"));
+    // ---------------------------------------------------------------------------
     // function: GetExtrapVal
     // ---------------------------------------------------------------------------
     iLin.def_property_readonly("GetExtrapVal", &xms::InterpLinearExtrapIdw::SetExtrapVal);
