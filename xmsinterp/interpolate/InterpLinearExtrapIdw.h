@@ -68,6 +68,11 @@ public:
                               int a_ndFuncNumNearestPts,
                               bool a_blendWeights,
                               BSHP<Observer> a_prog) override;
+  virtual void SetIdwNodalFunc(InterpIdw::NodalFuncEnum a_,
+                               int a_nNearest,
+                               bool a_quad_oct,
+                               BSHP<Observer> a_p);
+  virtual void SetIdwSearchOpts(int a_nNearestPoints, bool a_quad_oct_Search);
 
   virtual double GetExtrapVal() const;
   virtual bool GetTruncateInterpolatedValues() const;
