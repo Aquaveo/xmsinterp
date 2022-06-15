@@ -18,7 +18,7 @@ class InterpLinearExtrapIdw(Interpolator):
 
     def __init__(self, points=None, triangles=None, scalars=None, nodal_function=None,
                  point_search_option="natural_neighbor", number_nearest_points=16, blend_weights=True,
-                 progress=None, quadrant_oct=False, weight_quadrant_oct=False, 
+                 progress=None, quadrant_oct=False, weight_quadrant_oct=False,
                  weight_number_nearest_points=16, **kwargs):
         """Constructor.
 
@@ -407,7 +407,7 @@ class InterpLinearExtrapIdw(Interpolator):
                                  quadrant (2d) or octant (3d)
         """
         self._instance.SetIdwSearchOpts(nearest_point, quadrant_oct_search)
-        
+
     @property
     def truncate_interpolated_values(self):
         """Get the option to truncate interpolated values."""
