@@ -392,7 +392,7 @@ class InterpLinearExtrapIdw(Interpolator):
             progress (float): Progress bar to give user feedback.
         """
         nft = self._get_nodal_function_type(nodal_function)
-        self._instance.SetNodalFunction(nft, number_nearest_points, quadrant_oct, progress)
+        self._instance.SetIdwNodalFunction(nft, number_nearest_points, quadrant_oct, progress)
 
     def set_idw_search_options(self, nearest_point, quadrant_oct_search):
         """Sets the search options for how to find the nearest points to the interpolation point.
@@ -406,7 +406,7 @@ class InterpLinearExtrapIdw(Interpolator):
             quadrant_oct_search (bool): Specifies if the search criterion should find the nearest points in each
                                  quadrant (2d) or octant (3d)
         """
-        self._instance.SetSearchOpts(nearest_point, quadrant_oct_search)
+        self._instance.SetIdwSearchOpts(nearest_point, quadrant_oct_search)
         
     @property
     def truncate_interpolated_values(self):
