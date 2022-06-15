@@ -60,7 +60,7 @@ class InterpLinearExtrapIdw(Interpolator):
             self.set_use_natural_neighbor(True, nodal_function, point_search_option, number_nearest_points,
                                           blend_weights, progress)
             self.set_idw_nodal_function(nodal_function, number_nearest_points, quadrant_oct, progress)
-        self.set__idw_search_options(nearest_point=weight_number_nearest_points, quadrant_oct_search=weight_quadrant_oct)
+        self.set_idw_search_options(nearest_point=weight_number_nearest_points, quadrant_oct_search=weight_quadrant_oct)
 
         super().__init__(**kwargs)
 
