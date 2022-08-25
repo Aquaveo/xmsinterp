@@ -13,7 +13,7 @@ class XmsinterpConanFile(XmsConanFile):
     description = 'Interpolation library for XMS products'
     xms_dependencies = [
         "xmscore/[>=6.0.1 <7.0.0]@aquaveo/stable",
-        "xmsgrid/[>=7.0.1 <9.0.0]@aquaveo/stable",
+        "xmsgrid/[>=7.0.1 <8.0.0]@aquaveo/stable",
     ]
 
 LIBRARY_NAME = XmsinterpConanFile.name
