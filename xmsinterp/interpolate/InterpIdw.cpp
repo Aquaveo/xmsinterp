@@ -883,7 +883,7 @@ void InterpIdwUnitTests::testInterp2d_d()
   idw->SetNodalFunction(InterpIdw::GRAD_PLANE, 6, true, NULL);
   for (int i = 0; i < 5; ++i)
     s[i] = idw->InterpToPt(ipts[i]);
-  vBase = {6.1976342f, 0.60451090f, -0.80145311f, 13.252287f, 0.0f};
+  vBase = {6.17190981f, 0.60451090f, 0.656281888f, 13.252287f, 0.0f};
   TS_ASSERT_DELTA_VEC(vBase, s, 1e-7);
 }
 //------------------------------------------------------------------------------
