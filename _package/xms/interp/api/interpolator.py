@@ -118,11 +118,11 @@ def interpolate_to_grid(interpolation_points, method, grid=None, size=(100, 100)
         data = xr.DataArray(coords={'x': x_coord, 'y': y_coord}, dims=['x', 'y'], data=z_values.T, name=z)
 
     if in_place and grid is not None:
-        if xr_enabled and type(grid) == xr.DataArray or hasattr(grid, 'to_dataset'):
+        if xr_enabled and isinstance(grid, xr.DataArray) or hasattr(grid, 'to_dataset'):
             grid.name = z
             grid.data = z_values
 
-        if xr_enabled and type(grid) == xr.Dataset or hasattr(grid, 'to_array'):
+        if xr_enabled and isinstance(grid, xr.Dataset) or hasattr(grid, 'to_array'):
             if data is not None:
                 grid[z] = data
             else:
