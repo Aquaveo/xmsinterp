@@ -1,0 +1,69 @@
+library_name = "xmsinterp"
+description = "Interpolation library for XMS products"
+has_test_files = true
+
+xms_dependencies = [
+    { name = "xmscore", version = "6.2.5-6-g72e83110" },
+    { name = "xmsgrid", version = "5.5.3-53-g35e7e2f" },
+]
+
+python_namespaced_dir = "interp"
+
+library_sources = [
+  "xmsinterp/interpolate/InterpAnisotropic.cpp",
+  "xmsinterp/interpolate/InterpIdw.cpp",
+  "xmsinterp/interpolate/InterpLinear.cpp",
+  "xmsinterp/interpolate/InterpLinearExtrapIdw.cpp",
+  "xmsinterp/interpolate/InterpSignals.cpp",
+  "xmsinterp/interpolate/InterpUtil.cpp",
+  "xmsinterp/interpolate/detail/AnisotropicInterpolator.cpp",
+  "xmsinterp/interpolate/detail/InterpCt.cpp",
+  "xmsinterp/interpolate/detail/InterpNatNeigh.cpp",
+  "xmsinterp/interpolate/detail/NodalFunc.cpp",
+  "xmsinterp/thread/ThreadLoop.cpp",
+  "xmsinterp/thread/ThreadMgr.cpp",
+  "xmsinterp/tutorial/TutInterpolation.cpp"
+]
+
+library_headers = [
+  "xmsinterp/interpolate/InterpAnisotropic.h",
+  "xmsinterp/interpolate/InterpBase.h",
+  "xmsinterp/interpolate/InterpIdw.h",
+  "xmsinterp/interpolate/InterpLinear.h",
+  "xmsinterp/interpolate/InterpLinearExtrapIdw.h",
+  "xmsinterp/interpolate/InterpSignals.h",
+  "xmsinterp/interpolate/InterpUtil.h",
+  "xmsinterp/interpolate/detail/AnisotropicInterpolator.h",
+  "xmsinterp/interpolate/detail/InterpCt.h",
+  "xmsinterp/interpolate/detail/InterpNatNeigh.h",
+  "xmsinterp/interpolate/detail/NodalFunc.h",
+  "xmsinterp/thread/ThreadLoop.h",
+  "xmsinterp/thread/ThreadMgr.h"
+]
+
+testing_headers = [
+   "xmsinterp/interpolate/InterpAnisotropic.t.h",
+   "xmsinterp/interpolate/InterpIdw.t.h",
+   "xmsinterp/interpolate/InterpLinear.t.h",
+   "xmsinterp/interpolate/InterpLinearExtrapIdw.t.h",
+   "xmsinterp/interpolate/InterpUtil.t.h",
+   "xmsinterp/interpolate/detail/AnisotropicInterpolator.t.h",
+   "xmsinterp/interpolate/detail/InterpNatNeigh.t.h",
+   "xmsinterp/interpolate/detail/NodalFunc.t.h",
+   "xmsinterp/tutorial/TutInterpolation.t.h"
+]
+
+pybind_sources = [
+    "xmsinterp/python/xmsinterp_py.cpp",
+    "xmsinterp/python/interpolate/interpolate_py.cpp",
+    "xmsinterp/python/interpolate/InterpAnisotropic_py.cpp",
+    "xmsinterp/python/interpolate/InterpBase_py.cpp",
+    "xmsinterp/python/interpolate/InterpIdw_py.cpp",
+    "xmsinterp/python/interpolate/InterpLinear_py.cpp",
+    "xmsinterp/python/interpolate/InterpLinearExtrapIdw_py.cpp",
+    "xmsinterp/python/interpolate/InterpUtil_py.cpp"
+]
+
+pybind_headers = [
+    "xmsinterp/python/interpolate/interpolate_py.h"
+]
