@@ -171,8 +171,8 @@ class TestInterpIdw(unittest.TestCase):
         interp = InterpIdw(pts, tris)
 
         interp.set_truncation(t_max, t_min)
-        self.assertEquals(t_min, interp.truncate_min)
-        self.assertEquals(t_max, interp.truncate_max)
+        self.assertEqual(t_min, interp.truncate_min)
+        self.assertEqual(t_max, interp.truncate_max)
 
     def test_set_observer(self):
         """Test set_observer."""
@@ -218,7 +218,7 @@ class TestInterpIdw(unittest.TestCase):
         # Good arguments
         power = 10
         interp.power = power
-        self.assertEquals(power, interp.power)
+        self.assertEqual(power, interp.power)
 
     def test_set_search_opts(self):
         """Ensure the tutorial will work."""
