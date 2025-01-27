@@ -12,8 +12,8 @@ class XmsinterpConanFile(XmsConan2File):
     url = "https://github.com/Aquaveo/xmsinterp"
     description = "Interpolation library for XMS products"
     xms_dependencies = [
-        "xmscore/6.2.5-6-g72e83110",
-        "xmsgrid/5.5.3-53-g35e7e2f",
+        "xmscore/6.2.5-8-gfabf5914",
+        "xmsgrid/5.5.3-56-ga088ecb",
     ]
     extra_export_sources = ['test_files']
 

@@ -10,7 +10,7 @@ from xms.interp import __version__
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 requires = [
-    'numpy<2.0.0',
+    'numpy',
     'xmscore>=6.0.0',
     'xmsgrid>=7.0.0, <8.0.0',
 ]
