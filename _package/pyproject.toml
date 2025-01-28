@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xmsinterp"
+version = "6.1.7"
+description = "Interpolation library for XMS products"
+license = { text = "BSD 2-Clause License" }
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = []
+
+# Dependencies
+dependencies = [
+    "numpy",
+    "xmscore>=6.0.0",
+    "xmsgrid>=7.0.0,<8.0.0"
+]
+
+[tool.setuptools.packages.find]
+include = ["xms*"]
+
+[tool.setuptools.package-data]
+# Include additional files
+"*" = ["*.pyd", "*.so"]
+
+[tool.pytest.ini_options]
+python_files = ["test_*.py", "*_test.py", "*_pyt.py"]
