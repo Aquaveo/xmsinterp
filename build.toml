@@ -1,10 +1,10 @@
 library_name = "xmsinterp"
 description = "Interpolation library for XMS products"
-has_test_files = true
+has_test_files = false
 
 xms_dependencies = [
-    { name = "xmscore", version = "6.2.5-8-gfabf5914" },
-    { name = "xmsgrid", version = "5.5.3-56-ga088ecb" },
+    { name = "xmscore", version = "6.2.5-9-g8647a0cd" },
+    { name = "xmsgrid", version = "5.5.3-57-ge7f5a01" },
 ]
 
 python_namespaced_dir = "interp"
