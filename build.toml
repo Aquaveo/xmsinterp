@@ -1,6 +1,5 @@
 library_name = "xmsinterp"
 description = "Interpolation library for XMS products"
-has_test_files = false
 
 xms_dependencies = [
     { name = "xmscore", version = "6.2.5" },
