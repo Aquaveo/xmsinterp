@@ -1,98 +1,87 @@
-# Conan Files
-build.py
+# ── Generated build files (Conan/CMake) ────────
 CMakeLists.txt
 conanfile.py
+build.py
+xms_conan2_file.py
 _package/pyproject.toml
 
-# Misc
-*.DS_STORE
-*~
-*.pyc
+# ── Build output ───────────────────────────────
 build/
+build_*/
+pybuild/
+build_py/
+build_test/
 test_package/build/
+wheelhouse/
 
-# IDE Files
-.*.swp
-*.swo
-.lvimrc
-.idea
-.vscode
-cmake-build-debug/
-cmake-build-release/
-
-# Prerequisites
+# ── Compiled artifacts ─────────────────────────
 *.d
-
-# Compiled Object files
 *.slo
 *.lo
 *.o
 *.obj
-
-# Precompiled Headers
 *.gch
 *.pch
-
-# Compiled Dynamic libraries
 *.so
 *.dylib
 *.dll
 *.pyd
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
 *.lai
 *.la
 *.a
 *.lib
-
-# Executables
 *.exe
 *.out
 *.app
+*.mod
+*.smod
 
-# Doxygen
-Doxygen/*.tag
-Doxygen/html/*.css
-Doxygen/html/*.html
-Doxygen/html/*.js
-Doxygen/html/*.png
-Doxygen/html/search
-Doxygen/html/pydocs/*
+# ── Python ─────────────────────────────────────
+*.pyc
+*.pyi
+.venv/
+.mypy_cache/
+
+# ── IDE & editor ───────────────────────────────
+.*.swp
+*.swo
+*~
+*.TMP
+.lvimrc
+.idea/
+.vscode/
+.vs/
+.junie/
+cmake-build-*/
+
+# ── Documentation ──────────────────────────────
+Doxygen/
+doc/_build/
 doxy_warn.log
-
-# Sphinx
-pydocs/build
+pydocs/build/
 sphinx_warnings.log
 
-# Build Folders
-build/*
-pybuild/*
-build_py/*
-build_test/*
+# ── Coverage ───────────────────────────────────
+coverage_report/
+*.profraw
+*.profdata
+*.gcda
+*.gcno
 
-# AI assistant configuration (local only)
+# ── Local configuration ───────────────────────
 .claude/
 CLAUDE.md
 CLAUDE.local.md
 .envrc
-
-# CMake presets (local configuration)
 CMakePresets.json
 CMakeUserPresets.json
 **/CMakeUserPresets.json
-
-# Conan profiles (local configuration)
 conan_profiles/
+docker-compose.yml
 
-# Coverage artifacts
-coverage_report/
-*.profraw
-*.profdata
-
-# clangd
+# ── Tooling caches ─────────────────────────────
 compile_commands.json
 .cache/
+
+# ── OS-specific ────────────────────────────────
+.DS_Store
