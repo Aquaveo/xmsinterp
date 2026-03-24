@@ -3,8 +3,8 @@ description = "Interpolation library for XMS products"
 ci_type = "github"
 
 xms_dependencies = [
-    { name = "xmscore", version = "7.0.4" },
-    { name = "xmsgrid", version = "9.0.5" },
+    { name = "xmscore", version = "7.0.5" },
+    { name = "xmsgrid", version = "9.0.6" },
 ]
 
 python_namespaced_dir = "interp"
