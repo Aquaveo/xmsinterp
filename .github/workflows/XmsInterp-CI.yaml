@@ -185,6 +185,13 @@ jobs:
       CONAN_DOCKER_IMAGE: docker.aquaveo.com/aquaveo/conan-docker/conan-gcc${{ matrix.compiler-version }}-py${{ matrix.python-version }}:latest
       CONAN_PIP_INSTALL: 'conan-package-tools==0.35.1 numpy==1.26.4'
       CONAN_PIP_PACKAGE: 'conan==1.41.0'
+      # The gcc docker image (mutable :latest tag) was rebuilt to a pyenv-based
+      # Python: pip now lives at /opt/pyenv/shims/pip, on the default user's PATH
+      # but NOT on root's sudo secure_path. Because the image name isn't
+      # 'conanio/...', cpt wraps the in-container pip install in `sudo -E`, which
+      # then fails with "sudo: pip: command not found". Disabling the sudo prefix
+      # makes cpt run pip as the default user, where the pyenv shim resolves.
+      CONAN_PIP_USE_SUDO: 'False'
       # Aquapi Variables
       AQUAPI_USERNAME: ${{ secrets.AQUAPI_USERNAME_SECRET }}
       AQUAPI_PASSWORD: ${{ secrets.AQUAPI_PASSWORD_SECRET }}
