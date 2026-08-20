@@ -69,7 +69,8 @@ coverage_report/
 *.gcno
 
 # ── Local configuration ───────────────────────
-.claude/
+.claude/worktrees/
+.claude/settings.local.json
 CLAUDE.md
 CLAUDE.local.md
 .envrc
